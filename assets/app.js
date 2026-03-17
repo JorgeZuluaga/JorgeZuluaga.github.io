@@ -152,7 +152,7 @@ function pickVenue(e) {
   ).toString();
 }
 
-function renderPub(e) {
+function renderPub(e, extraBadge = null) {
   const title = cleanTitle(e.title) || "(Sin título)";
   const year = parseYear(e);
   const authors = formatAuthors(e.author);
@@ -176,11 +176,19 @@ function renderPub(e) {
   const sourceBadgeClass =
     e.source === "orcid" ? "badge--orcid" : "badge--scholar";
 
+  const extra =
+    extraBadge && extraBadge.label
+      ? `<span class="badge ${escapeAttr(extraBadge.className || "")}">${escapeHtml(
+          extraBadge.label,
+        )}</span>`
+      : "";
+
   li.innerHTML = `
     <div class="pub-head">
       <h3 class="pub-title">${escapeHtml(title)}</h3>
       <div class="badges" aria-label="Metadatos">
         ${year ? `<span class="badge">${year}</span>` : ""}
+        ${extra}
         <span class="badge ${sourceBadgeClass}">${escapeHtml(
           e.sourceLabel,
         )}</span>
@@ -230,12 +238,17 @@ async function loadAll() {
     const raw = await res.text();
     const blocks = splitEntriesLikeBibtex(raw);
     const parsed = blocks
-      .map((b) => parseBibLikeEntry(b))
-      .map((e) => ({ ...e, source: src.id, sourceLabel: src.label }));
+      .map((b, idx) => ({ ...parseBibLikeEntry(b), sourceOrder: idx }))
+      .map((e) => ({
+        ...e,
+        source: src.id,
+        sourceLabel: src.label,
+        scholarOrder: src.id === "scholar" ? e.sourceOrder : null,
+      }));
     loaded.push(...parsed);
   }
 
-  // Normalize + dedupe (prefer ORCID when same key)
+  // Normalize + dedupe (prefer ORCID when same key; preserve scholar order)
   const map = new Map();
   for (const e of loaded) {
     if (!e.title && !e.author) continue;
@@ -245,7 +258,28 @@ async function loadAll() {
       map.set(k, e);
       continue;
     }
-    if (prev.source !== "orcid" && e.source === "orcid") map.set(k, e);
+
+    const prevScholarOrder = prev.scholarOrder ?? null;
+    const nextScholarOrder = e.scholarOrder ?? null;
+    const scholarOrder =
+      prevScholarOrder === null
+        ? nextScholarOrder
+        : nextScholarOrder === null
+          ? prevScholarOrder
+          : Math.min(prevScholarOrder, nextScholarOrder);
+
+    const preferred =
+      prev.source === "orcid" || e.source !== "orcid" ? prev : e;
+    const secondary = preferred === prev ? e : prev;
+    const merged = {
+      ...secondary,
+      ...preferred,
+      scholarOrder,
+      // Keep a stable "best source label" for the preferred record
+      source: preferred.source,
+      sourceLabel: preferred.sourceLabel,
+    };
+    map.set(k, merged);
   }
 
   const entries = [...map.values()].map((e) => ({
@@ -253,11 +287,6 @@ async function loadAll() {
     yearNum: parseYear(e) ?? -1,
     titleClean: cleanTitle(e.title),
   }));
-
-  entries.sort((a, b) => {
-    if (b.yearNum !== a.yearNum) return b.yearNum - a.yearNum;
-    return normalizeText(a.titleClean).localeCompare(normalizeText(b.titleClean));
-  });
 
   return entries;
 }
@@ -267,50 +296,16 @@ function setText(id, value) {
   if (el) el.textContent = value;
 }
 
-function fillYears(entries) {
-  const years = [...new Set(entries.map((e) => e.yearNum).filter((y) => y > 0))];
-  years.sort((a, b) => b - a);
-  const sel = document.getElementById("year");
-  for (const y of years) {
-    const opt = document.createElement("option");
-    opt.value = String(y);
-    opt.textContent = String(y);
-    sel.appendChild(opt);
-  }
-  if (years.length) setText("years", `${years[years.length - 1]}–${years[0]}`);
+function fillYearsRange(entries) {
+  const years = entries.map((e) => e.yearNum).filter((y) => y > 0);
+  if (!years.length) return;
+  const minY = Math.min(...years);
+  const maxY = Math.max(...years);
+  setText("years", `${minY}–${maxY}`);
 }
 
-function applyFilters() {
-  const q = normalizeText(document.getElementById("q").value);
-  const year = document.getElementById("year").value;
-  const source = document.getElementById("source").value;
-
-  const items = [...document.querySelectorAll("#pubs > li.pub")];
-  let shown = 0;
-  for (const li of items) {
-    const okQ = !q || li.dataset.search.includes(q);
-    const okY = !year || li.dataset.year === year;
-    const okS = !source || li.dataset.source === source;
-    const show = okQ && okY && okS;
-    li.hidden = !show;
-    if (show) shown++;
-  }
-  setText("count", String(shown));
-  document.getElementById("empty").hidden = shown !== 0;
-}
-
-function wireUI() {
-  for (const id of ["q", "year", "source"]) {
-    document.getElementById(id).addEventListener("input", applyFilters);
-    document.getElementById(id).addEventListener("change", applyFilters);
-  }
-  document.getElementById("clear").addEventListener("click", () => {
-    document.getElementById("q").value = "";
-    document.getElementById("year").value = "";
-    document.getElementById("source").value = "";
-    applyFilters();
-    document.getElementById("q").focus();
-  });
+function clearChildren(el) {
+  while (el.firstChild) el.removeChild(el.firstChild);
 }
 
 async function main() {
@@ -318,21 +313,44 @@ async function main() {
   setText("updated", updated.toLocaleDateString("es-CO", { year: "numeric", month: "short", day: "2-digit" }));
 
   const entries = await loadAll();
-  fillYears(entries);
-  setText("count", String(entries.length));
+  fillYearsRange(entries);
 
-  const list = document.getElementById("pubs");
-  const frag = document.createDocumentFragment();
-  for (const e of entries) frag.appendChild(renderPub(e));
-  list.appendChild(frag);
+  const topCited = entries
+    .filter((e) => e.scholarOrder !== null && e.scholarOrder !== undefined)
+    .sort((a, b) => (a.scholarOrder ?? 1e9) - (b.scholarOrder ?? 1e9))
+    .slice(0, 10);
 
-  wireUI();
-  applyFilters();
+  const latest = [...entries]
+    .sort((a, b) => {
+      if (b.yearNum !== a.yearNum) return b.yearNum - a.yearNum;
+      return normalizeText(a.titleClean).localeCompare(normalizeText(b.titleClean));
+    })
+    .slice(0, 10);
+
+  const topEl = document.getElementById("top-cited");
+  const latestEl = document.getElementById("latest");
+  clearChildren(topEl);
+  clearChildren(latestEl);
+
+  const fragTop = document.createDocumentFragment();
+  for (const e of topCited) {
+    fragTop.appendChild(renderPub(e, { label: "Top", className: "badge--top" }));
+  }
+  topEl.appendChild(fragTop);
+
+  const fragLatest = document.createDocumentFragment();
+  for (const e of latest) {
+    fragLatest.appendChild(renderPub(e, { label: "Nuevo", className: "badge--new" }));
+  }
+  latestEl.appendChild(fragLatest);
+
+  setText("count", String(topCited.length + latest.length));
+  document.getElementById("empty").hidden = topCited.length + latest.length !== 0;
 }
 
 main().catch((err) => {
   console.error(err);
-  setText("count", "0");
+  setText("count", "—");
   setText("years", "—");
   setText("updated", "—");
   const empty = document.getElementById("empty");

@@ -36,9 +36,11 @@
             <p class="kicker">Hoja de vida</p>
             <h1 class="title">Jorge I. Zuluaga</h1>
             <p class="subtitle">
-              Publicaciones y producción académica (desde exportes ORCID/Scholar).
+              Producción académica, docencia y reconocimientos.
             </p>
             <div class="chips" aria-label="Enlaces">
+              <a class="chip" href="#docencia">Docencia</a>
+              <a class="chip" href="#premios">Premios</a>
               <a class="chip" href="#publicaciones">Publicaciones</a>
               <a class="chip" href="#fuentes">Fuentes</a>
               <a class="chip" href="#como-publicar">Publicar en GitHub Pages</a>
@@ -46,25 +48,10 @@
               </div>
             </div>
           </div>
-          <aside class="card contact-card" aria-label="Contacto">
-            <h2 class="card-title">Contacto</h2>
-            <ul class="meta-list">
-              <li><span class="meta-k">Email</span> <span class="meta-v">—</span></li>
-              <li>
-                <span class="meta-k">GitHub</span>
-                <span class="meta-v"><a href="#" aria-label="GitHub (edita este enlace)">—</a></span>
-              </li>
-              <li>
-                <span class="meta-k">ORCID</span>
-                <span class="meta-v"><a href="#" aria-label="ORCID (edita este enlace)">—</a></span>
-              </li>
-              <li>
-                <span class="meta-k">Scholar</span>
-                <span class="meta-v"><a href="#" aria-label="Google Scholar (edita este enlace)">—</a></span>
-              </li>
-            </ul>
+          <aside class="card side-card" aria-label="Descargas">
+            <h2 class="card-title">Descargas</h2>
             <p class="muted small">
-              Puedes editar estos datos directamente en <code>index.html</code>.
+              Nota: esta página omite intencionalmente datos personales como correo o teléfono.
             </p>
             <div class="downloads" aria-label="Descargas">
               <a class="chip chip-strong" href="./assets/cv.pdf" target="_blank" rel="noreferrer noopener">
@@ -80,50 +67,58 @@
     </header>
 
     <main id="contenido" class="container">
-      <section id="publicaciones" class="section">
+      <section id="docencia" class="section">
         <div class="section-head">
-          <h2>Publicaciones</h2>
+          <h2>Experiencia docente</h2>
           <p class="muted">
-            Cargadas desde <code>sources/works-orcid-2026.txt</code> y
-            <code>sources/citations-scholar-2026.txt</code>.
+            Edita esta sección en <code>index.html</code>.
           </p>
         </div>
 
-        <div class="toolbar" role="search">
-          <label class="field">
-            <span class="field-label">Buscar</span>
-            <input
-              id="q"
-              type="search"
-              placeholder="Título, autores, revista, año, DOI…"
-              autocomplete="off"
-            />
-          </label>
+        <div class="grid">
+          <article class="card">
+            <h3 class="card-title">Cursos</h3>
+            <ul class="list">
+              <li><strong>Curso / asignatura</strong> — Institución, nivel (pregrado/posgrado), años.</li>
+              <li><strong>Curso / asignatura</strong> — Institución, nivel (pregrado/posgrado), años.</li>
+            </ul>
+          </article>
+          <article class="card">
+            <h3 class="card-title">Dirección y tutorías</h3>
+            <ul class="list">
+              <li><strong>Estudiante / tesis</strong> — Programa, institución, año(s).</li>
+              <li><strong>Estudiante / tesis</strong> — Programa, institución, año(s).</li>
+            </ul>
+          </article>
+        </div>
+      </section>
 
-          <label class="field">
-            <span class="field-label">Año</span>
-            <select id="year">
-              <option value="">Todos</option>
-            </select>
-          </label>
+      <section id="premios" class="section">
+        <div class="section-head">
+          <h2>Premios y reconocimientos</h2>
+          <p class="muted">
+            Edita esta sección en <code>index.html</code>.
+          </p>
+        </div>
 
-          <label class="field">
-            <span class="field-label">Fuente</span>
-            <select id="source">
-              <option value="">Todas</option>
-              <option value="orcid">ORCID</option>
-              <option value="scholar">Scholar</option>
-            </select>
-          </label>
+        <div class="card">
+          <ul class="list">
+            <li><strong>Premio / distinción</strong> — Entidad, año.</li>
+            <li><strong>Premio / distinción</strong> — Entidad, año.</li>
+          </ul>
+        </div>
+      </section>
 
-          <button id="clear" class="btn" type="button">Limpiar</button>
+      <section id="publicaciones" class="section">
+        <div class="section-head">
+          <h2>Selección de publicaciones</h2>
+          <p class="muted">
+            Se muestran solo <strong>20</strong>: las <strong>10 más citadas</strong> (según el orden del export de Scholar) y las
+            <strong>10 más recientes</strong> (por año). Fuentes: <code>sources/works-orcid-2026.txt</code> y <code>sources/citations-scholar-2026.txt</code>.
+          </p>
         </div>
 
         <div class="stats" aria-live="polite">
-          <div class="stat">
-            <div class="stat-k">Resultados</div>
-            <div class="stat-v" id="count">—</div>
-          </div>
           <div class="stat">
             <div class="stat-k">Rango de años</div>
             <div class="stat-v" id="years">—</div>
@@ -132,12 +127,25 @@
             <div class="stat-k">Última actualización</div>
             <div class="stat-v" id="updated">—</div>
           </div>
+          <div class="stat">
+            <div class="stat-k">Items mostrados</div>
+            <div class="stat-v" id="count">—</div>
+          </div>
         </div>
 
-        <ol id="pubs" class="pubs" aria-label="Lista de publicaciones"></ol>
+        <div class="grid">
+          <article class="card">
+            <h3 class="card-title">10 más citadas (Scholar)</h3>
+            <ol id="top-cited" class="pubs pubs--compact" aria-label="Publicaciones más citadas"></ol>
+          </article>
+          <article class="card">
+            <h3 class="card-title">10 más recientes</h3>
+            <ol id="latest" class="pubs pubs--compact" aria-label="Publicaciones más recientes"></ol>
+          </article>
+        </div>
 
         <div id="empty" class="empty" hidden>
-          <p><strong>No hay resultados</strong> con los filtros actuales.</p>
+          <p><strong>No se pudieron cargar publicaciones.</strong> Revisa que existan los archivos en <code>sources/</code>.</p>
         </div>
       </section>
 
