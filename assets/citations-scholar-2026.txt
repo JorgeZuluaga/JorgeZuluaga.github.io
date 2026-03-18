@@ -1,0 +1,1003 @@
+@article{nardi2001pulsar,
+  title={Pulsar acceleration by asymmetric emission of sterile neutrinos},
+  author={Nardi, Enrico and Zuluaga, Jorge I},
+  journal={The Astrophysical Journal},
+  volume={549},
+  number={2},
+  pages={1076--1084},
+  year={2001}
+}
+
+@article{nardi2004exploring,
+  title={Exploring the sub-eV neutrino mass range with supernova neutrinos},
+  author={Nardi, Enrico and Zuluaga, Jorge I},
+  journal={Physical Review D},
+  volume={69},
+  number={10},
+  pages={103002},
+  year={2004},
+  publisher={American Physical Society}
+}
+
+@article{nardi2005constraints,
+  title={Constraints on neutrino masses from a galactic supernova neutrino signal at present and future detectors},
+  author={Nardi, Enrico and Zuluaga, Jorge I},
+  journal={Nuclear Physics B},
+  volume={731},
+  number={1-2},
+  pages={140--163},
+  year={2005},
+  publisher={North-Holland}
+}
+
+@article{silva2008determination,
+  title={Determination of the IMF in the LMC stellar cluster NGC 2156},
+  author={Silva-Villa, E and Sirianni, M and Zuluaga, J},
+  journal={Revista mexicana de astronom{\'\i}a y astrof{\'\i}sica},
+  volume={44},
+  number={1},
+  pages={57--70},
+  year={2008},
+  publisher={Instituto de Astronom{\'\i}a}
+}
+
+@article{zuluaga2006generation,
+  title={Generation of supernova neutrino signals by Monte Carlo sampling of stellar core collapse simulations},
+  author={Zuluaga, JI},
+  journal={IAU Joint Discussion},
+  volume={26},
+  pages={34},
+  year={2006}
+}
+
+@article{zuluaga2005study,
+  title={Study of core collapse neutrino signals and constraints on neutrino masses from a future Galactic Supernova},
+  author={Zuluaga, Jorge I},
+  journal={arXiv preprint astro-ph/0511771},
+  year={2005}
+}
+
+@inproceedings{munoz2009star,
+  title={Star Formation at High Redshift Galaxies, a Semi-analytic Approach},
+  author={Mu{\~n}oz, JC and Zuluaga, JI},
+  booktitle={Revista Mexicana de Astronomia y Astrofisica Conference Series},
+  volume={35},
+  pages={312},
+  year={2009}
+}
+
+@article{veraalgoritmo,
+  title={Algoritmo Paralelo para la Detecci{\'o}n y Caracterizaci{\'o}n de Halos de Materia Oscura en Simulaciones Cosmol{\'o}gicas Parallel Algorithm for the Detection of Dark Matter Halos and Computation of Their Properties in Cosmological Simulations},
+  author={Vera, Carlos A and Zuluaga, Jorge I and Munoz, Juan C}
+}
+
+@article{vera2008algoritmo,
+  title={Algoritmo paralelo para la detecci{\'o}n y caracterizaci{\'o}n de halos de materia oscura en simulaciones cosmol{\'o}gicas},
+  author={Vera, Carlos A and Zuluaga, Jorge I and Mu{\~n}oz, Juan C},
+  year={2008},
+  publisher={Universidad Aut{\'o}noma de Bucaramanga UNAB}
+}
+
+@article{castro2011grid,
+  title={Grid Colombia: Soporte Para Investigaciones de Avanzada},
+  author={Castro, Harold and Chac{\'o}n, Jorge and D{\'\i}az, C{\'e}sar and Gonz{\'a}lez, Enrique and Zuluaga, Jorge},
+  journal={e-colabora" Revista de ciencia, educaci{\'o}n, innovaci{\'o}n y cultura apoyadas por redes de tecnolog{\'\i}a avanzada"},
+  volume={1},
+  number={1},
+  pages={48--54},
+  year={2011}
+}
+
+@article{zuluagaensenanza,
+  title={Sobre la ense{\~n}anza b{\'a}sica de la gravitaci{\'o}n desde el paradigma relativista: el caso de los conceptos de ca{\'\i}da libre y peso},
+  author={Zuluaga, Jorge and L{\'o}pez, Cristina and Pestana, John}
+}
+
+@inproceedings{perez2009measuring,
+  title={Measuring the density profile behind the supernova shock wave using neutrino spectroscopy},
+  author={P{\'e}rez, AF and Zuluaga, JI},
+  booktitle={Revista Mexicana de Astronomia y Astrofisica Conference Series},
+  volume={35},
+  pages={292},
+  year={2009}
+}
+
+@article{zuluaga2009regreso,
+  title={De regreso a la Luna},
+  author={Zuluaga, Jorge Iv{\'a}n},
+  journal={Agenda Cultural Alma M{\'a}ter},
+  year={2009}
+}
+
+@article{zuluaga2011teoria,
+  title={La teor{\'\i}a de la relatividad en la vida cotidiana},
+  author={Zuluaga, Jorge I},
+  journal={Revista Universidad de Antioquia},
+  year={2011}
+}
+
+@article{zuluaga2012role,
+  title={The role of rotation in the evolution of dynamo-generated magnetic fields in Super Earths},
+  author={Zuluaga, Jorge I and Cuartas, Pablo A},
+  journal={Icarus},
+  volume={217},
+  number={1},
+  pages={88--102},
+  year={2012},
+  publisher={Academic Press}
+}
+
+@article{zuluaga2012evolution,
+  title={Evolution of magnetic protection in potentially habitable terrestrial planets},
+  author={Zuluaga, Jorge I and Cuartas, Pablo A and Hoyos, Jaime H},
+  journal={arXiv preprint arXiv:1204.0275},
+  year={2012}
+}
+
+@article{zuluaga2013preliminary,
+  title={A preliminary reconstruction of the orbit of the Chelyabinsk Meteoroid},
+  author={Zuluaga, Jorge I and Ferrin, Ignacio},
+  journal={arXiv preprint arXiv:1302.5377},
+  year={2013}
+}
+
+@article{zuluaga2013orbit,
+  title={The orbit of the Chelyabinsk event impactor as reconstructed from amateur and public footage},
+  author={Zuluaga, Jorge I and Ferrin, Ignacio and Geens, Stefan},
+  journal={arXiv preprint arXiv:1303.1796},
+  year={2013}
+}
+
+@inproceedings{zuluaga2010global,
+  title={Global constraints to the properties of convection-driven magnetic fields in Super Earths},
+  author={Zuluaga, JI and Restrepo, Cuartas},
+  booktitle={AGU Fall Meeting Abstracts},
+  volume={2010},
+  pages={P21A--1594},
+  year={2010}
+}
+
+@article{zuluaga2013influence,
+  title={The influence of thermal evolution in the magnetic protection of terrestrial planets},
+  author={Zuluaga, Jorge I and Bustamante, Sebastian and Cuartas, Pablo A and Hoyos, Jaime H},
+  journal={The Astrophysical Journal},
+  volume={770},
+  number={1},
+  pages={23},
+  year={2013},
+  publisher={The American Astronomical Society}
+}
+
+@article{zuluagacocoa,
+  title={COCOA 2010},
+  author={Zuluaga, Jorge I and Restrepo, Pablo Cuartas}
+}
+
+@article{ferrin2013location,
+  title={The location of Asteroidal Belt Comets (ABCs), in a comet's evolutionary diagram: The Lazarus Comets},
+  author={Ferr{\'\i}n, Ignacio and Zuluaga, Jorge and Cuartas, Pablo},
+  journal={Monthly Notices of the Royal Astronomical Society},
+  volume={434},
+  number={3},
+  pages={1821--1837},
+  year={2013},
+  publisher={The Royal Astronomical Society}
+}
+
+@article{mason2013rotational,
+  title={Rotational synchronization may enhance habitability for circumbinary planets: Kepler binary case studies},
+  author={Mason, Paul A and Zuluaga, Jorge I and Clark, Joni M and Cuartas-Restrepo, Pablo A},
+  journal={The Astrophysical Journal Letters},
+  volume={774},
+  number={2},
+  pages={L26},
+  year={2013},
+  publisher={The American Astronomical Society}
+}
+
+@inproceedings{mason2013habitability,
+  title={Habitability in Binary Systems},
+  author={Mason, Paul A and Clark, J and Cuartas, PA and Zuluaga, JI and Bustamante, S},
+  booktitle={American Astronomical Society Meeting Abstracts},
+  volume={222},
+  pages={302--05},
+  year={2013}
+}
+
+@inproceedings{clark2013habitability,
+  title={Habitability in Binary Systems: The Role of UV Reduction and Magnetic Protection},
+  author={Clark, Joni and Mason, PA and Zuluaga, JI and Cuartas, PA and Bustamonte, S},
+  booktitle={American Astronomical Society Meeting Abstracts},
+  volume={222},
+  pages={217--03},
+  year={2013}
+}
+
+@inproceedings{melita2013rotation,
+  title={Rotation rate evolution in habitable super-Earths},
+  author={Melita, Mario and Cuartas Restrepo, P and Zuluaga, J and Miloni, O},
+  booktitle={AAS/Division of Dynamical Astronomy Meeting\# 44},
+  volume={44},
+  pages={204--39},
+  year={2013}
+}
+
+@article{heller2013magnetic,
+  title={Magnetic shielding of exomoons beyond the circumplanetary habitable edge},
+  author={Heller, Ren{\'e} and Zuluaga, Jorge I},
+  journal={The Astrophysical Journal Letters},
+  volume={776},
+  number={2},
+  pages={L33},
+  year={2013},
+  publisher={The American Astronomical Society}
+}
+
+@inproceedings{mason2014exomoon,
+  title={Exomoon Conditions in Circumbinary Habitability Zones},
+  author={Mason, Paul A and Zuluaga, JI and Clark, J and Cuartas-Restrepo, P},
+  booktitle={American Astronomical Society Meeting Abstracts\# 223},
+  volume={223},
+  pages={104--05},
+  year={2014}
+}
+
+@article{sanchez20084,
+  title={SU (4) L⊗ U (1) X three-family model for the electroweak interaction},
+  author={S{\'a}nchez, Luis A and Wills-Toro, Luis A and Zuluaga, Jorge I},
+  journal={Physical Review D—Particles, Fields, Gravitation, and Cosmology},
+  volume={77},
+  number={3},
+  pages={035008},
+  year={2008},
+  publisher={American Physical Society}
+}
+
+@inproceedings{zuluaga2013magnetic,
+  title={Magnetic constraints on the habitability of exoearths and exomoons},
+  author={Zuluaga, JI},
+  booktitle={AGU Spring Meeting Abstracts},
+  volume={2013},
+  pages={P34A--05},
+  year={2013}
+}
+
+@article{zuluagasimplest,
+  title={The simplest method to measure the geocentric lunar distance},
+  author={Zuluaga, Jorge I and Figueroa, Juan C and Ferrin, Ignacio}
+}
+
+@article{zuluaga2014habitable,
+  title={The habitable zone of inhabited planets},
+  author={Zuluaga, Jorge I and Salazar, Juan F and Cuartas-Restrepo, Pablo and Poveda, German},
+  journal={Biogeosciences Discussions},
+  volume={11},
+  number={6},
+  pages={8443--8483},
+  year={2014},
+  publisher={Copernicus GmbH}
+}
+
+@article{zuluaga2014simplest,
+  title={The simplest method to measure the geocentric lunar distance: a case of citizen science},
+  author={Zuluaga, Jorge I and Figueroa, Juan C and Ferrin, Ignacio},
+  journal={arXiv preprint arXiv:1405.4580},
+  year={2014}
+}
+
+@article{heller2014formation,
+  title={Formation, habitability, and detection of extrasolar moons},
+  author={Heller, Ren{\'e} and Williams, Darren and Kipping, David and Limbach, Mary Anne and Turner, Edwin and Greenberg, Richard and Sasaki, Takanori and Bolmont, Emeline and Grasset, Olivier and Lewis, Karen and others},
+  journal={Astrobiology},
+  volume={14},
+  number={9},
+  pages={798--835},
+  year={2014},
+  publisher={SAGE Publications Sage CA: Los Angeles, CA}
+}
+
+@article{mason2015circumbinary,
+  title={Circumbinary habitability niches},
+  author={Mason, Paul A and Zuluaga, Jorge I and Cuartas-Restrepo, Pablo A and Clark, Joni M},
+  journal={International Journal of Astrobiology},
+  volume={14},
+  number={3},
+  pages={391--400},
+  year={2015},
+  publisher={Cambridge University Press}
+}
+
+@article{zuluaga2014magnetic,
+  title={Magnetic constraints on the habitability of exomoons},
+  author={Zuluaga, JI and Heller, R},
+  journal={Search for Life Beyond the Solar System. Exoplanets, Biosignatures \& Instruments},
+  pages={P2--14},
+  year={2014}
+}
+
+@article{cuartas2014spin,
+  title={The Spin-Orbit Evolution of the GJ 667C System},
+  author={Cuartas-Restrepo, P and Melita, M and Zuluaga, JI and Hoyos, J and Sucerquia, M and Portilla, B},
+  journal={Search for Life Beyond the Solar System. Exoplanets, Biosignatures \& Instruments},
+  pages={P2--15},
+  year={2014}
+}
+
+@inproceedings{cuartas2014tidal,
+  title={Tidal, thermal and magnetic evolution of terrestrial exoplanets in the habitable zone of dwarf stars},
+  author={Cuartas-Restrepo, P and Melita, M and Zuluaga, J and Hoyos, J and Sucerquia, M},
+  booktitle={Revista Mexicana de Astronomia y Astrofisica Conference Series},
+  volume={44},
+  pages={130--130},
+  year={2014}
+}
+
+@article{zuluaga2016constraining,
+  title={Constraining the radiation and plasma environment of the Kepler circumbinary habitable-zone planets},
+  author={Zuluaga, Jorge I and Mason, Paul A and Cuartas-Restrepo, Pablo A},
+  journal={The Astrophysical Journal},
+  volume={818},
+  number={2},
+  pages={160},
+  year={2016},
+  publisher={The American Astronomical Society}
+}
+
+@inproceedings{mason2015habitability,
+  title={Habitability of Planets Orbiting Binaries Consisting of Solar Mass Twins},
+  author={Mason, Paul A and Zuluaga, Jorge I and Zhilkin, Andrey G and Bisikalo, Dmitry V},
+  booktitle={American Astronomical Society Meeting Abstracts\# 225},
+  volume={225},
+  pages={260--04},
+  year={2015}
+}
+
+@article{zuluaga2015novel,
+  title={A novel method for identifying exoplanetary rings},
+  author={Zuluaga, Jorge I and Kipping, David M and Sucerquia, Mario and Alvarado, Jaime A},
+  journal={The Astrophysical Journal Letters},
+  volume={803},
+  number={1},
+  pages={L14},
+  year={2015},
+  publisher={The American Astronomical Society}
+}
+
+@article{zuluaga2015measuring,
+  title={Measuring the speed of light and the moon distance with an occultation of Mars by the Moon: a Citizen Astronomy Campaign},
+  author={Zuluaga, Jorge I and Figueroa, Juan C and Moncada, Jonathan and Quijano-Vodniza, Alberto and Rojas, Mario and Ariza, Leonardo D and Vanegas, Santiago and Aristiz{\'a}bal, Lorena and Salas, Jorge L and Ocampo, Luis F and others},
+  journal={arXiv preprint arXiv:1506.00346},
+  year={2015}
+}
+
+@article{zuluaga2015aristarchus,
+  title={The Aristarchus Campaigns: Collaboratively measuring the Solar System.},
+  author={Zuluaga, Jorge I and Figueroa, Juan C},
+  journal={Communicating Astronomy with the Public Journal},
+  number={17},
+  year={2015}
+}
+
+@article{zuluagaaristarchus,
+  title={The Aristarchus Campaigns: Collaboratively measuring the Solar System (page 23)},
+  author={Zuluaga, Jorge I and Figueroa, Juan C}
+}
+
+@article{mason2015investigation,
+  title={An Investigation of Circumbinary Planet Orbital Stability and Habitability to Identify Potential Planetary Systems with Several Habitable Planets},
+  author={Mason, Paul A and Zuluaga, Jorge and Cuartas, Pablo A},
+  journal={IAU General Assembly},
+  volume={29},
+  pages={2256024},
+  year={2015}
+}
+
+@article{mason2015constraints,
+  title={Constraints on Circumbinary Habitability},
+  author={Mason, PA and Zuluaga, JI and Zhilkin, AG and Bisikalo, DV and Cuartas-Restrepo, PA},
+  journal={Living Together: Planets, Host Stars and Binaries},
+  volume={496},
+  pages={405},
+  year={2015}
+}
+
+@article{mason2014habitability,
+  title={The Habitability of Circumbinary Planets: Stellar and Planetary Interactions},
+  author={Mason, Paul A and Zuluaga, Jorge I and Cuartas-Restrepo, Pablo A},
+  journal={Proceedings of Frontier Research in Astrophysics (FRAPWS2014) held 26-31 May},
+  pages={45},
+  year={2014}
+}
+
+@article{zuluaga2009supernova,
+  title={Supernova neutrinos: unveiling the hidden interior of the stellar core-collapse},
+  author={Zuluaga, JI},
+  journal={Revista Mexicana de Astronom{\'\i}a y Astrof{\'\i}sica},
+  volume={35},
+  pages={174--175},
+  year={2009},
+  publisher={Universidad Nacional Aut{\'o}noma de M{\'e}xico}
+}
+
+@article{cuartasrevisiting,
+  title={Revisiting the Spin-Orbit Evolution of GJ 667C System: The effect of composition and orbital perturbations},
+  author={Cuartas-Restrepo, P and Melita, M and Zuluaga, J and Portilla, B and Sucerquia, M and Miloni, O}
+}
+
+@article{cuartas2016spin,
+  title={Spin-orbit evolution of the GJ 667C system: the effect of composition and other planets’ perturbations},
+  author={Cuartas-Restrepo, PA and Melita, M and Zuluaga, JI and Portilla-Revelo, B and Sucerquia, M and Miloni, Octavio},
+  journal={Monthly Notices of the Royal Astronomical Society},
+  volume={463},
+  number={2},
+  pages={1592--1604},
+  year={2016},
+  publisher={Oxford University Press}
+}
+
+@article{zuluaga2018magnetic,
+  title={Magnetic properties of Proxima Centauri b analogues},
+  author={Zuluaga, Jorge I and Bustamante, Sebastian},
+  journal={Planetary and Space Science},
+  volume={152},
+  pages={55--67},
+  year={2018},
+  publisher={Pergamon}
+}
+
+@article{cuartas2016tidev,
+  title={TIDEV: Tidal Evolution package},
+  author={Cuartas-Restrepo, P and Melita, M and Zuluaga, J and Portilla, B and Sucerquia, M and Miloni, O},
+  journal={Astrophysics Source Code Library},
+  pages={ascl--1609},
+  year={2016}
+}
+
+@article{masonbinary,
+  title={The Binary Habitability Mechanism--BHM and On-line Calculator},
+  author={Mason, Paul A and Zuluaga, Jorge I and Cuartas-Restrepo, Pablo A}
+}
+
+@article{zuluaga2017exorings,
+  title={exorings: Exoring Transit Properties},
+  author={Zuluaga, Jorge I and Kipping, David M and Sucerquia, Mario and Alvarado, Jaime A},
+  journal={Astrophysics Source Code Library},
+  pages={ascl--1703},
+  year={2017}
+}
+
+@article{lopera2016ciencia,
+  title={{\guillemotleft}La ciencia conversa contigo.?` c{\'o}mo hablar de exoplanetas y el alzh{\'e}imer?{\guillemotright}(Conversatorio)},
+  author={Lopera, Francisco and Zuluaga, Jorge Iv{\'a}n},
+  year={2016},
+  publisher={Instituci{\'o}n Universitaria ITM}
+}
+
+@article{alvarado2017effect,
+  title={The effect of close-in giant planets’ evolution on tidal-induced migration of exomoons},
+  author={Alvarado-Montes, Jaime A and Zuluaga, Jorge I and Sucerquia, Mario},
+  journal={Monthly Notices of the Royal Astronomical Society},
+  volume={471},
+  number={3},
+  pages={3019--3027},
+  year={2017},
+  publisher={Oxford University Press}
+}
+
+@inproceedings{zuluaga2017approximation,
+  title={An Approximation to a Geographical and Temporal Distribution of Meteoroid Impacts on Earth},
+  author={Zuluaga, JI and Sucerquia, Mario},
+  booktitle={Revista Mexicana de Astronomia y Astrofisica Conference Series},
+  volume={49},
+  pages={79--79},
+  year={2017}
+}
+
+@inproceedings{sucerquia2017behavior,
+  title={The behavior of the planetary rings under the Kozai Mechanism},
+  author={Sucerquia, Mario A and Ram{\'\i}rez, CV and Zuluaga, JI},
+  booktitle={Revista Mexicana de Astronomia y Astrofisica Conference Series},
+  volume={49},
+  pages={157--157},
+  year={2017}
+}
+
+@article{zuluagamensajeros,
+  title={De mensajeros del apocalipsisi a posibles arcas de No{\'e} microbianas: asteroides y meteoroides},
+  author={Zuluaga, Jorge I}
+}
+
+@article{sucerquia2017anomalous,
+  title={Anomalous light curves of young tilted exorings},
+  author={Sucerquia, Mario and Alvarado-Montes, Jaime A and Ram{\'\i}rez, Vanesa and Zuluaga, Jorge I},
+  journal={Monthly Notices of the Royal Astronomical Society: Letters},
+  volume={472},
+  number={1},
+  pages={L120--L124},
+  year={2017},
+  publisher={Oxford University Press}
+}
+
+@article{cuartas2017spin,
+  title={Spin-Orbit Evolution of GJ 667C system: Effects of composition and perturbations},
+  author={Cuartas-Restrepo, PA and Melita, MD and Zuluaga, JI and Portilla, BA and Sucerquia, M and Miloni, O},
+  journal={Revista Mexicana de Astronom{\'\i}a y Astrof{\'\i}sica},
+  volume={49},
+  pages={70},
+  year={2017},
+  publisher={Instituto de Astronom{\'\i}a}
+}
+
+@article{ferrin20171i,
+  title={1I/2017 U1 (Oumuamua) Might Be A Cometary Nucleus},
+  author={Ferrin, Ignacio and Zuluaga, Jorge},
+  journal={arXiv preprint arXiv:1711.07535},
+  year={2017}
+}
+
+@article{zuluaga2018general,
+  title={A general method for assessing the origin of interstellar small bodies: the case of 1I/2017 U1 (‘Oumuamua)},
+  author={Zuluaga, Jorge I and S{\'a}nchez-Hern{\'a}ndez, Oscar and Sucerquia, Mario and Ferr{\'\i}n, Ignacio},
+  journal={The Astronomical Journal},
+  volume={155},
+  number={6},
+  pages={236},
+  year={2018},
+  publisher={The American Astronomical Society}
+}
+
+@article{enriquez2019breakthrough,
+  title={Breakthrough Listen follow-up of the reported transient signal observed at the Arecibo Telescope in the direction of Ross 128},
+  author={Enriquez, J Emilio and Siemion, Andrew and Dana, Ryan and Croft, Steve and M{\'e}ndez, Abel and Xu, Andrew and DeBoer, David and Gajjar, Vishal and Hellbourg, Greg and Isaacson, Howard and others},
+  journal={International Journal of Astrobiology},
+  volume={18},
+  number={1},
+  pages={33--35},
+  year={2019},
+  publisher={Cambridge University Press}
+}
+
+@article{zuluaga2018towards,
+  title={Towards a theoretical determination of the geographical probability distribution of meteoroid impacts on Earth},
+  author={Zuluaga, Jorge I and Sucerquia, Mario},
+  journal={Monthly Notices of the Royal Astronomical Society},
+  volume={477},
+  number={2},
+  pages={1970--1983},
+  year={2018},
+  publisher={Oxford University Press}
+}
+
+@article{zuluaga2018iwander,
+  title={iWander: Dynamics of interstellar wanderers},
+  author={Zuluaga, Jorge I and Sanchez-Hernandez, Oscar and Sucerquia, Mario and Ferrin, Ignacio},
+  journal={Astrophysics Source Code Library},
+  pages={ascl--1801},
+  year={2018}
+}
+
+@article{zuluaga2018bhmcalc,
+  title={BHMcalc: Binary Habitability Mechanism Calculator},
+  author={Zuluaga, Jorge I and Mason, Paul and Cuartas-Restrepo, Pablo A and Clark, Joni},
+  journal={Astrophysics Source Code Library},
+  pages={ascl--1802},
+  year={2018}
+}
+
+@article{ramirez2018constraints,
+  title={Constraints for Exomoon Detectability via Tidal Migration},
+  author={Ram{\'\i}rez, Vanesa and Sucerquia, M and Alvarado, J and Zuluaga, J},
+  journal={Diversis Mundi: The Solar System in an Exoplanetary Context},
+  pages={26},
+  year={2018}
+}
+
+@article{sucerquia2018ploonets,
+  title={Ploonets: Shadows of a Co-Orbital Transiting Companion},
+  author={Sucerquia, Mario and Alvarado, J and Cuello, N and Zuluaga, J},
+  journal={Diversis Mundi: The Solar System in an Exoplanetary Context},
+  pages={28},
+  year={2018}
+}
+
+@article{moncayo2019correlation,
+  title={Correlation between tides and seismicity in Northwestern South America: The case of Colombia},
+  author={Moncayo, Gloria A and Zuluaga, Jorge I and Monsalve, Gaspar},
+  journal={Journal of South American Earth Sciences},
+  volume={89},
+  pages={227--245},
+  year={2019},
+  publisher={Pergamon}
+}
+
+@article{moncayo1812tidal,
+  title={Tidal Coulomb Failure Stresses in the Northern Andean intermediate depth seismic clusters and its implications for a possible correlation between tides and seismicity},
+  author={Moncayo, Gloria A and Monsalve, Gaspar and Zuluaga, Jorge I},
+  journal={arXiv preprint arXiv},
+  year={1812}
+}
+
+@article{portilla2019revisiting,
+  title={Revisiting the dynamics of planets in binaries: evolutionary time-scales and the effect of early stellar evolution},
+  author={Portilla-Revelo, Bayron and Zuluaga, Jorge I},
+  journal={Monthly Notices of the Royal Astronomical Society},
+  volume={485},
+  number={1},
+  pages={522--540},
+  year={2019},
+  publisher={Oxford University Press}
+}
+
+@article{zuluaga2020location,
+  title={Location, orbit, and energy of a meteoroid impacting the Moon during the lunar eclipse of 2019 January 21},
+  author={Zuluaga, JI and Tangmatitham, M and Cuartas-Restrepo, P and Ospina, J and Pichardo, F and L{\'o}pez, SA and Pe{\~n}a, K and Gaviria-Posada, JM},
+  journal={Monthly Notices of the Royal Astronomical Society},
+  volume={492},
+  number={1},
+  pages={1432--1449},
+  year={2020},
+  publisher={Oxford University Press}
+}
+
+@article{zuluaga2019can,
+  title={Can we predict the impact conditions of metre-sized meteoroids?},
+  author={Zuluaga, Jorge I and Cuartas-Restrepo, Pablo A and Ospina, Jonathan and Sucerquia, Mario},
+  journal={Monthly Notices of the Royal Astronomical Society: Letters},
+  volume={486},
+  number={1},
+  pages={L69--L73},
+  year={2019},
+  publisher={Oxford University Press}
+}
+
+@article{mira2001study,
+  title={Study of rare B meson decays for testing the standard electroweak theory and constraining models of the new physics},
+  author={Mira Mart{\'\i}nez, Jes{\'u}s Mar{\'\i}a and Zuluaga, Jorge I and Nardi, Enrico},
+  year={2001},
+  publisher={Medellin:}
+}
+
+@inproceedings{ortiz2019arecibo,
+  title={Arecibo REDS: The Stellar Activity of Stars with Potentially Habitable Planets},
+  author={Ortiz-Ceballos, KN and M{\'e}ndez, A and Zuluaga, J and Heller, R and Alexander, D and Pacini, A},
+  booktitle={50th Annual Lunar and Planetary Science Conference},
+  number={2132},
+  pages={3161},
+  year={2019}
+}
+
+@article{moncayo2019tidal,
+  title={Tidal Coulomb Failure Stresses in the northern Andean intermediate depth seismic clusters: Implications for a possible correlation between tides and seismicity},
+  author={Moncayo, Gloria A and Monsalve, Gaspar and Zuluaga, Jorge I},
+  journal={Tectonophysics},
+  volume={762},
+  pages={61--78},
+  year={2019},
+  publisher={Elsevier}
+}
+
+@article{zuluaga2019speed,
+  title={Speed Thresholds for Hyperbolic Meteors: The Case of the 2014 January 8 CNEOS Meteor},
+  author={Zuluaga, Jorge I},
+  journal={Research Notes of the AAS},
+  volume={3},
+  number={5},
+  pages={68},
+  year={2019},
+  publisher={The American Astronomical Society}
+}
+
+@article{sucerquia2019ploonets,
+  title={Ploonets: formation, evolution, and detectability of tidally detached exomoons},
+  author={Sucerquia, Mario and Alvarado-Montes, Jaime A and Zuluaga, Jorge I and Cuello, Nicol{\'a}s and Giuppone, Cristian},
+  journal={Monthly Notices of the Royal Astronomical Society},
+  volume={489},
+  number={2},
+  pages={2313--2322},
+  year={2019},
+  publisher={Oxford University Press}
+}
+
+@inproceedings{mason2019habitable,
+  title={Habitable Environments Surrounding Moderately Close Binaries},
+  author={Mason, Paul A and Zuluaga, Jorge I and Cuartas-Restrepo, Pablo A},
+  booktitle={The Astrobiology Science Conference (AbSciCon) 2019},
+  pages={105--9},
+  year={2019}
+}
+
+@article{sucerquia2020can,
+  title={Can close-in giant exoplanets preserve detectable moons?},
+  author={Sucerquia, Mario and Ram{\'\i}rez, Vanesa and Alvarado-Montes, Jaime A and Zuluaga, Jorge I},
+  journal={Monthly Notices of the Royal Astronomical Society},
+  volume={492},
+  number={3},
+  pages={3499--3508},
+  year={2020},
+  publisher={Oxford University Press}
+}
+
+@article{rodriguez2023chirping,
+  title={Chirping compact stars: gravitational radiation and detection degeneracy with binaries},
+  author={Rodr{\'\i}guez, JF and Rueda, JA and Ruffini, R and Zuluaga, JI and Blanco-Iglesias, JM and Lor{\'e}n-Aguilar, P},
+  journal={Journal of Cosmology and Astroparticle Physics},
+  volume={2023},
+  number={10},
+  pages={017},
+  year={2023},
+  publisher={IOP Publishing}
+}
+
+@inproceedings{cherubini2008non,
+  title={Non-Homogeneous Axisymmetric Models of Self-Gravitating Systems},
+  author={Cherubini, Christian and Filippi, Simonetta and Ruffini, Remo and Sepulveda, Alonso and Zuluaga, Jorge I},
+  booktitle={The Eleventh Marcel Grossmann Meeting: On Recent Developments in Theoretical and Experimental General Relativity, Gravitation and Relativistic Field Theories (In 3 Volumes)},
+  pages={2340--2342},
+  year={2008}
+}
+
+@article{cuartasstable,
+  title={STABLE LOW-ALTITUDE ORBITS AROUND GANYMEDE CONSIDERING A DISTURBING BODY IN A CIRCULAR ORBIT},
+  author={Cuartas-Restrepo, P and Melita, M and Zuluaga, J and Hoyos, J and Sucerquia, M}
+}
+
+@article{buie2020size,
+  title={Size and shape constraints of (486958) Arrokoth from stellar occultations},
+  author={Buie, Marc W and Porter, Simon B and Tamblyn, Peter and Terrell, Dirk and Parker, Alex Harrison and Baratoux, David and Kaire, Maram and Leiva, Rodrigo and Verbiscer, Anne J and Zangari, Amanda M and others},
+  journal={The Astronomical Journal},
+  volume={159},
+  number={4},
+  pages={130},
+  year={2020},
+  publisher={The American Astronomical Society}
+}
+
+@article{sucerquia2020scattered,
+  title={Scattered light may reveal the existence of ringed exoplanets},
+  author={Sucerquia, Mario and Alvarado-Montes, Jaime A and Zuluaga, Jorge I and Montesinos, Mat{\'\i}as and Bayo, Amelia},
+  journal={Monthly Notices of the Royal Astronomical Society: Letters},
+  volume={496},
+  number={1},
+  pages={L85--L90},
+  year={2020},
+  publisher={Oxford University Press}
+}
+
+@article{mendez2020habitability,
+  title={Habitability Models for Planetary Sciences},
+  author={M{\'e}ndez, Abel and Rivera-Valent{\'\i}n, Edgard G and Schulze-Makuch, Dirk and Filiberto, Justin and Ram{\'\i}rez, Ramses and Wood, Tana E and D{\'a}vila, Alfonso and McKay, Chris and Ceballos, Kevin Ortiz and Jusino-Maldonado, Marcos and others},
+  journal={White Paper for the Planetary Science and Astrobiology Decadal Survey 2023},
+  volume={2032},
+  year={2020}
+}
+
+@inproceedings{schoemaker2020influence,
+  title={THE INFLUENCE OF A GLOBAL CARDIOVASCULAR RISK SCORE ON THE NEUROIMAGING PRESENTATION OF CADASIL},
+  author={Schoemaker, D and Zuluaga, J and Torrico-Teave, H and Velilla, L and Lopera, F and Arboleda-Velasquez, J and Quiroz, Y},
+  booktitle={INTERNATIONAL JOURNAL OF STROKE},
+  volume={15},
+  number={1\_ SUPPL},
+  pages={304--304},
+  year={2020},
+  organization={SAGE PUBLICATIONS LTD 1 OLIVERS YARD, 55 CITY ROAD, LONDON EC1Y 1SP, ENGLAND}
+}
+
+@article{alvarado2021impact,
+  title={The impact of tidal friction evolution on the orbital decay of ultra-short-period planets},
+  author={Alvarado-Montes, Jaime A and Sucerquia, Mario and Garc{\'\i}a-Carmona, Carolina and Zuluaga, Jorge I and Spitler, Lee and Schwab, Christian},
+  journal={Monthly Notices of the Royal Astronomical Society},
+  volume={506},
+  number={2},
+  pages={2247--2259},
+  year={2021},
+  publisher={Oxford University Press}
+}
+
+@article{mendez2021habitability,
+  title={Habitability models for astrobiology},
+  author={M{\'e}ndez, Abel and Rivera-Valent{\'\i}n, Edgard G and Schulze-Makuch, Dirk and Filiberto, Justin and Ram{\'\i}rez, Ramses M and Wood, Tana E and D{\'a}vila, Alfonso and McKay, Chris and Ceballos, Kevin N Ortiz and Jusino-Maldonado, Marcos and others},
+  journal={Astrobiology},
+  volume={21},
+  number={8},
+  pages={1017--1027},
+  year={2021},
+  publisher={SAGE Publications Sage CA: Los Angeles, CA}
+}
+
+@article{tenelanda2021enceladus,
+  title={Enceladus as a potential niche for methanogens and estimation of its biomass},
+  author={Tenelanda-Osorio, Laura I and Parra, Juan L and Cuartas-Restrepo, Pablo and Zuluaga, Jorge I},
+  journal={Life},
+  volume={11},
+  number={11},
+  pages={1182},
+  year={2021},
+  publisher={MDPI}
+}
+
+@article{sucerquia2022cronomoons,
+  title={Cronomoons: origin, dynamics, and light-curve features of ringed exomoons},
+  author={Sucerquia, Mario and Alvarado-Montes, Jaime A and Bayo, Amelia and Cuadra, Jorge and Cuello, Nicol{\'a}s and Giuppone, Cristian A and Montesinos, Mat{\'\i}as and Olofsson, Johan and Schwab, Christian and Spitler, Lee and others},
+  journal={Monthly Notices of the Royal Astronomical Society},
+  volume={512},
+  number={1},
+  pages={1032--1044},
+  year={2022},
+  publisher={Oxford University Press}
+}
+
+@inproceedings{salazar2021land,
+  title={Land-atmosphere water budget over time in huge river basins: evidence of a changing water cycle},
+  author={Salazar, Juan and Molina, Ruben and Zuluaga, Jorge and Gomez-Velez, Jesus},
+  booktitle={AGU Fall Meeting Abstracts},
+  volume={2021},
+  pages={GC54C--03},
+  year={2021}
+}
+
+@article{vallejo2023conditions,
+  title={Conditions for high-resolution bistatic radar observations of Apophis in 2029},
+  author={Vallejo, Agust{\'\i}n and Zuluaga, Jorge I and Chaparro, Germ{\'a}n},
+  journal={Monthly Notices of the Royal Astronomical Society},
+  volume={518},
+  number={3},
+  pages={4438--4448},
+  year={2023},
+  publisher={Oxford University Press}
+}
+
+@article{zuluaga2022pryngles,
+  title={Pryngles: PlanetaRY spaNGLES},
+  author={Zuluaga, Jorge I and Sucerquia, Mario and Alvarado-Montes, Jaime A},
+  journal={Astrophysics Source Code Library},
+  pages={ascl--2205},
+  year={2022}
+}
+
+@article{zuluaga2022bright,
+  title={The bright side of the light curve: A general photometric model of non-transiting exorings},
+  author={Zuluaga, Jorge I and Sucerquia, Mario and Alvarado-Montes, Jaime A},
+  journal={Astronomy and Computing},
+  volume={40},
+  pages={100623},
+  year={2022},
+  publisher={Elsevier}
+}
+
+@article{zuluaga2019location,
+  title={Location, orbit and energy of a meteoroid impacting the moon during the Lunar Eclipse of January 21, 2019},
+  author={Zuluaga, Jorge I and Tangmatitham, Matipon and Cuartas-Restrepo, Pablo A and Ospina, Jonathan and Pichardo, Fritz and Lopez, Sergio A and Pena, Karls and Gaviria-Posada, J Mauricio},
+  journal={arXiv preprint arXiv:1901.09573},
+  year={2019}
+}
+
+@article{zuluagaspeed,
+  title={Speed thresholds for hyperbolic meteors: the case of the 2014-01-08 CNEOS meteor},
+  author={Zuluaga, Jorge I}
+}
+
+@article{salazar2024wetting,
+  title={Wetting and drying trends in the land--atmosphere reservoir of large basins around the world},
+  author={Salazar, Juan F and Molina, Ruben D and Zuluaga, Jorge I and Gomez-Velez, Jesus D},
+  journal={Hydrology and Earth System Sciences},
+  volume={28},
+  number={13},
+  pages={2919--2947},
+  year={2024},
+  publisher={Copernicus GmbH}
+}
+
+@article{cordoba2023variability,
+  title={Variability in low Mars atmosphere's H $ \_2 $ O concentration stimulated by solar cycle activity},
+  author={C{\'o}rdoba, Johan Nicol{\'a}s Molina and Dom{\'\i}nguez, S Vargas and Zuluaga, Jorge I},
+  journal={arXiv preprint arXiv:2309.02809},
+  year={2023}
+}
+
+@article{zuluaga2023day,
+  title={Day-ahead unit commitment for hydro-thermal coordination with high participation of wind power},
+  author={Zuluaga, Jorge and Murillo-Sanchez, Carlos E and Moreno-Chuquen, Ricardo and Chamorro, Harold R and Sood, Vijay K},
+  journal={IET Energy Systems Integration},
+  volume={5},
+  number={2},
+  pages={119--127},
+  year={2023}
+}
+
+@article{arias2022gewex,
+  title={GEWEX Quarterly, Vol. 32, No. 1},
+  author={Arias, Paola A and Espinoza, Jhan-Carlo and Polcher, Jan and Kanavas, Zoe and Myers, Dan and Byrnes, Danyka and Bahar, Faten Attig and Abid, Muhammad Adnan and Hegerl, Gabriele and Sherwood, Steven and others},
+  year={2022},
+  publisher={International GEWEX Project Office}
+}
+
+@article{salazar2022sos,
+  title={The SOS-Cuenca Project: Sustainability Of ecological and Social systems in the magdalena-Cauca basin Under climatE chaNge and deforestation sCenArios},
+  author={Salazar, Juan F and Arias, Paola A and Berrouet, Lina and Betancur, Teresita and Mart{\'\i}nez, J Alejandro and Quintero-Vallejo, Estela and Vieira, Sara C and Villegas, Clara I and Camilo, Juan},
+  journal={A Focus on South America},
+  pages={10},
+  year={2022}
+}
+
+@article{veenstra2025general,
+  title={A general polarimetric model for transiting and nontransiting ringed exoplanets},
+  author={Veenstra, Allard K and Zuluaga, Jorge I and Alvarado-Montes, Jaime A and Sucerquia, Mario and Stam, Daphne M},
+  journal={Astronomy \& Astrophysics},
+  volume={693},
+  pages={A310},
+  year={2025},
+  publisher={EDP Sciences}
+}
+
+@article{garcia2024ciencia,
+  title={Ciencia de datos aplicada a un foro de discusi{\'o}n tecnol{\'o}gico},
+  author={Garcia Zuluaga, Julieth Tatiana},
+  year={2024},
+  publisher={Universidad de Antioquia}
+}
+
+@article{duque2025machine,
+  title={Machine-assisted classification of potential biosignatures in Earth-like exoplanets using low signal-to-noise ratio transmission spectra},
+  author={Duque-Casta{\~n}o, David S and Zuluaga, Jorge I and Flor-Torres, Lauren},
+  journal={Monthly Notices of the Royal Astronomical Society},
+  volume={539},
+  number={2},
+  pages={1528--1552},
+  year={2025},
+  publisher={Oxford University Press}
+}
+
+@article{mendez2024arecibo,
+  title={Arecibo wow! I: an astrophysical explanation for the wow! Signal},
+  author={M{\'e}ndez, Abel and Ceballos, Kevin Ortiz and Zuluaga, Jorge I},
+  journal={arXiv preprint arXiv:2408.08513},
+  year={2024}
+}
+
+@article{sucerquia2024missing,
+  title={The missing rings around Solar System moons},
+  author={Sucerquia, Mario and Alvarado-Montes, Jaime A and Zuluaga, Jorge I and Cuello, Nicol{\'a}s and Cuadra, Jorge and Montesinos, Mat{\'\i}as},
+  journal={Astronomy \& Astrophysics},
+  volume={691},
+  pages={A74},
+  year={2024},
+  publisher={EDP Sciences}
+}
+
+@article{zuluagapython,
+  title={A PYTHON PACKAGE FOR MODELLING THE PHOTOMETRIC SIGNATURES OF EXOPLANETARY RINGS/SATELLITES},
+  author={ZULUAGA, JORGE I and SUCERQUIA, MARIO and ALVARADO-MONTES, JAIME A}
+}
+
+@article{duque2025multirex,
+  title={MultiREx: Massive planetary spectra generator},
+  author={Duque-Casta{\~n}o, David S and Zuluaga, Jorge I and Flor-Torres, Lauren{\^a}},
+  journal={Astrophysics Source Code Library},
+  pages={ascl--2504},
+  year={2025}
+}
+
+@article{alvarado2025orbital,
+  title={Orbital Decay of the Ultra-hot Jupiter TOI-2109b: Tidal Constraints and Transit-timing Analysis},
+  author={Alvarado-Montes, Jaime A and Sucerquia, Mario and Zuluaga, Jorge I and Schwab, Christian},
+  journal={The Astrophysical Journal},
+  volume={988},
+  number={1},
+  pages={66},
+  year={2025},
+  publisher={The American Astronomical Society}
+}
+
+@article{mendez2025arecibo,
+  title={Arecibo Wow! II: Revised Properties of the Wow! Signal from Archival Ohio SETI Data},
+  author={M{\'e}ndez, Abel and Ceballos, Kevin N Ortiz and Zuluaga, Jorge I and Palencia-Torres, Kelby D and Smith, Allison J and Rodr{\'\i}guez, Alondra Cardona and Socas-Navarro, H{\'e}ctor and Kipping, David and Hubbard-James, Hodari-Sadiki and Le, Mai and others},
+  journal={arXiv preprint arXiv:2508.10657},
+  year={2025}
+}
+
+@article{duque2026efficient,
+  title={Efficient reduction of stellar contamination and noise in planetary transmission spectra using neural networks},
+  author={Duque-Casta{\~n}o, David S and Flor-Torres, Lauren and Zuluaga, Jorge I},
+  journal={arXiv preprint arXiv:2602.10330},
+  year={2026}
+}

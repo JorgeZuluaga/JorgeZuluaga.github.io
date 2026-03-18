@@ -1,6 +1,6 @@
 const SOURCES = [
-  { id: "orcid", label: "ORCID", path: "./sources/works-orcid-2026.txt" },
-  { id: "scholar", label: "Scholar", path: "./sources/citations-scholar-2026.txt" },
+  { id: "orcid", label: "ORCID", path: "./assets/works-orcid-2026.txt" },
+  { id: "scholar", label: "Scholar", path: "./assets/citations-scholar-2026.txt" },
 ];
 
 function normalizeText(s) {
@@ -233,23 +233,21 @@ function renderPub(e, extraBadge = null) {
       <h3 class="pub-title">${escapeHtml(title)}</h3>
     </div>
     <div class="pub-meta">
-      ${year ? `${year}. ` : ""}${
-        authors
-          ? `${highlightAuthor(escapeHtml(authors))} · `
-          : ""
-      }${escapeHtml(venue)}
+      ${year ? `${year}. ` : ""}${authors
+      ? `${highlightAuthor(escapeHtml(authors))} · `
+      : ""
+    }${escapeHtml(venue)}
     </div>
-    ${
-      links.length
-        ? `<div class="pub-links">
+    ${links.length
+      ? `<div class="pub-links">
             ${links
-              .map(
-                (l) =>
-                  `<a class="link" href="${escapeAttr(l.href)}" target="_blank" rel="noreferrer noopener">${escapeHtml(l.label)}</a>`,
-              )
-              .join("")}
+        .map(
+          (l) =>
+            `<a class="link" href="${escapeAttr(l.href)}" target="_blank" rel="noreferrer noopener">${escapeHtml(l.label)}</a>`,
+        )
+        .join("")}
           </div>`
-        : ""
+      : ""
     }
   `;
 
@@ -362,7 +360,7 @@ function clearChildren(el) {
 }
 
 async function loadProfile() {
-  const res = await fetch("./sources/profile.json", { cache: "no-store" });
+  const res = await fetch("./assets/profile.json", { cache: "no-store" });
   if (!res.ok) return null;
   return res.json();
 }
@@ -393,18 +391,7 @@ function renderTeaching(profile) {
   clearChildren(supEl);
   clearChildren(awardsEl);
 
-  const courses = profile.teaching?.courses ?? [];
-  for (const c of courses) {
-    const li = document.createElement("li");
-    const title = c.title || "";
-    const inst = c.institution || "";
-    const level = c.level || "";
-    const years = c.years || "";
-    li.innerHTML = `<strong>${escapeHtml(title)}</strong>${
-      inst ? ` — ${escapeHtml(inst)}` : ""
-    }${level ? `, ${escapeHtml(level)}` : ""}${years ? `, ${escapeHtml(years)}` : ""}`;
-    coursesEl.appendChild(li);
-  }
+  // Courses are now loaded from teaching-classroom.json in main()
 
   const sup = profile.teaching?.supervision ?? [];
   for (const s of sup) {
@@ -413,9 +400,8 @@ function renderTeaching(profile) {
     const prog = s.program || "";
     const inst = s.institution || "";
     const years = s.years || "";
-    li.innerHTML = `<strong>${escapeHtml(title)}</strong>${
-      prog ? ` — ${escapeHtml(prog)}` : ""
-    }${inst ? `, ${escapeHtml(inst)}` : ""}${years ? `, ${escapeHtml(years)}` : ""}`;
+    li.innerHTML = `<strong>${escapeHtml(title)}</strong>${prog ? ` — ${escapeHtml(prog)}` : ""
+      }${inst ? `, ${escapeHtml(inst)}` : ""}${years ? `, ${escapeHtml(years)}` : ""}`;
     supEl.appendChild(li);
   }
 
@@ -425,9 +411,8 @@ function renderTeaching(profile) {
     const title = a.title || "";
     const org = a.organization || "";
     const year = a.year || "";
-    li.innerHTML = `<strong>${escapeHtml(title)}</strong>${
-      org ? ` — ${escapeHtml(org)}` : ""
-    }${year ? `, ${escapeHtml(year)}` : ""}`;
+    li.innerHTML = `<strong>${escapeHtml(title)}</strong>${org ? ` — ${escapeHtml(org)}` : ""
+      }${year ? `, ${escapeHtml(year)}` : ""}`;
     awardsEl.appendChild(li);
   }
 }
@@ -438,6 +423,62 @@ async function main() {
 
   const profile = await loadProfile().catch(() => null);
   renderTeaching(profile);
+
+  const coursesEl = document.getElementById("teaching-courses");
+  if (coursesEl) {
+    try {
+      const res = await fetch("./assets/teaching-classroom.json", { cache: "no-store" });
+      if (res.ok) {
+        const classroomCourses = await res.json();
+        const udeACourses = classroomCourses.filter(c =>
+          c.section &&
+          c.section.includes("UdeA") &&
+          c.name !== "Curso Modelo" &&
+          c.name !== "Modelo de Curso"
+        );
+
+        // Group by course name
+        const groupedCourses = new Map();
+        for (const c of udeACourses) {
+          if (!groupedCourses.has(c.name)) {
+            groupedCourses.set(c.name, []);
+          }
+          groupedCourses.get(c.name).push(c);
+        }
+
+        let borderIdx = 1;
+        for (const [name, courses] of groupedCourses.entries()) {
+          const div = document.createElement("div");
+          div.className = `box border${borderIdx}`;
+          borderIdx = borderIdx < 6 ? borderIdx + 1 : 1;
+
+          // Process all occurrences of this course
+          const occurrencesHtml = courses.map(c => {
+            const dateObj = new Date(c.creationTime);
+            const dateStr = isNaN(dateObj) ? (c.creationTime || "") : dateObj.toLocaleDateString("es-CO");
+            const students = c.enrollmentCount ?? 0;
+            // Extract semester from section (e.g. "Astronomia UdeA - 2026-1" -> "2026-1")
+            let semester = escapeHtml(c.section || "");
+            const match = semester.match(/20\d{2}-\d/);
+            if (match) {
+              semester = match[0];
+            }
+            return `${semester} (Creado ${escapeHtml(dateStr)}, Estudiantes: ${students})`;
+          }).join(", ");
+
+          div.innerHTML = `
+            <div class="info">
+              <h3>${escapeHtml(name)}</h3>
+              <p>Ofrecido en: ${occurrencesHtml}</p>
+            </div>
+          `;
+          coursesEl.appendChild(div);
+        }
+      }
+    } catch (err) {
+      console.error("Error loading classroom courses:", err);
+    }
+  }
 
   const entries = await loadAll();
   fillYearsRange(entries);

@@ -1,0 +1,533 @@
+[
+  {
+    "id": "793888340935",
+    "name": "Relatividad y Gravitación",
+    "section": "Astronomia UdeA - 2026-1",
+    "subject": "Astronomia UdeA - 2026-1",
+    "creationTime": "2026-02-19T01:59:11.488Z",
+    "courseState": "ACTIVE",
+    "enrollmentCount": 8
+  },
+  {
+    "id": "793884770077",
+    "name": "Mecánica Celeste",
+    "section": "Astronomia UdeA - 2026-1",
+    "subject": "Astronomia UdeA - 2026-1",
+    "creationTime": "2026-02-17T17:00:19.841Z",
+    "courseState": "ACTIVE",
+    "enrollmentCount": 15
+  },
+  {
+    "id": "793884645084",
+    "name": "Mecánica Celeste",
+    "section": "Astronomía UdeA - 2026-1",
+    "subject": "Astronomía UdeA - 2026-1",
+    "creationTime": "2026-02-17T16:50:16.798Z",
+    "courseState": "ARCHIVED",
+    "enrollmentCount": 0
+  },
+  {
+    "id": "844610239968",
+    "name": "Astrobiología FCEN",
+    "section": "FCEN - UdeA - 2026-1",
+    "subject": "FCEN - UdeA",
+    "creationTime": "2026-02-12T23:12:24.245Z",
+    "courseState": "ACTIVE",
+    "enrollmentCount": 106
+  },
+  {
+    "id": "781280304704",
+    "name": "Modelando Exoplanetas",
+    "section": "Tópicos Avanzados de Astrofísica 2025-2",
+    "subject": "Tópicos Avanzados de Astrofísica 2025-2",
+    "creationTime": "2025-10-27T23:03:04.006Z",
+    "courseState": "ACTIVE",
+    "enrollmentCount": 3
+  },
+  {
+    "id": "781048156258",
+    "name": "Rompecabezas de la Materia (2025)",
+    "section": "Diplomado en Fronteras de la Física",
+    "subject": "Módulo 3: Rompecabezas de la Materia",
+    "creationTime": "2025-10-13T15:16:24.855Z",
+    "courseState": "ACTIVE",
+    "enrollmentCount": 33
+  },
+  {
+    "id": "805104784774",
+    "name": "Relatividad y Gravitación",
+    "section": "Astronomía UdeA - 2025-2",
+    "subject": "Astronomía UdeA - 2025-2",
+    "creationTime": "2025-09-09T18:03:18.412Z",
+    "courseState": "ACTIVE",
+    "enrollmentCount": 17
+  },
+  {
+    "id": "813869094663",
+    "name": "Mecánica Celeste",
+    "section": "Astronomía UdeA - 2025-2",
+    "subject": "Astronomía UdeA - 2025-2",
+    "creationTime": "2025-09-09T18:02:46.314Z",
+    "courseState": "ACTIVE",
+    "enrollmentCount": 17
+  },
+  {
+    "id": "805102334446",
+    "name": "Astrobiología FCEN",
+    "section": "FCEN - UdeA - 2025-2",
+    "subject": "FCEN - UdeA",
+    "creationTime": "2025-09-09T18:02:16.032Z",
+    "courseState": "ACTIVE",
+    "enrollmentCount": 62
+  },
+  {
+    "id": "779768160678",
+    "name": "Astrodinámica",
+    "section": "Ingeniería Aeroespacial UdeA - 2025-2",
+    "subject": "Prof. Jorge I. Zuluaga",
+    "creationTime": "2025-08-11T20:53:52.280Z",
+    "courseState": "ACTIVE",
+    "enrollmentCount": 11
+  },
+  {
+    "id": "789135832925",
+    "name": "Mundo Cuántico (2025)",
+    "section": "Diplomado en Fronteras de la Física",
+    "subject": "Módulo 2: Mundo Cuántico",
+    "creationTime": "2025-07-12T17:07:21.242Z",
+    "courseState": "ACTIVE",
+    "enrollmentCount": 35
+  },
+  {
+    "id": "773263906753",
+    "name": "Einstein, relativamente fácil (2025)",
+    "section": "Diplomado en Fronteras de la Física",
+    "subject": "Módulo 1: Einstein, relativamente fácil",
+    "creationTime": "2025-04-23T03:07:47.732Z",
+    "courseState": "ACTIVE",
+    "enrollmentCount": 31
+  },
+  {
+    "id": "698861806302",
+    "name": "Mecánica Celeste",
+    "section": "Astronomia UdeA - 2025-1",
+    "subject": "Astronomia UdeA - 2025-1",
+    "creationTime": "2025-04-08T00:16:40.200Z",
+    "courseState": "ACTIVE",
+    "enrollmentCount": 14
+  },
+  {
+    "id": "698861920845",
+    "name": "Relatividad y Gravitación",
+    "section": "Astronomia UdeA - 2025-1",
+    "subject": "Astronomia UdeA - 2025-1",
+    "creationTime": "2025-04-08T00:16:11.792Z",
+    "courseState": "ACTIVE",
+    "enrollmentCount": 10
+  },
+  {
+    "id": "698657040747",
+    "name": "Astrobiología FCEN",
+    "section": "Astronomia y Biología UdeA",
+    "subject": "Astronomia y Biología UdeA",
+    "creationTime": "2025-03-31T13:27:27.833Z",
+    "courseState": "ACTIVE",
+    "enrollmentCount": 57
+  },
+  {
+    "id": "760500168141",
+    "name": "Dinámica del Vuelo Espacial",
+    "section": "Ingeniería Aeroespacial UdeA -  2025-1",
+    "subject": "Ingeniería Aeroespacial UdeA",
+    "creationTime": "2025-02-28T19:24:22.663Z",
+    "courseState": "ACTIVE",
+    "enrollmentCount": 27
+  },
+  {
+    "id": "749799895635",
+    "name": "Ciencias Planetarias",
+    "section": "Diploma en Astronomía 2025-1",
+    "subject": "Planetas y Astrobiología",
+    "creationTime": "2025-02-11T02:38:09.720Z",
+    "courseState": "ACTIVE",
+    "enrollmentCount": 7
+  },
+  {
+    "id": "749799755999",
+    "name": "Curso Diploma Modelo",
+    "section": "Diploma en Astronomía 202X-X",
+    "subject": "Subtítulo del curso",
+    "creationTime": "2025-02-11T02:37:38.594Z",
+    "courseState": "ARCHIVED",
+    "enrollmentCount": 0
+  },
+  {
+    "id": "749792982433",
+    "name": "Curso Galaxias y Cosmología",
+    "section": "Diploma en Astronomía 2025-1",
+    "subject": null,
+    "creationTime": "2025-02-11T00:56:57.773Z",
+    "courseState": "ACTIVE",
+    "enrollmentCount": 49
+  },
+  {
+    "id": "685598601558",
+    "name": "Catastrofísica",
+    "section": "¿Qué pasaría si...?",
+    "subject": "Astrofísica",
+    "creationTime": "2024-09-11T20:38:26.426Z",
+    "courseState": "ACTIVE",
+    "enrollmentCount": 22
+  },
+  {
+    "id": "709207070396",
+    "name": "Mecánica Celeste",
+    "section": "Astronomia UdeA - 2024-2",
+    "subject": "Astronomia UdeA - 2024-2",
+    "creationTime": "2024-08-30T12:50:12.454Z",
+    "courseState": "ACTIVE",
+    "enrollmentCount": 19
+  },
+  {
+    "id": "709208138910",
+    "name": "Relatividad y Gravitación",
+    "section": "Astronomia UdeA - 2024-2",
+    "subject": "Astronomia UdeA - 2024-2",
+    "creationTime": "2024-08-30T12:49:33.500Z",
+    "courseState": "ACTIVE",
+    "enrollmentCount": 33
+  },
+  {
+    "id": "702615974142",
+    "name": "Astrodinámica para aeroespacial",
+    "section": "Ingeniería Aeroespacial UdeA",
+    "subject": "Ingeniería Aeroespacial UdeA",
+    "creationTime": "2024-08-05T11:49:08.558Z",
+    "courseState": "ACTIVE",
+    "enrollmentCount": 12
+  },
+  {
+    "id": "701219568478",
+    "name": "Relatividad y Gravitación (dirigido)",
+    "section": "2024-1",
+    "subject": "2024-1",
+    "creationTime": "2024-07-22T18:39:36.557Z",
+    "courseState": "ACTIVE",
+    "enrollmentCount": 2
+  },
+  {
+    "id": "701210197550",
+    "name": "Planetas y Astrobiología",
+    "section": "Diploma en Astronomía 2024-2",
+    "subject": "Cuerpos del sistema solar, exoplanetas y vida en el universo",
+    "creationTime": "2024-07-22T14:16:40.153Z",
+    "courseState": "ARCHIVED",
+    "enrollmentCount": 0
+  },
+  {
+    "id": "701210029059",
+    "name": "Astrofísica Estelar",
+    "section": "Diploma en Astronomía 2024-2",
+    "subject": "La astrofísica del cielo estrellado",
+    "creationTime": "2024-07-22T14:14:49.904Z",
+    "courseState": "ACTIVE",
+    "enrollmentCount": 66
+  },
+  {
+    "id": "697721594055",
+    "name": "Física de los Fenómenos 2024-2",
+    "section": "Diploma en Física 2024-2",
+    "subject": "Física",
+    "creationTime": "2024-07-03T20:12:39.878Z",
+    "courseState": "ACTIVE",
+    "enrollmentCount": 9
+  },
+  {
+    "id": "684619544157",
+    "name": "Cuántica a Pie",
+    "section": "Conceptos, Paradojas y Tecnologías",
+    "subject": "Física",
+    "creationTime": "2024-06-11T12:01:43.007Z",
+    "courseState": "ARCHIVED",
+    "enrollmentCount": 67
+  },
+  {
+    "id": "662002751973",
+    "name": "Mecánica Celeste",
+    "section": "Astronomia UdeA - 2024-1",
+    "subject": "Astronomia UdeA - 2024-1",
+    "creationTime": "2024-02-06T15:17:00.824Z",
+    "courseState": "ACTIVE",
+    "enrollmentCount": 10
+  },
+  {
+    "id": "661983333731",
+    "name": "Mecánica de Medios Continuos",
+    "section": "Astronomia UdeA - 2024-1",
+    "subject": "Astronomia UdeA - 2024-1",
+    "creationTime": "2024-02-06T14:23:30.473Z",
+    "courseState": "ACTIVE",
+    "enrollmentCount": 17
+  },
+  {
+    "id": "628554851890",
+    "name": "Dinámica del Vuelo Espacial",
+    "section": "Aeroespacial UdeA - 2024-1",
+    "subject": "Aeroespacial UdeA - 2024-1",
+    "creationTime": "2024-02-05T03:50:58.731Z",
+    "courseState": "ACTIVE",
+    "enrollmentCount": 13
+  },
+  {
+    "id": "653848079156",
+    "name": "Física de la Materia",
+    "section": "Diploma en Física 2024-1",
+    "subject": "Teoría cuántica y física de partículas",
+    "creationTime": "2024-01-10T20:38:59.951Z",
+    "courseState": "ACTIVE",
+    "enrollmentCount": 17
+  },
+  {
+    "id": "639317409510",
+    "name": "Galaxias y Cosmología",
+    "section": "Diploma en Astronomía 2024-1",
+    "subject": "De la Vía Láctea al Big-Bang",
+    "creationTime": "2024-01-08T21:48:50.059Z",
+    "courseState": "ACTIVE",
+    "enrollmentCount": 26
+  },
+  {
+    "id": "653479183919",
+    "name": "Ciencias Planetarias",
+    "section": "Diploma en Astronomía 2024-1",
+    "subject": "De planetas a la vida",
+    "creationTime": "2024-01-08T21:44:08.889Z",
+    "courseState": "ACTIVE",
+    "enrollmentCount": 75
+  },
+  {
+    "id": "653478401735",
+    "name": "Curso Diploma Modelo",
+    "section": "Diploma en Astronomía 202X-X",
+    "subject": "Subtítulo del curso",
+    "creationTime": "2024-01-08T21:38:52.786Z",
+    "courseState": "ACTIVE",
+    "enrollmentCount": 0
+  },
+  {
+    "id": "589125944518",
+    "name": "Métodos Numéricos para Ingeniería",
+    "section": "Ingeniería Universidad de Antioquia",
+    "subject": "Ingeniería Universidad de Antioquia",
+    "creationTime": "2023-08-14T00:35:22.303Z",
+    "courseState": "ACTIVE",
+    "enrollmentCount": 15
+  },
+  {
+    "id": "588987492094",
+    "name": "Curso Modelo",
+    "section": "Astronomia UdeA",
+    "subject": "Astronomia UdeA",
+    "creationTime": "2023-08-01T13:10:02.436Z",
+    "courseState": "ACTIVE",
+    "enrollmentCount": 0
+  },
+  {
+    "id": "616979528444",
+    "name": "Modelo de Curso",
+    "section": null,
+    "subject": "Astronomia UdeA - 2023-2",
+    "creationTime": "2023-07-31T18:53:09.048Z",
+    "courseState": "ARCHIVED",
+    "enrollmentCount": 0
+  },
+  {
+    "id": "616964262756",
+    "name": "Mecánica de Medios Continuos",
+    "section": "Astronomia UdeA - 2023-2",
+    "subject": "Astronomia UdeA - 2023-2",
+    "creationTime": "2023-07-31T18:14:05.116Z",
+    "courseState": "ACTIVE",
+    "enrollmentCount": 15
+  },
+  {
+    "id": "616975964621",
+    "name": "Mecánica Celeste",
+    "section": "Astronomia UdeA - 2023-2",
+    "subject": "Astronomia UdeA - 2023-2",
+    "creationTime": "2023-07-31T18:13:16.058Z",
+    "courseState": "ACTIVE",
+    "enrollmentCount": 16
+  },
+  {
+    "id": "616280073619",
+    "name": "Galaxias y Cosmología",
+    "section": "Diploma en Astronomía 2023-2",
+    "subject": "De Asuán al multiverso",
+    "creationTime": "2023-07-18T14:11:40.739Z",
+    "courseState": "ACTIVE",
+    "enrollmentCount": 39
+  },
+  {
+    "id": "616280196645",
+    "name": "Ciencias Planetarias",
+    "section": "Diploma en Astronomía 2023-2",
+    "subject": "Del sistema solar a la diversidad planetaria del Universo",
+    "creationTime": "2023-07-18T13:55:44.992Z",
+    "courseState": "ACTIVE",
+    "enrollmentCount": 16
+  },
+  {
+    "id": "613648340451",
+    "name": "Física de los Fenómenos",
+    "section": "Diploma en Física 2023-2",
+    "subject": "Física Conceptual (Física de los fenómenos cotidianos)",
+    "creationTime": "2023-06-09T16:50:39.159Z",
+    "courseState": "ACTIVE",
+    "enrollmentCount": 23
+  },
+  {
+    "id": "541844748073",
+    "name": "Astrodinámica",
+    "section": "Astronomia UdeA - 2023-1",
+    "subject": null,
+    "creationTime": "2023-01-26T15:12:03.095Z",
+    "courseState": "ACTIVE",
+    "enrollmentCount": 9
+  },
+  {
+    "id": "541844790000",
+    "name": "Astrofísica Planetaria",
+    "section": "Aeroespacial UdeA - 2023-1",
+    "subject": null,
+    "creationTime": "2023-01-26T15:11:36.424Z",
+    "courseState": "ACTIVE",
+    "enrollmentCount": 15
+  },
+  {
+    "id": "541844779575",
+    "name": "Mecánica Celeste",
+    "section": "Astronomia UdeA - 2023-1",
+    "subject": null,
+    "creationTime": "2023-01-26T15:11:09.249Z",
+    "courseState": "ACTIVE",
+    "enrollmentCount": 12
+  },
+  {
+    "id": "541844438725",
+    "name": "Mecánica de Medios Continuos",
+    "section": "Astronomia UdeA - 2023-1",
+    "subject": null,
+    "creationTime": "2023-01-26T15:06:18.516Z",
+    "courseState": "ACTIVE",
+    "enrollmentCount": 9
+  },
+  {
+    "id": "541439481088",
+    "name": "Física de la Materia",
+    "section": "Diploma en Física 2023-1",
+    "subject": null,
+    "creationTime": "2023-01-17T13:21:26.073Z",
+    "courseState": "ACTIVE",
+    "enrollmentCount": 16
+  },
+  {
+    "id": "541436104512",
+    "name": "Astrofísica Estelar (presencial)",
+    "section": "Diploma en Astronomía 2023-1",
+    "subject": null,
+    "creationTime": "2023-01-17T12:06:50.445Z",
+    "courseState": "ARCHIVED",
+    "enrollmentCount": 34
+  },
+  {
+    "id": "539675200121",
+    "name": "Astrofísica Estelar (virtual)",
+    "section": "Diploma en Astronomía 2023-1",
+    "subject": null,
+    "creationTime": "2022-11-18T14:36:59.545Z",
+    "courseState": "ACTIVE",
+    "enrollmentCount": 75
+  },
+  {
+    "id": "532363838324",
+    "name": "Galaxias y Cosmología",
+    "section": "Diploma en Astronomía 2022-2",
+    "subject": null,
+    "creationTime": "2022-06-03T17:22:29.297Z",
+    "courseState": "ACTIVE",
+    "enrollmentCount": 95
+  },
+  {
+    "id": "487869486488",
+    "name": "Física de los Fenómenos 2022-2",
+    "section": "Física de la vida cotidiana",
+    "subject": "Diploma en Física 2022-2",
+    "creationTime": "2022-06-03T13:52:00.100Z",
+    "courseState": "ACTIVE",
+    "enrollmentCount": 14
+  },
+  {
+    "id": "487513666230",
+    "name": "Mecánica de Medios Continuos",
+    "section": "Astronomía UdeA - 2022-1",
+    "subject": null,
+    "creationTime": "2022-05-23T02:07:56.546Z",
+    "courseState": "ACTIVE",
+    "enrollmentCount": 20
+  },
+  {
+    "id": "487511463195",
+    "name": "Mecánica Celeste",
+    "section": "Astronomía UdeA - 2022-1",
+    "subject": null,
+    "creationTime": "2022-05-23T00:57:26.679Z",
+    "courseState": "ACTIVE",
+    "enrollmentCount": 9
+  },
+  {
+    "id": "304699416015",
+    "name": "Club de lectura \"los cuantones\"",
+    "section": "Pasión por la física de frontera",
+    "subject": null,
+    "creationTime": "2021-06-13T17:38:19.457Z",
+    "courseState": "ACTIVE",
+    "enrollmentCount": 60
+  },
+  {
+    "id": "60213510583",
+    "name": "Laboratorio de Modelación VI",
+    "section": "UdeM",
+    "subject": null,
+    "creationTime": "2020-01-27T13:26:27.960Z",
+    "courseState": "ACTIVE",
+    "enrollmentCount": 5
+  },
+  {
+    "id": "30300189605",
+    "name": "Ingeniería de Software Científico",
+    "section": "UdeM",
+    "subject": null,
+    "creationTime": "2019-01-23T13:59:55.254Z",
+    "courseState": "ACTIVE",
+    "enrollmentCount": 5
+  },
+  {
+    "id": "11144863391",
+    "name": "Computación HPC",
+    "section": "UdeM",
+    "subject": null,
+    "creationTime": "2018-02-01T21:14:39.841Z",
+    "courseState": "ACTIVE",
+    "enrollmentCount": 7
+  },
+  {
+    "id": "6585506747",
+    "name": "Datos y Visualización",
+    "section": "UdeM",
+    "subject": null,
+    "creationTime": "2017-07-24T09:51:25.627Z",
+    "courseState": "ACTIVE",
+    "enrollmentCount": 6
+  }
+]

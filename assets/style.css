@@ -516,6 +516,14 @@ footer p {
 }
 
 @media screen and (max-width: 36em) {
+  body {
+    background-color: var(--black) !important;
+  }
+
+  .home-qr-container {
+    display: none;
+  }
+
   .navbar {
     width: 80%;
   }
@@ -584,6 +592,7 @@ footer p {
   box-shadow: var(--box-shadow);
   z-index: 50;
 }
+
 .skip-link:focus {
   left: 1rem;
 }
@@ -686,8 +695,134 @@ code {
   text-align: left;
 }
 
+@media print {
+  .print-mode-target {
+    display: none !important;
+  }
+}
+
+@media print,
+screen {
+
+  .print-mode #btn-print,
+  .print-mode .scroll-to-top-link,
+  .print-mode .skip-link,
+  .print-mode nav {
+    display: none !important;
+  }
+
+  .print-mode body,
+  .print-mode html,
+  body.print-mode {
+    background: white !important;
+    color: black !important;
+  }
+
+  .print-mode .section4 .box,
+  .print-mode .pub,
+  .print-mode .box {
+    box-shadow: none !important;
+    border: none !important;
+    background: transparent !important;
+    padding: 0 !important;
+    margin: 1rem 0 1rem 2rem !important;
+    page-break-inside: avoid;
+    display: list-item !important;
+    list-style-type: disc !important;
+  }
+
+  .print-mode h1,
+  .print-mode h2,
+  .print-mode h3,
+  .print-mode h4,
+  .print-mode p,
+  .print-mode a,
+  .print-mode strong,
+  .print-mode span {
+    color: black !important;
+  }
+
+  .print-mode .container,
+  .print-mode .wrapper {
+    width: 100% !important;
+    max-width: none !important;
+    padding: 0 !important;
+    border: none !important;
+    margin: 0 !important;
+  }
+
+  .print-mode header {
+    height: auto !important;
+    background: transparent !important;
+    box-shadow: none !important;
+  }
+
+  .print-mode header .image {
+    position: static !important;
+    margin: 1rem auto !important;
+    width: 15rem !important;
+    height: 15rem !important;
+  }
+
+  .print-mode .home-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+}
+
+@media print {
+
+  #btn-print,
+  .scroll-to-top-link,
+  .skip-link,
+  nav {
+    display: none !important;
+  }
+
+  body,
+  html {
+    background: white !important;
+    color: black !important;
+    font-size: 60% !important;
+  }
+
+  .section4 .box,
+  .pub,
+  .box {
+    box-shadow: none !important;
+    border: none !important;
+    background: transparent !important;
+    padding: 0 !important;
+    margin: 1rem 0 1rem 2rem !important;
+    page-break-inside: avoid;
+    display: list-item !important;
+    list-style-type: disc !important;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  p,
+  a,
+  strong,
+  span {
+    color: black !important;
+  }
+
+  .container,
+  .wrapper {
+    width: 100% !important;
+    max-width: none !important;
+    padding: 0 !important;
+    border: none !important;
+    margin: 0 !important;
+  }
+}
+
 .pub-stats th {
   font-weight: 600;
   color: var(--black);
 }
-
