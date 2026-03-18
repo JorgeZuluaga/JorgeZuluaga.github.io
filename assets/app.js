@@ -296,6 +296,11 @@ function setText(id, value) {
   if (el) el.textContent = value;
 }
 
+function setAttr(id, attr, value) {
+  const el = document.getElementById(id);
+  if (el && value) el.setAttribute(attr, value);
+}
+
 function fillYearsRange(entries) {
   const years = entries.map((e) => e.yearNum).filter((y) => y > 0);
   if (!years.length) return;
@@ -308,9 +313,83 @@ function clearChildren(el) {
   while (el.firstChild) el.removeChild(el.firstChild);
 }
 
+async function loadProfile() {
+  const res = await fetch("./sources/profile.json", { cache: "no-store" });
+  if (!res.ok) return null;
+  return res.json();
+}
+
+function renderTeaching(profile) {
+  if (!profile) return;
+  const name = profile.name || "Jorge I. Zuluaga";
+  const headline =
+    profile.headline || "Producción académica, docencia y reconocimientos.";
+  const summary = profile.summary || "";
+
+  setText("name", name);
+  setText("headline", headline);
+  if (summary) {
+    const kicker = document.getElementById("kicker");
+    if (kicker) kicker.textContent = summary;
+  }
+  if (profile.avatar) {
+    setAttr("avatar", "src", profile.avatar);
+  }
+
+  const coursesEl = document.getElementById("teaching-courses");
+  const supEl = document.getElementById("teaching-supervision");
+  const awardsEl = document.getElementById("awards");
+  if (!coursesEl || !supEl || !awardsEl) return;
+
+  clearChildren(coursesEl);
+  clearChildren(supEl);
+  clearChildren(awardsEl);
+
+  const courses = profile.teaching?.courses ?? [];
+  for (const c of courses) {
+    const li = document.createElement("li");
+    const title = c.title || "";
+    const inst = c.institution || "";
+    const level = c.level || "";
+    const years = c.years || "";
+    li.innerHTML = `<strong>${escapeHtml(title)}</strong>${
+      inst ? ` — ${escapeHtml(inst)}` : ""
+    }${level ? `, ${escapeHtml(level)}` : ""}${years ? `, ${escapeHtml(years)}` : ""}`;
+    coursesEl.appendChild(li);
+  }
+
+  const sup = profile.teaching?.supervision ?? [];
+  for (const s of sup) {
+    const li = document.createElement("li");
+    const title = s.title || "";
+    const prog = s.program || "";
+    const inst = s.institution || "";
+    const years = s.years || "";
+    li.innerHTML = `<strong>${escapeHtml(title)}</strong>${
+      prog ? ` — ${escapeHtml(prog)}` : ""
+    }${inst ? `, ${escapeHtml(inst)}` : ""}${years ? `, ${escapeHtml(years)}` : ""}`;
+    supEl.appendChild(li);
+  }
+
+  const awards = profile.awards ?? [];
+  for (const a of awards) {
+    const li = document.createElement("li");
+    const title = a.title || "";
+    const org = a.organization || "";
+    const year = a.year || "";
+    li.innerHTML = `<strong>${escapeHtml(title)}</strong>${
+      org ? ` — ${escapeHtml(org)}` : ""
+    }${year ? `, ${escapeHtml(year)}` : ""}`;
+    awardsEl.appendChild(li);
+  }
+}
+
 async function main() {
   const updated = new Date();
   setText("updated", updated.toLocaleDateString("es-CO", { year: "numeric", month: "short", day: "2-digit" }));
+
+  const profile = await loadProfile().catch(() => null);
+  renderTeaching(profile);
 
   const entries = await loadAll();
   fillYearsRange(entries);

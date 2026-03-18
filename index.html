@@ -24,18 +24,19 @@
       <div class="container">
         <div class="hero">
           <div>
-            <div class="identity">
+            <div class="identity" id="identity">
               <img
                 class="avatar"
+                id="avatar"
                 src="./assets/profile.jpg"
                 alt="Foto de perfil"
                 loading="lazy"
                 decoding="async"
               />
               <div>
-            <p class="kicker">Hoja de vida</p>
-            <h1 class="title">Jorge I. Zuluaga</h1>
-            <p class="subtitle">
+            <p class="kicker" id="kicker">Hoja de vida</p>
+            <h1 class="title" id="name">Jorge I. Zuluaga</h1>
+            <p class="subtitle" id="headline">
               Producción académica, docencia y reconocimientos.
             </p>
             <div class="chips" aria-label="Enlaces">
@@ -71,24 +72,18 @@
         <div class="section-head">
           <h2>Experiencia docente</h2>
           <p class="muted">
-            Edita esta sección en <code>index.html</code>.
+            Esta sección se alimenta desde <code>sources/profile.json</code>.
           </p>
         </div>
 
-        <div class="grid">
+        <div class="grid" id="teaching">
           <article class="card">
             <h3 class="card-title">Cursos</h3>
-            <ul class="list">
-              <li><strong>Curso / asignatura</strong> — Institución, nivel (pregrado/posgrado), años.</li>
-              <li><strong>Curso / asignatura</strong> — Institución, nivel (pregrado/posgrado), años.</li>
-            </ul>
+            <ul class="list" id="teaching-courses"></ul>
           </article>
           <article class="card">
             <h3 class="card-title">Dirección y tutorías</h3>
-            <ul class="list">
-              <li><strong>Estudiante / tesis</strong> — Programa, institución, año(s).</li>
-              <li><strong>Estudiante / tesis</strong> — Programa, institución, año(s).</li>
-            </ul>
+            <ul class="list" id="teaching-supervision"></ul>
           </article>
         </div>
       </section>
@@ -97,15 +92,12 @@
         <div class="section-head">
           <h2>Premios y reconocimientos</h2>
           <p class="muted">
-            Edita esta sección en <code>index.html</code>.
+            Esta sección se alimenta desde <code>sources/profile.json</code>.
           </p>
         </div>
 
         <div class="card">
-          <ul class="list">
-            <li><strong>Premio / distinción</strong> — Entidad, año.</li>
-            <li><strong>Premio / distinción</strong> — Entidad, año.</li>
-          </ul>
+          <ul class="list" id="awards"></ul>
         </div>
       </section>
 

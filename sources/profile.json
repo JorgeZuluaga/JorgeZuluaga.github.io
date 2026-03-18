@@ -1,0 +1,32 @@
+{
+  "name": "Jorge I. Zuluaga",
+  "headline": "Astrofísico y profesor universitario",
+  "summary": "Resumen breve de tu trayectoria académica y áreas de investigación. Edítalo en sources/profile.json.",
+  "avatar": "./assets/profile.jpg",
+  "teaching": {
+    "courses": [
+      {
+        "title": "Curso / asignatura",
+        "institution": "Institución",
+        "level": "Pregrado o posgrado",
+        "years": "Años"
+      }
+    ],
+    "supervision": [
+      {
+        "title": "Estudiante / tesis",
+        "program": "Programa",
+        "institution": "Institución",
+        "years": "Años"
+      }
+    ]
+  },
+  "awards": [
+    {
+      "title": "Premio / distinción",
+      "organization": "Entidad",
+      "year": "Año"
+    }
+  ]
+}
+
