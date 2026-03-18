@@ -173,9 +173,10 @@ if (themeButton) {
     body.classList[selectedTheme === "dark" ? "add" : "remove"](darkThemeClass);
     updateIconsAndAriaLabel(selectedTheme);
   } else {
-    // Si no hay tema guardado, verificar si es móvil (< 576px) para usar dark por defecto (como pidió originalmente el usuario)
-    const isMobile = window.matchMedia("(max-width: 36em)").matches;
-    const defaultTheme = isMobile ? "dark" : "light";
+    // Verificamos si es móvil (< 768px) o si el sistema operativo (como iOS) tiene activado explícitamente el modo oscuro para usar dark por defecto
+    const isMobile = window.matchMedia("(max-width: 48em)").matches;
+    const isDarkOS = window.matchMedia("(prefers-color-scheme: dark)").matches;
+    const defaultTheme = (isMobile || isDarkOS) ? "dark" : "light";
     body.classList[defaultTheme === "dark" ? "add" : "remove"](darkThemeClass);
     updateIconsAndAriaLabel(defaultTheme);
   }
