@@ -435,6 +435,6 @@ main().catch((err) => {
   const empty = document.getElementById("empty");
   empty.hidden = false;
   empty.innerHTML =
-    "<p><strong>No se pudo cargar el CV.</strong> Revisa la consola del navegador y confirma que los archivos existen en <code>sources/</code>.</p>";
+    "<p><strong>No se pudo cargar el CV.</strong> Revisa la consola del navegador.</p>";
 });
 
