@@ -282,6 +282,7 @@ header .image img {
 .home-qr {
   flex: 0 0 auto;
   text-align: center;
+  display: none;
 }
 
 .home-qr img {
@@ -770,9 +771,17 @@ screen {
     align-items: center;
     text-align: center;
   }
+
+  .print-mode .home-qr {
+    display: block !important;
+  }
 }
 
 @media print {
+
+  .home-qr {
+    display: block !important;
+  }
 
   #btn-print,
   .scroll-to-top-link,
