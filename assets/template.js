@@ -123,7 +123,7 @@ if (
   ////////// ACTIVE LINK WITH SCROLL //////////
   function activeNavLinks() {
     let len = sections.length;
-    while (--len && window.scrollY + 97 < sections[len].offsetTop) {}
+    while (--len && window.scrollY + 97 < sections[len].offsetTop) { }
     navLinks.forEach((link) => link.classList.remove("active"));
     if (navLinks[len]) navLinks[len].classList.add("active");
   }
@@ -173,8 +173,11 @@ if (themeButton) {
     body.classList[selectedTheme === "dark" ? "add" : "remove"](darkThemeClass);
     updateIconsAndAriaLabel(selectedTheme);
   } else {
-    body.classList.remove(darkThemeClass);
-    updateIconsAndAriaLabel("light");
+    // Si no hay tema guardado, verificar si es móvil (< 576px) para usar dark por defecto (como pidió originalmente el usuario)
+    const isMobile = window.matchMedia("(max-width: 36em)").matches;
+    const defaultTheme = isMobile ? "dark" : "light";
+    body.classList[defaultTheme === "dark" ? "add" : "remove"](darkThemeClass);
+    updateIconsAndAriaLabel(defaultTheme);
   }
 
   themeButton.addEventListener("click", () => {

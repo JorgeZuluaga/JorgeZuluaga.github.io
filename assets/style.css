@@ -517,9 +517,6 @@ footer p {
 }
 
 @media screen and (max-width: 36em) {
-  body {
-    background-color: var(--black) !important;
-  }
 
   .home-qr-container {
     display: none;
