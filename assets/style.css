@@ -385,6 +385,10 @@ footer p {
 
   header .image {
     left: 0.625rem;
+    top: 3.25rem;
+    width: 7.25rem;
+    height: 7.25rem;
+    border-width: 3px;
   }
 
   .section1 {
@@ -399,6 +403,18 @@ footer p {
 
   .section1 .container h1 {
     font-size: 2rem;
+  }
+
+  .scroll-to-top-link {
+    width: 2.1rem;
+    height: 2.1rem;
+    bottom: 0.9rem;
+    border-radius: 0.45rem;
+  }
+
+  .scroll-to-top-link svg {
+    width: 1.25rem;
+    height: 1.25rem;
   }
 
   footer {
