@@ -1,4 +1,4 @@
-.PHONY: start stop
+.PHONY: start dev stop
 
 PORT ?= 8000
 HOST ?= 127.0.0.1
@@ -9,19 +9,21 @@ start:
 	@sleep 0.2
 	@echo "Started. Stop with: make stop"
 
+dev:
+	@echo "Starting HOT-RELOAD server on http://$(HOST):$(PORT)"
+	@python3 dev_server.py --host "$(HOST)" --port "$(PORT)" --root "."
+
 stop:
-	@echo "Stopping http.server (best-effort)"
-	@pkill -TERM -f "http\\.server" 2>/dev/null || true
-	@sleep 0.2
-	@if pgrep -f "http\\.server" >/dev/null 2>&1; then \
-		echo "Still running, forcing stop (SIGKILL). PIDs:"; \
-		pgrep -f "http\\.server" | tr '\n' ' ' && echo ""; \
-		pkill -KILL -f "http\\.server" 2>/dev/null || true; \
+	@echo "Stopping server on port $(PORT) (best-effort)"
+	@PID="$$(lsof -tiTCP:$(PORT) -sTCP:LISTEN 2>/dev/null | head -n 1)"; \
+	if [ -n "$$PID" ]; then \
+		echo "Killing pid $$PID"; \
+		kill "$$PID" 2>/dev/null || true; \
 		sleep 0.2; \
-	fi
-	@if pgrep -f "http\\.server" >/dev/null 2>&1; then \
-		echo "Warning: http.server still appears to be running. Matching processes:"; \
-		ps -ax -o pid=,command= | grep -E "http\\.server" | grep -v grep || true; \
+		if kill -0 "$$PID" 2>/dev/null; then \
+			echo "Still running, forcing stop (SIGKILL)"; \
+			kill -9 "$$PID" 2>/dev/null || true; \
+		fi; \
 	else \
-		echo "Stopped."; \
+		echo "No process listening on $(PORT)."; \
 	fi

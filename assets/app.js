@@ -110,12 +110,35 @@ function parseBibLikeEntry(block) {
 }
 
 function formatAuthors(s) {
-  const t = (s ?? "").toString().replace(/\s+/g, " ").trim();
+  const t = latexToUnicode((s ?? "").toString()).replace(/\s+/g, " ").trim();
   if (!t) return "";
-  // ORCID uses "and" sometimes; Scholar BibTeX uses "and"
+  // ORCID / Scholar use "and" between authors
   const parts = t.split(/\s+and\s+/i).map((p) => p.trim()).filter(Boolean);
-  if (parts.length <= 2) return parts.join(", ");
-  return `${parts.slice(0, 2).join(", ")} et al.`;
+  const maxShown = 5;
+  if (parts.length <= maxShown) return parts.join(", ");
+
+  // Always show first 5 authors, then "et al."
+  return `${parts.slice(0, maxShown).join(", ")}, et al.`;
+}
+
+function latexToUnicode(s) {
+  // Very small LaTeX accent decoder for common Spanish/Latin names
+  return (s ?? "")
+    .toString()
+    // LaTeX special i: \i -> i (so that \\'\i becomes í)
+    .replace(/\\i/g, "i")
+    // Braced accents: {\'e}, {\"u}, {\~n}, {\`a}, {\^o}, etc.
+    .replace(/\{\\'([A-Za-z])\}/g, (_, c) => c.normalize("NFD").replace(/./, c => ({
+      a: "á", A: "Á", e: "é", E: "É", i: "í", I: "Í", o: "ó", O: "Ó", u: "ú", U: "Ú", n: "ń", N: "Ń"
+    })[c] || c))
+    .replace(/\\'([A-Za-z])/g, (_, c) => ({
+      a: "á", A: "Á", e: "é", E: "É", i: "í", I: "Í", o: "ó", O: "Ó", u: "ú", U: "Ú", n: "ń", N: "Ń"
+    })[c] || c)
+    .replace(/\{\\~([Nn])\}/g, (_, c) => (c === "N" ? "Ñ" : "ñ"))
+    .replace(/\\~([Nn])/g, (_, c) => (c === "N" ? "Ñ" : "ñ"))
+    .replace(/\{\\c\{c\}\}/gi, (m) => (m === "{\\c{c}}" ? "ç" : "Ç"))
+    // Remove remaining braces that were only grouping
+    .replace(/[{}]/g, "");
 }
 
 function linkForDOI(doi) {
@@ -134,15 +157,13 @@ function buildKey(e) {
 }
 
 function cleanTitle(t) {
-  return (t ?? "")
-    .toString()
+  return latexToUnicode((t ?? "").toString())
     .replace(/\s+/g, " ")
-    .replace(/[{}]/g, "")
     .trim();
 }
 
 function pickVenue(e) {
-  return (
+  return latexToUnicode(
     e.journal ||
     e.booktitle ||
     e.publisher ||
@@ -152,6 +173,39 @@ function pickVenue(e) {
   ).toString();
 }
 
+function extractArxiv(e) {
+  const raw = `${e.journal ?? ""} ${e.note ?? ""} ${e.eprint ?? ""}`.toString();
+  const m =
+    raw.match(/arxiv(?:\s+preprint)?\s*(?:arxiv:)?\s*([0-9]{4}\.[0-9]{4,5})/i) ||
+    raw.match(/arxiv(?:\s+preprint)?\s*(?:arxiv:)?\s*([a-z\-]+\/\d{7})/i);
+  if (!m) return null;
+  const id = m[1];
+  return {
+    id,
+    url: `https://arxiv.org/abs/${id}`,
+  };
+}
+
+function isPublished(e) {
+  const venue = pickVenue(e).toLowerCase();
+  if (!venue) return false;
+  if (venue.startsWith("arxiv") || venue.includes("arxiv")) return false;
+  return true;
+}
+
+function isPreprint(e) {
+  const venue = pickVenue(e).toLowerCase();
+  if (venue && (venue.startsWith("arxiv") || venue.includes("arxiv"))) return true;
+  return !!extractArxiv(e);
+}
+
+function hasLink(e) {
+  const doiUrl = linkForDOI(e.doi);
+  const url = e.url && /^https?:\/\//i.test(e.url) ? e.url : null;
+  const arxivInfo = extractArxiv(e);
+  return !!(doiUrl || url || arxivInfo);
+}
+
 function renderPub(e, extraBadge = null) {
   const title = cleanTitle(e.title) || "(Sin título)";
   const year = parseYear(e);
@@ -159,10 +213,11 @@ function renderPub(e, extraBadge = null) {
   const venue = pickVenue(e);
 
   const doiUrl = linkForDOI(e.doi);
-  const url = e.url && /^https?:\/\//i.test(e.url) ? e.url : null;
+  const rawDoi = (e.doi ?? "").toString().trim().replace(/^doi:\s*/i, "");
+  const arxivInfo = extractArxiv(e);
   const links = [
-    doiUrl ? { href: doiUrl, label: "DOI" } : null,
-    url && url !== doiUrl ? { href: url, label: "URL" } : null,
+    arxivInfo ? { href: arxivInfo.url, label: `arXiv: ${arxivInfo.id}` } : null,
+    doiUrl ? { href: doiUrl, label: rawDoi ? `DOI: ${rawDoi}` : "DOI" } : null,
   ].filter(Boolean);
 
   const li = document.createElement("li");
@@ -170,32 +225,19 @@ function renderPub(e, extraBadge = null) {
   li.dataset.year = year ?? "";
   li.dataset.source = e.source;
   li.dataset.search = normalizeText(
-    `${title} ${authors} ${venue} ${year ?? ""} ${e.doi ?? ""} ${e.url ?? ""}`,
+    `${title} ${authors} ${venue} ${year ?? ""} ${e.doi ?? ""} ${e.url ?? ""} ${arxivInfo?.id ?? ""}`,
   );
-
-  const sourceBadgeClass =
-    e.source === "orcid" ? "badge--orcid" : "badge--scholar";
-
-  const extra =
-    extraBadge && extraBadge.label
-      ? `<span class="badge ${escapeAttr(extraBadge.className || "")}">${escapeHtml(
-          extraBadge.label,
-        )}</span>`
-      : "";
 
   li.innerHTML = `
     <div class="pub-head">
       <h3 class="pub-title">${escapeHtml(title)}</h3>
-      <div class="badges" aria-label="Metadatos">
-        ${year ? `<span class="badge">${year}</span>` : ""}
-        ${extra}
-        <span class="badge ${sourceBadgeClass}">${escapeHtml(
-          e.sourceLabel,
-        )}</span>
-      </div>
     </div>
     <div class="pub-meta">
-      ${authors ? `${escapeHtml(authors)} · ` : ""}${escapeHtml(venue)}
+      ${year ? `${year}. ` : ""}${
+        authors
+          ? `${highlightAuthor(escapeHtml(authors))} · `
+          : ""
+      }${escapeHtml(venue)}
     </div>
     ${
       links.length
@@ -212,6 +254,12 @@ function renderPub(e, extraBadge = null) {
   `;
 
   return li;
+}
+
+function highlightAuthor(s) {
+  return s
+    .replace(/J\.?\s*I\.?\s*Zuluaga/gi, (m) => `<strong>${m}</strong>`)
+    .replace(/Zuluaga,\s*Jorge\s*I/gi, (m) => `<strong>${m}</strong>`);
 }
 
 function escapeHtml(s) {
@@ -394,37 +442,60 @@ async function main() {
   const entries = await loadAll();
   fillYearsRange(entries);
 
-  const topCited = entries
-    .filter((e) => e.scholarOrder !== null && e.scholarOrder !== undefined)
-    .sort((a, b) => (a.scholarOrder ?? 1e9) - (b.scholarOrder ?? 1e9))
-    .slice(0, 10);
-
-  const latest = [...entries]
+  const latest = [];
+  const seenLatest = new Set();
+  const publishedSorted = [...entries]
+    .filter((e) => isPublished(e) && hasLink(e))
     .sort((a, b) => {
       if (b.yearNum !== a.yearNum) return b.yearNum - a.yearNum;
       return normalizeText(a.titleClean).localeCompare(normalizeText(b.titleClean));
-    })
-    .slice(0, 10);
+    });
+  for (const e of publishedSorted) {
+    const key = normalizeText(e.titleClean);
+    if (seenLatest.has(key)) continue;
+    seenLatest.add(key);
+    latest.push(e);
+    if (latest.length >= 5) break;
+  }
 
-  const topEl = document.getElementById("top-cited");
+  const preprints = [];
+  const seenPreprints = new Set();
+  const preprintsSorted = [...entries]
+    .filter((e) => isPreprint(e) && hasLink(e))
+    .sort((a, b) => {
+      if (b.yearNum !== a.yearNum) return b.yearNum - a.yearNum;
+      return normalizeText(a.titleClean).localeCompare(normalizeText(b.titleClean));
+    });
+  for (const e of preprintsSorted) {
+    const key = normalizeText(e.titleClean);
+    if (seenPreprints.has(key)) continue;
+    seenPreprints.add(key);
+    preprints.push(e);
+    if (preprints.length >= 5) break;
+  }
+
   const latestEl = document.getElementById("latest");
-  clearChildren(topEl);
-  clearChildren(latestEl);
-
-  const fragTop = document.createDocumentFragment();
-  for (const e of topCited) {
-    fragTop.appendChild(renderPub(e, { label: "Top", className: "badge--top" }));
+  if (latestEl) {
+    clearChildren(latestEl);
+    const fragLatest = document.createDocumentFragment();
+    for (const e of latest) {
+      fragLatest.appendChild(renderPub(e, { label: "Nuevo", className: "badge--new" }));
+    }
+    latestEl.appendChild(fragLatest);
   }
-  topEl.appendChild(fragTop);
 
-  const fragLatest = document.createDocumentFragment();
-  for (const e of latest) {
-    fragLatest.appendChild(renderPub(e, { label: "Nuevo", className: "badge--new" }));
+  const preprintsEl = document.getElementById("preprints");
+  if (preprintsEl) {
+    clearChildren(preprintsEl);
+    const fragPre = document.createDocumentFragment();
+    for (const e of preprints) {
+      fragPre.appendChild(renderPub(e, { label: "Preprint", className: "badge--preprint" }));
+    }
+    preprintsEl.appendChild(fragPre);
   }
-  latestEl.appendChild(fragLatest);
 
-  setText("count", String(topCited.length + latest.length));
-  document.getElementById("empty").hidden = topCited.length + latest.length !== 0;
+  setText("count", String(latest.length));
+  document.getElementById("empty").hidden = latest.length !== 0;
 }
 
 main().catch((err) => {

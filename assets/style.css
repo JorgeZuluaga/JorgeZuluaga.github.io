@@ -268,6 +268,35 @@ header .image img {
   border-bottom: 3px solid var(--border-bottom);
 }
 
+.home-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2.5rem;
+}
+
+.home-main {
+  flex: 1 1 auto;
+}
+
+.home-qr {
+  flex: 0 0 auto;
+  text-align: center;
+}
+
+.home-qr img {
+  width: 120px;
+  height: 120px;
+  border-radius: 0.5rem;
+  box-shadow: var(--box-shadow);
+}
+
+.home-qr-label {
+  margin-top: 0.35rem;
+  font-size: 0.8rem;
+  color: var(--muted);
+}
+
 .section1 .container h1 {
   font-size: 2.5rem;
   font-weight: 600;
@@ -290,6 +319,40 @@ header .image img {
   border-bottom: 3px solid var(--border-bottom);
 }
 
+.section2 .container a {
+  display: inline-block;
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--black);
+  opacity: 0.85;
+}
+
+.section2 .container a:nth-child(2) {
+  margin-top: 1.25rem;
+}
+
+.section2 .container a:not(:last-child) {
+  margin-bottom: 1.25rem;
+}
+
+.section2 .container a:hover {
+  color: var(--accent);
+}
+
+.section2 .container svg {
+  width: 2rem;
+  height: 2rem;
+  fill: #8f8f8f;
+  vertical-align: middle;
+  transform: translateY(-0.2rem);
+}
+
+/* Última sección de tipo section2 (Docencia) sin barra inferior */
+#docencia .container {
+  border-bottom: none !important;
+  padding-bottom: 0;
+}
+
 /* SECTION 3 */
 
 .section3 {
@@ -301,6 +364,28 @@ header .image img {
   border-bottom: 3px solid var(--border-bottom);
 }
 
+.logos {
+  margin-top: 1.875rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.25rem;
+}
+
+.skill-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 3rem;
+  height: 3rem;
+  border-radius: 999px;
+  background: var(--box);
+  box-shadow: var(--box-shadow);
+  border: 2px solid var(--accent);
+  font-weight: 600;
+  font-size: 0.85rem;
+  color: var(--black);
+}
+
 /* SECTION 4 */
 
 .section4 {
@@ -310,6 +395,58 @@ header .image img {
 .section4 .container {
   padding-bottom: 2.5rem;
   border-bottom: 3px solid var(--border-bottom);
+}
+
+.section4 .final-container {
+  padding-bottom: 2.5rem;
+}
+
+.section4 .box {
+  margin-top: 2.5rem;
+  background-color: var(--box);
+  padding: 1.25rem;
+  border-radius: 0.5rem;
+  box-shadow: var(--box-shadow);
+  position: relative;
+}
+
+.section4 .box.border1 {
+  border-left: 2px solid #0297c4;
+}
+
+.section4 .box.border2 {
+  border-left: 2px solid #28b86a;
+}
+
+.section4 .box.border3 {
+  border-left: 2px solid #28b86a;
+}
+
+.section4 .box.border4 {
+  border-left: 2px solid #e24cff;
+}
+
+.section4 .box.border5 {
+  border-left: 2px solid #ff198b;
+}
+
+.section4 .box .info h3 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--black);
+  width: 90%;
+  margin-bottom: 0.5rem;
+}
+
+.section4 .box .info h4 {
+  font-size: 1rem;
+  font-weight: 400;
+  color: var(--black);
+  margin-bottom: 0.5rem;
+}
+
+.section4 .box .info p {
+  font-size: 0.875rem;
 }
 
 #education .container {
@@ -533,5 +670,24 @@ code {
   border-radius: 0.5rem;
   background: var(--box);
   box-shadow: var(--box-shadow);
+}
+
+.pub-stats {
+  width: 100%;
+  margin-top: 1rem;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+}
+
+.pub-stats th,
+.pub-stats td {
+  padding: 0.4rem 0.6rem;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+  text-align: left;
+}
+
+.pub-stats th {
+  font-weight: 600;
+  color: var(--black);
 }
 
