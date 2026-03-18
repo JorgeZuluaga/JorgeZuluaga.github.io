@@ -1,215 +1,196 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="es">
   <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="color-scheme" content="light dark" />
     <title>CV — Jorge I. Zuluaga</title>
     <meta
       name="description"
       content="Hoja de vida académica (publicaciones) generada desde fuentes ORCID/Scholar."
     />
+
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="./assets/style.css" />
-  </head>
-  <body>
-    <a class="skip-link" href="#contenido">Saltar al contenido</a>
 
-    <header class="site-header">
-      <div class="container">
-        <div class="hero">
-          <div>
-            <div class="identity" id="identity">
-              <img
-                class="avatar"
-                id="avatar"
-                src="./assets/profile.jpg"
-                alt="Foto de perfil"
-                loading="lazy"
-                decoding="async"
-              />
-              <div>
-            <p class="kicker" id="kicker">Hoja de vida</p>
-            <h1 class="title" id="name">Jorge I. Zuluaga</h1>
-            <p class="subtitle" id="headline">
+    <link rel="stylesheet" href="./assets/style.css" />
+    <script src="./assets/template.js" defer></script>
+  </head>
+
+  <body>
+    <div class="wrapper">
+      <a class="skip-link" href="#home">Saltar al contenido</a>
+
+      <header id="header">
+        <!-- Profile Pic -->
+        <div class="image" aria-hidden="false">
+          <img
+            id="avatar"
+            src="./assets/profile.jpg"
+            alt="Foto de perfil"
+            loading="lazy"
+            decoding="async"
+          />
+        </div>
+
+        <!-- Open Menu Button -->
+        <button
+          class="open-menu-button"
+          aria-label="Menú de navegación"
+          aria-expanded="false"
+          aria-hidden="false"
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M3 4H21V6H3V4ZM3 11H21V13H3V11ZM3 18H21V20H3V18Z"></path>
+          </svg>
+        </button>
+
+        <!-- Nav -->
+        <nav>
+          <div class="navbar" aria-hidden="true">
+            <!-- Close Menu Button -->
+            <button class="close-menu-button" aria-label="Cerrar menú de navegación">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true">
+                <path
+                  d="M11.9997 10.5865L16.9495 5.63672L18.3637 7.05093L13.4139 12.0007L18.3637 16.9504L16.9495 18.3646L11.9997 13.4149L7.04996 18.3646L5.63574 16.9504L10.5855 12.0007L5.63574 7.05093L7.04996 5.63672L11.9997 10.5865Z"
+                ></path>
+              </svg>
+            </button>
+
+            <!-- Navigation Links -->
+            <a href="#home" class="nav-link">Inicio</a>
+            <a href="#docencia" class="nav-link">Docencia</a>
+            <a href="#premios" class="nav-link">Premios</a>
+            <a href="#publicaciones" class="nav-link">Publicaciones</a>
+            <a href="#fuentes" class="nav-link">Fuentes</a>
+            <a href="#como-publicar" class="nav-link">Publicar</a>
+
+            <!-- Theme Button -->
+            <button class="theme-button" aria-label="Modo de visualización: Claro/Oscuro">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="moon-icon" aria-hidden="true">
+                <path
+                  d="M11.3807 2.01886C9.91573 3.38768 9 5.3369 9 7.49999C9 11.6421 12.3579 15 16.5 15C18.6631 15 20.6123 14.0843 21.9811 12.6193C21.6613 17.8537 17.3149 22 12 22C6.47715 22 2 17.5228 2 12C2 6.68514 6.14629 2.33869 11.3807 2.01886Z"
+                ></path>
+              </svg>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="sun-icon" aria-hidden="true">
+                <path
+                  d="M12 18C8.68629 18 6 15.3137 6 12C6 8.68629 8.68629 6 12 6C15.3137 6 18 8.68629 18 12C18 15.3137 15.3137 18 12 18ZM11 1H13V4H11V1ZM11 20H13V23H11V20ZM3.51472 4.92893L4.92893 3.51472L7.05025 5.63604L5.63604 7.05025L3.51472 4.92893ZM16.9497 18.364L18.364 16.9497L20.4853 19.0711L19.0711 20.4853L16.9497 18.364ZM19.0711 3.51472L20.4853 4.92893L18.364 7.05025L16.9497 5.63604L19.0711 3.51472ZM5.63604 16.9497L7.05025 18.364L4.92893 20.4853L3.51472 19.0711L5.63604 16.9497ZM23 11V13H20V11H23ZM4 11V13H1V11H4Z"
+                ></path>
+              </svg>
+            </button>
+          </div>
+        </nav>
+
+        <!-- Overlay -->
+        <div class="overlay"></div>
+      </header>
+
+      <main aria-hidden="false">
+        <!-- HOME -->
+        <section class="section1" id="home" aria-label="Inicio">
+          <div class="container">
+            <h1 id="name">Jorge I. Zuluaga</h1>
+            <p id="headline">
               Producción académica, docencia y reconocimientos.
             </p>
-            <div class="chips" aria-label="Enlaces">
-              <a class="chip" href="#docencia">Docencia</a>
-              <a class="chip" href="#premios">Premios</a>
-              <a class="chip" href="#publicaciones">Publicaciones</a>
-              <a class="chip" href="#fuentes">Fuentes</a>
-              <a class="chip" href="#como-publicar">Publicar en GitHub Pages</a>
-            </div>
-              </div>
-            </div>
-          </div>
-          <aside class="card side-card" aria-label="Descargas">
-            <h2 class="card-title">Descargas</h2>
-            <p class="muted small">
-              Nota: esta página omite intencionalmente datos personales como correo o teléfono.
+            <p class="muted" id="kicker">Hoja de vida</p>
+            <p class="muted" aria-label="Indicadores">
+              Años: <strong id="years">—</strong> · Actualizado: <strong id="updated">—</strong> · Items: <strong id="count">—</strong>
             </p>
-            <div class="downloads" aria-label="Descargas">
-              <a class="chip chip-strong" href="./assets/cv.pdf" target="_blank" rel="noreferrer noopener">
-                Descargar CV (PDF)
-              </a>
-              <a class="chip" href="./assets/scholar.pdf" target="_blank" rel="noreferrer noopener">
-                Export Scholar (PDF)
-              </a>
-            </div>
-          </aside>
-        </div>
-      </div>
-    </header>
-
-    <main id="contenido" class="container">
-      <section id="docencia" class="section">
-        <div class="section-head">
-          <h2>Experiencia docente</h2>
-          <p class="muted">
-            Esta sección se alimenta desde <code>sources/profile.json</code>.
-          </p>
-        </div>
-
-        <div class="grid" id="teaching">
-          <article class="card">
-            <h3 class="card-title">Cursos</h3>
-            <ul class="list" id="teaching-courses"></ul>
-          </article>
-          <article class="card">
-            <h3 class="card-title">Dirección y tutorías</h3>
-            <ul class="list" id="teaching-supervision"></ul>
-          </article>
-        </div>
-      </section>
-
-      <section id="premios" class="section">
-        <div class="section-head">
-          <h2>Premios y reconocimientos</h2>
-          <p class="muted">
-            Esta sección se alimenta desde <code>sources/profile.json</code>.
-          </p>
-        </div>
-
-        <div class="card">
-          <ul class="list" id="awards"></ul>
-        </div>
-      </section>
-
-      <section id="publicaciones" class="section">
-        <div class="section-head">
-          <h2>Selección de publicaciones</h2>
-          <p class="muted">
-            Se muestran solo <strong>20</strong>: las <strong>10 más citadas</strong> (según el orden del export de Scholar) y las
-            <strong>10 más recientes</strong> (por año). Fuentes: <code>sources/works-orcid-2026.txt</code> y <code>sources/citations-scholar-2026.txt</code>.
-          </p>
-        </div>
-
-        <div class="stats" aria-live="polite">
-          <div class="stat">
-            <div class="stat-k">Rango de años</div>
-            <div class="stat-v" id="years">—</div>
+            <p class="muted" aria-label="Descargas">
+              <a href="./assets/cv.pdf" target="_blank" rel="noreferrer noopener">CV (PDF)</a>
+              ·
+              <a href="./assets/scholar.pdf" target="_blank" rel="noreferrer noopener">Export Scholar (PDF)</a>
+            </p>
           </div>
-          <div class="stat">
-            <div class="stat-k">Última actualización</div>
-            <div class="stat-v" id="updated">—</div>
+        </section>
+
+        <!-- DOCENCIA -->
+        <section class="section2" id="docencia" aria-label="Docencia">
+          <div class="container">
+            <h2 class="title-section">Docencia</h2>
+            <p class="muted">Edita esta sección en <code>sources/profile.json</code>.</p>
+
+            <h3>Cursos</h3>
+            <ul id="teaching-courses"></ul>
+
+            <h3 style="margin-top: 1.25rem">Dirección y tutorías</h3>
+            <ul id="teaching-supervision"></ul>
           </div>
-          <div class="stat">
-            <div class="stat-k">Items mostrados</div>
-            <div class="stat-v" id="count">—</div>
+        </section>
+
+        <!-- PREMIOS -->
+        <section class="section2" id="premios" aria-label="Premios">
+          <div class="container">
+            <h2 class="title-section">Premios</h2>
+            <p class="muted">Edita esta sección en <code>sources/profile.json</code>.</p>
+            <ul id="awards"></ul>
           </div>
-        </div>
+        </section>
 
-        <div class="grid">
-          <article class="card">
-            <h3 class="card-title">10 más citadas (Scholar)</h3>
-            <ol id="top-cited" class="pubs pubs--compact" aria-label="Publicaciones más citadas"></ol>
-          </article>
-          <article class="card">
-            <h3 class="card-title">10 más recientes</h3>
-            <ol id="latest" class="pubs pubs--compact" aria-label="Publicaciones más recientes"></ol>
-          </article>
-        </div>
-
-        <div id="empty" class="empty" hidden>
-          <p><strong>No se pudieron cargar publicaciones.</strong> Revisa que existan los archivos en <code>sources/</code>.</p>
-        </div>
-      </section>
-
-      <section id="fuentes" class="section">
-        <div class="section-head">
-          <h2>Fuentes</h2>
-          <p class="muted">
-            La página se construye en el navegador leyendo archivos de texto dentro
-            del repositorio. Para actualizar el contenido, reemplaza estos archivos
-            y vuelve a publicar.
-          </p>
-        </div>
-
-        <div class="grid">
-          <article class="card">
-            <h3 class="card-title">ORCID</h3>
+        <!-- PUBLICACIONES -->
+        <section class="section4" id="publicaciones" aria-label="Publicaciones">
+          <div class="container">
+            <h2 class="title-section">Publicaciones</h2>
             <p class="muted">
-              Export de trabajos con campos como DOI, URL, journal, autores y año.
+              Se muestran <strong>20</strong>: las <strong>10 más citadas</strong> (orden del export de Scholar) y las
+              <strong>10 más recientes</strong> (por año).
             </p>
-            <p class="small">
-              Archivo: <code>sources/works-orcid-2026.txt</code>
-            </p>
-          </article>
 
-          <article class="card">
-            <h3 class="card-title">Google Scholar</h3>
+            <h3 style="margin-top: 1.5rem">10 más citadas (Scholar)</h3>
+            <ol id="top-cited" class="pubs" aria-label="Publicaciones más citadas"></ol>
+
+            <h3 style="margin-top: 1.5rem">10 más recientes</h3>
+            <ol id="latest" class="pubs" aria-label="Publicaciones más recientes"></ol>
+
+            <div id="empty" class="empty" hidden>
+              <p>
+                <strong>No se pudieron cargar publicaciones.</strong>
+                Revisa que existan los archivos en <code>sources/</code>.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <!-- FUENTES -->
+        <section class="section3" id="fuentes" aria-label="Fuentes">
+          <div class="container">
+            <h2 class="title-section">Fuentes</h2>
             <p class="muted">
-              Export tipo BibTeX de publicaciones. Útil para complementar items que
-              falten en ORCID.
+              Archivos usados: <code>sources/works-orcid-2026.txt</code> y <code>sources/citations-scholar-2026.txt</code>.
             </p>
-            <p class="small">
-              Archivo: <code>sources/citations-scholar-2026.txt</code>
-            </p>
-          </article>
-        </div>
-      </section>
+          </div>
+        </section>
 
-      <section id="como-publicar" class="section">
-        <div class="section-head">
-          <h2>Cómo publicar en GitHub Pages</h2>
-          <p class="muted">
-            Instrucciones resumidas (también están en <code>README.md</code>).
-          </p>
-        </div>
+        <!-- PUBLICAR -->
+        <section class="section3" id="como-publicar" aria-label="Publicar">
+          <div class="container">
+            <h2 class="title-section">Publicar</h2>
+            <ol class="muted" style="padding-left: 1.25rem">
+              <li>Crea un repositorio en GitHub llamado <code>&lt;tu-usuario&gt;.github.io</code>.</li>
+              <li>Haz commit y push.</li>
+              <li>En GitHub → Settings → Pages, selecciona rama <code>main</code> (root).</li>
+            </ol>
+          </div>
+        </section>
+      </main>
 
-        <ol class="steps">
-          <li>
-            Crea un repositorio en GitHub llamado
-            <code>&lt;tu-usuario&gt;.github.io</code>.
-          </li>
-          <li>
-            Inicializa git en esta carpeta, haz commit y empuja al repositorio.
-          </li>
-          <li>
-            En GitHub → <em>Settings</em> → <em>Pages</em>, selecciona
-            <em>Deploy from a branch</em> y la rama <code>main</code> (root).
-          </li>
-        </ol>
-      </section>
-    </main>
+      <footer aria-hidden="false">
+        <p>Generado desde <code>sources/</code>. Diseño estático compatible con GitHub Pages.</p>
+      </footer>
 
-    <footer class="site-footer">
-      <div class="container footer-inner">
-        <p class="muted small">
-          Generado desde <code>sources/</code>. Diseño estático compatible con
-          GitHub Pages.
-        </p>
-        <p class="muted small">
-          <a href="#contenido">Volver arriba</a>
-        </p>
-      </div>
-    </footer>
+      <a href="#header" class="scroll-to-top-link" aria-label="Volver arriba">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true">
+          <path
+            d="M13.0001 7.82843V20H11.0001V7.82843L5.63614 13.1924L4.22192 11.7782L12.0001 4L19.7783 11.7782L18.3641 13.1924L13.0001 7.82843Z"
+          ></path>
+        </svg>
+      </a>
+    </div>
 
     <script src="./assets/app.js" type="module"></script>
   </body>
