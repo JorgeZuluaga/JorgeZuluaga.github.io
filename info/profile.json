@@ -2,6 +2,7 @@
   "name": "Dr. Jorge I. Zuluaga",
   "headline": "Profesor Titular, Universidad de Antioquia, Medellín, Colombia.<br/>Físico y Doctor en Física, Investigador Senior en Astrofísica y Astrobiología.",
   "summary": "",
+  "aboutMe": "Soy Físico y Doctor en Física de la Universidad de Antioquia y he dedicado la mayor parte de mi vida profesional a la docencia y la investigación en universidades de Medellín, en particular en la Universidad de Antioquia, donde hoy soy profesor titular. Mi trabajo combina tres ejes: la investigación en ciencias planetarias y astrobiología, el desarrollo de software y computación científica de alto desempeño, y la divulgación científica de la astronomía y la física. He liderado grupos de investigación, proyectos y programas académicos —como el pregrado en Astronomía y diplomaturas en astronomía y física— y he publicado numerosos artículos sobre exoplanetas, exolunas, campos magnéticos planetarios, dinámica orbital y meteoroides, así como trabajos en física de neutrinos y computación científica. Como divulgador, he impulsado iniciativas presenciales, en medios y en redes, con el propósito de hacer accesible el conocimiento científico a públicos muy diversos.",
   "avatar": "./assets/profile.jpg",
   "teaching": {
     "courses": [

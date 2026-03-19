@@ -1,4 +1,4 @@
-.PHONY: start dev stop
+.PHONY: start dev stop classroom
 
 PORT ?= 8000
 HOST ?= 127.0.0.1
@@ -11,7 +11,7 @@ start:
 
 dev:
 	@echo "Starting HOT-RELOAD server on http://$(HOST):$(PORT)"
-	@python3 dev_server.py --host "$(HOST)" --port "$(PORT)" --root "."
+	@python3 bin/dev_server.py --host "$(HOST)" --port "$(PORT)" --root "."
 
 stop:
 	@echo "Stopping server on port $(PORT) (best-effort)"
@@ -27,3 +27,6 @@ stop:
 	else \
 		echo "No process listening on $(PORT)."; \
 	fi
+
+classroom:
+	@python3 bin/sync_classroom.py

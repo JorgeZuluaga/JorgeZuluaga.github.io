@@ -1,0 +1,42 @@
+[
+  {
+    "key": "whatsapp",
+    "icon": "whatsapp",
+    "href": "https://api.whatsapp.com/send?phone=573122576242",
+    "target": "_blank",
+    "ariaLabel": "WhatsApp",
+    "label": "WhatsApp: +57 312 257 6242"
+  },
+  {
+    "key": "email",
+    "icon": "email",
+    "href": "mailto:jorge.zuluaga@udea.edu.co",
+    "ariaLabel": "Email",
+    "label": "Email: jorge.zuluaga@udea.edu.co"
+  },
+  {
+    "key": "github",
+    "icon": "github",
+    "href": "http://github.com/seap-udea",
+    "target": "_blank",
+    "ariaLabel": "GitHub",
+    "label": "GitHub: github.com/seap-udea"
+  },
+  {
+    "key": "website",
+    "icon": "website",
+    "href": "http://drz.academy",
+    "target": "_blank",
+    "ariaLabel": "Sitio web",
+    "label": "Sitio web: drz.academy"
+  },
+  {
+    "key": "cvlac",
+    "icon": "website",
+    "href": "https://scienti.minciencias.gov.co/cvlac/visualizador/generarCurriculoCv.do?cod_rh=0000144800",
+    "target": "_blank",
+    "ariaLabel": "CvLAC",
+    "label": "CvLAC: 0000144800"
+  }
+]
+

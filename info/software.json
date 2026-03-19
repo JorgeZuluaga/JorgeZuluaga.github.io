@@ -1,0 +1,123 @@
+[
+  {
+    "name": "PyMCel",
+    "description": "Utilidades de mecánica celeste y astrodinámica para docencia e investigación, basadas en el libro Mecánica celeste: teoría, algoritmos y problemas.",
+    "authors": ["Jorge I. Zuluaga"],
+    "created": "2023-02-08",
+    "links": [
+      {
+        "href": "https://pypi.org/project/pymcel/",
+        "label": "https://pypi.org/project/pymcel/"
+      },
+      {
+        "href": "https://github.com/seap-udea/pymcel",
+        "label": "GitHub"
+      },
+      {
+        "href": "https://pymcel.readthedocs.io/es/latest/",
+        "label": "Documentación"
+      }
+    ]
+  },
+  {
+    "name": "Pryngles",
+    "description": "Modelo fotométrico y geométrico para simular planetas con anillos (exorings) y calcular sus curvas de luz y configuraciones geométricas.",
+    "authors": ["Jorge I. Zuluaga", "Allard Veenstra", "Sebastian Numpaque", "Mario Sucerquia", "Jaime A. Alvarado-Montes"],
+    "created": "2022-05-01",
+    "links": [
+      {
+        "href": "https://pypi.org/project/pryngles/",
+        "label": "https://pypi.org/project/pryngles/"
+      },
+      {
+        "href": "https://github.com/seap-udea/pryngles-public",
+        "label": "GitHub"
+      },
+      {
+        "href": "https://pryngles.readthedocs.io/en/latest/",
+        "label": "Documentación"
+      }
+    ]
+  },
+  {
+    "name": "MultiMin",
+    "description": "Herramientas numéricas para ajustar datos con mezclas de gaussianas multivariadas (Mixtures of Gaussians), con utilidades de visualización y análisis.",
+    "authors": ["Jorge I. Zuluaga"],
+    "created": "2026-02-06",
+    "links": [
+      {
+        "href": "https://pypi.org/project/multimin/",
+        "label": "https://pypi.org/project/multimin/"
+      },
+      {
+        "href": "https://github.com/seap-udea/multimin",
+        "label": "GitHub"
+      },
+      {
+        "href": "https://multimin.readthedocs.io/en/latest/",
+        "label": "Documentación"
+      }
+    ]
+  },
+  {
+    "name": "MultiRex",
+    "description": "Paquete para análisis y exploración de distribuciones multivariadas y modelos estadísticos complejos mediante técnicas de mezcla de gaussianas.",
+    "authors": ["David Duque-Castaño", "Jorge I. Zuluaga"],
+    "created": "2023-12-13",
+    "links": [
+      {
+        "href": "https://pypi.org/project/multirex/",
+        "label": "https://pypi.org/project/multirex/"
+      },
+      {
+        "href": "https://github.com/seap-udea/multirex",
+        "label": "GitHub"
+      },
+      {
+        "href": "https://multirex.readthedocs.io/en/latest/",
+        "label": "Documentación"
+      }
+    ]
+  },
+  {
+    "name": "FARGOpy",
+    "description": "Interfaz y herramientas de postproceso en Python para FARGO3D, orientadas al análisis y visualización de simulaciones hidrodinámicas de discos protoplanetarios.",
+    "authors": ["Jorge Zuluaga", "Alejandro Murillo-González", "Matias Montesinos"],
+    "created": "2023-11-16",
+    "links": [
+      {
+        "href": "https://pypi.org/project/fargopy/",
+        "label": "https://pypi.org/project/fargopy/"
+      },
+      {
+        "href": "https://github.com/seap-udea/fargopy",
+        "label": "GitHub"
+      },
+      {
+        "href": "https://fargopy.readthedocs.io/en/latest/",
+        "label": "Documentación"
+      }
+    ]
+  },
+  {
+    "name": "tSPICE",
+    "description": "Cálculo del potencial de marea y la respuesta elástica planetaria usando kernels SPICE, con soporte para perfiles internos y números de Love.",
+    "authors": ["Deivy Mercado", "Jorge I. Zuluaga", "Gloria Moncayo"],
+    "created": "2025-12-04",
+    "links": [
+      {
+        "href": "https://pypi.org/project/tspice/",
+        "label": "https://pypi.org/project/tspice/"
+      },
+      {
+        "href": "https://github.com/seap-udea/tspice",
+        "label": "GitHub"
+      },
+      {
+        "href": "https://tspice.readthedocs.io/en/latest/",
+        "label": "Documentación"
+      }
+    ]
+  }
+]
+

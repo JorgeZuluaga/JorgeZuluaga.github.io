@@ -1,0 +1,54 @@
+[
+  {
+    "title": "Mecánica Celeste: teoría, algoritmos y problemas",
+    "descriptionParagraphs": [
+      "Texto de referencia para la enseñanza y la investigación en Mecánica Celeste y Astrodinámica, con fundamentos y aplicaciones prácticas.",
+      "Incluye problemas y herramientas que sirven de base para códigos y utilidades asociadas."
+    ],
+    "meta": {
+      "publicationDate": "2024",
+      "issn": "9789585011953",
+      "editorial": "Universidad de Antioquia",
+      "status": "publicado"
+    },
+    "link": {
+      "href": "https://libros.udea.edu.co/index.php/editorial_udea/catalog/book/345",
+      "label": "libros.udea.edu.co"
+    }
+  },
+  {
+    "title": "Relatividad y Gravitación: teoría, algoritmos y problemas",
+    "descriptionParagraphs": [
+      "Curso-valorado en el que se desarrollan teoría y algoritmos para comprender la relatividad especial y general, con énfasis en formulaciones y ejemplos de cálculo.",
+      "Material en línea con estructura temática para estudio progresivo."
+    ],
+    "meta": {
+      "publicationDate": "—",
+      "issn": "—",
+      "editorial": "Universidad de Antioquia",
+      "status": "en edición"
+    },
+    "link": {
+      "href": "https://astronomia-udea.co/Relatividad-Zuluaga/",
+      "label": "astronomia-udea.co"
+    }
+  },
+  {
+    "title": "Fundamentos de Astrofísica",
+    "descriptionParagraphs": [
+      "Notas de curso orientadas a fundamentos conceptuales y herramientas para abordar problemas de astrofísica.",
+      "Material disponible para consulta y aprendizaje en formato en línea."
+    ],
+    "meta": {
+      "publicationDate": "2012",
+      "issn": "—",
+      "editorial": "Material académico",
+      "status": "en edición"
+    },
+    "link": {
+      "href": "https://drive.google.com/file/d/15H9wkgsyWaqcw5xQTmkodRB22WCcrmDv/view?usp=sharing",
+      "label": "Google Drive (PDF)"
+    }
+  }
+]
+

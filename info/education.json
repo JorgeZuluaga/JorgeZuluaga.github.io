@@ -1,0 +1,35 @@
+[
+  {
+    "institution": "Universidad de Antioquia",
+    "degree": "Doctorado en Física",
+    "years": "2001–2005",
+    "extraParagraphs": [
+      "Disertación: Study of core collapse neutrino signals and constraints on neutrino masses from a future Galactic supernova."
+    ]
+  },
+  {
+    "institution": "Universidad de Antioquia",
+    "degree": "Maestría en Física",
+    "years": "1999–2001",
+    "extraParagraphs": [
+      "Tesis: Explaining pulsars high peculiar velocities – a viable particle physics solution."
+    ]
+  },
+  {
+    "institution": "Universidad de Antioquia",
+    "degree": "Pregrado en Física",
+    "years": "1993–1998",
+    "extraParagraphs": [
+      "Trabajo de grado: Introducción a la Astrofísica – notas del curso."
+    ]
+  },
+  {
+    "institution": "Universidad de Antioquia",
+    "degree": "Diplomado en Pedagogía y Didáctica Universitaria",
+    "years": "2007",
+    "extraParagraphs": [
+      "Formación docente en pedagogía y didáctica de la educación superior."
+    ]
+  }
+]
+

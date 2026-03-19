@@ -86,12 +86,9 @@
       <section class="section1" id="home" aria-label="Inicio">
         <div class="container home-header">
           <div class="home-main">
-            <h1 id="name">Dr. Jorge I. Zuluaga</h1>
-            <p id="headline">
-              Físico y Doctor en Física, Universidad de Antioquia, Medellín, Colombia.
-            </p>
-            <p id="summary">
-            </p>
+            <h1 id="name"></h1>
+            <p id="headline"></p>
+            <p id="summary"></p>
             <span id="count" hidden>—</span>
           </div>
           <div class="home-qr" aria-label="Código QR de la versión en línea">
@@ -108,46 +105,57 @@
         <div class="container">
           <h2 class="title-section">Contacto</h2>
 
-          <a href="https://api.whatsapp.com/send?phone=573122576242" target="_blank" aria-label="WhatsApp"
+          <a href="#" data-contact="whatsapp" target="_blank" aria-label="WhatsApp"
             title="Se abre en una nueva pestaña" rel="noreferrer">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true">
               <path
                 d="M12.001 2C17.5238 2 22.001 6.47715 22.001 12C22.001 17.5228 17.5238 22 12.001 22C10.1671 22 8.44851 21.5064 6.97086 20.6447L2.00516 22L3.35712 17.0315C2.49494 15.5536 2.00098 13.8345 2.00098 12C2.00098 6.47715 6.47813 2 12.001 2ZM8.59339 7.30019L8.39232 7.30833C8.26293 7.31742 8.13607 7.34902 8.02057 7.40811C7.93392 7.45244 7.85348 7.51651 7.72709 7.63586C7.60774 7.74855 7.53857 7.84697 7.46569 7.94186C7.09599 8.4232 6.89729 9.01405 6.90098 9.62098C6.90299 10.1116 7.03043 10.5884 7.23169 11.0336C7.63982 11.9364 8.31288 12.8908 9.20194 13.7759C9.4155 13.9885 9.62473 14.2034 9.85034 14.402C10.9538 15.3736 12.2688 16.0742 13.6907 16.4482C13.6907 16.4482 14.2507 16.5342 14.2589 16.5347C14.4444 16.5447 14.6296 16.5313 14.8153 16.5218C15.1066 16.5068 15.391 16.428 15.6484 16.2909C15.8139 16.2028 15.8922 16.159 16.0311 16.0714C16.0311 16.0714 16.0737 16.0426 16.1559 15.9814C16.2909 15.8808 16.3743 15.81 16.4866 15.6934C16.5694 15.6074 16.6406 15.5058 16.6956 15.3913C16.7738 15.2281 16.8525 14.9166 16.8838 14.6579C16.9077 14.4603 16.9005 14.3523 16.8979 14.2854C16.8936 14.1778 16.8047 14.0671 16.7073 14.0201L16.1258 13.7587C16.1258 13.7587 15.2563 13.3803 14.7245 13.1377C14.6691 13.1124 14.6085 13.1007 14.5476 13.097C14.4142 13.0888 14.2647 13.1236 14.1696 13.2238C14.1646 13.2218 14.0984 13.279 13.3749 14.1555C13.335 14.2032 13.2415 14.3069 13.0798 14.2972C13.0554 14.2955 13.0311 14.292 13.0074 14.2858C12.9419 14.2685 12.8781 14.2457 12.8157 14.2193C12.692 14.1668 12.6486 14.1469 12.5641 14.1105C11.9868 13.8583 11.457 13.5209 10.9887 13.108C10.8631 12.9974 10.7463 12.8783 10.6259 12.7616C10.2057 12.3543 9.86169 11.9211 9.60577 11.4938C9.5918 11.4705 9.57027 11.4368 9.54708 11.3991C9.50521 11.331 9.45903 11.25 9.44455 11.1944C9.40738 11.0473 9.50599 10.9291 9.50599 10.9291C9.50599 10.9291 9.74939 10.663 9.86248 10.5183C9.97128 10.379 10.0652 10.2428 10.125 10.1457C10.2428 9.95633 10.2801 9.76062 10.2182 9.60963C9.93764 8.92565 9.64818 8.24536 9.34986 7.56894C9.29098 7.43545 9.11585 7.33846 8.95659 7.32007C8.90265 7.31384 8.84875 7.30758 8.79459 7.30402C8.66053 7.29748 8.5262 7.29892 8.39232 7.30833L8.59339 7.30019Z">
               </path>
             </svg>
-            WhatsApp: +57 312 257 6242
+            <span class="contact-text"></span>
           </a>
           <br />
 
-          <a href="mailto:jorge.zuluaga@udea.edu.co" aria-label="Email" title="Abrir correo">
+          <a href="#" data-contact="email" aria-label="Email" title="Abrir correo">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true">
               <path
                 d="M3 3H21C21.5523 3 22 3.44772 22 4V20C22 20.5523 21.5523 21 21 21H3C2.44772 21 2 20.5523 2 20V4C2 3.44772 2.44772 3 3 3ZM12.0606 11.6829L5.64722 6.2377L4.35278 7.7623L12.0731 14.3171L19.6544 7.75616L18.3456 6.24384L12.0606 11.6829Z">
               </path>
             </svg>
-            Email: jorge.zuluaga@udea.edu.co
+            <span class="contact-text"></span>
           </a>
           <br />
 
-          <a href="http://github.com/seap-udea" target="_blank" aria-label="GitHub" title="Se abre en una nueva pestaña"
+          <a href="#" data-contact="github" target="_blank" aria-label="GitHub" title="Se abre en una nueva pestaña"
             rel="noreferrer">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true">
               <path
                 d="M12.001 2C6.47598 2 2.00098 6.475 2.00098 12C2.00098 16.425 4.86348 20.1625 8.83848 21.4875C9.33848 21.575 9.52598 21.275 9.52598 21.0125C9.52598 20.775 9.51348 19.9875 9.51348 19.15C7.00098 19.6125 6.35098 18.5375 6.15098 17.975C6.03848 17.6875 5.55098 16.8 5.12598 16.5625C4.77598 16.375 4.27598 15.9125 5.11348 15.9C5.90098 15.8875 6.46348 16.625 6.65098 16.925C7.55098 18.4375 8.98848 18.0125 9.56348 17.75C9.65098 17.1 9.91348 16.6625 10.201 16.4125C7.97598 16.1625 5.65098 15.3 5.65098 11.475C5.65098 10.3875 6.03848 9.4875 6.67598 8.7875C6.57598 8.5375 6.22598 7.5125 6.77598 6.1375C6.77598 6.1375 7.61348 5.875 9.52598 7.1625C10.326 6.9375 11.176 6.825 12.026 6.825C12.876 6.825 13.726 6.9375 14.526 7.1625C16.4385 5.8625 17.276 6.1375 17.276 6.1375C17.826 7.5125 17.476 8.5375 17.376 8.7875C18.0135 9.4875 18.401 10.375 18.401 11.475C18.401 15.3125 16.0635 16.1625 13.8385 16.4125C14.201 16.725 14.5135 17.325 14.5135 18.2625C14.5135 19.6 14.501 20.675 14.501 21.0125C14.501 21.275 14.6885 21.5875 15.1885 21.4875C19.259 20.1133 21.9999 16.2963 22.001 12C22.001 6.475 17.526 2 12.001 2Z">
               </path>
             </svg>
-            GitHub: github.com/seap-udea
+            <span class="contact-text"></span>
           </a>
           <br />
 
-          <a href="http://drz.academy" target="_blank" aria-label="Sitio web" title="Se abre en una nueva pestaña"
+          <a href="#" data-contact="website" target="_blank" aria-label="Sitio web" title="Se abre en una nueva pestaña"
             rel="noreferrer">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true">
               <path
                 d="M2.04932 12.9999H7.52725C7.70624 16.2688 8.7574 19.3053 10.452 21.8809C5.98761 21.1871 2.5001 17.5402 2.04932 12.9999ZM2.04932 10.9999C2.5001 6.45968 5.98761 2.81276 10.452 2.11902C8.7574 4.69456 7.70624 7.73111 7.52725 10.9999H2.04932ZM21.9506 10.9999H16.4726C16.2936 7.73111 15.2425 4.69456 13.5479 2.11902C18.0123 2.81276 21.4998 6.45968 21.9506 10.9999ZM21.9506 12.9999C21.4998 17.5402 18.0123 21.1871 13.5479 21.8809C15.2425 19.3053 16.2936 16.2688 16.4726 12.9999H21.9506ZM9.53068 12.9999H14.4692C14.2976 15.7828 13.4146 18.3732 11.9999 20.5915C10.5852 18.3732 9.70229 15.7828 9.53068 12.9999ZM9.53068 10.9999C9.70229 8.21709 10.5852 5.62672 11.9999 3.40841C13.4146 5.62672 14.2976 8.21709 14.4692 10.9999H9.53068Z">
               </path>
             </svg>
-            Sitio web: drz.academy
+            <span class="contact-text"></span>
+          </a>
+          <br />
+
+          <a href="#" data-contact="cvlac" target="_blank" aria-label="CvLAC" title="Se abre en una nueva pestaña"
+            rel="noreferrer">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true">
+              <path
+                d="M2.04932 12.9999H7.52725C7.70624 16.2688 8.7574 19.3053 10.452 21.8809C5.98761 21.1871 2.5001 17.5402 2.04932 12.9999ZM2.04932 10.9999C2.5001 6.45968 5.98761 2.81276 10.452 2.11902C8.7574 4.69456 7.70624 7.73111 7.52725 10.9999H2.04932ZM21.9506 10.9999H16.4726C16.2936 7.73111 15.2425 4.69456 13.5479 2.11902C18.0123 2.81276 21.4998 6.45968 21.9506 10.9999ZM21.9506 12.9999C21.4998 17.5402 18.0123 21.1871 13.5479 21.8809C15.2425 19.3053 16.2936 16.2688 16.4726 12.9999H21.9506ZM9.53068 12.9999H14.4692C14.2976 15.7828 13.4146 18.3732 11.9999 20.5915C10.5852 18.3732 9.70229 15.7828 9.53068 12.9999ZM9.53068 10.9999C9.70229 8.21709 10.5852 5.62672 11.9999 3.40841C13.4146 5.62672 14.2976 8.21709 14.4692 10.9999H9.53068Z">
+              </path>
+            </svg>
+            <span class="contact-text"></span>
           </a>
         </div>
       </section>
@@ -156,25 +164,7 @@
       <section class="section2" id="sobre-mi" aria-label="Sobre mí">
         <div class="container">
           <h2 class="title-section">Sobre mí</h2>
-          <p>
-            Soy Físico y Doctor en Física de la Universidad de Antioquia y he dedicado la mayor parte de mi vida
-            profesional
-            a la docencia y la investigación en universidades de Medellín, en particular en la Universidad de Antioquia,
-            donde
-            hoy soy profesor titular. Mi trabajo combina tres ejes: la investigación en ciencias planetarias y
-            astrobiología,
-            el desarrollo de software y computación científica de alto desempeño, y la divulgación científica de la
-            astronomía
-            y la física. He liderado grupos de investigación, proyectos y programas académicos —como el pregrado en
-            Astronomía
-            y diplomaturas en astronomía y física— y he publicado numerosos artículos sobre exoplanetas, exolunas,
-            campos
-            magnéticos planetarios, dinámica orbital y meteoroides, así como trabajos en física de neutrinos y
-            computación
-            científica. Como divulgador, he impulsado iniciativas presenciales, en medios y en redes, con el propósito
-            de hacer
-            accesible el conocimiento científico a públicos muy diversos.
-          </p>
+          <div id="about-me"></div>
         </div>
       </section>
 
@@ -182,43 +172,7 @@
       <section class="section4" id="educacion" aria-label="Educación">
         <div class="container">
           <h2 class="title-section">Educación</h2>
-
-          <div class="box border1">
-            <div class="info">
-              <h3>Universidad de Antioquia</h3>
-              <h4>Doctorado en Física</h4>
-              <p>2001–2005</p>
-              <p>Disertación: Study of core collapse neutrino signals and constraints on neutrino masses from a future
-                Galactic supernova.</p>
-            </div>
-          </div>
-
-          <div class="box border2">
-            <div class="info">
-              <h3>Universidad de Antioquia</h3>
-              <h4>Maestría en Física</h4>
-              <p>1999–2001</p>
-              <p>Tesis: Explaining pulsars high peculiar velocities – a viable particle physics solution.</p>
-            </div>
-          </div>
-
-          <div class="box border3">
-            <div class="info">
-              <h3>Universidad de Antioquia</h3>
-              <h4>Pregrado en Física</h4>
-              <p>1993–1998</p>
-              <p>Trabajo de grado: Introducción a la Astrofísica – notas del curso.</p>
-            </div>
-          </div>
-
-          <div class="box border4">
-            <div class="info">
-              <h3>Universidad de Antioquia</h3>
-              <h4>Diplomado en Pedagogía y Didáctica Universitaria</h4>
-              <p>2007</p>
-              <p>Formación docente en pedagogía y didáctica de la educación superior.</p>
-            </div>
-          </div>
+          <div id="education-items"></div>
         </div>
       </section>
 
@@ -226,32 +180,7 @@
       <section class="section4" id="estancias" aria-label="Estancias de investigación">
         <div class="container">
           <h2 class="title-section">Estancias de investigación</h2>
-
-          <div class="box border2">
-            <div class="info">
-              <h3>Harvard-Smithsonian Center for Astrophysics (CfA)</h3>
-              <h4>Cambridge, Estados Unidos · Fulbright Visitor Scholar</h4>
-              <p>2014–2015 · Estancia de investigación y colaboración científica en astrofísica y ciencias planetarias.
-              </p>
-            </div>
-          </div>
-
-          <div class="box border5">
-            <div class="info">
-              <h3>Istituto Nazionale di Fisica Nucleare (INFN), Laboratori Nazionali di Frascati</h3>
-              <h4>Frascati, Italia · Pasantía doctoral</h4>
-              <p>2003–2004 · Investigación en física de neutrinos y astrofísica de supernovas como parte de la tesis
-                doctoral.</p>
-            </div>
-          </div>
-
-          <div class="box border3">
-            <div class="info">
-              <h3>International Centre for Theoretical Physics (ICTP) / SISSA</h3>
-              <h4>Trieste, Italia · Pasantía estudiantil</h4>
-              <p>2003 · Estancia académica en escuelas y talleres de física teórica y astrofísica.</p>
-            </div>
-          </div>
+          <div id="research-items"></div>
         </div>
       </section>
 
@@ -259,53 +188,7 @@
       <section class="section4" id="premios" aria-label="Premios">
         <div class="container">
           <h2 class="title-section">Premios y reconocimientos</h2>
-
-          <div class="box border1">
-            <div class="info">
-              <h3>Investigador Senior (IS) – Minciencias</h3>
-              <h4>Ministerio de Ciencia, Tecnología e Innovación · Colombia</h4>
-              <p>Vigente · Reconocimiento como investigador senior del Sistema Nacional de Ciencia, Tecnología e
-                Innovación.</p>
-            </div>
-          </div>
-
-          <div class="box border2">
-            <div class="info">
-              <h3>Beca Fulbright Visitor Scholar</h3>
-              <h4>Harvard-Smithsonian Center for Astrophysics (CfA)</h4>
-              <p>2014–2015 · Programa Fulbright para estancia de investigación en astrofísica y ciencias planetarias.
-              </p>
-            </div>
-          </div>
-
-          <div class="box border3">
-            <div class="info">
-              <h3>Premio a la Investigación Universitaria</h3>
-              <h4>Universidad de Antioquia</h4>
-              <p>2013 · Reconocimiento institucional a la producción y liderazgo en investigación científica.</p>
-            </div>
-          </div>
-
-          <div class="box border4">
-            <div class="info">
-              <h3>Premio a la Extensión Universitaria</h3>
-              <h4>Universidad de Antioquia</h4>
-              <p>2011 · Distinción por la labor de divulgación y apropiación social del conocimiento en astronomía y
-                ciencias.</p>
-            </div>
-          </div>
-
-          <div class="box border5">
-            <div class="info">
-              <h3>Reconocimientos académicos de pregrado y posgrado</h3>
-              <h4>Universidad de Antioquia</h4>
-              <p>
-                1996–2005 · Incluyen distinciones como mejor estudiante avanzado de Física, mejor Físico de la promoción
-                y tesis de
-                doctorado Magna Cum Laude.
-              </p>
-            </div>
-          </div>
+          <div id="awards-items"></div>
         </div>
       </section>
 
@@ -368,83 +251,7 @@
           <ol id="latest" class="pubs" aria-label="Publicaciones más recientes"></ol>
 
           <h3 style="margin-top: 1.5rem">Los 5 artículos más citados (Scholar)</h3>
-          <ol id="top-cited" class="pubs" aria-label="Publicaciones más citadas">
-            <li class="pub">
-              <div class="pub-head">
-                <h3 class="pub-title">Formation, habitability, and detection of extrasolar moons</h3>
-              </div>
-              <div class="pub-meta">
-                2014. R. Heller, D. Williams, D. Kipping, M.A. Limbach, E. Turner, R. Greenberg,
-                <strong>J.I. Zuluaga</strong>, … Astrobiology 14 (9), 798–835. Citations: 168.
-              </div>
-              <div class="pub-links">
-                <a class="link" href="https://doi.org/10.1089/ast.2014.1147" target="_blank"
-                  rel="noreferrer noopener">DOI: 10.1089/ast.2014.1147</a>
-              </div>
-            </li>
-
-            <li class="pub">
-              <div class="pub-head">
-                <h3 class="pub-title">A novel method for identifying exoplanetary rings</h3>
-              </div>
-              <div class="pub-meta">
-                2015. <strong>J.I. Zuluaga</strong>, D.M. Kipping, M. Sucerquia, J.A. Alvarado. The Astrophysical
-                Journal Letters 803 (1), L14. Citations: 73.
-              </div>
-              <div class="pub-links">
-                <a class="link" href="https://doi.org/10.1088/2041-8205/803/1/L14" target="_blank"
-                  rel="noreferrer noopener">DOI: 10.1088/2041-8205/803/1/L14</a>
-              </div>
-            </li>
-
-            <li class="pub">
-              <div class="pub-head">
-                <h3 class="pub-title">
-                  Size and shape constraints of (486958) Arrokoth from stellar occultations
-                </h3>
-              </div>
-              <div class="pub-meta">
-                2020. M.W. Buie, S.B. Porter, P. Tamblyn, D. Terrell, A.H. Parker, D. Baratoux, …
-                <strong>J.I. Zuluaga</strong>. The Astronomical Journal 159 (4), 130. Citations: 68.
-              </div>
-              <div class="pub-links">
-                <a class="link" href="https://doi.org/10.3847/1538-3881/ab6ced" target="_blank"
-                  rel="noreferrer noopener">DOI: 10.3847/1538-3881/ab6ced</a>
-              </div>
-            </li>
-
-            <li class="pub">
-              <div class="pub-head">
-                <h3 class="pub-title">
-                  The influence of thermal evolution in the magnetic protection of terrestrial planets
-                </h3>
-              </div>
-              <div class="pub-meta">
-                2013. <strong>J.I. Zuluaga</strong>, S. Bustamante, P.A. Cuartas, J.H. Hoyos. The Astrophysical
-                Journal 770 (1), 23. Citations: 61.
-              </div>
-              <div class="pub-links">
-                <a class="link" href="https://doi.org/10.1088/0004-637X/770/1/23" target="_blank"
-                  rel="noreferrer noopener">DOI: 10.1088/0004-637X/770/1/23</a>
-              </div>
-            </li>
-
-            <li class="pub">
-              <div class="pub-head">
-                <h3 class="pub-title">
-                  SU(4)<sub>L</sub> × U(1)<sub>X</sub> three-family model for the electroweak interaction
-                </h3>
-              </div>
-              <div class="pub-meta">
-                2008. L.A. Sánchez, L.A. Wills-Toro, <strong>J.I. Zuluaga</strong>. Physical Review D 77 (3),
-                035008. Citations: 46.
-              </div>
-              <div class="pub-links">
-                <a class="link" href="https://doi.org/10.1103/PhysRevD.77.035008" target="_blank"
-                  rel="noreferrer noopener">DOI: 10.1103/PhysRevD.77.035008</a>
-              </div>
-            </li>
-          </ol>
+          <ol id="top-cited" class="pubs" aria-label="Publicaciones más citadas"></ol>
 
           <h3 style="margin-top: 1.5rem">Preprints seleccionados</h3>
           <ol id="preprints" class="pubs" aria-label="Preprints seleccionados"></ol>
@@ -466,72 +273,7 @@
             Libros publicados y materiales académicos asociados a mis áreas de trabajo.
           </p>
 
-          <div class="box border1">
-            <div class="info">
-              <h3>Mecánica Celeste: teoría, algoritmos y problemas</h3>
-              <p>
-                Texto de referencia para la enseñanza y la investigación en Mecánica Celeste y Astrodinámica,
-                con fundamentos y aplicaciones prácticas.
-              </p>
-              <p>
-                Incluye problemas y herramientas que sirven de base para códigos y utilidades asociadas.
-              </p>
-              <p><strong>Fecha de publicación:</strong> 2024</p>
-              <p><strong>ISSN:</strong> 9789585011953</p>
-              <p><strong>Editorial:</strong> Universidad de Antioquia</p>
-              <p><strong>Estado:</strong> publicado</p>
-              <p>
-                <strong>Enlace de adquisición o descarga:</strong>
-                <a class="link" href="https://libros.udea.edu.co/index.php/editorial_udea/catalog/book/345" target="_blank"
-                  rel="noreferrer noopener">libros.udea.edu.co</a>
-              </p>
-            </div>
-          </div>
-
-          <div class="box border2">
-            <div class="info">
-              <h3>Relatividad y Gravitación: teoría, algoritmos y problemas</h3>
-              <p>
-                Curso-valorado en el que se desarrollan teoría y algoritmos para comprender la relatividad especial y
-                general, con énfasis en formulaciones y ejemplos de cálculo.
-              </p>
-              <p>
-                Material en línea con estructura temática para estudio progresivo.
-              </p>
-              <p><strong>Fecha de publicación:</strong> —</p>
-              <p><strong>ISSN:</strong> —</p>
-              <p><strong>Editorial:</strong> Universidad de Antioquia</p>
-              <p><strong>Estado:</strong> en edición</p>
-              <p>
-                <strong>Enlace de adquisición o descarga:</strong>
-                <a class="link" href="https://astronomia-udea.co/Relatividad-Zuluaga/" target="_blank"
-                  rel="noreferrer noopener">astronomia-udea.co</a>
-              </p>
-            </div>
-          </div>
-
-          <div class="box border3">
-            <div class="info">
-              <h3>Fundamentos de Astrofísica</h3>
-              <p>
-                Notas de curso orientadas a fundamentos conceptuales y herramientas para abordar problemas de
-                astrofísica.
-              </p>
-              <p>
-                Material disponible para consulta y aprendizaje en formato en línea.
-              </p>
-              <p><strong>Fecha de publicación:</strong> 2012</p>
-              <p><strong>ISSN:</strong> —</p>
-              <p><strong>Editorial:</strong> Material académico</p>
-              <p><strong>Estado:</strong> en edición</p>
-              <p>
-                <strong>Enlace de adquisición o descarga:</strong>
-                <a class="link"
-                  href="https://drive.google.com/file/d/15H9wkgsyWaqcw5xQTmkodRB22WCcrmDv/view?usp=sharing" target="_blank"
-                  rel="noreferrer noopener">Google Drive (PDF)</a>
-              </p>
-            </div>
-          </div>
+          <div id="libros-items"></div>
         </div>
       </section>
 
@@ -544,72 +286,7 @@
             divulgativa.
           </p>
 
-          <div class="box border1">
-            <div class="info">
-              <h3>Dirección y Administración: CRESCA</h3>
-              <h4>Cargo: Director</h4>
-              <p>Junio 2007–Enero 2010 &middot; Centro Regional de Simulación y Cálculo Avanzado (CRESCA).</p>
-            </div>
-          </div>
-
-          <div class="box border1">
-            <div class="info">
-              <h3>Creación del Pregrado de Astronomía</h3>
-              <h4>Universidad de Antioquia</h4>
-              <p>2008–2009 &middot; Co-creador y formulador principal del proyecto que dio vida al primer programa de
-                pregrado en Astronomía en Colombia, aprobado por el Ministerio de Educación en 2008 e iniciando clases
-                en 2009.</p>
-            </div>
-          </div>
-
-          <div class="box border2">
-            <div class="info">
-              <h3>Coordinación del Pregrado de Astronomía</h3>
-              <h4>Universidad de Antioquia</h4>
-              <p>2009–2015 &middot; Primer coordinador del pregrado, liderando el desarrollo inicial del programa, la
-                contratación docente y el acompañamiento a las primeras cohortes de astrónomos profesionales del país.
-              </p>
-            </div>
-          </div>
-
-          <div class="box border3">
-            <div class="info">
-              <h3>Patente de Invención: Regla de Minkowski</h3>
-              <h4>Superintendencia de Industria y Comercio</h4>
-              <p>2016 (Solicitud en 2015) &middot; Invención patentada para la enseñanza y el aprendizaje de la
-                relatividad especial, reconocida a nivel nacional.</p>
-            </div>
-          </div>
-
-          <div class="box border4">
-            <div class="info">
-              <h3>Libro: Mecánica Celeste</h3>
-              <h4>Teoría, algoritmos y problemas</h4>
-              <p>Publicación académica y desarrollo del paquete de software <code>pymcel</code> asociado al libro,
-                utilizado como herramienta fundamental en la docencia de la astronomía y la astrodinámica.</p>
-            </div>
-          </div>
-
-          <div class="box border5">
-            <div class="info">
-              <h3>Paquetes de Software para Astronomía</h3>
-              <h4>Desarrollo de herramientas computacionales</h4>
-              <p>Creación y mantenimiento de múltiples paquetes de código abierto (PyMCel, Pryngles, MultiMin, MultiRex,
-                FARGOpy, tSPICE) utilizados por la comunidad internacional para la investigación y enseñanza en ciencias
-                planetarias.</p>
-            </div>
-          </div>
-
-          <div class="box border6">
-            <div class="info">
-              <h3>Creación de Doctor Z Academy</h3>
-              <h4>Emprendimiento educativo</h4>
-              <p>2024–Presente &middot; Fundador de una academia dedicada a la divulgación científica, la enseñanza de
-                la física y la astronomía para un público amplio, uniendo el rigor científico con formatos accesibles.
-              </p>
-            </div>
-          </div>
-
+          <div id="logros-profesionales-items"></div>
         </div>
       </section>
 
@@ -679,145 +356,7 @@
             docencia. Algunos de estos paquetes fueron desarrollados en colaboración con estudiantes de pregrado y posgrado.
           </p>
 
-          <div class="box border1">
-            <div class="info">
-              <h3>PyMCel</h3>
-              <p>
-                Utilidades de mecánica celeste y astrodinámica para docencia e investigación, basadas en el libro
-                <em>Mecánica celeste: teoría, algoritmos y problemas</em>.
-              </p>
-              <p>
-                <strong>Autores:</strong> <strong>Jorge I. Zuluaga</strong> &middot; <strong>Fecha de creación:</strong> 2023-02-08
-              </p>
-              <p>
-                <br />
-              </p>
-              <p>
-                <a class="link" href="https://pypi.org/project/pymcel/" target="_blank" rel="noreferrer noopener">
-                  https://pypi.org/project/pymcel/
-                </a>
-                · <a class="link" href="https://github.com/seap-udea/pymcel" target="_blank" rel="noreferrer noopener">GitHub</a> ·
-                <a class="link" href="https://pymcel.readthedocs.io/es/latest/" target="_blank"
-                  rel="noreferrer noopener">Documentación</a>
-              </p>
-            </div>
-          </div>
-
-          <div class="box border2">
-            <div class="info">
-              <h3>Pryngles</h3>
-              <p>
-                Modelo fotométrico y geométrico para simular planetas con anillos (exorings) y calcular sus curvas de
-                luz y configuraciones geométricas.
-              </p>
-              <p>
-                <strong>Autores:</strong> <strong>Jorge I. Zuluaga</strong>, Allard Veenstra, Sebastian Numpaque, Mario Sucerquia and Jaime A. Alvarado-Montes
-                &middot; <strong>Fecha de creación:</strong> 2022-05-01
-              </p>
-              <p>
-                <br />
-              </p>
-              <p>
-                <a class="link" href="https://pypi.org/project/pryngles/" target="_blank"
-                  rel="noreferrer noopener">https://pypi.org/project/pryngles/</a>
-                · <a class="link" href="https://github.com/seap-udea/pryngles-public" target="_blank" rel="noreferrer noopener">GitHub</a> ·
-                <a class="link" href="https://pryngles.readthedocs.io/en/latest/" target="_blank"
-                  rel="noreferrer noopener">Documentación</a>
-              </p>
-            </div>
-          </div>
-
-          <div class="box border3">
-            <div class="info">
-              <h3>MultiMin</h3>
-              <p>
-                Herramientas numéricas para ajustar datos con mezclas de gaussianas multivariadas (Mixtures of
-                Gaussians), con utilidades de visualización y análisis.
-              </p>
-              <p>
-                <strong>Autores:</strong> <strong>Jorge I. Zuluaga</strong> &middot; <strong>Fecha de creación:</strong> 2026-02-06
-              </p>
-              <p>
-                <br />
-              </p>
-              <p>
-                <a class="link" href="https://pypi.org/project/multimin/" target="_blank"
-                  rel="noreferrer noopener">https://pypi.org/project/multimin/</a>
-                · <a class="link" href="https://github.com/seap-udea/multimin" target="_blank" rel="noreferrer noopener">GitHub</a> ·
-                <a class="link" href="https://multimin.readthedocs.io/en/latest/" target="_blank"
-                  rel="noreferrer noopener">Documentación</a>
-              </p>
-            </div>
-          </div>
-
-          <div class="box border4">
-            <div class="info">
-              <h3>MultiRex</h3>
-              <p>
-                Paquete para análisis y exploración de distribuciones multivariadas y modelos estadísticos complejos
-                mediante técnicas de mezcla de gaussianas.
-              </p>
-              <p>
-                <strong>Autores:</strong> David Duque-Castaño and <strong>Jorge I. Zuluaga</strong> &middot; <strong>Fecha de creación:</strong> 2023-12-13
-              </p>
-              <p>
-                <br />
-              </p>
-              <p>
-                <a class="link" href="https://pypi.org/project/multirex/" target="_blank"
-                  rel="noreferrer noopener">https://pypi.org/project/multirex/</a>
-                · <a class="link" href="https://github.com/seap-udea/multirex" target="_blank" rel="noreferrer noopener">GitHub</a> ·
-                <a class="link" href="https://multirex.readthedocs.io/en/latest/" target="_blank"
-                  rel="noreferrer noopener">Documentación</a>
-              </p>
-            </div>
-          </div>
-
-          <div class="box border5">
-            <div class="info">
-              <h3>FARGOpy</h3>
-              <p>
-                Interfaz y herramientas de postproceso en Python para FARGO3D, orientadas al análisis y visualización
-                de simulaciones hidrodinámicas de discos protoplanetarios.
-              </p>
-              <p>
-                <strong>Autores:</strong> <strong>Jorge Zuluaga</strong>, Alejandro Murillo-González, Matias Montesinos &middot; <strong>Fecha de creación:</strong> 2023-11-16
-              </p>
-              <p>
-                <br />
-              </p>
-              <p>
-                <a class="link" href="https://pypi.org/project/fargopy/" target="_blank"
-                  rel="noreferrer noopener">https://pypi.org/project/fargopy/</a>
-                · <a class="link" href="https://github.com/seap-udea/fargopy" target="_blank" rel="noreferrer noopener">GitHub</a> ·
-                <a class="link" href="https://fargopy.readthedocs.io/en/latest/" target="_blank"
-                  rel="noreferrer noopener">Documentación</a>
-              </p>
-            </div>
-          </div>
-
-          <div class="box border6">
-            <div class="info">
-              <h3>tSPICE</h3>
-              <p>
-                Cálculo del potencial de marea y la respuesta elástica planetaria usando kernels SPICE, con soporte
-                para perfiles internos y números de Love.
-              </p>
-              <p>
-                <strong>Autores:</strong> Deivy Mercado, <strong>Jorge I. Zuluaga</strong>, Gloria Moncayo &middot; <strong>Fecha de creación:</strong> 2025-12-04
-              </p>
-              <p>
-                <br />
-              </p>
-              <p>
-                <a class="link" href="https://pypi.org/project/tspice/" target="_blank"
-                  rel="noreferrer noopener">https://pypi.org/project/tspice/</a>
-                · <a class="link" href="https://github.com/seap-udea/tspice" target="_blank" rel="noreferrer noopener">GitHub</a> ·
-                <a class="link" href="https://tspice.readthedocs.io/en/latest/" target="_blank"
-                  rel="noreferrer noopener">Documentación</a>
-              </p>
-            </div>
-          </div>
+          <div id="software-items"></div>
         </div>
       </section>
 

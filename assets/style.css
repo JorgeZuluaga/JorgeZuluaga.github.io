@@ -468,6 +468,12 @@ header .image img {
   border-bottom: none;
 }
 
+/* Paquetes de software */
+/* Si aún existe HTML estático dentro de #software-items, se oculta una vez renderice JSON. */
+#software-items[data-rendered="true"] .box:not([data-source="json"]) {
+  display: none !important;
+}
+
 /* FOOTER */
 
 footer {

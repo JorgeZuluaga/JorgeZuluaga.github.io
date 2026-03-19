@@ -1,7 +1,5 @@
-const SOURCES = [
-  { id: "orcid", label: "ORCID", path: "./assets/works-orcid-2026.txt" },
-  { id: "scholar", label: "Scholar", path: "./assets/citations-scholar-2026.txt" },
-];
+// Publications are loaded from info/papers.json (single source of truth).
+const SOURCES = [];
 
 function normalizeText(s) {
   return (s ?? "")
@@ -211,6 +209,19 @@ function renderPub(e, extraBadge = null) {
   const year = parseYear(e);
   const authors = formatAuthors(e.author);
   const venue = pickVenue(e);
+  const selectionRaw = e.selection ?? extraBadge?.selectionClass ?? "";
+  const selectionClass = (() => {
+    const s = String(selectionRaw || "").toLowerCase();
+    // User-facing schema:
+    // - selection: "recent" -> CSS class "latest"
+    // - selection: "latest" -> CSS class "latest"
+    // - selection: "top" -> CSS class "top"
+    // - selection: "preprint" -> CSS class "preprint"
+    if (s === "recent" || s === "latest") return "latest";
+    if (s === "top") return "top";
+    if (s === "preprint") return "preprint";
+    return s;
+  })();
 
   const doiUrl = linkForDOI(e.doi);
   const rawDoi = (e.doi ?? "").toString().trim().replace(/^doi:\s*/i, "");
@@ -221,12 +232,17 @@ function renderPub(e, extraBadge = null) {
   ].filter(Boolean);
 
   const li = document.createElement("li");
-  li.className = "pub";
+  li.className = `pub${selectionClass ? ` ${selectionClass}` : ""}`;
   li.dataset.year = year ?? "";
   li.dataset.source = e.source;
   li.dataset.search = normalizeText(
     `${title} ${authors} ${venue} ${year ?? ""} ${e.doi ?? ""} ${e.url ?? ""} ${arxivInfo?.id ?? ""}`,
   );
+
+  const citationsPart =
+    e.citations !== undefined && e.citations !== null && e.citations !== ""
+      ? ` · Citations: ${escapeHtml(String(e.citations))}`
+      : "";
 
   li.innerHTML = `
     <div class="pub-head">
@@ -236,7 +252,7 @@ function renderPub(e, extraBadge = null) {
       ${year ? `${year}. ` : ""}${authors
       ? `${highlightAuthor(escapeHtml(authors))} · `
       : ""
-    }${escapeHtml(venue)}
+    }${escapeHtml(venue)}${citationsPart}
     </div>
     ${links.length
       ? `<div class="pub-links">
@@ -370,8 +386,16 @@ function clearChildren(el) {
 }
 
 async function loadProfile() {
-  const res = await fetch("./assets/profile.json", { cache: "no-store" });
+  const res = await fetch("./info/profile.json", { cache: "no-store" });
   if (!res.ok) return null;
+  return res.json();
+}
+
+async function loadJson(path) {
+  const res = await fetch(path, { cache: "no-store" });
+  if (!res.ok) {
+    throw new Error(`No se pudo cargar ${path} (${res.status})`);
+  }
   return res.json();
 }
 
@@ -465,6 +489,260 @@ function renderExperience(profile) {
   }
 }
 
+async function renderLogrosProfesionales() {
+  const el = document.getElementById("logros-profesionales-items");
+  if (!el) return;
+
+  clearChildren(el);
+  try {
+    const items = await loadJson("./info/logros-profesionales.json");
+
+    let borderIdx = 1;
+    for (const item of items) {
+      const div = document.createElement("div");
+      div.className = `box border${borderIdx}`;
+      borderIdx = borderIdx < 6 ? borderIdx + 1 : 1;
+
+      div.innerHTML = `
+        <div class="info">
+          <h3>${escapeHtml(item.title ?? "")}</h3>
+          <h4>${escapeHtml(item.subtitle ?? "")}</h4>
+          <p>${item.descriptionHtml ?? ""}</p>
+        </div>
+      `;
+
+      el.appendChild(div);
+    }
+  } catch (err) {
+    console.error("Error cargando logros:", err);
+  }
+}
+
+async function renderLibros() {
+  const el = document.getElementById("libros-items");
+  if (!el) return;
+
+  clearChildren(el);
+  try {
+    const items = await loadJson("./info/libros.json");
+
+    let borderIdx = 1;
+    for (const item of items) {
+      const div = document.createElement("div");
+      div.className = `box border${borderIdx}`;
+      borderIdx = borderIdx < 6 ? borderIdx + 1 : 1;
+
+      const descHtml = (item.descriptionParagraphs ?? [])
+        .map((p) => `<p>${escapeHtml(p)}</p>`)
+        .join("");
+
+      const meta = item.meta ?? {};
+      const link = item.link ?? {};
+
+      div.innerHTML = `
+        <div class="info">
+          <h3>${escapeHtml(item.title ?? "")}</h3>
+          ${descHtml}
+          <p><strong>Fecha de publicación:</strong> ${escapeHtml(meta.publicationDate ?? "—")}</p>
+          <p><strong>ISSN:</strong> ${escapeHtml(meta.issn ?? "—")}</p>
+          <p><strong>Editorial:</strong> ${escapeHtml(meta.editorial ?? "—")}</p>
+          <p><strong>Estado:</strong> ${escapeHtml(meta.status ?? "—")}</p>
+          ${
+        link.href
+          ? `<p><strong>Enlace de adquisición o descarga:</strong> <a class="link" href="${escapeAttr(
+              link.href,
+            )}" target="_blank" rel="noreferrer noopener">${escapeHtml(
+              link.label ?? "Enlace",
+            )}</a></p>`
+          : ""
+      }
+        </div>
+      `;
+
+      el.appendChild(div);
+    }
+  } catch (err) {
+    console.error("Error cargando libros:", err);
+  }
+}
+
+async function renderSoftwarePackages() {
+  const el = document.getElementById("software-items");
+  if (!el) return;
+
+  clearChildren(el);
+  try {
+    const items = await loadJson("./info/software.json");
+
+    el.dataset.rendered = "true";
+
+    let borderIdx = 1;
+    for (const item of items) {
+      const div = document.createElement("div");
+      div.className = `box border${borderIdx}`;
+      div.dataset.source = "json";
+      borderIdx = borderIdx < 6 ? borderIdx + 1 : 1;
+
+      const authors = Array.isArray(item.authors) ? item.authors : [];
+      const boldJorge = (a) =>
+        /Jorge\s*(?:I\.\s*)?Zuluaga/i.test(a)
+          ? `<strong>${escapeHtml(a)}</strong>`
+          : escapeHtml(a);
+      const authorsHtml = authors.map(boldJorge).join(", ");
+
+      const links = Array.isArray(item.links) ? item.links : [];
+      const linksHtml = links
+        .map(
+          (l) =>
+            `<a class="link" href="${escapeAttr(l.href ?? "")}" target="_blank" rel="noreferrer noopener">${escapeHtml(
+              l.label ?? "Link",
+            )}</a>`,
+        )
+        .join(" · ");
+
+      div.innerHTML = `
+        <div class="info">
+          <h3>${escapeHtml(item.name ?? "")}</h3>
+          <p>${escapeHtml(item.description ?? "")}</p>
+          <p>
+            <strong>Autores:</strong> ${authorsHtml} &middot; <strong>Fecha de creación:</strong> ${escapeHtml(item.created ?? "—")}
+          </p>
+          <p><br /></p>
+          <p>${linksHtml}</p>
+        </div>
+      `;
+
+      el.appendChild(div);
+    }
+  } catch (err) {
+    console.error("Error cargando paquetes:", err);
+  }
+}
+
+function renderAboutMe(profile) {
+  if (!profile) return;
+  const el = document.getElementById("about-me");
+  if (!el) return;
+  el.textContent = profile.aboutMe ?? "";
+}
+
+async function renderContact() {
+  const elAnchors = [
+    ...document.querySelectorAll("[data-contact]")
+  ];
+  if (!elAnchors.length) return;
+
+  try {
+    const items = await loadJson("./info/contact.json");
+    for (const item of items) {
+      const a = document.querySelector(`[data-contact="${item.key}"]`);
+      if (!a) continue;
+
+      if (item.href) a.setAttribute("href", item.href);
+      if (item.ariaLabel) a.setAttribute("aria-label", item.ariaLabel);
+
+      if (item.target) {
+        a.setAttribute("target", item.target);
+      } else {
+        a.removeAttribute("target");
+      }
+
+      const textEl = a.querySelector(".contact-text");
+      if (textEl) textEl.textContent = item.label ?? "";
+    }
+  } catch (err) {
+    console.error("Error cargando contacto:", err);
+  }
+}
+
+async function renderEducation() {
+  const el = document.getElementById("education-items");
+  if (!el) return;
+
+  clearChildren(el);
+  try {
+    const items = await loadJson("./info/education.json");
+
+    let borderIdx = 1;
+    for (const item of items) {
+      const div = document.createElement("div");
+      div.className = `box border${borderIdx}`;
+      borderIdx = borderIdx < 6 ? borderIdx + 1 : 1;
+
+      const extra = Array.isArray(item.extraParagraphs) ? item.extraParagraphs : [];
+      const extraHtml = extra.map((p) => `<p>${escapeHtml(p)}</p>`).join("");
+
+      div.innerHTML = `
+        <div class="info">
+          <h3>${escapeHtml(item.institution ?? "")}</h3>
+          <h4>${escapeHtml(item.degree ?? "")}</h4>
+          <p>${escapeHtml(item.years ?? "")}</p>
+          ${extraHtml}
+        </div>
+      `;
+      el.appendChild(div);
+    }
+  } catch (err) {
+    console.error("Error cargando educación:", err);
+  }
+}
+
+async function renderResearchStays() {
+  const el = document.getElementById("research-items");
+  if (!el) return;
+
+  clearChildren(el);
+  try {
+    const items = await loadJson("./info/research.json");
+
+    let borderIdx = 1;
+    for (const item of items) {
+      const div = document.createElement("div");
+      div.className = `box border${borderIdx}`;
+      borderIdx = borderIdx < 6 ? borderIdx + 1 : 1;
+
+      div.innerHTML = `
+        <div class="info">
+          <h3>${escapeHtml(item.title ?? "")}</h3>
+          <h4>${escapeHtml(item.subtitle ?? "")}</h4>
+          <p>${escapeHtml(item.details ?? "")}</p>
+        </div>
+      `;
+      el.appendChild(div);
+    }
+  } catch (err) {
+    console.error("Error cargando estancias:", err);
+  }
+}
+
+async function renderAwardsPage() {
+  const el = document.getElementById("awards-items");
+  if (!el) return;
+
+  clearChildren(el);
+  try {
+    const items = await loadJson("./info/awards.json");
+
+    let borderIdx = 1;
+    for (const item of items) {
+      const div = document.createElement("div");
+      div.className = `box border${borderIdx}`;
+      borderIdx = borderIdx < 6 ? borderIdx + 1 : 1;
+
+      div.innerHTML = `
+        <div class="info">
+          <h3>${escapeHtml(item.title ?? "")}</h3>
+          <h4>${escapeHtml(item.organization ?? "")}</h4>
+          <p>${escapeHtml(item.details ?? "")}</p>
+        </div>
+      `;
+      el.appendChild(div);
+    }
+  } catch (err) {
+    console.error("Error cargando premios:", err);
+  }
+}
+
 async function main() {
   const updated = new Date();
   setText("updated", updated.toLocaleDateString("es-CO", { year: "numeric", month: "short", day: "2-digit" }));
@@ -472,11 +750,22 @@ async function main() {
   const profile = await loadProfile().catch(() => null);
   renderTeaching(profile);
   renderExperience(profile);
+  renderAboutMe(profile);
+
+  await Promise.allSettled([
+    renderContact(),
+    renderEducation(),
+    renderResearchStays(),
+    renderAwardsPage(),
+    renderLogrosProfesionales(),
+    renderLibros(),
+    renderSoftwarePackages(),
+  ]);
 
   const coursesEl = document.getElementById("teaching-courses");
   if (coursesEl) {
     try {
-      const res = await fetch("./assets/teaching-classroom.json", { cache: "no-store" });
+      const res = await fetch("./info/teaching-classroom.json", { cache: "no-store" });
       if (res.ok) {
         const classroomCourses = await res.json();
         const udeCourses = classroomCourses.filter(c =>
@@ -487,53 +776,9 @@ async function main() {
         );
 
         // Optional course details (from Microcurriculos summary)
-
-        const courseDetailsByName = {
-          "Mecánica de Medios Continuos": {
-            description: `Introducción al continuo y a la descripción de medios materiales: fluidos y sólidos deformables. Enfoca aplicaciones en astrofísica, ciencias planetarias y cosmología, con énfasis en métodos computacionales y numéricos.`,
-            topics: `Materia discreta y mecánica estadística ⋅ Fluidos en reposo ⋅ Sólidos en reposo ⋅ Fluidos en movimiento ⋅ Mecánica de fluidos computacional`,
-          },
-          "Astrobiología FCEN": {
-            description: `Curso interdisciplinario que estudia la vida en un marco cósmico. Integra geociencias, biología y astronomía para abordar origen, evolución y posible presencia de vida en exoplanetas.`,
-            topics: `Astrofísica del sistema planetario (exoplanetología) ⋅ Química prebiótica y bases biológicas (LUCA, extremófilos) ⋅ Evolución y rastreo de vida en exoplanetas (biofirmas).`,
-          },
-          "Astrodinámica": {
-            description: `Fundamentos matemáticos de maniobras y transferencias orbitales para cohetes y aeronaves. Se estudian modelos de misión en campo gravitacional y técnicas de optimización de trayectorias.`,
-            topics: `Transferencias de Hohmann y no tangenciales ⋅ Cambio de plano orbital e intercepción ⋅ Rotación orbital (línea de partes o ápsides) ⋅ Impulsión temporal y optimización de trayectorias`,
-          },
-          "Astrodinámica para aeroespacial": {
-            description: `Aplicación aeroespacial de la astrodinámica: maniobras y transferencias orbitales con modelos gravitacionales y herramientas de optimización para misiones.`,
-            topics: `Hohmann y transferencias no tangenciales ⋅ Cambio de plano e intercepción ⋅ Rotación orbital e impulsión temporal ⋅ Optimización de trayectorias`,
-          },
-          "Dinámica del Vuelo Espacial": {
-            description: `Curso orientado a aplicar la mecánica celeste al modelado de vuelos de vehículos o satélites. Desarrolla formulaciones físicas y matemáticas y su implementación computacional.`,
-            topics: `Herramientas matemáticas y referenciales ⋅ Problema de dos cuerpos ⋅ Tres cuerpos restringido ⋅ Modelamiento y programación con Python`,
-          },
-          "Relatividad y Gravitación": {
-            description: `Modelado de transformaciones del espacio-tiempo en relatividad especial y general. Se estudian resultados y aplicaciones a astrofísica, cosmología y física fundamental.`,
-            topics: `Relatividad especial y Minkowski ⋅ Relatividad general, curvaturas y ondas gravitacionales ⋅ Agujeros negros (Schwarzschild) ⋅ Cosmología (Friedmann-Lemaitre)`,
-          },
-          "Mecánica Celeste": {
-            description: `Herramientas clásicas para resolver o interpretar trayectorias e interacciones gravitacionales en sistemas masivos. Analiza el problema bajo distintas restricciones y grados de complejidad.`,
-            topics: `N-cuerpos y problema interplanetario ⋅ Dos cuerpos y órbitas de Kepler ⋅ Tres cuerpos restringido (circular) ⋅ Enfoques Lagrangianos/Hamiltonianos`,
-          },
-          "Astrofísica Planetaria": {
-            description: `Estudio de sistemas planetarios: formación, atmósferas, campos magnéticos y procesos físicos. Integra modelado y observación para comprender el lugar de los planetas en el Universo.`,
-            topics: `Arquitectura y formación del sistema ⋅ Dinámica y perturbaciones orbitales ⋅ Atmósferas e interior planetario ⋅ Procesos superficiales y observación de exoplanetas`,
-          },
-          "Ingeniería de Software Científico": {
-            description: `Principios de ingeniería de software aplicados a necesidades de científicos: codificación eficiente, diseño y arquitectura. Enfoque práctico en fundamentos, herramientas y casos de estudio.`,
-            topics: `Código limpio ⋅ Diseño y arquitectura ⋅ Herramientas de desarrollo ⋅ Casos de estudio`,
-          },
-          "Computación HPC": {
-            description: `Manejo de datos y visualización científica para producir resultados interpretables. Incluye lectura y gestión de datos, almacenamiento con HDF5 y técnicas de visualización 2D/3D para comunicar hallazgos.`,
-            topics: `Datos (parseo, arreglos, diccionarios) ⋅ Pandas y SQL ⋅ HDF5 ⋅ Visualización científica (2D/3D) ⋅ Animaciones`,
-          },
-          "Datos y Visualización": {
-            description: `Curso que integra manejo de datos con visualización científica 2D/3D. Recorre lectura/parsing, análisis con Pandas y SQL, teoría del color y manipulación de imágenes con animaciones.`,
-            topics: `Datos en formatos comunes ⋅ Pandas y SQL ⋅ HDF5 ⋅ Visualización 2D (contorno/mapas de calor) ⋅ Visualización 3D y animaciones`,
-          },
-        };
+        const courseDetailsByName = await loadJson(
+          "./info/teaching-course-details.json",
+        ).catch(() => ({}));
 
         // Group by course name
         const groupedCourses = new Map();
@@ -595,47 +840,24 @@ async function main() {
     }
   }
 
-  const entries = await loadAll();
-  fillYearsRange(entries);
-
-  const latest = [];
-  const seenLatest = new Set();
-  const publishedSorted = [...entries]
-    .filter((e) => isPublished(e) && hasLink(e))
-    .sort((a, b) => {
-      if (b.yearNum !== a.yearNum) return b.yearNum - a.yearNum;
-      return normalizeText(a.titleClean).localeCompare(normalizeText(b.titleClean));
-    });
-  for (const e of publishedSorted) {
-    const key = normalizeText(e.titleClean);
-    if (seenLatest.has(key)) continue;
-    seenLatest.add(key);
-    latest.push(e);
-    if (latest.length >= 5) break;
-  }
-
-  const preprints = [];
-  const seenPreprints = new Set();
-  const preprintsSorted = [...entries]
-    .filter((e) => isPreprint(e) && hasLink(e))
-    .sort((a, b) => {
-      if (b.yearNum !== a.yearNum) return b.yearNum - a.yearNum;
-      return normalizeText(a.titleClean).localeCompare(normalizeText(b.titleClean));
-    });
-  for (const e of preprintsSorted) {
-    const key = normalizeText(e.titleClean);
-    if (seenPreprints.has(key)) continue;
-    seenPreprints.add(key);
-    preprints.push(e);
-    if (preprints.length >= 5) break;
-  }
+  // Publications (single source of truth).
+  const papers = await loadJson("./info/papers.json").catch(() => []);
+  const papersLatest = papers
+    .filter((p) => p.selection === "latest" || p.selection === "recent")
+    .slice(0, 5);
+  const papersTop = papers.filter((p) => p.selection === "top").slice(0, 5);
+  const papersPreprints = papers.filter((p) => p.selection === "preprint").slice(0, 5);
+  const latestFinal = papersLatest;
+  const preprintsFinal = papersPreprints;
 
   const latestEl = document.getElementById("latest");
   if (latestEl) {
     clearChildren(latestEl);
     const fragLatest = document.createDocumentFragment();
-    for (const e of latest) {
-      fragLatest.appendChild(renderPub(e, { label: "Nuevo", className: "badge--new" }));
+    for (const e of latestFinal) {
+      fragLatest.appendChild(
+        renderPub(e, { label: "Nuevo", className: "badge--new", selectionClass: "latest" }),
+      );
     }
     latestEl.appendChild(fragLatest);
   }
@@ -644,14 +866,26 @@ async function main() {
   if (preprintsEl) {
     clearChildren(preprintsEl);
     const fragPre = document.createDocumentFragment();
-    for (const e of preprints) {
-      fragPre.appendChild(renderPub(e, { label: "Preprint", className: "badge--preprint" }));
+    for (const e of preprintsFinal) {
+      fragPre.appendChild(
+        renderPub(e, { label: "Preprint", className: "badge--preprint", selectionClass: "preprint" }),
+      );
     }
     preprintsEl.appendChild(fragPre);
   }
 
-  setText("count", String(latest.length));
-  document.getElementById("empty").hidden = latest.length !== 0;
+  const topEl = document.getElementById("top-cited");
+  if (topEl) {
+    clearChildren(topEl);
+    const fragTop = document.createDocumentFragment();
+    for (const e of papersTop) {
+      fragTop.appendChild(renderPub(e, { selectionClass: "top" }));
+    }
+    topEl.appendChild(fragTop);
+  }
+
+  setText("count", String(latestFinal.length));
+  document.getElementById("empty").hidden = latestFinal.length !== 0;
 }
 
 main().catch((err) => {
