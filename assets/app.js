@@ -342,6 +342,16 @@ function setText(id, value) {
   if (el) el.textContent = value;
 }
 
+function setTextWithBr(id, value) {
+  const el = document.getElementById(id);
+  if (!el) return;
+
+  const raw = value ?? "";
+  // Split on <br/> and <br> tags, escape everything else for safety.
+  const parts = raw.split(/<br\s*\/?>/i);
+  el.innerHTML = parts.map((p) => escapeHtml(p)).join("<br/>");
+}
+
 function setAttr(id, attr, value) {
   const el = document.getElementById(id);
   if (el && value) el.setAttribute(attr, value);
@@ -373,7 +383,7 @@ function renderTeaching(profile) {
   const summary = profile.summary || "";
 
   setText("name", name);
-  setText("headline", headline);
+  setTextWithBr("headline", headline);
   if (summary) {
     const kicker = document.getElementById("kicker");
     if (kicker) kicker.textContent = summary;
@@ -417,12 +427,51 @@ function renderTeaching(profile) {
   }
 }
 
+function renderExperience(profile) {
+  if (!profile) return;
+
+  const expEl = document.getElementById("experience-laboral-items");
+  if (!expEl) return;
+
+  clearChildren(expEl);
+
+  const items = profile.experienceLaboral ?? [];
+  let borderIdx = 1;
+
+  for (const item of items) {
+    const div = document.createElement("div");
+    div.className = `box border${borderIdx}`;
+    borderIdx = borderIdx < 6 ? borderIdx + 1 : 1;
+
+    const role = item.role || item.cargo || "";
+    const institution = item.institution || item.organization || "";
+    const period = item.period || "";
+    const details = item.details || item.summary || "";
+
+    const metaPieces = [];
+    if (period) metaPieces.push(escapeHtml(period));
+    if (details) metaPieces.push(escapeHtml(details));
+    const metaHtml = metaPieces.length ? `<p>${metaPieces.join(" &middot; ")}</p>` : "";
+
+    div.innerHTML = `
+      <div class="info">
+        <h3>${escapeHtml(role || "Cargo")}</h3>
+        <h4>${escapeHtml(institution || "Institución")}</h4>
+        ${metaHtml}
+      </div>
+    `;
+
+    expEl.appendChild(div);
+  }
+}
+
 async function main() {
   const updated = new Date();
   setText("updated", updated.toLocaleDateString("es-CO", { year: "numeric", month: "short", day: "2-digit" }));
 
   const profile = await loadProfile().catch(() => null);
   renderTeaching(profile);
+  renderExperience(profile);
 
   const coursesEl = document.getElementById("teaching-courses");
   if (coursesEl) {
@@ -430,16 +479,65 @@ async function main() {
       const res = await fetch("./assets/teaching-classroom.json", { cache: "no-store" });
       if (res.ok) {
         const classroomCourses = await res.json();
-        const udeACourses = classroomCourses.filter(c =>
+        const udeCourses = classroomCourses.filter(c =>
           c.section &&
-          c.section.includes("UdeA") &&
+          (c.section.includes("UdeA") || c.section.includes("UdeM")) &&
           c.name !== "Curso Modelo" &&
           c.name !== "Modelo de Curso"
         );
 
+        // Optional course details (from Microcurriculos summary)
+
+        const courseDetailsByName = {
+          "Mecánica de Medios Continuos": {
+            description: `Introducción al continuo y a la descripción de medios materiales: fluidos y sólidos deformables. Enfoca aplicaciones en astrofísica, ciencias planetarias y cosmología, con énfasis en métodos computacionales y numéricos.`,
+            topics: `Materia discreta y mecánica estadística ⋅ Fluidos en reposo ⋅ Sólidos en reposo ⋅ Fluidos en movimiento ⋅ Mecánica de fluidos computacional`,
+          },
+          "Astrobiología FCEN": {
+            description: `Curso interdisciplinario que estudia la vida en un marco cósmico. Integra geociencias, biología y astronomía para abordar origen, evolución y posible presencia de vida en exoplanetas.`,
+            topics: `Astrofísica del sistema planetario (exoplanetología) ⋅ Química prebiótica y bases biológicas (LUCA, extremófilos) ⋅ Evolución y rastreo de vida en exoplanetas (biofirmas).`,
+          },
+          "Astrodinámica": {
+            description: `Fundamentos matemáticos de maniobras y transferencias orbitales para cohetes y aeronaves. Se estudian modelos de misión en campo gravitacional y técnicas de optimización de trayectorias.`,
+            topics: `Transferencias de Hohmann y no tangenciales ⋅ Cambio de plano orbital e intercepción ⋅ Rotación orbital (línea de partes o ápsides) ⋅ Impulsión temporal y optimización de trayectorias`,
+          },
+          "Astrodinámica para aeroespacial": {
+            description: `Aplicación aeroespacial de la astrodinámica: maniobras y transferencias orbitales con modelos gravitacionales y herramientas de optimización para misiones.`,
+            topics: `Hohmann y transferencias no tangenciales ⋅ Cambio de plano e intercepción ⋅ Rotación orbital e impulsión temporal ⋅ Optimización de trayectorias`,
+          },
+          "Dinámica del Vuelo Espacial": {
+            description: `Curso orientado a aplicar la mecánica celeste al modelado de vuelos de vehículos o satélites. Desarrolla formulaciones físicas y matemáticas y su implementación computacional.`,
+            topics: `Herramientas matemáticas y referenciales ⋅ Problema de dos cuerpos ⋅ Tres cuerpos restringido ⋅ Modelamiento y programación con Python`,
+          },
+          "Relatividad y Gravitación": {
+            description: `Modelado de transformaciones del espacio-tiempo en relatividad especial y general. Se estudian resultados y aplicaciones a astrofísica, cosmología y física fundamental.`,
+            topics: `Relatividad especial y Minkowski ⋅ Relatividad general, curvaturas y ondas gravitacionales ⋅ Agujeros negros (Schwarzschild) ⋅ Cosmología (Friedmann-Lemaitre)`,
+          },
+          "Mecánica Celeste": {
+            description: `Herramientas clásicas para resolver o interpretar trayectorias e interacciones gravitacionales en sistemas masivos. Analiza el problema bajo distintas restricciones y grados de complejidad.`,
+            topics: `N-cuerpos y problema interplanetario ⋅ Dos cuerpos y órbitas de Kepler ⋅ Tres cuerpos restringido (circular) ⋅ Enfoques Lagrangianos/Hamiltonianos`,
+          },
+          "Astrofísica Planetaria": {
+            description: `Estudio de sistemas planetarios: formación, atmósferas, campos magnéticos y procesos físicos. Integra modelado y observación para comprender el lugar de los planetas en el Universo.`,
+            topics: `Arquitectura y formación del sistema ⋅ Dinámica y perturbaciones orbitales ⋅ Atmósferas e interior planetario ⋅ Procesos superficiales y observación de exoplanetas`,
+          },
+          "Ingeniería de Software Científico": {
+            description: `Principios de ingeniería de software aplicados a necesidades de científicos: codificación eficiente, diseño y arquitectura. Enfoque práctico en fundamentos, herramientas y casos de estudio.`,
+            topics: `Código limpio ⋅ Diseño y arquitectura ⋅ Herramientas de desarrollo ⋅ Casos de estudio`,
+          },
+          "Computación HPC": {
+            description: `Manejo de datos y visualización científica para producir resultados interpretables. Incluye lectura y gestión de datos, almacenamiento con HDF5 y técnicas de visualización 2D/3D para comunicar hallazgos.`,
+            topics: `Datos (parseo, arreglos, diccionarios) ⋅ Pandas y SQL ⋅ HDF5 ⋅ Visualización científica (2D/3D) ⋅ Animaciones`,
+          },
+          "Datos y Visualización": {
+            description: `Curso que integra manejo de datos con visualización científica 2D/3D. Recorre lectura/parsing, análisis con Pandas y SQL, teoría del color y manipulación de imágenes con animaciones.`,
+            topics: `Datos en formatos comunes ⋅ Pandas y SQL ⋅ HDF5 ⋅ Visualización 2D (contorno/mapas de calor) ⋅ Visualización 3D y animaciones`,
+          },
+        };
+
         // Group by course name
         const groupedCourses = new Map();
-        for (const c of udeACourses) {
+        for (const c of udeCourses) {
           if (!groupedCourses.has(c.name)) {
             groupedCourses.set(c.name, []);
           }
@@ -451,6 +549,20 @@ async function main() {
           const div = document.createElement("div");
           div.className = `box border${borderIdx}`;
           borderIdx = borderIdx < 6 ? borderIdx + 1 : 1;
+
+          const details = courseDetailsByName[name];
+          const descriptionHtml = details?.description
+            ? `<p><strong>Descripción:</strong> ${escapeHtml(details.description)}</p>`
+            : "";
+          const topicsHtml = details?.topics
+            ? (() => {
+              // Reemplaza separadores tipo "⋅" por un bullet grande "• " para mejorar legibilidad.
+              const topicsRaw = String(details.topics).replace(/\s*[⋅·]\s*/g, "• ");
+              return `<p><strong>Tópicos importantes:</strong> ${escapeHtml(topicsRaw)}</p>`;
+            })()
+            : "";
+          const hasDetails = Boolean(descriptionHtml || topicsHtml);
+          const detailsSepHtml = hasDetails ? `<p>&nbsp;</p>` : "";
 
           // Process all occurrences of this course
           const occurrencesHtml = courses.map(c => {
@@ -469,7 +581,10 @@ async function main() {
           div.innerHTML = `
             <div class="info">
               <h3>${escapeHtml(name)}</h3>
-              <p>Ofrecido en: ${occurrencesHtml}</p>
+              ${descriptionHtml}
+              ${topicsHtml}
+              ${detailsSepHtml}
+              <p><strong>Ofrecido en:</strong> ${occurrencesHtml}</p>
             </div>
           `;
           coursesEl.appendChild(div);

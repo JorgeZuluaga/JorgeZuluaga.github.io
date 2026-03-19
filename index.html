@@ -50,14 +50,16 @@
           <a href="#home" class="nav-link">Inicio</a>
           <a href="#contacto" class="nav-link">Contacto</a>
           <a href="#sobre-mi" class="nav-link">Sobre mí</a>
-          <a href="#habilidades" class="nav-link">Habilidades</a>
           <a href="#educacion" class="nav-link">Educación</a>
           <a href="#estancias" class="nav-link">Estancias</a>
           <a href="#premios" class="nav-link">Premios</a>
           <a href="#publicaciones" class="nav-link">Publicaciones</a>
-          <a href="#software" class="nav-link">Paquetes de software</a>
+          <a href="#libros" class="nav-link">Libros</a>
           <a href="#logros" class="nav-link">Logros profesionales</a>
+          <a href="#experiencia-laboral" class="nav-link">Experiencia laboral</a>
           <a href="#docencia" class="nav-link">Docencia</a>
+          <a href="#habilidades" class="nav-link">Habilidades técnicas</a>
+          <a href="#software" class="nav-link">Paquetes de software</a>
 
           <!-- Theme Button -->
           <button class="theme-button" aria-label="Modo de visualización: Claro/Oscuro">
@@ -84,9 +86,11 @@
       <section class="section1" id="home" aria-label="Inicio">
         <div class="container home-header">
           <div class="home-main">
-            <h1 id="name">Jorge I. Zuluaga</h1>
+            <h1 id="name">Dr. Jorge I. Zuluaga</h1>
             <p id="headline">
-              Profesor Titular Universidad de Antioquia
+              Físico y Doctor en Física, Universidad de Antioquia, Medellín, Colombia.
+            </p>
+            <p id="summary">
             </p>
             <span id="count" hidden>—</span>
           </div>
@@ -174,26 +178,6 @@
         </div>
       </section>
 
-      <!-- HABILIDADES -->
-      <section class="section3" id="habilidades" aria-label="Habilidades">
-        <div class="container">
-          <h2 class="title-section">Habilidades</h2>
-          <p class="muted">
-            Lenguajes y entornos de programación que uso en investigación, docencia y desarrollo de software científico.
-          </p>
-
-          <div class="logos" style="margin-top: 1.75rem">
-            <span class="skill-badge" aria-label="Python">Py</span>
-            <span class="skill-badge" aria-label="Lenguaje C">C</span>
-            <span class="skill-badge" aria-label="Lenguaje C++">C++</span>
-            <span class="skill-badge" aria-label="FORTRAN">F</span>
-            <span class="skill-badge" aria-label="JavaScript">JS</span>
-            <span class="skill-badge" aria-label="HTML">HTML</span>
-            <span class="skill-badge" aria-label="PHP">PHP</span>
-          </div>
-        </div>
-      </section>
-
       <!-- EDUCACIÓN -->
       <section class="section4" id="educacion" aria-label="Educación">
         <div class="container">
@@ -274,7 +258,7 @@
       <!-- PREMIOS -->
       <section class="section4" id="premios" aria-label="Premios">
         <div class="container">
-          <h2 class="title-section">Premios</h2>
+          <h2 class="title-section">Premios y reconocimientos</h2>
 
           <div class="box border1">
             <div class="info">
@@ -329,6 +313,25 @@
       <section class="section4" id="publicaciones" aria-label="Publicaciones">
         <div class="container">
           <h2 class="title-section">Publicaciones</h2>
+          <div class="publication-links" aria-label="Enlaces de referencia">
+            <a href="https://tinyurl.com/m6wjy36s" target="_blank" rel="noreferrer noopener" aria-label="Google Scholar"
+              title="Se abre en una nueva pestaña">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true">
+                <path
+                  d="M12 3L1 9l11 6 9-4.909V17h2V9L12 3zm0 16L2 13l10-5 10 5-10 5z" />
+              </svg>
+              Google Scholar
+            </a>
+            <br />
+            <a href="https://orcid.org/0000-0002-6140-3116" target="_blank" rel="noreferrer noopener"
+              aria-label="ORCID" title="Se abre en una nueva pestaña">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true">
+                <path
+                  d="M12 2a10 10 0 100 20 10 10 0 000-20zm0 3c1.38 0 2.5 1.12 2.5 2.5S13.38 10 12 10s-2.5-1.12-2.5-2.5S10.62 5 12 5zm0 14c-2.5 0-4.67-1.52-5.5-3.7l2.1-.85C9.6 15.06 10.75 16 12 16s2.4-.94 2.4-2.55l2.1.85C16.67 17.48 14.5 19 12 19z" />
+              </svg>
+              ORCID: <code>0000-0002-6140-3116</code>
+            </a>
+          </div>
           <table class="pub-stats">
             <thead>
               <tr>
@@ -361,10 +364,10 @@
             </tbody>
           </table>
 
-          <h3 style="margin-top: 1.5rem">5 más recientes</h3>
+          <h3 style="margin-top: 1.5rem">Los 5 artículos más recientes</h3>
           <ol id="latest" class="pubs" aria-label="Publicaciones más recientes"></ol>
 
-          <h3 style="margin-top: 1.5rem">5 más citadas (Scholar)</h3>
+          <h3 style="margin-top: 1.5rem">Los 5 artículos más citados (Scholar)</h3>
           <ol id="top-cited" class="pubs" aria-label="Publicaciones más citadas">
             <li class="pub">
               <div class="pub-head">
@@ -455,132 +458,77 @@
         </div>
       </section>
 
-      <!-- PAQUETES DE SOFTWARE -->
-      <section class="section4" id="software" aria-label="Paquetes de software">
+      <!-- LIBROS -->
+      <section class="section4" id="libros" aria-label="Libros">
         <div class="container">
-          <h2 class="title-section">Paquetes de software</h2>
-
-          <p>
-            A continuación se enumeran todo los paquetes de software que he desarrollado para la investigación y la
-            docencia.
+          <h2 class="title-section">Libros</h2>
+          <p class="muted">
+            Libros publicados y materiales académicos asociados a mis áreas de trabajo.
           </p>
 
           <div class="box border1">
             <div class="info">
-              <h3>PyMCel</h3>
+              <h3>Mecánica Celeste: teoría, algoritmos y problemas</h3>
               <p>
-                Utilidades de mecánica celeste y astrodinámica para docencia e investigación, basadas en el libro
-                <em>Mecánica celeste: teoría, algoritmos y problemas</em>.
+                Texto de referencia para la enseñanza y la investigación en Mecánica Celeste y Astrodinámica,
+                con fundamentos y aplicaciones prácticas.
               </p>
               <p>
-                <a class="link" href="https://github.com/seap-udea/pymcel" target="_blank"
-                  rel="noreferrer noopener">GitHub</a>
-                ·
-                <a class="link" href="https://pypi.org/project/pymcel/" target="_blank"
-                  rel="noreferrer noopener">PyPI</a>
-                ·
-                <a class="link" href="https://pymcel.readthedocs.io/es/latest/" target="_blank"
-                  rel="noreferrer noopener">Documentación</a>
+                Incluye problemas y herramientas que sirven de base para códigos y utilidades asociadas.
+              </p>
+              <p><strong>Fecha de publicación:</strong> 2024</p>
+              <p><strong>ISSN:</strong> 9789585011953</p>
+              <p><strong>Editorial:</strong> Universidad de Antioquia</p>
+              <p><strong>Estado:</strong> publicado</p>
+              <p>
+                <strong>Enlace de adquisición o descarga:</strong>
+                <a class="link" href="https://libros.udea.edu.co/index.php/editorial_udea/catalog/book/345" target="_blank"
+                  rel="noreferrer noopener">libros.udea.edu.co</a>
               </p>
             </div>
           </div>
 
           <div class="box border2">
             <div class="info">
-              <h3>Pryngles</h3>
+              <h3>Relatividad y Gravitación: teoría, algoritmos y problemas</h3>
               <p>
-                Modelo fotométrico y geométrico para simular planetas con anillos (exorings) y calcular sus curvas de
-                luz y configuraciones geométricas.
+                Curso-valorado en el que se desarrollan teoría y algoritmos para comprender la relatividad especial y
+                general, con énfasis en formulaciones y ejemplos de cálculo.
               </p>
               <p>
-                <a class="link" href="https://github.com/seap-udea/pryngles-public" target="_blank"
-                  rel="noreferrer noopener">GitHub</a>
-                ·
-                <a class="link" href="https://pypi.org/project/pryngles/" target="_blank"
-                  rel="noreferrer noopener">PyPI</a>
-                ·
-                <a class="link" href="https://pryngles.readthedocs.io/en/latest/" target="_blank"
-                  rel="noreferrer noopener">Documentación</a>
+                Material en línea con estructura temática para estudio progresivo.
+              </p>
+              <p><strong>Fecha de publicación:</strong> —</p>
+              <p><strong>ISSN:</strong> —</p>
+              <p><strong>Editorial:</strong> Universidad de Antioquia</p>
+              <p><strong>Estado:</strong> en edición</p>
+              <p>
+                <strong>Enlace de adquisición o descarga:</strong>
+                <a class="link" href="https://astronomia-udea.co/Relatividad-Zuluaga/" target="_blank"
+                  rel="noreferrer noopener">astronomia-udea.co</a>
               </p>
             </div>
           </div>
 
           <div class="box border3">
             <div class="info">
-              <h3>MultiMin</h3>
+              <h3>Fundamentos de Astrofísica</h3>
               <p>
-                Herramientas numéricas para ajustar datos con mezclas de gaussianas multivariadas (Mixtures of
-                Gaussians), con utilidades de visualización y análisis.
+                Notas de curso orientadas a fundamentos conceptuales y herramientas para abordar problemas de
+                astrofísica.
               </p>
               <p>
-                <a class="link" href="https://github.com/seap-udea/multimin" target="_blank"
-                  rel="noreferrer noopener">GitHub</a>
-                ·
-                <a class="link" href="https://pypi.org/project/multimin/" target="_blank"
-                  rel="noreferrer noopener">PyPI</a>
-                ·
-                <a class="link" href="https://multimin.readthedocs.io/en/latest/" target="_blank"
-                  rel="noreferrer noopener">Documentación</a>
+                Material disponible para consulta y aprendizaje en formato en línea.
               </p>
-            </div>
-          </div>
-
-          <div class="box border4">
-            <div class="info">
-              <h3>MultiRex</h3>
+              <p><strong>Fecha de publicación:</strong> 2012</p>
+              <p><strong>ISSN:</strong> —</p>
+              <p><strong>Editorial:</strong> Material académico</p>
+              <p><strong>Estado:</strong> en edición</p>
               <p>
-                Paquete para análisis y exploración de distribuciones multivariadas y modelos estadísticos complejos
-                mediante técnicas de mezcla de gaussianas.
-              </p>
-              <p>
-                <a class="link" href="https://github.com/seap-udea/multirex" target="_blank"
-                  rel="noreferrer noopener">GitHub</a>
-                ·
-                <a class="link" href="https://pypi.org/project/multirex/" target="_blank"
-                  rel="noreferrer noopener">PyPI</a>
-                ·
-                <a class="link" href="https://pypi.org/project/multirex/" target="_blank"
-                  rel="noreferrer noopener">Documentación</a>
-              </p>
-            </div>
-          </div>
-
-          <div class="box border5">
-            <div class="info">
-              <h3>FARGOpy</h3>
-              <p>
-                Interfaz y herramientas de postproceso en Python para FARGO3D, orientadas al análisis y visualización
-                de simulaciones hidrodinámicas de discos protoplanetarios.
-              </p>
-              <p>
-                <a class="link" href="https://github.com/seap-udea/fargopy" target="_blank"
-                  rel="noreferrer noopener">GitHub</a>
-                ·
-                <a class="link" href="https://pypi.org/project/fargopy/" target="_blank"
-                  rel="noreferrer noopener">PyPI</a>
-                ·
-                <a class="link" href="https://fargopy.readthedocs.io/en/latest/" target="_blank"
-                  rel="noreferrer noopener">Documentación</a>
-              </p>
-            </div>
-          </div>
-
-          <div class="box border6">
-            <div class="info">
-              <h3>tSPICE</h3>
-              <p>
-                Cálculo del potencial de marea y la respuesta elástica planetaria usando kernels SPICE, con soporte
-                para perfiles internos y números de Love.
-              </p>
-              <p>
-                <a class="link" href="https://github.com/seap-udea/tspice" target="_blank"
-                  rel="noreferrer noopener">GitHub</a>
-                ·
-                <a class="link" href="https://pypi.org/project/tspice/" target="_blank"
-                  rel="noreferrer noopener">PyPI</a>
-                ·
-                <a class="link" href="https://tspice.readthedocs.io/en/latest/" target="_blank"
-                  rel="noreferrer noopener">Documentación</a>
+                <strong>Enlace de adquisición o descarga:</strong>
+                <a class="link"
+                  href="https://drive.google.com/file/d/15H9wkgsyWaqcw5xQTmkodRB22WCcrmDv/view?usp=sharing" target="_blank"
+                  rel="noreferrer noopener">Google Drive (PDF)</a>
               </p>
             </div>
           </div>
@@ -595,6 +543,14 @@
             Algunos de los hitos y contribuciones más importantes a lo largo de mi carrera académica, institucional y
             divulgativa.
           </p>
+
+          <div class="box border1">
+            <div class="info">
+              <h3>Dirección y Administración: CRESCA</h3>
+              <h4>Cargo: Director</h4>
+              <p>Junio 2007–Enero 2010 &middot; Centro Regional de Simulación y Cálculo Avanzado (CRESCA).</p>
+            </div>
+          </div>
 
           <div class="box border1">
             <div class="info">
@@ -657,6 +613,19 @@
         </div>
       </section>
 
+      <!-- EXPERIENCIA LABORAL -->
+      <section class="section4" id="experiencia-laboral" aria-label="Experiencia laboral">
+        <div class="container">
+          <h2 class="title-section">Experiencia laboral</h2>
+          <p class="muted">
+            Cargo y trayectoria en instituciones académicas y de investigación, con base en la información del
+            CvLAC.
+          </p>
+
+          <div id="experience-laboral-items"></div>
+        </div>
+      </section>
+
       <!-- DOCENCIA -->
       <section class="section4" id="docencia" aria-label="Docencia">
         <div class="container final-container">
@@ -669,16 +638,199 @@
         </div>
       </section>
 
+      <!-- HABILIDADES -->
+      <section class="section3" id="habilidades" aria-label="Habilidades">
+        <div class="container">
+          <h2 class="title-section">Habilidades Técnicas</h2>
+          <p class="muted">
+            Durante la mayor parte de mi carrera profesional, he utilizado lenguajes y entornos de programación para la investigación, docencia y desarrollo de software científico.
+            No solamente uso estas herramientas para mi trabajo de investigación, sino que también son parte esencial de mi trabajo docente, incluso como divulgador.
+          </p>
+
+          <div class="logos" style="margin-top: 1.75rem">
+            <span class="skill-badge" aria-label="Python">Py</span>
+            <span class="skill-badge" aria-label="Lenguaje C">C</span>
+            <span class="skill-badge" aria-label="Lenguaje C++">C++</span>
+            <span class="skill-badge" aria-label="FORTRAN">F</span>
+            <span class="skill-badge" aria-label="JavaScript">JS</span>
+            <span class="skill-badge" aria-label="HTML">HTML</span>
+            <span class="skill-badge" aria-label="PHP">PHP</span>
+            <span class="skill-badge" aria-label="LaTeX">LaTeX</span>
+            <span class="skill-badge" aria-label="Git">Git</span>
+            <span class="skill-badge" aria-label="GitHub">GitHub</span>
+            <span class="skill-badge" aria-label="Read the Docs">Read the Docs</span>
+            <span class="skill-badge" aria-label="PyPI">PyPI</span>
+            <span class="skill-badge" aria-label="Bash">Bash</span>
+          </div>
+          <p class="muted admin-text">
+            Soy experto en administración de servidores Linux; tengo experiencia con la configuración y
+            administración de servidores en las nubes de Google y Amazon AWS.
+          </p>
+        </div>
+      </section>
+
+      <!-- PAQUETES DE SOFTWARE -->
+      <section class="section4" id="software" aria-label="Paquetes de software">
+        <div class="container">
+          <h2 class="title-section">Paquetes de software</h2>
+
+          <p>
+            A continuación se enumeran todo los paquetes de software que he desarrollado para la investigación y la
+            docencia. Algunos de estos paquetes fueron desarrollados en colaboración con estudiantes de pregrado y posgrado.
+          </p>
+
+          <div class="box border1">
+            <div class="info">
+              <h3>PyMCel</h3>
+              <p>
+                Utilidades de mecánica celeste y astrodinámica para docencia e investigación, basadas en el libro
+                <em>Mecánica celeste: teoría, algoritmos y problemas</em>.
+              </p>
+              <p>
+                <strong>Autores:</strong> <strong>Jorge I. Zuluaga</strong> &middot; <strong>Fecha de creación:</strong> 2023-02-08
+              </p>
+              <p>
+                <br />
+              </p>
+              <p>
+                <a class="link" href="https://pypi.org/project/pymcel/" target="_blank" rel="noreferrer noopener">
+                  https://pypi.org/project/pymcel/
+                </a>
+                · <a class="link" href="https://github.com/seap-udea/pymcel" target="_blank" rel="noreferrer noopener">GitHub</a> ·
+                <a class="link" href="https://pymcel.readthedocs.io/es/latest/" target="_blank"
+                  rel="noreferrer noopener">Documentación</a>
+              </p>
+            </div>
+          </div>
+
+          <div class="box border2">
+            <div class="info">
+              <h3>Pryngles</h3>
+              <p>
+                Modelo fotométrico y geométrico para simular planetas con anillos (exorings) y calcular sus curvas de
+                luz y configuraciones geométricas.
+              </p>
+              <p>
+                <strong>Autores:</strong> <strong>Jorge I. Zuluaga</strong>, Allard Veenstra, Sebastian Numpaque, Mario Sucerquia and Jaime A. Alvarado-Montes
+                &middot; <strong>Fecha de creación:</strong> 2022-05-01
+              </p>
+              <p>
+                <br />
+              </p>
+              <p>
+                <a class="link" href="https://pypi.org/project/pryngles/" target="_blank"
+                  rel="noreferrer noopener">https://pypi.org/project/pryngles/</a>
+                · <a class="link" href="https://github.com/seap-udea/pryngles-public" target="_blank" rel="noreferrer noopener">GitHub</a> ·
+                <a class="link" href="https://pryngles.readthedocs.io/en/latest/" target="_blank"
+                  rel="noreferrer noopener">Documentación</a>
+              </p>
+            </div>
+          </div>
+
+          <div class="box border3">
+            <div class="info">
+              <h3>MultiMin</h3>
+              <p>
+                Herramientas numéricas para ajustar datos con mezclas de gaussianas multivariadas (Mixtures of
+                Gaussians), con utilidades de visualización y análisis.
+              </p>
+              <p>
+                <strong>Autores:</strong> <strong>Jorge I. Zuluaga</strong> &middot; <strong>Fecha de creación:</strong> 2026-02-06
+              </p>
+              <p>
+                <br />
+              </p>
+              <p>
+                <a class="link" href="https://pypi.org/project/multimin/" target="_blank"
+                  rel="noreferrer noopener">https://pypi.org/project/multimin/</a>
+                · <a class="link" href="https://github.com/seap-udea/multimin" target="_blank" rel="noreferrer noopener">GitHub</a> ·
+                <a class="link" href="https://multimin.readthedocs.io/en/latest/" target="_blank"
+                  rel="noreferrer noopener">Documentación</a>
+              </p>
+            </div>
+          </div>
+
+          <div class="box border4">
+            <div class="info">
+              <h3>MultiRex</h3>
+              <p>
+                Paquete para análisis y exploración de distribuciones multivariadas y modelos estadísticos complejos
+                mediante técnicas de mezcla de gaussianas.
+              </p>
+              <p>
+                <strong>Autores:</strong> David Duque-Castaño and <strong>Jorge I. Zuluaga</strong> &middot; <strong>Fecha de creación:</strong> 2023-12-13
+              </p>
+              <p>
+                <br />
+              </p>
+              <p>
+                <a class="link" href="https://pypi.org/project/multirex/" target="_blank"
+                  rel="noreferrer noopener">https://pypi.org/project/multirex/</a>
+                · <a class="link" href="https://github.com/seap-udea/multirex" target="_blank" rel="noreferrer noopener">GitHub</a> ·
+                <a class="link" href="https://multirex.readthedocs.io/en/latest/" target="_blank"
+                  rel="noreferrer noopener">Documentación</a>
+              </p>
+            </div>
+          </div>
+
+          <div class="box border5">
+            <div class="info">
+              <h3>FARGOpy</h3>
+              <p>
+                Interfaz y herramientas de postproceso en Python para FARGO3D, orientadas al análisis y visualización
+                de simulaciones hidrodinámicas de discos protoplanetarios.
+              </p>
+              <p>
+                <strong>Autores:</strong> <strong>Jorge Zuluaga</strong>, Alejandro Murillo-González, Matias Montesinos &middot; <strong>Fecha de creación:</strong> 2023-11-16
+              </p>
+              <p>
+                <br />
+              </p>
+              <p>
+                <a class="link" href="https://pypi.org/project/fargopy/" target="_blank"
+                  rel="noreferrer noopener">https://pypi.org/project/fargopy/</a>
+                · <a class="link" href="https://github.com/seap-udea/fargopy" target="_blank" rel="noreferrer noopener">GitHub</a> ·
+                <a class="link" href="https://fargopy.readthedocs.io/en/latest/" target="_blank"
+                  rel="noreferrer noopener">Documentación</a>
+              </p>
+            </div>
+          </div>
+
+          <div class="box border6">
+            <div class="info">
+              <h3>tSPICE</h3>
+              <p>
+                Cálculo del potencial de marea y la respuesta elástica planetaria usando kernels SPICE, con soporte
+                para perfiles internos y números de Love.
+              </p>
+              <p>
+                <strong>Autores:</strong> Deivy Mercado, <strong>Jorge I. Zuluaga</strong>, Gloria Moncayo &middot; <strong>Fecha de creación:</strong> 2025-12-04
+              </p>
+              <p>
+                <br />
+              </p>
+              <p>
+                <a class="link" href="https://pypi.org/project/tspice/" target="_blank"
+                  rel="noreferrer noopener">https://pypi.org/project/tspice/</a>
+                · <a class="link" href="https://github.com/seap-udea/tspice" target="_blank" rel="noreferrer noopener">GitHub</a> ·
+                <a class="link" href="https://tspice.readthedocs.io/en/latest/" target="_blank"
+                  rel="noreferrer noopener">Documentación</a>
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <p>
         <br />
       </p>
 
     </main>
 
-    <footer aria-hidden="false">
+    <footer class="print-mode-target" aria-hidden="false">
       <p>Desarrollado en Cursor por Jorge I. Zuluaga (2026). Actualizado: <strong id="updated">—</strong></p>
       <button id="btn-print" onclick="window.print()"
-        style="margin-top: 1rem; padding: 0.5rem 1rem; background: var(--accent); color: white; border: none; border-radius: 4px; cursor: pointer;">
+        style="display: block; margin: 1rem auto 0; padding: 0.5rem 1rem; background: var(--accent); color: white; border: none; border-radius: 4px; cursor: pointer;">
         Guardar como PDF
       </button>
     </footer>

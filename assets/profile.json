@@ -1,6 +1,6 @@
 {
-  "name": "Jorge I. Zuluaga",
-  "headline": "Profesor Titular Universidad de Antioquia",
+  "name": "Dr. Jorge I. Zuluaga",
+  "headline": "Profesor Titular, Universidad de Antioquia, Medellín, Colombia.<br/>Físico y Doctor en Física, Investigador Senior en Astrofísica y Astrobiología.",
   "summary": "",
   "avatar": "./assets/profile.jpg",
   "teaching": {
@@ -27,6 +27,33 @@
       "organization": "Entidad",
       "year": "Año"
     }
+  ],
+  "experienceLaboral": [
+    {
+      "role": "Profesor titular",
+      "institution": "Universidad de Antioquia",
+      "period": "Junio 2007 – Presente",
+      "details": "Cursos de los programs de pregrado en Astronomía y Física, diplomaturas en Astronomía y Física, maestría y doctorado en Física. Coordinador del pregrado en el Instituto de Física."
+    },
+    {
+      "role": "Director del Centro Regional de Simulación y Cálculo Avanzado (CRESCA)",
+      "institution": "Sede de Investigación Universitaria SIU, Universidad de Antioquia",
+      "period": "Junio 2007 – Enero 2010",
+      "details": "Gestión de los recursos humanos, materiales y financieros del Centro Regional de Simulación y Cálculo Avanzado (CRESCA)."
+    },
+    {
+      "role": "Docente de cátedra y de medio tiempo",
+      "institution": "Universidad de San Buenaventura - Sede Medellín",
+      "period": "Enero 2000 – Enero 2009",
+      "details": "Cursos de física básicas para ingeniería, física básica, teoría electromagnética, física moderna, ingeniería de software."
+    },
+    {
+      "role": "Docente de cátedra y de medio tiempo",
+      "institution": "Universidad de Antioquia",
+      "period": "Agosto 1997 – Junio 2007",
+      "details": "Cursos de física y astrofísica."
+    }
   ]
 }
 
+ 
