@@ -57,12 +57,21 @@ h2,
 h3,
 h4 {
   text-wrap: balance;
+  color: var(--black);
 }
 
 p {
   font-weight: var(--paragraph-weight);
   color: var(--black);
   opacity: 0.8;
+  text-wrap: pretty;
+}
+
+/* "Sobre mí" se renderiza como texto directo (no <p>) */
+#about-me {
+  color: var(--black);
+  opacity: 0.8;
+  font-weight: var(--paragraph-weight);
   text-wrap: pretty;
 }
 
@@ -691,6 +700,16 @@ code {
   font-weight: 500;
 }
 
+/* Enlaces "inline" (libros, software, etc.) */
+a.link {
+  color: var(--accent);
+  font-weight: 500;
+}
+
+a.link:hover {
+  opacity: 0.9;
+}
+
 /* PUBLICACIONES - enlaces de referencia estilo Contacto */
 .publication-links {
   margin-top: 0.75rem;
@@ -740,6 +759,11 @@ code {
   border-bottom: 1px solid rgba(0, 0, 0, 0.06);
   text-align: left;
   color: var(--black);
+}
+
+.dark-theme .pub-stats th,
+.dark-theme .pub-stats td {
+  border-bottom-color: rgba(255, 255, 255, 0.12);
 }
 
 @media print {
