@@ -731,6 +731,7 @@ code {
   margin-top: 1rem;
   border-collapse: collapse;
   font-size: 0.9rem;
+  color: var(--black);
 }
 
 .pub-stats th,
@@ -738,6 +739,7 @@ code {
   padding: 0.4rem 0.6rem;
   border-bottom: 1px solid rgba(0, 0, 0, 0.06);
   text-align: left;
+  color: var(--black);
 }
 
 @media print {
