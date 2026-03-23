@@ -1,0 +1,26 @@
+[
+  {
+    "name": "cloud_academy",
+    "title": "Cloud Academy",
+    "description": "Aplicación web educativa interactiva para visualizar trazas de partículas en cámara de burbujas y apoyar la identificación de partículas elementales a partir de su curvatura, longitud y forma de la traza.",
+    "url": "http://cloud_academy.onrender.com"
+  },
+  {
+    "name": "lighting-black-holes",
+    "title": "Lighting Black Holes",
+    "description": "Aplicación web desarrollada con Next.js orientada a la exploración y visualización interactiva en navegador, pensada como herramienta didáctica y de experimentación en temas de física y astronomía.",
+    "url": "http://lighting-black-holes.onrender.com"
+  },
+  {
+    "name": "mivaca",
+    "title": "Mi Vaca",
+    "description": "Aplicación web para dividir cuentas de restaurante en grupo: permite crear sesiones compartidas, registrar consumos por persona, calcular propina automáticamente, gestionar pagos y generar reportes en PDF.",
+    "url": "http://mivaca.onrender.com"
+  },
+  {
+    "name": "montupython-app",
+    "title": "MontuPython App",
+    "description": "Aplicación web de apoyo a MontuPython para explorar de forma interactiva cálculos de efemérides y conceptos de astronomía del mundo antiguo en un entorno didáctico.",
+    "url": "https://montupython-production.up.railway.app/"
+  }
+]

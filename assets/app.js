@@ -619,6 +619,35 @@ async function renderSoftwarePackages() {
   }
 }
 
+async function renderApps() {
+  const el = document.getElementById("apps-items");
+  if (!el) return;
+
+  clearChildren(el);
+  try {
+    const items = await loadJson("./info/apps.json");
+
+    let borderIdx = 1;
+    for (const item of items) {
+      const div = document.createElement("div");
+      div.className = `box border${borderIdx}`;
+      borderIdx = borderIdx < 6 ? borderIdx + 1 : 1;
+
+      div.innerHTML = `
+        <div class="info">
+          <h3>${escapeHtml(item.title ?? item.name ?? "")}</h3>
+          <p>${escapeHtml(item.description ?? "")}</p>
+          <p><strong>URL:</strong> <a class="link" href="${escapeAttr(item.url ?? "")}" target="_blank" rel="noreferrer noopener">${escapeHtml(item.url ?? "")}</a></p>
+        </div>
+      `;
+
+      el.appendChild(div);
+    }
+  } catch (err) {
+    console.error("Error cargando apps:", err);
+  }
+}
+
 function renderAboutMe(profile) {
   if (!profile) return;
   const el = document.getElementById("about-me");
@@ -759,6 +788,7 @@ async function main() {
     renderAwardsPage(),
     renderLogrosProfesionales(),
     renderLibros(),
+    renderApps(),
     renderSoftwarePackages(),
   ]);
 

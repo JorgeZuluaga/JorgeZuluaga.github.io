@@ -118,6 +118,22 @@
         "label": "Documentación"
       }
     ]
+  },
+  {
+    "name": "MontuPython",
+    "description": "Paquete en Python para calcular efemérides astronómicas del mundo antiguo, inicialmente diseñado para Egipto antiguo y aplicable a estudios de astronomía cultural y arqueoastronomía en otros sitios.",
+    "authors": ["Jorge I. Zuluaga", "Francisco \"Tito\" Vivas", "Juanita Agudelo"],
+    "created": "2023",
+    "links": [
+      {
+        "href": "https://pypi.org/project/montu/",
+        "label": "https://pypi.org/project/montu/"
+      },
+      {
+        "href": "https://github.com/seap-udea/MontuPython",
+        "label": "GitHub"
+      }
+    ]
   }
 ]
 
