@@ -648,11 +648,75 @@ async function renderApps() {
   }
 }
 
-function renderAboutMe(profile) {
-  if (!profile) return;
+function renderSimpleMarkdown(text) {
+  const src = (text ?? "").replace(/\r\n/g, "\n").trim();
+  if (!src) return "";
+
+  // Minimal Markdown support for easy authoring in aboutme.md.
+  // Supported:
+  // - blank line => paragraph break
+  // - **bold**
+  // - *italic*
+  const blocks = src
+    .split(/\n\s*\n/g)
+    .map((b) => b.trim())
+    .filter(Boolean);
+
+  function renderInlineMarkdown(blockText) {
+    const links = [];
+    let raw = blockText;
+
+    // Markdown links: [texto](https://url)
+    raw = raw.replace(/\[([^\]]+)\]\((https?:\/\/[^\s)]+)\)/g, (_, label, href) => {
+      const token = `@@LINK_${links.length}@@`;
+      links.push({ token, label, href });
+      return token;
+    });
+
+    let html = escapeHtml(raw);
+    html = html.replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>");
+    html = html.replace(/\*(.+?)\*/g, "<em>$1</em>");
+
+    for (const link of links) {
+      const anchor = `<a class="link" href="${escapeAttr(link.href)}" target="_blank" rel="noreferrer noopener">${escapeHtml(link.label)}</a>`;
+      html = html.replace(link.token, anchor);
+    }
+
+    return html;
+  }
+
+  return blocks
+    .map((block) => {
+      const oneLine = block.replace(/\n/g, " ");
+      const inlineHtml = renderInlineMarkdown(oneLine);
+      return `<p>${inlineHtml}</p>`;
+    })
+    .join("");
+}
+
+async function renderAboutMe(profile) {
   const el = document.getElementById("about-me");
   if (!el) return;
-  el.textContent = profile.aboutMe ?? "";
+
+  try {
+    const res = await fetch("./info/aboutme.md", { cache: "no-store" });
+    if (res.ok) {
+      const md = await res.text();
+      const html = renderSimpleMarkdown(md);
+      if (html) {
+        el.innerHTML = html;
+        return;
+      }
+    }
+  } catch (err) {
+    console.warn("No se pudo cargar aboutme.md, usando fallback de profile.json", err);
+  }
+
+  if (profile?.aboutMe) {
+    el.textContent = profile.aboutMe;
+  } else {
+    el.textContent = "";
+  }
 }
 
 async function renderContact() {
@@ -779,9 +843,9 @@ async function main() {
   const profile = await loadProfile().catch(() => null);
   renderTeaching(profile);
   renderExperience(profile);
-  renderAboutMe(profile);
 
   await Promise.allSettled([
+    renderAboutMe(profile),
     renderContact(),
     renderEducation(),
     renderResearchStays(),
