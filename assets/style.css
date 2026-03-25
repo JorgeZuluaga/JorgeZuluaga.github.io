@@ -822,6 +822,45 @@ screen {
     margin: 0 !important;
   }
 
+  .print-mode .wrapper {
+    background: #ffffff !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  .print-mode .logos {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  .print-mode .skill-badge {
+    background: #ffffff !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+    box-shadow: none !important;
+    border-color: #0e55af !important;
+    color: #000000 !important;
+    font-size: 0.62rem !important;
+    line-height: 1.08 !important;
+  }
+
+  .print-mode .home-qr {
+    page-break-inside: avoid;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  .print-mode .home-qr img {
+    box-shadow: none !important;
+    border: 1px solid #cccccc !important;
+    border-radius: 0.35rem !important;
+  }
+
+  .print-mode .home-qr-label {
+    color: #000000 !important;
+    opacity: 0.85 !important;
+  }
+
   .print-mode header {
     height: auto !important;
     background: transparent !important;
@@ -864,8 +903,9 @@ screen {
   html {
     background: white !important;
     color: black !important;
-    font-size: 120% !important;
-    zoom: 0.8 !important;
+    font-size: 115% !important;
+    /* Sin zoom: en Chrome/Safari el zoom en impresión suele provocar bandas y fondos
+       erróneos en flex (p. ej. filas de .logos) y en el bloque del QR al exportar PDF. */
   }
 
   footer {
@@ -922,6 +962,48 @@ screen {
     padding: 0 !important;
     border: none !important;
     margin: 0 !important;
+  }
+
+  /* Columna principal: mismo blanco que el body (evita franjas grises #f5f5f7 del tema). */
+  .wrapper {
+    background: #ffffff !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  /* Habilidades técnicas: forzar relleno y color en PDF */
+  .logos {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  .skill-badge {
+    background: #ffffff !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+    box-shadow: none !important;
+    border-color: #0e55af !important;
+    color: #000000 !important;
+    font-size: 0.62rem !important;
+    line-height: 1.08 !important;
+  }
+
+  /* QR inicio: sin sombra fantasma; bloque unido al imprimir */
+  .home-qr {
+    page-break-inside: avoid;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  .home-qr img {
+    box-shadow: none !important;
+    border: 1px solid #cccccc !important;
+    border-radius: 0.35rem !important;
+  }
+
+  .home-qr-label {
+    color: #000000 !important;
+    opacity: 0.85 !important;
   }
 }
 
