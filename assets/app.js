@@ -115,8 +115,27 @@ function formatAuthors(s) {
   const maxShown = 5;
   if (parts.length <= maxShown) return parts.join(", ");
 
-  // Always show first 5 authors, then "et al."
-  return `${parts.slice(0, maxShown).join(", ")}, et al.`;
+  // When truncating, ensure we always show "Jorge I Zuluaga" before "et al."
+  // (so highlightAuthor() can also work even if he isn't in the first 5 authors).
+  const isZuluaga = (author) =>
+    /zuluaga\s*,?\s*jorge\s*i\b/i.test(author) ||
+    /j\.?\s*i\.?\s*zuluaga\b/i.test(author) ||
+    /\bjorge\s*i\s*zuluaga\b/i.test(author);
+
+  const zIdx = parts.findIndex(isZuluaga);
+  if (zIdx === -1) {
+    // No matching author: show first N, then "et al."
+    return `${parts.slice(0, maxShown).join(", ")}, et al.`;
+  }
+
+  // If Zuluaga is already in the first N slots, keep the original behavior.
+  if (zIdx < maxShown) {
+    return `${parts.slice(0, maxShown).join(", ")}, et al.`;
+  }
+
+  // Otherwise show first (N-1) + Zuluaga, then "et al."
+  const shown = parts.slice(0, maxShown - 1).concat([parts[zIdx]]);
+  return `${shown.join(", ")}, et al.`;
 }
 
 function latexToUnicode(s) {
@@ -129,6 +148,10 @@ function latexToUnicode(s) {
     .replace(/\{\\'([A-Za-z])\}/g, (_, c) => c.normalize("NFD").replace(/./, c => ({
       a: "á", A: "Á", e: "é", E: "É", i: "í", I: "Í", o: "ó", O: "Ó", u: "ú", U: "Ú", n: "ń", N: "Ń"
     })[c] || c))
+    // Sometimes we get nested braces like {\'{a}} from BibTeX exports
+    .replace(/\{\\'\{?([A-Za-z])\}?\}/g, (_, c) => c.normalize("NFD").replace(/./, c2 => ({
+      a: "á", A: "Á", e: "é", E: "É", i: "í", I: "Í", o: "ó", O: "Ó", u: "ú", U: "Ú", n: "ń", N: "Ń"
+    })[c2] || c2))
     .replace(/\\'([A-Za-z])/g, (_, c) => ({
       a: "á", A: "Á", e: "é", E: "É", i: "í", I: "Í", o: "ó", O: "Ó", u: "ú", U: "Ú", n: "ń", N: "Ń"
     })[c] || c)
@@ -272,6 +295,7 @@ function renderPub(e, extraBadge = null) {
 
 function highlightAuthor(s) {
   return s
+    .replace(/Jorge\s*I\.?\s*Zuluaga/gi, (m) => `<strong>${m}</strong>`)
     .replace(/J\.?\s*I\.?\s*Zuluaga/gi, (m) => `<strong>${m}</strong>`)
     .replace(/Zuluaga,\s*Jorge\s*I/gi, (m) => `<strong>${m}</strong>`);
 }
@@ -941,6 +965,26 @@ async function main() {
     .slice(0, 5);
   const papersTop = papers.filter((p) => p.selection === "top").slice(0, 5);
   const papersPreprints = papers.filter((p) => p.selection === "preprint").slice(0, 5);
+  const papersBest = papers
+    .filter((p) => p.selection === "best")
+    .sort((a, b) => {
+      const citationsA = Number(a.citations ?? 0) || 0;
+      const citationsB = Number(b.citations ?? 0) || 0;
+      const yearA = Number(a.year ?? 0) || 0;
+      const yearB = Number(b.year ?? 0) || 0;
+      return citationsB - citationsA || yearB - yearA || a.title.localeCompare(b.title);
+    })
+    .slice(0, 5);
+  const papersMulti = papers
+    .filter((p) => p.selection === "multi")
+    .sort((a, b) => {
+      const citationsA = Number(a.citations ?? 0) || 0;
+      const citationsB = Number(b.citations ?? 0) || 0;
+      const yearA = Number(a.year ?? 0) || 0;
+      const yearB = Number(b.year ?? 0) || 0;
+      return citationsB - citationsA || yearB - yearA || a.title.localeCompare(b.title);
+    })
+    .slice(0, 5);
   const latestFinal = papersLatest;
   const preprintsFinal = papersPreprints;
 
@@ -976,6 +1020,26 @@ async function main() {
       fragTop.appendChild(renderPub(e, { selectionClass: "top" }));
     }
     topEl.appendChild(fragTop);
+  }
+
+  const bestEl = document.getElementById("best-articles");
+  if (bestEl) {
+    clearChildren(bestEl);
+    const fragBest = document.createDocumentFragment();
+    for (const e of papersBest) {
+      fragBest.appendChild(renderPub(e, { selectionClass: "best" }));
+    }
+    bestEl.appendChild(fragBest);
+  }
+
+  const multiEl = document.getElementById("multi-articles");
+  if (multiEl) {
+    clearChildren(multiEl);
+    const fragMulti = document.createDocumentFragment();
+    for (const e of papersMulti) {
+      fragMulti.appendChild(renderPub(e, { selectionClass: "multi" }));
+    }
+    multiEl.appendChild(fragMulti);
   }
 
   setText("count", String(latestFinal.length));
