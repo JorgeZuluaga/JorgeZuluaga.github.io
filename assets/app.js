@@ -960,30 +960,31 @@ async function main() {
 
   // Publications (single source of truth).
   const papers = await loadJson("./info/papers.json").catch(() => []);
+  const sortByYearDesc = (a, b) => {
+    const yearA = Number(a.year ?? 0) || 0;
+    const yearB = Number(b.year ?? 0) || 0;
+    return yearB - yearA || a.title.localeCompare(b.title);
+  };
+
   const papersLatest = papers
     .filter((p) => p.selection === "latest" || p.selection === "recent")
+    .sort(sortByYearDesc)
     .slice(0, 5);
-  const papersTop = papers.filter((p) => p.selection === "top").slice(0, 5);
-  const papersPreprints = papers.filter((p) => p.selection === "preprint").slice(0, 5);
+  const papersTop = papers
+    .filter((p) => p.selection === "top")
+    .sort(sortByYearDesc)
+    .slice(0, 5);
+  const papersPreprints = papers
+    .filter((p) => p.selection === "preprint")
+    .sort(sortByYearDesc)
+    .slice(0, 5);
   const papersBest = papers
     .filter((p) => p.selection === "best")
-    .sort((a, b) => {
-      const citationsA = Number(a.citations ?? 0) || 0;
-      const citationsB = Number(b.citations ?? 0) || 0;
-      const yearA = Number(a.year ?? 0) || 0;
-      const yearB = Number(b.year ?? 0) || 0;
-      return citationsB - citationsA || yearB - yearA || a.title.localeCompare(b.title);
-    })
+    .sort(sortByYearDesc)
     .slice(0, 5);
   const papersMulti = papers
     .filter((p) => p.selection === "multi")
-    .sort((a, b) => {
-      const citationsA = Number(a.citations ?? 0) || 0;
-      const citationsB = Number(b.citations ?? 0) || 0;
-      const yearA = Number(a.year ?? 0) || 0;
-      const yearB = Number(b.year ?? 0) || 0;
-      return citationsB - citationsA || yearB - yearA || a.title.localeCompare(b.title);
-    })
+    .sort(sortByYearDesc)
     .slice(0, 5);
   const latestFinal = papersLatest;
   const preprintsFinal = papersPreprints;
