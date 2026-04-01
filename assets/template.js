@@ -115,8 +115,12 @@ if (
 
   navLinks.forEach((link) => {
     link.addEventListener("click", (event) => {
-      const sectionId = link.getAttribute("href");
-      if (sectionId) navigateToSection(event, sectionId);
+      const href = link.getAttribute("href");
+      if (href && href.startsWith("#")) {
+        navigateToSection(event, href);
+      } else {
+        closeMenu();
+      }
     });
   });
 

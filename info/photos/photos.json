@@ -1,0 +1,105 @@
+{
+  "title": "Fotografías para conferencias y prensa",
+  "intro": "Imágenes de Jorge I. Zuluaga en alta resolución para programas, credenciales y comunicación. Pulse «Vista previa» (o la miniatura) para ver la foto grande antes de descargarla.",
+  "photos": [
+    {
+      "file": "jorge-zuluaga-perfil-cv-2025-03.jpg",
+      "title": "Foto de perfil (misma que el CV web)",
+      "dateLabel": "Septiembre 2022",
+      "year": 2025,
+      "month": 3,
+      "description": "Copia en alta resolución de la imagen usada en la hoja de vida en línea; adecuada para prensa y anuncios recientes.",
+      "width": 915,
+      "height": 1280,
+      "sizeBytes": 726855
+    },
+    {
+      "file": "jorge-zuluaga-evento-en-vivo-2025-03-01.jpeg",
+      "title": "Evento en vivo — imagen 1",
+      "dateLabel": "Marzo 2025",
+      "year": 2025,
+      "month": 3,
+      "description": "Fotografía tomada durante un evento en vivo (marzo 2025); adecuada para prensa y material de difusión.",
+      "width": 2881,
+      "height": 4160,
+      "sizeBytes": 663644
+    },
+    {
+      "file": "jorge-zuluaga-evento-en-vivo-2025-03-02.jpeg",
+      "title": "Evento en vivo — imagen 2",
+      "dateLabel": "Marzo 2025",
+      "year": 2025,
+      "month": 3,
+      "description": "Fotografía tomada durante un evento en vivo (marzo 2025); adecuada para prensa y material de difusión.",
+      "width": 2773,
+      "height": 4160,
+      "sizeBytes": 725273
+    },
+    {
+      "file": "jorge-zuluaga-evento-en-vivo-2025-03-03.jpeg",
+      "title": "Evento en vivo — imagen 3",
+      "dateLabel": "Marzo 2025",
+      "year": 2025,
+      "month": 3,
+      "description": "Fotografía tomada durante un evento en vivo (marzo 2025); adecuada para prensa y material de difusión.",
+      "width": 2773,
+      "height": 4160,
+      "sizeBytes": 545222
+    },
+    {
+      "file": "jorge-zuluaga-conferencia-2022-09-01.JPG",
+      "title": "Retrato — variante 1",
+      "dateLabel": "Septiembre 2022",
+      "year": 2022,
+      "month": 9,
+      "description": "Sesión de fotos para uso en conferencias y material institucional.",
+      "width": 4409,
+      "height": 2888,
+      "sizeBytes": 3899626
+    },
+    {
+      "file": "jorge-zuluaga-conferencia-2022-09-03.JPG",
+      "title": "Retrato — variante 3",
+      "dateLabel": "Septiembre 2022",
+      "year": 2022,
+      "month": 9,
+      "description": "Sesión de fotos para uso en conferencias y material institucional.",
+      "width": 2659,
+      "height": 3915,
+      "sizeBytes": 3044848
+    },
+    {
+      "file": "jorge-zuluaga-conferencia-2022-09-04.JPG",
+      "title": "Retrato — variante 4",
+      "dateLabel": "Septiembre 2022",
+      "year": 2022,
+      "month": 9,
+      "description": "Sesión de fotos para uso en conferencias y material institucional.",
+      "width": 2816,
+      "height": 3324,
+      "sizeBytes": 2066477
+    },
+    {
+      "file": "jorge-zuluaga-evento-2020-03.jpeg",
+      "title": "En contexto de evento",
+      "dateLabel": "Marzo 2020",
+      "year": 2020,
+      "month": 3,
+      "description": "Fotografía tomada en un evento académico o institucional.",
+      "width": 1197,
+      "height": 2108,
+      "sizeBytes": 2111470
+    },
+    {
+      "file": "jorge-zuluaga-retrato-2019-04.jpg",
+      "title": "Retrato (archivo histórico)",
+      "dateLabel": "Abril 2019",
+      "year": 2019,
+      "month": 4,
+      "description": "Retrato de archivo; puede usarse si se requiere una imagen de la época.",
+      "width": 3024,
+      "height": 4032,
+      "sizeBytes": 6074505
+    }
+  ]
+}

@@ -314,6 +314,14 @@ function escapeAttr(s) {
   return escapeHtml(s).replaceAll("`", "&#96;");
 }
 
+function parseSelectionTags(selection) {
+  return String(selection ?? "")
+    .split(",")
+    .map((s) => s.trim().toLowerCase())
+    .filter(Boolean)
+    .map((s) => (s === "latest" ? "recent" : s));
+}
+
 async function loadAll() {
   const loaded = [];
   for (const src of SOURCES) {
@@ -438,6 +446,14 @@ function renderTeaching(profile) {
   }
   if (profile.avatar) {
     setAttr("avatar", "src", profile.avatar);
+  }
+  if (profile.avatarDownload) {
+    const avatarDl = document.getElementById("avatar-download");
+    if (avatarDl) {
+      avatarDl.href = profile.avatarDownload;
+      const base = String(profile.avatarDownload).split("/").pop();
+      if (base) avatarDl.setAttribute("download", base);
+    }
   }
 
   const coursesEl = document.getElementById("teaching-courses");
@@ -966,28 +982,39 @@ async function main() {
     return yearB - yearA || a.title.localeCompare(b.title);
   };
 
-  const papersLatest = papers
-    .filter((p) => p.selection === "latest" || p.selection === "recent")
-    .sort(sortByYearDesc)
-    .slice(0, 5);
-  const papersTop = papers
-    .filter((p) => p.selection === "top")
-    .sort(sortByYearDesc)
-    .slice(0, 5);
-  const papersPreprints = papers
-    .filter((p) => p.selection === "preprint")
-    .sort(sortByYearDesc)
-    .slice(0, 5);
-  const papersBest = papers
-    .filter((p) => p.selection === "best")
-    .sort(sortByYearDesc)
-    .slice(0, 5);
-  const papersMulti = papers
-    .filter((p) => p.selection === "multi")
-    .sort(sortByYearDesc)
-    .slice(0, 5);
-  const latestFinal = papersLatest;
-  const preprintsFinal = papersPreprints;
+  // A paper may contain multiple categories in `selection`, comma-separated.
+  // We assign each paper to a single visible bucket following this priority.
+  const papersSorted = [...papers].sort(sortByYearDesc);
+  const bucketOrder = ["recent", "preprint", "top", "best", "multi"];
+  const buckets = {
+    recent: [],
+    preprint: [],
+    top: [],
+    best: [],
+    multi: [],
+  };
+  const assigned = new Set();
+
+  for (const bucket of bucketOrder) {
+    for (const p of papersSorted) {
+      if (buckets[bucket].length >= 5) break;
+      const key = buildKey(p);
+      if (assigned.has(key)) continue;
+
+      const tags = parseSelectionTags(p.selection);
+      if (!tags.length || tags.includes("hide")) continue;
+      if (!tags.includes(bucket)) continue;
+
+      buckets[bucket].push(p);
+      assigned.add(key);
+    }
+  }
+
+  const latestFinal = buckets.recent;
+  const preprintsFinal = buckets.preprint;
+  const papersTop = buckets.top;
+  const papersBest = buckets.best;
+  const papersMulti = buckets.multi;
 
   const latestEl = document.getElementById("latest");
   if (latestEl) {

@@ -1,61 +1,13 @@
 [
   {
-    "selection": "top",
-    "title": "Size and shape constraints of (486958) Arrokoth from stellar occultations",
-    "author": "M.W. Buie, S.B. Porter, P. Tamblyn, D. Terrell, A.H. Parker, D. Baratoux and J.I. Zuluaga",
-    "journal": "The Astronomical Journal 159 (4), 130",
-    "year": 2020,
-    "doi": "10.3847/1538-3881/ab6ced",
-    "citations": 68,
+    "selection": "preprint,recent,best",
+    "title": "Efficient reduction of stellar contamination and noise in planetary transmission spectra using neural networks",
+    "author": "Duque-Casta{\\~n}o, David S and Flor-Torres, Lauren and Zuluaga, Jorge I",
+    "journal": "arXiv preprint arXiv:2602.10330",
+    "year": 2026,
     "source": "scholar",
-    "url": "https://doi.org/10.3847/1538-3881/ab6ced"
-  },
-  {
-    "selection": "top",
-    "title": "A novel method for identifying exoplanetary rings",
-    "author": "J.I. Zuluaga, D.M. Kipping, M. Sucerquia and J.A. Alvarado",
-    "journal": "The Astrophysical Journal Letters 803 (1), L14",
-    "year": 2015,
-    "doi": "10.1088/2041-8205/803/1/L14",
-    "citations": 73,
-    "source": "scholar",
-    "url": "https://doi.org/10.1088/2041-8205/803/1/L14"
-  },
-  {
-    "selection": "top",
-    "title": "Formation, habitability, and detection of extrasolar moons",
-    "author": "R. Heller, D. Williams, D. Kipping, M.A. Limbach, E. Turner, R. Greenberg and J.I. Zuluaga",
-    "journal": "Astrobiology 14 (9), 798–835",
-    "year": 2014,
-    "doi": "10.1089/ast.2014.1147",
-    "citations": 168,
-    "source": "scholar",
-    "url": "https://doi.org/10.1089/ast.2014.1147"
-  },
-  {
-    "selection": "top",
-    "title": "The influence of thermal evolution in the magnetic protection of terrestrial planets",
-    "author": "J.I. Zuluaga, S. Bustamante, P.A. Cuartas and J.H. Hoyos",
-    "journal": "The Astrophysical Journal 770 (1), 23",
-    "year": 2013,
-    "doi": "10.1088/0004-637X/770/1/23",
-    "citations": 61,
-    "source": "scholar",
-    "url": "https://doi.org/10.1088/0004-637X/770/1/23"
-  },
-  {
-    "selection": "top",
-    "title": "SU(4)L U(1)X three-family model for the electroweak interaction",
-    "author": "L.A. Sánchez, L.A. Wills-Toro and J.I. Zuluaga",
-    "journal": "Physical Review D 77 (3), 035008",
-    "year": 2008,
-    "doi": "10.1103/PhysRevD.77.035008",
-    "url": "https://doi.org/10.1103/PhysRevD.77.035008",
-    "volume": 77,
-    "number": 3,
-    "pages": "035008",
-    "citations": 46,
-    "source": "scholar"
+    "citations": 0,
+    "url": "https://arxiv.org/abs/2602.10330"
   },
   {
     "selection": "hide",
@@ -63,8 +15,87 @@
     "author": "Duque-Casta{\\~n}o, David S and Zuluaga, Jorge I and Flor-Torres, Lauren{\\^a",
     "journal": "Astrophysics Source Code Library",
     "year": 2025,
+    "url": "https://ascl.net/2504.022",
     "source": "scholar",
     "citations": 0
+  },
+  {
+    "selection": "recent",
+    "title": "A general polarimetric model for transiting and nontransiting ringed exoplanets",
+    "author": "Veenstra, Allard K. and Zuluaga, Jorge I. and Alvarado-Montes, Jaime A. and Sucerquia, Mario and Stam, Daphne M.",
+    "journal": "Astronomy & Astrophysics",
+    "year": 2025,
+    "doi": "10.1051/0004-6361/202347194",
+    "url": "http://dx.doi.org/10.1051/0004-6361/202347194",
+    "source": "orcid",
+    "citations": 1
+  },
+  {
+    "selection": "recent,best",
+    "title": "Machine-assisted classification of potential biosignatures in Earth-like exoplanets using low signal-to-noise ratio transmission spectra",
+    "author": "Duque-Castaño, David S and Zuluaga, Jorge I and Flor-Torres, Lauren",
+    "journal": "Monthly Notices of the Royal Astronomical Society",
+    "year": 2025,
+    "doi": "10.1093/mnras/staf563",
+    "url": "http://dx.doi.org/10.1093/mnras/staf563",
+    "source": "orcid",
+    "citations": 7
+  },
+  {
+    "selection": "recent",
+    "title": "Orbital Decay of the Ultra-hot Jupiter TOI-2109b: Tidal Constraints and Transit-timing Analysis",
+    "author": "Alvarado-Montes, Jaime A. and Sucerquia, Mario and Zuluaga, Jorge I. and Schwab, Christian",
+    "journal": "The Astrophysical Journal",
+    "year": 2025,
+    "doi": "10.3847/1538-4357/ade057",
+    "url": "http://dx.doi.org/10.3847/1538-4357/ade057",
+    "source": "orcid",
+    "citations": 6
+  },
+  {
+    "selection": "preprint",
+    "title": "Arecibo Wow! II: Revised Properties of the Wow! Signal from Archival Ohio SETI Data",
+    "author": "M{\\'e}ndez, Abel and Ceballos, Kevin N Ortiz and Zuluaga, Jorge I and Palencia-Torres, Kelby D and Smith, Allison J and Rodr{\\'\\i}guez, Alondra Cardona and Socas-Navarro, H{\\'e}ctor and Kipping, David and Hubbard-James, Hodari-Sadiki and Le, Mai and others",
+    "journal": "arXiv preprint arXiv:2508.10657",
+    "year": 2025,
+    "source": "scholar",
+    "citations": 2,
+    "url": "https://arxiv.org/abs/2508.10657"
+  },
+  {
+    "selection": "multi",
+    "title": "Wetting and drying trends in the land--atmosphere reservoir of large basins around the world",
+    "author": "Salazar, Juan F and Molina, Ruben D and Zuluaga, Jorge I and Gomez-Velez, Jesus D",
+    "journal": "Hydrology and Earth System Sciences",
+    "year": 2024,
+    "doi": "10.5194/hess-28-2919-2024",
+    "url": "https://doi.org/10.5194/hess-28-2919-2024",
+    "volume": 28,
+    "number": 13,
+    "pages": "2919-2947",
+    "source": "scholar",
+    "citations": 2
+  },
+  {
+    "selection": "recent",
+    "title": "The missing rings around Solar System moons",
+    "author": "Sucerquia, Mario and Alvarado-Montes, Jaime A. and Zuluaga, Jorge I. and Cuello, Nicolás and Cuadra, Jorge and Montesinos, Matías",
+    "journal": "Astronomy & Astrophysics",
+    "year": 2024,
+    "doi": "10.1051/0004-6361/202449453",
+    "url": "http://dx.doi.org/10.1051/0004-6361/202449453",
+    "source": "orcid",
+    "citations": 1
+  },
+  {
+    "selection": "preprint",
+    "title": "Arecibo wow! I: an astrophysical explanation for the wow! Signal",
+    "author": "M{\\'e}ndez, Abel and Ceballos, Kevin Ortiz and Zuluaga, Jorge I",
+    "journal": "arXiv preprint arXiv:2408.08513",
+    "year": 2024,
+    "source": "scholar",
+    "citations": 8,
+    "url": "https://arxiv.org/abs/2408.08513"
   },
   {
     "selection": "hide",
@@ -111,6 +142,7 @@
     "journal": "Astrophysics Source Code Library",
     "year": 2022,
     "source": "scholar",
+    "url": "https://ascl.net/2205.016",
     "citations": 0
   },
   {
@@ -121,6 +153,28 @@
     "year": 2022,
     "source": "scholar",
     "citations": 0
+  },
+  {
+    "selection": "best",
+    "title": "The bright side of the light curve: A general photometric model of non-transiting exorings",
+    "author": "J.I. Zuluaga and M. Sucerquia and J.A. Alvarado-Montes",
+    "journal": "Astronomy and Computing",
+    "year": 2022,
+    "source": "orcid",
+    "doi": "10.1016/j.ascom.2022.100623",
+    "url": "https://doi.org/10.1016%2Fj.ascom.2022.100623",
+    "citations": 14
+  },
+  {
+    "selection": "recent,best",
+    "title": "Conditions for high-resolution bistatic radar observations of Apophis in 2029",
+    "author": "Vallejo, Agustín and Zuluaga, Jorge I and Chaparro, Germán",
+    "journal": "Monthly Notices of the Royal Astronomical Society",
+    "year": 2022,
+    "doi": "10.1093/mnras/stac3046",
+    "url": "http://dx.doi.org/10.1093/mnras/stac3046",
+    "source": "orcid",
+    "citations": 3
   },
   {
     "selection": "hide",
@@ -152,6 +206,39 @@
     "doi": "10.1093/mnras/stab1081",
     "url": "https://doi.org/10.1093%2Fmnras%2Fstab1081",
     "citations": 0
+  },
+  {
+    "selection": "multi",
+    "title": "Enceladus as a Potential Niche for Methanogens and Estimation of Its Biomass",
+    "author": "Tenelanda-Osorio, Laura I. and Parra, Juan L. and Cuartas-Restrepo, Pablo and Zuluaga, Jorge I.",
+    "journal": "Life",
+    "year": 2021,
+    "source": "orcid",
+    "doi": "10.3390/life11111182",
+    "url": "http://dx.doi.org/10.3390/life11111182",
+    "citations": 12
+  },
+  {
+    "selection": "top",
+    "title": "Size and shape constraints of (486958) Arrokoth from stellar occultations",
+    "author": "M.W. Buie, S.B. Porter, P. Tamblyn, D. Terrell, A.H. Parker, D. Baratoux and J.I. Zuluaga",
+    "journal": "The Astronomical Journal 159 (4), 130",
+    "year": 2020,
+    "doi": "10.3847/1538-3881/ab6ced",
+    "citations": 68,
+    "source": "scholar",
+    "url": "https://doi.org/10.3847/1538-3881/ab6ced"
+  },
+  {
+    "selection": "best",
+    "title": "Scattered light may reveal the existence of ringed exoplanets",
+    "author": "Mario Sucerquia and Jaime A Alvarado-Montes and Jorge I Zuluaga and Mat{\\'{\\i}}as Montesinos and Amelia Bayo",
+    "journal": "Monthly Notices of the Royal Astronomical Society: Letters",
+    "year": 2020,
+    "source": "orcid",
+    "doi": "10.1093/mnrasl/slaa080",
+    "url": "https://doi.org/10.1093%2Fmnrasl%2Fslaa080",
+    "citations": 13
   },
   {
     "selection": "hide",
@@ -216,6 +303,61 @@
     "citations": 8
   },
   {
+    "selection": "best",
+    "title": "Can we predict the impact conditions of metre-sized meteoroids?",
+    "author": "Jorge I Zuluaga and Pablo A Cuartas-Restrepo and Jonathan Ospina and Mario Sucerquia",
+    "journal": "Monthly Notices of the Royal Astronomical Society: Letters",
+    "year": 2019,
+    "source": "orcid",
+    "doi": "10.1093/mnrasl/slz060",
+    "url": "https://doi.org/10.1093%2Fmnrasl%2Fslz060",
+    "citations": 13
+  },
+  {
+    "selection": "best",
+    "title": "Location, orbit and energy of a meteoroid impacting the Moon during the Lunar Eclipse of January 21, 2019",
+    "author": "J I Zuluaga and M Tangmatitham and P Cuartas-Restrepo and J Ospina and F Pichardo and S A L{\\'{o}}pez and K Pe{\\~{n}}a and J M Gaviria-Posada",
+    "journal": "Monthly Notices of the Royal Astronomical Society",
+    "year": 2019,
+    "source": "orcid",
+    "doi": "10.1093/mnras/stz3531",
+    "url": "https://doi.org/10.1093%2Fmnras%2Fstz3531",
+    "citations": 0
+  },
+  {
+    "selection": "best",
+    "title": "Ploonets: formation, evolution, and detectability of tidally detached exomoons",
+    "author": "Mario Sucerquia and Jaime A Alvarado-Montes and Jorge I Zuluaga and Nicol{\\'{a}}s Cuello and Cristian Giuppone",
+    "journal": "Monthly Notices of the Royal Astronomical Society",
+    "year": 2019,
+    "source": "orcid",
+    "doi": "10.1093/mnras/stz2110",
+    "url": "https://doi.org/10.1093%2Fmnras%2Fstz2110",
+    "citations": 35
+  },
+  {
+    "selection": "multi",
+    "title": "Correlation between tides and seismicity in Northwestern South America: The case of Colombia",
+    "author": "Gloria A. Moncayo and Jorge I. Zuluaga and Gaspar Monsalve",
+    "journal": "Journal of South American Earth Sciences",
+    "year": 2019,
+    "source": "orcid",
+    "doi": "10.1016/j.jsames.2018.11.020",
+    "url": "https://doi.org/10.1016%2Fj.jsames.2018.11.020",
+    "citations": 8
+  },
+  {
+    "selection": "multi",
+    "title": "Tidal Coulomb Failure Stresses in the northern Andean intermediate depth seismic clusters: Implications for a possible correlation between tides and seismicity",
+    "author": "Gloria A. Moncayo and Gaspar Monsalve and Jorge I. Zuluaga",
+    "journal": "Tectonophysics",
+    "year": 2019,
+    "source": "orcid",
+    "doi": "10.1016/j.tecto.2019.04.015",
+    "url": "https://doi.org/10.1016%2Fj.tecto.2019.04.015",
+    "citations": 3
+  },
+  {
     "selection": "hide",
     "title": "BHMcalc: Binary Habitability Mechanism Calculator",
     "author": "Zuluaga, Jorge I and Mason, Paul and Cuartas-Restrepo, Pablo A and Clark, Joni",
@@ -261,6 +403,28 @@
     "year": 2018,
     "source": "scholar",
     "citations": 0
+  },
+  {
+    "selection": "best",
+    "title": "A General Method for Assessing the Origin of Interstellar Small Bodies: The Case of 1I/2017 U1 (‘Oumuamua)",
+    "author": "Zuluaga, Jorge I. and Sánchez-Hernández, Oscar and Sucerquia, Mario and Ferrín, Ignacio",
+    "journal": "The Astronomical Journal",
+    "year": 2018,
+    "source": "orcid",
+    "doi": "10.3847/1538-3881/aabd7c",
+    "url": "http://dx.doi.org/10.3847/1538-3881/aabd7c",
+    "citations": 22
+  },
+  {
+    "selection": "best",
+    "title": "Towards a theoretical determination of the geographical probability distribution of meteoroid impacts on Earth",
+    "author": "Jorge I Zuluaga and Mario Sucerquia",
+    "journal": "Monthly Notices of the Royal Astronomical Society",
+    "year": 2018,
+    "source": "orcid",
+    "doi": "10.1093/mnras/sty702",
+    "url": "https://doi.org/10.1093%2Fmnras%2Fsty702",
+    "citations": 10
   },
   {
     "selection": "hide",
@@ -359,6 +523,17 @@
     "citations": 0
   },
   {
+    "selection": "top",
+    "title": "A novel method for identifying exoplanetary rings",
+    "author": "J.I. Zuluaga, D.M. Kipping, M. Sucerquia and J.A. Alvarado",
+    "journal": "The Astrophysical Journal Letters 803 (1), L14",
+    "year": 2015,
+    "doi": "10.1088/2041-8205/803/1/L14",
+    "citations": 73,
+    "source": "scholar",
+    "url": "https://doi.org/10.1088/2041-8205/803/1/L14"
+  },
+  {
     "selection": "hide",
     "title": "An Investigation of Circumbinary Planet Orbital Stability and Habitability to Identify Potential Planetary Systems with Several Habitable Planets",
     "author": "Mason, Paul A and Zuluaga, Jorge and Cuartas, Pablo A",
@@ -407,6 +582,17 @@
     "year": 2015,
     "source": "scholar",
     "citations": 1
+  },
+  {
+    "selection": "top",
+    "title": "Formation, habitability, and detection of extrasolar moons",
+    "author": "R. Heller, D. Williams, D. Kipping, M.A. Limbach, E. Turner, R. Greenberg and J.I. Zuluaga",
+    "journal": "Astrobiology 14 (9), 798–835",
+    "year": 2014,
+    "doi": "10.1089/ast.2014.1147",
+    "citations": 168,
+    "source": "scholar",
+    "url": "https://doi.org/10.1089/ast.2014.1147"
   },
   {
     "selection": "hide",
@@ -477,6 +663,17 @@
     "pages": "130",
     "source": "scholar",
     "citations": 0
+  },
+  {
+    "selection": "top",
+    "title": "The influence of thermal evolution in the magnetic protection of terrestrial planets",
+    "author": "J.I. Zuluaga, S. Bustamante, P.A. Cuartas and J.H. Hoyos",
+    "journal": "The Astrophysical Journal 770 (1), 23",
+    "year": 2013,
+    "doi": "10.1088/0004-637X/770/1/23",
+    "citations": 61,
+    "source": "scholar",
+    "url": "https://doi.org/10.1088/0004-637X/770/1/23"
   },
   {
     "selection": "hide",
@@ -555,6 +752,26 @@
     "pages": "1821-1837",
     "source": "orcid",
     "citations": 16
+  },
+  {
+    "selection": "preprint",
+    "title": "A preliminary reconstruction of the orbit of the Chelyabinsk Meteoroid",
+    "author": "Zuluaga, Jorge I and Ferrin, Ignacio",
+    "journal": "arXiv preprint arXiv:1302.5377",
+    "year": 2013,
+    "source": "scholar",
+    "citations": 58,
+    "url": "https://arxiv.org/abs/1302.5377"
+  },
+  {
+    "selection": "preprint",
+    "title": "The orbit of the Chelyabinsk event impactor as reconstructed from amateur and public footage",
+    "author": "Zuluaga, Jorge I and Ferrin, Ignacio and Geens, Stefan",
+    "journal": "arXiv preprint arXiv:1303.1796",
+    "year": 2013,
+    "source": "scholar",
+    "citations": 47,
+    "url": "https://arxiv.org/abs/1303.1796"
   },
   {
     "selection": "hide",
@@ -638,6 +855,20 @@
     "pages": "174-175",
     "source": "orcid",
     "citations": 0
+  },
+  {
+    "selection": "top",
+    "title": "SU(4)L U(1)X three-family model for the electroweak interaction",
+    "author": "L.A. Sánchez, L.A. Wills-Toro and J.I. Zuluaga",
+    "journal": "Physical Review D 77 (3), 035008",
+    "year": 2008,
+    "doi": "10.1103/PhysRevD.77.035008",
+    "url": "https://doi.org/10.1103/PhysRevD.77.035008",
+    "volume": 77,
+    "number": 3,
+    "pages": "035008",
+    "citations": 46,
+    "source": "scholar"
   },
   {
     "selection": "hide",
@@ -734,234 +965,5 @@
     "pages": "1076-1084",
     "source": "orcid",
     "citations": 25
-  },
-  {
-    "selection": "best",
-    "title": "The bright side of the light curve: A general photometric model of non-transiting exorings",
-    "author": "J.I. Zuluaga and M. Sucerquia and J.A. Alvarado-Montes",
-    "journal": "Astronomy and Computing",
-    "year": 2022,
-    "source": "orcid",
-    "doi": "10.1016/j.ascom.2022.100623",
-    "url": "https://doi.org/10.1016%2Fj.ascom.2022.100623",
-    "citations": 14
-  },
-  {
-    "selection": "best",
-    "title": "Scattered light may reveal the existence of ringed exoplanets",
-    "author": "Mario Sucerquia and Jaime A Alvarado-Montes and Jorge I Zuluaga and Mat{\\'{\\i}}as Montesinos and Amelia Bayo",
-    "journal": "Monthly Notices of the Royal Astronomical Society: Letters",
-    "year": 2020,
-    "source": "orcid",
-    "doi": "10.1093/mnrasl/slaa080",
-    "url": "https://doi.org/10.1093%2Fmnrasl%2Fslaa080",
-    "citations": 13
-  },
-  {
-    "selection": "best",
-    "title": "Can we predict the impact conditions of metre-sized meteoroids?",
-    "author": "Jorge I Zuluaga and Pablo A Cuartas-Restrepo and Jonathan Ospina and Mario Sucerquia",
-    "journal": "Monthly Notices of the Royal Astronomical Society: Letters",
-    "year": 2019,
-    "source": "orcid",
-    "doi": "10.1093/mnrasl/slz060",
-    "url": "https://doi.org/10.1093%2Fmnrasl%2Fslz060",
-    "citations": 13
-  },
-  {
-    "selection": "best",
-    "title": "Location, orbit and energy of a meteoroid impacting the Moon during the Lunar Eclipse of January 21, 2019",
-    "author": "J I Zuluaga and M Tangmatitham and P Cuartas-Restrepo and J Ospina and F Pichardo and S A L{\\'{o}}pez and K Pe{\\~{n}}a and J M Gaviria-Posada",
-    "journal": "Monthly Notices of the Royal Astronomical Society",
-    "year": 2019,
-    "source": "orcid",
-    "doi": "10.1093/mnras/stz3531",
-    "url": "https://doi.org/10.1093%2Fmnras%2Fstz3531",
-    "citations": 0
-  },
-  {
-    "selection": "best",
-    "title": "Ploonets: formation, evolution, and detectability of tidally detached exomoons",
-    "author": "Mario Sucerquia and Jaime A Alvarado-Montes and Jorge I Zuluaga and Nicol{\\'{a}}s Cuello and Cristian Giuppone",
-    "journal": "Monthly Notices of the Royal Astronomical Society",
-    "year": 2019,
-    "source": "orcid",
-    "doi": "10.1093/mnras/stz2110",
-    "url": "https://doi.org/10.1093%2Fmnras%2Fstz2110",
-    "citations": 35
-  },
-  {
-    "selection": "best",
-    "title": "A General Method for Assessing the Origin of Interstellar Small Bodies: The Case of 1I/2017 U1 (‘Oumuamua)",
-    "author": "Zuluaga, Jorge I. and Sánchez-Hernández, Oscar and Sucerquia, Mario and Ferrín, Ignacio",
-    "journal": "The Astronomical Journal",
-    "year": 2018,
-    "source": "orcid",
-    "doi": "10.3847/1538-3881/aabd7c",
-    "url": "http://dx.doi.org/10.3847/1538-3881/aabd7c",
-    "citations": 22
-  },
-  {
-    "selection": "best",
-    "title": "Towards a theoretical determination of the geographical probability distribution of meteoroid impacts on Earth",
-    "author": "Jorge I Zuluaga and Mario Sucerquia",
-    "journal": "Monthly Notices of the Royal Astronomical Society",
-    "year": 2018,
-    "source": "orcid",
-    "doi": "10.1093/mnras/sty702",
-    "url": "https://doi.org/10.1093%2Fmnras%2Fsty702",
-    "citations": 10
-  },
-  {
-    "selection": "multi",
-    "title": "Wetting and drying trends in the land--atmosphere reservoir of large basins around the world",
-    "author": "Salazar, Juan F and Molina, Ruben D and Zuluaga, Jorge I and Gomez-Velez, Jesus D",
-    "journal": "Hydrology and Earth System Sciences",
-    "year": 2024,
-    "doi": "10.5194/hess-28-2919-2024",
-    "url": "https://doi.org/10.5194/hess-28-2919-2024",
-    "volume": 28,
-    "number": 13,
-    "pages": "2919-2947",
-    "source": "scholar",
-    "citations": 2
-  },
-  {
-    "selection": "multi",
-    "title": "Enceladus as a Potential Niche for Methanogens and Estimation of Its Biomass",
-    "author": "Tenelanda-Osorio, Laura I. and Parra, Juan L. and Cuartas-Restrepo, Pablo and Zuluaga, Jorge I.",
-    "journal": "Life",
-    "year": 2021,
-    "source": "orcid",
-    "doi": "10.3390/life11111182",
-    "url": "http://dx.doi.org/10.3390/life11111182",
-    "citations": 12
-  },
-  {
-    "selection": "multi",
-    "title": "Correlation between tides and seismicity in Northwestern South America: The case of Colombia",
-    "author": "Gloria A. Moncayo and Jorge I. Zuluaga and Gaspar Monsalve",
-    "journal": "Journal of South American Earth Sciences",
-    "year": 2019,
-    "source": "orcid",
-    "doi": "10.1016/j.jsames.2018.11.020",
-    "url": "https://doi.org/10.1016%2Fj.jsames.2018.11.020",
-    "citations": 8
-  },
-  {
-    "selection": "multi",
-    "title": "Tidal Coulomb Failure Stresses in the northern Andean intermediate depth seismic clusters: Implications for a possible correlation between tides and seismicity",
-    "author": "Gloria A. Moncayo and Gaspar Monsalve and Jorge I. Zuluaga",
-    "journal": "Tectonophysics",
-    "year": 2019,
-    "source": "orcid",
-    "doi": "10.1016/j.tecto.2019.04.015",
-    "url": "https://doi.org/10.1016%2Fj.tecto.2019.04.015",
-    "citations": 3
-  },
-  {
-    "selection": "recent",
-    "title": "A general polarimetric model for transiting and nontransiting ringed exoplanets",
-    "author": "Veenstra, Allard K. and Zuluaga, Jorge I. and Alvarado-Montes, Jaime A. and Sucerquia, Mario and Stam, Daphne M.",
-    "journal": "Astronomy & Astrophysics",
-    "year": 2025,
-    "doi": "10.1051/0004-6361/202347194",
-    "url": "http://dx.doi.org/10.1051/0004-6361/202347194",
-    "source": "orcid",
-    "citations": 1
-  },
-  {
-    "selection": "recent",
-    "title": "Machine-assisted classification of potential biosignatures in Earth-like exoplanets using low signal-to-noise ratio transmission spectra",
-    "author": "Duque-Castaño, David S and Zuluaga, Jorge I and Flor-Torres, Lauren",
-    "journal": "Monthly Notices of the Royal Astronomical Society",
-    "year": 2025,
-    "doi": "10.1093/mnras/staf563",
-    "url": "http://dx.doi.org/10.1093/mnras/staf563",
-    "source": "orcid",
-    "citations": 7
-  },
-  {
-    "selection": "recent",
-    "title": "Orbital Decay of the Ultra-hot Jupiter TOI-2109b: Tidal Constraints and Transit-timing Analysis",
-    "author": "Alvarado-Montes, Jaime A. and Sucerquia, Mario and Zuluaga, Jorge I. and Schwab, Christian",
-    "journal": "The Astrophysical Journal",
-    "year": 2025,
-    "doi": "10.3847/1538-4357/ade057",
-    "url": "http://dx.doi.org/10.3847/1538-4357/ade057",
-    "source": "orcid",
-    "citations": 6
-  },
-  {
-    "selection": "recent",
-    "title": "The missing rings around Solar System moons",
-    "author": "Sucerquia, Mario and Alvarado-Montes, Jaime A. and Zuluaga, Jorge I. and Cuello, Nicolás and Cuadra, Jorge and Montesinos, Matías",
-    "journal": "Astronomy & Astrophysics",
-    "year": 2024,
-    "doi": "10.1051/0004-6361/202449453",
-    "url": "http://dx.doi.org/10.1051/0004-6361/202449453",
-    "source": "orcid",
-    "citations": 1
-  },
-  {
-    "selection": "recent",
-    "title": "Conditions for high-resolution bistatic radar observations of Apophis in 2029",
-    "author": "Vallejo, Agustín and Zuluaga, Jorge I and Chaparro, Germán",
-    "journal": "Monthly Notices of the Royal Astronomical Society",
-    "year": 2022,
-    "doi": "10.1093/mnras/stac3046",
-    "url": "http://dx.doi.org/10.1093/mnras/stac3046",
-    "source": "orcid",
-    "citations": 3
-  },
-  {
-    "selection": "preprint",
-    "title": "Efficient reduction of stellar contamination and noise in planetary transmission spectra using neural networks",
-    "author": "Duque-Casta{\\~n}o, David S and Flor-Torres, Lauren and Zuluaga, Jorge I",
-    "journal": "arXiv preprint arXiv:2602.10330",
-    "year": 2026,
-    "source": "scholar",
-    "citations": 0,
-    "url": "https://arxiv.org/abs/2602.10330"
-  },
-  {
-    "selection": "preprint",
-    "title": "Arecibo Wow! II: Revised Properties of the Wow! Signal from Archival Ohio SETI Data",
-    "author": "M{\\'e}ndez, Abel and Ceballos, Kevin N Ortiz and Zuluaga, Jorge I and Palencia-Torres, Kelby D and Smith, Allison J and Rodr{\\'\\i}guez, Alondra Cardona and Socas-Navarro, H{\\'e}ctor and Kipping, David and Hubbard-James, Hodari-Sadiki and Le, Mai and others",
-    "journal": "arXiv preprint arXiv:2508.10657",
-    "year": 2025,
-    "source": "scholar",
-    "citations": 2,
-    "url": "https://arxiv.org/abs/2508.10657"
-  },
-  {
-    "selection": "preprint",
-    "title": "Arecibo wow! I: an astrophysical explanation for the wow! Signal",
-    "author": "M{\\'e}ndez, Abel and Ceballos, Kevin Ortiz and Zuluaga, Jorge I",
-    "journal": "arXiv preprint arXiv:2408.08513",
-    "year": 2024,
-    "source": "scholar",
-    "citations": 8,
-    "url": "https://arxiv.org/abs/2408.08513"
-  },
-  {
-    "selection": "preprint",
-    "title": "A preliminary reconstruction of the orbit of the Chelyabinsk Meteoroid",
-    "author": "Zuluaga, Jorge I and Ferrin, Ignacio",
-    "journal": "arXiv preprint arXiv:1302.5377",
-    "year": 2013,
-    "source": "scholar",
-    "citations": 58,
-    "url": "https://arxiv.org/abs/1302.5377"
-  },
-  {
-    "selection": "preprint",
-    "title": "The orbit of the Chelyabinsk event impactor as reconstructed from amateur and public footage",
-    "author": "Zuluaga, Jorge I and Ferrin, Ignacio and Geens, Stefan",
-    "journal": "arXiv preprint arXiv:1303.1796",
-    "year": 2013,
-    "source": "scholar",
-    "citations": 47,
-    "url": "https://arxiv.org/abs/1303.1796"
   }
 ]
