@@ -5,13 +5,46 @@
     {
       "file": "jorge-zuluaga-perfil-cv-2025-03.jpg",
       "title": "Foto de perfil (misma que el CV web)",
-      "dateLabel": "Septiembre 2022",
+      "dateLabel": "Marzo 2025",
       "year": 2025,
       "month": 3,
       "description": "Copia en alta resolución de la imagen usada en la hoja de vida en línea; adecuada para prensa y anuncios recientes.",
       "width": 915,
       "height": 1280,
       "sizeBytes": 726855
+    },
+    {
+      "file": "jorge-zuluaga-prensa-2026-03-01.jpg",
+      "title": "Fotografía — marzo 2026",
+      "dateLabel": "Marzo 2026",
+      "year": 2026,
+      "month": 3,
+      "description": "Imagen en alta resolución para prensa, programas o material institucional.",
+      "width": 3213,
+      "height": 5712,
+      "sizeBytes": 2778591
+    },
+    {
+      "file": "jorge-zuluaga-prensa-2025-12-01.jpg",
+      "title": "Fotografía — diciembre 2025",
+      "dateLabel": "Diciembre 2025",
+      "year": 2025,
+      "month": 12,
+      "description": "Imagen en alta resolución para prensa, programas o material institucional.",
+      "width": 3120,
+      "height": 4160,
+      "sizeBytes": 1766855
+    },
+    {
+      "file": "jorge-zuluaga-prensa-2025-09-01.jpg",
+      "title": "Fotografía — septiembre 2025",
+      "dateLabel": "Septiembre 2025",
+      "year": 2025,
+      "month": 9,
+      "description": "Imagen en alta resolución para prensa, programas o material institucional.",
+      "width": 1746,
+      "height": 1613,
+      "sizeBytes": 2848937
     },
     {
       "file": "jorge-zuluaga-evento-en-vivo-2025-03-01.jpeg",
