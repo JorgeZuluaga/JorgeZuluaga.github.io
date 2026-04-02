@@ -3,6 +3,7 @@
     "institution": "Universidad de Antioquia",
     "degree": "Doctorado en Física",
     "years": "2001–2005",
+    "recognition": "Reconocimiento Magna Cum Laude",
     "extraParagraphs": [
       "Disertación: Study of core collapse neutrino signals and constraints on neutrino masses from a future Galactic supernova."
     ]
@@ -19,6 +20,7 @@
     "institution": "Universidad de Antioquia",
     "degree": "Pregrado en Física",
     "years": "1993–1998",
+    "recognition": "Mejor Graduado del Programa",
     "extraParagraphs": [
       "Trabajo de grado: Introducción a la Astrofísica – notas del curso."
     ]
@@ -29,6 +31,14 @@
     "years": "2007",
     "extraParagraphs": [
       "Formación docente en pedagogía y didáctica de la educación superior."
+    ]
+  },
+  {
+    "institution": "Universidad Pontificia Bolivariana, Medellín",
+    "degree": "Diplomado en Egiptología",
+    "years": "Graduación: febrero 2025",
+    "extraParagraphs": [
+      "Programa internacional de formación continua (modalidad telepresencial): fundamentos de egiptología, historia del Antiguo Egipto, cosmogonías, monumentos, lengua y escritura egipcia, literatura, arqueología y actividades académicas vinculadas."
     ]
   }
 ]

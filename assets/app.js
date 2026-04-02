@@ -804,13 +804,28 @@ async function renderEducation() {
 
       const extra = Array.isArray(item.extraParagraphs) ? item.extraParagraphs : [];
       const extraHtml = extra.map((p) => `<p>${escapeHtml(p)}</p>`).join("");
+      const recTrimmed =
+        item.recognition === undefined || item.recognition === null
+          ? ""
+          : String(item.recognition).trim();
+      const recognitionHtml = recTrimmed
+        ? `<p class="education-recognition"><strong>Reconocimientos:</strong> ${escapeHtml(recTrimmed)}</p>`
+        : "";
+      const linkUrl = item.linkUrl ?? item.programUrl;
+      const linkLabel = item.linkLabel ?? item.linkText;
+      const linkHtml =
+        linkUrl && linkLabel
+          ? `<p><a href="${escapeAttr(linkUrl)}" target="_blank" rel="noopener noreferrer">${escapeHtml(linkLabel)}</a></p>`
+          : "";
 
       div.innerHTML = `
         <div class="info">
           <h3>${escapeHtml(item.institution ?? "")}</h3>
           <h4>${escapeHtml(item.degree ?? "")}</h4>
           <p>${escapeHtml(item.years ?? "")}</p>
+          ${recognitionHtml}
           ${extraHtml}
+          ${linkHtml}
         </div>
       `;
       el.appendChild(div);

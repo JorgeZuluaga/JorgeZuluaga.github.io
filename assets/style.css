@@ -390,6 +390,18 @@ header .header-profile .image a {
   transform: translateY(-0.2rem);
 }
 
+/* WhatsApp: visible al imprimir / exportar PDF; oculto en pantalla */
+@media screen {
+  #contacto a[data-contact="whatsapp"],
+  #contacto a[data-contact="whatsapp"] + br {
+    display: none !important;
+  }
+
+  #contacto a[data-contact="email"] {
+    margin-top: 1.25rem;
+  }
+}
+
 /* Docencia: separador gris como el resto de secciones */
 #docencia .container {
   border-bottom: 3px solid var(--border-bottom) !important;
@@ -504,6 +516,11 @@ header .header-profile .image a {
 
 .section4 .box .info p {
   font-size: 0.875rem;
+}
+
+.section4 .box .info .education-recognition {
+  margin-top: 0.35rem;
+  margin-bottom: 0.35rem;
 }
 
 #education .container {
