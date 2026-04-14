@@ -244,7 +244,8 @@ header .header-profile .image a {
   text-transform: uppercase;
   font-weight: 600;
   opacity: 0.68;
-  text-decoration: underline;
+  text-decoration: underline !important;
+  text-underline-offset: 3px;
 }
 
 .nav-link::before {
