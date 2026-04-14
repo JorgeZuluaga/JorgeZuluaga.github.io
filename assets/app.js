@@ -446,7 +446,9 @@ function applyIndexChrome(lang) {
   document.querySelector(".open-menu-button")?.setAttribute("aria-label", t("menu_open", lang));
   document.querySelector(".close-menu-button")?.setAttribute("aria-label", t("menu_close", lang));
 
-  const navTitles = document.querySelectorAll(".navbar .nav-group-title");
+  const navTitles = document.querySelectorAll(
+    ".navbar .nav-group-title:not(#nav-language-title)",
+  );
   const titleKeys = [
     "nav_group_basic",
     "nav_group_pub",
@@ -457,6 +459,11 @@ function applyIndexChrome(lang) {
   navTitles.forEach((el, i) => {
     if (titleKeys[i]) el.textContent = t(titleKeys[i], lang);
   });
+
+  const langTitle = document.getElementById("nav-language-title");
+  if (langTitle) {
+    langTitle.textContent = lang === "en" ? "Language" : "Idioma";
+  }
 
   const navLinkKeys = [
     "nav_contact",
