@@ -2,6 +2,109 @@
 
 Este sitio mezcla **contenido estático** (marcado en `index.html`) con **contenido dinámico** renderizado por JavaScript (principalmente `assets/app.js`). Para mantenimiento, la regla es: **cuando un bloque sea repetible (lista de ítems con campos), lo ideal es que viva en JSON y lo renderice `app.js`**.
 
+## Inicio Rápido (actualización anual)
+
+Si dentro de 1 año necesitas actualizar la hoja de vida completa, sigue este orden:
+
+### 1) Actualizar publicaciones (artículos)
+
+1. Descarga insumos y guárdalos en `update/`:
+   - `update/google-scholar.html`
+   - `update/google-scholar.bib`
+   - `update/orcid.bib`
+2. Actualiza `info/papers.json` (manual o con el prompt de esta guía).
+3. Revisa que en la web se actualicen:
+   - “Publicaciones más recientes”
+   - “Más citados”
+   - “Preprints”
+
+### 2) Actualizar cursos (docencia)
+
+1. Ejecuta:
+   ```bash
+   make classroom
+   ```
+   (o `python3 bin/sync_classroom.py`).
+2. Si hay cursos nuevos o cambió el contenido, actualiza:
+   - `info/teaching-course-details.json` (descripción y tópicos).
+3. Verifica sección “Docencia”.
+
+### 3) Actualizar libros y reseñas (Goodreads)
+
+1. Obtén/renueva tu cookie de Goodreads (ver sección Biblioteca personal).
+2. Exporta variable:
+   ```bash
+   export GR_COOKIE='session-id=...; at-main=...; ccsid=...; locale=en; ...'
+   ```
+3. Genera `info/library.json` desde RSS con likes:
+   ```bash
+   python3 bin/build_library_from_goodreads.py \
+     --rss-url "https://www.goodreads.com/review/list_rss/91991657?key=kpN1wAHi2GZUUO7BHv1v3ZCOGhOk_QjljXSDnXSc3kA-lzU7&shelf=%23ALL%23" \
+     --rss-pages 60 \
+     --scrape-likes \
+     --cookie "$GR_COOKIE" \
+     --out "info/library.json" \
+     --verbose
+   ```
+4. Genera resumen derivado:
+   ```bash
+   python3 bin/update_library_stats.py "info/library.json" --out "info/library-stats.json"
+   ```
+5. Verifica en `biblioteca.html`:
+   - reporte (leídos, reseñados, likes),
+   - barras por año,
+   - últimos 5 leídos,
+   - top 10 reseñas por likes,
+   - últimos 5 reseñados.
+
+### 4) Actualizar fotos de galería
+
+1. Copia fotos nuevas en `info/photos/`.
+2. Renombra archivos con convención clara (ej. `jorge-zuluaga-evento-YYYY-MM-01.jpg`).
+3. Actualiza `info/photos/photos.json` con:
+   - `file`, `title`, `dateLabel`, `year`, `month`,
+   - `description`, `width`, `height`, `sizeBytes`.
+4. Verifica en `photos.html`:
+   - miniatura,
+   - vista previa,
+   - descarga.
+
+### 5) Actualizar datos generales de CV (si aplica)
+
+Edita JSONs según cambios:
+- `info/profile.json` (perfil, experiencia laboral, resumen)
+- `info/education.json`, `info/research.json`, `info/awards.json`
+- `info/logros-profesionales.json`, `info/libros.json`, `info/software.json`
+- `info/contact.json`
+
+### 6) Verificación local final
+
+1. Levanta servidor:
+   ```bash
+   python3 -m http.server 8000
+   ```
+2. Abre `http://localhost:8000` y revisa:
+   - `index.html` completo (publicaciones, docencia, contacto, etc.)
+   - `photos.html`
+   - `biblioteca.html`
+3. Revisa consola del navegador por errores de carga/fetch.
+
+### 7) Publicar cambios
+
+1. Revisa estado:
+   ```bash
+   git status
+   ```
+2. Commit:
+   ```bash
+   git add .
+   git commit -m "Actualiza CV: publicaciones, cursos, biblioteca y galería"
+   ```
+3. Push:
+   ```bash
+   git push
+   ```
+
 ## Fuentes de verdad (qué archivo tocar)
 
 ### Perfil y datos personales (dinámico desde JSON)
@@ -120,6 +223,84 @@ Credenciales/tokens:
 - Token: `sources/token_classroom.json`
 
 > Importante: **no** guardes credenciales ni tokens dentro de `info/` o `assets/`.
+
+### Biblioteca personal (fuente principal: `info/library.json`)
+
+La página `biblioteca.html` **lee directamente**:
+
+- `info/library.json` (fuente de verdad)
+
+Y el archivo derivado para otros usos es:
+
+- `info/library-stats.json` (resumen calculado desde `library.json`)
+
+#### 1) Generar/actualizar `info/library.json` desde Goodreads RSS
+
+Script:
+
+- `bin/build_library_from_goodreads.py`
+
+Comando recomendado (con scraping de likes y progreso):
+
+```bash
+python3 bin/build_library_from_goodreads.py \
+  --rss-url "https://www.goodreads.com/review/list_rss/<USER_ID>?key=<KEY>&shelf=%23ALL%23" \
+  --rss-pages 40 \
+  --scrape-likes \
+  --cookie "$GR_COOKIE" \
+  --out "info/library.json" \
+  --verbose
+```
+
+RSS de este sitio:
+
+- `https://www.goodreads.com/review/list_rss/91991657?key=kpN1wAHi2GZUUO7BHv1v3ZCOGhOk_QjljXSDnXSc3kA-lzU7&shelf=%23ALL%23`
+
+Qué hace:
+- descarga el RSS paginado (`--rss-pages`),
+- filtra libros leídos,
+- extrae título, autor, fecha de lectura, rating, URL de reseña (si existe),
+- scrapea likes por reseña (si usas `--scrape-likes` + `--cookie`),
+- y guarda `info/library.json`.
+
+#### 2) Cómo obtener el cookie para `--cookie`
+
+1. Inicia sesión en Goodreads.
+2. Abre una reseña (`https://www.goodreads.com/review/show/...`).
+3. Abre DevTools (`F12`).
+4. Ve a **Network**.
+5. Recarga la página.
+6. Abre el request principal (`document`) de `review/show/...`.
+7. En **Request Headers**, copia el valor completo de `cookie`.
+8. Cárgalo en variable de entorno:
+
+```bash
+export GR_COOKIE='session-id=...; at-main=...; ccsid=...; locale=en; ...'
+```
+
+#### 3) Generar/actualizar `info/library-stats.json` desde `library.json`
+
+Script:
+
+- `bin/update_library_stats.py`
+
+Comando:
+
+```bash
+python3 bin/update_library_stats.py "info/library.json" --out "info/library-stats.json"
+```
+
+Qué calcula:
+- `yearlyReads`,
+- `latestRead` (5),
+- `topReviewedByLikes` (10),
+- `latestReviewed` (5),
+- `totals` (`booksRead`, `booksReviewed`, `totalReviewLikes`).
+
+Notas:
+- Si faltan libros, sube `--rss-pages` (por ejemplo `60`).
+- Sin `--cookie`, muchas reseñas devolverán login y los likes quedarán en `0`.
+- Trata el cookie como contraseña: no lo subas al repo ni lo compartas.
 
 ## Verificación local (recomendado)
 

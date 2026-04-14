@@ -1,0 +1,240 @@
+{
+  "title": "Biblioteca personal",
+  "intro": "En esta página comparto un resumen de mis hábitos de lectura, con estadísticas por año y una selección de libros leídos en los últimos años junto con sus reseñas.",
+  "profileLabel": "Mi perfil en Goodreads",
+  "profileUrl": "https://www.goodreads.com/",
+  "sourceNote": "Datos calculados a partir del export de Goodreads (abril de 2026).",
+  "yearlyReads": [
+    {
+      "year": 2026,
+      "count": 25
+    },
+    {
+      "year": 2025,
+      "count": 95
+    },
+    {
+      "year": 2024,
+      "count": 92
+    },
+    {
+      "year": 2023,
+      "count": 83
+    },
+    {
+      "year": 2022,
+      "count": 77
+    },
+    {
+      "year": 2021,
+      "count": 75
+    },
+    {
+      "year": 2020,
+      "count": 57
+    },
+    {
+      "year": 2019,
+      "count": 67
+    },
+    {
+      "year": 2018,
+      "count": 1
+    },
+    {
+      "year": 2017,
+      "count": 2
+    }
+  ],
+  "latestRead": [
+    {
+      "bookId": "216802309",
+      "title": "La conciencia contada por un sapiens a un neandertal",
+      "author": "Juan José Millás",
+      "dateRead": "2026-04-03",
+      "rating": 5,
+      "reviewUrl": "",
+      "reviewLikes": 0
+    },
+    {
+      "bookId": "24114125",
+      "title": "Las memorias de Sherlock Holmes",
+      "author": "Arthur Conan Doyle",
+      "dateRead": "2026-04-03",
+      "rating": 3,
+      "reviewUrl": "",
+      "reviewLikes": 0
+    },
+    {
+      "bookId": "244149479",
+      "title": "Pirámides, dioses y sabidurías perdidas del mundo antiguo",
+      "author": "Tito Vivas",
+      "dateRead": "2026-03-28",
+      "rating": 5,
+      "reviewUrl": "https://www.goodreads.com/review/show/8472202778?utm_medium=api&utm_source=rss",
+      "reviewLikes": 0
+    },
+    {
+      "bookId": "241640739",
+      "title": "Un himno a la vida: Mi historia",
+      "author": "Gisèle Pelicot",
+      "dateRead": "2026-03-27",
+      "rating": 5,
+      "reviewUrl": "https://www.goodreads.com/review/show/8460915900?utm_medium=api&utm_source=rss",
+      "reviewLikes": 1
+    },
+    {
+      "bookId": "57299481",
+      "title": "Proyecto Hail Mary",
+      "author": "Andy Weir",
+      "dateRead": "2026-03-22",
+      "rating": 5,
+      "reviewUrl": "https://www.goodreads.com/review/show/4360307186?utm_medium=api&utm_source=rss",
+      "reviewLikes": 19
+    }
+  ],
+  "topReviewedByLikes": [
+    {
+      "bookId": "59237846",
+      "title": "No-cosas: Quiebras del mundo de hoy",
+      "author": "Byung-Chul Han",
+      "dateRead": "2021-12-30",
+      "rating": 4,
+      "reviewUrl": "https://www.goodreads.com/review/show/4423951235?utm_medium=api&utm_source=rss",
+      "reviewLikes": 70
+    },
+    {
+      "bookId": "58978750",
+      "title": "El hombre prehistórico es también una mujer: Una historia de la invisibilidad de las mujeres",
+      "author": "Marylène Patou-Mathis",
+      "dateRead": "2021-09-12",
+      "rating": 5,
+      "reviewUrl": "https://www.goodreads.com/review/show/4232235817?utm_medium=api&utm_source=rss",
+      "reviewLikes": 63
+    },
+    {
+      "bookId": "61967442",
+      "title": "El Poder de Las Palabras",
+      "author": "Mariano Sigman",
+      "dateRead": "2024-07-20",
+      "rating": 5,
+      "reviewUrl": "https://www.goodreads.com/review/show/6667355680?utm_medium=api&utm_source=rss",
+      "reviewLikes": 54
+    },
+    {
+      "bookId": "21524683",
+      "title": "Memorias de Adriano",
+      "author": "Marguerite Yourcenar",
+      "dateRead": "2023-02-22",
+      "rating": 5,
+      "reviewUrl": "https://www.goodreads.com/review/show/3063403087?utm_medium=api&utm_source=rss",
+      "reviewLikes": 48
+    },
+    {
+      "bookId": "44577138",
+      "title": "Las mujeres que luchan se encuentran: Manual de feminismo pop latinoamericano",
+      "author": "Catalina Ruiz-Navarro",
+      "dateRead": "2022-04-14",
+      "rating": 5,
+      "reviewUrl": "https://www.goodreads.com/review/show/4664229801?utm_medium=api&utm_source=rss",
+      "reviewLikes": 41
+    },
+    {
+      "bookId": "59110779",
+      "title": "Una vida, muchas vidas (Spanish Edition)",
+      "author": "Gustavo Petro",
+      "dateRead": "2021-10-10",
+      "rating": 5,
+      "reviewUrl": "https://www.goodreads.com/review/show/4278716233?utm_medium=api&utm_source=rss",
+      "reviewLikes": 33
+    },
+    {
+      "bookId": "40135796",
+      "title": "Historia de Colombia y sus oligarquías",
+      "author": "Antonio Caballero",
+      "dateRead": "2020-07-01",
+      "rating": 5,
+      "reviewUrl": "https://www.goodreads.com/review/show/3344914655?utm_medium=api&utm_source=rss",
+      "reviewLikes": 33
+    },
+    {
+      "bookId": "125064740",
+      "title": "Pondré mi oído en la piedra hasta que hable",
+      "author": "William Ospina",
+      "dateRead": "2023-05-26",
+      "rating": 5,
+      "reviewUrl": "https://www.goodreads.com/review/show/5469066244?utm_medium=api&utm_source=rss",
+      "reviewLikes": 30
+    },
+    {
+      "bookId": "17567272",
+      "title": "La ridícula idea de no volver a verte",
+      "author": "Rosa Montero",
+      "dateRead": "2023-05-22",
+      "rating": 5,
+      "reviewUrl": "https://www.goodreads.com/review/show/3758441020?utm_medium=api&utm_source=rss",
+      "reviewLikes": 28
+    },
+    {
+      "bookId": "49394794",
+      "title": "El infinito en un junco",
+      "author": "Irene Vallejo",
+      "dateRead": "2021-02-28",
+      "rating": 5,
+      "reviewUrl": "https://www.goodreads.com/review/show/3742582688?utm_medium=api&utm_source=rss",
+      "reviewLikes": 28
+    }
+  ],
+  "latestReviewed": [
+    {
+      "bookId": "244149479",
+      "title": "Pirámides, dioses y sabidurías perdidas del mundo antiguo",
+      "author": "Tito Vivas",
+      "dateRead": "2026-03-28",
+      "rating": 5,
+      "reviewUrl": "https://www.goodreads.com/review/show/8472202778?utm_medium=api&utm_source=rss",
+      "reviewLikes": 0
+    },
+    {
+      "bookId": "241640739",
+      "title": "Un himno a la vida: Mi historia",
+      "author": "Gisèle Pelicot",
+      "dateRead": "2026-03-27",
+      "rating": 5,
+      "reviewUrl": "https://www.goodreads.com/review/show/8460915900?utm_medium=api&utm_source=rss",
+      "reviewLikes": 1
+    },
+    {
+      "bookId": "57299481",
+      "title": "Proyecto Hail Mary",
+      "author": "Andy Weir",
+      "dateRead": "2026-03-22",
+      "rating": 5,
+      "reviewUrl": "https://www.goodreads.com/review/show/4360307186?utm_medium=api&utm_source=rss",
+      "reviewLikes": 19
+    },
+    {
+      "bookId": "60774041",
+      "title": "Infocracia: La digitalización y la crisis de la democracia",
+      "author": "Byung-Chul Han",
+      "dateRead": "2026-03-15",
+      "rating": 5,
+      "reviewUrl": "https://www.goodreads.com/review/show/8436209556?utm_medium=api&utm_source=rss",
+      "reviewLikes": 3
+    },
+    {
+      "bookId": "64995169",
+      "title": "Vida contemplativa: Elogio de la inactividad",
+      "author": "Byung-Chul Han",
+      "dateRead": "2026-03-14",
+      "rating": 4,
+      "reviewUrl": "https://www.goodreads.com/review/show/5278047196?utm_medium=api&utm_source=rss",
+      "reviewLikes": 5
+    }
+  ],
+  "totals": {
+    "booksRead": 574,
+    "booksReviewed": 447,
+    "totalReviewLikes": 2968
+  }
+}
