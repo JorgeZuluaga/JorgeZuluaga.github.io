@@ -37,7 +37,8 @@ function computeYearlyReads(books) {
 function formatRating(rating) {
   const value = Number(rating);
   if (!value) return "Sin calificación";
-  return `${value}/5`;
+  const stars = Math.round(value);
+  return "⭐".repeat(stars);
 }
 
 function renderBookList(container, items) {
