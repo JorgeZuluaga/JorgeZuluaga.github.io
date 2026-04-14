@@ -1,38 +1,58 @@
 [
   {
     "title": "Dirección y Administración: CRESCA",
+    "title_en": "Direction and management: CRESCA",
     "subtitle": "Cargo: Director",
-    "descriptionHtml": "Junio 2007–Enero 2010 · Centro Regional de Simulación y Cálculo Avanzado (CRESCA)."
+    "subtitle_en": "Role: Director",
+    "descriptionHtml": "Junio 2007–Enero 2010 · Centro Regional de Simulación y Cálculo Avanzado (CRESCA).",
+    "descriptionHtml_en": "June 2007–January 2010 · Regional Center for Advanced Simulation and Computing (CRESCA)."
   },
   {
     "title": "Creación del Pregrado de Astronomía",
+    "title_en": "Creation of the Astronomy undergraduate program",
     "subtitle": "Universidad de Antioquia",
-    "descriptionHtml": "2008–2009 · Co-creador y formulador principal del proyecto que dio vida al primer programa de pregrado en Astronomía en Colombia, aprobado por el Ministerio de Educación en 2008 e iniciando clases en 2009."
+    "subtitle_en": "University of Antioquia",
+    "descriptionHtml": "2008–2009 · Co-creador y formulador principal del proyecto que dio vida al primer programa de pregrado en Astronomía en Colombia, aprobado por el Ministerio de Educación en 2008 e iniciando clases en 2009.",
+    "descriptionHtml_en": "2008–2009 · Co-creator and lead author of the project that created Colombia’s first undergraduate program in Astronomy, approved by the Ministry of Education in 2008 and launched in 2009."
   },
   {
     "title": "Coordinación del Pregrado de Astronomía",
+    "title_en": "Coordination of the Astronomy undergraduate program",
     "subtitle": "Universidad de Antioquia",
-    "descriptionHtml": "2009–2015 · Primer coordinador del pregrado, liderando el desarrollo inicial del programa, la contratación docente y el acompañamiento a las primeras cohortes de astrónomos profesionales del país."
+    "subtitle_en": "University of Antioquia",
+    "descriptionHtml": "2009–2015 · Primer coordinador del pregrado, liderando el desarrollo inicial del programa, la contratación docente y el acompañamiento a las primeras cohortes de astrónomos profesionales del país.",
+    "descriptionHtml_en": "2009–2015 · First program coordinator, leading early development, faculty hiring, and support for the first cohorts of professional astronomers in the country."
   },
   {
     "title": "Patente de Invención: Regla de Minkowski",
+    "title_en": "Patent: Minkowski rule",
     "subtitle": "Superintendencia de Industria y Comercio",
-    "descriptionHtml": "2016 (Solicitud en 2015) · Invención patentada para la enseñanza y el aprendizaje de la relatividad especial, reconocida a nivel nacional."
+    "subtitle_en": "Superintendence of Industry and Commerce",
+    "descriptionHtml": "2016 (Solicitud en 2015) · Invención patentada para la enseñanza y el aprendizaje de la relatividad especial, reconocida a nivel nacional.",
+    "descriptionHtml_en": "2016 (application in 2015) · Patented invention for teaching and learning special relativity, recognized nationally."
   },
   {
     "title": "Libro: Mecánica Celeste",
+    "title_en": "Book: Celestial Mechanics",
     "subtitle": "Teoría, algoritmos y problemas",
-    "descriptionHtml": "Publicación académica y desarrollo del paquete de software <code>pymcel</code> asociado al libro, utilizado como herramienta fundamental en la docencia de la astronomía y la astrodinámica."
+    "subtitle_en": "Theory, algorithms, and problems",
+    "descriptionHtml": "Publicación académica y desarrollo del paquete de software <code>pymcel</code> asociado al libro, utilizado como herramienta fundamental en la docencia de la astronomía y la astrodinámica.",
+    "descriptionHtml_en": "Academic publication and development of the <code>pymcel</code> software package associated with the book, used as a core tool in teaching astronomy and astrodynamics."
   },
   {
     "title": "Paquetes de Software para Astronomía",
+    "title_en": "Software packages for astronomy",
     "subtitle": "Desarrollo de herramientas computacionales",
-    "descriptionHtml": "Creación y mantenimiento de múltiples paquetes de código abierto (PyMCel, Pryngles, MultiMin, MultiRex, FARGOpy, tSPICE) utilizados por la comunidad internacional para la investigación y enseñanza en ciencias planetarias."
+    "subtitle_en": "Development of computational tools",
+    "descriptionHtml": "Creación y mantenimiento de múltiples paquetes de código abierto (PyMCel, Pryngles, MultiMin, MultiRex, FARGOpy, tSPICE) utilizados por la comunidad internacional para la investigación y enseñanza en ciencias planetarias.",
+    "descriptionHtml_en": "Creation and maintenance of multiple open-source packages (PyMCel, Pryngles, MultiMin, MultiRex, FARGOpy, tSPICE) used internationally for research and teaching in planetary science."
   },
   {
     "title": "Creación de Doctor Z Academy",
+    "title_en": "Creation of Doctor Z Academy",
     "subtitle": "Emprendimiento educativo",
-    "descriptionHtml": "2024–Presente · Fundador de una academia dedicada a la divulgación científica, la enseñanza de la física y la astronomía para un público amplio, uniendo el rigor científico con formatos accesibles."
+    "subtitle_en": "Educational venture",
+    "descriptionHtml": "2024–Presente · Fundador de una academia dedicada a la divulgación científica, la enseñanza de la física y la astronomía para un público amplio, uniendo el rigor científico con formatos accesibles.",
+    "descriptionHtml_en": "2024–Present · Founder of an academy dedicated to science communication and teaching physics and astronomy to a broad audience, combining scientific rigor with accessible formats."
   }
 ]
-

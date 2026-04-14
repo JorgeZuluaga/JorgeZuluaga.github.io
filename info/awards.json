@@ -1,33 +1,50 @@
 [
   {
     "title": "Investigador Senior (IS) – Minciencias",
+    "title_en": "Senior Researcher (IS) – Minciencias",
     "organization": "Ministerio de Ciencia, Tecnología e Innovación · Colombia",
-    "details": "Vigente · Reconocimiento como investigador senior del Sistema Nacional de Ciencia, Tecnología e Innovación."
+    "organization_en": "Ministry of Science, Technology and Innovation · Colombia",
+    "details": "Vigente · Reconocimiento como investigador senior del Sistema Nacional de Ciencia, Tecnología e Innovación.",
+    "details_en": "Current · Recognition as a senior researcher in the national science, technology, and innovation system."
   },
   {
     "title": "Beca Fulbright Visitor Scholar",
+    "title_en": "Fulbright Visitor Scholar",
     "organization": "Harvard-Smithsonian Center for Astrophysics (CfA)",
-    "details": "2014–2015 · Programa Fulbright para estancia de investigación en astrofísica y ciencias planetarias."
+    "organization_en": "Harvard-Smithsonian Center for Astrophysics (CfA)",
+    "details": "2014–2015 · Programa Fulbright para estancia de investigación en astrofísica y ciencias planetarias.",
+    "details_en": "2014–2015 · Fulbright program for a research stay in astrophysics and planetary science."
   },
   {
     "title": "Premio a la Investigación Universitaria",
+    "title_en": "University Research Award",
     "organization": "Universidad de Antioquia",
-    "details": "2013 · Reconocimiento institucional a la producción y liderazgo en investigación científica."
+    "organization_en": "University of Antioquia",
+    "details": "2013 · Reconocimiento institucional a la producción y liderazgo en investigación científica.",
+    "details_en": "2013 · Institutional recognition for scientific output and leadership in research."
   },
   {
     "title": "Asteroide (347940) Jorgezuluaga",
+    "title_en": "Asteroid (347940) Jorgezuluaga",
     "organization": "Unión Astronómica Internacional (IAU)",
-    "details": "2013 · La IAU aprobó el nombre del asteroide (347940) Jorgezuluaga, propuesto por su descubridor, el profesor Ignacio Ferrín."
+    "organization_en": "International Astronomical Union (IAU)",
+    "details": "2013 · La IAU aprobó el nombre del asteroide (347940) Jorgezuluaga, propuesto por su descubridor, el profesor Ignacio Ferrín.",
+    "details_en": "2013 · The IAU approved the name of asteroid (347940) Jorgezuluaga, proposed by its discoverer, Professor Ignacio Ferrín."
   },
   {
     "title": "Premio a la Extensión Universitaria",
+    "title_en": "University Outreach Award",
     "organization": "Universidad de Antioquia",
-    "details": "2011 · Distinción por la labor de divulgación y apropiación social del conocimiento en astronomía y ciencias."
+    "organization_en": "University of Antioquia",
+    "details": "2011 · Distinción por la labor de divulgación y apropiación social del conocimiento en astronomía y ciencias.",
+    "details_en": "2011 · Distinction for outreach and social appropriation of knowledge in astronomy and science."
   },
   {
     "title": "Reconocimientos académicos de pregrado y posgrado",
+    "title_en": "Undergraduate and graduate academic recognitions",
     "organization": "Universidad de Antioquia",
-    "details": "1996–2005 · Incluyen distinciones como mejor estudiante avanzado de Física, mejor Físico de la promoción y tesis de doctorado Magna Cum Laude."
+    "organization_en": "University of Antioquia",
+    "details": "1996–2005 · Incluyen distinciones como mejor estudiante avanzado de Física, mejor Físico de la promoción y tesis de doctorado Magna Cum Laude.",
+    "details_en": "1996–2005 · Including distinctions such as top advanced Physics student, top Physics graduate of the cohort, and PhD thesis Magna Cum Laude."
   }
 ]
-

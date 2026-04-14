@@ -1,54 +1,75 @@
 [
   {
     "title": "Mecánica Celeste: teoría, algoritmos y problemas",
+    "title_en": "Celestial Mechanics: theory, algorithms, and problems",
     "descriptionParagraphs": [
       "Texto de referencia para la enseñanza y la investigación en Mecánica Celeste y Astrodinámica, con fundamentos y aplicaciones prácticas.",
       "Incluye problemas y herramientas que sirven de base para códigos y utilidades asociadas."
+    ],
+    "descriptionParagraphs_en": [
+      "Reference text for teaching and research in Celestial Mechanics and Astrodynamics, with foundations and practical applications.",
+      "It includes problems and tools that underpin associated codes and utilities."
     ],
     "meta": {
       "publicationDate": "2024",
       "issn": "9789585011953",
       "editorial": "Universidad de Antioquia",
-      "status": "publicado"
+      "status": "publicado",
+      "status_en": "published"
     },
     "link": {
       "href": "https://libros.udea.edu.co/index.php/editorial_udea/catalog/book/345",
-      "label": "libros.udea.edu.co"
+      "label": "libros.udea.edu.co",
+      "label_en": "libros.udea.edu.co"
     }
   },
   {
     "title": "Relatividad y Gravitación: teoría, algoritmos y problemas",
+    "title_en": "Relativity and Gravitation: theory, algorithms, and problems",
     "descriptionParagraphs": [
       "Curso-valorado en el que se desarrollan teoría y algoritmos para comprender la relatividad especial y general, con énfasis en formulaciones y ejemplos de cálculo.",
       "Material en línea con estructura temática para estudio progresivo."
+    ],
+    "descriptionParagraphs_en": [
+      "Credit-bearing course developing theory and algorithms to understand special and general relativity, with emphasis on formulations and worked examples.",
+      "Online material with a thematic structure for progressive study."
     ],
     "meta": {
       "publicationDate": "—",
       "issn": "—",
       "editorial": "Universidad de Antioquia",
-      "status": "en edición"
+      "status": "en edición",
+      "status_en": "in preparation"
     },
     "link": {
       "href": "https://github.com/seap-udea/Relatividad-Zuluaga/blob/master/mybook.pdf",
-      "label": "GitHub (PDF)"
+      "label": "GitHub (PDF)",
+      "label_en": "GitHub (PDF)"
     }
   },
   {
     "title": "Fundamentos de Astrofísica",
+    "title_en": "Fundamentals of Astrophysics",
     "descriptionParagraphs": [
       "Notas de curso orientadas a fundamentos conceptuales y herramientas para abordar problemas de astrofísica.",
       "Material disponible para consulta y aprendizaje en formato en línea."
+    ],
+    "descriptionParagraphs_en": [
+      "Course notes focused on conceptual foundations and tools to tackle astrophysics problems.",
+      "Material available online for reference and learning."
     ],
     "meta": {
       "publicationDate": "2012",
       "issn": "—",
       "editorial": "Material académico",
-      "status": "en edición"
+      "editorial_en": "Academic material",
+      "status": "en edición",
+      "status_en": "in preparation"
     },
     "link": {
       "href": "https://drive.google.com/file/d/15H9wkgsyWaqcw5xQTmkodRB22WCcrmDv/view?usp=sharing",
-      "label": "Google Drive (PDF)"
+      "label": "Google Drive (PDF)",
+      "label_en": "Google Drive (PDF)"
     }
   }
 ]
-

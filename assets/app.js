@@ -1,3 +1,12 @@
+import {
+  applyThemeAriaFromLang,
+  getPageLang,
+  pickLocalized,
+  pickLocalizedArray,
+  t,
+  withLangQuery,
+} from "./i18n.js";
+
 // Publications are loaded from info/papers.json (single source of truth).
 const SOURCES = [];
 
@@ -227,8 +236,8 @@ function hasLink(e) {
   return !!(doiUrl || url || arxivInfo);
 }
 
-function renderPub(e, extraBadge = null) {
-  const title = cleanTitle(e.title) || "(Sin título)";
+function renderPub(e, extraBadge = null, lang = "es") {
+  const title = cleanTitle(e.title) || t("pub_no_title", lang);
   const year = parseYear(e);
   const authors = formatAuthors(e.author);
   const venue = pickVenue(e);
@@ -264,7 +273,7 @@ function renderPub(e, extraBadge = null) {
 
   const citationsPart =
     e.citations !== undefined && e.citations !== null && e.citations !== ""
-      ? ` · Citations: ${escapeHtml(String(e.citations))}`
+      ? ` · ${t("pub_citations", lang)}: ${escapeHtml(String(e.citations))}`
       : "";
 
   li.innerHTML = `
@@ -417,6 +426,270 @@ function clearChildren(el) {
   while (el.firstChild) el.removeChild(el.firstChild);
 }
 
+function applyIndexChrome(lang) {
+  document.documentElement.lang = lang === "en" ? "en" : "es";
+
+  const meta = document.querySelector('meta[name="description"]');
+  if (meta) meta.setAttribute("content", t("meta_description", lang));
+
+  const skipLink = document.querySelector(".skip-link");
+  if (skipLink) skipLink.textContent = t("skip", lang);
+  const gallery = document.querySelector(".header-gallery-link");
+  if (gallery) {
+    gallery.textContent = t("gallery", lang);
+    gallery.setAttribute("href", withLangQuery("./photos.html"));
+  }
+
+  const avatar = document.getElementById("avatar");
+  if (avatar) avatar.setAttribute("alt", t("avatar_alt", lang));
+
+  document.querySelector(".open-menu-button")?.setAttribute("aria-label", t("menu_open", lang));
+  document.querySelector(".close-menu-button")?.setAttribute("aria-label", t("menu_close", lang));
+
+  const navTitles = document.querySelectorAll(".navbar .nav-group-title");
+  const titleKeys = [
+    "nav_group_basic",
+    "nav_group_pub",
+    "nav_group_exp",
+    "nav_group_tech",
+    "nav_group_other",
+  ];
+  navTitles.forEach((el, i) => {
+    if (titleKeys[i]) el.textContent = t(titleKeys[i], lang);
+  });
+
+  const navLinkKeys = [
+    "nav_contact",
+    "nav_about",
+    "nav_education",
+    "nav_stays",
+    "nav_awards",
+    "nav_articles",
+    "nav_books",
+    "nav_logros",
+    "nav_work",
+    "nav_teaching",
+    "nav_skills",
+    "nav_apps",
+    "nav_software",
+    "nav_photos",
+    "nav_library",
+  ];
+  document.querySelectorAll(".navbar .nav-link").forEach((a, i) => {
+    if (navLinkKeys[i]) a.textContent = t(navLinkKeys[i], lang);
+    const href = a.getAttribute("href") ?? "";
+    if (href.startsWith("./") && !href.startsWith("./#")) {
+      a.setAttribute("href", withLangQuery(href));
+    }
+  });
+
+  const langEs = document.getElementById("lang-link-es");
+  const langEn = document.getElementById("lang-link-en");
+  if (langEs) {
+    langEs.href = "./index.html";
+    langEs.textContent = t("lang_es", lang);
+  }
+  if (langEn) {
+    langEn.href = "./index.html?lang=en";
+    langEn.textContent = t("lang_en", lang);
+  }
+  if (langEs && langEn) {
+    if (lang === "en") {
+      langEn.setAttribute("aria-current", "true");
+      langEs.removeAttribute("aria-current");
+    } else {
+      langEs.setAttribute("aria-current", "true");
+      langEn.removeAttribute("aria-current");
+    }
+  }
+
+  const homeFlagsNav = document.getElementById("home-lang-flags");
+  if (homeFlagsNav) {
+    homeFlagsNav.setAttribute("aria-label", t("home_lang_nav", lang));
+  }
+  const homeLangEs = document.getElementById("home-lang-es");
+  const homeLangEn = document.getElementById("home-lang-en");
+  if (homeLangEs) {
+    homeLangEs.href = "./index.html";
+    homeLangEs.setAttribute("aria-label", t("home_lang_es", lang));
+    homeLangEs.setAttribute("title", t("lang_es", lang));
+    if (lang === "en") {
+      homeLangEs.removeAttribute("aria-current");
+    } else {
+      homeLangEs.setAttribute("aria-current", "true");
+    }
+  }
+  if (homeLangEn) {
+    homeLangEn.href = "./index.html?lang=en";
+    homeLangEn.setAttribute("aria-label", t("home_lang_en", lang));
+    homeLangEn.setAttribute("title", t("lang_en", lang));
+    if (lang === "en") {
+      homeLangEn.setAttribute("aria-current", "true");
+    } else {
+      homeLangEn.removeAttribute("aria-current");
+    }
+  }
+
+  const homeQr = document.querySelector(".home-qr");
+  if (homeQr) {
+    homeQr.setAttribute("aria-label", t("home_qr_aria", lang));
+    const qrLabel = homeQr.querySelector(".home-qr-label");
+    if (qrLabel) qrLabel.textContent = t("home_qr", lang);
+  }
+
+  const sectionMap = [
+    ["#home", "aria_home"],
+    ["#contacto", "section_contact"],
+    ["#sobre-mi", "section_about"],
+    ["#educacion", "section_education"],
+    ["#estancias", "section_stays"],
+    ["#premios", "section_awards"],
+    ["#publicaciones", "section_publications"],
+    ["#libros", "section_books"],
+    ["#logros", "section_logros"],
+    ["#experiencia-laboral", "section_work"],
+    ["#docencia", "section_teaching"],
+    ["#habilidades", "section_skills"],
+    ["#apps", "section_apps"],
+    ["#software", "section_software"],
+  ];
+  for (const [sel, key] of sectionMap) {
+    document.querySelector(sel)?.setAttribute("aria-label", t(key, lang));
+  }
+
+  const h2 = (sel, key) => {
+    const el = document.querySelector(sel);
+    if (el) el.textContent = t(key, lang);
+  };
+  h2("#contacto h2.title-section", "section_contact");
+  h2("#sobre-mi h2.title-section", "section_about");
+  h2("#educacion h2.title-section", "section_education");
+  h2("#estancias h2.title-section", "section_stays");
+  h2("#premios h2.title-section", "section_awards");
+  h2("#publicaciones h2.title-section", "section_publications");
+  h2("#libros h2.title-section", "section_books");
+  h2("#logros h2.title-section", "section_logros");
+  h2("#experiencia-laboral h2.title-section", "section_work");
+  h2("#docencia h2.title-section", "section_teaching");
+  h2("#habilidades h2.title-section", "section_skills");
+  h2("#apps h2.title-section", "section_apps");
+  h2("#software h2.title-section", "section_software");
+
+  const pubLinks = document.querySelector(".publication-links");
+  if (pubLinks) pubLinks.setAttribute("aria-label", t("aria_publication_links", lang));
+
+  const pubNav = document.querySelector(".publication-links");
+  if (pubNav) {
+    const g = pubNav.querySelector('a[href*="scholar"]');
+    if (g) {
+      const gSvg = g.querySelector("svg");
+      if (gSvg) {
+        g.replaceChildren(gSvg, document.createTextNode(` ${t("pub_google_scholar", lang)}`));
+      }
+    }
+    const orcid = pubNav.querySelector('a[href*="orcid"]');
+    if (orcid) {
+      const oSvg = orcid.querySelector("svg");
+      const code = orcid.querySelector("code");
+      const codeText = code?.textContent?.trim() ?? "";
+      orcid.textContent = "";
+      if (oSvg) orcid.appendChild(oSvg);
+      orcid.appendChild(document.createTextNode(` ${t("pub_orcid", lang)} `));
+      if (codeText) {
+        const c = document.createElement("code");
+        c.textContent = codeText;
+        orcid.appendChild(c);
+      }
+    }
+  }
+
+  const thead = document.querySelector("#publicaciones thead tr");
+  if (thead) {
+    const ths = thead.querySelectorAll("th");
+    if (ths[0]) ths[0].textContent = t("pub_table_source", lang);
+    if (ths[1]) ths[1].textContent = t("pub_table_total", lang);
+    if (ths[2]) ths[2].textContent = t("pub_table_since", lang);
+  }
+
+  const tbody = document.querySelector("#publicaciones tbody");
+  if (tbody) {
+    const rows = tbody.querySelectorAll("tr");
+    const rowKeys = [
+      ["pub_stats_citations", "1177", "563"],
+      ["pub_stats_hindex", "20", "12"],
+      ["pub_stats_i10", "32", "19"],
+      ["pub_stats_articles", "90", "—"],
+    ];
+    rows.forEach((tr, i) => {
+      const cfg = rowKeys[i];
+      if (!cfg) return;
+      const tds = tr.querySelectorAll("td");
+      if (tds[0]) tds[0].textContent = t(cfg[0], lang);
+      if (tds[1]) tds[1].textContent = cfg[1];
+      if (tds[2]) tds[2].textContent = cfg[2];
+    });
+  }
+
+  const pubH3 = [
+    ["#publicaciones h3:nth-of-type(1)", "pub_h3_latest"],
+    ["#publicaciones h3:nth-of-type(2)", "pub_h3_top"],
+    ["#publicaciones h3:nth-of-type(3)", "pub_h3_best"],
+    ["#publicaciones h3:nth-of-type(4)", "pub_h3_multi"],
+    ["#publicaciones h3:nth-of-type(5)", "pub_h3_preprints"],
+  ];
+  for (const [sel, key] of pubH3) {
+    const el = document.querySelector(sel);
+    if (el) el.textContent = t(key, lang);
+  }
+
+  const emptyEl = document.getElementById("empty");
+  if (emptyEl) {
+    const p = emptyEl.querySelector("p");
+    if (p) {
+      p.innerHTML = `<strong>${escapeHtml(t("empty_pub_strong", lang))}</strong> ${escapeHtml(t("empty_pub_rest", lang))}`;
+    }
+  }
+
+  const setMuted = (sel, key) => {
+    const el = document.querySelector(sel);
+    if (el) el.textContent = t(key, lang);
+  };
+  setMuted("#libros .muted", "books_intro");
+  setMuted("#logros .muted", "logros_intro");
+  setMuted("#experiencia-laboral .muted", "work_intro");
+  setMuted("#docencia .muted", "teaching_intro");
+
+  const hab = document.querySelector("#habilidades .container");
+  if (hab) {
+    const p1 = hab.querySelector("p.muted:not(.admin-text)");
+    if (p1) p1.textContent = t("skills_intro", lang);
+    const p2 = hab.querySelector("p.admin-text");
+    if (p2) p2.textContent = t("skills_admin", lang);
+  }
+
+  const appsLead = document.querySelector("#apps .container > p");
+  if (appsLead) appsLead.textContent = t("apps_lead", lang);
+  const softLead = document.querySelector("#software .container > p");
+  if (softLead) softLead.textContent = t("software_lead", lang);
+
+  const footerP = document.querySelector("footer.print-mode-target > p");
+  if (footerP) {
+    const strong = footerP.querySelector("strong#updated");
+    const prevUpdated = strong?.textContent ?? "—";
+    footerP.textContent = "";
+    footerP.appendChild(document.createTextNode(`${t("footer_dev", lang)} `));
+    const s = strong ?? document.createElement("strong");
+    s.id = "updated";
+    s.textContent = prevUpdated;
+    footerP.appendChild(s);
+  }
+
+  const printBtn = document.getElementById("btn-print");
+  if (printBtn) printBtn.textContent = t("footer_pdf", lang);
+
+  document.querySelector(".scroll-to-top-link")?.setAttribute("aria-label", t("scroll_top", lang));
+}
+
 async function loadProfile() {
   const res = await fetch("./info/profile.json", { cache: "no-store" });
   if (!res.ok) return null;
@@ -431,18 +704,21 @@ async function loadJson(path) {
   return res.json();
 }
 
-function renderTeaching(profile) {
+function renderTeaching(profile, lang = "es") {
   if (!profile) return;
   const name = profile.name || "Jorge I. Zuluaga";
   const headline =
-    profile.headline || "Producción académica, docencia y reconocimientos.";
-  const summary = profile.summary || "";
+    pickLocalized(profile, "headline", lang) ||
+    profile.headline ||
+    "Producción académica, docencia y reconocimientos.";
+  const summary =
+    pickLocalized(profile, "summary", lang) ?? profile.summary ?? "";
 
   setText("name", name);
   setTextWithBr("headline", headline);
   if (summary) {
-    const kicker = document.getElementById("kicker");
-    if (kicker) kicker.textContent = summary;
+    const sumEl = document.getElementById("summary") || document.getElementById("kicker");
+    if (sumEl) sumEl.textContent = summary;
   }
   if (profile.avatar) {
     setAttr("avatar", "src", profile.avatar);
@@ -470,10 +746,10 @@ function renderTeaching(profile) {
   const sup = profile.teaching?.supervision ?? [];
   for (const s of sup) {
     const li = document.createElement("li");
-    const title = s.title || "";
-    const prog = s.program || "";
-    const inst = s.institution || "";
-    const years = s.years || "";
+    const title = pickLocalized(s, "title", lang) || s.title || "";
+    const prog = pickLocalized(s, "program", lang) || s.program || "";
+    const inst = pickLocalized(s, "institution", lang) || s.institution || "";
+    const years = pickLocalized(s, "years", lang) || s.years || "";
     li.innerHTML = `<strong>${escapeHtml(title)}</strong>${prog ? ` — ${escapeHtml(prog)}` : ""
       }${inst ? `, ${escapeHtml(inst)}` : ""}${years ? `, ${escapeHtml(years)}` : ""}`;
     supEl.appendChild(li);
@@ -482,16 +758,16 @@ function renderTeaching(profile) {
   const awards = profile.awards ?? [];
   for (const a of awards) {
     const li = document.createElement("li");
-    const title = a.title || "";
-    const org = a.organization || "";
-    const year = a.year || "";
+    const title = pickLocalized(a, "title", lang) || a.title || "";
+    const org = pickLocalized(a, "organization", lang) || a.organization || "";
+    const year = pickLocalized(a, "year", lang) || a.year || "";
     li.innerHTML = `<strong>${escapeHtml(title)}</strong>${org ? ` — ${escapeHtml(org)}` : ""
       }${year ? `, ${escapeHtml(year)}` : ""}`;
     awardsEl.appendChild(li);
   }
 }
 
-function renderExperience(profile) {
+function renderExperience(profile, lang = "es") {
   if (!profile) return;
 
   const expEl = document.getElementById("experience-laboral-items");
@@ -507,10 +783,16 @@ function renderExperience(profile) {
     div.className = `box border${borderIdx}`;
     borderIdx = borderIdx < 6 ? borderIdx + 1 : 1;
 
-    const role = item.role || item.cargo || "";
-    const institution = item.institution || item.organization || "";
-    const period = item.period || "";
-    const details = item.details || item.summary || "";
+    const role =
+      pickLocalized(item, "role", lang) || item.role || item.cargo || "";
+    const institution =
+      pickLocalized(item, "institution", lang) ||
+      item.institution ||
+      item.organization ||
+      "";
+    const period = pickLocalized(item, "period", lang) || item.period || "";
+    const details =
+      pickLocalized(item, "details", lang) || item.details || item.summary || "";
 
     const metaPieces = [];
     if (period) metaPieces.push(escapeHtml(period));
@@ -519,8 +801,8 @@ function renderExperience(profile) {
 
     div.innerHTML = `
       <div class="info">
-        <h3>${escapeHtml(role || "Cargo")}</h3>
-        <h4>${escapeHtml(institution || "Institución")}</h4>
+        <h3>${escapeHtml(role || t("exp_role_fallback", lang))}</h3>
+        <h4>${escapeHtml(institution || t("exp_inst_fallback", lang))}</h4>
         ${metaHtml}
       </div>
     `;
@@ -529,7 +811,7 @@ function renderExperience(profile) {
   }
 }
 
-async function renderLogrosProfesionales() {
+async function renderLogrosProfesionales(lang = "es") {
   const el = document.getElementById("logros-profesionales-items");
   if (!el) return;
 
@@ -543,11 +825,16 @@ async function renderLogrosProfesionales() {
       div.className = `box border${borderIdx}`;
       borderIdx = borderIdx < 6 ? borderIdx + 1 : 1;
 
+      const title = pickLocalized(item, "title", lang) ?? item.title ?? "";
+      const subtitle = pickLocalized(item, "subtitle", lang) ?? item.subtitle ?? "";
+      const desc =
+        pickLocalized(item, "descriptionHtml", lang) ?? item.descriptionHtml ?? "";
+
       div.innerHTML = `
         <div class="info">
-          <h3>${escapeHtml(item.title ?? "")}</h3>
-          <h4>${escapeHtml(item.subtitle ?? "")}</h4>
-          <p>${item.descriptionHtml ?? ""}</p>
+          <h3>${escapeHtml(title)}</h3>
+          <h4>${escapeHtml(subtitle)}</h4>
+          <p>${desc}</p>
         </div>
       `;
 
@@ -558,7 +845,7 @@ async function renderLogrosProfesionales() {
   }
 }
 
-async function renderLibros() {
+async function renderLibros(lang = "es") {
   const el = document.getElementById("libros-items");
   if (!el) return;
 
@@ -572,27 +859,27 @@ async function renderLibros() {
       div.className = `box border${borderIdx}`;
       borderIdx = borderIdx < 6 ? borderIdx + 1 : 1;
 
-      const descHtml = (item.descriptionParagraphs ?? [])
-        .map((p) => `<p>${escapeHtml(p)}</p>`)
-        .join("");
+      const paras = pickLocalizedArray(item, "descriptionParagraphs", lang);
+      const descHtml = paras.map((p) => `<p>${escapeHtml(p)}</p>`).join("");
 
       const meta = item.meta ?? {};
       const link = item.link ?? {};
+      const title = pickLocalized(item, "title", lang) ?? item.title ?? "";
 
       div.innerHTML = `
         <div class="info">
-          <h3>${escapeHtml(item.title ?? "")}</h3>
+          <h3>${escapeHtml(title)}</h3>
           ${descHtml}
-          <p><strong>Fecha de publicación:</strong> ${escapeHtml(meta.publicationDate ?? "—")}</p>
-          <p><strong>ISSN:</strong> ${escapeHtml(meta.issn ?? "—")}</p>
-          <p><strong>Editorial:</strong> ${escapeHtml(meta.editorial ?? "—")}</p>
-          <p><strong>Estado:</strong> ${escapeHtml(meta.status ?? "—")}</p>
+          <p><strong>${escapeHtml(t("libros_pub", lang))}</strong> ${escapeHtml(pickLocalized(meta, "publicationDate", lang) ?? meta.publicationDate ?? "—")}</p>
+          <p><strong>${escapeHtml(t("libros_issn", lang))}</strong> ${escapeHtml(pickLocalized(meta, "issn", lang) ?? meta.issn ?? "—")}</p>
+          <p><strong>${escapeHtml(t("libros_editorial", lang))}</strong> ${escapeHtml(pickLocalized(meta, "editorial", lang) ?? meta.editorial ?? "—")}</p>
+          <p><strong>${escapeHtml(t("libros_status", lang))}</strong> ${escapeHtml(pickLocalized(meta, "status", lang) ?? meta.status ?? "—")}</p>
           ${
         link.href
-          ? `<p><strong>Enlace de adquisición o descarga:</strong> <a class="link" href="${escapeAttr(
+          ? `<p><strong>${escapeHtml(t("libros_link", lang))}</strong> <a class="link" href="${escapeAttr(
               link.href,
             )}" target="_blank" rel="noreferrer noopener">${escapeHtml(
-              link.label ?? "Enlace",
+              pickLocalized(link, "label", lang) ?? link.label ?? "Enlace",
             )}</a></p>`
           : ""
       }
@@ -606,7 +893,7 @@ async function renderLibros() {
   }
 }
 
-async function renderSoftwarePackages() {
+async function renderSoftwarePackages(lang = "es") {
   const el = document.getElementById("software-items");
   if (!el) return;
 
@@ -640,12 +927,14 @@ async function renderSoftwarePackages() {
         )
         .join(" · ");
 
+      const description = pickLocalized(item, "description", lang) ?? item.description ?? "";
+
       div.innerHTML = `
         <div class="info">
           <h3>${escapeHtml(item.name ?? "")}</h3>
-          <p>${escapeHtml(item.description ?? "")}</p>
+          <p>${escapeHtml(description)}</p>
           <p>
-            <strong>Autores:</strong> ${authorsHtml} &middot; <strong>Fecha de creación:</strong> ${escapeHtml(item.created ?? "—")}
+            <strong>${escapeHtml(t("software_authors", lang))}</strong> ${authorsHtml} &middot; <strong>${escapeHtml(t("software_created", lang))}</strong> ${escapeHtml(item.created ?? "—")}
           </p>
           <p><br /></p>
           <p>${linksHtml}</p>
@@ -659,7 +948,7 @@ async function renderSoftwarePackages() {
   }
 }
 
-async function renderApps() {
+async function renderApps(lang = "es") {
   const el = document.getElementById("apps-items");
   if (!el) return;
 
@@ -673,11 +962,13 @@ async function renderApps() {
       div.className = `box border${borderIdx}`;
       borderIdx = borderIdx < 6 ? borderIdx + 1 : 1;
 
+      const description = pickLocalized(item, "description", lang) ?? item.description ?? "";
+
       div.innerHTML = `
         <div class="info">
           <h3>${escapeHtml(item.title ?? item.name ?? "")}</h3>
-          <p>${escapeHtml(item.description ?? "")}</p>
-          <p><strong>URL:</strong> <a class="link" href="${escapeAttr(item.url ?? "")}" target="_blank" rel="noreferrer noopener">${escapeHtml(item.url ?? "")}</a></p>
+          <p>${escapeHtml(description)}</p>
+          <p><strong>${escapeHtml(t("apps_url", lang))}</strong> <a class="link" href="${escapeAttr(item.url ?? "")}" target="_blank" rel="noreferrer noopener">${escapeHtml(item.url ?? "")}</a></p>
         </div>
       `;
 
@@ -734,9 +1025,19 @@ function renderSimpleMarkdown(text) {
     .join("");
 }
 
-async function renderAboutMe(profile) {
+async function renderAboutMe(profile, lang = "es") {
   const el = document.getElementById("about-me");
   if (!el) return;
+
+  if (lang === "en") {
+    const enMd = pickLocalized(profile ?? {}, "aboutMe", lang);
+    if (typeof enMd === "string" && enMd.trim()) {
+      el.innerHTML = renderSimpleMarkdown(enMd);
+      return;
+    }
+    el.textContent = profile?.aboutMe ?? "";
+    return;
+  }
 
   try {
     const res = await fetch("./info/aboutme.md", { cache: "no-store" });
@@ -759,7 +1060,7 @@ async function renderAboutMe(profile) {
   }
 }
 
-async function renderContact() {
+async function renderContact(lang = "es") {
   const elAnchors = [
     ...document.querySelectorAll("[data-contact]")
   ];
@@ -771,8 +1072,14 @@ async function renderContact() {
       const a = document.querySelector(`[data-contact="${item.key}"]`);
       if (!a) continue;
 
-      if (item.href) a.setAttribute("href", item.href);
-      if (item.ariaLabel) a.setAttribute("aria-label", item.ariaLabel);
+      let href = item.href ?? "#";
+      if (item.href && lang === "en") {
+        href = withLangQuery(item.href);
+      }
+      if (href) a.setAttribute("href", href);
+
+      const aria = pickLocalized(item, "ariaLabel", lang) ?? item.ariaLabel;
+      if (aria) a.setAttribute("aria-label", aria);
 
       if (item.target) {
         a.setAttribute("target", item.target);
@@ -781,14 +1088,14 @@ async function renderContact() {
       }
 
       const textEl = a.querySelector(".contact-text");
-      if (textEl) textEl.textContent = item.label ?? "";
+      if (textEl) textEl.textContent = pickLocalized(item, "label", lang) ?? item.label ?? "";
     }
   } catch (err) {
     console.error("Error cargando contacto:", err);
   }
 }
 
-async function renderEducation() {
+async function renderEducation(lang = "es") {
   const el = document.getElementById("education-items");
   if (!el) return;
 
@@ -802,27 +1109,36 @@ async function renderEducation() {
       div.className = `box border${borderIdx}`;
       borderIdx = borderIdx < 6 ? borderIdx + 1 : 1;
 
-      const extra = Array.isArray(item.extraParagraphs) ? item.extraParagraphs : [];
+      const extra = pickLocalizedArray(item, "extraParagraphs", lang);
       const extraHtml = extra.map((p) => `<p>${escapeHtml(p)}</p>`).join("");
+      const recognitionRaw = pickLocalized(item, "recognition", lang) ?? item.recognition;
       const recTrimmed =
-        item.recognition === undefined || item.recognition === null
+        recognitionRaw === undefined || recognitionRaw === null
           ? ""
-          : String(item.recognition).trim();
+          : String(recognitionRaw).trim();
       const recognitionHtml = recTrimmed
-        ? `<p class="education-recognition"><strong>Reconocimientos:</strong> ${escapeHtml(recTrimmed)}</p>`
+        ? `<p class="education-recognition"><strong>${escapeHtml(t("education_recognition", lang))}</strong> ${escapeHtml(recTrimmed)}</p>`
         : "";
       const linkUrl = item.linkUrl ?? item.programUrl;
-      const linkLabel = item.linkLabel ?? item.linkText;
+      const linkLabel =
+        pickLocalized(item, "linkLabel", lang) ??
+        pickLocalized(item, "linkText", lang) ??
+        item.linkLabel ??
+        item.linkText;
       const linkHtml =
         linkUrl && linkLabel
           ? `<p><a href="${escapeAttr(linkUrl)}" target="_blank" rel="noopener noreferrer">${escapeHtml(linkLabel)}</a></p>`
           : "";
 
+      const institution = pickLocalized(item, "institution", lang) ?? item.institution ?? "";
+      const degree = pickLocalized(item, "degree", lang) ?? item.degree ?? "";
+      const years = pickLocalized(item, "years", lang) ?? item.years ?? "";
+
       div.innerHTML = `
         <div class="info">
-          <h3>${escapeHtml(item.institution ?? "")}</h3>
-          <h4>${escapeHtml(item.degree ?? "")}</h4>
-          <p>${escapeHtml(item.years ?? "")}</p>
+          <h3>${escapeHtml(institution)}</h3>
+          <h4>${escapeHtml(degree)}</h4>
+          <p>${escapeHtml(years)}</p>
           ${recognitionHtml}
           ${extraHtml}
           ${linkHtml}
@@ -835,7 +1151,7 @@ async function renderEducation() {
   }
 }
 
-async function renderResearchStays() {
+async function renderResearchStays(lang = "es") {
   const el = document.getElementById("research-items");
   if (!el) return;
 
@@ -849,11 +1165,15 @@ async function renderResearchStays() {
       div.className = `box border${borderIdx}`;
       borderIdx = borderIdx < 6 ? borderIdx + 1 : 1;
 
+      const title = pickLocalized(item, "title", lang) ?? item.title ?? "";
+      const subtitle = pickLocalized(item, "subtitle", lang) ?? item.subtitle ?? "";
+      const details = pickLocalized(item, "details", lang) ?? item.details ?? "";
+
       div.innerHTML = `
         <div class="info">
-          <h3>${escapeHtml(item.title ?? "")}</h3>
-          <h4>${escapeHtml(item.subtitle ?? "")}</h4>
-          <p>${escapeHtml(item.details ?? "")}</p>
+          <h3>${escapeHtml(title)}</h3>
+          <h4>${escapeHtml(subtitle)}</h4>
+          <p>${escapeHtml(details)}</p>
         </div>
       `;
       el.appendChild(div);
@@ -863,7 +1183,7 @@ async function renderResearchStays() {
   }
 }
 
-async function renderAwardsPage() {
+async function renderAwardsPage(lang = "es") {
   const el = document.getElementById("awards-items");
   if (!el) return;
 
@@ -877,11 +1197,16 @@ async function renderAwardsPage() {
       div.className = `box border${borderIdx}`;
       borderIdx = borderIdx < 6 ? borderIdx + 1 : 1;
 
+      const title = pickLocalized(item, "title", lang) ?? item.title ?? "";
+      const organization =
+        pickLocalized(item, "organization", lang) ?? item.organization ?? "";
+      const details = pickLocalized(item, "details", lang) ?? item.details ?? "";
+
       div.innerHTML = `
         <div class="info">
-          <h3>${escapeHtml(item.title ?? "")}</h3>
-          <h4>${escapeHtml(item.organization ?? "")}</h4>
-          <p>${escapeHtml(item.details ?? "")}</p>
+          <h3>${escapeHtml(title)}</h3>
+          <h4>${escapeHtml(organization)}</h4>
+          <p>${escapeHtml(details)}</p>
         </div>
       `;
       el.appendChild(div);
@@ -892,23 +1217,35 @@ async function renderAwardsPage() {
 }
 
 async function main() {
+  const lang = getPageLang();
+  applyIndexChrome(lang);
+  applyThemeAriaFromLang(lang);
+
   const updated = new Date();
-  setText("updated", updated.toLocaleDateString("es-CO", { year: "numeric", month: "short", day: "2-digit" }));
+  const dateLocale = lang === "en" ? "en-US" : "es-CO";
+  setText(
+    "updated",
+    updated.toLocaleDateString(dateLocale, {
+      year: "numeric",
+      month: "short",
+      day: "2-digit",
+    }),
+  );
 
   const profile = await loadProfile().catch(() => null);
-  renderTeaching(profile);
-  renderExperience(profile);
+  renderTeaching(profile, lang);
+  renderExperience(profile, lang);
 
   await Promise.allSettled([
-    renderAboutMe(profile),
-    renderContact(),
-    renderEducation(),
-    renderResearchStays(),
-    renderAwardsPage(),
-    renderLogrosProfesionales(),
-    renderLibros(),
-    renderApps(),
-    renderSoftwarePackages(),
+    renderAboutMe(profile, lang),
+    renderContact(lang),
+    renderEducation(lang),
+    renderResearchStays(lang),
+    renderAwardsPage(lang),
+    renderLogrosProfesionales(lang),
+    renderLibros(lang),
+    renderApps(lang),
+    renderSoftwarePackages(lang),
   ]);
 
   const coursesEl = document.getElementById("teaching-courses");
@@ -945,23 +1282,29 @@ async function main() {
           borderIdx = borderIdx < 6 ? borderIdx + 1 : 1;
 
           const details = courseDetailsByName[name];
-          const descriptionHtml = details?.description
-            ? `<p><strong>Descripción:</strong> ${escapeHtml(details.description)}</p>`
+          const descText =
+            details &&
+            (pickLocalized(details, "description", lang) ?? details.description);
+          const descriptionHtml = descText
+            ? `<p><strong>${escapeHtml(t("teaching_desc", lang))}</strong> ${escapeHtml(descText)}</p>`
             : "";
           const topicsHtml = details?.topics
             ? (() => {
-              // Reemplaza separadores tipo "⋅" por un bullet grande "• " para mejorar legibilidad.
-              const topicsRaw = String(details.topics).replace(/\s*[⋅·]\s*/g, "• ");
-              return `<p><strong>Tópicos importantes:</strong> ${escapeHtml(topicsRaw)}</p>`;
+              const rawTopics =
+                pickLocalized(details, "topics", lang) ?? details.topics ?? "";
+              const topicsRaw = String(rawTopics).replace(/\s*[⋅·]\s*/g, "• ");
+              return `<p><strong>${escapeHtml(t("teaching_topics", lang))}</strong> ${escapeHtml(topicsRaw)}</p>`;
             })()
             : "";
           const hasDetails = Boolean(descriptionHtml || topicsHtml);
           const detailsSepHtml = hasDetails ? `<p>&nbsp;</p>` : "";
 
           // Process all occurrences of this course
-          const occurrencesHtml = courses.map(c => {
+          const occurrencesHtml = courses.map((c) => {
             const dateObj = new Date(c.creationTime);
-            const dateStr = isNaN(dateObj) ? (c.creationTime || "") : dateObj.toLocaleDateString("es-CO");
+            const dateStr = isNaN(dateObj)
+              ? (c.creationTime || "")
+              : dateObj.toLocaleDateString(dateLocale);
             const students = c.enrollmentCount ?? 0;
             // Extract semester from section (e.g. "Astronomia UdeA - 2026-1" -> "2026-1")
             let semester = escapeHtml(c.section || "");
@@ -969,7 +1312,7 @@ async function main() {
             if (match) {
               semester = match[0];
             }
-            return `${semester} (Creado ${escapeHtml(dateStr)}, Estudiantes: ${students})`;
+            return `${semester} (${t("teaching_created", lang)} ${escapeHtml(dateStr)}, ${t("teaching_students", lang)}: ${students})`;
           }).join(", ");
 
           div.innerHTML = `
@@ -978,7 +1321,7 @@ async function main() {
               ${descriptionHtml}
               ${topicsHtml}
               ${detailsSepHtml}
-              <p><strong>Ofrecido en:</strong> ${occurrencesHtml}</p>
+              <p><strong>${escapeHtml(t("teaching_offered", lang))}</strong> ${occurrencesHtml}</p>
             </div>
           `;
           coursesEl.appendChild(div);
@@ -1037,7 +1380,11 @@ async function main() {
     const fragLatest = document.createDocumentFragment();
     for (const e of latestFinal) {
       fragLatest.appendChild(
-        renderPub(e, { label: "Nuevo", className: "badge--new", selectionClass: "latest" }),
+        renderPub(
+          e,
+          { label: "Nuevo", className: "badge--new", selectionClass: "latest" },
+          lang,
+        ),
       );
     }
     latestEl.appendChild(fragLatest);
@@ -1049,7 +1396,11 @@ async function main() {
     const fragPre = document.createDocumentFragment();
     for (const e of preprintsFinal) {
       fragPre.appendChild(
-        renderPub(e, { label: "Preprint", className: "badge--preprint", selectionClass: "preprint" }),
+        renderPub(
+          e,
+          { label: "Preprint", className: "badge--preprint", selectionClass: "preprint" },
+          lang,
+        ),
       );
     }
     preprintsEl.appendChild(fragPre);
@@ -1060,7 +1411,7 @@ async function main() {
     clearChildren(topEl);
     const fragTop = document.createDocumentFragment();
     for (const e of papersTop) {
-      fragTop.appendChild(renderPub(e, { selectionClass: "top" }));
+      fragTop.appendChild(renderPub(e, { selectionClass: "top" }, lang));
     }
     topEl.appendChild(fragTop);
   }
@@ -1070,7 +1421,7 @@ async function main() {
     clearChildren(bestEl);
     const fragBest = document.createDocumentFragment();
     for (const e of papersBest) {
-      fragBest.appendChild(renderPub(e, { selectionClass: "best" }));
+      fragBest.appendChild(renderPub(e, { selectionClass: "best" }, lang));
     }
     bestEl.appendChild(fragBest);
   }
@@ -1080,7 +1431,7 @@ async function main() {
     clearChildren(multiEl);
     const fragMulti = document.createDocumentFragment();
     for (const e of papersMulti) {
-      fragMulti.appendChild(renderPub(e, { selectionClass: "multi" }));
+      fragMulti.appendChild(renderPub(e, { selectionClass: "multi" }, lang));
     }
     multiEl.appendChild(fragMulti);
   }
@@ -1091,12 +1442,16 @@ async function main() {
 
 main().catch((err) => {
   console.error(err);
+  const lang = getPageLang();
+  applyIndexChrome(lang);
+  applyThemeAriaFromLang(lang);
   setText("count", "—");
   setText("years", "—");
   setText("updated", "—");
   const empty = document.getElementById("empty");
-  empty.hidden = false;
-  empty.innerHTML =
-    "<p><strong>No se pudo cargar el CV.</strong> Revisa la consola del navegador.</p>";
+  if (empty) {
+    empty.hidden = false;
+    empty.innerHTML = `<p><strong>${escapeHtml(t("error_cv", lang))}</strong></p>`;
+  }
 });
 

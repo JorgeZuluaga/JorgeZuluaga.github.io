@@ -1,3 +1,10 @@
+import {
+  applyThemeAriaFromLang,
+  getPageLang,
+  t,
+  withLangQuery,
+} from "./i18n.js";
+
 const LIBRARY_JSON = "./info/library.json";
 
 function parseDate(dateText) {
@@ -34,17 +41,17 @@ function computeYearlyReads(books) {
     .sort((a, b) => b.year - a.year);
 }
 
-function formatRating(rating) {
+function formatRating(rating, lang) {
   const value = Number(rating);
-  if (!value) return "Sin calificación";
+  if (!value) return t("library_no_rating", lang);
   const stars = Math.round(value);
   return "⭐".repeat(stars) + '<span style="filter: grayscale(100%); opacity: 0.4;">⭐</span>'.repeat(5 - stars);
 }
 
-function renderBookList(container, items) {
+function renderBookList(container, items, lang) {
   if (!container) return;
   if (!Array.isArray(items) || items.length === 0) {
-    container.innerHTML = "<p class=\"photo-card__error\">Sin datos disponibles.</p>";
+    container.innerHTML = `<p class="photo-card__error">${escapeLibrary(t("library_no_data", lang))}</p>`;
     return;
   }
 
@@ -55,16 +62,18 @@ function renderBookList(container, items) {
 
     const title = document.createElement("h3");
     title.className = "library-book-item__title";
-    title.textContent = item.title ?? "Libro sin título";
+    title.textContent = item.title ?? t("library_book_title_fallback", lang);
 
     const meta = document.createElement("p");
     meta.className = "library-book-item__meta";
-    const author = item.author ? `Por: ${item.author}` : "Por: —";
-    const date = item.dateRead || item.dateAdded || "Fecha: —";
-    const likes = Number.isFinite(Number(item.reviewLikes))
-      ? `Likes reseña: ${item.reviewLikes}`
-      : "Likes reseña: —";
-    meta.innerHTML = `${author} · Fecha: ${date} · Calificación: ${formatRating(item.rating)} · ${likes}`;
+    const author = item.author
+      ? `${t("library_by_author", lang)} ${item.author}`
+      : `${t("library_by_author", lang)} —`;
+    const datePart = item.dateRead || item.dateAdded || "—";
+    const likesLine = Number.isFinite(Number(item.reviewLikes))
+      ? `${t("library_review_likes", lang)} ${item.reviewLikes}`
+      : `${t("library_review_likes", lang)} —`;
+    meta.innerHTML = `${author} · ${t("library_date", lang)} ${datePart} · ${t("library_rating_label", lang)}: ${formatRating(item.rating, lang)} · ${likesLine}`;
 
     const actions = document.createElement("p");
     actions.className = "library-book-item__actions";
@@ -76,10 +85,10 @@ function renderBookList(container, items) {
       a.href = reviewUrl;
       a.target = "_blank";
       a.rel = "noopener noreferrer";
-      a.textContent = "Ver reseña";
+      a.textContent = t("library_view_review", lang);
       actions.appendChild(a);
     } else {
-      actions.textContent = "(No hay reseña)";
+      actions.textContent = t("library_no_review", lang);
     }
 
     entry.appendChild(title);
@@ -90,7 +99,70 @@ function renderBookList(container, items) {
   container.replaceChildren(frag);
 }
 
+function escapeLibrary(s) {
+  return (s ?? "")
+    .toString()
+    .replaceAll("&", "&amp;")
+    .replaceAll("<", "&lt;")
+    .replaceAll(">", "&gt;");
+}
+
+function applyLibraryChrome(lang) {
+  document.documentElement.lang = lang === "en" ? "en" : "es";
+  document.title =
+    lang === "en"
+      ? "Personal library — Jorge I. Zuluaga"
+      : "Biblioteca personal — Jorge I. Zuluaga";
+
+  const back = document.querySelector(".photos-back");
+  if (back) {
+    back.textContent = t("library_back_cv", lang);
+    back.setAttribute("href", withLangQuery("./index.html"));
+  }
+
+  const libEs = document.getElementById("lib-lang-es");
+  const libEn = document.getElementById("lib-lang-en");
+  if (libEs) {
+    libEs.href = "./biblioteca.html";
+    libEs.textContent = t("lang_es", lang);
+  }
+  if (libEn) {
+    libEn.href = "./biblioteca.html?lang=en";
+    libEn.textContent = t("lang_en", lang);
+  }
+
+  const skip = document.querySelector(".skip-link");
+  if (skip) skip.textContent = t("skip", lang);
+
+  document.querySelectorAll(".theme-button").forEach((btn) => {
+    btn.setAttribute("aria-label", t("theme_toggle", lang));
+  });
+  applyThemeAriaFromLang(lang);
+
+  const hYear = document.getElementById("library-h2-year");
+  if (hYear) hYear.textContent = t("library_by_year", lang);
+  const hLatest = document.getElementById("library-h2-latest");
+  if (hLatest) hLatest.textContent = t("library_latest10", lang);
+  const hTop = document.getElementById("library-h2-top");
+  if (hTop) hTop.textContent = t("library_top10", lang);
+
+  const allLink = document.querySelector(".library-all-link");
+  if (allLink) {
+    allLink.textContent = t("library_show_all", lang);
+    allLink.setAttribute("href", withLangQuery("./biblioteca-todos.html"));
+  }
+
+  const footer = document.querySelector("footer.print-mode-target p");
+  if (footer) {
+    const href = withLangQuery("./index.html");
+    footer.innerHTML = `${t("footer_line", lang)} <a class="link" href="${href}">${escapeLibrary(t("footer_cv_link", lang))}</a>`;
+  }
+}
+
 async function main() {
+  const lang = getPageLang();
+  applyLibraryChrome(lang);
+
   const res = await fetch(LIBRARY_JSON, { cache: "no-store" });
   if (!res.ok) throw new Error(`No se pudo cargar ${LIBRARY_JSON} (${res.status})`);
   const data = await res.json();
@@ -140,15 +212,29 @@ async function main() {
   const reviewedPct = totalRead ? (totalReviewed / totalRead) * 100 : 0;
   const totalLikes = reviewed.reduce((acc, b) => acc + (b.reviewLikes || 0), 0);
 
-  titleEl.textContent = "Biblioteca personal";
-  introEl.textContent =
-    "En esta página incluyo estadísticas de lectura y una selección de libros leídos en años recientes con sus reseñas en Goodreads.";
+  titleEl.textContent = t("library_title", lang);
+  introEl.textContent = t("library_intro", lang);
   profileEl.href = "https://www.goodreads.com/user/show/91991657";
-  profileEl.textContent = "Mi perfil en Goodreads";
-  sourceEl.textContent = `Datos cargados desde info/library.json (${totalRead} libros leídos).`;
+  profileEl.textContent = t("library_profile", lang);
+  sourceEl.textContent = `${t("library_source", lang)} (${totalRead} ${t("library_books_read", lang)}).`;
   totalReadEl.textContent = `${totalRead}`;
   totalReviewedEl.textContent = `${totalReviewed} (${reviewedPct.toFixed(1)}%)`;
   totalLikesEl.textContent = `${totalLikes}`;
+
+  const label1 = document.querySelector(
+    ".library-report__card:nth-of-type(1) .library-report__label",
+  );
+  if (label1) label1.textContent = t("library_read", lang);
+  const label2 = document.querySelector(
+    ".library-report__card:nth-of-type(2) .library-report__label",
+  );
+  if (label2) label2.textContent = t("library_reviewed", lang);
+  const label3 = document.querySelector(
+    ".library-report__card:nth-of-type(3) .library-report__label",
+  );
+  if (label3) label3.textContent = t("library_likes", lang);
+
+  document.querySelector(".library-chart")?.setAttribute("aria-label", t("library_by_year", lang));
 
   const maxCount = Math.max(...rows.map((r) => r.count), 1);
   const frag = document.createDocumentFragment();
@@ -170,7 +256,7 @@ async function main() {
 
     const label = document.createElement("span");
     label.className = "library-chart__value";
-    label.textContent = `${row.count} libros`;
+    label.textContent = `${row.count} ${t("library_books_per_year", lang)}`;
 
     barWrap.appendChild(bar);
     barWrap.appendChild(label);
@@ -180,15 +266,15 @@ async function main() {
   }
 
   chartEl.replaceChildren(frag);
-  renderBookList(latestReadEl, latestRead);
-  renderBookList(topReviewedEl, topReviewedByLikes);
+  renderBookList(latestReadEl, latestRead, lang);
+  renderBookList(topReviewedEl, topReviewedByLikes, lang);
 }
 
 main().catch((err) => {
   console.error(err);
   const chartEl = document.getElementById("library-yearly-chart");
+  const lang = getPageLang();
   if (chartEl) {
-    chartEl.innerHTML =
-      "<p class=\"photo-card__error\"><strong>No se pudieron cargar las estadísticas de lectura.</strong> Compruebe que exista <code>info/library.json</code>.</p>";
+    chartEl.innerHTML = `<p class="photo-card__error">${t("library_stats_error", lang)}</p>`;
   }
 });

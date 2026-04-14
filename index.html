@@ -7,6 +7,10 @@
   <meta name="color-scheme" content="light dark" />
   <title>CV — Jorge I. Zuluaga</title>
   <meta name="description" content="Currículum vitae académico." />
+  <script>
+    document.documentElement.lang =
+      new URLSearchParams(location.search).get("lang") === "en" ? "en" : "es";
+  </script>
 
   <link rel="icon" type="image/png" sizes="48x48" href="./assets/favicon.png" />
   <link rel="apple-touch-icon" sizes="180x180" href="./assets/apple-touch-icon.png" />
@@ -94,6 +98,13 @@
           <a href="#apps" class="nav-link">Apps</a>
           <a href="#software" class="nav-link">Paquetes de software</a>
 
+          <p class="nav-group-title">Idioma / Language</p>
+          <p class="nav-lang-links">
+            <a id="lang-link-es" class="nav-lang-link" href="./index.html" lang="es">Español</a>
+            <span class="nav-lang-sep" aria-hidden="true"> · </span>
+            <a id="lang-link-en" class="nav-lang-link" href="./index.html?lang=en" lang="en">English</a>
+          </p>
+
           <p class="nav-group-title">Otros</p>
           <a href="./photos.html" class="nav-link">Fotos (prensa)</a>
           <a href="./biblioteca.html" class="nav-link">Biblioteca personal</a>
@@ -111,6 +122,16 @@
           <div class="home-main">
             <h1 id="name"></h1>
             <p id="headline"></p>
+            <p class="home-lang-flags" id="home-lang-flags" role="navigation" aria-label="Seleccionar idioma">
+              <a id="home-lang-es" class="home-lang-flag" href="./index.html" title="Español"
+                aria-current="true" aria-label="Versión en español">
+                <img src="https://flagcdn.com/w40/co.png" width="32" height="24" alt="" decoding="async" />
+              </a>
+              <a id="home-lang-en" class="home-lang-flag" href="./index.html?lang=en" title="English"
+                aria-label="English version">
+                <img src="https://flagcdn.com/w40/gb.png" width="32" height="24" alt="" decoding="async" />
+              </a>
+            </p>
             <p id="summary"></p>
             <span id="count" hidden>—</span>
           </div>

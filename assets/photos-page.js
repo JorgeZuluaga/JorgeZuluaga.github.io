@@ -1,3 +1,11 @@
+import {
+  applyThemeAriaFromLang,
+  getPageLang,
+  pickLocalized,
+  t,
+  withLangQuery,
+} from "./i18n.js";
+
 const PHOTOS_JSON = "./info/photos/photos.json";
 
 function sortPhotos(photos) {
@@ -42,21 +50,68 @@ function formatBytes(n) {
   return `${(b / 1024 ** 2).toFixed(2)} MB`;
 }
 
-function formatResolution(width, height) {
+function formatResolution(width, height, locale = "es-CO") {
   const w = Number(width);
   const h = Number(height);
   if (!w || !h) return "—";
-  return `${w.toLocaleString("es-CO")} × ${h.toLocaleString("es-CO")} px`;
+  return `${w.toLocaleString(locale)} × ${h.toLocaleString(locale)} px`;
 }
 
-function photoTechLine(p) {
-  const res = formatResolution(p.width, p.height);
+function photoTechLine(p, locale) {
+  const res = formatResolution(p.width, p.height, locale);
   const sz = formatBytes(p.sizeBytes);
   const parts = [res, sz].filter((x) => x && x !== "—");
   return parts.join(" · ");
 }
 
-function openLightbox(p, imgPath) {
+function applyPhotosChrome(lang) {
+  document.documentElement.lang = lang === "en" ? "en" : "es";
+  document.title =
+    lang === "en"
+      ? "Photos (press and talks) — Jorge I. Zuluaga"
+      : "Fotos (prensa y conferencias) — Jorge I. Zuluaga";
+
+  const skip = document.querySelector(".skip-link");
+  if (skip) skip.textContent = t("skip", lang);
+
+  const back = document.querySelector(".photos-back");
+  if (back) {
+    back.textContent = t("photos_back_cv", lang);
+    back.href = withLangQuery("./index.html");
+  }
+
+  const es = document.getElementById("photos-lang-es");
+  const en = document.getElementById("photos-lang-en");
+  if (es) {
+    es.href = "./photos.html";
+    es.textContent = t("lang_es", lang);
+  }
+  if (en) {
+    en.href = "./photos.html?lang=en";
+    en.textContent = t("lang_en", lang);
+  }
+
+  document.querySelectorAll(".theme-button").forEach((btn) => {
+    btn.setAttribute("aria-label", t("theme_toggle", lang));
+  });
+  applyThemeAriaFromLang(lang);
+
+  const footer = document.querySelector("footer.print-mode-target p");
+  if (footer) {
+    footer.innerHTML = `${t("footer_line", lang)} <a class="link" href="${withLangQuery(
+      "./index.html",
+    )}">${t("footer_cv_link", lang)}</a>`;
+  }
+
+  const closeBtn = document.querySelector(".photo-lightbox__close");
+  if (closeBtn) closeBtn.setAttribute("aria-label", t("photos_preview_close", lang));
+  const lbTitle = document.getElementById("photo-lightbox-title");
+  if (lbTitle) lbTitle.textContent = t("photos_preview_title", lang);
+  const dl = document.getElementById("photo-lightbox-download");
+  if (dl) dl.textContent = t("photos_download_file", lang);
+}
+
+function openLightbox(p, imgPath, lang, locale) {
   const lb = document.getElementById("photo-lightbox");
   const imgEl = lb?.querySelector(".photo-lightbox__img");
   const metaEl = document.getElementById("photo-lightbox-meta");
@@ -65,36 +120,40 @@ function openLightbox(p, imgPath) {
   if (!lb || !imgEl || !metaEl || !dlEl) return;
 
   imgEl.src = imgPath;
-  imgEl.alt = p.title ? String(p.title) : "";
+  const titleText = pickLocalized(p, "title", lang) ?? p.file ?? "";
+  const dateText = pickLocalized(p, "dateLabel", lang) ?? "";
+  const descriptionText = pickLocalized(p, "description", lang) ?? "";
+
+  imgEl.alt = titleText ? String(titleText) : "";
 
   metaEl.replaceChildren();
   const title = document.createElement("p");
   title.className = "photo-lightbox__line photo-lightbox__line--title";
-  title.textContent = p.title ?? p.file ?? "";
+  title.textContent = titleText;
   metaEl.appendChild(title);
 
   const tech = document.createElement("p");
   tech.className = "photo-lightbox__line photo-lightbox__line--tech";
-  tech.textContent = photoTechLine(p);
+  tech.textContent = photoTechLine(p, locale);
   metaEl.appendChild(tech);
 
-  if (p.dateLabel) {
+  if (dateText) {
     const d = document.createElement("p");
     d.className = "photo-lightbox__line photo-lightbox__line--date";
-    d.textContent = p.dateLabel;
+    d.textContent = dateText;
     metaEl.appendChild(d);
   }
 
-  if (p.description) {
+  if (descriptionText) {
     const desc = document.createElement("p");
     desc.className = "photo-lightbox__line photo-lightbox__line--desc";
-    desc.textContent = p.description;
+    desc.textContent = descriptionText;
     metaEl.appendChild(desc);
   }
 
   dlEl.href = imgPath;
   dlEl.setAttribute("download", p.file ?? "");
-  dlEl.textContent = `Descargar (${formatBytes(p.sizeBytes)})`;
+  dlEl.textContent = `${t("photos_download", lang)} (${formatBytes(p.sizeBytes)})`;
 
   lb.hidden = false;
   document.body.style.overflow = "hidden";
@@ -132,6 +191,9 @@ function wireLightbox() {
 }
 
 async function main() {
+  const lang = getPageLang();
+  const locale = lang === "en" ? "en-US" : "es-CO";
+  applyPhotosChrome(lang);
   wireLightbox();
 
   const res = await fetch(PHOTOS_JSON, { cache: "no-store" });
@@ -143,8 +205,8 @@ async function main() {
   const gridEl = document.getElementById("photos-grid");
   if (!titleEl || !introEl || !gridEl) return;
 
-  titleEl.textContent = data.title ?? "Fotografías";
-  introEl.textContent = data.intro ?? "";
+  titleEl.textContent = pickLocalized(data, "title", lang) ?? t("photos_title", lang);
+  introEl.textContent = pickLocalized(data, "intro", lang) ?? t("photos_intro", lang);
 
   const photos = await filterPhotosWithExistingFiles(data.photos ?? []);
   const frag = document.createDocumentFragment();
@@ -161,16 +223,20 @@ async function main() {
     thumb.className = "photo-card__thumb";
     const img = document.createElement("img");
     img.src = imgPath;
-    img.alt = p.title ? String(p.title) : "Fotografía";
+    const titleText = pickLocalized(p, "title", lang) ?? file;
+    const dateText = pickLocalized(p, "dateLabel", lang) ?? "";
+    const descriptionText = pickLocalized(p, "description", lang) ?? "";
+
+    img.alt = titleText ? String(titleText) : t("photos_photo_fallback", lang);
     img.loading = "lazy";
     img.decoding = "async";
     thumb.appendChild(img);
 
-    const open = () => openLightbox(p, imgPath);
+    const open = () => openLightbox(p, imgPath, lang, locale);
     thumb.addEventListener("click", open);
     thumb.setAttribute("role", "button");
     thumb.tabIndex = 0;
-    thumb.setAttribute("aria-label", `Vista previa: ${p.title || file}`);
+    thumb.setAttribute("aria-label", `${t("photos_preview_aria", lang)} ${titleText || file}`);
     thumb.addEventListener("keydown", (e) => {
       if (e.key === "Enter" || e.key === " ") {
         e.preventDefault();
@@ -181,17 +247,17 @@ async function main() {
     const body = document.createElement("div");
     body.className = "photo-card__body";
     const h3 = document.createElement("h3");
-    h3.textContent = p.title ?? file;
+    h3.textContent = titleText ?? file;
     const dateP = document.createElement("p");
     dateP.className = "photo-card__date";
-    dateP.textContent = p.dateLabel ?? "";
+    dateP.textContent = dateText;
     const descP = document.createElement("p");
     descP.className = "photo-card__desc";
-    descP.textContent = p.description ?? "";
+    descP.textContent = descriptionText;
 
     const techP = document.createElement("p");
     techP.className = "photo-card__tech";
-    techP.textContent = photoTechLine(p);
+    techP.textContent = photoTechLine(p, locale);
 
     const actions = document.createElement("div");
     actions.className = "photo-card__actions";
@@ -199,7 +265,7 @@ async function main() {
     const previewBtn = document.createElement("button");
     previewBtn.type = "button";
     previewBtn.className = "photo-card__preview";
-    previewBtn.textContent = "Vista previa";
+    previewBtn.textContent = t("photos_preview", lang);
     previewBtn.addEventListener("click", open);
 
     const dl = document.createElement("a");
@@ -208,7 +274,7 @@ async function main() {
     dl.setAttribute("download", file);
     dl.target = "_blank";
     dl.rel = "noopener noreferrer";
-    dl.textContent = "Descargar";
+    dl.textContent = t("photos_download", lang);
 
     body.appendChild(h3);
     if (p.dateLabel) body.appendChild(dateP);
@@ -229,8 +295,8 @@ async function main() {
 main().catch((err) => {
   console.error(err);
   const gridEl = document.getElementById("photos-grid");
+  const lang = getPageLang();
   if (gridEl) {
-    gridEl.innerHTML =
-      "<p class=\"photo-card__error\"><strong>No se pudieron cargar las fotos.</strong> Compruebe que exista <code>info/photos/photos.json</code> y la consola del navegador.</p>";
+    gridEl.innerHTML = `<p class="photo-card__error">${t("photos_error", lang)}</p>`;
   }
 });

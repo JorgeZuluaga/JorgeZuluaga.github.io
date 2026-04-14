@@ -1,8 +1,10 @@
 {
-  "name": "Dr. Jorge I. Zuluaga",
+  "name": "Prof. Jorge I. Zuluaga",
   "headline": "Profesor Titular, Universidad de Antioquia, Medellín, Colombia.<br/>Físico y Doctor en Física, Docente e Investigador Senior en Astrofísica y Astrobiología.",
+  "headline_en": "Full Professor, University of Antioquia, Medellín, Colombia.<br/>Physicist and PhD in Physics, Senior Lecturer and Researcher in Astrophysics and Astrobiology.",
   "summary": "",
   "aboutMe": "Soy Físico y Doctor en Física de la Universidad de Antioquia y he dedicado la mayor parte de mi vida profesional a la docencia y la investigación en universidades de Medellín, en particular en la Universidad de Antioquia, donde hoy soy profesor titular. Mi trabajo combina tres ejes: la investigación en ciencias planetarias y astrobiología, el desarrollo de software y computación científica de alto desempeño, y la divulgación científica de la astronomía y la física. He liderado grupos de investigación, proyectos y programas académicos —como el pregrado en Astronomía y diplomaturas en astronomía y física— y he publicado numerosos artículos sobre exoplanetas, exolunas, campos magnéticos planetarios, dinámica orbital y meteoroides, así como trabajos en física de neutrinos y computación científica. Mi vocación por la divulgación científica me ha llevado a impulsar iniciativas presenciales, en redes sociales y en medios escritos para hacer la ciencia accesible a todos. Fuera de lo académico, soy un lector apasionado —con un promedio de 80 libros anuales— y un aficionado incondicional al cine.",
+  "aboutMe_en": "I am a physicist and PhD in Physics from Universidad de Antioquia, and I have devoted most of my professional life to teaching and research at universities in Medellin, especially at Universidad de Antioquia, where I am now a full professor. My work combines three strands: research in planetary science and astrobiology, high-performance scientific software and computing, and science communication in astronomy and physics. I have led research groups, projects, and academic programs-including the undergraduate program in Astronomy and diplomas in astronomy and physics-and I have published numerous papers on exoplanets, exomoons, planetary magnetic fields, orbital dynamics, and meteoroids, as well as work in neutrino physics and scientific computing. My drive for science communication has led me to promote in-person initiatives, social media, and written media to make science accessible to everyone. Outside academia, I am an avid reader-around 80 books per year-and a lifelong film enthusiast. In my family life, I am married and have a diverse family: three grown children (one of whom remains in our memory after his passing in 2022) and three feline children.",
   "avatar": "./assets/profile.jpg",
   "avatarDownload": "./info/photos/jorge-zuluaga-perfil-cv-2025-03.jpg",
   "teaching": {
@@ -33,29 +35,39 @@
   "experienceLaboral": [
     {
       "role": "Profesor titular",
+      "role_en": "Full professor",
       "institution": "Universidad de Antioquia",
       "period": "Junio 2007 – Presente",
-      "details": "Cursos de los programs de pregrado en Astronomía y Física, diplomaturas en Astronomía y Física, maestría y doctorado en Física. Coordinador del pregrado en el Instituto de Física."
+      "period_en": "June 2007 – Present",
+      "details": "Cursos de los programs de pregrado en Astronomía y Física, diplomaturas en Astronomía y Física, maestría y doctorado en Física. Coordinador del pregrado en el Instituto de Física.",
+      "details_en": "Undergraduate courses in Astronomy and Physics, diplomas in Astronomy and Physics, and MSc/PhD in Physics. Undergraduate coordinator at the Institute of Physics."
     },
     {
       "role": "Director del Centro Regional de Simulación y Cálculo Avanzado (CRESCA)",
+      "role_en": "Director of the Regional Center for Advanced Simulation and Computing (CRESCA)",
       "institution": "Sede de Investigación Universitaria SIU, Universidad de Antioquia",
       "period": "Junio 2007 – Enero 2010",
-      "details": "Gestión de los recursos humanos, materiales y financieros del Centro Regional de Simulación y Cálculo Avanzado (CRESCA)."
+      "period_en": "June 2007 – January 2010",
+      "details": "Gestión de los recursos humanos, materiales y financieros del Centro Regional de Simulación y Cálculo Avanzado (CRESCA).",
+      "details_en": "Management of human, material, and financial resources at CRESCA."
     },
     {
       "role": "Docente de cátedra y de medio tiempo",
+      "role_en": "Adjunct and part-time lecturer",
       "institution": "Universidad de San Buenaventura - Sede Medellín",
       "period": "Enero 2000 – Enero 2009",
-      "details": "Cursos de física básicas para ingeniería, física básica, teoría electromagnética, física moderna, ingeniería de software."
+      "period_en": "January 2000 – January 2009",
+      "details": "Cursos de física básicas para ingeniería, física básica, teoría electromagnética, física moderna, ingeniería de software.",
+      "details_en": "Undergraduate physics for engineering, basic physics, electromagnetic theory, modern physics, software engineering."
     },
     {
       "role": "Docente de cátedra y de medio tiempo",
+      "role_en": "Adjunct and part-time lecturer",
       "institution": "Universidad de Antioquia",
       "period": "Agosto 1997 – Junio 2007",
-      "details": "Cursos de física y astrofísica."
+      "period_en": "August 1997 – June 2007",
+      "details": "Cursos de física y astrofísica.",
+      "details_en": "Physics and astrophysics courses."
     }
   ]
 }
-
- 

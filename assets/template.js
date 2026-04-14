@@ -158,17 +158,28 @@ const sunIcon = document.querySelector(".sun-icon");
 const getCurrentTheme = () =>
   body.classList.contains(darkThemeClass) ? "dark" : "light";
 
-const updateIconsAndAriaLabel = (theme) => {
-  if (!moonIcon || !sunIcon || !themeButton) return;
+function themeAriaLabel(theme) {
+  const en = new URLSearchParams(window.location.search).get("lang") === "en";
   if (theme === "dark") {
-    moonIcon.style.display = "block";
-    sunIcon.style.display = "none";
-    themeButton.setAttribute("aria-label", "Cambiar a modo claro");
-  } else {
-    moonIcon.style.display = "none";
-    sunIcon.style.display = "block";
-    themeButton.setAttribute("aria-label", "Cambiar a modo oscuro");
+    return en ? "Switch to light mode" : "Cambiar a modo claro";
   }
+  return en ? "Switch to dark mode" : "Cambiar a modo oscuro";
+}
+
+const updateIconsAndAriaLabel = (theme) => {
+  document.querySelectorAll(".theme-button").forEach((btn) => {
+    const moon = btn.querySelector(".moon-icon");
+    const sun = btn.querySelector(".sun-icon");
+    if (!moon || !sun) return;
+    if (theme === "dark") {
+      moon.style.display = "block";
+      sun.style.display = "none";
+    } else {
+      moon.style.display = "none";
+      sun.style.display = "block";
+    }
+    btn.setAttribute("aria-label", themeAriaLabel(theme));
+  });
 };
 
 if (themeButton) {
@@ -185,12 +196,14 @@ if (themeButton) {
     updateIconsAndAriaLabel(defaultTheme);
   }
 
-  themeButton.addEventListener("click", () => {
-    const currentTheme = getCurrentTheme();
-    const newTheme = currentTheme === "dark" ? "light" : "dark";
-    body.classList.toggle(darkThemeClass);
-    updateIconsAndAriaLabel(newTheme);
-    localStorage.setItem("selected-theme", newTheme);
+  document.querySelectorAll(".theme-button").forEach((btn) => {
+    btn.addEventListener("click", () => {
+      const currentTheme = getCurrentTheme();
+      const newTheme = currentTheme === "dark" ? "light" : "dark";
+      body.classList.toggle(darkThemeClass);
+      updateIconsAndAriaLabel(newTheme);
+      localStorage.setItem("selected-theme", newTheme);
+    });
   });
 }
 

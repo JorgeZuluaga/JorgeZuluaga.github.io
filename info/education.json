@@ -2,44 +2,66 @@
   {
     "institution": "Universidad de Antioquia",
     "degree": "Doctorado en Física",
+    "degree_en": "PhD in Physics",
     "years": "2001–2005",
     "recognition": "Reconocimiento Magna Cum Laude",
+    "recognition_en": "Magna Cum Laude distinction",
     "extraParagraphs": [
       "Disertación: Study of core collapse neutrino signals and constraints on neutrino masses from a future Galactic supernova."
+    ],
+    "extraParagraphs_en": [
+      "Dissertation: Study of core collapse neutrino signals and constraints on neutrino masses from a future Galactic supernova."
     ]
   },
   {
     "institution": "Universidad de Antioquia",
     "degree": "Maestría en Física",
+    "degree_en": "MSc in Physics",
     "years": "1999–2001",
     "extraParagraphs": [
       "Tesis: Explaining pulsars high peculiar velocities – a viable particle physics solution."
+    ],
+    "extraParagraphs_en": [
+      "Thesis: Explaining pulsars’ high peculiar velocities – a viable particle physics solution."
     ]
   },
   {
     "institution": "Universidad de Antioquia",
     "degree": "Pregrado en Física",
+    "degree_en": "BSc in Physics",
     "years": "1993–1998",
     "recognition": "Mejor Graduado del Programa",
+    "recognition_en": "Top graduate of the program",
     "extraParagraphs": [
       "Trabajo de grado: Introducción a la Astrofísica – notas del curso."
+    ],
+    "extraParagraphs_en": [
+      "Undergraduate project: Introduction to Astrophysics – course notes."
     ]
   },
   {
     "institution": "Universidad de Antioquia",
     "degree": "Diplomado en Pedagogía y Didáctica Universitaria",
+    "degree_en": "Diploma in University Pedagogy and Didactics",
     "years": "2007",
     "extraParagraphs": [
       "Formación docente en pedagogía y didáctica de la educación superior."
+    ],
+    "extraParagraphs_en": [
+      "Teacher training in pedagogy and didactics of higher education."
     ]
   },
   {
     "institution": "Universidad Pontificia Bolivariana, Medellín",
     "degree": "Diplomado en Egiptología",
+    "degree_en": "Diploma in Egyptology",
     "years": "Graduación: febrero 2025",
+    "years_en": "Graduation: February 2025",
     "extraParagraphs": [
       "Programa internacional de formación continua (modalidad telepresencial): fundamentos de egiptología, historia del Antiguo Egipto, cosmogonías, monumentos, lengua y escritura egipcia, literatura, arqueología y actividades académicas vinculadas."
+    ],
+    "extraParagraphs_en": [
+      "International continuing education program (online): foundations of Egyptology, history of Ancient Egypt, cosmogonies, monuments, Egyptian language and writing, literature, archaeology, and related academic activities."
     ]
   }
 ]
-

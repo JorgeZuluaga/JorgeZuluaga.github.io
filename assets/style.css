@@ -332,6 +332,43 @@ header .header-profile .image a {
   flex: 1 1 auto;
 }
 
+.home-lang-flags {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  margin: 0.65rem 0 0.35rem;
+  padding: 0;
+}
+
+.home-lang-flag {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+  overflow: hidden;
+  border: 1px solid color-mix(in srgb, var(--black) 18%, transparent);
+  box-shadow: 0 1px 2px color-mix(in srgb, var(--black) 12%, transparent);
+  line-height: 0;
+  transition: box-shadow 0.15s ease, transform 0.15s ease;
+}
+
+.home-lang-flag:hover {
+  box-shadow: 0 2px 8px color-mix(in srgb, var(--black) 20%, transparent);
+  transform: translateY(-1px);
+}
+
+.home-lang-flag:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+.home-lang-flag img {
+  display: block;
+  width: 32px;
+  height: auto;
+  vertical-align: middle;
+}
+
 .home-qr {
   flex: 0 0 auto;
   text-align: center;
@@ -851,7 +888,8 @@ screen {
   .print-mode nav,
   .print-mode .header-gallery-link,
   .print-mode .open-menu-button,
-  .print-mode .overlay {
+  .print-mode .overlay,
+  .print-mode .home-lang-flags {
     display: none !important;
   }
 
@@ -978,7 +1016,8 @@ screen {
   nav,
   .header-gallery-link,
   .open-menu-button,
-  .overlay {
+  .overlay,
+  .home-lang-flags {
     display: none !important;
   }
 
@@ -986,9 +1025,9 @@ screen {
   html {
     background: white !important;
     color: black !important;
-    font-size: 115% !important;
-    /* Sin zoom: en Chrome/Safari el zoom en impresión suele provocar bandas y fondos
-       erróneos en flex (p. ej. filas de .logos) y en el bloque del QR al exportar PDF. */
+    font-size: 100% !important;
+    zoom: 80% !important;
+    transform-origin: top left !important;
   }
 
   footer {
@@ -1117,6 +1156,36 @@ screen {
 
 .photos-back {
   font-weight: 500;
+}
+
+.photos-header__lang {
+  margin: 0;
+  font-size: 0.9rem;
+  white-space: nowrap;
+}
+
+.photos-header__lang a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.photos-header__lang a:hover {
+  text-decoration: underline;
+}
+
+.nav-lang-links {
+  margin: 0.35rem 0 0;
+  padding: 0 0.5rem;
+  font-size: 0.95rem;
+}
+
+.nav-lang-link {
+  color: inherit;
+  text-decoration: none;
+}
+
+.nav-lang-link:hover {
+  text-decoration: underline;
 }
 
 .photos-main {

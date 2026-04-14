@@ -7,6 +7,10 @@
   <meta name="color-scheme" content="light dark" />
   <title>Fotos (prensa y conferencias) — Jorge I. Zuluaga</title>
   <meta name="description" content="Fotografías en alta resolución para conferencias, programas y prensa." />
+  <script>
+    document.documentElement.lang =
+      new URLSearchParams(location.search).get("lang") === "en" ? "en" : "es";
+  </script>
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -24,6 +28,11 @@
     <header id="header" class="photos-header">
       <div class="photos-header__bar">
         <a class="link photos-back" href="./index.html">← Volver al CV</a>
+        <p class="photos-header__lang">
+          <a id="photos-lang-es" href="./photos.html">Español</a>
+          <span aria-hidden="true"> · </span>
+          <a id="photos-lang-en" href="./photos.html?lang=en">English</a>
+        </p>
         <button class="theme-button photos-theme" type="button" aria-label="Modo de visualización: Claro/Oscuro">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="moon-icon" aria-hidden="true">
             <path

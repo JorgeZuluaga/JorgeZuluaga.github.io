@@ -5,14 +5,18 @@
     "href": "https://api.whatsapp.com/send?phone=573122576242",
     "target": "_blank",
     "ariaLabel": "WhatsApp",
-    "label": "WhatsApp: +57 312 257 6242"
+    "ariaLabel_en": "WhatsApp",
+    "label": "WhatsApp: +57 312 257 6242",
+    "label_en": "WhatsApp: +57 312 257 6242"
   },
   {
     "key": "email",
     "icon": "email",
     "href": "mailto:jorge.zuluaga@udea.edu.co",
     "ariaLabel": "Email",
-    "label": "Email: jorge.zuluaga@udea.edu.co"
+    "ariaLabel_en": "Email",
+    "label": "Email: jorge.zuluaga@udea.edu.co",
+    "label_en": "Email: jorge.zuluaga@udea.edu.co"
   },
   {
     "key": "github",
@@ -20,7 +24,9 @@
     "href": "http://github.com/seap-udea",
     "target": "_blank",
     "ariaLabel": "GitHub",
-    "label": "GitHub: github.com/seap-udea"
+    "ariaLabel_en": "GitHub",
+    "label": "GitHub: github.com/seap-udea",
+    "label_en": "GitHub: github.com/seap-udea"
   },
   {
     "key": "website",
@@ -28,7 +34,9 @@
     "href": "http://drz.academy",
     "target": "_blank",
     "ariaLabel": "Sitio web privado",
-    "label": "Sitio web privado: drz.academy"
+    "ariaLabel_en": "Personal website",
+    "label": "Sitio web privado: drz.academy",
+    "label_en": "Personal website: drz.academy"
   },
   {
     "key": "cvlac",
@@ -36,14 +44,18 @@
     "href": "https://scienti.minciencias.gov.co/cvlac/visualizador/generarCurriculoCv.do?cod_rh=0000144800",
     "target": "_blank",
     "ariaLabel": "CvLAC",
-    "label": "CvLAC: 0000144800"
+    "ariaLabel_en": "CvLAC",
+    "label": "CvLAC: 0000144800",
+    "label_en": "CvLAC: 0000144800"
   },
   {
     "key": "library",
     "icon": "library",
-    "href": "https://jorgezuluaga.github.io/biblioteca.html",
+    "href": "./biblioteca.html",
     "target": "_blank",
     "ariaLabel": "Biblioteca personal",
-    "label": "Biblioteca personal: jorgezuluaga.github.io/biblioteca.html"
+    "ariaLabel_en": "Personal library",
+    "label": "Biblioteca personal",
+    "label_en": "Personal library: jorgezuluaga.github.io/biblioteca.html"
   }
 ]

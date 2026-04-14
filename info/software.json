@@ -2,6 +2,7 @@
   {
     "name": "PyMCel",
     "description": "Utilidades de mecánica celeste y astrodinámica para docencia e investigación, basadas en el libro Mecánica celeste: teoría, algoritmos y problemas.",
+    "description_en": "Celestial mechanics and astrodynamics utilities for teaching and research, based on the book Celestial Mechanics: theory, algorithms, and problems.",
     "authors": ["Jorge I. Zuluaga"],
     "created": "2023-02-08",
     "links": [
@@ -22,6 +23,7 @@
   {
     "name": "Pryngles",
     "description": "Modelo fotométrico y geométrico para simular planetas con anillos (exorings) y calcular sus curvas de luz y configuraciones geométricas.",
+    "description_en": "Photometric and geometric model to simulate ringed planets (exorings) and compute their light curves and geometric configurations.",
     "authors": ["Jorge I. Zuluaga", "Allard Veenstra", "Sebastian Numpaque", "Mario Sucerquia", "Jaime A. Alvarado-Montes"],
     "created": "2022-05-01",
     "links": [
@@ -42,6 +44,7 @@
   {
     "name": "MultiMin",
     "description": "Herramientas numéricas para ajustar datos con mezclas de gaussianas multivariadas (Mixtures of Gaussians), con utilidades de visualización y análisis.",
+    "description_en": "Numerical tools to fit data with mixtures of multivariate Gaussians, with visualization and analysis utilities.",
     "authors": ["Jorge I. Zuluaga"],
     "created": "2026-02-06",
     "links": [
@@ -62,6 +65,7 @@
   {
     "name": "MultiRex",
     "description": "Paquete para análisis y exploración de distribuciones multivariadas y modelos estadísticos complejos mediante técnicas de mezcla de gaussianas.",
+    "description_en": "Package for analysis and exploration of multivariate distributions and complex statistical models using Gaussian mixture techniques.",
     "authors": ["David Duque-Castaño", "Jorge I. Zuluaga"],
     "created": "2023-12-13",
     "links": [
@@ -82,6 +86,7 @@
   {
     "name": "FARGOpy",
     "description": "Interfaz y herramientas de postproceso en Python para FARGO3D, orientadas al análisis y visualización de simulaciones hidrodinámicas de discos protoplanetarios.",
+    "description_en": "Python interface and post-processing tools for FARGO3D, focused on analysis and visualization of hydrodynamic simulations of protoplanetary disks.",
     "authors": ["Jorge Zuluaga", "Alejandro Murillo-González", "Matias Montesinos"],
     "created": "2023-11-16",
     "links": [
@@ -102,6 +107,7 @@
   {
     "name": "tSPICE",
     "description": "Cálculo del potencial de marea y la respuesta elástica planetaria usando kernels SPICE, con soporte para perfiles internos y números de Love.",
+    "description_en": "Calculation of tidal potential and planetary elastic response using SPICE kernels, with support for internal profiles and Love numbers.",
     "authors": ["Deivy Mercado", "Jorge I. Zuluaga", "Gloria Moncayo"],
     "created": "2025-12-04",
     "links": [
@@ -122,6 +128,7 @@
   {
     "name": "MontuPython",
     "description": "Paquete en Python para calcular efemérides astronómicas del mundo antiguo, inicialmente diseñado para Egipto antiguo y aplicable a estudios de astronomía cultural y arqueoastronomía en otros sitios.",
+    "description_en": "Python package to compute astronomical ephemerides of the ancient world, initially designed for ancient Egypt and applicable to cultural astronomy and archaeoastronomy elsewhere.",
     "authors": ["Jorge I. Zuluaga", "Francisco \"Tito\" Vivas", "Juanita Agudelo"],
     "created": "2023",
     "links": [
@@ -136,4 +143,3 @@
     ]
   }
 ]
-
