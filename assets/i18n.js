@@ -153,7 +153,7 @@ const STRINGS = {
     teaching_created: "Creado",
     teaching_students: "Estudiantes",
     library_back_cv: "← Volver al CV",
-    library_title: "Biblioteca personal",
+    library_title: "Biblioteca personal de Jorge Zuluaga",
     library_intro:
       "Como buen académico, la lectura para mí es más que una pasión: es una actividad intelectual en toda regla que exige dedicación y disciplina. En particular me he propuesto escribir de cada libro que leo (siempre que pueda y valga la pena) una reseña (corta o extensa) para esencialmente intentar conjurar el olvido y recordar lo que sentí cuando leí el libro. Si la reseña además le sirve a alguien para animarse a leer el libro o para compartir sus sentimientos hacia él, ¡excelente!. En esta página enumero los libros leídos y las reseñas escritas sobre ellos. Espero que quién aterrice por aquí, lo encuentre útil.",
     library_profile: "Mi perfil en Goodreads",
@@ -312,7 +312,7 @@ const STRINGS = {
     teaching_created: "Created",
     teaching_students: "Students",
     library_back_cv: "← Back to CV",
-    library_title: "Personal library",
+    library_title: "Jorge Zuluaga's personal library",
     library_intro:
       "As a good academic, reading for me is more than a passion: it is a fully intellectual activity that demands dedication and discipline. In particular, I have set myself the goal of writing, for every book I read (whenever I can and whenever it is worth it), a review (short or long), essentially to ward off forgetting and remember what I felt when I read the book. If the review also helps someone feel encouraged to read the book or to share their own feelings about it, excellent! On this page I list the books I have read and the reviews I have written about them. I hope whoever lands here finds it useful.",
     library_profile: "My Goodreads profile",

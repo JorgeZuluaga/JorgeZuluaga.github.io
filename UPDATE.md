@@ -302,6 +302,34 @@ Notas:
 - Sin `--cookie`, muchas reseñas devolverán login y los likes quedarán en `0`.
 - Trata el cookie como contraseña: no lo subas al repo ni lo compartas.
 
+#### 4) Mirror local de reseñas (HTML en `reviews/`)
+
+Scripts:
+
+- `bin/mirror_first_review.py`: prueba con la primera reseña encontrada.
+- `bin/mirror_all_reviews.py`: mirror masivo de todas las reseñas con `reviewUrl`.
+
+Comandos:
+
+```bash
+# Probar con una sola reseña
+python3 bin/mirror_first_review.py
+
+# Mirror de todas las reseñas (salta las ya mirrorizadas)
+python3 bin/mirror_all_reviews.py
+
+# Regenerar todas, incluso las ya existentes
+python3 bin/mirror_all_reviews.py --force
+```
+
+Notas importantes del mirror:
+
+- Goodreads suele devolver página `Sign in` al abrir `review/show/...` sin autenticación.
+- Cuando eso pasa, el script usa fallback al texto `user_review` del RSS.
+- Por eso en el script masivo el valor por defecto de `--rss-pages` es **80** (para alcanzar reseñas antiguas).
+- Si aun así faltan reseñas, sube más el rango (`--rss-pages 100`, por ejemplo) o usa `--cookie`.
+- `mirror_all_reviews.py` muestra avance en consola (`[i/N] SKIP|OK|ERROR`) y actualiza `info/library.json` al final del proceso.
+
 ## Verificación local (recomendado)
 
 Desde la raíz del proyecto:

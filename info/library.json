@@ -39,7 +39,7 @@
       "scrapeStatus": "ok",
       "reviewLocalUrl": "./reviews/8472202778.html",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:26:19.314045+00:00",
+      "reviewLocalGeneratedAt": "2026-04-14T13:01:19.621132+00:00",
       "reviewLocalCoverUrl": "./reviews/covers/8472202778.jpg",
       "reviewDate": "2026-03-28"
     },
@@ -57,7 +57,7 @@
       "reviewLocalCoverUrl": "./reviews/covers/8460915900.jpg",
       "reviewDate": "2026-03-28",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:28:13.988514+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:01:21.957332+00:00"
     },
     {
       "bookId": "57299481",
@@ -73,7 +73,7 @@
       "reviewLocalCoverUrl": "./reviews/covers/4360307186.jpg",
       "reviewDate": "2026-03-22",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:28:15.967281+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:01:24.237213+00:00"
     },
     {
       "bookId": "36632175",
@@ -100,7 +100,7 @@
       "reviewLocalCoverUrl": "./reviews/covers/8436209556.jpg",
       "reviewDate": "2026-03-15",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:28:17.880264+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:01:27.322485+00:00"
     },
     {
       "bookId": "64995169",
@@ -116,7 +116,7 @@
       "reviewLocalCoverUrl": "./reviews/covers/5278047196.jpg",
       "reviewDate": "2026-03-15",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:28:19.791048+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:01:29.219735+00:00"
     },
     {
       "bookId": "241162726",
@@ -132,7 +132,7 @@
       "reviewLocalCoverUrl": "./reviews/covers/8397016642.jpg",
       "reviewDate": "2026-03-02",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:28:21.694644+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:01:31.271257+00:00"
     },
     {
       "bookId": "198386595",
@@ -148,7 +148,7 @@
       "reviewLocalCoverUrl": "./reviews/covers/8397017045.jpg",
       "reviewDate": "2026-03-02",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:28:23.616909+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:01:33.025558+00:00"
     },
     {
       "bookId": "243727708",
@@ -164,7 +164,7 @@
       "reviewLocalCoverUrl": "./reviews/covers/8397016151.jpg",
       "reviewDate": "2026-03-02",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:28:25.424086+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:01:34.971642+00:00"
     },
     {
       "bookId": "59245399",
@@ -191,7 +191,7 @@
       "reviewLocalCoverUrl": "./reviews/covers/8370600982.jpg",
       "reviewDate": "2026-02-22",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:28:27.408886+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:01:36.904897+00:00"
     },
     {
       "bookId": "17569031",
@@ -207,7 +207,7 @@
       "reviewLocalCoverUrl": "./reviews/covers/8357770841.jpg",
       "reviewDate": "2026-02-21",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:28:29.286712+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:01:40.296914+00:00"
     },
     {
       "bookId": "1272964",
@@ -234,7 +234,7 @@
       "reviewLocalCoverUrl": "./reviews/covers/3824901157.jpg",
       "reviewDate": "2026-02-21",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:28:31.170211+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:01:42.388091+00:00"
     },
     {
       "bookId": "217382766",
@@ -261,7 +261,7 @@
       "reviewLocalCoverUrl": "./reviews/covers/8272237667.jpg",
       "reviewDate": "2026-02-22",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:28:33.125435+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:01:44.433829+00:00"
     },
     {
       "bookId": "40538196",
@@ -310,7 +310,7 @@
       "reviewLocalCoverUrl": "./reviews/covers/8213165605.jpg",
       "reviewDate": "2026-01-11",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:28:34.977586+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:01:46.383188+00:00"
     },
     {
       "bookId": "122941880",
@@ -326,7 +326,7 @@
       "reviewLocalCoverUrl": "./reviews/covers/5576000244.jpg",
       "reviewDate": "2026-01-11",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:28:36.727652+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:01:48.657932+00:00"
     },
     {
       "bookId": "71565",
@@ -342,7 +342,7 @@
       "reviewLocalCoverUrl": "./reviews/covers/4419520480.jpg",
       "reviewDate": "2026-01-05",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:28:38.667528+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:01:50.670726+00:00"
     },
     {
       "bookId": "50214707",
@@ -358,7 +358,7 @@
       "reviewLocalCoverUrl": "./reviews/covers/3434036910.jpg",
       "reviewDate": "2026-01-01",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:28:40.823366+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:01:52.594536+00:00"
     },
     {
       "bookId": "223422305",
@@ -374,7 +374,7 @@
       "reviewLocalCoverUrl": "./reviews/covers/8193850166.jpg",
       "reviewDate": "2025-12-30",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:28:42.695112+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:01:55.912907+00:00"
     },
     {
       "bookId": "43561715",
@@ -390,7 +390,7 @@
       "reviewLocalCoverUrl": "./reviews/covers/8185439840.jpg",
       "reviewDate": "2025-12-29",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:28:44.982162+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:01:57.608309+00:00"
     },
     {
       "bookId": "221646007",
@@ -439,7 +439,7 @@
       "reviewLocalCoverUrl": "./reviews/covers/8166067187.jpg",
       "reviewDate": "2026-01-11",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:28:47.021609+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:01:59.397626+00:00"
     },
     {
       "bookId": "48839637",
@@ -455,7 +455,7 @@
       "reviewLocalCoverUrl": "./reviews/covers/8171377602.jpg",
       "reviewDate": "2025-12-24",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:28:48.858081+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:02:01.347349+00:00"
     },
     {
       "bookId": "40652099",
@@ -471,7 +471,7 @@
       "reviewLocalCoverUrl": "./reviews/covers/8145155767.jpg",
       "reviewDate": "2025-12-25",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:28:50.715813+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:02:03.325474+00:00"
     },
     {
       "bookId": "122775836",
@@ -487,7 +487,7 @@
       "reviewLocalCoverUrl": "./reviews/covers/8163033070.jpg",
       "reviewDate": "2026-01-11",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:28:52.808122+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:02:05.007330+00:00"
     },
     {
       "bookId": "43450595",
@@ -514,7 +514,7 @@
       "reviewLocalCoverUrl": "./reviews/covers/8146104502.jpg",
       "reviewDate": "2026-01-11",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:28:54.883594+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:02:06.946207+00:00"
     },
     {
       "bookId": "39742374",
@@ -530,7 +530,7 @@
       "reviewLocalCoverUrl": "./reviews/covers/5161184944.jpg",
       "reviewDate": "2025-12-25",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:28:56.328206+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:02:08.911124+00:00"
     },
     {
       "bookId": "113645",
@@ -557,7 +557,7 @@
       "reviewLocalCoverUrl": "./reviews/covers/8129074178.jpg",
       "reviewDate": "2025-12-21",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:28:58.233154+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:02:10.456164+00:00"
     },
     {
       "bookId": "49020183",
@@ -573,7 +573,7 @@
       "reviewLocalCoverUrl": "./reviews/covers/8105375961.jpg",
       "reviewDate": "2025-12-21",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:29:00.126965+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:02:12.163406+00:00"
     },
     {
       "bookId": "56644361",
@@ -589,7 +589,7 @@
       "reviewLocalCoverUrl": "./reviews/covers/4360309634.jpg",
       "reviewDate": "2025-12-13",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:29:02.379361+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:02:14.129690+00:00"
     },
     {
       "bookId": "337",
@@ -605,7 +605,7 @@
       "reviewLocalCoverUrl": "./reviews/covers/8105375438.jpg",
       "reviewDate": "2025-12-13",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:29:05.693618+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:02:16.121743+00:00"
     },
     {
       "bookId": "236033220",
@@ -621,7 +621,7 @@
       "reviewLocalCoverUrl": "./reviews/covers/8044690146.jpg",
       "reviewDate": "2025-12-21",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:29:07.465651+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:02:18.094191+00:00"
     },
     {
       "bookId": "226580458",
@@ -659,7 +659,7 @@
       "reviewLocalCoverUrl": "./reviews/covers/8071428193.jpg",
       "reviewDate": "2025-11-16",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:29:09.346387+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:02:20.158745+00:00"
     },
     {
       "bookId": "142400359",
@@ -686,7 +686,7 @@
       "reviewLocalCoverUrl": "./reviews/covers/8073943168.jpg",
       "reviewDate": "2025-11-16",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:29:11.231684+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:02:22.019122+00:00"
     },
     {
       "bookId": "25881698",
@@ -702,7 +702,7 @@
       "reviewLocalCoverUrl": "./reviews/covers/5480712808.jpg",
       "reviewDate": "2025-11-09",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:29:12.927963+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:02:23.972342+00:00"
     },
     {
       "bookId": "236082313",
@@ -740,7 +740,7 @@
       "reviewLocalCoverUrl": "./reviews/covers/8037568112.jpg",
       "reviewDate": "2025-11-02",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:29:18.531209+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:02:26.622140+00:00"
     },
     {
       "bookId": "228357636",
@@ -756,7 +756,7 @@
       "reviewLocalCoverUrl": "./reviews/covers/8019779151.jpg",
       "reviewDate": "2025-11-01",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:29:21.391923+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:02:29.463864+00:00"
     },
     {
       "bookId": "221374184",
@@ -794,7 +794,7 @@
       "reviewLocalCoverUrl": "./reviews/covers/7966600964.jpg",
       "reviewDate": "2025-10-05",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:29:24.025539+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:02:32.345344+00:00"
     },
     {
       "bookId": "28457263",
@@ -997,7 +997,7 @@
       "reviewLocalCoverUrl": "./reviews/covers/7719132036.jpg",
       "reviewDate": "2025-07-08",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:29:26.619352+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:02:36.277096+00:00"
     },
     {
       "bookId": "216146383",
@@ -1013,7 +1013,7 @@
       "reviewLocalCoverUrl": "./reviews/covers/7704423605.jpg",
       "reviewDate": "2025-07-08",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:29:29.251179+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:02:38.611831+00:00"
     },
     {
       "bookId": "7830894",
@@ -1029,7 +1029,7 @@
       "reviewLocalCoverUrl": "./reviews/covers/7684195646.jpg",
       "reviewDate": "2025-07-07",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:29:31.846605+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:02:41.119162+00:00"
     },
     {
       "bookId": "213022316",
@@ -1056,7 +1056,7 @@
       "reviewLocalCoverUrl": "./reviews/covers/7696881903.jpg",
       "reviewDate": "2025-06-30",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:29:34.444179+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:02:43.928978+00:00"
     },
     {
       "bookId": "201558781",
@@ -1072,7 +1072,7 @@
       "reviewLocalCoverUrl": "./reviews/covers/5576003056.jpg",
       "reviewDate": "2025-06-30",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:29:37.555597+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:02:46.356420+00:00"
     },
     {
       "bookId": "7663502",
@@ -1088,7 +1088,7 @@
       "reviewLocalCoverUrl": "./reviews/covers/7660112326.jpg",
       "reviewDate": "2025-07-07",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:29:40.187753+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:02:49.079227+00:00"
     },
     {
       "bookId": "234774982",
@@ -1104,7 +1104,7 @@
       "reviewLocalCoverUrl": "./reviews/covers/7681068311.jpg",
       "reviewDate": "2025-06-24",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:29:42.887716+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:02:51.903316+00:00"
     },
     {
       "bookId": "63124292",
@@ -1120,7 +1120,7 @@
       "reviewLocalCoverUrl": "./reviews/covers/6498431133.jpg",
       "reviewDate": "2025-06-23",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:29:45.398597+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:02:54.482514+00:00"
     },
     {
       "bookId": "229056488",
@@ -1136,7 +1136,7 @@
       "reviewLocalCoverUrl": "./reviews/covers/7621958156.jpg",
       "reviewDate": "2025-06-16",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:29:48.094162+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:02:57.461567+00:00"
     },
     {
       "bookId": "216114293",
@@ -1152,7 +1152,7 @@
       "reviewLocalCoverUrl": "./reviews/covers/7637612156.jpg",
       "reviewDate": "2025-06-23",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:29:50.677374+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:03:00.153981+00:00"
     },
     {
       "bookId": "53013966",
@@ -1168,7 +1168,7 @@
       "reviewLocalCoverUrl": "./reviews/covers/7621951882.jpg",
       "reviewDate": "2025-06-23",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:29:53.347934+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:03:03.194874+00:00"
     },
     {
       "bookId": "57061598",
@@ -1184,7 +1184,7 @@
       "reviewLocalCoverUrl": "./reviews/covers/7429792835.jpg",
       "reviewDate": "2025-06-23",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:29:55.917125+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:03:05.858406+00:00"
     },
     {
       "bookId": "56648087",
@@ -1200,7 +1200,7 @@
       "reviewLocalCoverUrl": "./reviews/covers/5442466698.jpg",
       "reviewDate": "2025-05-25",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:29:58.603707+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:03:08.796623+00:00"
     },
     {
       "bookId": "34871369",
@@ -1216,7 +1216,7 @@
       "reviewLocalCoverUrl": "./reviews/covers/7537054056.jpg",
       "reviewDate": "2025-06-23",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:30:01.214522+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:03:11.243627+00:00"
     },
     {
       "bookId": "230992651",
@@ -1232,7 +1232,7 @@
       "reviewLocalCoverUrl": "./reviews/covers/7533853898.jpg",
       "reviewDate": "2025-05-18",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:30:03.765753+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:03:14.029265+00:00"
     },
     {
       "bookId": "6532610",
@@ -1248,7 +1248,7 @@
       "reviewLocalCoverUrl": "./reviews/covers/5435014931.jpg",
       "reviewDate": "2025-05-01",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:30:06.482695+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:03:19.528417+00:00"
     },
     {
       "bookId": "209386201",
@@ -1264,7 +1264,7 @@
       "reviewLocalCoverUrl": "./reviews/covers/7501309375.jpg",
       "reviewDate": "2025-04-27",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:30:22.979006+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:03:22.283570+00:00"
     },
     {
       "bookId": "36696699",
@@ -1280,7 +1280,7 @@
       "reviewLocalCoverUrl": "./reviews/covers/7175664549.jpg",
       "reviewDate": "2025-04-27",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:30:25.586568+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:03:25.167079+00:00"
     },
     {
       "bookId": "89009188",
@@ -1318,7 +1318,7 @@
       "reviewLocalCoverUrl": "./reviews/covers/7487692073.jpg",
       "reviewDate": "2025-04-27",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:30:28.099166+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:03:27.874256+00:00"
     },
     {
       "bookId": "211564263",
@@ -1356,7 +1356,7 @@
       "reviewLocalCoverUrl": "./reviews/covers/7450111308.jpg",
       "reviewDate": "2025-04-10",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:30:30.840794+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:03:30.578154+00:00"
     },
     {
       "bookId": "32596199",
@@ -1394,7 +1394,7 @@
       "reviewLocalCoverUrl": "./reviews/covers/7416599104.jpg",
       "reviewDate": "2025-04-03",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:30:33.567416+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:03:33.315172+00:00"
     },
     {
       "bookId": "58212185",
@@ -1410,7 +1410,7 @@
       "reviewLocalCoverUrl": "./reviews/covers/7368983376.jpg",
       "reviewDate": "2025-03-24",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:30:36.100130+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:03:36.067493+00:00"
     },
     {
       "bookId": "209668727",
@@ -1426,7 +1426,7 @@
       "reviewLocalCoverUrl": "./reviews/covers/7372651609.jpg",
       "reviewDate": "2025-03-24",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:30:39.125038+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:03:38.872273+00:00"
     },
     {
       "bookId": "1212515",
@@ -1442,7 +1442,7 @@
       "reviewLocalCoverUrl": "./reviews/covers/2834266795.jpg",
       "reviewDate": "2025-03-10",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:30:43.093358+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:03:41.816511+00:00"
     },
     {
       "bookId": "228123192",
@@ -1458,7 +1458,7 @@
       "reviewLocalCoverUrl": "./reviews/covers/7337322206.jpg",
       "reviewDate": "2025-03-09",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:30:45.708087+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:03:44.441864+00:00"
     },
     {
       "bookId": "108876355",
@@ -1617,7 +1617,7 @@
       "reviewLocalCoverUrl": "./reviews/covers/7144177282.jpg",
       "reviewDate": "2025-01-02",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:30:50.965272+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:03:50.015479+00:00"
     },
     {
       "bookId": "7641728",
@@ -1633,7 +1633,7 @@
       "reviewLocalCoverUrl": "./reviews/covers/2740771376.jpg",
       "reviewDate": "2025-01-02",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:30:54.495417+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:03:53.611833+00:00"
     },
     {
       "bookId": "62682712",
@@ -1660,7 +1660,7 @@
       "reviewLocalCoverUrl": "./reviews/covers/5557403450.jpg",
       "reviewDate": "2024-12-30",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:30:57.902665+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:03:57.181828+00:00"
     },
     {
       "bookId": "207910816",
@@ -1676,7 +1676,7 @@
       "reviewLocalCoverUrl": "./reviews/covers/7114811028.jpg",
       "reviewDate": "2024-12-30",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:31:01.128814+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:04:00.685425+00:00"
     },
     {
       "bookId": "110445463",
@@ -1692,7 +1692,7 @@
       "reviewLocalCoverUrl": "./reviews/covers/7111519540.jpg",
       "reviewDate": "2024-12-23",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:31:04.685497+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:04:04.360001+00:00"
     },
     {
       "bookId": "216043972",
@@ -1708,7 +1708,7 @@
       "reviewLocalCoverUrl": "./reviews/covers/7108100442.jpg",
       "reviewDate": "2024-12-22",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:31:07.919782+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:04:08.031286+00:00"
     },
     {
       "bookId": "43785974",
@@ -1724,7 +1724,7 @@
       "reviewLocalCoverUrl": "./reviews/covers/7105601032.jpg",
       "reviewDate": "2024-12-22",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:31:12.899108+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:04:11.396065+00:00"
     },
     {
       "bookId": "13514795",
@@ -1740,7 +1740,7 @@
       "reviewLocalCoverUrl": "./reviews/covers/2669143070.jpg",
       "reviewDate": "2024-12-22",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:31:16.510893+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:04:15.160872+00:00"
     },
     {
       "bookId": "220273268",
@@ -1756,7 +1756,7 @@
       "reviewLocalCoverUrl": "./reviews/covers/7102663912.jpg",
       "reviewDate": "2024-12-21",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:31:19.977330+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:04:18.833074+00:00"
     },
     {
       "bookId": "63350196",
@@ -1772,7 +1772,7 @@
       "reviewLocalCoverUrl": "./reviews/covers/7096541591.jpg",
       "reviewDate": "2024-12-20",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:31:23.547014+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:04:22.533792+00:00"
     },
     {
       "bookId": "59484270",
@@ -1788,7 +1788,7 @@
       "reviewLocalCoverUrl": "./reviews/covers/5469062046.jpg",
       "reviewDate": "2024-12-18",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:31:26.959191+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:04:25.985052+00:00"
     },
     {
       "bookId": "25006475",
@@ -1804,7 +1804,7 @@
       "reviewLocalCoverUrl": "./reviews/covers/7084602487.jpg",
       "reviewDate": "2024-12-18",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:31:30.696680+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:04:29.770239+00:00"
     },
     {
       "bookId": "18996367",
@@ -1820,7 +1820,7 @@
       "reviewLocalCoverUrl": "./reviews/covers/7011785072.jpg",
       "reviewDate": "2024-12-18",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:31:35.077809+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:04:33.384555+00:00"
     },
     {
       "bookId": "212486110",
@@ -1836,7 +1836,7 @@
       "reviewLocalCoverUrl": "./reviews/covers/7089836374.jpg",
       "reviewDate": "2024-12-16",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:31:38.532924+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:04:36.889098+00:00"
     },
     {
       "bookId": "7802262",
@@ -1885,7 +1885,7 @@
       "reviewLocalCoverUrl": "./reviews/covers/3232649808.jpg",
       "reviewDate": "2024-12-13",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:31:42.152428+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:04:40.783620+00:00"
     },
     {
       "bookId": "281016",
@@ -1934,7 +1934,7 @@
       "reviewLocalCoverUrl": "./reviews/covers/6979462830.jpg",
       "reviewDate": "2024-11-16",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:31:45.685967+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:04:44.428191+00:00"
     },
     {
       "bookId": "59121408",
@@ -1961,7 +1961,7 @@
       "reviewLocalCoverUrl": "./reviews/covers/6959140806.jpg",
       "reviewDate": "2024-11-01",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:31:50.018661+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:04:47.996046+00:00"
     },
     {
       "bookId": "174736754",
@@ -1977,7 +1977,7 @@
       "reviewLocalCoverUrl": "./reviews/covers/6964428273.jpg",
       "reviewDate": "2024-10-29",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:31:53.339421+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:04:51.670243+00:00"
     },
     {
       "bookId": "58407",
@@ -2004,7 +2004,7 @@
       "reviewLocalCoverUrl": "./reviews/covers/6940819777.jpg",
       "reviewDate": "2024-10-27",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:31:56.808584+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:04:55.344280+00:00"
     },
     {
       "bookId": "2842881",
@@ -2020,7 +2020,7 @@
       "reviewLocalCoverUrl": "./reviews/covers/6923162436.jpg",
       "reviewDate": "2024-10-27",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:32:00.479832+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:04:58.890937+00:00"
     },
     {
       "bookId": "39072768",
@@ -2036,7 +2036,7 @@
       "reviewLocalCoverUrl": "./reviews/covers/6937432345.jpg",
       "reviewDate": "2024-10-27",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:32:05.325907+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:05:02.593554+00:00"
     },
     {
       "bookId": "204663454",
@@ -2063,7 +2063,7 @@
       "reviewLocalCoverUrl": "./reviews/covers/6920661297.jpg",
       "reviewDate": "2024-10-14",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:32:08.872914+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:05:07.556698+00:00"
     },
     {
       "bookId": "40317192",
@@ -2079,7 +2079,7 @@
       "reviewLocalCoverUrl": "./reviews/covers/6908138036.jpg",
       "reviewDate": "2024-10-14",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:32:12.288963+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:05:11.308548+00:00"
     },
     {
       "bookId": "35704551",
@@ -2095,7 +2095,7 @@
       "reviewLocalCoverUrl": "./reviews/covers/6906632005.jpg",
       "reviewDate": "2024-10-13",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:32:15.686442+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:05:15.146183+00:00"
     },
     {
       "bookId": "151687",
@@ -2144,7 +2144,7 @@
       "reviewLocalCoverUrl": "./reviews/covers/6807014493.jpg",
       "reviewDate": "2024-10-27",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:32:19.355795+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:05:18.917760+00:00"
     },
     {
       "bookId": "22820681",
@@ -2160,7 +2160,7 @@
       "reviewLocalCoverUrl": "./reviews/covers/4742678557.jpg",
       "reviewDate": "2024-09-09",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:32:22.707139+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:05:22.623503+00:00"
     },
     {
       "bookId": "947938",
@@ -2176,7 +2176,7 @@
       "reviewLocalCoverUrl": "./reviews/covers/6747366138.jpg",
       "reviewDate": "2024-09-01",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:32:26.173068+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:05:26.486323+00:00"
     },
     {
       "bookId": "27153845",
@@ -2203,7 +2203,7 @@
       "reviewLocalCoverUrl": "./reviews/covers/6773968754.jpg",
       "reviewDate": "2024-08-21",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:32:29.842381+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:05:30.224783+00:00"
     },
     {
       "bookId": "208870354",
@@ -2219,7 +2219,7 @@
       "reviewLocalCoverUrl": "./reviews/covers/6770427560.jpg",
       "reviewDate": "2024-12-20",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:32:33.365227+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:05:35.063994+00:00"
     },
     {
       "bookId": "202968198",
@@ -2235,7 +2235,7 @@
       "reviewLocalCoverUrl": "./reviews/covers/6762823276.jpg",
       "reviewDate": "2024-10-13",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:32:37.556827+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:05:42.400474+00:00"
     },
     {
       "bookId": "108851666",
@@ -2262,7 +2262,7 @@
       "reviewLocalCoverUrl": "./reviews/covers/5811875161.jpg",
       "reviewDate": "2024-08-15",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:32:41.376453+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:05:46.069009+00:00"
     },
     {
       "bookId": "2631671",
@@ -2278,7 +2278,7 @@
       "reviewLocalCoverUrl": "./reviews/covers/6652830126.jpg",
       "reviewDate": "2024-09-01",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:32:44.741291+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:05:49.957885+00:00"
     },
     {
       "bookId": "198669578",
@@ -2316,7 +2316,7 @@
       "reviewLocalCoverUrl": "./reviews/covers/6688724482.jpg",
       "reviewDate": "2024-10-14",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:32:49.071737+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:05:53.544921+00:00"
     },
     {
       "bookId": "63363282",
@@ -2330,7 +2330,9 @@
       "scrapeStatus": "ok",
       "reviewLocalUrl": "./reviews/6686383234.html",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:32:53.610202+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:05:57.847131+00:00",
+      "reviewLocalCoverUrl": "./reviews/covers/6686383234.jpg",
+      "reviewDate": "2024-07-24"
     },
     {
       "bookId": "61967442",
@@ -2344,7 +2346,9 @@
       "scrapeStatus": "ok",
       "reviewLocalUrl": "./reviews/6667355680.html",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:32:56.851853+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:06:02.524894+00:00",
+      "reviewLocalCoverUrl": "./reviews/covers/6667355680.jpg",
+      "reviewDate": "2024-07-20"
     },
     {
       "bookId": "370353",
@@ -2358,7 +2362,9 @@
       "scrapeStatus": "ok",
       "reviewLocalUrl": "./reviews/6608730923.html",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:33:00.088244+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:06:07.047014+00:00",
+      "reviewLocalCoverUrl": "./reviews/covers/6608730923.jpg",
+      "reviewDate": "2024-07-09"
     },
     {
       "bookId": "213847532",
@@ -2394,7 +2400,9 @@
       "scrapeStatus": "ok",
       "reviewLocalUrl": "./reviews/6626930004.html",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:33:03.407976+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:06:11.482487+00:00",
+      "reviewLocalCoverUrl": "./reviews/covers/6626930004.jpg",
+      "reviewDate": "2024-07-01"
     },
     {
       "bookId": "43785989",
@@ -2408,7 +2416,9 @@
       "scrapeStatus": "error: The read operation timed out",
       "reviewLocalUrl": "./reviews/6613381847.html",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:33:06.733018+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:06:15.958380+00:00",
+      "reviewLocalCoverUrl": "./reviews/covers/6613381847.jpg",
+      "reviewDate": "2024-06-30"
     },
     {
       "bookId": "16097219",
@@ -2422,7 +2432,9 @@
       "scrapeStatus": "ok",
       "reviewLocalUrl": "./reviews/6598744225.html",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:33:09.950767+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:06:20.187076+00:00",
+      "reviewLocalCoverUrl": "./reviews/covers/6598744225.jpg",
+      "reviewDate": "2024-06-24"
     },
     {
       "bookId": "60861366",
@@ -2449,7 +2461,7 @@
       "reviewLocalCoverUrl": "./reviews/covers/6483903493.jpg",
       "reviewDate": "2024-09-01",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:33:14.686520+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:06:24.081864+00:00"
     },
     {
       "bookId": "53346056",
@@ -2463,7 +2475,9 @@
       "scrapeStatus": "ok",
       "reviewLocalUrl": "./reviews/6588971935.html",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:33:17.880582+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:06:30.117481+00:00",
+      "reviewLocalCoverUrl": "./reviews/covers/6588971935.jpg",
+      "reviewDate": "2024-06-19"
     },
     {
       "bookId": "200753210",
@@ -2477,7 +2491,9 @@
       "scrapeStatus": "ok",
       "reviewLocalUrl": "./reviews/6582400543.html",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:33:21.236040+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:06:34.545159+00:00",
+      "reviewLocalCoverUrl": "./reviews/covers/6582400543.jpg",
+      "reviewDate": "2024-06-15"
     },
     {
       "bookId": "54171562",
@@ -2502,7 +2518,9 @@
       "scrapeStatus": "ok",
       "reviewLocalUrl": "./reviews/6547264140.html",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:33:24.368785+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:06:39.136582+00:00",
+      "reviewLocalCoverUrl": "./reviews/covers/6547264140.jpg",
+      "reviewDate": "2024-06-09"
     },
     {
       "bookId": "179972426",
@@ -2527,7 +2545,9 @@
       "scrapeStatus": "ok",
       "reviewLocalUrl": "./reviews/6498394900.html",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:33:27.559527+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:06:43.594787+00:00",
+      "reviewLocalCoverUrl": "./reviews/covers/6498394900.jpg",
+      "reviewDate": "2024-06-10"
     },
     {
       "bookId": "212371663",
@@ -2541,7 +2561,9 @@
       "scrapeStatus": "ok",
       "reviewLocalUrl": "./reviews/6498394299.html",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:33:30.760710+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:06:47.972441+00:00",
+      "reviewLocalCoverUrl": "./reviews/covers/6498394299.jpg",
+      "reviewDate": "2024-05-15"
     },
     {
       "bookId": "59791125",
@@ -2555,7 +2577,9 @@
       "scrapeStatus": "ok",
       "reviewLocalUrl": "./reviews/4593438465.html",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:33:34.005613+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:06:53.923397+00:00",
+      "reviewLocalCoverUrl": "./reviews/covers/4593438465.jpg",
+      "reviewDate": "2024-06-10"
     },
     {
       "bookId": "213133138",
@@ -2569,7 +2593,9 @@
       "scrapeStatus": "ok",
       "reviewLocalUrl": "./reviews/6498388205.html",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:33:37.059748+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:06:58.192095+00:00",
+      "reviewLocalCoverUrl": "./reviews/covers/6498388205.jpg",
+      "reviewDate": "2024-06-10"
     },
     {
       "bookId": "18939961",
@@ -2596,7 +2622,7 @@
       "reviewLocalCoverUrl": "./reviews/covers/6407442777.jpg",
       "reviewDate": "2025-07-07",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:33:39.983185+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:07:00.923956+00:00"
     },
     {
       "bookId": "687772",
@@ -2621,7 +2647,9 @@
       "scrapeStatus": "ok",
       "reviewLocalUrl": "./reviews/6463117876.html",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:33:43.255488+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:07:05.802405+00:00",
+      "reviewLocalCoverUrl": "./reviews/covers/6463117876.jpg",
+      "reviewDate": "2024-04-28"
     },
     {
       "bookId": "25834165",
@@ -2635,7 +2663,9 @@
       "scrapeStatus": "ok",
       "reviewLocalUrl": "./reviews/6307359406.html",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:33:47.007079+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:07:10.635284+00:00",
+      "reviewLocalCoverUrl": "./reviews/covers/6307359406.jpg",
+      "reviewDate": "2024-04-10"
     },
     {
       "bookId": "38323208",
@@ -2649,7 +2679,9 @@
       "scrapeStatus": "ok",
       "reviewLocalUrl": "./reviews/5434442351.html",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:33:50.319958+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:07:15.198626+00:00",
+      "reviewLocalCoverUrl": "./reviews/covers/5434442351.jpg",
+      "reviewDate": "2024-04-10"
     },
     {
       "bookId": "44709813",
@@ -2674,7 +2706,9 @@
       "scrapeStatus": "ok",
       "reviewLocalUrl": "./reviews/6199071201.html",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:33:53.495025+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:07:19.664446+00:00",
+      "reviewLocalCoverUrl": "./reviews/covers/6199071201.jpg",
+      "reviewDate": "2024-04-15"
     },
     {
       "bookId": "123245126",
@@ -2688,7 +2722,9 @@
       "scrapeStatus": "ok",
       "reviewLocalUrl": "./reviews/5943794543.html",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:33:56.607706+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:07:24.433535+00:00",
+      "reviewLocalCoverUrl": "./reviews/covers/5943794543.jpg",
+      "reviewDate": "2024-03-30"
     },
     {
       "bookId": "22104307",
@@ -2746,7 +2782,9 @@
       "scrapeStatus": "ok",
       "reviewLocalUrl": "./reviews/6294324647.html",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:33:59.794525+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:07:28.964438+00:00",
+      "reviewLocalCoverUrl": "./reviews/covers/6294324647.jpg",
+      "reviewDate": "2024-03-13"
     },
     {
       "bookId": "127652",
@@ -2760,7 +2798,9 @@
       "scrapeStatus": "ok",
       "reviewLocalUrl": "./reviews/6274861410.html",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:34:02.857476+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:07:33.464290+00:00",
+      "reviewLocalCoverUrl": "./reviews/covers/6274861410.jpg",
+      "reviewDate": "2024-03-13"
     },
     {
       "bookId": "30978855",
@@ -2785,7 +2825,9 @@
       "scrapeStatus": "ok",
       "reviewLocalUrl": "./reviews/6268166500.html",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:34:06.097078+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:07:37.880585+00:00",
+      "reviewLocalCoverUrl": "./reviews/covers/6268166500.jpg",
+      "reviewDate": "2024-03-13"
     },
     {
       "bookId": "35998224",
@@ -2799,7 +2841,9 @@
       "scrapeStatus": "ok",
       "reviewLocalUrl": "./reviews/2780944741.html",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:34:09.243627+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:07:42.467287+00:00",
+      "reviewLocalCoverUrl": "./reviews/covers/2780944741.jpg",
+      "reviewDate": "2024-03-13"
     },
     {
       "bookId": "121174855",
@@ -2813,7 +2857,9 @@
       "scrapeStatus": "ok",
       "reviewLocalUrl": "./reviews/5960616998.html",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:34:12.335838+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:07:46.943245+00:00",
+      "reviewLocalCoverUrl": "./reviews/covers/5960616998.jpg",
+      "reviewDate": "2024-02-11"
     },
     {
       "bookId": "201014892",
@@ -2827,7 +2873,9 @@
       "scrapeStatus": "ok",
       "reviewLocalUrl": "./reviews/6212613120.html",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:34:15.518465+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:07:51.900515+00:00",
+      "reviewLocalCoverUrl": "./reviews/covers/6212613120.jpg",
+      "reviewDate": "2024-02-11"
     },
     {
       "bookId": "31394757",
@@ -2841,7 +2889,9 @@
       "scrapeStatus": "ok",
       "reviewLocalUrl": "./reviews/6149826635.html",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:34:18.414388+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:07:56.278196+00:00",
+      "reviewLocalCoverUrl": "./reviews/covers/6149826635.jpg",
+      "reviewDate": "2024-02-11"
     },
     {
       "bookId": "62653760",
@@ -2855,7 +2905,9 @@
       "scrapeStatus": "ok",
       "reviewLocalUrl": "./reviews/6138586589.html",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:34:21.848985+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:08:01.438195+00:00",
+      "reviewLocalCoverUrl": "./reviews/covers/6138586589.jpg",
+      "reviewDate": "2024-02-11"
     },
     {
       "bookId": "157620810",
@@ -2869,7 +2921,9 @@
       "scrapeStatus": "ok",
       "reviewLocalUrl": "./reviews/6073640129.html",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:34:24.937731+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:08:06.099856+00:00",
+      "reviewLocalCoverUrl": "./reviews/covers/6073640129.jpg",
+      "reviewDate": "2024-01-09"
     },
     {
       "bookId": "55031302",
@@ -2883,7 +2937,9 @@
       "scrapeStatus": "ok",
       "reviewLocalUrl": "./reviews/6101665296.html",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:34:28.367696+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:08:11.157131+00:00",
+      "reviewLocalCoverUrl": "./reviews/covers/6101665296.jpg",
+      "reviewDate": "2024-01-09"
     },
     {
       "bookId": "86239972",
@@ -2897,7 +2953,9 @@
       "scrapeStatus": "ok",
       "reviewLocalUrl": "./reviews/6101661887.html",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:34:31.759347+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:08:16.023123+00:00",
+      "reviewLocalCoverUrl": "./reviews/covers/6101661887.jpg",
+      "reviewDate": "2024-01-07"
     },
     {
       "bookId": "54210068",
@@ -2911,7 +2969,9 @@
       "scrapeStatus": "ok",
       "reviewLocalUrl": "./reviews/5246349157.html",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:34:37.528281+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:08:20.600359+00:00",
+      "reviewLocalCoverUrl": "./reviews/covers/5246349157.jpg",
+      "reviewDate": "2024-01-09"
     },
     {
       "bookId": "48842680",
@@ -2936,7 +2996,9 @@
       "scrapeStatus": "ok",
       "reviewLocalUrl": "./reviews/6085459913.html",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:34:40.405899+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:08:26.296873+00:00",
+      "reviewLocalCoverUrl": "./reviews/covers/6085459913.jpg",
+      "reviewDate": "2023-12-29"
     },
     {
       "bookId": "60776217",
@@ -2950,7 +3012,9 @@
       "scrapeStatus": "ok",
       "reviewLocalUrl": "./reviews/6048196786.html",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:34:45.118786+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:08:30.883517+00:00",
+      "reviewLocalCoverUrl": "./reviews/covers/6048196786.jpg",
+      "reviewDate": "2023-12-24"
     },
     {
       "bookId": "61322101",
@@ -2964,7 +3028,9 @@
       "scrapeStatus": "ok",
       "reviewLocalUrl": "./reviews/5347051217.html",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:34:48.446996+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:08:35.452568+00:00",
+      "reviewLocalCoverUrl": "./reviews/covers/5347051217.jpg",
+      "reviewDate": "2023-12-23"
     },
     {
       "bookId": "75262427",
@@ -2978,7 +3044,9 @@
       "scrapeStatus": "ok",
       "reviewLocalUrl": "./reviews/5286187920.html",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:34:51.673717+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:08:41.208568+00:00",
+      "reviewLocalCoverUrl": "./reviews/covers/5286187920.jpg",
+      "reviewDate": "2023-12-17"
     },
     {
       "bookId": "193575492",
@@ -2992,7 +3060,9 @@
       "scrapeStatus": "ok",
       "reviewLocalUrl": "./reviews/5997413628.html",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:34:54.818079+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:08:45.570242+00:00",
+      "reviewLocalCoverUrl": "./reviews/covers/5997413628.jpg",
+      "reviewDate": "2023-12-14"
     },
     {
       "bookId": "37804825",
@@ -3006,7 +3076,9 @@
       "scrapeStatus": "ok",
       "reviewLocalUrl": "./reviews/6036864353.html",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:34:57.729926+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:08:51.018141+00:00",
+      "reviewLocalCoverUrl": "./reviews/covers/6036864353.jpg",
+      "reviewDate": "2023-12-10"
     },
     {
       "bookId": "128747007",
@@ -3020,7 +3092,9 @@
       "scrapeStatus": "ok",
       "reviewLocalUrl": "./reviews/5955981105.html",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:35:01.058540+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:08:57.327397+00:00",
+      "reviewLocalCoverUrl": "./reviews/covers/5955981105.jpg",
+      "reviewDate": "2023-12-09"
     },
     {
       "bookId": "56321282",
@@ -3034,7 +3108,9 @@
       "scrapeStatus": "ok",
       "reviewLocalUrl": "./reviews/6020913051.html",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:35:04.201509+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:09:03.107941+00:00",
+      "reviewLocalCoverUrl": "./reviews/covers/6020913051.jpg",
+      "reviewDate": "2023-12-05"
     },
     {
       "bookId": "75317019",
@@ -3048,7 +3124,9 @@
       "scrapeStatus": "ok",
       "reviewLocalUrl": "./reviews/6017216217.html",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:35:08.882284+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:09:08.271811+00:00",
+      "reviewLocalCoverUrl": "./reviews/covers/6017216217.jpg",
+      "reviewDate": "2023-12-03"
     },
     {
       "bookId": "61624072",
@@ -3075,7 +3153,7 @@
       "reviewLocalCoverUrl": "./reviews/covers/5999985287.jpg",
       "reviewDate": "2025-01-09",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:35:12.497777+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:09:11.810557+00:00"
     },
     {
       "bookId": "500400",
@@ -3089,7 +3167,9 @@
       "scrapeStatus": "ok",
       "reviewLocalUrl": "./reviews/5442822138.html",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:35:15.820554+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:09:17.071299+00:00",
+      "reviewLocalCoverUrl": "./reviews/covers/5442822138.jpg",
+      "reviewDate": "2023-11-23"
     },
     {
       "bookId": "229217",
@@ -3103,7 +3183,9 @@
       "scrapeStatus": "ok",
       "reviewLocalUrl": "./reviews/5971946277.html",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:35:19.787530+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:09:22.681088+00:00",
+      "reviewLocalCoverUrl": "./reviews/covers/5971946277.jpg",
+      "reviewDate": "2023-11-12"
     },
     {
       "bookId": "177138221",
@@ -3117,7 +3199,9 @@
       "scrapeStatus": "ok",
       "reviewLocalUrl": "./reviews/5829189493.html",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:35:23.087314+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:09:27.166316+00:00",
+      "reviewLocalCoverUrl": "./reviews/covers/5829189493.jpg",
+      "reviewDate": "2023-12-24"
     },
     {
       "bookId": "38727842",
@@ -3131,7 +3215,9 @@
       "scrapeStatus": "ok",
       "reviewLocalUrl": "./reviews/5960042363.html",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:35:26.288225+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:09:31.649521+00:00",
+      "reviewLocalCoverUrl": "./reviews/covers/5960042363.jpg",
+      "reviewDate": "2023-12-22"
     },
     {
       "bookId": "1087293",
@@ -3145,7 +3231,9 @@
       "scrapeStatus": "ok",
       "reviewLocalUrl": "./reviews/5954281487.html",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:35:29.473946+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:09:37.669285+00:00",
+      "reviewLocalCoverUrl": "./reviews/covers/5954281487.jpg",
+      "reviewDate": "2023-11-05"
     },
     {
       "bookId": "79265398",
@@ -3170,7 +3258,9 @@
       "scrapeStatus": "ok",
       "reviewLocalUrl": "./reviews/5848987795.html",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:35:32.474382+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:09:43.088607+00:00",
+      "reviewLocalCoverUrl": "./reviews/covers/5848987795.jpg",
+      "reviewDate": "2023-10-24"
     },
     {
       "bookId": "24790944",
@@ -3184,7 +3274,9 @@
       "scrapeStatus": "ok",
       "reviewLocalUrl": "./reviews/5434447595.html",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:35:37.587631+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:09:48.038585+00:00",
+      "reviewLocalCoverUrl": "./reviews/covers/5434447595.jpg",
+      "reviewDate": "2023-09-17"
     },
     {
       "bookId": "4912811",
@@ -3198,7 +3290,9 @@
       "scrapeStatus": "ok",
       "reviewLocalUrl": "./reviews/2780954000.html",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:35:40.698314+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:09:53.302982+00:00",
+      "reviewLocalCoverUrl": "./reviews/covers/2780954000.jpg",
+      "reviewDate": "2023-09-17"
     },
     {
       "bookId": "111172780",
@@ -3212,7 +3306,9 @@
       "scrapeStatus": "ok",
       "reviewLocalUrl": "./reviews/5794792611.html",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:35:43.943278+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:09:58.642359+00:00",
+      "reviewLocalCoverUrl": "./reviews/covers/5794792611.jpg",
+      "reviewDate": "2023-09-15"
     },
     {
       "bookId": "6658854",
@@ -3237,7 +3333,9 @@
       "scrapeStatus": "ok",
       "reviewLocalUrl": "./reviews/5776190600.html",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:35:47.389915+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:10:05.733856+00:00",
+      "reviewLocalCoverUrl": "./reviews/covers/5776190600.jpg",
+      "reviewDate": "2023-09-03"
     },
     {
       "bookId": "60293672",
@@ -3251,7 +3349,9 @@
       "scrapeStatus": "ok",
       "reviewLocalUrl": "./reviews/5506457603.html",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:35:52.020732+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:10:11.154741+00:00",
+      "reviewLocalCoverUrl": "./reviews/covers/5506457603.jpg",
+      "reviewDate": "2023-09-03"
     },
     {
       "bookId": "355642",
@@ -3265,7 +3365,9 @@
       "scrapeStatus": "ok",
       "reviewLocalUrl": "./reviews/5784546323.html",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:35:55.030596+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:10:16.757420+00:00",
+      "reviewLocalCoverUrl": "./reviews/covers/5784546323.jpg",
+      "reviewDate": "2023-08-21"
     },
     {
       "bookId": "63227787",
@@ -3279,7 +3381,9 @@
       "scrapeStatus": "ok",
       "reviewLocalUrl": "./reviews/5700235972.html",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:35:58.277012+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:10:22.037557+00:00",
+      "reviewLocalCoverUrl": "./reviews/covers/5700235972.jpg",
+      "reviewDate": "2023-08-21"
     },
     {
       "bookId": "60525672",
@@ -3293,7 +3397,9 @@
       "scrapeStatus": "ok",
       "reviewLocalUrl": "./reviews/5748874171.html",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:36:01.435770+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:10:27.467882+00:00",
+      "reviewLocalCoverUrl": "./reviews/covers/5748874171.jpg",
+      "reviewDate": "2023-09-01"
     },
     {
       "bookId": "99500",
@@ -3309,7 +3415,7 @@
       "reviewLocalCoverUrl": "./reviews/covers/5730477000.jpg",
       "reviewDate": "2025-07-07",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:36:04.050191+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:10:30.380728+00:00"
     },
     {
       "bookId": "63392722",
@@ -3334,7 +3440,9 @@
       "scrapeStatus": "ok",
       "reviewLocalUrl": "./reviews/5680360013.html",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:36:07.236691+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:10:37.256364+00:00",
+      "reviewLocalCoverUrl": "./reviews/covers/5680360013.jpg",
+      "reviewDate": "2023-07-29"
     },
     {
       "bookId": "34963058",
@@ -3348,7 +3456,9 @@
       "scrapeStatus": "ok",
       "reviewLocalUrl": "./reviews/5703620107.html",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:36:10.570599+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:10:44.728833+00:00",
+      "reviewLocalCoverUrl": "./reviews/covers/5703620107.jpg",
+      "reviewDate": "2023-07-22"
     },
     {
       "bookId": "46013373",
@@ -3362,7 +3472,9 @@
       "scrapeStatus": "ok",
       "reviewLocalUrl": "./reviews/4089246594.html",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:36:13.796910+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:10:50.221260+00:00",
+      "reviewLocalCoverUrl": "./reviews/covers/4089246594.jpg",
+      "reviewDate": "2023-08-01"
     },
     {
       "bookId": "57027913",
@@ -3376,7 +3488,9 @@
       "scrapeStatus": "ok",
       "reviewLocalUrl": "./reviews/5673151910.html",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:36:17.114918+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:10:56.166093+00:00",
+      "reviewLocalCoverUrl": "./reviews/covers/5673151910.jpg",
+      "reviewDate": "2023-07-11"
     },
     {
       "bookId": "61764009",
@@ -3390,7 +3504,9 @@
       "scrapeStatus": "ok",
       "reviewLocalUrl": "./reviews/5662509795.html",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:36:20.427771+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:11:03.019630+00:00",
+      "reviewLocalCoverUrl": "./reviews/covers/5662509795.jpg",
+      "reviewDate": "2023-07-09"
     },
     {
       "bookId": "124310968",
@@ -3404,7 +3520,9 @@
       "scrapeStatus": "error: The read operation timed out",
       "reviewLocalUrl": "./reviews/5665216494.html",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:36:23.689635+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:11:09.763196+00:00",
+      "reviewLocalCoverUrl": "./reviews/covers/5665216494.jpg",
+      "reviewDate": "2023-07-08"
     },
     {
       "bookId": "75318309",
@@ -3418,7 +3536,9 @@
       "scrapeStatus": "ok",
       "reviewLocalUrl": "./reviews/5655532934.html",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:36:27.011907+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:11:14.991498+00:00",
+      "reviewLocalCoverUrl": "./reviews/covers/5655532934.jpg",
+      "reviewDate": "2023-07-03"
     },
     {
       "bookId": "166683",
@@ -3432,7 +3552,9 @@
       "scrapeStatus": "ok",
       "reviewLocalUrl": "./reviews/5659681579.html",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:36:30.074437+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:11:22.138864+00:00",
+      "reviewLocalCoverUrl": "./reviews/covers/5659681579.jpg",
+      "reviewDate": "2023-07-08"
     },
     {
       "bookId": "49616655",
@@ -3446,7 +3568,9 @@
       "scrapeStatus": "ok",
       "reviewLocalUrl": "./reviews/5434436719.html",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:36:33.201288+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:11:27.209325+00:00",
+      "reviewLocalCoverUrl": "./reviews/covers/5434436719.jpg",
+      "reviewDate": "2023-06-30"
     },
     {
       "bookId": "61037084",
@@ -3460,7 +3584,9 @@
       "scrapeStatus": "ok",
       "reviewLocalUrl": "./reviews/5624063499.html",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:36:36.493073+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:11:35.247752+00:00",
+      "reviewLocalCoverUrl": "./reviews/covers/5624063499.jpg",
+      "reviewDate": "2023-06-30"
     },
     {
       "bookId": "60773570",
@@ -3474,7 +3600,9 @@
       "scrapeStatus": "ok",
       "reviewLocalUrl": "./reviews/5652334902.html",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:36:39.608633+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:11:41.814442+00:00",
+      "reviewLocalCoverUrl": "./reviews/covers/5652334902.jpg",
+      "reviewDate": "2023-06-29"
     },
     {
       "bookId": "35167699",
@@ -3488,7 +3616,9 @@
       "scrapeStatus": "ok",
       "reviewLocalUrl": "./reviews/2948761821.html",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:36:42.784530+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:11:47.027711+00:00",
+      "reviewLocalCoverUrl": "./reviews/covers/2948761821.jpg",
+      "reviewDate": "2023-06-29"
     },
     {
       "bookId": "19182759",
@@ -3502,7 +3632,9 @@
       "scrapeStatus": "ok",
       "reviewLocalUrl": "./reviews/5561514195.html",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:36:45.976533+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:11:53.982313+00:00",
+      "reviewLocalCoverUrl": "./reviews/covers/5561514195.jpg",
+      "reviewDate": "2023-06-21"
     },
     {
       "bookId": "71603321",
@@ -3518,7 +3650,7 @@
       "reviewLocalCoverUrl": "./reviews/covers/5609572920.jpg",
       "reviewDate": "2024-09-12",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:36:49.484079+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:11:57.612678+00:00"
     },
     {
       "bookId": "52455963",
@@ -3532,7 +3664,9 @@
       "scrapeStatus": "ok",
       "reviewLocalUrl": "./reviews/5594433494.html",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:36:52.760498+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:12:02.909722+00:00",
+      "reviewLocalCoverUrl": "./reviews/covers/5594433494.jpg",
+      "reviewDate": "2023-06-17"
     },
     {
       "bookId": "56584875",
@@ -3548,7 +3682,7 @@
       "reviewLocalCoverUrl": "./reviews/covers/5194180364.jpg",
       "reviewDate": "2024-09-13",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:36:56.225927+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:12:06.397672+00:00"
     },
     {
       "bookId": "49969639",
@@ -3562,7 +3696,9 @@
       "scrapeStatus": "ok",
       "reviewLocalUrl": "./reviews/5550360609.html",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:36:59.552027+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:12:11.577378+00:00",
+      "reviewLocalCoverUrl": "./reviews/covers/5550360609.jpg",
+      "reviewDate": "2023-05-30"
     },
     {
       "bookId": "39305612",
@@ -3587,7 +3723,9 @@
       "scrapeStatus": "ok",
       "reviewLocalUrl": "./reviews/5469066244.html",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:37:02.791632+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:12:17.048634+00:00",
+      "reviewLocalCoverUrl": "./reviews/covers/5469066244.jpg",
+      "reviewDate": "2023-05-28"
     },
     {
       "bookId": "17567272",
@@ -3601,7 +3739,9 @@
       "scrapeStatus": "ok",
       "reviewLocalUrl": "./reviews/3758441020.html",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:37:05.917210+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:12:22.430656+00:00",
+      "reviewLocalCoverUrl": "./reviews/covers/3758441020.jpg",
+      "reviewDate": "2023-06-21"
     },
     {
       "bookId": "34450299",
@@ -3615,7 +3755,9 @@
       "scrapeStatus": "ok",
       "reviewLocalUrl": "./reviews/5518994832.html",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:37:09.075522+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:12:27.860025+00:00",
+      "reviewLocalCoverUrl": "./reviews/covers/5518994832.jpg",
+      "reviewDate": "2023-05-14"
     },
     {
       "bookId": "30343915",
@@ -3629,7 +3771,9 @@
       "scrapeStatus": "ok",
       "reviewLocalUrl": "./reviews/4369135691.html",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:37:12.210772+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:12:33.205269+00:00",
+      "reviewLocalCoverUrl": "./reviews/covers/4369135691.jpg",
+      "reviewDate": "2023-05-14"
     },
     {
       "bookId": "17506002",
@@ -3643,7 +3787,9 @@
       "scrapeStatus": "ok",
       "reviewLocalUrl": "./reviews/5434440549.html",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:37:15.454206+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:12:39.046183+00:00",
+      "reviewLocalCoverUrl": "./reviews/covers/5434440549.jpg",
+      "reviewDate": "2023-05-14"
     },
     {
       "bookId": "30974922",
@@ -3657,7 +3803,9 @@
       "scrapeStatus": "ok",
       "reviewLocalUrl": "./reviews/5435008075.html",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:37:18.595420+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:12:48.715292+00:00",
+      "reviewLocalCoverUrl": "./reviews/covers/5435008075.jpg",
+      "reviewDate": "2023-04-12"
     },
     {
       "bookId": "62240988",
@@ -3671,7 +3819,9 @@
       "scrapeStatus": "ok",
       "reviewLocalUrl": "./reviews/5469175556.html",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:37:21.797327+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:12:54.964231+00:00",
+      "reviewLocalCoverUrl": "./reviews/covers/5469175556.jpg",
+      "reviewDate": "2023-04-09"
     },
     {
       "bookId": "41060847",
@@ -3685,7 +3835,9 @@
       "scrapeStatus": "ok",
       "reviewLocalUrl": "./reviews/5467274353.html",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:37:24.835667+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:13:02.276530+00:00",
+      "reviewLocalCoverUrl": "./reviews/covers/5467274353.jpg",
+      "reviewDate": "2023-04-07"
     },
     {
       "bookId": "36464435",
@@ -3699,7 +3851,9 @@
       "scrapeStatus": "ok",
       "reviewLocalUrl": "./reviews/5467176703.html",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:37:27.909977+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:13:08.639744+00:00",
+      "reviewLocalCoverUrl": "./reviews/covers/5467176703.jpg",
+      "reviewDate": "2023-04-07"
     },
     {
       "bookId": "9736028",
@@ -3713,7 +3867,9 @@
       "scrapeStatus": "ok",
       "reviewLocalUrl": "./reviews/5462525450.html",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:37:31.081521+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:13:14.610536+00:00",
+      "reviewLocalCoverUrl": "./reviews/covers/5462525450.jpg",
+      "reviewDate": "2023-04-07"
     },
     {
       "bookId": "25745999",
@@ -3727,7 +3883,9 @@
       "scrapeStatus": "ok",
       "reviewLocalUrl": "./reviews/5459270202.html",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:37:34.252609+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:13:22.333233+00:00",
+      "reviewLocalCoverUrl": "./reviews/covers/5459270202.jpg",
+      "reviewDate": "2023-04-07"
     },
     {
       "bookId": "61839157",
@@ -3741,7 +3899,9 @@
       "scrapeStatus": "ok",
       "reviewLocalUrl": "./reviews/5434441822.html",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:37:37.381761+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:13:28.029239+00:00",
+      "reviewLocalCoverUrl": "./reviews/covers/5434441822.jpg",
+      "reviewDate": "2023-06-28"
     },
     {
       "bookId": "29009801",
@@ -3755,7 +3915,9 @@
       "scrapeStatus": "ok",
       "reviewLocalUrl": "./reviews/5246344820.html",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:37:40.488358+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:13:32.686411+00:00",
+      "reviewLocalCoverUrl": "./reviews/covers/5246344820.jpg",
+      "reviewDate": "2023-12-30"
     },
     {
       "bookId": "769488",
@@ -3769,7 +3931,9 @@
       "scrapeStatus": "ok",
       "reviewLocalUrl": "./reviews/5395713632.html",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:37:43.722713+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:13:39.202400+00:00",
+      "reviewLocalCoverUrl": "./reviews/covers/5395713632.jpg",
+      "reviewDate": "2023-03-22"
     },
     {
       "bookId": "62206840",
@@ -3794,7 +3958,9 @@
       "scrapeStatus": "ok",
       "reviewLocalUrl": "./reviews/2777961569.html",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:37:46.790719+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:13:45.833501+00:00",
+      "reviewLocalCoverUrl": "./reviews/covers/2777961569.jpg",
+      "reviewDate": "2023-03-08"
     },
     {
       "bookId": "4390",
@@ -3808,7 +3974,9 @@
       "scrapeStatus": "ok",
       "reviewLocalUrl": "./reviews/5378344199.html",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:37:49.805216+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:13:52.266306+00:00",
+      "reviewLocalCoverUrl": "./reviews/covers/5378344199.jpg",
+      "reviewDate": "2023-03-05"
     },
     {
       "bookId": "95722",
@@ -3822,7 +3990,9 @@
       "scrapeStatus": "ok",
       "reviewLocalUrl": "./reviews/5367793301.html",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:37:53.070238+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:13:58.194828+00:00",
+      "reviewLocalCoverUrl": "./reviews/covers/5367793301.jpg",
+      "reviewDate": "2023-02-27"
     },
     {
       "bookId": "21524683",
@@ -3836,7 +4006,9 @@
       "scrapeStatus": "ok",
       "reviewLocalUrl": "./reviews/3063403087.html",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:37:56.093159+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:14:04.215916+00:00",
+      "reviewLocalCoverUrl": "./reviews/covers/3063403087.jpg",
+      "reviewDate": "2023-02-26"
     },
     {
       "bookId": "35024363",
@@ -3850,7 +4022,9 @@
       "scrapeStatus": "ok",
       "reviewLocalUrl": "./reviews/5232198427.html",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:37:59.365095+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:14:13.470300+00:00",
+      "reviewLocalCoverUrl": "./reviews/covers/5232198427.jpg",
+      "reviewDate": "2023-02-22"
     },
     {
       "bookId": "27763861",
@@ -3864,7 +4038,9 @@
       "scrapeStatus": "ok",
       "reviewLocalUrl": "./reviews/5310754088.html",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:38:02.520803+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:14:19.540401+00:00",
+      "reviewLocalCoverUrl": "./reviews/covers/5310754088.jpg",
+      "reviewDate": "2023-04-07"
     },
     {
       "bookId": "39940542",
@@ -3878,7 +4054,9 @@
       "scrapeStatus": "ok",
       "reviewLocalUrl": "./reviews/5322399624.html",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:38:05.727353+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:14:25.529641+00:00",
+      "reviewLocalCoverUrl": "./reviews/covers/5322399624.jpg",
+      "reviewDate": "2023-02-12"
     },
     {
       "bookId": "63000056",
@@ -3925,7 +4103,9 @@
       "scrapeStatus": "ok",
       "reviewLocalUrl": "./reviews/5266624701.html",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:38:10.162357+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:14:31.951794+00:00",
+      "reviewLocalCoverUrl": "./reviews/covers/5266624701.jpg",
+      "reviewDate": "2023-01-22"
     },
     {
       "bookId": "7514539",
@@ -3939,7 +4119,9 @@
       "scrapeStatus": "ok",
       "reviewLocalUrl": "./reviews/5193796698.html",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:38:14.300894+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:14:38.224689+00:00",
+      "reviewLocalCoverUrl": "./reviews/covers/5193796698.jpg",
+      "reviewDate": "2023-01-22"
     },
     {
       "bookId": "58841459",
@@ -3953,7 +4135,9 @@
       "scrapeStatus": "ok",
       "reviewLocalUrl": "./reviews/5193787397.html",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:38:18.835446+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:14:45.881131+00:00",
+      "reviewLocalCoverUrl": "./reviews/covers/5193787397.jpg",
+      "reviewDate": "2023-01-22"
     },
     {
       "bookId": "65778966",
@@ -3967,7 +4151,9 @@
       "scrapeStatus": "ok",
       "reviewLocalUrl": "./reviews/5232186532.html",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:38:21.860036+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:14:52.080706+00:00",
+      "reviewLocalCoverUrl": "./reviews/covers/5232186532.jpg",
+      "reviewDate": "2023-01-14"
     },
     {
       "bookId": "59425339",
@@ -3981,7 +4167,9 @@
       "scrapeStatus": "ok",
       "reviewLocalUrl": "./reviews/5232183526.html",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:38:25.128151+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:14:58.167945+00:00",
+      "reviewLocalCoverUrl": "./reviews/covers/5232183526.jpg",
+      "reviewDate": "2023-01-10"
     },
     {
       "bookId": "60630995",
@@ -4008,7 +4196,7 @@
       "reviewLocalCoverUrl": "./reviews/covers/5193783199.jpg",
       "reviewDate": "2024-08-07",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:38:28.456723+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:15:01.822021+00:00"
     },
     {
       "bookId": "5280500",
@@ -4022,7 +4210,9 @@
       "scrapeStatus": "ok",
       "reviewLocalUrl": "./reviews/5214011412.html",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:38:31.656718+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:15:08.107265+00:00",
+      "reviewLocalCoverUrl": "./reviews/covers/5214011412.jpg",
+      "reviewDate": "2023-01-07"
     },
     {
       "bookId": "55923737",
@@ -4036,7 +4226,9 @@
       "scrapeStatus": "ok",
       "reviewLocalUrl": "./reviews/5199733940.html",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:38:34.661977+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:15:15.848848+00:00",
+      "reviewLocalCoverUrl": "./reviews/covers/5199733940.jpg",
+      "reviewDate": "2023-01-01"
     },
     {
       "bookId": "51031793",
@@ -4050,7 +4242,9 @@
       "scrapeStatus": "ok",
       "reviewLocalUrl": "./reviews/5194197280.html",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:38:39.232025+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:15:22.789661+00:00",
+      "reviewLocalCoverUrl": "./reviews/covers/5194197280.jpg",
+      "reviewDate": "2022-12-28"
     },
     {
       "bookId": "61226102",
@@ -4064,7 +4258,9 @@
       "scrapeStatus": "ok",
       "reviewLocalUrl": "./reviews/5188210875.html",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:38:42.265135+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:15:28.746596+00:00",
+      "reviewLocalCoverUrl": "./reviews/covers/5188210875.jpg",
+      "reviewDate": "2023-04-20"
     },
     {
       "bookId": "60781385",
@@ -4089,7 +4285,9 @@
       "scrapeStatus": "ok",
       "reviewLocalUrl": "./reviews/5183918890.html",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:38:45.263859+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:15:36.636731+00:00",
+      "reviewLocalCoverUrl": "./reviews/covers/5183918890.jpg",
+      "reviewDate": "2022-12-24"
     },
     {
       "bookId": "59884113",
@@ -4114,7 +4312,9 @@
       "scrapeStatus": "ok",
       "reviewLocalUrl": "./reviews/5158428230.html",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:38:48.636080+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:15:43.554769+00:00",
+      "reviewLocalCoverUrl": "./reviews/covers/5158428230.jpg",
+      "reviewDate": "2023-06-05"
     },
     {
       "bookId": "16050287",
@@ -4128,7 +4328,9 @@
       "scrapeStatus": "ok",
       "reviewLocalUrl": "./reviews/5161628062.html",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:38:51.811617+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:15:49.549491+00:00",
+      "reviewLocalCoverUrl": "./reviews/covers/5161628062.jpg",
+      "reviewDate": "2022-12-19"
     },
     {
       "bookId": "348942",
@@ -4142,7 +4344,9 @@
       "scrapeStatus": "ok",
       "reviewLocalUrl": "./reviews/5160739264.html",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:38:54.681490+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:15:55.853513+00:00",
+      "reviewLocalCoverUrl": "./reviews/covers/5160739264.jpg",
+      "reviewDate": "2022-12-17"
     },
     {
       "bookId": "55756916",
@@ -4156,7 +4360,9 @@
       "scrapeStatus": "ok",
       "reviewLocalUrl": "./reviews/3987275857.html",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:38:57.882123+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:16:01.970713+00:00",
+      "reviewLocalCoverUrl": "./reviews/covers/3987275857.jpg",
+      "reviewDate": "2022-12-12"
     },
     {
       "bookId": "55730815",
@@ -4170,7 +4376,9 @@
       "scrapeStatus": "ok",
       "reviewLocalUrl": "./reviews/5074790830.html",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:39:01.010925+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:16:08.717544+00:00",
+      "reviewLocalCoverUrl": "./reviews/covers/5074790830.jpg",
+      "reviewDate": "2022-12-12"
     },
     {
       "bookId": "45363076",
@@ -4184,7 +4392,9 @@
       "scrapeStatus": "ok",
       "reviewLocalUrl": "./reviews/5154267474.html",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:39:04.305189+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:16:14.169112+00:00",
+      "reviewLocalCoverUrl": "./reviews/covers/5154267474.jpg",
+      "reviewDate": "2023-06-05"
     },
     {
       "bookId": "61086794",
@@ -4198,7 +4408,9 @@
       "scrapeStatus": "ok",
       "reviewLocalUrl": "./reviews/5149137738.html",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:39:07.569294+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:16:20.351717+00:00",
+      "reviewLocalCoverUrl": "./reviews/covers/5149137738.jpg",
+      "reviewDate": "2022-12-09"
     },
     {
       "bookId": "19399056",
@@ -4223,7 +4435,9 @@
       "scrapeStatus": "ok",
       "reviewLocalUrl": "./reviews/5104257686.html",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:39:10.729647+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:16:26.371421+00:00",
+      "reviewLocalCoverUrl": "./reviews/covers/5104257686.jpg",
+      "reviewDate": "2022-12-08"
     },
     {
       "bookId": "7086348",
@@ -4237,7 +4451,9 @@
       "scrapeStatus": "ok",
       "reviewLocalUrl": "./reviews/5125435823.html",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:39:14.604729+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:16:34.881268+00:00",
+      "reviewLocalCoverUrl": "./reviews/covers/5125435823.jpg",
+      "reviewDate": "2022-11-30"
     },
     {
       "bookId": "99489",
@@ -4253,7 +4469,7 @@
       "reviewLocalCoverUrl": "./reviews/covers/5109988674.jpg",
       "reviewDate": "2025-07-07",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:39:18.294934+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:16:37.549717+00:00"
     },
     {
       "bookId": "60280380",
@@ -4267,7 +4483,9 @@
       "scrapeStatus": "ok",
       "reviewLocalUrl": "./reviews/5104773908.html",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:39:22.745058+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:16:44.318785+00:00",
+      "reviewLocalCoverUrl": "./reviews/covers/5104773908.jpg",
+      "reviewDate": "2022-11-20"
     },
     {
       "bookId": "769660",
@@ -4281,7 +4499,9 @@
       "scrapeStatus": "ok",
       "reviewLocalUrl": "./reviews/3122874275.html",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:39:25.882067+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:16:50.866590+00:00",
+      "reviewLocalCoverUrl": "./reviews/covers/3122874275.jpg",
+      "reviewDate": "2022-12-08"
     },
     {
       "bookId": "36589022",
@@ -4295,7 +4515,9 @@
       "scrapeStatus": "ok",
       "reviewLocalUrl": "./reviews/4432497276.html",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:39:29.082758+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:16:57.209312+00:00",
+      "reviewLocalCoverUrl": "./reviews/covers/4432497276.jpg",
+      "reviewDate": "2022-12-08"
     },
     {
       "bookId": "62591346",
@@ -4320,7 +4542,9 @@
       "scrapeStatus": "ok",
       "reviewLocalUrl": "./reviews/5074786319.html",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:39:32.180532+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:17:04.496771+00:00",
+      "reviewLocalCoverUrl": "./reviews/covers/5074786319.jpg",
+      "reviewDate": "2022-11-17"
     },
     {
       "bookId": "1044175",
@@ -4336,7 +4560,7 @@
       "reviewLocalCoverUrl": "./reviews/covers/5059252796.jpg",
       "reviewDate": "2025-07-07",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:39:34.721491+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:17:07.119081+00:00"
     },
     {
       "bookId": "12722497",
@@ -4361,7 +4585,9 @@
       "scrapeStatus": "ok",
       "reviewLocalUrl": "./reviews/4725176102.html",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:39:37.983374+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:17:14.719542+00:00",
+      "reviewLocalCoverUrl": "./reviews/covers/4725176102.jpg",
+      "reviewDate": "2022-10-25"
     },
     {
       "bookId": "57926221",
@@ -4375,7 +4601,9 @@
       "scrapeStatus": "ok",
       "reviewLocalUrl": "./reviews/4943416406.html",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:39:41.039151+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:17:23.118107+00:00",
+      "reviewLocalCoverUrl": "./reviews/covers/4943416406.jpg",
+      "reviewDate": "2022-11-13"
     },
     {
       "bookId": "57866933",
@@ -4389,7 +4617,9 @@
       "scrapeStatus": "ok",
       "reviewLocalUrl": "./reviews/4974471411.html",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:39:44.000423+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:17:32.715432+00:00",
+      "reviewLocalCoverUrl": "./reviews/covers/4974471411.jpg",
+      "reviewDate": "2022-10-18"
     },
     {
       "bookId": "35618912",
@@ -4405,7 +4635,7 @@
       "reviewLocalCoverUrl": "./reviews/covers/5022556726.jpg",
       "reviewDate": "2025-07-07",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:39:46.800781+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:17:35.593441+00:00"
     },
     {
       "bookId": "20558537",
@@ -4419,7 +4649,9 @@
       "scrapeStatus": "ok",
       "reviewLocalUrl": "./reviews/4942381354.html",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:39:50.481650+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:17:42.606259+00:00",
+      "reviewLocalCoverUrl": "./reviews/covers/4942381354.jpg",
+      "reviewDate": "2022-10-03"
     },
     {
       "bookId": "61050258",
@@ -4433,7 +4665,9 @@
       "scrapeStatus": "ok",
       "reviewLocalUrl": "./reviews/4950214730.html",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:39:53.625481+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:17:49.390666+00:00",
+      "reviewLocalCoverUrl": "./reviews/covers/4950214730.jpg",
+      "reviewDate": "2022-10-17"
     },
     {
       "bookId": "60205484",
@@ -4458,7 +4692,9 @@
       "scrapeStatus": "ok",
       "reviewLocalUrl": "./reviews/4948312751.html",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:39:56.825024+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:17:57.244346+00:00",
+      "reviewLocalCoverUrl": "./reviews/covers/4948312751.jpg",
+      "reviewDate": "2022-08-28"
     },
     {
       "bookId": "60788950",
@@ -4494,7 +4730,9 @@
       "scrapeStatus": "ok",
       "reviewLocalUrl": "./reviews/4683016236.html",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:40:00.014709+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:18:04.075765+00:00",
+      "reviewLocalCoverUrl": "./reviews/covers/4683016236.jpg",
+      "reviewDate": "2022-10-17"
     },
     {
       "bookId": "5666499",
@@ -4519,7 +4757,9 @@
       "scrapeStatus": "ok",
       "reviewLocalUrl": "./reviews/4828932976.html",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:40:02.841298+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:18:11.081765+00:00",
+      "reviewLocalCoverUrl": "./reviews/covers/4828932976.jpg",
+      "reviewDate": "2022-10-18"
     },
     {
       "bookId": "131008",
@@ -4533,7 +4773,9 @@
       "scrapeStatus": "ok",
       "reviewLocalUrl": "./reviews/4853544090.html",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:40:06.007968+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:18:19.312082+00:00",
+      "reviewLocalCoverUrl": "./reviews/covers/4853544090.jpg",
+      "reviewDate": "2022-07-24"
     },
     {
       "bookId": "8803371",
@@ -4547,7 +4789,9 @@
       "scrapeStatus": "ok",
       "reviewLocalUrl": "./reviews/4838598353.html",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:40:09.219891+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:18:27.567374+00:00",
+      "reviewLocalCoverUrl": "./reviews/covers/4838598353.jpg",
+      "reviewDate": "2022-07-20"
     },
     {
       "bookId": "41566176",
@@ -4561,7 +4805,9 @@
       "scrapeStatus": "ok",
       "reviewLocalUrl": "./reviews/4828934264.html",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:40:13.860004+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:18:35.861426+00:00",
+      "reviewLocalCoverUrl": "./reviews/covers/4828934264.jpg",
+      "reviewDate": "2022-07-10"
     },
     {
       "bookId": "6746962",
@@ -4575,7 +4821,9 @@
       "scrapeStatus": "ok",
       "reviewLocalUrl": "./reviews/4821328444.html",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:40:17.275039+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:18:42.770071+00:00",
+      "reviewLocalCoverUrl": "./reviews/covers/4821328444.jpg",
+      "reviewDate": "2022-07-07"
     },
     {
       "bookId": "10297104",
@@ -4589,7 +4837,9 @@
       "scrapeStatus": "ok",
       "reviewLocalUrl": "./reviews/2669142970.html",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:40:20.506464+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:18:49.785869+00:00",
+      "reviewLocalCoverUrl": "./reviews/covers/2669142970.jpg",
+      "reviewDate": "2022-07-07"
     },
     {
       "bookId": "59799981",
@@ -4603,7 +4853,9 @@
       "scrapeStatus": "ok",
       "reviewLocalUrl": "./reviews/4810939790.html",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:40:24.730731+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:18:55.124607+00:00",
+      "reviewLocalCoverUrl": "./reviews/covers/4810939790.jpg",
+      "reviewDate": "2023-06-30"
     },
     {
       "bookId": "59583527",
@@ -4617,7 +4869,9 @@
       "scrapeStatus": "ok",
       "reviewLocalUrl": "./reviews/4806236283.html",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:40:28.022023+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:19:04.335498+00:00",
+      "reviewLocalCoverUrl": "./reviews/covers/4806236283.jpg",
+      "reviewDate": "2022-06-27"
     },
     {
       "bookId": "30345355",
@@ -4631,7 +4885,9 @@
       "scrapeStatus": "ok",
       "reviewLocalUrl": "./reviews/4791612263.html",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:40:31.412438+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:19:12.773663+00:00",
+      "reviewLocalCoverUrl": "./reviews/covers/4791612263.jpg",
+      "reviewDate": "2022-07-07"
     },
     {
       "bookId": "15139709",
@@ -4645,7 +4901,9 @@
       "scrapeStatus": "ok",
       "reviewLocalUrl": "./reviews/4774887066.html",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:40:34.349933+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:19:19.781065+00:00",
+      "reviewLocalCoverUrl": "./reviews/covers/4774887066.jpg",
+      "reviewDate": "2022-07-07"
     },
     {
       "bookId": "61255550",
@@ -4659,7 +4917,9 @@
       "scrapeStatus": "ok",
       "reviewLocalUrl": "./reviews/4773467781.html",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:40:39.058844+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:19:27.130000+00:00",
+      "reviewLocalCoverUrl": "./reviews/covers/4773467781.jpg",
+      "reviewDate": "2022-06-09"
     },
     {
       "bookId": "2113230",
@@ -4673,7 +4933,9 @@
       "scrapeStatus": "ok",
       "reviewLocalUrl": "./reviews/4765666175.html",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:40:43.725607+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:19:34.153942+00:00",
+      "reviewLocalCoverUrl": "./reviews/covers/4765666175.jpg",
+      "reviewDate": "2022-07-07"
     },
     {
       "bookId": "60742141",
@@ -4687,7 +4949,9 @@
       "scrapeStatus": "ok",
       "reviewLocalUrl": "./reviews/4764957615.html",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:40:46.478488+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:19:42.442788+00:00",
+      "reviewLocalCoverUrl": "./reviews/covers/4764957615.jpg",
+      "reviewDate": "2022-06-05"
     },
     {
       "bookId": "59787413",
@@ -4701,7 +4965,9 @@
       "scrapeStatus": "ok",
       "reviewLocalUrl": "./reviews/4741134109.html",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:40:49.588664+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:19:50.861234+00:00",
+      "reviewLocalCoverUrl": "./reviews/covers/4741134109.jpg",
+      "reviewDate": "2022-07-11"
     },
     {
       "bookId": "52770736",
@@ -4715,7 +4981,9 @@
       "scrapeStatus": "ok",
       "reviewLocalUrl": "./reviews/4631221611.html",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:40:52.790150+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:19:59.934339+00:00",
+      "reviewLocalCoverUrl": "./reviews/covers/4631221611.jpg",
+      "reviewDate": "2022-05-22"
     },
     {
       "bookId": "58888589",
@@ -4729,7 +4997,9 @@
       "scrapeStatus": "ok",
       "reviewLocalUrl": "./reviews/4671946221.html",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:40:55.842351+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:20:09.279790+00:00",
+      "reviewLocalCoverUrl": "./reviews/covers/4671946221.jpg",
+      "reviewDate": "2022-05-10"
     },
     {
       "bookId": "40791418",
@@ -4754,7 +5024,9 @@
       "scrapeStatus": "ok",
       "reviewLocalUrl": "./reviews/4712967871.html",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:40:59.189728+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:20:16.387168+00:00",
+      "reviewLocalCoverUrl": "./reviews/covers/4712967871.jpg",
+      "reviewDate": "2022-05-08"
     },
     {
       "bookId": "28816480",
@@ -4768,7 +5040,9 @@
       "scrapeStatus": "ok",
       "reviewLocalUrl": "./reviews/4597996071.html",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:41:02.588863+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:20:24.249345+00:00",
+      "reviewLocalCoverUrl": "./reviews/covers/4597996071.jpg",
+      "reviewDate": "2022-05-07"
     },
     {
       "bookId": "56852605",
@@ -4793,7 +5067,9 @@
       "scrapeStatus": "ok",
       "reviewLocalUrl": "./reviews/4653943781.html",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:41:05.685292+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:20:31.281579+00:00",
+      "reviewLocalCoverUrl": "./reviews/covers/4653943781.jpg",
+      "reviewDate": "2022-04-17"
     },
     {
       "bookId": "31288000",
@@ -4807,7 +5083,9 @@
       "scrapeStatus": "ok",
       "reviewLocalUrl": "./reviews/2674962236.html",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:41:08.892254+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:20:39.331625+00:00",
+      "reviewLocalCoverUrl": "./reviews/covers/2674962236.jpg",
+      "reviewDate": "2022-04-16"
     },
     {
       "bookId": "44577138",
@@ -4821,7 +5099,9 @@
       "scrapeStatus": "ok",
       "reviewLocalUrl": "./reviews/4664229801.html",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:41:12.037202+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:20:46.272362+00:00",
+      "reviewLocalCoverUrl": "./reviews/covers/4664229801.jpg",
+      "reviewDate": "2022-04-15"
     },
     {
       "bookId": "58925658",
@@ -4835,7 +5115,9 @@
       "scrapeStatus": "ok",
       "reviewLocalUrl": "./reviews/3785913617.html",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:41:15.046856+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:20:53.458668+00:00",
+      "reviewLocalCoverUrl": "./reviews/covers/3785913617.jpg",
+      "reviewDate": "2022-04-12"
     },
     {
       "bookId": "28559780",
@@ -4849,7 +5131,9 @@
       "scrapeStatus": "ok",
       "reviewLocalUrl": "./reviews/4640227035.html",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:41:19.485586+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:21:00.839615+00:00",
+      "reviewLocalCoverUrl": "./reviews/covers/4640227035.jpg",
+      "reviewDate": "2022-04-10"
     },
     {
       "bookId": "48790050",
@@ -4863,7 +5147,9 @@
       "scrapeStatus": "ok",
       "reviewLocalUrl": "./reviews/4621985902.html",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:41:22.819637+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:21:08.297546+00:00",
+      "reviewLocalCoverUrl": "./reviews/covers/4621985902.jpg",
+      "reviewDate": "2022-04-10"
     },
     {
       "bookId": "59925654",
@@ -4877,7 +5163,9 @@
       "scrapeStatus": "ok",
       "reviewLocalUrl": "./reviews/4600652055.html",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:41:26.200191+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:21:15.395103+00:00",
+      "reviewLocalCoverUrl": "./reviews/covers/4600652055.jpg",
+      "reviewDate": "2023-07-28"
     },
     {
       "bookId": "57382098",
@@ -4891,7 +5179,9 @@
       "scrapeStatus": "ok",
       "reviewLocalUrl": "./reviews/4569274498.html",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:41:29.380998+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:21:24.326939+00:00",
+      "reviewLocalCoverUrl": "./reviews/covers/4569274498.jpg",
+      "reviewDate": "2022-03-21"
     },
     {
       "bookId": "52275150",
@@ -4905,7 +5195,9 @@
       "scrapeStatus": "ok",
       "reviewLocalUrl": "./reviews/4565921764.html",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:41:33.844663+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:21:29.792969+00:00",
+      "reviewLocalCoverUrl": "./reviews/covers/4565921764.jpg",
+      "reviewDate": "2023-09-01"
     },
     {
       "bookId": "59659813",
@@ -4919,7 +5211,9 @@
       "scrapeStatus": "ok",
       "reviewLocalUrl": "./reviews/4592016070.html",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:41:36.750082+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:21:37.931197+00:00",
+      "reviewLocalCoverUrl": "./reviews/covers/4592016070.jpg",
+      "reviewDate": "2022-03-08"
     },
     {
       "bookId": "39027951",
@@ -4955,7 +5249,9 @@
       "scrapeStatus": "ok",
       "reviewLocalUrl": "./reviews/4419517662.html",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:41:41.288394+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:21:46.697406+00:00",
+      "reviewLocalCoverUrl": "./reviews/covers/4419517662.jpg",
+      "reviewDate": "2022-03-14"
     },
     {
       "bookId": "4443937",
@@ -4991,7 +5287,9 @@
       "scrapeStatus": "ok",
       "reviewLocalUrl": "./reviews/4496899169.html",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:41:44.550525+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:21:53.720897+00:00",
+      "reviewLocalCoverUrl": "./reviews/covers/4496899169.jpg",
+      "reviewDate": "2022-10-17"
     },
     {
       "bookId": "13010991",
@@ -5016,7 +5314,9 @@
       "scrapeStatus": "ok",
       "reviewLocalUrl": "./reviews/4419513324.html",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:41:47.696289+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:22:01.433209+00:00",
+      "reviewLocalCoverUrl": "./reviews/covers/4419513324.jpg",
+      "reviewDate": "2022-01-16"
     },
     {
       "bookId": "134620",
@@ -5030,7 +5330,9 @@
       "scrapeStatus": "ok",
       "reviewLocalUrl": "./reviews/4459457517.html",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:41:50.789753+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:22:09.682366+00:00",
+      "reviewLocalCoverUrl": "./reviews/covers/4459457517.jpg",
+      "reviewDate": "2022-01-10"
     },
     {
       "bookId": "1562100",
@@ -5044,7 +5346,9 @@
       "scrapeStatus": "ok",
       "reviewLocalUrl": "./reviews/4452299244.html",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:41:53.894689+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:22:18.366592+00:00",
+      "reviewLocalCoverUrl": "./reviews/covers/4452299244.jpg",
+      "reviewDate": "2022-01-08"
     },
     {
       "bookId": "60010977",
@@ -5060,7 +5364,7 @@
       "reviewLocalCoverUrl": "./reviews/covers/4438097663.jpg",
       "reviewDate": "2024-08-22",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:41:57.481275+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:22:21.952123+00:00"
     },
     {
       "bookId": "58554633",
@@ -5074,7 +5378,9 @@
       "scrapeStatus": "ok",
       "reviewLocalUrl": "./reviews/4419515579.html",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:42:00.678271+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:22:29.794835+00:00",
+      "reviewLocalCoverUrl": "./reviews/covers/4419515579.jpg",
+      "reviewDate": "2022-01-02"
     },
     {
       "bookId": "59237846",
@@ -5090,7 +5396,7 @@
       "reviewLocalCoverUrl": "./reviews/covers/4423951235.jpg",
       "reviewDate": "2025-01-07",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:42:05.410536+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:22:33.231193+00:00"
     },
     {
       "bookId": "6745991",
@@ -5104,7 +5410,9 @@
       "scrapeStatus": "ok",
       "reviewLocalUrl": "./reviews/4386900738.html",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:42:08.660130+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:22:41.335549+00:00",
+      "reviewLocalCoverUrl": "./reviews/covers/4386900738.jpg",
+      "reviewDate": "2021-12-30"
     },
     {
       "bookId": "59940115",
@@ -5129,7 +5437,9 @@
       "scrapeStatus": "ok",
       "reviewLocalUrl": "./reviews/4415607121.html",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:42:11.823548+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:22:49.488645+00:00",
+      "reviewLocalCoverUrl": "./reviews/covers/4415607121.jpg",
+      "reviewDate": "2021-12-28"
     },
     {
       "bookId": "42401611",
@@ -5143,7 +5453,9 @@
       "scrapeStatus": "ok",
       "reviewLocalUrl": "./reviews/4372646250.html",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:42:15.011785+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:22:58.618690+00:00",
+      "reviewLocalCoverUrl": "./reviews/covers/4372646250.jpg",
+      "reviewDate": "2021-12-25"
     },
     {
       "bookId": "40691918",
@@ -5157,7 +5469,9 @@
       "scrapeStatus": "ok",
       "reviewLocalUrl": "./reviews/3369486490.html",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:42:18.360664+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:23:03.725372+00:00",
+      "reviewLocalCoverUrl": "./reviews/covers/3369486490.jpg",
+      "reviewDate": "2023-07-11"
     },
     {
       "bookId": "59931194",
@@ -5171,7 +5485,9 @@
       "scrapeStatus": "ok",
       "reviewLocalUrl": "./reviews/4387505341.html",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:42:21.782829+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:23:12.039154+00:00",
+      "reviewLocalCoverUrl": "./reviews/covers/4387505341.jpg",
+      "reviewDate": "2021-12-25"
     },
     {
       "bookId": "59740456",
@@ -5185,7 +5501,9 @@
       "scrapeStatus": "ok",
       "reviewLocalUrl": "./reviews/4383939301.html",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:42:26.222660+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:23:17.887720+00:00",
+      "reviewLocalCoverUrl": "./reviews/covers/4383939301.jpg",
+      "reviewDate": "2023-08-30"
     },
     {
       "bookId": "55022795",
@@ -5199,7 +5517,9 @@
       "scrapeStatus": "ok",
       "reviewLocalUrl": "./reviews/4331369842.html",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:42:29.683690+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:23:25.955291+00:00",
+      "reviewLocalCoverUrl": "./reviews/covers/4331369842.jpg",
+      "reviewDate": "2021-12-26"
     },
     {
       "bookId": "13601819",
@@ -5213,7 +5533,9 @@
       "scrapeStatus": "ok",
       "reviewLocalUrl": "./reviews/4363130894.html",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:42:32.891475+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:23:34.047881+00:00",
+      "reviewLocalCoverUrl": "./reviews/covers/4363130894.jpg",
+      "reviewDate": "2021-12-26"
     },
     {
       "bookId": "59665691",
@@ -5227,7 +5549,9 @@
       "scrapeStatus": "ok",
       "reviewLocalUrl": "./reviews/4349161780.html",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:42:36.180378+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:23:42.150259+00:00",
+      "reviewLocalCoverUrl": "./reviews/covers/4349161780.jpg",
+      "reviewDate": "2021-12-11"
     },
     {
       "bookId": "38929578",
@@ -5241,7 +5565,9 @@
       "scrapeStatus": "ok",
       "reviewLocalUrl": "./reviews/4360085835.html",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:42:40.484037+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:23:54.620503+00:00",
+      "reviewLocalCoverUrl": "./reviews/covers/4360085835.jpg",
+      "reviewDate": "2021-12-11"
     },
     {
       "bookId": "56961672",
@@ -5255,7 +5581,9 @@
       "scrapeStatus": "ok",
       "reviewLocalUrl": "./reviews/4348577041.html",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:42:43.805421+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:24:02.749870+00:00",
+      "reviewLocalCoverUrl": "./reviews/covers/4348577041.jpg",
+      "reviewDate": "2022-02-05"
     },
     {
       "bookId": "50536154",
@@ -5269,7 +5597,9 @@
       "scrapeStatus": "ok",
       "reviewLocalUrl": "./reviews/4325012419.html",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:42:46.977319+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:24:12.701157+00:00",
+      "reviewLocalCoverUrl": "./reviews/covers/4325012419.jpg",
+      "reviewDate": "2021-11-14"
     },
     {
       "bookId": "23221695",
@@ -5283,7 +5613,9 @@
       "scrapeStatus": "ok",
       "reviewLocalUrl": "./reviews/4225171146.html",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:42:50.136705+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:24:21.055523+00:00",
+      "reviewLocalCoverUrl": "./reviews/covers/4225171146.jpg",
+      "reviewDate": "2021-11-08"
     },
     {
       "bookId": "57683460",
@@ -5297,7 +5629,9 @@
       "scrapeStatus": "ok",
       "reviewLocalUrl": "./reviews/4315406401.html",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:42:53.258223+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:24:29.213404+00:00",
+      "reviewLocalCoverUrl": "./reviews/covers/4315406401.jpg",
+      "reviewDate": "2021-11-14"
     },
     {
       "bookId": "33511979",
@@ -5311,7 +5645,9 @@
       "scrapeStatus": "ok",
       "reviewLocalUrl": "./reviews/2851834622.html",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:42:56.456453+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:24:37.203044+00:00",
+      "reviewLocalCoverUrl": "./reviews/covers/2851834622.jpg",
+      "reviewDate": "2021-12-11"
     },
     {
       "bookId": "54348299",
@@ -5325,7 +5661,9 @@
       "scrapeStatus": "ok",
       "reviewLocalUrl": "./reviews/4288180873.html",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:43:01.386052+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:24:44.548793+00:00",
+      "reviewLocalCoverUrl": "./reviews/covers/4288180873.jpg",
+      "reviewDate": "2021-10-24"
     },
     {
       "bookId": "33148679",
@@ -5339,7 +5677,9 @@
       "scrapeStatus": "ok",
       "reviewLocalUrl": "./reviews/4288183161.html",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:43:04.786736+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:24:52.729467+00:00",
+      "reviewLocalCoverUrl": "./reviews/covers/4288183161.jpg",
+      "reviewDate": "2021-10-25"
     },
     {
       "bookId": "55333158",
@@ -5353,7 +5693,9 @@
       "scrapeStatus": "ok",
       "reviewLocalUrl": "./reviews/4284525070.html",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:43:07.917152+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:25:00.688219+00:00",
+      "reviewLocalCoverUrl": "./reviews/covers/4284525070.jpg",
+      "reviewDate": "2021-10-24"
     },
     {
       "bookId": "59110779",
@@ -5367,7 +5709,9 @@
       "scrapeStatus": "ok",
       "reviewLocalUrl": "./reviews/4278716233.html",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:43:11.018010+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:25:08.468113+00:00",
+      "reviewLocalCoverUrl": "./reviews/covers/4278716233.jpg",
+      "reviewDate": "2021-10-12"
     },
     {
       "bookId": "59111160",
@@ -5381,7 +5725,9 @@
       "scrapeStatus": "ok",
       "reviewLocalUrl": "./reviews/4262155793.html",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:43:15.179011+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:25:16.680429+00:00",
+      "reviewLocalCoverUrl": "./reviews/covers/4262155793.jpg",
+      "reviewDate": "2021-10-12"
     },
     {
       "bookId": "51018408",
@@ -5395,7 +5741,9 @@
       "scrapeStatus": "ok",
       "reviewLocalUrl": "./reviews/4243273516.html",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:43:18.218012+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:25:24.882738+00:00",
+      "reviewLocalCoverUrl": "./reviews/covers/4243273516.jpg",
+      "reviewDate": "2021-09-28"
     },
     {
       "bookId": "57671917",
@@ -5409,7 +5757,9 @@
       "scrapeStatus": "ok",
       "reviewLocalUrl": "./reviews/4234485995.html",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:43:21.796287+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:25:34.642404+00:00",
+      "reviewLocalCoverUrl": "./reviews/covers/4234485995.jpg",
+      "reviewDate": "2021-09-19"
     },
     {
       "bookId": "58978750",
@@ -5423,7 +5773,9 @@
       "scrapeStatus": "ok",
       "reviewLocalUrl": "./reviews/4232235817.html",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:43:25.586656+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:25:42.686095+00:00",
+      "reviewLocalCoverUrl": "./reviews/covers/4232235817.jpg",
+      "reviewDate": "2021-09-14"
     },
     {
       "bookId": "58858519",
@@ -5437,7 +5789,9 @@
       "scrapeStatus": "ok",
       "reviewLocalUrl": "./reviews/4230332297.html",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:43:28.866297+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:25:50.742740+00:00",
+      "reviewLocalCoverUrl": "./reviews/covers/4230332297.jpg",
+      "reviewDate": "2021-09-19"
     },
     {
       "bookId": "55824472",
@@ -5451,7 +5805,9 @@
       "scrapeStatus": "ok",
       "reviewLocalUrl": "./reviews/3733822360.html",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:43:31.966048+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:25:59.985589+00:00",
+      "reviewLocalCoverUrl": "./reviews/covers/3733822360.jpg",
+      "reviewDate": "2021-09-09"
     },
     {
       "bookId": "13227988",
@@ -5465,7 +5821,9 @@
       "scrapeStatus": "ok",
       "reviewLocalUrl": "./reviews/4186110021.html",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:43:35.194592+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:26:09.511798+00:00",
+      "reviewLocalCoverUrl": "./reviews/covers/4186110021.jpg",
+      "reviewDate": "2021-09-09"
     },
     {
       "bookId": "29969610",
@@ -5479,7 +5837,9 @@
       "scrapeStatus": "ok",
       "reviewLocalUrl": "./reviews/4205911401.html",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:43:38.414910+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:26:16.787276+00:00",
+      "reviewLocalCoverUrl": "./reviews/covers/4205911401.jpg",
+      "reviewDate": "2021-08-31"
     },
     {
       "bookId": "58699395",
@@ -5493,7 +5853,9 @@
       "scrapeStatus": "ok",
       "reviewLocalUrl": "./reviews/4180743251.html",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:43:41.829144+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:26:24.643583+00:00",
+      "reviewLocalCoverUrl": "./reviews/covers/4180743251.jpg",
+      "reviewDate": "2021-09-24"
     },
     {
       "bookId": "65105",
@@ -5507,7 +5869,9 @@
       "scrapeStatus": "ok",
       "reviewLocalUrl": "./reviews/4165995896.html",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:43:44.931854+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:26:32.434335+00:00",
+      "reviewLocalCoverUrl": "./reviews/covers/4165995896.jpg",
+      "reviewDate": "2021-08-16"
     },
     {
       "bookId": "35069202",
@@ -5521,7 +5885,9 @@
       "scrapeStatus": "ok",
       "reviewLocalUrl": "./reviews/4145985960.html",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:43:48.363210+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:26:40.404371+00:00",
+      "reviewLocalCoverUrl": "./reviews/covers/4145985960.jpg",
+      "reviewDate": "2021-08-09"
     },
     {
       "bookId": "20428005",
@@ -5546,7 +5912,9 @@
       "scrapeStatus": "ok",
       "reviewLocalUrl": "./reviews/4077492857.html",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:43:52.935781+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:26:49.609611+00:00",
+      "reviewLocalCoverUrl": "./reviews/covers/4077492857.jpg",
+      "reviewDate": "2021-07-27"
     },
     {
       "bookId": "57400686",
@@ -5560,7 +5928,9 @@
       "scrapeStatus": "ok",
       "reviewLocalUrl": "./reviews/4118373608.html",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:43:56.225131+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:26:58.569902+00:00",
+      "reviewLocalCoverUrl": "./reviews/covers/4118373608.jpg",
+      "reviewDate": "2022-01-23"
     },
     {
       "bookId": "16207748",
@@ -5574,7 +5944,9 @@
       "scrapeStatus": "ok",
       "reviewLocalUrl": "./reviews/4094849036.html",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:43:59.536310+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:27:06.238152+00:00",
+      "reviewLocalCoverUrl": "./reviews/covers/4094849036.jpg",
+      "reviewDate": "2021-07-19"
     },
     {
       "bookId": "55205948",
@@ -5588,7 +5960,9 @@
       "scrapeStatus": "ok",
       "reviewLocalUrl": "./reviews/4090925359.html",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:44:02.845439+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:27:14.501486+00:00",
+      "reviewLocalCoverUrl": "./reviews/covers/4090925359.jpg",
+      "reviewDate": "2021-07-04"
     },
     {
       "bookId": "58467332",
@@ -5602,7 +5976,9 @@
       "scrapeStatus": "ok",
       "reviewLocalUrl": "./reviews/4087649348.html",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:44:06.143949+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:27:22.995907+00:00",
+      "reviewLocalCoverUrl": "./reviews/covers/4087649348.jpg",
+      "reviewDate": "2021-07-01"
     },
     {
       "bookId": "57941683",
@@ -5616,7 +5992,9 @@
       "scrapeStatus": "ok",
       "reviewLocalUrl": "./reviews/4082058602.html",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:44:09.214081+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:27:30.715878+00:00",
+      "reviewLocalCoverUrl": "./reviews/covers/4082058602.jpg",
+      "reviewDate": "2021-06-28"
     },
     {
       "bookId": "57941146",
@@ -5632,7 +6010,7 @@
       "reviewLocalCoverUrl": "./reviews/covers/4065542288.jpg",
       "reviewDate": "2026-01-25",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:44:11.071781+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:27:32.397615+00:00"
     },
     {
       "bookId": "53972981",
@@ -5646,7 +6024,9 @@
       "scrapeStatus": "ok",
       "reviewLocalUrl": "./reviews/3500455231.html",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:44:14.504718+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:27:40.137757+00:00",
+      "reviewLocalCoverUrl": "./reviews/covers/3500455231.jpg",
+      "reviewDate": "2021-06-26"
     },
     {
       "bookId": "8033402",
@@ -5660,7 +6040,9 @@
       "scrapeStatus": "ok",
       "reviewLocalUrl": "./reviews/4068010828.html",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:44:17.678363+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:27:49.378240+00:00",
+      "reviewLocalCoverUrl": "./reviews/covers/4068010828.jpg",
+      "reviewDate": "2021-06-26"
     },
     {
       "bookId": "29579029",
@@ -5674,7 +6056,9 @@
       "scrapeStatus": "ok",
       "reviewLocalUrl": "./reviews/4050771668.html",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:44:21.520244+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:27:57.523274+00:00",
+      "reviewLocalCoverUrl": "./reviews/covers/4050771668.jpg",
+      "reviewDate": "2021-06-20"
     },
     {
       "bookId": "6966227",
@@ -5688,7 +6072,9 @@
       "scrapeStatus": "ok",
       "reviewLocalUrl": "./reviews/4011309800.html",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:44:25.012143+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:28:05.355993+00:00",
+      "reviewLocalCoverUrl": "./reviews/covers/4011309800.jpg",
+      "reviewDate": "2021-06-06"
     },
     {
       "bookId": "450643",
@@ -5702,7 +6088,9 @@
       "scrapeStatus": "ok",
       "reviewLocalUrl": "./reviews/3694936479.html",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:44:28.383511+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:28:13.026013+00:00",
+      "reviewLocalCoverUrl": "./reviews/covers/3694936479.jpg",
+      "reviewDate": "2021-06-06"
     },
     {
       "bookId": "58078356",
@@ -5716,7 +6104,9 @@
       "scrapeStatus": "ok",
       "reviewLocalUrl": "./reviews/4004677248.html",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:44:32.853886+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:28:22.124842+00:00",
+      "reviewLocalCoverUrl": "./reviews/covers/4004677248.jpg",
+      "reviewDate": "2021-05-17"
     },
     {
       "bookId": "42610931",
@@ -5730,7 +6120,9 @@
       "scrapeStatus": "ok",
       "reviewLocalUrl": "./reviews/3944988502.html",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:44:36.079506+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:28:31.008256+00:00",
+      "reviewLocalCoverUrl": "./reviews/covers/3944988502.jpg",
+      "reviewDate": "2021-05-09"
     },
     {
       "bookId": "54155668",
@@ -5744,7 +6136,9 @@
       "scrapeStatus": "ok",
       "reviewLocalUrl": "./reviews/3925588748.html",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:44:39.455720+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:28:40.027152+00:00",
+      "reviewLocalCoverUrl": "./reviews/covers/3925588748.jpg",
+      "reviewDate": "2021-05-09"
     },
     {
       "bookId": "44164671",
@@ -5758,7 +6152,9 @@
       "scrapeStatus": "ok",
       "reviewLocalUrl": "./reviews/3953157222.html",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:44:42.824774+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:28:49.840736+00:00",
+      "reviewLocalCoverUrl": "./reviews/covers/3953157222.jpg",
+      "reviewDate": "2021-05-09"
     },
     {
       "bookId": "26399940",
@@ -5794,7 +6190,9 @@
       "scrapeStatus": "ok",
       "reviewLocalUrl": "./reviews/3950584801.html",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:44:46.046841+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:28:58.070196+00:00",
+      "reviewLocalCoverUrl": "./reviews/covers/3950584801.jpg",
+      "reviewDate": "2021-04-18"
     },
     {
       "bookId": "3215511",
@@ -5819,7 +6217,9 @@
       "scrapeStatus": "ok",
       "reviewLocalUrl": "./reviews/3891072724.html",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:44:49.491051+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:29:06.840752+00:00",
+      "reviewLocalCoverUrl": "./reviews/covers/3891072724.jpg",
+      "reviewDate": "2021-05-09"
     },
     {
       "bookId": "55958643",
@@ -5833,7 +6233,9 @@
       "scrapeStatus": "ok",
       "reviewLocalUrl": "./reviews/3918158273.html",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:44:54.250290+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:29:11.165275+00:00",
+      "reviewLocalCoverUrl": "./reviews/covers/3918158273.jpg",
+      "reviewDate": "2024-03-29"
     },
     {
       "bookId": "57623547",
@@ -5847,7 +6249,9 @@
       "scrapeStatus": "ok",
       "reviewLocalUrl": "./reviews/3924618787.html",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:44:57.515820+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:29:19.756020+00:00",
+      "reviewLocalCoverUrl": "./reviews/covers/3924618787.jpg",
+      "reviewDate": "2021-04-04"
     },
     {
       "bookId": "50929116",
@@ -5861,7 +6265,9 @@
       "scrapeStatus": "ok",
       "reviewLocalUrl": "./reviews/3918973136.html",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:45:00.889152+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:29:28.863615+00:00",
+      "reviewLocalCoverUrl": "./reviews/covers/3918973136.jpg",
+      "reviewDate": "2021-04-02"
     },
     {
       "bookId": "55963564",
@@ -5875,7 +6281,9 @@
       "scrapeStatus": "ok",
       "reviewLocalUrl": "./reviews/3913898929.html",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:45:04.170868+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:29:37.761740+00:00",
+      "reviewLocalCoverUrl": "./reviews/covers/3913898929.jpg",
+      "reviewDate": "2021-03-30"
     },
     {
       "bookId": "18469454",
@@ -5889,7 +6297,9 @@
       "scrapeStatus": "ok",
       "reviewLocalUrl": "./reviews/3838495628.html",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:45:08.747125+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:29:46.650607+00:00",
+      "reviewLocalCoverUrl": "./reviews/covers/3838495628.jpg",
+      "reviewDate": "2021-03-28"
     },
     {
       "bookId": "42955510",
@@ -5903,7 +6313,9 @@
       "scrapeStatus": "ok",
       "reviewLocalUrl": "./reviews/3888386491.html",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:45:12.090489+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:29:55.204559+00:00",
+      "reviewLocalCoverUrl": "./reviews/covers/3888386491.jpg",
+      "reviewDate": "2021-03-28"
     },
     {
       "bookId": "35566018",
@@ -5917,7 +6329,9 @@
       "scrapeStatus": "ok",
       "reviewLocalUrl": "./reviews/3838076950.html",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:45:15.573773+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:30:21.682109+00:00",
+      "reviewLocalCoverUrl": "./reviews/covers/3838076950.jpg",
+      "reviewDate": "2021-03-06"
     },
     {
       "bookId": "49394794",
@@ -5931,7 +6345,9 @@
       "scrapeStatus": "ok",
       "reviewLocalUrl": "./reviews/3742582688.html",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:45:18.614176+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:30:25.914420+00:00",
+      "reviewLocalCoverUrl": "./reviews/covers/3742582688.jpg",
+      "reviewDate": "2024-06-10"
     },
     {
       "bookId": "36554383",
@@ -5945,7 +6361,9 @@
       "scrapeStatus": "ok",
       "reviewLocalUrl": "./reviews/3860164825.html",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:45:22.239635+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:30:34.172002+00:00",
+      "reviewLocalCoverUrl": "./reviews/covers/3860164825.jpg",
+      "reviewDate": "2021-02-25"
     },
     {
       "bookId": "43178331",
@@ -5959,7 +6377,9 @@
       "scrapeStatus": "ok",
       "reviewLocalUrl": "./reviews/3782410802.html",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:45:25.727158+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:30:39.578634+00:00",
+      "reviewLocalCoverUrl": "./reviews/covers/3782410802.jpg",
+      "reviewDate": "2023-09-01"
     },
     {
       "bookId": "42079669",
@@ -5984,7 +6404,9 @@
       "scrapeStatus": "ok",
       "reviewLocalUrl": "./reviews/3782412796.html",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:45:28.965289+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:30:49.328747+00:00",
+      "reviewLocalCoverUrl": "./reviews/covers/3782412796.jpg",
+      "reviewDate": "2021-02-08"
     },
     {
       "bookId": "27403373",
@@ -5998,7 +6420,9 @@
       "scrapeStatus": "ok",
       "reviewLocalUrl": "./reviews/3796342462.html",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:45:32.537073+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:30:57.908306+00:00",
+      "reviewLocalCoverUrl": "./reviews/covers/3796342462.jpg",
+      "reviewDate": "2021-02-04"
     },
     {
       "bookId": "3056620",
@@ -6012,7 +6436,9 @@
       "scrapeStatus": "ok",
       "reviewLocalUrl": "./reviews/3717416423.html",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:45:36.021134+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:31:08.080550+00:00",
+      "reviewLocalCoverUrl": "./reviews/covers/3717416423.jpg",
+      "reviewDate": "2021-02-04"
     },
     {
       "bookId": "55152415",
@@ -6026,7 +6452,9 @@
       "scrapeStatus": "ok",
       "reviewLocalUrl": "./reviews/3648282826.html",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:45:40.740287+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:31:16.692980+00:00",
+      "reviewLocalCoverUrl": "./reviews/covers/3648282826.jpg",
+      "reviewDate": "2021-01-24"
     },
     {
       "bookId": "17164670",
@@ -6040,7 +6468,9 @@
       "scrapeStatus": "ok",
       "reviewLocalUrl": "./reviews/3771181233.html",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:45:44.402719+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:31:25.784617+00:00",
+      "reviewLocalCoverUrl": "./reviews/covers/3771181233.jpg",
+      "reviewDate": "2021-01-23"
     },
     {
       "bookId": "27888988",
@@ -6054,7 +6484,9 @@
       "scrapeStatus": "ok",
       "reviewLocalUrl": "./reviews/3722073618.html",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:45:47.811491+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:31:34.318598+00:00",
+      "reviewLocalCoverUrl": "./reviews/covers/3722073618.jpg",
+      "reviewDate": "2021-01-22"
     },
     {
       "bookId": "12163407",
@@ -6090,7 +6522,9 @@
       "scrapeStatus": "ok",
       "reviewLocalUrl": "./reviews/3696311778.html",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:45:51.003499+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:31:40.586353+00:00",
+      "reviewLocalCoverUrl": "./reviews/covers/3696311778.jpg",
+      "reviewDate": "2023-02-11"
     },
     {
       "bookId": "4771608",
@@ -6115,7 +6549,9 @@
       "scrapeStatus": "ok",
       "reviewLocalUrl": "./reviews/3707612657.html",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:45:54.145352+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:31:49.715365+00:00",
+      "reviewLocalCoverUrl": "./reviews/covers/3707612657.jpg",
+      "reviewDate": "2021-04-04"
     },
     {
       "bookId": "18165452",
@@ -6129,7 +6565,9 @@
       "scrapeStatus": "ok",
       "reviewLocalUrl": "./reviews/3655137654.html",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:45:57.511514+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:31:58.457390+00:00",
+      "reviewLocalCoverUrl": "./reviews/covers/3655137654.jpg",
+      "reviewDate": "2020-12-28"
     },
     {
       "bookId": "50051894",
@@ -6143,7 +6581,9 @@
       "scrapeStatus": "ok",
       "reviewLocalUrl": "./reviews/3703785670.html",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:46:01.984467+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:32:07.224639+00:00",
+      "reviewLocalCoverUrl": "./reviews/covers/3703785670.jpg",
+      "reviewDate": "2020-12-22"
     },
     {
       "bookId": "52575424",
@@ -6157,7 +6597,9 @@
       "scrapeStatus": "ok",
       "reviewLocalUrl": "./reviews/3692130332.html",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:46:05.210602+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:32:16.070927+00:00",
+      "reviewLocalCoverUrl": "./reviews/covers/3692130332.jpg",
+      "reviewDate": "2020-12-14"
     },
     {
       "bookId": "22888914",
@@ -6171,7 +6613,9 @@
       "scrapeStatus": "ok",
       "reviewLocalUrl": "./reviews/3689089692.html",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:46:08.587943+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:32:24.429485+00:00",
+      "reviewLocalCoverUrl": "./reviews/covers/3689089692.jpg",
+      "reviewDate": "2020-12-12"
     },
     {
       "bookId": "25785264",
@@ -6185,7 +6629,9 @@
       "scrapeStatus": "ok",
       "reviewLocalUrl": "./reviews/3405181039.html",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:46:13.308285+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:32:32.781285+00:00",
+      "reviewLocalCoverUrl": "./reviews/covers/3405181039.jpg",
+      "reviewDate": "2020-12-08"
     },
     {
       "bookId": "25070875",
@@ -6199,7 +6645,9 @@
       "scrapeStatus": "ok",
       "reviewLocalUrl": "./reviews/3421362454.html",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:46:16.803135+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:32:41.468168+00:00",
+      "reviewLocalCoverUrl": "./reviews/covers/3421362454.jpg",
+      "reviewDate": "2020-12-06"
     },
     {
       "bookId": "34941944",
@@ -6224,7 +6672,9 @@
       "scrapeStatus": "ok",
       "reviewLocalUrl": "./reviews/3656428523.html",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:46:21.749105+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:32:49.562747+00:00",
+      "reviewLocalCoverUrl": "./reviews/covers/3656428523.jpg",
+      "reviewDate": "2020-12-06"
     },
     {
       "bookId": "16104011",
@@ -6238,7 +6688,9 @@
       "scrapeStatus": "ok",
       "reviewLocalUrl": "./reviews/3632068375.html",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:46:25.124390+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:32:59.018561+00:00",
+      "reviewLocalCoverUrl": "./reviews/covers/3632068375.jpg",
+      "reviewDate": "2020-12-06"
     },
     {
       "bookId": "12638953",
@@ -6252,7 +6704,9 @@
       "scrapeStatus": "ok",
       "reviewLocalUrl": "./reviews/3569885445.html",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:46:28.482834+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:33:07.254195+00:00",
+      "reviewLocalCoverUrl": "./reviews/covers/3569885445.jpg",
+      "reviewDate": "2020-11-18"
     },
     {
       "bookId": "48647367",
@@ -6266,7 +6720,9 @@
       "scrapeStatus": "ok",
       "reviewLocalUrl": "./reviews/3632071317.html",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:46:31.895189+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:33:15.544610+00:00",
+      "reviewLocalCoverUrl": "./reviews/covers/3632071317.jpg",
+      "reviewDate": "2020-11-19"
     },
     {
       "bookId": "17230085",
@@ -6280,7 +6736,9 @@
       "scrapeStatus": "ok",
       "reviewLocalUrl": "./reviews/3623918570.html",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:46:35.481638+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:33:25.498038+00:00",
+      "reviewLocalCoverUrl": "./reviews/covers/3623918570.jpg",
+      "reviewDate": "2020-11-01"
     },
     {
       "bookId": "23348887",
@@ -6294,7 +6752,9 @@
       "scrapeStatus": "ok",
       "reviewLocalUrl": "./reviews/3570006268.html",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:46:38.926989+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:33:34.081223+00:00",
+      "reviewLocalCoverUrl": "./reviews/covers/3570006268.jpg",
+      "reviewDate": "2020-10-31"
     },
     {
       "bookId": "55145663",
@@ -6308,7 +6768,9 @@
       "scrapeStatus": "ok",
       "reviewLocalUrl": "./reviews/3566528987.html",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:46:41.881327+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:33:44.374163+00:00",
+      "reviewLocalCoverUrl": "./reviews/covers/3566528987.jpg",
+      "reviewDate": "2020-09-27"
     },
     {
       "bookId": "45995574",
@@ -6322,7 +6784,9 @@
       "scrapeStatus": "ok",
       "reviewLocalUrl": "./reviews/3025966354.html",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:46:45.494829+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:33:52.726417+00:00",
+      "reviewLocalCoverUrl": "./reviews/covers/3025966354.jpg",
+      "reviewDate": "2020-09-27"
     },
     {
       "bookId": "50096588",
@@ -6336,7 +6800,9 @@
       "scrapeStatus": "ok",
       "reviewLocalUrl": "./reviews/3532558035.html",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:46:48.371412+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:34:00.804142+00:00",
+      "reviewLocalCoverUrl": "./reviews/covers/3532558035.jpg",
+      "reviewDate": "2022-12-08"
     },
     {
       "bookId": "9049717",
@@ -6350,7 +6816,9 @@
       "scrapeStatus": "ok",
       "reviewLocalUrl": "./reviews/3543374146.html",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:46:51.609256+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:34:09.320060+00:00",
+      "reviewLocalCoverUrl": "./reviews/covers/3543374146.jpg",
+      "reviewDate": "2020-09-27"
     },
     {
       "bookId": "41858867",
@@ -6364,7 +6832,9 @@
       "scrapeStatus": "ok",
       "reviewLocalUrl": "./reviews/3522865603.html",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:46:55.241038+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:34:18.598329+00:00",
+      "reviewLocalCoverUrl": "./reviews/covers/3522865603.jpg",
+      "reviewDate": "2020-08-30"
     },
     {
       "bookId": "50262027",
@@ -6378,7 +6848,9 @@
       "scrapeStatus": "ok",
       "reviewLocalUrl": "./reviews/3434524408.html",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:46:59.746383+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:34:27.186221+00:00",
+      "reviewLocalCoverUrl": "./reviews/covers/3434524408.jpg",
+      "reviewDate": "2020-08-30"
     },
     {
       "bookId": "6150922",
@@ -6392,7 +6864,9 @@
       "scrapeStatus": "ok",
       "reviewLocalUrl": "./reviews/3503259742.html",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:47:04.273993+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:34:35.700365+00:00",
+      "reviewLocalCoverUrl": "./reviews/covers/3503259742.jpg",
+      "reviewDate": "2020-08-30"
     },
     {
       "bookId": "54421354",
@@ -6406,7 +6880,9 @@
       "scrapeStatus": "ok",
       "reviewLocalUrl": "./reviews/3499698951.html",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:47:07.768691+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:34:44.441730+00:00",
+      "reviewLocalCoverUrl": "./reviews/covers/3499698951.jpg",
+      "reviewDate": "2020-08-19"
     },
     {
       "bookId": "43582376",
@@ -6420,7 +6896,9 @@
       "scrapeStatus": "ok",
       "reviewLocalUrl": "./reviews/3485880935.html",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:47:11.001217+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:34:52.738120+00:00",
+      "reviewLocalCoverUrl": "./reviews/covers/3485880935.jpg",
+      "reviewDate": "2020-08-19"
     },
     {
       "bookId": "33402665",
@@ -6434,7 +6912,9 @@
       "scrapeStatus": "ok",
       "reviewLocalUrl": "./reviews/3473935188.html",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:47:14.266884+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:35:02.690046+00:00",
+      "reviewLocalCoverUrl": "./reviews/covers/3473935188.jpg",
+      "reviewDate": "2020-08-08"
     },
     {
       "bookId": "8207901",
@@ -6459,7 +6939,9 @@
       "scrapeStatus": "ok",
       "reviewLocalUrl": "./reviews/3450282700.html",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:47:17.468327+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:35:12.249795+00:00",
+      "reviewLocalCoverUrl": "./reviews/covers/3450282700.jpg",
+      "reviewDate": "2020-07-26"
     },
     {
       "bookId": "54610309",
@@ -6473,7 +6955,9 @@
       "scrapeStatus": "ok",
       "reviewLocalUrl": "./reviews/3452456636.html",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:47:20.867328+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:35:22.418930+00:00",
+      "reviewLocalCoverUrl": "./reviews/covers/3452456636.jpg",
+      "reviewDate": "2020-07-20"
     },
     {
       "bookId": "8061197",
@@ -6487,7 +6971,9 @@
       "scrapeStatus": "ok",
       "reviewLocalUrl": "./reviews/3439858746.html",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:47:24.421337+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:35:30.755596+00:00",
+      "reviewLocalCoverUrl": "./reviews/covers/3439858746.jpg",
+      "reviewDate": "2020-07-18"
     },
     {
       "bookId": "50743577",
@@ -6501,7 +6987,9 @@
       "scrapeStatus": "ok",
       "reviewLocalUrl": "./reviews/3439210097.html",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:47:27.966268+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:35:39.333455+00:00",
+      "reviewLocalCoverUrl": "./reviews/covers/3439210097.jpg",
+      "reviewDate": "2020-07-20"
     },
     {
       "bookId": "34308236",
@@ -6515,7 +7003,9 @@
       "scrapeStatus": "ok",
       "reviewLocalUrl": "./reviews/3426871733.html",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:47:31.475512+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:35:53.423457+00:00",
+      "reviewLocalCoverUrl": "./reviews/covers/3426871733.jpg",
+      "reviewDate": "2020-07-12"
     },
     {
       "bookId": "32941685",
@@ -6529,7 +7019,9 @@
       "scrapeStatus": "ok",
       "reviewLocalUrl": "./reviews/3426869905.html",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:47:34.792031+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:36:02.872709+00:00",
+      "reviewLocalCoverUrl": "./reviews/covers/3426869905.jpg",
+      "reviewDate": "2020-07-09"
     },
     {
       "bookId": "2339744",
@@ -6543,7 +7035,9 @@
       "scrapeStatus": "ok",
       "reviewLocalUrl": "./reviews/3416706088.html",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:47:38.055694+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:36:12.573761+00:00",
+      "reviewLocalCoverUrl": "./reviews/covers/3416706088.jpg",
+      "reviewDate": "2020-07-03"
     },
     {
       "bookId": "40135796",
@@ -6557,7 +7051,9 @@
       "scrapeStatus": "ok",
       "reviewLocalUrl": "./reviews/3344914655.html",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:47:41.330697+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:36:21.923900+00:00",
+      "reviewLocalCoverUrl": "./reviews/covers/3344914655.jpg",
+      "reviewDate": "2020-07-03"
     },
     {
       "bookId": "34150210",
@@ -6571,7 +7067,9 @@
       "scrapeStatus": "ok",
       "reviewLocalUrl": "./reviews/3406737066.html",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:47:45.891189+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:36:30.284173+00:00",
+      "reviewLocalCoverUrl": "./reviews/covers/3406737066.jpg",
+      "reviewDate": "2020-07-20"
     },
     {
       "bookId": "24377137",
@@ -6585,7 +7083,9 @@
       "scrapeStatus": "ok",
       "reviewLocalUrl": "./reviews/3400900834.html",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:47:49.427403+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:36:40.480035+00:00",
+      "reviewLocalCoverUrl": "./reviews/covers/3400900834.jpg",
+      "reviewDate": "2020-06-22"
     },
     {
       "bookId": "51103229",
@@ -6599,7 +7099,9 @@
       "scrapeStatus": "ok",
       "reviewLocalUrl": "./reviews/3391694841.html",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:47:52.931121+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:36:49.609476+00:00",
+      "reviewLocalCoverUrl": "./reviews/covers/3391694841.jpg",
+      "reviewDate": "2020-06-16"
     },
     {
       "bookId": "53867650",
@@ -6613,7 +7115,9 @@
       "scrapeStatus": "ok",
       "reviewLocalUrl": "./reviews/3379859188.html",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:47:56.380160+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:37:01.263385+00:00",
+      "reviewLocalCoverUrl": "./reviews/covers/3379859188.jpg",
+      "reviewDate": "2020-06-16"
     },
     {
       "bookId": "5376159",
@@ -6638,7 +7142,9 @@
       "scrapeStatus": "ok",
       "reviewLocalUrl": "./reviews/3365443411.html",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:47:59.665086+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:37:12.155403+00:00",
+      "reviewLocalCoverUrl": "./reviews/covers/3365443411.jpg",
+      "reviewDate": "2020-05-31"
     },
     {
       "bookId": "1841",
@@ -6652,7 +7158,9 @@
       "scrapeStatus": "ok",
       "reviewLocalUrl": "./reviews/2978150338.html",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:48:03.226276+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:37:24.849604+00:00",
+      "reviewLocalCoverUrl": "./reviews/covers/2978150338.jpg",
+      "reviewDate": "2020-05-26"
     },
     {
       "bookId": "28925478",
@@ -6666,7 +7174,9 @@
       "scrapeStatus": "ok",
       "reviewLocalUrl": "./reviews/3339998983.html",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:48:06.866854+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:37:34.331585+00:00",
+      "reviewLocalCoverUrl": "./reviews/covers/3339998983.jpg",
+      "reviewDate": "2020-05-26"
     },
     {
       "bookId": "32853600",
@@ -6680,7 +7190,9 @@
       "scrapeStatus": "ok",
       "reviewLocalUrl": "./reviews/3338600232.html",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:48:10.211878+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:37:43.822272+00:00",
+      "reviewLocalCoverUrl": "./reviews/covers/3338600232.jpg",
+      "reviewDate": "2020-05-26"
     },
     {
       "bookId": "45325040",
@@ -6694,7 +7206,9 @@
       "scrapeStatus": "ok",
       "reviewLocalUrl": "./reviews/2996681131.html",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:48:13.840187+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:37:54.604524+00:00",
+      "reviewLocalCoverUrl": "./reviews/covers/2996681131.jpg",
+      "reviewDate": "2020-05-26"
     },
     {
       "bookId": "24677483",
@@ -6708,7 +7222,9 @@
       "scrapeStatus": "ok",
       "reviewLocalUrl": "./reviews/3312923146.html",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:48:17.893619+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:38:04.056284+00:00",
+      "reviewLocalCoverUrl": "./reviews/covers/3312923146.jpg",
+      "reviewDate": "2020-05-26"
     },
     {
       "bookId": "35820369",
@@ -6722,7 +7238,9 @@
       "scrapeStatus": "ok",
       "reviewLocalUrl": "./reviews/2669204126.html",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:48:21.729451+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:38:10.835970+00:00",
+      "reviewLocalCoverUrl": "./reviews/covers/2669204126.jpg",
+      "reviewDate": "2022-04-24"
     },
     {
       "bookId": "43823891",
@@ -6736,7 +7254,9 @@
       "scrapeStatus": "ok",
       "reviewLocalUrl": "./reviews/3079631415.html",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:48:25.614555+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:38:20.389310+00:00",
+      "reviewLocalCoverUrl": "./reviews/covers/3079631415.jpg",
+      "reviewDate": "2020-04-24"
     },
     {
       "bookId": "42392875",
@@ -6750,7 +7270,9 @@
       "scrapeStatus": "ok",
       "reviewLocalUrl": "./reviews/3185064974.html",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:48:29.232928+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:38:29.556470+00:00",
+      "reviewLocalCoverUrl": "./reviews/covers/3185064974.jpg",
+      "reviewDate": "2020-04-24"
     },
     {
       "bookId": "29768870",
@@ -6764,7 +7286,9 @@
       "scrapeStatus": "ok",
       "reviewLocalUrl": "./reviews/3275662947.html",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:48:33.086548+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:38:39.388955+00:00",
+      "reviewLocalCoverUrl": "./reviews/covers/3275662947.jpg",
+      "reviewDate": "2020-04-12"
     },
     {
       "bookId": "25838588",
@@ -6778,7 +7302,9 @@
       "scrapeStatus": "ok",
       "reviewLocalUrl": "./reviews/3254017871.html",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:48:38.329941+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:38:50.326574+00:00",
+      "reviewLocalCoverUrl": "./reviews/covers/3254017871.jpg",
+      "reviewDate": "2020-04-24"
     },
     {
       "bookId": "46022626",
@@ -6792,7 +7318,9 @@
       "scrapeStatus": "ok",
       "reviewLocalUrl": "./reviews/3135129389.html",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:48:42.467140+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:39:01.118065+00:00",
+      "reviewLocalCoverUrl": "./reviews/covers/3135129389.jpg",
+      "reviewDate": "2020-04-26"
     },
     {
       "bookId": "5931025",
@@ -6806,7 +7334,9 @@
       "scrapeStatus": "ok",
       "reviewLocalUrl": "./reviews/3242491166.html",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:48:46.153319+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:39:10.566101+00:00",
+      "reviewLocalCoverUrl": "./reviews/covers/3242491166.jpg",
+      "reviewDate": "2020-04-24"
     },
     {
       "bookId": "270882",
@@ -6820,7 +7350,9 @@
       "scrapeStatus": "ok",
       "reviewLocalUrl": "./reviews/3242048609.html",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:48:49.786448+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:39:21.307648+00:00",
+      "reviewLocalCoverUrl": "./reviews/covers/3242048609.jpg",
+      "reviewDate": "2020-03-23"
     },
     {
       "bookId": "42367245",
@@ -6834,7 +7366,9 @@
       "scrapeStatus": "ok",
       "reviewLocalUrl": "./reviews/3228105475.html",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:48:52.837848+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:39:27.962173+00:00",
+      "reviewLocalCoverUrl": "./reviews/covers/3228105475.jpg",
+      "reviewDate": "2023-07-08"
     },
     {
       "bookId": "34616436",
@@ -6848,7 +7382,9 @@
       "scrapeStatus": "ok",
       "reviewLocalUrl": "./reviews/3100050307.html",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:48:56.298867+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:39:39.321460+00:00",
+      "reviewLocalCoverUrl": "./reviews/covers/3100050307.jpg",
+      "reviewDate": "2020-03-23"
     },
     {
       "bookId": "9741967",
@@ -6862,7 +7398,9 @@
       "scrapeStatus": "ok",
       "reviewLocalUrl": "./reviews/3125668975.html",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:48:59.969157+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:39:48.713612+00:00",
+      "reviewLocalCoverUrl": "./reviews/covers/3125668975.jpg",
+      "reviewDate": "2020-02-02"
     },
     {
       "bookId": "30306746",
@@ -6876,7 +7414,9 @@
       "scrapeStatus": "ok",
       "reviewLocalUrl": "./reviews/3123251531.html",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:49:03.861382+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:39:57.890611+00:00",
+      "reviewLocalCoverUrl": "./reviews/covers/3123251531.jpg",
+      "reviewDate": "2020-01-05"
     },
     {
       "bookId": "52465121",
@@ -6890,7 +7430,9 @@
       "scrapeStatus": "ok",
       "reviewLocalUrl": "./reviews/3117960066.html",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:49:07.362740+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:40:09.570975+00:00",
+      "reviewLocalCoverUrl": "./reviews/covers/3117960066.jpg",
+      "reviewDate": "2020-03-17"
     },
     {
       "bookId": "18716111",
@@ -6904,7 +7446,9 @@
       "scrapeStatus": "ok",
       "reviewLocalUrl": "./reviews/3104383389.html",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:49:10.753563+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:40:19.115524+00:00",
+      "reviewLocalCoverUrl": "./reviews/covers/3104383389.jpg",
+      "reviewDate": "2019-12-29"
     },
     {
       "bookId": "45024383",
@@ -6918,7 +7462,9 @@
       "scrapeStatus": "ok",
       "reviewLocalUrl": "./reviews/3094485315.html",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:49:13.873834+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:40:28.700702+00:00",
+      "reviewLocalCoverUrl": "./reviews/covers/3094485315.jpg",
+      "reviewDate": "2019-12-27"
     },
     {
       "bookId": "8098446",
@@ -6932,7 +7478,9 @@
       "scrapeStatus": "ok",
       "reviewLocalUrl": "./reviews/3031228102.html",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:49:17.156516+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:40:38.408172+00:00",
+      "reviewLocalCoverUrl": "./reviews/covers/3031228102.jpg",
+      "reviewDate": "2019-12-24"
     },
     {
       "bookId": "43896094",
@@ -6946,7 +7494,9 @@
       "scrapeStatus": "ok",
       "reviewLocalUrl": "./reviews/3090803599.html",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:49:20.140988+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:40:49.372244+00:00",
+      "reviewLocalCoverUrl": "./reviews/covers/3090803599.jpg",
+      "reviewDate": "2019-12-22"
     },
     {
       "bookId": "49196808",
@@ -6960,7 +7510,9 @@
       "scrapeStatus": "ok",
       "reviewLocalUrl": "./reviews/3085223603.html",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:49:23.311048+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:40:58.763631+00:00",
+      "reviewLocalCoverUrl": "./reviews/covers/3085223603.jpg",
+      "reviewDate": "2019-12-17"
     },
     {
       "bookId": "9851506",
@@ -6974,7 +7526,9 @@
       "scrapeStatus": "ok",
       "reviewLocalUrl": "./reviews/3073544553.html",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:49:26.699302+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:41:11.426141+00:00",
+      "reviewLocalCoverUrl": "./reviews/covers/3073544553.jpg",
+      "reviewDate": "2019-12-22"
     },
     {
       "bookId": "51569075",
@@ -6988,7 +7542,9 @@
       "scrapeStatus": "ok",
       "reviewLocalUrl": "./reviews/3071302380.html",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:49:31.645301+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:41:20.807374+00:00",
+      "reviewLocalCoverUrl": "./reviews/covers/3071302380.jpg",
+      "reviewDate": "2020-02-22"
     },
     {
       "bookId": "49606823",
@@ -7002,7 +7558,9 @@
       "scrapeStatus": "ok",
       "reviewLocalUrl": "./reviews/3068622430.html",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:49:34.827789+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:41:32.254579+00:00",
+      "reviewLocalCoverUrl": "./reviews/covers/3068622430.jpg",
+      "reviewDate": "2019-12-21"
     },
     {
       "bookId": "32334682",
@@ -7016,7 +7574,9 @@
       "scrapeStatus": "ok",
       "reviewLocalUrl": "./reviews/3062771533.html",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:49:38.093369+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:41:43.297249+00:00",
+      "reviewLocalCoverUrl": "./reviews/covers/3062771533.jpg",
+      "reviewDate": "2019-11-28"
     },
     {
       "bookId": "31950234",
@@ -7030,7 +7590,9 @@
       "scrapeStatus": "ok",
       "reviewLocalUrl": "./reviews/3061515829.html",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:49:41.587009+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:41:50.737945+00:00",
+      "reviewLocalCoverUrl": "./reviews/covers/3061515829.jpg",
+      "reviewDate": "2022-12-08"
     },
     {
       "bookId": "22913917",
@@ -7044,7 +7606,9 @@
       "scrapeStatus": "ok",
       "reviewLocalUrl": "./reviews/3060542684.html",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:49:44.806426+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:42:03.121129+00:00",
+      "reviewLocalCoverUrl": "./reviews/covers/3060542684.jpg",
+      "reviewDate": "2019-11-24"
     },
     {
       "bookId": "147483",
@@ -7058,7 +7622,9 @@
       "scrapeStatus": "ok",
       "reviewLocalUrl": "./reviews/3060546678.html",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:49:48.064422+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:42:12.626303+00:00",
+      "reviewLocalCoverUrl": "./reviews/covers/3060546678.jpg",
+      "reviewDate": "2019-11-24"
     },
     {
       "bookId": "48503",
@@ -7072,7 +7638,9 @@
       "scrapeStatus": "ok",
       "reviewLocalUrl": "./reviews/2671012434.html",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:49:51.614519+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:42:23.226031+00:00",
+      "reviewLocalCoverUrl": "./reviews/covers/2671012434.jpg",
+      "reviewDate": "2019-11-24"
     },
     {
       "bookId": "48497096",
@@ -7086,7 +7654,9 @@
       "scrapeStatus": "ok",
       "reviewLocalUrl": "./reviews/3036815248.html",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:49:54.861555+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:42:32.526399+00:00",
+      "reviewLocalCoverUrl": "./reviews/covers/3036815248.jpg",
+      "reviewDate": "2019-11-04"
     },
     {
       "bookId": "48614965",
@@ -7100,7 +7670,9 @@
       "scrapeStatus": "ok",
       "reviewLocalUrl": "./reviews/3028426363.html",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:49:58.348588+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:42:41.532723+00:00",
+      "reviewLocalCoverUrl": "./reviews/covers/3028426363.jpg",
+      "reviewDate": "2019-11-06"
     },
     {
       "bookId": "5050",
@@ -7114,7 +7686,9 @@
       "scrapeStatus": "ok",
       "reviewLocalUrl": "./reviews/2973109029.html",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:50:01.724707+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:42:48.538596+00:00",
+      "reviewLocalCoverUrl": "./reviews/covers/2973109029.jpg",
+      "reviewDate": "2022-10-18"
     },
     {
       "bookId": "48614905",
@@ -7128,7 +7702,9 @@
       "scrapeStatus": "ok",
       "reviewLocalUrl": "./reviews/3028417990.html",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:50:05.405444+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:42:57.859874+00:00",
+      "reviewLocalCoverUrl": "./reviews/covers/3028417990.jpg",
+      "reviewDate": "2019-11-06"
     },
     {
       "bookId": "48614844",
@@ -7142,7 +7718,9 @@
       "scrapeStatus": "ok",
       "reviewLocalUrl": "./reviews/3028404608.html",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:50:10.387959+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:43:07.420727+00:00",
+      "reviewLocalCoverUrl": "./reviews/covers/3028404608.jpg",
+      "reviewDate": "2019-10-28"
     },
     {
       "bookId": "39704233",
@@ -7156,7 +7734,9 @@
       "scrapeStatus": "ok",
       "reviewLocalUrl": "./reviews/3011377565.html",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:50:13.789370+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:43:17.073859+00:00",
+      "reviewLocalCoverUrl": "./reviews/covers/3011377565.jpg",
+      "reviewDate": "2019-10-20"
     },
     {
       "bookId": "21856234",
@@ -7170,7 +7750,9 @@
       "scrapeStatus": "ok",
       "reviewLocalUrl": "./reviews/3002070650.html",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:50:17.222902+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:43:29.475047+00:00",
+      "reviewLocalCoverUrl": "./reviews/covers/3002070650.jpg",
+      "reviewDate": "2019-11-06"
     },
     {
       "bookId": "36235446",
@@ -7184,7 +7766,9 @@
       "scrapeStatus": "ok",
       "reviewLocalUrl": "./reviews/3006284633.html",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:50:20.909736+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:43:38.899852+00:00",
+      "reviewLocalCoverUrl": "./reviews/covers/3006284633.jpg",
+      "reviewDate": "2019-10-13"
     },
     {
       "bookId": "45431444",
@@ -7198,7 +7782,9 @@
       "scrapeStatus": "ok",
       "reviewLocalUrl": "./reviews/2994469607.html",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:50:24.233216+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:43:43.395261+00:00",
+      "reviewLocalCoverUrl": "./reviews/covers/2994469607.jpg",
+      "reviewDate": "2024-02-16"
     },
     {
       "bookId": "8564775",
@@ -7212,7 +7798,9 @@
       "scrapeStatus": "ok",
       "reviewLocalUrl": "./reviews/2951198186.html",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:50:27.529728+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:43:54.078746+00:00",
+      "reviewLocalCoverUrl": "./reviews/covers/2951198186.jpg",
+      "reviewDate": "2019-11-06"
     },
     {
       "bookId": "51952992",
@@ -7226,7 +7814,9 @@
       "scrapeStatus": "ok",
       "reviewLocalUrl": "./reviews/2986433428.html",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:50:30.924881+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:44:04.995088+00:00",
+      "reviewLocalCoverUrl": "./reviews/covers/2986433428.jpg",
+      "reviewDate": "2020-03-01"
     },
     {
       "bookId": "32827109",
@@ -7240,7 +7830,9 @@
       "scrapeStatus": "ok",
       "reviewLocalUrl": "./reviews/2933852278.html",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:50:34.213989+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:44:14.381865+00:00",
+      "reviewLocalCoverUrl": "./reviews/covers/2933852278.jpg",
+      "reviewDate": "2019-11-06"
     },
     {
       "bookId": "10816875",
@@ -7254,7 +7846,9 @@
       "scrapeStatus": "ok",
       "reviewLocalUrl": "./reviews/2961049397.html",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:50:37.619374+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:44:27.997705+00:00",
+      "reviewLocalCoverUrl": "./reviews/covers/2961049397.jpg",
+      "reviewDate": "2019-09-07"
     },
     {
       "bookId": "34596555",
@@ -7268,7 +7862,9 @@
       "scrapeStatus": "ok",
       "reviewLocalUrl": "./reviews/2924375251.html",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:50:41.160277+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:44:40.425451+00:00",
+      "reviewLocalCoverUrl": "./reviews/covers/2924375251.jpg",
+      "reviewDate": "2019-08-19"
     },
     {
       "bookId": "32827084",
@@ -7282,7 +7878,9 @@
       "scrapeStatus": "ok",
       "reviewLocalUrl": "./reviews/2894271053.html",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:50:44.637659+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:44:50.012984+00:00",
+      "reviewLocalCoverUrl": "./reviews/covers/2894271053.jpg",
+      "reviewDate": "2019-11-06"
     },
     {
       "bookId": "78911",
@@ -7296,7 +7894,9 @@
       "scrapeStatus": "ok",
       "reviewLocalUrl": "./reviews/2924371630.html",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:50:47.869722+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:45:00.136878+00:00",
+      "reviewLocalCoverUrl": "./reviews/covers/2924371630.jpg",
+      "reviewDate": "2019-08-11"
     },
     {
       "bookId": "14735268",
@@ -7310,7 +7910,9 @@
       "scrapeStatus": "ok",
       "reviewLocalUrl": "./reviews/2924373988.html",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:50:51.126207+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:45:12.193116+00:00",
+      "reviewLocalCoverUrl": "./reviews/covers/2924373988.jpg",
+      "reviewDate": "2019-08-10"
     },
     {
       "bookId": "40854323",
@@ -7324,7 +7926,9 @@
       "scrapeStatus": "ok",
       "reviewLocalUrl": "./reviews/2917446996.html",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:50:54.608252+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:45:21.988235+00:00",
+      "reviewLocalCoverUrl": "./reviews/covers/2917446996.jpg",
+      "reviewDate": "2019-11-17"
     },
     {
       "bookId": "25684043",
@@ -7338,7 +7942,9 @@
       "scrapeStatus": "ok",
       "reviewLocalUrl": "./reviews/2856003602.html",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:50:58.034334+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:45:31.990619+00:00",
+      "reviewLocalCoverUrl": "./reviews/covers/2856003602.jpg",
+      "reviewDate": "2019-07-29"
     },
     {
       "bookId": "43303157",
@@ -7352,7 +7958,9 @@
       "scrapeStatus": "ok",
       "reviewLocalUrl": "./reviews/2897734419.html",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:51:02.004060+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:45:42.399073+00:00",
+      "reviewLocalCoverUrl": "./reviews/covers/2897734419.jpg",
+      "reviewDate": "2019-07-16"
     },
     {
       "bookId": "28487182",
@@ -7366,7 +7974,9 @@
       "scrapeStatus": "ok",
       "reviewLocalUrl": "./reviews/2865342911.html",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:51:05.325882+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:45:51.270830+00:00",
+      "reviewLocalCoverUrl": "./reviews/covers/2865342911.jpg",
+      "reviewDate": "2019-11-06"
     },
     {
       "bookId": "44795150",
@@ -7380,7 +7990,9 @@
       "scrapeStatus": "ok",
       "reviewLocalUrl": "./reviews/2872182121.html",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:51:08.796232+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:46:03.479623+00:00",
+      "reviewLocalCoverUrl": "./reviews/covers/2872182121.jpg",
+      "reviewDate": "2019-06-25"
     },
     {
       "bookId": "22060147",
@@ -7394,7 +8006,9 @@
       "scrapeStatus": "ok",
       "reviewLocalUrl": "./reviews/2819537027.html",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:51:12.150080+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:46:13.279848+00:00",
+      "reviewLocalCoverUrl": "./reviews/covers/2819537027.jpg",
+      "reviewDate": "2019-11-06"
     },
     {
       "bookId": "32850547",
@@ -7408,7 +8022,9 @@
       "scrapeStatus": "ok",
       "reviewLocalUrl": "./reviews/2860184310.html",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:51:15.633599+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:46:23.836866+00:00",
+      "reviewLocalCoverUrl": "./reviews/covers/2860184310.jpg",
+      "reviewDate": "2019-06-16"
     },
     {
       "bookId": "27778352",
@@ -7422,7 +8038,9 @@
       "scrapeStatus": "ok",
       "reviewLocalUrl": "./reviews/2821980189.html",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:51:19.236051+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:46:35.605856+00:00",
+      "reviewLocalCoverUrl": "./reviews/covers/2821980189.jpg",
+      "reviewDate": "2019-06-13"
     },
     {
       "bookId": "42606402",
@@ -7436,7 +8054,9 @@
       "scrapeStatus": "ok",
       "reviewLocalUrl": "./reviews/2817405960.html",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:51:22.486308+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:46:45.793702+00:00",
+      "reviewLocalCoverUrl": "./reviews/covers/2817405960.jpg",
+      "reviewDate": "2019-11-06"
     },
     {
       "bookId": "34213339",
@@ -7450,7 +8070,9 @@
       "scrapeStatus": "ok",
       "reviewLocalUrl": "./reviews/2840904429.html",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:51:25.803454+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:47:00.221444+00:00",
+      "reviewLocalCoverUrl": "./reviews/covers/2840904429.jpg",
+      "reviewDate": "2019-05-31"
     },
     {
       "bookId": "16091035",
@@ -7464,7 +8086,9 @@
       "scrapeStatus": "ok",
       "reviewLocalUrl": "./reviews/2809515456.html",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:51:29.263448+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:47:12.987090+00:00",
+      "reviewLocalCoverUrl": "./reviews/covers/2809515456.jpg",
+      "reviewDate": "2019-05-28"
     },
     {
       "bookId": "40128471",
@@ -7478,7 +8102,9 @@
       "scrapeStatus": "ok",
       "reviewLocalUrl": "./reviews/2789476806.html",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:51:32.364495+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:47:23.623822+00:00",
+      "reviewLocalCoverUrl": "./reviews/covers/2789476806.jpg",
+      "reviewDate": "2019-05-18"
     },
     {
       "bookId": "22050848",
@@ -7492,7 +8118,9 @@
       "scrapeStatus": "ok",
       "reviewLocalUrl": "./reviews/2810582369.html",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:51:35.480785+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:47:34.691583+00:00",
+      "reviewLocalCoverUrl": "./reviews/covers/2810582369.jpg",
+      "reviewDate": "2019-05-06"
     },
     {
       "bookId": "8833677",
@@ -7506,7 +8134,9 @@
       "scrapeStatus": "ok",
       "reviewLocalUrl": "./reviews/2669145232.html",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:51:38.363589+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:47:47.052298+00:00",
+      "reviewLocalCoverUrl": "./reviews/covers/2669145232.jpg",
+      "reviewDate": "2019-05-05"
     },
     {
       "bookId": "6941039",
@@ -7520,7 +8150,9 @@
       "scrapeStatus": "ok",
       "reviewLocalUrl": "./reviews/2810527273.html",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:51:41.687007+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:47:57.939639+00:00",
+      "reviewLocalCoverUrl": "./reviews/covers/2810527273.jpg",
+      "reviewDate": "2019-05-05"
     },
     {
       "bookId": "43443834",
@@ -7534,7 +8166,9 @@
       "scrapeStatus": "ok",
       "reviewLocalUrl": "./reviews/2772849249.html",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:51:45.904575+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:48:07.905968+00:00",
+      "reviewLocalCoverUrl": "./reviews/covers/2772849249.jpg",
+      "reviewDate": "2019-11-06"
     },
     {
       "bookId": "40526292",
@@ -7548,7 +8182,9 @@
       "scrapeStatus": "ok",
       "reviewLocalUrl": "./reviews/2792265451.html",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:51:48.969536+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:48:18.566115+00:00",
+      "reviewLocalCoverUrl": "./reviews/covers/2792265451.jpg",
+      "reviewDate": "2019-05-30"
     },
     {
       "bookId": "8719673",
@@ -7562,7 +8198,9 @@
       "scrapeStatus": "ok",
       "reviewLocalUrl": "./reviews/2791825090.html",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:51:53.344339+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:48:27.973957+00:00",
+      "reviewLocalCoverUrl": "./reviews/covers/2791825090.jpg",
+      "reviewDate": "2020-06-29"
     },
     {
       "bookId": "21953517",
@@ -7576,7 +8214,9 @@
       "scrapeStatus": "ok",
       "reviewLocalUrl": "./reviews/2789460801.html",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:51:56.400579+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:48:38.763357+00:00",
+      "reviewLocalCoverUrl": "./reviews/covers/2789460801.jpg",
+      "reviewDate": "2019-04-17"
     },
     {
       "bookId": "23382193",
@@ -7590,7 +8230,9 @@
       "scrapeStatus": "ok",
       "reviewLocalUrl": "./reviews/2759834714.html",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:51:59.572275+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:48:50.188223+00:00",
+      "reviewLocalCoverUrl": "./reviews/covers/2759834714.jpg",
+      "reviewDate": "2019-04-01"
     },
     {
       "bookId": "44307732",
@@ -7604,7 +8246,9 @@
       "scrapeStatus": "ok",
       "reviewLocalUrl": "./reviews/2743194334.html",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:52:02.735509+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:49:00.354671+00:00",
+      "reviewLocalCoverUrl": "./reviews/covers/2743194334.jpg",
+      "reviewDate": "2019-03-28"
     },
     {
       "bookId": "41752325",
@@ -7618,7 +8262,9 @@
       "scrapeStatus": "ok",
       "reviewLocalUrl": "./reviews/2743195770.html",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:52:05.730549+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:49:07.074023+00:00",
+      "reviewLocalCoverUrl": "./reviews/covers/2743195770.jpg",
+      "reviewDate": "2022-10-18"
     },
     {
       "bookId": "8568666",
@@ -7632,7 +8278,9 @@
       "scrapeStatus": "ok",
       "reviewLocalUrl": "./reviews/2669145826.html",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:52:10.392573+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:49:19.150387+00:00",
+      "reviewLocalCoverUrl": "./reviews/covers/2669145826.jpg",
+      "reviewDate": "2019-03-17"
     },
     {
       "bookId": "18001084",
@@ -7646,7 +8294,9 @@
       "scrapeStatus": "ok",
       "reviewLocalUrl": "./reviews/2668284196.html",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:52:13.460469+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:49:28.821643+00:00",
+      "reviewLocalCoverUrl": "./reviews/covers/2668284196.jpg",
+      "reviewDate": "2019-11-06"
     },
     {
       "bookId": "34706540",
@@ -7660,7 +8310,9 @@
       "scrapeStatus": "ok",
       "reviewLocalUrl": "./reviews/2669142730.html",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:52:16.834016+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:49:40.695087+00:00",
+      "reviewLocalCoverUrl": "./reviews/covers/2669142730.jpg",
+      "reviewDate": "2019-03-15"
     },
     {
       "bookId": "346255",
@@ -7674,7 +8326,9 @@
       "scrapeStatus": "ok",
       "reviewLocalUrl": "./reviews/2740938550.html",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:52:20.051200+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:49:52.293629+00:00",
+      "reviewLocalCoverUrl": "./reviews/covers/2740938550.jpg",
+      "reviewDate": "2019-03-08"
     },
     {
       "bookId": "39721554",
@@ -7688,7 +8342,9 @@
       "scrapeStatus": "ok",
       "reviewLocalUrl": "./reviews/2727904178.html",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:52:23.233758+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:50:03.363186+00:00",
+      "reviewLocalCoverUrl": "./reviews/covers/2727904178.jpg",
+      "reviewDate": "2019-03-04"
     },
     {
       "bookId": "57401",
@@ -7702,7 +8358,9 @@
       "scrapeStatus": "ok",
       "reviewLocalUrl": "./reviews/2694748848.html",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:52:26.314557+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:50:17.645089+00:00",
+      "reviewLocalCoverUrl": "./reviews/covers/2694748848.jpg",
+      "reviewDate": "2019-11-06"
     },
     {
       "bookId": "25212059",
@@ -7716,7 +8374,9 @@
       "scrapeStatus": "ok",
       "reviewLocalUrl": "./reviews/2668288897.html",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:52:29.303262+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:50:29.389903+00:00",
+      "reviewLocalCoverUrl": "./reviews/covers/2668288897.jpg",
+      "reviewDate": "2019-02-20"
     },
     {
       "bookId": "32729271",
@@ -7730,7 +8390,9 @@
       "scrapeStatus": "ok",
       "reviewLocalUrl": "./reviews/2668266695.html",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:52:32.307828+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:50:40.544463+00:00",
+      "reviewLocalCoverUrl": "./reviews/covers/2668266695.jpg",
+      "reviewDate": "2019-11-06"
     },
     {
       "bookId": "4412756",
@@ -7744,7 +8406,9 @@
       "scrapeStatus": "ok",
       "reviewLocalUrl": "./reviews/2675454601.html",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:52:35.645225+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:50:54.651423+00:00",
+      "reviewLocalCoverUrl": "./reviews/covers/2675454601.jpg",
+      "reviewDate": "2019-01-20"
     },
     {
       "bookId": "8542774",
@@ -7758,7 +8422,9 @@
       "scrapeStatus": "ok",
       "reviewLocalUrl": "./reviews/2668267402.html",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:52:38.753800+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:51:06.964266+00:00",
+      "reviewLocalCoverUrl": "./reviews/covers/2668267402.jpg",
+      "reviewDate": "2019-01-13"
     },
     {
       "bookId": "1144810",
@@ -7772,7 +8438,9 @@
       "scrapeStatus": "ok",
       "reviewLocalUrl": "./reviews/2668265713.html",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:52:42.051011+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:51:18.719730+00:00",
+      "reviewLocalCoverUrl": "./reviews/covers/2668265713.jpg",
+      "reviewDate": "2019-01-11"
     },
     {
       "bookId": "41060590",
@@ -7786,7 +8454,9 @@
       "scrapeStatus": "ok",
       "reviewLocalUrl": "./reviews/2668261383.html",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:52:45.159456+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:51:33.472919+00:00",
+      "reviewLocalCoverUrl": "./reviews/covers/2668261383.jpg",
+      "reviewDate": "2019-08-05"
     },
     {
       "bookId": "24079375",
@@ -7800,7 +8470,9 @@
       "scrapeStatus": "ok",
       "reviewLocalUrl": "./reviews/2668268265.html",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:52:48.315271+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:51:45.412864+00:00",
+      "reviewLocalCoverUrl": "./reviews/covers/2668268265.jpg",
+      "reviewDate": "2019-01-11"
     },
     {
       "bookId": "38820046",
@@ -7814,7 +8486,9 @@
       "scrapeStatus": "ok",
       "reviewLocalUrl": "./reviews/2668260693.html",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:52:51.764305+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:51:57.234491+00:00",
+      "reviewLocalCoverUrl": "./reviews/covers/2668260693.jpg",
+      "reviewDate": "2019-01-11"
     },
     {
       "bookId": "42846107",
@@ -7828,7 +8502,9 @@
       "scrapeStatus": "ok",
       "reviewLocalUrl": "./reviews/2668262186.html",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:52:55.103300+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:52:09.033962+00:00",
+      "reviewLocalCoverUrl": "./reviews/covers/2668262186.jpg",
+      "reviewDate": "2019-01-11"
     },
     {
       "bookId": "22838939",
@@ -7842,7 +8518,9 @@
       "scrapeStatus": "ok",
       "reviewLocalUrl": "./reviews/2668264640.html",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:52:58.561605+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:52:15.105815+00:00",
+      "reviewLocalCoverUrl": "./reviews/covers/2668264640.jpg",
+      "reviewDate": "2023-07-21"
     },
     {
       "bookId": "4590493",
@@ -7856,7 +8534,9 @@
       "scrapeStatus": "ok",
       "reviewLocalUrl": "./reviews/2669071709.html",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:53:01.707861+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:52:26.113405+00:00",
+      "reviewLocalCoverUrl": "./reviews/covers/2669071709.jpg",
+      "reviewDate": "2019-01-11"
     },
     {
       "bookId": "36661512",
@@ -7870,7 +8550,9 @@
       "scrapeStatus": "ok",
       "reviewLocalUrl": "./reviews/2668272216.html",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-14T12:53:06.151159+00:00"
+      "reviewLocalGeneratedAt": "2026-04-14T13:52:38.375467+00:00",
+      "reviewLocalCoverUrl": "./reviews/covers/2668272216.jpg",
+      "reviewDate": "2019-01-11"
     }
   ]
 }

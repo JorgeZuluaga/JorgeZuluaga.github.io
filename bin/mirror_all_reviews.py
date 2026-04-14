@@ -57,7 +57,7 @@ def main() -> int:
     parser.add_argument(
         "--rss-pages",
         type=int,
-        default=3,
+        default=80,
         help="Máximo de páginas RSS a consultar para fallback de texto/fecha/portada.",
     )
     parser.add_argument(
