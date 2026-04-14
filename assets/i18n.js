@@ -155,7 +155,7 @@ const STRINGS = {
     library_back_cv: "← Volver al CV",
     library_title: "Biblioteca personal",
     library_intro:
-      "En esta página incluyo estadísticas de lectura y una selección de libros leídos en años recientes con sus reseñas en Goodreads.",
+      "Como buen académico, la lectura para mí es más que una pasión: es una actividad intelectual en toda regla que exige dedicación y disciplina. En particular me he propuesto escribir de cada libro que leo (siempre que pueda y valga la pena) una reseña (corta o extensa) para esencialmente intentar conjurar el olvido y recordar lo que sentí cuando leí el libro. Si la reseña además le sirve a alguien para animarse a leer el libro o para compartir sus sentimientos hacia él, ¡excelente!. En esta página enumero los libros leídos y las reseñas escritas sobre ellos. Espero que quién aterrice por aquí, lo encuentre útil.",
     library_profile: "Mi perfil en Goodreads",
     library_source: "Datos cargados desde info/library.json",
     library_books_read: "libros leídos",
@@ -173,6 +173,9 @@ const STRINGS = {
     library_review_likes: "Likes reseña:",
     library_rating_label: "Calificación",
     library_view_review: "Ver reseña",
+    library_view_review_goodreads: "Ver reseña (GoodReads, necesita cuenta)",
+    library_view_review_local: "Ver reseña (local)",
+    library_review_links: "Enlaces de reseña",
     library_no_review: "(No hay reseña)",
     library_no_data: "Sin datos disponibles.",
     library_stats_error:
@@ -311,7 +314,7 @@ const STRINGS = {
     library_back_cv: "← Back to CV",
     library_title: "Personal library",
     library_intro:
-      "This page includes reading statistics and a selection of books read in recent years with their Goodreads reviews.",
+      "As a good academic, reading for me is more than a passion: it is a fully intellectual activity that demands dedication and discipline. In particular, I have set myself the goal of writing, for every book I read (whenever I can and whenever it is worth it), a review (short or long), essentially to ward off forgetting and remember what I felt when I read the book. If the review also helps someone feel encouraged to read the book or to share their own feelings about it, excellent! On this page I list the books I have read and the reviews I have written about them. I hope whoever lands here finds it useful.",
     library_profile: "My Goodreads profile",
     library_source: "Data loaded from info/library.json",
     library_books_read: "books read",
@@ -329,6 +332,9 @@ const STRINGS = {
     library_review_likes: "Review likes:",
     library_rating_label: "Rating",
     library_view_review: "View review",
+    library_view_review_goodreads: "View review on GoodReads (account required)",
+    library_view_review_local: "View local review",
+    library_review_links: "Review links",
     library_no_review: "(No review)",
     library_no_data: "No data available.",
     library_stats_error:

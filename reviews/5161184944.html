@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="color-scheme" content="light dark" />
+  <title>Reseña en Goodreads (mirror local)</title>
+  <link rel="icon" type="image/png" sizes="48x48" href="../assets/favicon.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="../assets/apple-touch-icon.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../assets/style.css?v=2" />
+  <script src="../assets/template.js" defer></script>
+  <style>
+    .review-page-custom .meta { color: var(--black); opacity: 0.8; font-size: 0.95rem; }
+    .review-page-custom .author { font-size: 1.4rem; font-weight: 600; margin: 0.35rem 0 0.75rem; }
+    .review-page-custom .review-by { font-size: 1rem; margin: -0.35rem 0 0.8rem; opacity: 0.88; }
+    .review-page-custom .rating-row { display: flex; align-items: center; gap: 0.8rem; margin: 0.25rem 0 0.2rem; }
+    .review-page-custom .rating { font-size: 1.2rem; letter-spacing: 0.04em; margin: 0; }
+    .review-page-custom .likes { margin: 0; font-size: 1rem; }
+    .review-page-custom .likes a { color: var(--accent); text-decoration: none; }
+    .review-page-custom .likes a:hover { text-decoration: underline; }
+    .review-page-custom .cover { margin: 0.75rem 0 1rem; }
+    .review-page-custom .cover img { max-width: 220px; height: auto; border-radius: 8px; border: 1px solid var(--line); }
+    .review-page-custom .card { border: 1px solid var(--line); border-radius: 12px; padding: 1rem; margin-top: 1rem; background: var(--card); }
+    .review-page-custom .card,
+    .review-page-custom .card p,
+    .review-page-custom .card div,
+    .review-page-custom .card span,
+    .review-page-custom .card li,
+    .review-page-custom .card blockquote,
+    .review-page-custom .card i,
+    .review-page-custom .card b,
+    .review-page-custom .card strong,
+    .review-page-custom .card em {
+      color: var(--black) !important;
+    }
+    .review-page-custom .card a {
+      color: var(--accent) !important;
+      text-decoration: underline;
+      text-underline-offset: 2px;
+    }
+    .review-page-custom .card a i,
+    .review-page-custom .card a em,
+    .review-page-custom .card a span,
+    .review-page-custom .card a strong,
+    .review-page-custom .card a b {
+      color: var(--accent) !important;
+    }
+  </style>
+</head>
+<body class="photos-page review-page-custom">
+  <div class="wrapper">
+    <a class="skip-link" href="#review-main">Saltar al contenido</a>
+    <header class="photos-header">
+      <div class="photos-header__bar">
+        <a class="link photos-back" href="../biblioteca.html">← Volver a la Biblioteca de Jorge Zuluaga</a>
+        <button class="theme-button photos-theme" type="button" aria-label="Modo de visualización: Claro/Oscuro">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="moon-icon" aria-hidden="true">
+            <path d="M11.3807 2.01886C9.91573 3.38768 9 5.3369 9 7.49999C9 11.6421 12.3579 15 16.5 15C18.6631 15 20.6123 14.0843 21.9811 12.6193C21.6613 17.8537 17.3149 22 12 22C6.47715 22 2 17.5228 2 12C2 6.68514 6.14629 2.33869 11.3807 2.01886Z"></path>
+          </svg>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="sun-icon" aria-hidden="true">
+            <path d="M12 18C8.68629 18 6 15.3137 6 12C6 8.68629 8.68629 6 12 6C15.3137 6 18 8.68629 18 12C18 15.3137 15.3137 18 12 18ZM11 1H13V4H11V1ZM11 20H13V23H11V20ZM3.51472 4.92893L4.92893 3.51472L7.05025 5.63604L5.63604 7.05025L3.51472 4.92893ZM16.9497 18.364L18.364 16.9497L20.4853 19.0711L19.0711 20.4853L16.9497 18.364ZM19.0711 3.51472L20.4853 4.92893L18.364 7.05025L16.9497 5.63604L19.0711 3.51472ZM5.63604 16.9497L7.05025 18.364L4.92893 20.4853L3.51472 19.0711L5.63604 16.9497ZM23 11V13H20V11H23ZM4 11V13H1V11H4Z"></path>
+          </svg>
+        </button>
+      </div>
+    </header>
+    <main id="review-main" class="photos-main">
+      <div class="container">
+        <h1 class="title-section">Jurassic Park</h1>
+        <p class="author">Michael Crichton</p>
+        <p class="review-by">Reseña por Jorge I. Zuluaga</p>
+        <p class="cover"><img src="./covers/5161184944.jpg" alt="Portada de Jurassic Park" /></p>
+        <p class="meta">Fecha de reseña: 2025-12-25</p>
+        <div class="rating-row">
+          <p class="rating" aria-label="Calificación: 4 de 5">★★★★☆</p>
+          <p class="likes" aria-label="Likes en GoodReads: 12"><a href="https://www.goodreads.com/review/show/5161184944?utm_medium=api&amp;utm_source=rss" target="_blank" rel="noopener noreferrer">👍</a> 12</p>
+        </div>
+        <p><a class="link" href="https://www.goodreads.com/review/show/5161184944?utm_medium=api&amp;utm_source=rss" target="_blank" rel="noopener noreferrer">Ver reseña en GoodReads (necesita cuenta)</a></p>
+        <article class="card">
+          Tremenda sorpresa este libro. <br /><br />Como cualquier persona que haya vivido parte de su vida adulta (o su temprana juventud) durante los años 90, el nombre "Parque Jurásico" o "Jurassic Park" sólo nos trae a la memoria el nombre de la película de Steven Spielberg que hizo las delicias de niños y adultos por aquellos años. Creo que todos recordamos que fue esta la primera película en la historia (no tengo datos, pero tampoco dudas) en la que pudimos ver una reconstrucción realista de dinosaurios bien conocidos (y otros no tanto) y de su comportamiento. <br /><br />Tampoco tengo dudas (pero tampoco datos) sobre el positivo impacto que esta película (y las otras de la franquicia) debió producir en la vocación de muchas personas jóvenes que después de verla seguro decidieron dedicarse a la paleontología o la paleobiología. <br /><br />En mi propia casa, mis hijos, Daniel y Andrés, que entonces eran solo unos niños, vieron muy amplificado el interés que ya sentían (como casi cualquiera de su edad) por estos animales extintos. Yo mismo, acicateado por su interés y sin duda alguna por la película misma, me convertí por un tiempo en un "experto" en el tema (nunca con tan buena memoria como Daniel y Andrés) y disfrute por unos años de una pasión por la paleontología que todavía conservo. Aunque Daniel y Andrés, ya adultos, no se dedican a esta disciplina, todavía recuerdan esos años y vuelven a repetir las películas de la saga con ilusión.<br /><br />Toda esta introducción solo para decir que es, al menos para mí, inaudito que apenas hasta ahora me haya sentado a leer la novela que que inspiro este suceso cinematográfico y que ahora reseño. <br /><br />Como sucede tantas veces con las novelas que inspiran películas, la facilidad en el consumo del cine hace que pocas personas vuelvan la vista sobra las obras literarias que las inspiran, que les dediquen, al menos para las películas que más les inspiran, tiempo a leerlas y disfrutar de la inmensa cantidad de detalles que se pierden en la "transposición cinematográfica". Mucho menos probable aún, es que quienes disfrutamos de las buenas historias, intentemos leerlas antes de ver las películas, una regla que me estoy tratando de imponer precisamente motivado por estas experiencias.<br /><br />El resultado no podría ser otro. ¡Por supuesto la novela de Crichton es mejor que la película de Spielberg! Parece una herejía, pero quienes quieran pueden comprobarlo personalmente.<br /><br />Para empezar hay que decir que la novela no es para todo el mundo. A diferencia de la película, que puede ser disfrutada tanto si te gustan como si no la ciencia y la técnica, Jurassic Park es una novela a la que le sacamos más provecho y la disfrutamos las personas a las que nos gustan los detalles técnicos y científicos realmente jugosos. <br /><br />En algunos apartes me sentí transportado a las novelas de Andy Weir (El Marciano, Proyecto Hail Mary, Artemisa), no por el contenido, sino por la abundancia de los detalles técnicos, por las discusiones científicas y filosóficas de buen nivel, que autores como Weir y, ahora sé, Crichton nos regalan a las personas amantes de la ciencia y la técnica. Y es que un autor que es capaz de poner en las páginas de un libro aparte de un código de computadora, mensajes de error o parte de un mensaje en jerga científica escrita entre expertos, solo puede saber que le está escribiendo a las personas más nerds que les leen.<br /><br />La mayoría de los eventos que vemos en la película están inspirados en apartes de la novela, algunos no muy fielmente y se entiende por qué. Lo mismo sucede con los personajes, con algunas omisiones. Obviamente hay en la película eventos de la novela que fueron completamente excluidos (o dejados para otras películas de la franquicia), algunos que eran ciertamente centrales. Pero se entiende que una adaptación cinematográfica, con sus restricciones de tiempo, exige sacrificios. <br /><br />Esto lo menciono, al hablar de la novela, porque algunos de esos personajes, escenas y situaciones, que fueron excluidos de la película y que están presentes en la novela, amplifican mucho el disfrute de esta obra. Este es otro efecto conocido de leer las obras en las que se basan las películas: los libros se disfrutan más cuando descubres que contienen la respuesta a preguntas que no encontrabas en la película o que rellenan los personajes y las partes de la trama que parecen faltantes en la adaptación cinematográfica.<br /><br />Me impacto mucho descubrir que la novela era mucho más cruda que la película. A diferencia de la ascética representación de los ataques y el resultado de los mismos sobre el cuerpo de las víctimas en la película, la novela es bastante explícita en las descripciones y por la misma razón bastante terroríficas. Hablando con Felipe Martínez, un amigo lector de Medellín del que descubrí, al momento de registrar la novela en GoodReads, también la había leído recientemente, salió el término de "terror científico" que creo podría describir bien el género al que pertenece la novela, especialmente por los apartes más sanguinarios. <br /><br />Ya un estudiante mío de astronomía, cuyo nombre no recuerdo, un verdadero apasionado por la paleontología, me lo advertía y ahora se los advierto a todas las personas que hayan llegado hasta aquí en la reseña: Jurassic Park, la novela, no es una entretenida y más o menos perturbadora aventura en el proyecto fallido de un loco multimillonario de revivir a los dinosaurios. Es una novela con apartes realmente perturbadores y terroríficos que nos transportan a épocas en las que nuestros antepasados, en lugar de estar en la cima de la cadena alimenticia (o las redes tróficas como dicen las personas entendidas) éramos, como lo han sido muchos otros animales, simplemente presas provocativas y perseguidas por animales que solo se ven bonitos en los dibujos paleontológicos.<br /><br />De todos los personajes de la película, el que más me gusto fue el de Ian Malcolm, el matemático escéptico que vimos representado por Jeff Goldblum en la película de Spielberg. Algunos de los mejores diálogos y las reflexiones más interesantes en el libro son las que realiza este personaje. Sus críticas al aparato científico y tecnológico son profundas y 30 años después siguen siendo plenamente válidas.<br /><br />En resumen, Jurassic Park es una novela que tienen que leer las personas apasionadas por la ciencia que hayan disfrutado de la película de Spielberg y quieran descubrir la verdadera profundidad de la historia detrás de ella. Quiénes busquen una obra literaria de alto vuelo, con personajes de gran profundidad, no encontraran aquí lo que están buscando, pero tal vez se divertirán con una historia entretenida y con una buena dosis de terror científico.<br /><br />No le doy el máximo puntaje porque a pesar de todos los comentarios positivos que dejo en esta reseña, y como es común en obras destinadas más al entretenimiento que a la exploración profunda de la naturaleza humana (como lo son las buenas obras literarias), la novela tiene por supuesto algunos defectos. Situaciones y personajes a veces muy irreales. Saltos temporales o espaciales que no se pueden creer ni siquiera en un libro un poco fantástico.<br /><br />P.D. Después de leer la novela y escribir la reseña me senté a ver nuevamente la película. Las referencias que hice a la cinta en la reseña surgieron de lo que recordaba de ella. Con este nuevo repaso de la película, confirmo lo que comenté: es una buena adaptación, faltan personajes, hay transposiciones en el rol de algunos de ellos (en esta película la doctora Sattler tiene un papel un poco más protagónico), las escenas de ataques son menos sanguinarias que las del libro, etc. Sin embargo me queda la sensación de que la película no envejeció muy bien. Es difícil para una cinta de ciencia ficción con efectos especiales de los 1990. Pero lo regular que ahora se ve contrasta claramente con lo actual que se sigue leyendo la novela. Un punto más para Crichton.
+        </article>
+      </div>
+    </main>
+    <footer class="print-mode-target">
+      <p>Jorge I. Zuluaga — <a class="link" href="../index.html">Currículum en línea</a></p>
+    </footer>
+  </div>
+</body>
+</html>

@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="color-scheme" content="light dark" />
+  <title>Reseña en Goodreads (mirror local)</title>
+  <link rel="icon" type="image/png" sizes="48x48" href="../assets/favicon.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="../assets/apple-touch-icon.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../assets/style.css?v=2" />
+  <script src="../assets/template.js" defer></script>
+  <style>
+    .review-page-custom .meta { color: var(--black); opacity: 0.8; font-size: 0.95rem; }
+    .review-page-custom .author { font-size: 1.4rem; font-weight: 600; margin: 0.35rem 0 0.75rem; }
+    .review-page-custom .review-by { font-size: 1rem; margin: -0.35rem 0 0.8rem; opacity: 0.88; }
+    .review-page-custom .rating-row { display: flex; align-items: center; gap: 0.8rem; margin: 0.25rem 0 0.2rem; }
+    .review-page-custom .rating { font-size: 1.2rem; letter-spacing: 0.04em; margin: 0; }
+    .review-page-custom .likes { margin: 0; font-size: 1rem; }
+    .review-page-custom .likes a { color: var(--accent); text-decoration: none; }
+    .review-page-custom .likes a:hover { text-decoration: underline; }
+    .review-page-custom .cover { margin: 0.75rem 0 1rem; }
+    .review-page-custom .cover img { max-width: 220px; height: auto; border-radius: 8px; border: 1px solid var(--line); }
+    .review-page-custom .card { border: 1px solid var(--line); border-radius: 12px; padding: 1rem; margin-top: 1rem; background: var(--card); }
+    .review-page-custom .card,
+    .review-page-custom .card p,
+    .review-page-custom .card div,
+    .review-page-custom .card span,
+    .review-page-custom .card li,
+    .review-page-custom .card blockquote,
+    .review-page-custom .card i,
+    .review-page-custom .card b,
+    .review-page-custom .card strong,
+    .review-page-custom .card em {
+      color: var(--black) !important;
+    }
+    .review-page-custom .card a {
+      color: var(--accent) !important;
+      text-decoration: underline;
+      text-underline-offset: 2px;
+    }
+    .review-page-custom .card a i,
+    .review-page-custom .card a em,
+    .review-page-custom .card a span,
+    .review-page-custom .card a strong,
+    .review-page-custom .card a b {
+      color: var(--accent) !important;
+    }
+  </style>
+</head>
+<body class="photos-page review-page-custom">
+  <div class="wrapper">
+    <a class="skip-link" href="#review-main">Saltar al contenido</a>
+    <header class="photos-header">
+      <div class="photos-header__bar">
+        <a class="link photos-back" href="../biblioteca.html">← Volver a la Biblioteca de Jorge Zuluaga</a>
+        <button class="theme-button photos-theme" type="button" aria-label="Modo de visualización: Claro/Oscuro">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="moon-icon" aria-hidden="true">
+            <path d="M11.3807 2.01886C9.91573 3.38768 9 5.3369 9 7.49999C9 11.6421 12.3579 15 16.5 15C18.6631 15 20.6123 14.0843 21.9811 12.6193C21.6613 17.8537 17.3149 22 12 22C6.47715 22 2 17.5228 2 12C2 6.68514 6.14629 2.33869 11.3807 2.01886Z"></path>
+          </svg>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="sun-icon" aria-hidden="true">
+            <path d="M12 18C8.68629 18 6 15.3137 6 12C6 8.68629 8.68629 6 12 6C15.3137 6 18 8.68629 18 12C18 15.3137 15.3137 18 12 18ZM11 1H13V4H11V1ZM11 20H13V23H11V20ZM3.51472 4.92893L4.92893 3.51472L7.05025 5.63604L5.63604 7.05025L3.51472 4.92893ZM16.9497 18.364L18.364 16.9497L20.4853 19.0711L19.0711 20.4853L16.9497 18.364ZM19.0711 3.51472L20.4853 4.92893L18.364 7.05025L16.9497 5.63604L19.0711 3.51472ZM5.63604 16.9497L7.05025 18.364L4.92893 20.4853L3.51472 19.0711L5.63604 16.9497ZM23 11V13H20V11H23ZM4 11V13H1V11H4Z"></path>
+          </svg>
+        </button>
+      </div>
+    </header>
+    <main id="review-main" class="photos-main">
+      <div class="container">
+        <h1 class="title-section">La armonía de las células: Una exploración de la medicina y del nuevo ser humano / The Song of the Cell: An Exploration of Medicine and the New Human (Spanish Edition)</h1>
+        <p class="author">Siddhartha Mukherjee</p>
+        <p class="review-by">Reseña por Jorge I. Zuluaga</p>
+        <p class="cover"><img src="./covers/5576000244.jpg" alt="Portada de La armonía de las células: Una exploración de la medicina y del nuevo ser humano / The Song of the Cell: An Exploration of Medicine and the New Human (Spanish Edition)" /></p>
+        <p class="meta">Fecha de reseña: 2026-01-11</p>
+        <div class="rating-row">
+          <p class="rating" aria-label="Calificación: 5 de 5">★★★★★</p>
+          <p class="likes" aria-label="Likes en GoodReads: 1"><a href="https://www.goodreads.com/review/show/5576000244?utm_medium=api&amp;utm_source=rss" target="_blank" rel="noopener noreferrer">👍</a> 1</p>
+        </div>
+        <p><a class="link" href="https://www.goodreads.com/review/show/5576000244?utm_medium=api&amp;utm_source=rss" target="_blank" rel="noopener noreferrer">Ver reseña en GoodReads (necesita cuenta)</a></p>
+        <article class="card">
+          Este es el segundo libro que leo de Siddhartha Mukherjee (el primero fue <a href="https://www.goodreads.com/review/show/3406737066" rel="nofollow noopener">El Gen</a>) ¡y estoy realmente encantado con su estilo!<br /><br />En "La armonía de las células", Mukherjee nos guía a través de un original viaje por la historia de la biología celular y la medicina (especialmente la fisiología). En el camino, además de introducir los momentos y personajes más importantes de esa historia, con su particular estilo en el que combina erudición histórica y anécdotas personales, el autor nos ofrece un panorama más o menos amplio de cómo se organiza la vida a partir de sus unidades fundamentales, los átomos de vida, como los llamaría uno de los muchos autores que cita. En el caso específico del cuerpo humano, Mukherjee nos enseña además como esa organización determina el surgimiento, el funcionamiento y las más importantes patologías de las que sufre nuestra especie.<br /><br />La mayoría de nosotros, incluso sin especializarnos en ciencias biológicas, hemos pasado por cursos de biología celular, en el colegio y tal vez en la universidad. Personalmente, y creo que muchas personas podrían atestiguar el mismo sentimiento, las descripciones hiperdetalladas de la estructura celular, organelas y funciones, así como de las sustancias que se cocinan en el interior de ellas, no es que me traigan los mejores recuerdos de mi formación escolar. Al contrario, pienso en esas clases como etapas medio traumáticas de mi educación en las que la memorización estaba en el centro del aprendizaje. <br /><br />Leyendo "La armonía de las células" creo que al fin pude apreciar estas explicaciones. En el libro, Mukherjee hace una descripción más o menos detallada de la estructura y funcionamiento de las células que, a diferencia de una lección de biología de colegio, funciona mejor porque, en primer lugar, viene enriquecida por las historias de cómo se realizaron los descubrimientos, los personajes y la época en la que se produjeron, las altísimas dosis de paciencia y de mucho ingenio que estuvieron implicadas en el proceso. Al agregar a la descripción fría de las partes de la célula, estos elementos más humanos del tema, creo que la comprensión se multiplica. En segundo lugar, Mukherjee nos introduce a la célula a través de su funcionamiento y eventualmente del impacto que algunas de sus partes tienen en la fisiología de nuestro cuerpo. Aprendemos a conocer las células desde nuestro cuerpo y eso hace más significativa esta información.<br /><br />Pero este no es solo un libro de biología celular y de su historia. Hacia la mitad del texto el autor entra en el que será el tema central: la manera en la que la fisiología humana, y en particular los aspectos anormales de esa fisiología (la patología, las enfermedades) está en últimas determinada por la fisiología de las células individuales de nuestro cuerpo. El libro pasa de ser uno de biología a convertirse en uno de medicina. ¡El resultado es genial!<br /><br />Aunque puede sonar exagerado, a través de este libro creo haber entendido bien cosas sobre el cuerpo que eran para mí prácticamente un misterio. Debo confesar mi ignorancia previa sobre lo que era la sangre o cómo funcionaban los téjidos que hay en los huesos. ¡Sangre y huesos! ¡hágame el favor! Dos de los tejidos más importantes del cuerpo son solo superficialmente entendidos, incluso por personas como yo que tenemos una formación científica.<br /><br />Uno de los temas claves del libro es la descripción de cómo el conocimiento profundo de las células y de su relación (ecología) en tejidos y órganos, se está usando hoy para desarrollar novedosas terapias para combatir enfermedades incluyendo las que producen infertilidad. El libro te acerca mucho más, y de una manera en la que es fácil de entender, a algunas importantes terapias genéticas, otras basadas en la manipulación del sistema inmunológico (¡tremendo "organo"!), en la reproducción celular o en la química de la sangre.<br /><br />Aunque estoy seguro que en este libro apenas se asoma uno al inmenso iceberg del cáncer (en el que profundiza Mukherjee en su libro más famoso "El emperador de todos los males", que tengo en deuda leer), creo haber por fin entendido (como deberíamos hacerlo todas las personas) por qué es tan complejo desarrollar tratamientos efectivos contra este complejo sistema de enfermedades. <br /><br />La clave, por supuesto, y como aprendí en este libro, se encuentra en las mismas células. Pero no solo las células cancerígenas, también en las de los tejidos sanos que colonizan y en las del sistema inmune que las pasan generalmente por alto. La lectura de este libro permite entender mejor la dimensión del reto que tienen por delante las personas que investigan en esta frontera del conocimiento que, de encontrar terapias generalistas, reducirían muchísimo el sufrimiento humano.<br /><br />Los capítulos dedicados a sangre, las células madre y el funcionamiento de las neuronas, fueron los que más me gustaron y en los que aprendí cosas maravillosas que, aunque conocía superficialmente, nunca me habían explicado tan bien.<br /><br />Los textos de biología y medicina, incluso algunos de naturaleza divulgativa, pecan muchas veces de usar un lenguaje difícil de seguir (y no les culpo, estamos hablando de algunas de las mas complejas ciencias). Este es otro aspecto en el que los libros de Mukherjee sobresalen. Si encuentras en un párrafo dos palabras raras, no encuentras tres. El mismo autor aclara en muchas partes, con seguridad hablándole a los especialistas que le leen, que no puede entrar en todos los detalles porque sería abrumador para las personas no expertas. ¡Gracias doctor!<br /><br />En síntesis, creo que este es un libro al que vale la pena meterle el diente. Es un libro extenso (500 páginas) pero que leído con paciencia puede enseñar a cualquiera con un cuerpo cosas que difícilmente encontrará mejor explicadas en otras partes.<br /><br />¡Lean este libro! ¡Lean a Mukherjee!
+        </article>
+      </div>
+    </main>
+    <footer class="print-mode-target">
+      <p>Jorge I. Zuluaga — <a class="link" href="../index.html">Currículum en línea</a></p>
+    </footer>
+  </div>
+</body>
+</html>

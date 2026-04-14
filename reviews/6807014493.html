@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="color-scheme" content="light dark" />
+  <title>Reseña en Goodreads (mirror local)</title>
+  <link rel="icon" type="image/png" sizes="48x48" href="../assets/favicon.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="../assets/apple-touch-icon.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../assets/style.css?v=2" />
+  <script src="../assets/template.js" defer></script>
+  <style>
+    .review-page-custom .meta { color: var(--black); opacity: 0.8; font-size: 0.95rem; }
+    .review-page-custom .author { font-size: 1.4rem; font-weight: 600; margin: 0.35rem 0 0.75rem; }
+    .review-page-custom .review-by { font-size: 1rem; margin: -0.35rem 0 0.8rem; opacity: 0.88; }
+    .review-page-custom .rating-row { display: flex; align-items: center; gap: 0.8rem; margin: 0.25rem 0 0.2rem; }
+    .review-page-custom .rating { font-size: 1.2rem; letter-spacing: 0.04em; margin: 0; }
+    .review-page-custom .likes { margin: 0; font-size: 1rem; }
+    .review-page-custom .likes a { color: var(--accent); text-decoration: none; }
+    .review-page-custom .likes a:hover { text-decoration: underline; }
+    .review-page-custom .cover { margin: 0.75rem 0 1rem; }
+    .review-page-custom .cover img { max-width: 220px; height: auto; border-radius: 8px; border: 1px solid var(--line); }
+    .review-page-custom .card { border: 1px solid var(--line); border-radius: 12px; padding: 1rem; margin-top: 1rem; background: var(--card); }
+    .review-page-custom .card,
+    .review-page-custom .card p,
+    .review-page-custom .card div,
+    .review-page-custom .card span,
+    .review-page-custom .card li,
+    .review-page-custom .card blockquote,
+    .review-page-custom .card i,
+    .review-page-custom .card b,
+    .review-page-custom .card strong,
+    .review-page-custom .card em {
+      color: var(--black) !important;
+    }
+    .review-page-custom .card a {
+      color: var(--accent) !important;
+      text-decoration: underline;
+      text-underline-offset: 2px;
+    }
+    .review-page-custom .card a i,
+    .review-page-custom .card a em,
+    .review-page-custom .card a span,
+    .review-page-custom .card a strong,
+    .review-page-custom .card a b {
+      color: var(--accent) !important;
+    }
+  </style>
+</head>
+<body class="photos-page review-page-custom">
+  <div class="wrapper">
+    <a class="skip-link" href="#review-main">Saltar al contenido</a>
+    <header class="photos-header">
+      <div class="photos-header__bar">
+        <a class="link photos-back" href="../biblioteca.html">← Volver a la Biblioteca de Jorge Zuluaga</a>
+        <button class="theme-button photos-theme" type="button" aria-label="Modo de visualización: Claro/Oscuro">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="moon-icon" aria-hidden="true">
+            <path d="M11.3807 2.01886C9.91573 3.38768 9 5.3369 9 7.49999C9 11.6421 12.3579 15 16.5 15C18.6631 15 20.6123 14.0843 21.9811 12.6193C21.6613 17.8537 17.3149 22 12 22C6.47715 22 2 17.5228 2 12C2 6.68514 6.14629 2.33869 11.3807 2.01886Z"></path>
+          </svg>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="sun-icon" aria-hidden="true">
+            <path d="M12 18C8.68629 18 6 15.3137 6 12C6 8.68629 8.68629 6 12 6C15.3137 6 18 8.68629 18 12C18 15.3137 15.3137 18 12 18ZM11 1H13V4H11V1ZM11 20H13V23H11V20ZM3.51472 4.92893L4.92893 3.51472L7.05025 5.63604L5.63604 7.05025L3.51472 4.92893ZM16.9497 18.364L18.364 16.9497L20.4853 19.0711L19.0711 20.4853L16.9497 18.364ZM19.0711 3.51472L20.4853 4.92893L18.364 7.05025L16.9497 5.63604L19.0711 3.51472ZM5.63604 16.9497L7.05025 18.364L4.92893 20.4853L3.51472 19.0711L5.63604 16.9497ZM23 11V13H20V11H23ZM4 11V13H1V11H4Z"></path>
+          </svg>
+        </button>
+      </div>
+    </header>
+    <main id="review-main" class="photos-main">
+      <div class="container">
+        <h1 class="title-section">Justicia para los animales: Una responsabilidad colectiva (Estado y Sociedad) (Spanish Edition)</h1>
+        <p class="author">Martha C. Nussbaum</p>
+        <p class="review-by">Reseña por Jorge I. Zuluaga</p>
+        <p class="cover"><img src="./covers/6807014493.jpg" alt="Portada de Justicia para los animales: Una responsabilidad colectiva (Estado y Sociedad) (Spanish Edition)" /></p>
+        <p class="meta">Fecha de reseña: 2024-10-27</p>
+        <div class="rating-row">
+          <p class="rating" aria-label="Calificación: 5 de 5">★★★★★</p>
+          <p class="likes" aria-label="Likes en GoodReads: 14"><a href="https://www.goodreads.com/review/show/6807014493?utm_medium=api&amp;utm_source=rss" target="_blank" rel="noopener noreferrer">👍</a> 14</p>
+        </div>
+        <p><a class="link" href="https://www.goodreads.com/review/show/6807014493?utm_medium=api&amp;utm_source=rss" target="_blank" rel="noopener noreferrer">Ver reseña en GoodReads (necesita cuenta)</a></p>
+        <article class="card">
+          Sensacional, increíblemente claro, maravillosamente empático. <br /><br />Solo se me ocurren, para comenzar esta reseña, estos superlativos, que tal vez molesten a personas más objetivas. Ellos describen fielmente lo que me quedó de este fantástico texto de Martha Nussbaum, un libro que disfrute de la primera a la última página.<br /><br />Los filósofos enredan hasta un saludo, como decimos en mi país (Colombia). Sin embargo, Nussbaum en este texto (y en otros que he leído salidos de su pluma) demuestra que con los problemas centrales de la crisis ecosocial que vivimos (desigualdad, hambre, crueldad animal) no hay que andarse con tecnicismos. Se debe escribir para que cualquiera entienda.<br /><br />"Justicia para los animales" desarrolla una propuesta filosófico y jurídica para, como su nombre lo indica, encontrar las mejores manera de hacer justicia con los demás animales con los que compartimos la biosfera. No es un libro técnico, ni un libro académico, pero creo que es lo suficientemente detallado para entender que las propuestas de Nussbaum pueden implementarse exitosamente en muchas sociedades humanas, mejorando las condiciones de vida de todos los animales, incluyéndonos.<br /><br />El libro comienza con una revisión amplia y muy ilustrativa de las diversas posiciones filosóficas que se han asumido a lo largo de la historia alrededor del status de los animales desde la perspectiva humana. Comenzando con la denominada <i>scala naturae</i>, la más antigua de las posturas, que, como su nombre lo indica, ubica a los animales en una especie de pirámide de desarrollo o escalera evolutiva, con los humanos naturalmente encabezando la pirámide y por lo tanto mereciendo un trato privilegiado (la excepcionalidad humana); pasa después por el enfoque utilitarista, tan común en el conservacionismo biologicista del presente, que busca minimizar el sufrimiento, pero que deja por fuera las experiencias individuales de los animales; y llega hasta el enfoque Kantiano, desarrollado modernamente por la filósofa Christine Koosgard, que reconoce la que todos los animales sintientes son fines en sí mismos y no pueden ser tratados como objetos para los fines humanos. <br /><br />Durante la presentación de cada uno de los enfoques que se han considerado en la historia, Nussbaum procede a hacer una crítica más o menos exhaustiva de porque fallan para resolver el problema que hemos creados los humanos para los demás animales: la destrucción de habitats, la extinción por causas no biológicas, y el encierro, la esclavitud y la tortura a la que los hemos sometido para que cumplan funciones para nosotros. <br /><br />Como solución a los problemas de los que esos enfoques adolecen, Nussbaum presenta su propio enfoque que denomina <i>enfoque de las capacidades</i> y que en pocas palabras (hay que leer el libro para conocerlo en todos sus detalles) plantea que debemos conocer a los animales no humanos y entender cuáles son los objetivos que persiguen en su vida, cuáles son los medios que buscan para lograr esos objetivos. Como nuestra intervención en la naturaleza es tan poderosa, estamos en la obligación de partir de ese conocimiento para ofrecer o garantizar a todos esos animales los medios para desarrollar sus capacidades. Nuestras acciones de conservación, nuestras leyes deberían, según la propuesta de la filósofa, alinearse con ese objetivo.<br /><br />Lo mejor del libro, como dije antes, es que no solo se trata de una colección árida de textos filosóficos o jurídicos para justificar este programa, sino una lúcida exposición que no deja duda de que puede para implementarse sin muchas dificultades en los sistemas legales de los países del mundo. El libro incluye además interesantes capítulos dedicados a los problemas centrales que deben considerarse para resolver "el problema de los animales no humanos". Temas como la definición de lo que la sintiencia y el conato (un término nuevo que aprendí leyendo este libro), la muerte, los dilemas tráficos, la relación diferencial que tenemos con los animales de compañía en contraste con los animales salvajes, la responsabilidad humana entre muchos otros. ¡Una maravilla!<br /><br />Hace unos meses tuve en Twitter una discusión bastante salida de tono con biólogos conservacionistas y con oscuros personajes antianiamalistas que rondan en esa red social. En la discusión yo defendía la idea de que hay que ser "individualmente empáticos" en el caso particular de los hipopótamos del Magdalena medio Colombiano, que estaban a punto de sufrir la eliminación a través de cacería controlada. Para quiénes no los conozcan, los hipopótamos del Magdalena son una población de estos animales, considerados aquí una "especie invasora" (como se la llama técnicamente), que fue indebidamente introducida en el ecosistema por las excentricidades de los narcotraficantes colombianos de los 1980. Hoy, constituyen una amenaza para muchas especies locales y el control de su población se ha convertido en un problema muy serio para las autoridades del país.<br /><br />Ojalá hubiera leído a Nussbaum antes de esa discusión. <br /><br />Este libro esta lleno de los elementos filosóficos y jurídicos que soportan mi posición, posición que todavía conservo y que sostiene que cada uno de esos hipopótamos está allí buscando desarrollar sus capacidades como mejor puede (ese es su conato) y no merece morir a manos de los humanos, quienes somos los responsable de que hayan nacido en un ecosistema ajeno a su especie.<br /><br />Para mi sorpresa, en este libro aprendí que Colombia es el único país que ha reconocido derechos ciudadanos individuales a los hipopótamos de modo que, por ejemplo, y esta es una de las propuestas más interesantes de la filósofa, estos animales puedan presentar una demanda ante el Estado, naturalmente no ellos mismos, sino elevada por humanos en su representación, como ocurre por ejemplo con personas con limitaciones mentales. Esta fue una de las propuestas que hice en medio de las discusiones en Twitter, discusiones que solo terminaron con bloqueos mutuos y borrando trinos para evitar el <i>trolling</i> tan común en esas red social. <br /><br />En fin. Sean animalistas, como me identifico yo, o no, ¡lean ya a "Justicia para los animales".
+        </article>
+      </div>
+    </main>
+    <footer class="print-mode-target">
+      <p>Jorge I. Zuluaga — <a class="link" href="../index.html">Currículum en línea</a></p>
+    </footer>
+  </div>
+</body>
+</html>

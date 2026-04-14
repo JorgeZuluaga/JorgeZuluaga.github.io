@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="color-scheme" content="light dark" />
+  <title>Reseña en Goodreads (mirror local)</title>
+  <link rel="icon" type="image/png" sizes="48x48" href="../assets/favicon.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="../assets/apple-touch-icon.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../assets/style.css?v=2" />
+  <script src="../assets/template.js" defer></script>
+  <style>
+    .review-page-custom .meta { color: var(--black); opacity: 0.8; font-size: 0.95rem; }
+    .review-page-custom .author { font-size: 1.4rem; font-weight: 600; margin: 0.35rem 0 0.75rem; }
+    .review-page-custom .review-by { font-size: 1rem; margin: -0.35rem 0 0.8rem; opacity: 0.88; }
+    .review-page-custom .rating-row { display: flex; align-items: center; gap: 0.8rem; margin: 0.25rem 0 0.2rem; }
+    .review-page-custom .rating { font-size: 1.2rem; letter-spacing: 0.04em; margin: 0; }
+    .review-page-custom .likes { margin: 0; font-size: 1rem; }
+    .review-page-custom .likes a { color: var(--accent); text-decoration: none; }
+    .review-page-custom .likes a:hover { text-decoration: underline; }
+    .review-page-custom .cover { margin: 0.75rem 0 1rem; }
+    .review-page-custom .cover img { max-width: 220px; height: auto; border-radius: 8px; border: 1px solid var(--line); }
+    .review-page-custom .card { border: 1px solid var(--line); border-radius: 12px; padding: 1rem; margin-top: 1rem; background: var(--card); }
+    .review-page-custom .card,
+    .review-page-custom .card p,
+    .review-page-custom .card div,
+    .review-page-custom .card span,
+    .review-page-custom .card li,
+    .review-page-custom .card blockquote,
+    .review-page-custom .card i,
+    .review-page-custom .card b,
+    .review-page-custom .card strong,
+    .review-page-custom .card em {
+      color: var(--black) !important;
+    }
+    .review-page-custom .card a {
+      color: var(--accent) !important;
+      text-decoration: underline;
+      text-underline-offset: 2px;
+    }
+    .review-page-custom .card a i,
+    .review-page-custom .card a em,
+    .review-page-custom .card a span,
+    .review-page-custom .card a strong,
+    .review-page-custom .card a b {
+      color: var(--accent) !important;
+    }
+  </style>
+</head>
+<body class="photos-page review-page-custom">
+  <div class="wrapper">
+    <a class="skip-link" href="#review-main">Saltar al contenido</a>
+    <header class="photos-header">
+      <div class="photos-header__bar">
+        <a class="link photos-back" href="../biblioteca.html">← Volver a la Biblioteca de Jorge Zuluaga</a>
+        <button class="theme-button photos-theme" type="button" aria-label="Modo de visualización: Claro/Oscuro">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="moon-icon" aria-hidden="true">
+            <path d="M11.3807 2.01886C9.91573 3.38768 9 5.3369 9 7.49999C9 11.6421 12.3579 15 16.5 15C18.6631 15 20.6123 14.0843 21.9811 12.6193C21.6613 17.8537 17.3149 22 12 22C6.47715 22 2 17.5228 2 12C2 6.68514 6.14629 2.33869 11.3807 2.01886Z"></path>
+          </svg>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="sun-icon" aria-hidden="true">
+            <path d="M12 18C8.68629 18 6 15.3137 6 12C6 8.68629 8.68629 6 12 6C15.3137 6 18 8.68629 18 12C18 15.3137 15.3137 18 12 18ZM11 1H13V4H11V1ZM11 20H13V23H11V20ZM3.51472 4.92893L4.92893 3.51472L7.05025 5.63604L5.63604 7.05025L3.51472 4.92893ZM16.9497 18.364L18.364 16.9497L20.4853 19.0711L19.0711 20.4853L16.9497 18.364ZM19.0711 3.51472L20.4853 4.92893L18.364 7.05025L16.9497 5.63604L19.0711 3.51472ZM5.63604 16.9497L7.05025 18.364L4.92893 20.4853L3.51472 19.0711L5.63604 16.9497ZM23 11V13H20V11H23ZM4 11V13H1V11H4Z"></path>
+          </svg>
+        </button>
+      </div>
+    </header>
+    <main id="review-main" class="photos-main">
+      <div class="container">
+        <h1 class="title-section">Cien años de soledad</h1>
+        <p class="author">Gabriel García Márquez</p>
+        <p class="review-by">Reseña por Jorge I. Zuluaga</p>
+        <p class="cover"><img src="./covers/2669143070.jpg" alt="Portada de Cien años de soledad" /></p>
+        <p class="meta">Fecha de reseña: 2024-12-22</p>
+        <div class="rating-row">
+          <p class="rating" aria-label="Calificación: 5 de 5">★★★★★</p>
+          <p class="likes" aria-label="Likes en GoodReads: 21"><a href="https://www.goodreads.com/review/show/2669143070?utm_medium=api&amp;utm_source=rss" target="_blank" rel="noopener noreferrer">👍</a> 21</p>
+        </div>
+        <p><a class="link" href="https://www.goodreads.com/review/show/2669143070?utm_medium=api&amp;utm_source=rss" target="_blank" rel="noopener noreferrer">Ver reseña en GoodReads (necesita cuenta)</a></p>
+        <article class="card">
+          <b>Primera lectura</b> (adolescencia)<br /><br />Creo que no entendí casi nada, pero todo el mundo dice que es una obra importante. La leí en parte porque era una obligación escolar, en parte porque veía a mi papá disfrutando de ella.<br /><br /><b>Segunda lectura</b> (44 años)<br /><br />Solo puedo describir esta novela como una catarata literaria sin paralelo. <br /><br />Entiendo ahora porque no exageran quienes la comparan apenas con el Quijote de la Mancha o la incluyen en listas de las más importantes obras escritas en castellano, e incluso en cualquier otra lengua, en toda la historia de la literatura.<br /><br />No hay manera tranquila o pausada de leer 100 años de soledad. No hay forma tampoco de hacer una pausa sin que uno sienta que esta rompiendo un hilo continuo que debe ser desenrollado sin solución de continuidad. La muerte de un personaje central, que pensaría uno podría ser sucedida por un intermedio lúgubre, difícilmente es interrumpida por una página de luto, para a continuación quedar casi olvidada con las historias grandiosas de cualquiera de sus personajes vivos. <br /><br />Mi recomendación para quien la vaya a empezar a leer, es que disponga de buen tiempo de modo que pueda disfrutarla sin descanso o por lo menos sin esas pausas de días o semanas de obras más profanas. Cien Años de Soledad difícilmente admite una pausa, sin que se pierda uno fácilmente en las historias que se fusionan con una naturalidad pasmosa, saltando a veces décadas o en las genealogías imposibles que lo obligan a uno casi a leer tomando nota.<br /><br />No es tampoco una obra para leer en la juventud, como sí creo que lo es, a pesar posiblemente del obstáculo del idioma, el mismísimo Quijote de la Mancha. <br /><br />Para apreciar cabalmente Cien Años de Soledad hay que tener añejo el gusto; haber vivido un par de cosas; haber tenido ciertas experiencias amorosas y sexuales (y no necesariamente las de la juventud); tener una cierta sensibilidad social y familiar; todas cosas que sólo se adquieren con el tiempo. Es un libro para "adultos", no en el sentido de la absurda censura goda, sino en el de la capacidad que da la experiencia para apreciar la belleza de algunas historias simples.<br /><br />Una de los cosas para mi más significativas de la novela, para estos tiempos de sensibilidad por el movimiento feminista, es justamente el papel central de las mujeres en esta historia. <br /><br />A lo largo de toda la novela, desde los tiempos en los que José Arcadio llevo a sus hijos a conocer el hielo, que posiblemente se hunden en los principios del siglo xix, hasta los aviones de Gaston bien entrado el siglo xx, las mujeres de esta historia, con muy contadas excepciones, aparecen como personajes fuertes y dominantes. A pesar de tener los roles reconocidos en el patriarcado, la esposa que cuida de su marido e hijos, la empleada doméstica, la prostituta, la reina de belleza, la religiosa, etc. sorprende la libertad y casi masculinidad (en el sentido de los beneficios sociales) de muchas de las mujeres de esta historia.<br /><br /><b>Tercera lectura</b> (49 años)<br /><br />He releído "Cien años de Soledad" y también mi reseña de hace 5 años. No tengo mucho que modificar porque termine con impresiones similares a las que me dejo esa lectura. Sin embargo, casi 400 libros después (muchos de ellos del propio García Márquez), enfrentarme de nuevo a las páginas de esta gran novela fue una experiencia bien diferente.<br /><br />Lo primero que debo decir es que, como las grandes obras literarias, "Cien años de soledad" se hace mejor con cada relectura. Parece una verdad de perogrullo pero quiénes releen saben que hay novelas que pueden agotarse, incluso volverse peores en la segunda o tercera relectura (si es que provoca releerlas la primera vez). <br /><br />Pero no pasa lo mismo con "Cien años de soledad". ¡Que historia más poderosa! ¡Que narrador era García Márquez!<br /><br />En esta relectura tengo la impresión de que por fin entendí muchas cosas que, en mis lecturas anteriores consideraba prácticamente un trabalenguas. Logré retener mucho mejor el intrincado árbol genealógico de los Buendía Iguarán, reconocí a muchos más personajes que en mis lecturas anteriores, y por la velocidad de la narración había conocido solo superficialmente. Por fin puedo recordar las condiciones de la muerte de muchos de los personajes centrales de la historia, algo que, como había señalado en la reseña de mi segunda lectura, pasa casi desapercibido por efecto de la velocidad de la narración. Pude reconocer, después de leer una buena cantidad de textos de Historia de Colombia, las analogías entre la historia de Macondo y de Colombia que dejó García Márquez esparcidas por toda la Novela.<br /><br />Debo confesar que hice la relectura de la novela motivado por el lanzamiento de la serie para televisión (plataforma de streaming) que todavía no he visto (pero que veré apenas termine esta reseña). Solo espero que la serie logré capturar, así sea un poquito, el mar de historias que es "Cien años de soledad". Tengo mis reservas pero estoy a la expectativa, casos se han visto.<br /><br />Aunque en mi reseña anterior había señalado que me gusto mucho reconocer el papel central de las mujeres en la novela, en esta relectura me doy cuenta de que en realidad se trata de una historia patriarcal más en la que, si bien sobresale el rol de algunas mujeres de gran poder, mujeres empoderadas e independientes (Úrsula, Amaranta Úrsula, Pilar Ternera, incluso Nigromanta), las historian realmente gravitan alrededor de los hijos de la familia Buendía Iguarán y de sus descendientes varones. <br /><br />No es difícil reconocer que la vida de casi todas las mujeres en la novela, tanto las que tuvieron un puñado de hijos como las que murieron vírgenes, parece tener solo sentido en función de los hombres que les rodeaban. No quiero con esto hacer un juicio de valor literario o personal de García Márquez, especialmente uno basado en una perspectiva y en unos valores que tienen ahora una importancia mayor que en el tiempo en el que fue concebida la novela, pero tampoco me parece irrelevante que se señalen estas injusticias que no solo están presente en esta obra, sino que atraviesan toda la literatura universal.
+        </article>
+      </div>
+    </main>
+    <footer class="print-mode-target">
+      <p>Jorge I. Zuluaga — <a class="link" href="../index.html">Currículum en línea</a></p>
+    </footer>
+  </div>
+</body>
+</html>

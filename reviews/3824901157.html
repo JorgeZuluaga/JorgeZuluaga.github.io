@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="color-scheme" content="light dark" />
+  <title>Reseña en Goodreads (mirror local)</title>
+  <link rel="icon" type="image/png" sizes="48x48" href="../assets/favicon.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="../assets/apple-touch-icon.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../assets/style.css?v=2" />
+  <script src="../assets/template.js" defer></script>
+  <style>
+    .review-page-custom .meta { color: var(--black); opacity: 0.8; font-size: 0.95rem; }
+    .review-page-custom .author { font-size: 1.4rem; font-weight: 600; margin: 0.35rem 0 0.75rem; }
+    .review-page-custom .review-by { font-size: 1rem; margin: -0.35rem 0 0.8rem; opacity: 0.88; }
+    .review-page-custom .rating-row { display: flex; align-items: center; gap: 0.8rem; margin: 0.25rem 0 0.2rem; }
+    .review-page-custom .rating { font-size: 1.2rem; letter-spacing: 0.04em; margin: 0; }
+    .review-page-custom .likes { margin: 0; font-size: 1rem; }
+    .review-page-custom .likes a { color: var(--accent); text-decoration: none; }
+    .review-page-custom .likes a:hover { text-decoration: underline; }
+    .review-page-custom .cover { margin: 0.75rem 0 1rem; }
+    .review-page-custom .cover img { max-width: 220px; height: auto; border-radius: 8px; border: 1px solid var(--line); }
+    .review-page-custom .card { border: 1px solid var(--line); border-radius: 12px; padding: 1rem; margin-top: 1rem; background: var(--card); }
+    .review-page-custom .card,
+    .review-page-custom .card p,
+    .review-page-custom .card div,
+    .review-page-custom .card span,
+    .review-page-custom .card li,
+    .review-page-custom .card blockquote,
+    .review-page-custom .card i,
+    .review-page-custom .card b,
+    .review-page-custom .card strong,
+    .review-page-custom .card em {
+      color: var(--black) !important;
+    }
+    .review-page-custom .card a {
+      color: var(--accent) !important;
+      text-decoration: underline;
+      text-underline-offset: 2px;
+    }
+    .review-page-custom .card a i,
+    .review-page-custom .card a em,
+    .review-page-custom .card a span,
+    .review-page-custom .card a strong,
+    .review-page-custom .card a b {
+      color: var(--accent) !important;
+    }
+  </style>
+</head>
+<body class="photos-page review-page-custom">
+  <div class="wrapper">
+    <a class="skip-link" href="#review-main">Saltar al contenido</a>
+    <header class="photos-header">
+      <div class="photos-header__bar">
+        <a class="link photos-back" href="../biblioteca.html">← Volver a la Biblioteca de Jorge Zuluaga</a>
+        <button class="theme-button photos-theme" type="button" aria-label="Modo de visualización: Claro/Oscuro">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="moon-icon" aria-hidden="true">
+            <path d="M11.3807 2.01886C9.91573 3.38768 9 5.3369 9 7.49999C9 11.6421 12.3579 15 16.5 15C18.6631 15 20.6123 14.0843 21.9811 12.6193C21.6613 17.8537 17.3149 22 12 22C6.47715 22 2 17.5228 2 12C2 6.68514 6.14629 2.33869 11.3807 2.01886Z"></path>
+          </svg>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="sun-icon" aria-hidden="true">
+            <path d="M12 18C8.68629 18 6 15.3137 6 12C6 8.68629 8.68629 6 12 6C15.3137 6 18 8.68629 18 12C18 15.3137 15.3137 18 12 18ZM11 1H13V4H11V1ZM11 20H13V23H11V20ZM3.51472 4.92893L4.92893 3.51472L7.05025 5.63604L5.63604 7.05025L3.51472 4.92893ZM16.9497 18.364L18.364 16.9497L20.4853 19.0711L19.0711 20.4853L16.9497 18.364ZM19.0711 3.51472L20.4853 4.92893L18.364 7.05025L16.9497 5.63604L19.0711 3.51472ZM5.63604 16.9497L7.05025 18.364L4.92893 20.4853L3.51472 19.0711L5.63604 16.9497ZM23 11V13H20V11H23ZM4 11V13H1V11H4Z"></path>
+          </svg>
+        </button>
+      </div>
+    </header>
+    <main id="review-main" class="photos-main">
+      <div class="container">
+        <h1 class="title-section">Odisea</h1>
+        <p class="author">Homer</p>
+        <p class="review-by">Reseña por Jorge I. Zuluaga</p>
+        <p class="cover"><img src="./covers/3824901157.jpg" alt="Portada de Odisea" /></p>
+        <p class="meta">Fecha de reseña: 2026-02-21</p>
+        <div class="rating-row">
+          <p class="rating" aria-label="Calificación: 5 de 5">★★★★★</p>
+          <p class="likes" aria-label="Likes en GoodReads: 19"><a href="https://www.goodreads.com/review/show/3824901157?utm_medium=api&amp;utm_source=rss" target="_blank" rel="noopener noreferrer">👍</a> 19</p>
+        </div>
+        <p><a class="link" href="https://www.goodreads.com/review/show/3824901157?utm_medium=api&amp;utm_source=rss" target="_blank" rel="noopener noreferrer">Ver reseña en GoodReads (necesita cuenta)</a></p>
+        <article class="card">
+          <b>Primera lectura (2021)</b><br /><br />Leer la Ilíada y la Odisea te hace ser parte de una tradición milenaria que todavía no termina. <br /><br />Bueno, o al menos así me siento yo después de terminar mi primera lectura (¡no será la única seguramente!) de estas dos grandiosas epopeyas. <br /><br />De un día para otro siento que me he unido a un (no muy selecto, por cierto) grupo de seres humanos (la mayoría de ellos muertos) que han compartido, por más de 2.700 años, las emociones que suscita conocer en detalle las innumerables desventuras del <i>ingenioso</i> Odiseo (Ulises), <i>laertiada de jovial linaje</i>, y de su <i>ínclita</i> familia.<br /><br />Comencemos justamente por ahí: los adjetivos. <br /><br />Ya había comentado en mi reseña de la Ilíada (pueden leerla <a href="https://www.goodreads.com/review/show/3782412796" rel="nofollow noopener">por aquí</a>), que una de las características más llamativas de los poemas homéricos, es la a veces agotadora pero al final imprescindible repetición de un sin fin de adjetivos. Como sucede con la cerveza y las aceitunas (que saben horrible al principio) con el tiempo la obsesiva adjetivación homérica se convierte en un gusto adquirido. <br /><br />No en pocas ocasiones, mientras me encontraba leyendo la obra, se me escaparon (aunque logre contenerme a tiempo) en más de una ocasión y en conversaciones "joviales" con "ínclitos" amigos, adjetivos homéricos que de haberlos usado habría convertido mi trato con ellos en un "inicuo" acto. Cuando lees por horas a Homero, ¡es realmente contagioso!.<br /><br />Y es que es imposible leer una frase de Homero que no tenga un adjetivo, o una frase descriptiva: "Minerva, la de los brillantes ojos, hija de Júpiter, que lleva la égida", "longividente Jove saturnio, el que amontona las nubes, prepotente padre", "Ulises y su ilustre hijo, el prudente Telemaco", etc. <br /><br />Bueno, o al menos así lo leí yo en la versión de la Odisea que se me atravesó en el camino.<br /><br />Cientos, sino miles de ediciones diferentes, se han publicado de la Odisea. Menos son, sin embargo el número de traducciones en verso o en prosa que se han hecho en castellano. La edición de la que pude disfrutar por poco más de un mes, fue la de Luis Segalá y Estalella de 1901 (de la que pueden encontrar una versión en línea por la que es fácil navegar <a href="https://es.wikisource.org/wiki/La_Odisea_(Luis_Segal%C3%A1_y_Estalella)" rel="nofollow noopener">en este sitio</a>). <br /><br />Como digo, no la escogí, fue la primera que conseguí antes de saber cualquier cosa sobre Homero. Solo les puedo decir que es una bella traducción, con la única característica peculiar de que los nombres de las deidades principales y algunos personajes, son latinos y no los griegos originales (Ulises en lugar de Odiseo, Minerva en lugar de Atenea, Júpiter en lugar de Zeus, etc.). La traducción original de Segalá, sin embargo tiene los nombres griegos y no se porque razón, las versiones más modernas, han cambiado a los nombres latinos (en <a href="http://wpd.ugr.es/~agamizv/wp-content/uploads/Homero-obras-completas-facsimil-1927.pdf" rel="nofollow noopener">está página</a> están la Ilíada y la Odisea de Segalá en su versión original). <br /><br />Soy un recién llegado al vasto mundo imaginario que se ha creado alrededor de la Ilíada y la Odisea (de la verdad de los hechos que narra, de su "mítico" autor, de las ediciones, de las traducciones, de las obras clásicas y modernas derivadas de ella, etc.) pero ya siento que quiero saber mucho más sobre ella. He sido atrapado por el embrujo del Helesponto homérico. <br /><br />Después de leer ambas obras, ahora entiendo porque la Odisea es más popular que la Iliada. <br /><br />Definitivamente la historia en la Odisea es mucho más rica; la acción se desarrolla en una diversidad mayor de escenarios; hay aventuras, tragedias, venganzas, historias contadas por muertos y dioses y hasta una discusión conyugal divertidamente moderna (no les digo más para no arruinar la sorpresa). Es una obra más fácil de leer y posiblemente (como se especula) fue escrita muy posteriormente a la Iliada. A diferencia de está última, gran parte de lo que cuenta la Odisea es fantástico, mientras que la Iliada se aproxima más a la descripción, un poco imaginativa, de hechos reales que ocurrieron durante una minúscula fracción de la guerra de Troya.<br /><br />Pero en lo que respecta a preferencias creo que me quedo con la Iliada. Alejandro Magno tenía el mismo gusto (cuentan que anduvo el mundo con una copia de la Iliada entre sus corotos), de modo que no me siento muy "solo" tomando esta impopular decisión.<br /><br />Lo que si es importante, para quienes vayan a empezar a leer a Homero, es que lean primero la Iliada. La Odisea no solo es la secuela popular de la epopeya homérica, no es como un "Volver al futuro II". No, la Iliada es el primer episodio de la "serie Homérica" y la Odisea solo tiene sentido completo si has soportado el chaparrón de nombres y sangre de ese primer episodio.<br /><br />¡ea! ¡lean a Homero!<br /><br /><b>Segunda lectura (2026)</b><br /><br />Acabo de terminar mi segunda lectura de la <i>Odisea</i>. Me motivó el estreno próximo de la adaptación cinematográfica del clásico de clásicos por el director Christopher Nolan.<br /><br />Como sucede con cualquier relectura, disfruté mucho más de la historia, de sus giros y de su estilo casi moderno. Me favorecieron los cinco años de lecturas que me separan de mi primer encuentro con la obra (2021); me han dado un conocimiento mayor del contexto de la leyenda, su autoría (o autores y tal vez autoras) y la historia de los pueblos que rodean la saga épica (aqueos, espartanos, troyanos, micénicos, cretenses).<br /><br />Aunque la edición asociada a esta reseña es la de <b>Blackie Books</b>, decidí volver primero sobre el texto de Luis Segalá y Estalella (1901), que sigue siendo considerada la versión más fiel al original en griego antiguo (aunque sufre el defecto de tener latinizados los nombres de las divinidades). Sin embargo, al terminar a Segalá, me sumergí en apartes de la traducción de Samuel Butler incluida en este volumen de Blackie Books. Pude comprobar lo fiel que es Butler, pero también cómo el suavizado del lenguaje arcaico e hiperadjetivado no distorsiona el contenido de la obra original.<br /><br />También disfruté del relato final de esta edición: la versión de Penélope escrita por Margaret Atwood. Es indispensable leer la leyenda de Odiseo comenzando por Atwood antes que pasar a Homero. ¡Qué delicia de relato y qué picante le pone a la leyenda del ingenioso Ulises!<br /><br />Tras leer decenas de novelas modernas y conocer conceptos de creación literaria, no dejo de sorprenderme por la estructura de la <i>Odisea</i>. El uso de la analepsis —técnica narrativa que comienza la historia por el final— me parece un recurso muy avanzado para la considerada primera novela de la historia. El uso de las "cajas chinas", las historias dentro de la historia y los múltiples puntos de vista (Odiseo en primera persona, Telémaco o un narrador omnisciente) es tremendo.<br /><br />Algo que me decepcionó en esta segunda lectura fue la falta de detalles en algunas aventuras de Odiseo. La culpa es más mía que de los autores o traductores; se debe a que la <i>Odisea</i> no ha dejado de escribirse en 2700 años. Con las contribuciones contemporáneas de autoras como Margaret Atwood (<i>La versión de Penélope</i>), <a href="https://www.goodreads.com/review/show/7450111308" rel="nofollow noopener">Madeline Miller (<i>Circe</i>)</a> o <a href="https://www.goodreads.com/review/show/6688724482" rel="nofollow noopener">Gabriela Arciniegas (<i>Elena de Troya</i>)</a>, el texto original ha empezado a quedarse corto frente a la expansión moderna del canon.<br /><br />Si algo me han enseñado estos años es que el texto de Homero es solo el punto de partida para adentrarse en esta leyenda humana que, al parecer, no dejará de escribirse nunca.<br /><br />Espero la versión de un nuevo aedo: Nolan.<br /><br />¡Ya vendrán nuevas relecturas!
+        </article>
+      </div>
+    </main>
+    <footer class="print-mode-target">
+      <p>Jorge I. Zuluaga — <a class="link" href="../index.html">Currículum en línea</a></p>
+    </footer>
+  </div>
+</body>
+</html>

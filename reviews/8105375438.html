@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="color-scheme" content="light dark" />
+  <title>Reseña en Goodreads (mirror local)</title>
+  <link rel="icon" type="image/png" sizes="48x48" href="../assets/favicon.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="../assets/apple-touch-icon.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../assets/style.css?v=2" />
+  <script src="../assets/template.js" defer></script>
+  <style>
+    .review-page-custom .meta { color: var(--black); opacity: 0.8; font-size: 0.95rem; }
+    .review-page-custom .author { font-size: 1.4rem; font-weight: 600; margin: 0.35rem 0 0.75rem; }
+    .review-page-custom .review-by { font-size: 1rem; margin: -0.35rem 0 0.8rem; opacity: 0.88; }
+    .review-page-custom .rating-row { display: flex; align-items: center; gap: 0.8rem; margin: 0.25rem 0 0.2rem; }
+    .review-page-custom .rating { font-size: 1.2rem; letter-spacing: 0.04em; margin: 0; }
+    .review-page-custom .likes { margin: 0; font-size: 1rem; }
+    .review-page-custom .likes a { color: var(--accent); text-decoration: none; }
+    .review-page-custom .likes a:hover { text-decoration: underline; }
+    .review-page-custom .cover { margin: 0.75rem 0 1rem; }
+    .review-page-custom .cover img { max-width: 220px; height: auto; border-radius: 8px; border: 1px solid var(--line); }
+    .review-page-custom .card { border: 1px solid var(--line); border-radius: 12px; padding: 1rem; margin-top: 1rem; background: var(--card); }
+    .review-page-custom .card,
+    .review-page-custom .card p,
+    .review-page-custom .card div,
+    .review-page-custom .card span,
+    .review-page-custom .card li,
+    .review-page-custom .card blockquote,
+    .review-page-custom .card i,
+    .review-page-custom .card b,
+    .review-page-custom .card strong,
+    .review-page-custom .card em {
+      color: var(--black) !important;
+    }
+    .review-page-custom .card a {
+      color: var(--accent) !important;
+      text-decoration: underline;
+      text-underline-offset: 2px;
+    }
+    .review-page-custom .card a i,
+    .review-page-custom .card a em,
+    .review-page-custom .card a span,
+    .review-page-custom .card a strong,
+    .review-page-custom .card a b {
+      color: var(--accent) !important;
+    }
+  </style>
+</head>
+<body class="photos-page review-page-custom">
+  <div class="wrapper">
+    <a class="skip-link" href="#review-main">Saltar al contenido</a>
+    <header class="photos-header">
+      <div class="photos-header__bar">
+        <a class="link photos-back" href="../biblioteca.html">← Volver a la Biblioteca de Jorge Zuluaga</a>
+        <button class="theme-button photos-theme" type="button" aria-label="Modo de visualización: Claro/Oscuro">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="moon-icon" aria-hidden="true">
+            <path d="M11.3807 2.01886C9.91573 3.38768 9 5.3369 9 7.49999C9 11.6421 12.3579 15 16.5 15C18.6631 15 20.6123 14.0843 21.9811 12.6193C21.6613 17.8537 17.3149 22 12 22C6.47715 22 2 17.5228 2 12C2 6.68514 6.14629 2.33869 11.3807 2.01886Z"></path>
+          </svg>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="sun-icon" aria-hidden="true">
+            <path d="M12 18C8.68629 18 6 15.3137 6 12C6 8.68629 8.68629 6 12 6C15.3137 6 18 8.68629 18 12C18 15.3137 15.3137 18 12 18ZM11 1H13V4H11V1ZM11 20H13V23H11V20ZM3.51472 4.92893L4.92893 3.51472L7.05025 5.63604L5.63604 7.05025L3.51472 4.92893ZM16.9497 18.364L18.364 16.9497L20.4853 19.0711L19.0711 20.4853L16.9497 18.364ZM19.0711 3.51472L20.4853 4.92893L18.364 7.05025L16.9497 5.63604L19.0711 3.51472ZM5.63604 16.9497L7.05025 18.364L4.92893 20.4853L3.51472 19.0711L5.63604 16.9497ZM23 11V13H20V11H23ZM4 11V13H1V11H4Z"></path>
+          </svg>
+        </button>
+      </div>
+    </header>
+    <main id="review-main" class="photos-main">
+      <div class="container">
+        <h1 class="title-section">El perfume: Historia de un asesino</h1>
+        <p class="author">Patrick Süskind</p>
+        <p class="review-by">Reseña por Jorge I. Zuluaga</p>
+        <p class="cover"><img src="./covers/8105375438.jpg" alt="Portada de El perfume: Historia de un asesino" /></p>
+        <p class="meta">Fecha de reseña: 2025-12-13</p>
+        <div class="rating-row">
+          <p class="rating" aria-label="Calificación: 5 de 5">★★★★★</p>
+          <p class="likes" aria-label="Likes en GoodReads: 6"><a href="https://www.goodreads.com/review/show/8105375438?utm_medium=api&amp;utm_source=rss" target="_blank" rel="noopener noreferrer">👍</a> 6</p>
+        </div>
+        <p><a class="link" href="https://www.goodreads.com/review/show/8105375438?utm_medium=api&amp;utm_source=rss" target="_blank" rel="noopener noreferrer">Ver reseña en GoodReads (necesita cuenta)</a></p>
+        <article class="card">
+          ¡Bendita sea la falta de memoria! Había leído este libro en mis veintes (ahora soy un cincuentón) y, para mi fortuna, no recordaba absolutamente nada de modo que pude disfrutarlo de pasta a pasta como si nunca lo hubiera leído. <br /><br />¡Que libro! <br /><br />Además de lo bien escrito, de lo bien desarrollado de algunos de sus personajes, incluyendo por supuesto su singular protagonista el superdotado olfativo Jean-Baptiste Grenouille, si algo siquiera similar a él existe o ha existido y se le puede poner nombre, pero también otros dentro de cuya piel (a veces literalmente) se mete el autor y nos mete con él a todos quiénes leemos, la novela es completamente enganchadora. La maestría que demuestra su autor en el tema de la variedad de los perfumes conocidos en el momento y de las técnicas para procesarlos es asombrosa.<br /><br />El libro se divide en cuatro partes. <br /><br />La primera, la mejor para mí, presenta el origen y el desarrollo del personaje, además del descubrimiento por otras personas de su existencia. También está allí narrado su primer crimen (espero que esta revelación no sea sorpresa para nadie que haya leído el título completo de la obre, je, je). Esta es la parte más rica en detalles sobre la casi inhumana capacidad de Grenouille para percibir el mundo con el olfato. La que describe con mayor detalle el paisaje olfativo de su tiempo, pero también el cultural y el social. Si la novela hubiera terminado al final de esa primera parte ya habría sido una novela magistral.<br /><br />La segunda parte es la más fantástica de todas, pero no por su atractivo sino por los hechos narrados. El estilo y las historias contadas allí me hicieron por un momento pensar en esta obra como un libro de fantasía más que una novela histórica con algunos ribetes de ciencia de ficción (estirando mucho la definición del género). También se me vino a la cabeza el realismo fantástico de Juan Rulfo, García Márquez o Isabel Allende. <br /><br />El clímax de la novela y la justificación definitiva de su nombre ocurre en la tercera parte, en la que Süskind vuelve y hace aterrizar a Grenouille en su contexto social y lo convierte en el personaje que será hasta el final de la historia, el asesino que va en busca de "El" perfume definitivo. La cuarta y última parte no la vi venir. El final es completamente inesperado y eso habla nuevamente de la creatividad del autor. Es imposible quedar indiferente ante el desenlace de la historia.<br /><br />Esta novela pudo ser escrita perfectamente en el siglo XIX, en el clímax mismo de las novelas y los cuentos góticos o como parte de las historias de misterio y aventuras de investigadores y detectives de la época. Fácilmente pudo salir de la pluma de Edgar Allan Poe más que la de un escritor medio anónimo de finales del siglo XX.<br /><br />Precisamente sobre el misterioso Patrick Süskind (de él solo se conocen una o dos fotografías), al que le rodea un misterio case tan grande como el de su su singular personaje Jean-Baptiste Grenouille, debo decir que se me antoja escribió este libro como una especie de autobiografía fantástica de si mismo; juraría, sin ninguna evidencia (pero también sin ninguna duda) que algunas de las obsesiones de Grenouille eran también las obsesiones de su autor. Sé que decir esto es atrevido, mucho más si estamos hablando de una novela sobre un asesino de mujeres (Grenouille), pero es que no puede entender ninguna otra versión de la relación del autor con el personaje, en la el primero sea capaz de penetrar de manera tan profunda en la mente de un individuo singular como Grenouille. Tal vez, simplemente, estoy subestimando la capacidad de genios literarios como Süskind.<br /><br />Espero volver a olvidar al Perfume para leerlo nuevamente en una o dos décadas (si me alcanza la vida) como si fuera la primera vez.
+        </article>
+      </div>
+    </main>
+    <footer class="print-mode-target">
+      <p>Jorge I. Zuluaga — <a class="link" href="../index.html">Currículum en línea</a></p>
+    </footer>
+  </div>
+</body>
+</html>

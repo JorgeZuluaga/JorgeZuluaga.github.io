@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="color-scheme" content="light dark" />
+  <title>Reseña en Goodreads (mirror local)</title>
+  <link rel="icon" type="image/png" sizes="48x48" href="../assets/favicon.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="../assets/apple-touch-icon.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../assets/style.css?v=2" />
+  <script src="../assets/template.js" defer></script>
+  <style>
+    .review-page-custom .meta { color: var(--black); opacity: 0.8; font-size: 0.95rem; }
+    .review-page-custom .author { font-size: 1.4rem; font-weight: 600; margin: 0.35rem 0 0.75rem; }
+    .review-page-custom .review-by { font-size: 1rem; margin: -0.35rem 0 0.8rem; opacity: 0.88; }
+    .review-page-custom .rating-row { display: flex; align-items: center; gap: 0.8rem; margin: 0.25rem 0 0.2rem; }
+    .review-page-custom .rating { font-size: 1.2rem; letter-spacing: 0.04em; margin: 0; }
+    .review-page-custom .likes { margin: 0; font-size: 1rem; }
+    .review-page-custom .likes a { color: var(--accent); text-decoration: none; }
+    .review-page-custom .likes a:hover { text-decoration: underline; }
+    .review-page-custom .cover { margin: 0.75rem 0 1rem; }
+    .review-page-custom .cover img { max-width: 220px; height: auto; border-radius: 8px; border: 1px solid var(--line); }
+    .review-page-custom .card { border: 1px solid var(--line); border-radius: 12px; padding: 1rem; margin-top: 1rem; background: var(--card); }
+    .review-page-custom .card,
+    .review-page-custom .card p,
+    .review-page-custom .card div,
+    .review-page-custom .card span,
+    .review-page-custom .card li,
+    .review-page-custom .card blockquote,
+    .review-page-custom .card i,
+    .review-page-custom .card b,
+    .review-page-custom .card strong,
+    .review-page-custom .card em {
+      color: var(--black) !important;
+    }
+    .review-page-custom .card a {
+      color: var(--accent) !important;
+      text-decoration: underline;
+      text-underline-offset: 2px;
+    }
+    .review-page-custom .card a i,
+    .review-page-custom .card a em,
+    .review-page-custom .card a span,
+    .review-page-custom .card a strong,
+    .review-page-custom .card a b {
+      color: var(--accent) !important;
+    }
+  </style>
+</head>
+<body class="photos-page review-page-custom">
+  <div class="wrapper">
+    <a class="skip-link" href="#review-main">Saltar al contenido</a>
+    <header class="photos-header">
+      <div class="photos-header__bar">
+        <a class="link photos-back" href="../biblioteca.html">← Volver a la Biblioteca de Jorge Zuluaga</a>
+        <button class="theme-button photos-theme" type="button" aria-label="Modo de visualización: Claro/Oscuro">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="moon-icon" aria-hidden="true">
+            <path d="M11.3807 2.01886C9.91573 3.38768 9 5.3369 9 7.49999C9 11.6421 12.3579 15 16.5 15C18.6631 15 20.6123 14.0843 21.9811 12.6193C21.6613 17.8537 17.3149 22 12 22C6.47715 22 2 17.5228 2 12C2 6.68514 6.14629 2.33869 11.3807 2.01886Z"></path>
+          </svg>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="sun-icon" aria-hidden="true">
+            <path d="M12 18C8.68629 18 6 15.3137 6 12C6 8.68629 8.68629 6 12 6C15.3137 6 18 8.68629 18 12C18 15.3137 15.3137 18 12 18ZM11 1H13V4H11V1ZM11 20H13V23H11V20ZM3.51472 4.92893L4.92893 3.51472L7.05025 5.63604L5.63604 7.05025L3.51472 4.92893ZM16.9497 18.364L18.364 16.9497L20.4853 19.0711L19.0711 20.4853L16.9497 18.364ZM19.0711 3.51472L20.4853 4.92893L18.364 7.05025L16.9497 5.63604L19.0711 3.51472ZM5.63604 16.9497L7.05025 18.364L4.92893 20.4853L3.51472 19.0711L5.63604 16.9497ZM23 11V13H20V11H23ZM4 11V13H1V11H4Z"></path>
+          </svg>
+        </button>
+      </div>
+    </header>
+    <main id="review-main" class="photos-main">
+      <div class="container">
+        <h1 class="title-section">Helena La reina condenada. I. El libro de los viajes</h1>
+        <p class="author">Gabriela A. Arciniegas</p>
+        <p class="review-by">Reseña por Jorge I. Zuluaga</p>
+        <p class="cover"><img src="./covers/6688724482.jpg" alt="Portada de Helena La reina condenada. I. El libro de los viajes" /></p>
+        <p class="meta">Fecha de reseña: 2024-10-14</p>
+        <div class="rating-row">
+          <p class="rating" aria-label="Calificación: 5 de 5">★★★★★</p>
+          <p class="likes" aria-label="Likes en GoodReads: 3"><a href="https://www.goodreads.com/review/show/6688724482?utm_medium=api&amp;utm_source=rss" target="_blank" rel="noopener noreferrer">👍</a> 3</p>
+        </div>
+        <p><a class="link" href="https://www.goodreads.com/review/show/6688724482?utm_medium=api&amp;utm_source=rss" target="_blank" rel="noopener noreferrer">Ver reseña en GoodReads (necesita cuenta)</a></p>
+        <article class="card">
+          ¡Sensacional trilogía! <br /><br />Mi primera impresión al leer el primer libro de la serie fue de profunda admiración por su autora, la escritora colombiana Gabriela Arciniegas, quien pone con esta obra al descubierto su erudición sobre el mundo antiguo, conseguida, como deduzco de la introducción, a través del viaje que realizó personalmente a la mente, al cuerpo y el espíritu inmortal de la gran Helena de Esparta y de los escritos que nos llegaron de aquellos tiempos. <br /><br />Soy un amante de la novela histórica y debo confesar que, en mi irracional falta de autoestima nacional, nunca esperé que novelas de este género, en especial obras que se desarrollaran en la antigüedad y con esta profundidad y nivel de detalle, pudieran escribirse en mi país. <br /><br />Pensaba que ninguna autora colombiana y ningún autor coterráneo, sin importar su talento literario, podría soslayar la enorme distancia cultural y temporal que nos separa de los pueblos de la antigüedad euroasiática; no creía que hubiera alguien por aquí que fuera capaz de transportar a sus lectores hasta aquellos tiempos, tal y como lo han hecho, como he podido atestiguar en otras lecturas, autoras y autores más "cercanos" cultural y geográficamente a esos pueblos. <br /><br />Afortunadamente me equivoqué de cabo a rabo e, insisto, me quito el sombrero delante de Arciniegas y me disculpo por llegar a dudar de que una hazaña así fuera posible. La humanidad de Helena, la de Aristóteles, la de Emilie du Chatelet, la de Confucio es la misma, y no importa el lugar en el que hayas nacido, con el talento académico y literario adecuado, puedes transportarte hasta la mente de esas personas y escribir una gran obra cómo está. Una gran lección para mi.<br /><br />Como sabrán por la descripción del libro, a lo largo de los tomos que forman la trilogía de "Helena, la reina condenada", Arciniegas teje otra historia posible de lo que pudo ser la vida de Helena de Esparta, o Helena de Troya como acostumbramos llamarla, la princesa Lacedemonia que de acuerdo a los poemas homéricos fue la causante de la guerra de Troya; o bueno, de una de las muchas guerras que posiblemente sacudió a la desaparecida ciudad de Asia Menor, ubicada en el estratégico punto de encuentro entre dos mundos, Asia y Europa. Mucho antes de Bizancio fue Wilusa.<br /><br />En la Iliada y en los muchos textos inspirados en ella a lo largo de la historia, Helena ocupó casi siempre el papel de un simple objeto de intercambio, de un símbolo más que el de una persona con una historia individual, con voluntad y deseos. Creo que no es muy equivocado asegurar que conocemos mejor la personalidad de otros protagonistas de la Ilíada, por supuesto todos varones, los "héroes" de la historia, Héctor, Aquiles, Príamo o Paris, de lo que sabemos sobre Helena, a pesar de que para todos es claro que esta última estuvo en el centro mismo del conflicto, al menos como lo recogen los poemas homéricos.<br /><br />Arciniegas se mete, en esta obra, en la piel, en la vida personal de Helena, desde su infancia misma hasta el fatídico final de su vida. En la trilogía asistimos a una versión alternativa del famoso enfrentamiento entre aqueos y troyanos, una versión desde la perspectiva de las mujeres, de las niñas y los niños y de algunos de los hombres que se relacionaron directamente con ellas. En suma, la trilogía de Arciniegas es una historia que recoge a quienes conformaron la mayoría de los implicados en el famoso enfrentamiento. <br /><br />"Helena, la reina condenada" es también una historia desde la perspectiva de la magia, de los rituales, de la religión, de la comida, de las lenguas, de todas aquellas cosas que también debieron constituir la verdadera "sustancia" de la que estuvo hecho el conflicto. La guerra, las armas, el honor, la sangre, las iracundas divinidades que protagonizan la Iliada, la versión de Homero de esta historia, quedan en un segundo plano en esta versión alternativa y excepcionalmente rica de esta historia milenaria. <br /><br />Hace unos años tuve el placer de leer por primera vez la Iliada. Como cualquier amante de los clásicos, quede sorprendido por la historia, por la lengua, por la exaltación del honor, por el papel de los dioses, por todas aquellas cosas por las que los poemas homéricos nos siguen sorprendiendo y atrayendo. Sin embargo, hoy, después de terminar de leer la trilogía de Arciniegas mi visión de aquella obra se ha enriquecido muchísimo más. Creo que se complementan perfectamente, que se deberían leer juntas, aunque seguramente para muchos esta pueda parecer una exageración.<br /><br />Arciniegas me ha permitido por fin empezar a ver a la mayoría de las personas que conforman el drama de este conflicto, y con él el drama de todos los conflictos y las guerras de la antigüedad, de los que la guerra de Troya es apenas el más reconocido modelo. Reconocer a esas protagonistas, en su mayoría fueron mujeres y niñas, entre ellas grandes mujeres, magas, pensadoras y filósofas, quienes soportaron las consecuencias de los proyectos expansionistas o vengativos de autócratas y militares que ostentaban el poder (en su mayoría hombres) es realmente enriquecedor.<br /><br />Siempre se ha dicho que Helena fue una de las mujeres más bellas de la historia. Que esta fue precisamente la razón por la que se la "pelearon" las dos poderosas ciudades en conflicto, Micenas y Troya. En esto se ha cifrado casi todo el valor del personaje. Pero la Helena de Arciniegas es mucho más que eso. En el primer libro descubrimos una niña y una joven de curiosidad imparable, que cabalga y estudia a la par que sus hermanos varones. Una joven con un espíritu de aventura y una rebeldía que no se corresponde con las mujeres estereotipadas de las grandes historias escritas por y para hombres en la antigüedad. Durante el resto de la novela se va desarrollando delante de nosotros una mujer sabia, conocedora de lenguas diversas y de la magia, viajera incansable, pero también una mujer apasionada, que ama libre e intensamente a varios hombres, rompiendo así también con otros de los estereotipos femeninos muy manidos entre las novelas que se desarrollan en la antigüedad. Sus atributos físicos tampoco son los protagonistas de esta historia, lo que desmarca a la Helena de Arciniegas del rol de trofeo sexual que tiene en los poemas Homéricos y en las innumerables obras que se inspiraron posteriormente en ellos.<br /><br />Las otras mujeres protagonistas de la trilogía, Atrea, Casandra, Creusa, Andromaca, incluso la contradictoria Hécuba, son seres complejos y también lejanos a los estereotipos con el que las hemos conocido en otros libros. Como ya he dicho, ellas, con la magia, las artes, y su visión particular del mundo que les toco vivir, son las protagonistas indiscutibles de la trilogía; sus historias son las que hilvanan el desarrollo de esta versión de la guerra en la que algunos de los héroes homéricos son apenas satélites.<br /><br />En suma, leer "Helena, la reina condenada" es como ver un detrás de escena de la Iliada, el lado B de esta historia. Aunque decir "detrás" aquí se antoja a secundario y esto es justamente lo que esta trilogía intenta corregir: las mujeres, los niños y los hombres que no estaban en el campo de batalla no fueron la historia secundaria de estos conflictos, sino más bien el aspecto más humano de los mismos.<br /><br />Como amante de la historia y la cultura del Antiguo Egipto, me encanto ver el papel central que jugaba todo lo egipcio en la cultura de la época, tal y como lo ha elegido narrar la autora, seguramente no sin sus razones de peso histográficas. La lengua, la medicina, la magia, incluso los hechos políticos y militares que se desarrollaban en el país de las dos Tierras, son protagonistas en toda la trilogía. <br /><br />Me gusto mucho también ver como Arciniegas usa los nombres de las deidades de los pueblos de la que posteriormente se convertiría en la Helade. Así, en lugar de mencionar a Zeus, Atenea, Demeter, o Perséfone, Arciniegas nos presenta a Diwo, Atana, Wokode, Koré o Potnia, que eran los nombres que recibían aquellas deidades mucho antes que nos llegaran sus historias en los textos de la Grecia Arcaica. <br /><br />También fue revelador conocer los rituales de la religión mistérica de la que después se convertiría en Grecia, y muchas otras creencias de pueblos diversos que se mencionan en la novela. Todas estas cosas le dan a la obra un hálito de realidad histórica que hace que quienes amamos este género por lo que es, una verdadera máquina del tiempo, apreciemos más el esfuerzo de su autora.<br /><br />En otros aspectos más "mundanos", me sorprendió mucho lo económicos que son estos textos en la edición en la que los compré del Fondo de Cultura Económica. Apreció mucho que esta editorial haga un esfuerzo para que buena literatura, pero también buena divulgación científica llegue a más personas, pero espero que esto no sea a costa del merecido reocnocimiento económico de su autora. También me sorprendio el pequeño número de personas que, a la fecha en la que escribo esta reseña, los han calificado o reseñado aquí en GoodReads. Espero que el tiempo y muchas más lectoras y lectores le otorguen a esta obra, al menos en la dimensión de objeto de intercambio, de comercio y de reflexión, su verdadero valor como lo que creo que es, una obra significativa del género de la novela histórica.<br /><br />¡Recomendado sin duda alguna!
+        </article>
+      </div>
+    </main>
+    <footer class="print-mode-target">
+      <p>Jorge I. Zuluaga — <a class="link" href="../index.html">Currículum en línea</a></p>
+    </footer>
+  </div>
+</body>
+</html>

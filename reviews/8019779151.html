@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="color-scheme" content="light dark" />
+  <title>Reseña en Goodreads (mirror local)</title>
+  <link rel="icon" type="image/png" sizes="48x48" href="../assets/favicon.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="../assets/apple-touch-icon.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../assets/style.css?v=2" />
+  <script src="../assets/template.js" defer></script>
+  <style>
+    .review-page-custom .meta { color: var(--black); opacity: 0.8; font-size: 0.95rem; }
+    .review-page-custom .author { font-size: 1.4rem; font-weight: 600; margin: 0.35rem 0 0.75rem; }
+    .review-page-custom .review-by { font-size: 1rem; margin: -0.35rem 0 0.8rem; opacity: 0.88; }
+    .review-page-custom .rating-row { display: flex; align-items: center; gap: 0.8rem; margin: 0.25rem 0 0.2rem; }
+    .review-page-custom .rating { font-size: 1.2rem; letter-spacing: 0.04em; margin: 0; }
+    .review-page-custom .likes { margin: 0; font-size: 1rem; }
+    .review-page-custom .likes a { color: var(--accent); text-decoration: none; }
+    .review-page-custom .likes a:hover { text-decoration: underline; }
+    .review-page-custom .cover { margin: 0.75rem 0 1rem; }
+    .review-page-custom .cover img { max-width: 220px; height: auto; border-radius: 8px; border: 1px solid var(--line); }
+    .review-page-custom .card { border: 1px solid var(--line); border-radius: 12px; padding: 1rem; margin-top: 1rem; background: var(--card); }
+    .review-page-custom .card,
+    .review-page-custom .card p,
+    .review-page-custom .card div,
+    .review-page-custom .card span,
+    .review-page-custom .card li,
+    .review-page-custom .card blockquote,
+    .review-page-custom .card i,
+    .review-page-custom .card b,
+    .review-page-custom .card strong,
+    .review-page-custom .card em {
+      color: var(--black) !important;
+    }
+    .review-page-custom .card a {
+      color: var(--accent) !important;
+      text-decoration: underline;
+      text-underline-offset: 2px;
+    }
+    .review-page-custom .card a i,
+    .review-page-custom .card a em,
+    .review-page-custom .card a span,
+    .review-page-custom .card a strong,
+    .review-page-custom .card a b {
+      color: var(--accent) !important;
+    }
+  </style>
+</head>
+<body class="photos-page review-page-custom">
+  <div class="wrapper">
+    <a class="skip-link" href="#review-main">Saltar al contenido</a>
+    <header class="photos-header">
+      <div class="photos-header__bar">
+        <a class="link photos-back" href="../biblioteca.html">← Volver a la Biblioteca de Jorge Zuluaga</a>
+        <button class="theme-button photos-theme" type="button" aria-label="Modo de visualización: Claro/Oscuro">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="moon-icon" aria-hidden="true">
+            <path d="M11.3807 2.01886C9.91573 3.38768 9 5.3369 9 7.49999C9 11.6421 12.3579 15 16.5 15C18.6631 15 20.6123 14.0843 21.9811 12.6193C21.6613 17.8537 17.3149 22 12 22C6.47715 22 2 17.5228 2 12C2 6.68514 6.14629 2.33869 11.3807 2.01886Z"></path>
+          </svg>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="sun-icon" aria-hidden="true">
+            <path d="M12 18C8.68629 18 6 15.3137 6 12C6 8.68629 8.68629 6 12 6C15.3137 6 18 8.68629 18 12C18 15.3137 15.3137 18 12 18ZM11 1H13V4H11V1ZM11 20H13V23H11V20ZM3.51472 4.92893L4.92893 3.51472L7.05025 5.63604L5.63604 7.05025L3.51472 4.92893ZM16.9497 18.364L18.364 16.9497L20.4853 19.0711L19.0711 20.4853L16.9497 18.364ZM19.0711 3.51472L20.4853 4.92893L18.364 7.05025L16.9497 5.63604L19.0711 3.51472ZM5.63604 16.9497L7.05025 18.364L4.92893 20.4853L3.51472 19.0711L5.63604 16.9497ZM23 11V13H20V11H23ZM4 11V13H1V11H4Z"></path>
+          </svg>
+        </button>
+      </div>
+    </header>
+    <main id="review-main" class="photos-main">
+      <div class="container">
+        <h1 class="title-section">Hacia un socialismo ecológico: Crónicas 2020-2024 (Deusto) (Spanish Edition)</h1>
+        <p class="author">Thomas Piketty</p>
+        <p class="review-by">Reseña por Jorge I. Zuluaga</p>
+        <p class="cover"><img src="./covers/8019779151.jpg" alt="Portada de Hacia un socialismo ecológico: Crónicas 2020-2024 (Deusto) (Spanish Edition)" /></p>
+        <p class="meta">Fecha de reseña: 2025-11-01</p>
+        <div class="rating-row">
+          <p class="rating" aria-label="Calificación: 5 de 5">★★★★★</p>
+          <p class="likes" aria-label="Likes en GoodReads: 1"><a href="https://www.goodreads.com/review/show/8019779151?utm_medium=api&amp;utm_source=rss" target="_blank" rel="noopener noreferrer">👍</a> 1</p>
+        </div>
+        <p><a class="link" href="https://www.goodreads.com/review/show/8019779151?utm_medium=api&amp;utm_source=rss" target="_blank" rel="noopener noreferrer">Ver reseña en GoodReads (necesita cuenta)</a></p>
+        <article class="card">
+          Para quienes somos unos convencidos de las bondades del socialismo democrático, Thomas Piketty no decepciona. <br /><br />Aunque este libro es una nueva compilación de sus columnas en el diario Le Monde de Francia, y muchas de esas columnas tienen un interés muy local en Francia o fueron un poco coyunturales (COVID-19, elecciones presidenciales y parlamentarias en Francia, etc.) en la mayoría de los escritos quedan siempre reflejadas las posiciones económicas y sociales por las que seguimos leyendo a Piketty.<br /><br />Creo que es precisamente por lo anterior que el libro no tiene un puntaje muy alto aquí en Goodreads -también puede ser, como sucede con algunos buenos libros de feminismos que he encontrado muy mal calificados por aquí, el trabajo de quiénes no comulgan moralmente con estas ideas- pero les aseguro que la introducción y un buen puñado de columnas son de verdad de un interés y actualidad suficientemente general como para que valga la pena leer el libro completo.<br /><br />Me quedo con una idea que Piketty expresa abiertamente en una de las columnas, pero que aparece implícitamente en la mayoría de ellas: quiénes se oponen al socialismo, que junto con el liberalismo y el nacionalismo es una de las tres formas de organizar las sociedades y la economía moderna, simplemente no saben sumar. <br /><br />La idea central del socialismo, como bien lo transmite Piketty en todos sus escritos, es que las sociedades necesitan, primero una "generosa" redistribución del capital (que en el aspecto moral del socialismo, de "generosa" no tiene nada, es nuestra obligación como conciudadanos), que se consigue a través de impuestos progresivos -más altos, para los más ricos- y tipos -porcentajes sobre las ganancias o el patrimonio- realmente altos para los ultra ricos y las multinacionales. Segundo, el socialismo implica una significativa reinversión social de esos impuestos en bienestar social salud, educación, pensiones, transporte y por supuesto, medio ambiente.<br /><br />¿Por qué dice Piketty que quiénes se oponen al socialismo no saben sumar? Es tan obvio que si se grava correctamente a los multimillonarios (se fijan impuestos progresivos) y se diseñan mecanismos para que no hagan <i>dumping</i> fiscal, es decir para que no evadan los impuestos llevando sus fortunas a paraísos financieros, el recaudo será suficiente para financiar el funcionamiento de verdaderos Estados de Bienestar, redistribuir la riqueza con los pueblos menos desarrollados (generalmente el sur global, que por el colonialismo y la explotación natural ha pagado con creces una contribución al desarrollo de los países más ricos y que en el futuro se llevará lo peor de los desastres climáticos) y estar preparados para enfrentar los retos del cambio climático.<br /><br />Las cifras que ofrece Piketty son contundentes y las razones para que las medidas fiscales que investigadores como él proponen, que además están soportadas por antecedentes reconocidos (los Estados Unidos de la Posguerra, Alemania y Francia de antes de la Segunda Guerra Mundial), son sencillamente incomprensibles. O mejor, ponen en evidencia que el mundo está manejado por un puñado de personas u organizaciones ultra ricas que mantienen la ilusión de una sociedad democrática.<br /><br />En fin, cada vez más convencido, como lo manifiesta Piketty en un aparte, que el socialismo democrático y ecológico, es la única forma de organización social que puede prepararnos para los retos del futuro.<br /><br />¡Lean a Piketty!
+        </article>
+      </div>
+    </main>
+    <footer class="print-mode-target">
+      <p>Jorge I. Zuluaga — <a class="link" href="../index.html">Currículum en línea</a></p>
+    </footer>
+  </div>
+</body>
+</html>

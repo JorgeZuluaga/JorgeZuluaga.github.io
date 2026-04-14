@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="color-scheme" content="light dark" />
+  <title>Reseña en Goodreads (mirror local)</title>
+  <link rel="icon" type="image/png" sizes="48x48" href="../assets/favicon.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="../assets/apple-touch-icon.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../assets/style.css?v=2" />
+  <script src="../assets/template.js" defer></script>
+  <style>
+    .review-page-custom .meta { color: var(--black); opacity: 0.8; font-size: 0.95rem; }
+    .review-page-custom .author { font-size: 1.4rem; font-weight: 600; margin: 0.35rem 0 0.75rem; }
+    .review-page-custom .review-by { font-size: 1rem; margin: -0.35rem 0 0.8rem; opacity: 0.88; }
+    .review-page-custom .rating-row { display: flex; align-items: center; gap: 0.8rem; margin: 0.25rem 0 0.2rem; }
+    .review-page-custom .rating { font-size: 1.2rem; letter-spacing: 0.04em; margin: 0; }
+    .review-page-custom .likes { margin: 0; font-size: 1rem; }
+    .review-page-custom .likes a { color: var(--accent); text-decoration: none; }
+    .review-page-custom .likes a:hover { text-decoration: underline; }
+    .review-page-custom .cover { margin: 0.75rem 0 1rem; }
+    .review-page-custom .cover img { max-width: 220px; height: auto; border-radius: 8px; border: 1px solid var(--line); }
+    .review-page-custom .card { border: 1px solid var(--line); border-radius: 12px; padding: 1rem; margin-top: 1rem; background: var(--card); }
+    .review-page-custom .card,
+    .review-page-custom .card p,
+    .review-page-custom .card div,
+    .review-page-custom .card span,
+    .review-page-custom .card li,
+    .review-page-custom .card blockquote,
+    .review-page-custom .card i,
+    .review-page-custom .card b,
+    .review-page-custom .card strong,
+    .review-page-custom .card em {
+      color: var(--black) !important;
+    }
+    .review-page-custom .card a {
+      color: var(--accent) !important;
+      text-decoration: underline;
+      text-underline-offset: 2px;
+    }
+    .review-page-custom .card a i,
+    .review-page-custom .card a em,
+    .review-page-custom .card a span,
+    .review-page-custom .card a strong,
+    .review-page-custom .card a b {
+      color: var(--accent) !important;
+    }
+  </style>
+</head>
+<body class="photos-page review-page-custom">
+  <div class="wrapper">
+    <a class="skip-link" href="#review-main">Saltar al contenido</a>
+    <header class="photos-header">
+      <div class="photos-header__bar">
+        <a class="link photos-back" href="../biblioteca.html">← Volver a la Biblioteca de Jorge Zuluaga</a>
+        <button class="theme-button photos-theme" type="button" aria-label="Modo de visualización: Claro/Oscuro">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="moon-icon" aria-hidden="true">
+            <path d="M11.3807 2.01886C9.91573 3.38768 9 5.3369 9 7.49999C9 11.6421 12.3579 15 16.5 15C18.6631 15 20.6123 14.0843 21.9811 12.6193C21.6613 17.8537 17.3149 22 12 22C6.47715 22 2 17.5228 2 12C2 6.68514 6.14629 2.33869 11.3807 2.01886Z"></path>
+          </svg>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="sun-icon" aria-hidden="true">
+            <path d="M12 18C8.68629 18 6 15.3137 6 12C6 8.68629 8.68629 6 12 6C15.3137 6 18 8.68629 18 12C18 15.3137 15.3137 18 12 18ZM11 1H13V4H11V1ZM11 20H13V23H11V20ZM3.51472 4.92893L4.92893 3.51472L7.05025 5.63604L5.63604 7.05025L3.51472 4.92893ZM16.9497 18.364L18.364 16.9497L20.4853 19.0711L19.0711 20.4853L16.9497 18.364ZM19.0711 3.51472L20.4853 4.92893L18.364 7.05025L16.9497 5.63604L19.0711 3.51472ZM5.63604 16.9497L7.05025 18.364L4.92893 20.4853L3.51472 19.0711L5.63604 16.9497ZM23 11V13H20V11H23ZM4 11V13H1V11H4Z"></path>
+          </svg>
+        </button>
+      </div>
+    </header>
+    <main id="review-main" class="photos-main">
+      <div class="container">
+        <h1 class="title-section">El patriarcado / The Partriarchy: Los orígenes de la dominación masculina / The origins of masculine domination (Spanish Edition)</h1>
+        <p class="author">Angela Saini</p>
+        <p class="review-by">Reseña por Jorge I. Zuluaga</p>
+        <p class="cover"><img src="./covers/7114811028.jpg" alt="Portada de El patriarcado / The Partriarchy: Los orígenes de la dominación masculina / The origins of masculine domination (Spanish Edition)" /></p>
+        <p class="meta">Fecha de reseña: 2024-12-30</p>
+        <div class="rating-row">
+          <p class="rating" aria-label="Calificación: 5 de 5">★★★★★</p>
+          <p class="likes" aria-label="Likes en GoodReads: 3"><a href="https://www.goodreads.com/review/show/7114811028?utm_medium=api&amp;utm_source=rss" target="_blank" rel="noopener noreferrer">👍</a> 3</p>
+        </div>
+        <p><a class="link" href="https://www.goodreads.com/review/show/7114811028?utm_medium=api&amp;utm_source=rss" target="_blank" rel="noopener noreferrer">Ver reseña en GoodReads (necesita cuenta)</a></p>
+        <article class="card">
+          La volvió a <i>sacar del estadio</i> Angela Saini con este trabajo. ¡Excepcional!<br /><br />Cuando encontramos este libro <a href="https://www.goodreads.com/user/show/146647288-olga-penagos" rel="nofollow noopener">Olga Penagos</a>, mi compañera de lecturas feministas y esposa, y yo en una librería en Medellín, no dudamos ni un minuto en lanzarnos a por él. "Todo lo que escriba Saini debe ser bueno", nos dijimos en ese momento. Afortunadamente no nos equivocamos.<br /><br />Después de leer sus otros dos libros, <a href="https://www.goodreads.com/review/show/3369486490" rel="nofollow noopener">Inferior</a> y <a href="https://www.goodreads.com/review/show/5673151910" rel="nofollow noopener">Superior</a> y aprender de ellos lo que pocos otros textos enseñan, especialmente por su peculiar estilo que combina la crónica e investigación periodística, el ensayo científico y la reflexión humanísticas, no esperábamos menos del esfuerzo de Saini por desentrañar el origen y las razones de la existencia continuada del patriarcado.<br /><br />El primer impacto que recibí al leer "El patriarcado" fue saber que existieron en el pasado reciente, incluso que existen todavía algunos, sociedades (o comunidades) que se organizan de una manera diferente a la sociedad globalizada a la que pertenecemos. Comunidades donde las mujeres comparten el poder con los hombres, tienen amplios derechos sexuales y reproductivos, potestad prioritaria sobre sus descendientes y se ubican en el tronco de los árboles genealógicos. Es decir, todo lo que, por lo menos yo, esperaría de una sociedad no patriarcal. <br /><br />El segundo golpe llegó al descubrir que algo que había aprendido en otros libros de feminismos y que daba prácticamente por cierto, no soporta una revisión científica más juiciosa. Me refiero a la idea muy popular de que las sociedades del pasado remoto fueron tal vez en su mayoría sociedades matriarcales y que muchas de ellas tenían en el centro de sus sistemas religiosos o espirituales a grandes divinidades femeninas. <br /><br />En su particular estilo periodístico, en el que contrasta fuentes y cita a profesionales de cada disciplina, Angela Saini, destraba (o pone en evidencia para quienes no estamos en los círculos académicos de la arqueología) que algunas de estas hipótesis tuvieron su origen o bien en la interpretación superficial de las evidencias arqueológicas halladas en el famoso asentamiento neolítico de Çatalhöyük (en la Turquía del presente) o bien de las expectativas teóricas de filósofos decimonónicos como Friederich Engels, o activistas del siglo XX, entre otras personas citadas y analizadas ampliamente por Saini.<br /><br />Lo que descubrimos con Angela Saini a través de esta apasionante investigación es que la historia de la dominación en las sociedades humanas, de la división sexual del trabajo, de la igualdad o desigualdad de género, de la esclavitud de las mujeres, fue por buena parte de la historia de la humanidad, mucho antes del colonialismo y la globalización contemporánea, con su enquistado patriarcado, más complejo de lo que podríamos imaginarnos. Ni los hombres se tomaron el poder en todas partes, ni lo hicieron al mismo tiempo, ni por las mismas razones.<br /><br />Uno de los argumentos más poderosos de Saini en este texto es justamente que la complejidad de este proceso demuestra de una vez por todas (aunque sabemos que quién no quiere entender, no entenderá ni con las pruebas más evidentes) que no hay nada natural en el sometimiento de las mujeres a los hombres, en su posición desventajosa, en los roles que se le han asignado en la historia reciente. Si fuera así, el patriarcado habría existido siempre y en todas partes. Pero la historia muestra que no es así.<br /><br />Pero entonces ¿cómo surgió el patriarcado? si no es natural este desbalance de poderes ¿por qué se ha propagado de forma tan generalizada por toda la Tierra, sin dejar casi ningún vestigio de comunidades matriarcales o con un equilibrio diferente de poderes?. De nuevo, la respuesta parece ser más compleja de lo que muchas investigadoras y filósofas (mujeres y hombres) habría supuesto en el pasado. No fue la agricultura; no fue el surgimiento de la posesión de la tierra; tampoco una conspiración religiosa generalizada; ni siquiera fue, aunque parecen haber huellas en el ADN, una horda de pueblos guerreros y patriarcales que conquistaron Europa o el norte de la India.<br /><br />Todo lo anterior no significa que Angela Saini se haya dedicado en este libro a demontar mitos o a formular más preguntas que respuestas. O a demostrar que el origen del patriarcado y de su propagación es incomprensible y menos aún que es un mito.<br /><br />En una larga colección de casos reales, que incluyen las muy influyentes cultura griega y romana y las posteriores culturas patriarcales colonialistas de la edad moderna (al menos en lo que respecta a "occidente") Saini muestra los mecanismos que operan en el seno del patriarcado y que garantizan su permanencia, incluso su propagación a culturas que se creían a salvo de él. Al hacerlo ofrece claves de cómo podría "controlarse la propagación" de este modelo de sociedad en el que la mitad de la población esta sometida a desventajas sociales, incluso existenciales, injustas desde cualquier punto de vista.<br /><br />Creo que por la profundidad de su investigación, por los medios con los que cuenta una investigadora del presenta como ella, este trabajo se convertirá a la larga en uno de los más importantes documentos sobre el tema que se han escrito en la historia. Una referencia obligada para quienes estudian el fenómeno y para quiénes buscan cambiar este sistema de opresión desde adentro.<br /><br />El epílogo de este libro, que tiene solo un par de páginas, es tan bueno, que me atreví a reproducirlo casi en su totalidad en un hilo de Twitter que pueden encontrar en <a href="https://x.com/zuluagajorge/status/1873029936442949678" rel="nofollow noopener">este enlace</a>. De esta excepcional síntesis extraigo para esta reseña esta cita inolvidable:<br /><br /><blockquote>
+  <i><br />Si alguna vez llegamos a construir una sociedad realmente justa, se habrá de desarmar todo, porque no es posible separar la opresión de género del resto. Enfrentados a una tarea de esta magnitud, la lucha por la igualdad puede parecer una guerra de desgaste.<br /></i>
+</blockquote>
+        </article>
+      </div>
+    </main>
+    <footer class="print-mode-target">
+      <p>Jorge I. Zuluaga — <a class="link" href="../index.html">Currículum en línea</a></p>
+    </footer>
+  </div>
+</body>
+</html>

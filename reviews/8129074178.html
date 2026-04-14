@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="color-scheme" content="light dark" />
+  <title>Reseña en Goodreads (mirror local)</title>
+  <link rel="icon" type="image/png" sizes="48x48" href="../assets/favicon.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="../assets/apple-touch-icon.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../assets/style.css?v=2" />
+  <script src="../assets/template.js" defer></script>
+  <style>
+    .review-page-custom .meta { color: var(--black); opacity: 0.8; font-size: 0.95rem; }
+    .review-page-custom .author { font-size: 1.4rem; font-weight: 600; margin: 0.35rem 0 0.75rem; }
+    .review-page-custom .review-by { font-size: 1rem; margin: -0.35rem 0 0.8rem; opacity: 0.88; }
+    .review-page-custom .rating-row { display: flex; align-items: center; gap: 0.8rem; margin: 0.25rem 0 0.2rem; }
+    .review-page-custom .rating { font-size: 1.2rem; letter-spacing: 0.04em; margin: 0; }
+    .review-page-custom .likes { margin: 0; font-size: 1rem; }
+    .review-page-custom .likes a { color: var(--accent); text-decoration: none; }
+    .review-page-custom .likes a:hover { text-decoration: underline; }
+    .review-page-custom .cover { margin: 0.75rem 0 1rem; }
+    .review-page-custom .cover img { max-width: 220px; height: auto; border-radius: 8px; border: 1px solid var(--line); }
+    .review-page-custom .card { border: 1px solid var(--line); border-radius: 12px; padding: 1rem; margin-top: 1rem; background: var(--card); }
+    .review-page-custom .card,
+    .review-page-custom .card p,
+    .review-page-custom .card div,
+    .review-page-custom .card span,
+    .review-page-custom .card li,
+    .review-page-custom .card blockquote,
+    .review-page-custom .card i,
+    .review-page-custom .card b,
+    .review-page-custom .card strong,
+    .review-page-custom .card em {
+      color: var(--black) !important;
+    }
+    .review-page-custom .card a {
+      color: var(--accent) !important;
+      text-decoration: underline;
+      text-underline-offset: 2px;
+    }
+    .review-page-custom .card a i,
+    .review-page-custom .card a em,
+    .review-page-custom .card a span,
+    .review-page-custom .card a strong,
+    .review-page-custom .card a b {
+      color: var(--accent) !important;
+    }
+  </style>
+</head>
+<body class="photos-page review-page-custom">
+  <div class="wrapper">
+    <a class="skip-link" href="#review-main">Saltar al contenido</a>
+    <header class="photos-header">
+      <div class="photos-header__bar">
+        <a class="link photos-back" href="../biblioteca.html">← Volver a la Biblioteca de Jorge Zuluaga</a>
+        <button class="theme-button photos-theme" type="button" aria-label="Modo de visualización: Claro/Oscuro">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="moon-icon" aria-hidden="true">
+            <path d="M11.3807 2.01886C9.91573 3.38768 9 5.3369 9 7.49999C9 11.6421 12.3579 15 16.5 15C18.6631 15 20.6123 14.0843 21.9811 12.6193C21.6613 17.8537 17.3149 22 12 22C6.47715 22 2 17.5228 2 12C2 6.68514 6.14629 2.33869 11.3807 2.01886Z"></path>
+          </svg>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="sun-icon" aria-hidden="true">
+            <path d="M12 18C8.68629 18 6 15.3137 6 12C6 8.68629 8.68629 6 12 6C15.3137 6 18 8.68629 18 12C18 15.3137 15.3137 18 12 18ZM11 1H13V4H11V1ZM11 20H13V23H11V20ZM3.51472 4.92893L4.92893 3.51472L7.05025 5.63604L5.63604 7.05025L3.51472 4.92893ZM16.9497 18.364L18.364 16.9497L20.4853 19.0711L19.0711 20.4853L16.9497 18.364ZM19.0711 3.51472L20.4853 4.92893L18.364 7.05025L16.9497 5.63604L19.0711 3.51472ZM5.63604 16.9497L7.05025 18.364L4.92893 20.4853L3.51472 19.0711L5.63604 16.9497ZM23 11V13H20V11H23ZM4 11V13H1V11H4Z"></path>
+          </svg>
+        </button>
+      </div>
+    </header>
+    <main id="review-main" class="photos-main">
+      <div class="container">
+        <h1 class="title-section">El cielo en desorden (Spanish Edition)</h1>
+        <p class="author">Slavoj Žižek</p>
+        <p class="review-by">Reseña por Jorge I. Zuluaga</p>
+        <p class="cover"><img src="./covers/8129074178.jpg" alt="Portada de El cielo en desorden (Spanish Edition)" /></p>
+        <p class="meta">Fecha de reseña: 2025-12-21</p>
+        <div class="rating-row">
+          <p class="rating" aria-label="Calificación: 3 de 5">★★★☆☆</p>
+          <p class="likes" aria-label="Likes en GoodReads: 0"><a href="https://www.goodreads.com/review/show/8129074178?utm_medium=api&amp;utm_source=rss" target="_blank" rel="noopener noreferrer">👍</a> 0</p>
+        </div>
+        <p><a class="link" href="https://www.goodreads.com/review/show/8129074178?utm_medium=api&amp;utm_source=rss" target="_blank" rel="noopener noreferrer">Ver reseña en GoodReads (necesita cuenta)</a></p>
+        <article class="card">
+          Mi primer libro de Žižek (es la última vez que pongo en esta reseña los acentos sobre las "z", que cosa tan cansona). <br /><br />Tenía muchas expectativas de leer a quién se ha convertido en uno de los filósofos más citados y más controversiales del presente. Como era de esperarse no me defraudo en lo absoluto (a pesar de que el puntaje que le doy al libro parezca sugerir otra cosa); al contrario, esta primera lectura me acicateo para seguir leyendo sus otros escritos y seguir disfrutando de su peculiar visión sobre el mundo y la sociedad.<br /><br />"El cielo en desorden" es una colección heterogénea (como el desorden en su título) de 36 ensayos sobre la actualidad social y política del mundo, escritos por Zizek entre 2019 y 2021; la mayoría de ellos se escribieron en plena pandemia de COVID y tratan sobre las problemáticas sociales y políticas que rodearon este fenómeno. <br /><br />Lo contingente de algunos de esos escritos es precisamente lo que me hace asignarle una calificación regular. <br /><br />Ya me ha pasado (como seguro les ha pasado a algunas de las personas que leen esta reseña) leer a otros autores de prestigio, de los que los editores se aprovechan para sacar libros como este en los que compilan las que seguramente fueron en su origen columnas de opinión o ensayos para otros medios de comunicación. El resultado casi nunca es bueno y sobre todo no es lo suficientemente universal como merecen esos autores. Aún así, algunos de los escritos incluídos en esta compilación heterogénea son lo suficientemente universales y tan buenos como solo se podría esperar de Zizek.<br /><br />En mi primer contacto con este autor, me doy cuenta que a diferencia de otros filósofos contemporáneos o del pasado (y me disculpo de antemano con quienes son sus colegas), Zizek escribe para que de verdad se le entienda. Con pocas excepciones, la mayoría de los ensayos en esta colección pueden seguirse sin las dificultades que entrañan normalmente otros escritos filosóficos. ¡Una verdadera hazaña divulgativa! Bueno, hay dos o tres en los que la cosa empieza a enredarse, pero uno se aguanta y continúa.<br /><br />Lo cierto es que en las reflexiones de Zizek en este libro, no queda títere cos cabeza. No perdona a multimillonarios, políticos fascistas, corporaciones multinacionales o políticos conservadores o liberales. Pero tampoco le va a bien a socialistas, a los humanitarios, a los ecologistas e incluso a quiénes como me declaro yo, pensamos que un mundo mejor es un mundo que incluya a la mayor diversidad de personas viviendo tan bien como nos lo permita la sociedad y el planeta (wokismo, le llaman ahora despectivamente). Sobre todos Zizek tiene algo que decir y la verdad, a diferencia de otros críticos medio vacíos medio sesgados por sus ideologías encubiertas, las cuestiones que plantea Zizek son siempre de una profundidad explícita o implícita suficiente para hacernos pensar.<br /><br />Sus análisis sobre el fenómeno de Donald Trump, que apenas se dejaba adivinar a finales de 2019 y principios de 2020 son sencillamente premonitorios y ahora, en el apogeo de este monstruo, vale la pena volver a leerlos.<br /><br />Si son de las personas que prefieren leer los mejores ensayos en lugar de aguantárselos todos, en especial aquellos que tuvieron interés en el momento en el que se escribieron, les recomendaría los siguientes: "El amazonas está ardiendo ¿y qué?", "Cambio radical no compasión", "Los límites de la democracia", "¿El 'gran reset'? Sí, por favor, ¡pero de verdad!", "Primero como farsa, ¿luego como tragedia?", "Tres posturas éticas" y por supuesto "Por qué sigo siendo comunista". <br /><br />¡A por más Zizek o Žižek!<br /><br />
+        </article>
+      </div>
+    </main>
+    <footer class="print-mode-target">
+      <p>Jorge I. Zuluaga — <a class="link" href="../index.html">Currículum en línea</a></p>
+    </footer>
+  </div>
+</body>
+</html>

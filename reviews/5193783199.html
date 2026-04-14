@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="color-scheme" content="light dark" />
+  <title>Reseña en Goodreads (mirror local)</title>
+  <link rel="icon" type="image/png" sizes="48x48" href="../assets/favicon.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="../assets/apple-touch-icon.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../assets/style.css?v=2" />
+  <script src="../assets/template.js" defer></script>
+  <style>
+    .review-page-custom .meta { color: var(--black); opacity: 0.8; font-size: 0.95rem; }
+    .review-page-custom .author { font-size: 1.4rem; font-weight: 600; margin: 0.35rem 0 0.75rem; }
+    .review-page-custom .review-by { font-size: 1rem; margin: -0.35rem 0 0.8rem; opacity: 0.88; }
+    .review-page-custom .rating-row { display: flex; align-items: center; gap: 0.8rem; margin: 0.25rem 0 0.2rem; }
+    .review-page-custom .rating { font-size: 1.2rem; letter-spacing: 0.04em; margin: 0; }
+    .review-page-custom .likes { margin: 0; font-size: 1rem; }
+    .review-page-custom .likes a { color: var(--accent); text-decoration: none; }
+    .review-page-custom .likes a:hover { text-decoration: underline; }
+    .review-page-custom .cover { margin: 0.75rem 0 1rem; }
+    .review-page-custom .cover img { max-width: 220px; height: auto; border-radius: 8px; border: 1px solid var(--line); }
+    .review-page-custom .card { border: 1px solid var(--line); border-radius: 12px; padding: 1rem; margin-top: 1rem; background: var(--card); }
+    .review-page-custom .card,
+    .review-page-custom .card p,
+    .review-page-custom .card div,
+    .review-page-custom .card span,
+    .review-page-custom .card li,
+    .review-page-custom .card blockquote,
+    .review-page-custom .card i,
+    .review-page-custom .card b,
+    .review-page-custom .card strong,
+    .review-page-custom .card em {
+      color: var(--black) !important;
+    }
+    .review-page-custom .card a {
+      color: var(--accent) !important;
+      text-decoration: underline;
+      text-underline-offset: 2px;
+    }
+    .review-page-custom .card a i,
+    .review-page-custom .card a em,
+    .review-page-custom .card a span,
+    .review-page-custom .card a strong,
+    .review-page-custom .card a b {
+      color: var(--accent) !important;
+    }
+  </style>
+</head>
+<body class="photos-page review-page-custom">
+  <div class="wrapper">
+    <a class="skip-link" href="#review-main">Saltar al contenido</a>
+    <header class="photos-header">
+      <div class="photos-header__bar">
+        <a class="link photos-back" href="../biblioteca.html">← Volver a la Biblioteca de Jorge Zuluaga</a>
+        <button class="theme-button photos-theme" type="button" aria-label="Modo de visualización: Claro/Oscuro">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="moon-icon" aria-hidden="true">
+            <path d="M11.3807 2.01886C9.91573 3.38768 9 5.3369 9 7.49999C9 11.6421 12.3579 15 16.5 15C18.6631 15 20.6123 14.0843 21.9811 12.6193C21.6613 17.8537 17.3149 22 12 22C6.47715 22 2 17.5228 2 12C2 6.68514 6.14629 2.33869 11.3807 2.01886Z"></path>
+          </svg>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="sun-icon" aria-hidden="true">
+            <path d="M12 18C8.68629 18 6 15.3137 6 12C6 8.68629 8.68629 6 12 6C15.3137 6 18 8.68629 18 12C18 15.3137 15.3137 18 12 18ZM11 1H13V4H11V1ZM11 20H13V23H11V20ZM3.51472 4.92893L4.92893 3.51472L7.05025 5.63604L5.63604 7.05025L3.51472 4.92893ZM16.9497 18.364L18.364 16.9497L20.4853 19.0711L19.0711 20.4853L16.9497 18.364ZM19.0711 3.51472L20.4853 4.92893L18.364 7.05025L16.9497 5.63604L19.0711 3.51472ZM5.63604 16.9497L7.05025 18.364L4.92893 20.4853L3.51472 19.0711L5.63604 16.9497ZM23 11V13H20V11H23ZM4 11V13H1V11H4Z"></path>
+          </svg>
+        </button>
+      </div>
+    </header>
+    <main id="review-main" class="photos-main">
+      <div class="container">
+        <h1 class="title-section">Historia. Libros I-II</h1>
+        <p class="author">Heródoto</p>
+        <p class="review-by">Reseña por Jorge I. Zuluaga</p>
+        <p class="cover"><img src="./covers/5193783199.jpg" alt="Portada de Historia. Libros I-II" /></p>
+        <p class="meta">Fecha de reseña: 2024-08-07</p>
+        <div class="rating-row">
+          <p class="rating" aria-label="Calificación: 4 de 5">★★★★☆</p>
+          <p class="likes" aria-label="Likes en GoodReads: 9"><a href="https://www.goodreads.com/review/show/5193783199?utm_medium=api&amp;utm_source=rss" target="_blank" rel="noopener noreferrer">👍</a> 9</p>
+        </div>
+        <p><a class="link" href="https://www.goodreads.com/review/show/5193783199?utm_medium=api&amp;utm_source=rss" target="_blank" rel="noopener noreferrer">Ver reseña en GoodReads (necesita cuenta)</a></p>
+        <article class="card">
+          Al fin me decidí a leer la obra de Heródoto. Después de leer muchas referencias a ella en otros libros de Historia, incluso en poemas y novelas, nada mejor que conocerla directamente de su fuente (bueno, de una traducción).<br /><br />Como es de esperarse, no se trata de una lectura sencilla o amena como lo es la lectura de textos de divulgación historiográfica que abundan tanto en el presente. Para quiénes no somos profesionales de la historiografía y que no necesitamos leer a autores clásicos como Heródoto en razón de nuestro trabajo, meterle el diente a un texto así es una especie de pena autoimpuesta.<br /><br />Aún así, para los aficionados que nos apasiona la antigüedad y en especial la Historia de los pueblos y gentes que vivieron alrededor del Mediterraneo y el oriente próximo, no puede haber nada más satisfactorio que leer a un autor de hace 2450 años describir, a través de sus propias experiencias, por las experiencias de sus contemporáneos o simplemente a través de las leyendas de su tiempo, cómo era el mundo de aquel entonces.<br /><br />Personalmente me sentí transportado en una máquina del tiempo a épocas y lugares sobre las que me gusta leer y conocer tanto. La experiencia de leer a Heródoto supera por mucho la de leer un texto, un autor o una autora académica del presente - o de los siglos que nos precedieron, y que saben de aquellos tiempos, lugares y gentes, lo que nos ha enseñado la arqueología y las propias historias que encontramos en libros antiguos. <br /><br />Sin querer afirmar que las historias modernas sobre el mundo antiguo son distorsionadas o artificiosas - en realidad la investigación historiográfica moderna ha revelado cosas sobre el pasado que ni los habitantes de aquellos tiempos sabían - una cosa es leer un libro escrito en los 2000 (o en los 1800, no hay mucha diferencia) por una persona que visitó enclaves arqueológicos o leyó muchos libros sobre el pasado y otra muy distinta es leer directamente de Heródoto la experiencia vivida, por ejemplo, al visitar personalmente el <a href="https://www.labrujulaverde.com/2022/03/el-gran-laberinto-egipcio-de-hawara-una-de-las-maravillas-perdidas-de-la-antiguedad#:~:text=protagonistas%20de%20Vikingos-,El%20gran%20laberinto%20egipcio%20de%20Hawara%2C%20una%20de,maravillas%20perdidas%20de%20la%20Antig%C3%BCedad&text=En%20el%20siglo%20V%20a.C.,al%20sudoeste%20de%20El%20Cairo." rel="nofollow noopener">laberinto del Hawara en Egipto</a>, un enclave fascinante del que hoy no quedan sino ruinas en el desierto, pero que el autor de "Historia" conoció directamente cuando todavía era un deslumbrante complejo de palacios en uso por los pueblos que los construyeron. Una cosa es opinar o deducir lo que pensaba o recordaba un Egipcio sobre el gobierno de un faraón (por ejemplo alguno de los constructores de las grandes pirámides) y otra conocer la posición transmitida a Heródoto por los sacerdotes egipcios sobre esos mismos gobernantes.<br /><br />Los primeros dos libros de Historia de Heródoto se concentran en dos pueblos específicos. En el libro I, entre muchas otras cosas, Heródoto nos cuenta la historia del surgimiento del poder Persa en levante. Es fascinante conocer como un pueblo de pastores de las montañas, sometidos a la dominación de otros pueblos más poderosos, Asirios, Medos y Lidios y de cuya existencia sabemos hoy solo en los textos académicos, se convirtió a la larga en un poderoso imperio capaz de dominar al antiguo, venerado y muy organizado Egipto y a los combativos pueblos de la península anatólica, el Egeo y parte de la Heleade (Grecia). Todos hemos oído hablar del Imperio Persa. En este libro se relatan algunas historias sobre su origen.<br /><br />Una de las mejores características de los libros de Heródoto es la combinación de buena Historia, cuentos populares, leyendas y mitos, pero también la importante dosis de geografía y etnografía que utiliza para describir los lugares y las personas que vivían en las regiones que recorre y describe. Disfrute mucho, como físico y astrónomo, de las referencias a patrones de medida de distancia, área, peso e intercambio de valores que se usaban en aquel tiempo; pero también, las referencias a fenómenos y patrones de tiempo atmosférico, fenómenos relacionados con los ríos y otras descripciones naturales que se cuelan entre las historias de Heródoto. Las teorías por ejemplo sobre el origen del Nilo y sus inundaciones son increíbles. <br /><br />Naturalmente todo lo que se lee en este libro, como seguramente lo saben bien quienes son profesionales de la historiografía o la arqueología y que han estudiado a fondo la obra de Heródoto, debe juzgarse con mucho cuidado. Estamos hablando de un libro que fue escrito en un tiempo en el que los estándares de objetividad que caracterizan a la investigación moderna de estas materias estaban lejos de establecerse sobre bases y prácticas seguras. Es justo por esa falta de rigor científico que en Heródoto puedes pasar fácilmente de leer sobre los usos y las costumbres de los griegos del siglo VII a.e.c. a una descripción sobre el origen de los dioses 10.000 años antes de su narración, como si se tratara de materias comparables.<br /><br />En el libro II, mi preferido sin lugar a duda, Heródoto se explaya en hablar del que el mismo llama el antiguo y glorioso - este último adjetivo es mío - país de los Egipcios. <br /><br />Al ser un aficionado de la egiptología he disfrutado como niño pequeño de las descripciones pormenorizadas que hace de Kemet un contemporáneo del Egipto del período tardío, época en la que se ubican la mayor parte de las historias que narra Heródoto. Gracias a que sé un poquito más sobre la historia de Egipto que la de otros pueblos de la antigüedad - pero solo un poquito más, he podido también juzgar mejor la veracidad de algunas afirmaciones sobre el antiguo Egipto, en especial aquellas relacionadas con la cronología, que en muchas ocasiones descubrí muy desfasada a la luz de más recientes investigaciones arqueológicas. Así por ejemplo, Heródoto calcula en casi 10.000 años la edad del País de las Dos Tierras, cuando hoy sabemos que, en su tiempo no tenía más de 3.000. Algunos gobernantes que menciona en su obra - especialmente del reino antiguo y el reino intermedio - los considera alejados de su tiempo a lo sumo 800 o 1.000 años, cuando en realidad lo separaban de ellos hasta 2.000 años. Nada de esto sin embargo le quita mérito a la obra inmortal de uno de los primeros historiógrafos y geógrafos de la Historia.<br /><br />Me ha sorprendido especialmente la descripción de los dioses y las costumbres religiosas del Egipto que conoció Heródoto o, por lo menos aquellas que le describieron los sacerdotes con los que tuvo la oportunidad de interactuar. Si bien estoy muy familiarizado con la tendencia de que los nombres egipcios se helenizaran sistemáticamente en la antigüedad, tendencia que hace que hablemos de Amenofis y no de Amenhotep, de Keops y no de Jufu, de Micerino y no de Menkaure, emergiendo los nombres originales egipcios, en su mayoría, solo a partir la investigación filológica moderna y a pesar de que consideremos la helenización una tendencia sesgada de los griegos hacia sus lenguas, no hay que olvidar que en el tiempo de Heródoto buena parte de la lengua Egipcia, en particular la escritura sagrada de los jeroglíficos, solo era conocida por escribas o sacerdotes; es, por tanto, muy posible que hoy sepamos más sobre los nombres egipcios de lo que sabía un historiador griego del 400 a.e.c. <br /><br />Volviendo a los dioses, me sorprendió conocer, a través de la lectura de Heródoto, la intrigante idea - tal vez difícil de sostener en el presente - de que muchos dioses griegos pudieron tener su origen en la religión Egipcia. Que Zeus pudo ser originalmente el Amón egipcio, que Dionisios tal vez fue la versión griega de Osiris o que Apolo - tan importante en todas las religiones de oriente - fue en sus orígenes el mismo Horus. Todo sin enumerar en detalle una larga lista de equivalencias mencionadas por Heródoto en el libro II de su Historia.<br /><br />Me encanto también leer sobre la geografía del Egipto que conoció Heródoto y que describe con muchos detalles, detalles que quién lea el libro con impaciencia encontrara innecesarios, pero que yoi encontré fascinantes. Me gusto especialmente porque se basa en la experiencia personas de la época sobre el terreno y no, como hemos terminado imaginándolo todo hoy, en vistas aéreas o espaciales del mismo territorio. <br /><br />Es así como leemos en Heródoto que muchos en aquel tiempo consideraban que Egipto era solamente el país de las gentes que habitaban relativamente cerca a la costa del Mediterráneo, allí donde desemboca el Nilo (el delta o bajo Egipto). Y es que no seguramente no era fácil para un visitante griego, árabe o sirio, unificar mentalmente los 1.000 km de extensión del Egipto medio y alto que tuvo, mil años antes de las historias de Heródoto, una importancia central en la Historia del país de las dos Tierras. En este punto vale la pena señalar que en el tiempo en el que se narran las historias de Heródoto, el centro político y religioso de Egipto había migrado hacia el delta, en parte por la dominación persa que vivió el país en aquellos tiempos y que tanta importancia tiene en los libros de Heródoto.<br /><br />Para no extenderme más en esta reseña, me gustaría finalmente recomendar a todas aquellas personas que como yo disfrutamos de la Historia y en especial amamos la Historia y la cultura del antiguo Egipto, que no dejen de leer, por lo menos, el Libro II de la Historia de Heródoto. Como sucede con la lectura de la Ilíada, la Odisea o la Eneida, la lectura de estos clásicos universales nos permitirá entender el contexto de las cientos de citas y referencias que encontramos en la divulgación sobre estas grandes obras. <br /><br />No es fácil leer a Heródoto, pero tampoco es imposible.<br /><br />Unas notas finales sobre la edición y las traducciones del libro. <br /><br />La traducción que estoy leyendo de Heródoto (porque apenas voy en los dos primeros libros de la colección de 9 que conforman su Historia) es aquella que editó Manuel Balasch con la editorial Cátedra. Hay muchas ediciones de la Historia de Heródoto. En particular, aquí en Goodreads, he registrado que estoy leyendo la que hizo Gredos cuando no es verdad (me encantaría, pero cuesta mucho más). Lo hago solamente porque no sé si leeré finalmente los 9 libros. La edición de Gredos está convenientemente dividida en pares de Libros y es más conveniente para ir registrando el avance de la lectura. <br /><br />La traducción de Balasch me ha gustado mucho (es la única que leído en realidad) lo mismo que sus notas al pie que son en su mayoría de naturaleza filológica. Aunque no se de griego antiguo y por lo tanto no puedo juzgarlas, me han permitido asomarme a la dificultad implícita en la traducción de una obra como esta.
+        </article>
+      </div>
+    </main>
+    <footer class="print-mode-target">
+      <p>Jorge I. Zuluaga — <a class="link" href="../index.html">Currículum en línea</a></p>
+    </footer>
+  </div>
+</body>
+</html>

@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="color-scheme" content="light dark" />
+  <title>Reseña en Goodreads (mirror local)</title>
+  <link rel="icon" type="image/png" sizes="48x48" href="../assets/favicon.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="../assets/apple-touch-icon.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../assets/style.css?v=2" />
+  <script src="../assets/template.js" defer></script>
+  <style>
+    .review-page-custom .meta { color: var(--black); opacity: 0.8; font-size: 0.95rem; }
+    .review-page-custom .author { font-size: 1.4rem; font-weight: 600; margin: 0.35rem 0 0.75rem; }
+    .review-page-custom .review-by { font-size: 1rem; margin: -0.35rem 0 0.8rem; opacity: 0.88; }
+    .review-page-custom .rating-row { display: flex; align-items: center; gap: 0.8rem; margin: 0.25rem 0 0.2rem; }
+    .review-page-custom .rating { font-size: 1.2rem; letter-spacing: 0.04em; margin: 0; }
+    .review-page-custom .likes { margin: 0; font-size: 1rem; }
+    .review-page-custom .likes a { color: var(--accent); text-decoration: none; }
+    .review-page-custom .likes a:hover { text-decoration: underline; }
+    .review-page-custom .cover { margin: 0.75rem 0 1rem; }
+    .review-page-custom .cover img { max-width: 220px; height: auto; border-radius: 8px; border: 1px solid var(--line); }
+    .review-page-custom .card { border: 1px solid var(--line); border-radius: 12px; padding: 1rem; margin-top: 1rem; background: var(--card); }
+    .review-page-custom .card,
+    .review-page-custom .card p,
+    .review-page-custom .card div,
+    .review-page-custom .card span,
+    .review-page-custom .card li,
+    .review-page-custom .card blockquote,
+    .review-page-custom .card i,
+    .review-page-custom .card b,
+    .review-page-custom .card strong,
+    .review-page-custom .card em {
+      color: var(--black) !important;
+    }
+    .review-page-custom .card a {
+      color: var(--accent) !important;
+      text-decoration: underline;
+      text-underline-offset: 2px;
+    }
+    .review-page-custom .card a i,
+    .review-page-custom .card a em,
+    .review-page-custom .card a span,
+    .review-page-custom .card a strong,
+    .review-page-custom .card a b {
+      color: var(--accent) !important;
+    }
+  </style>
+</head>
+<body class="photos-page review-page-custom">
+  <div class="wrapper">
+    <a class="skip-link" href="#review-main">Saltar al contenido</a>
+    <header class="photos-header">
+      <div class="photos-header__bar">
+        <a class="link photos-back" href="../biblioteca.html">← Volver a la Biblioteca de Jorge Zuluaga</a>
+        <button class="theme-button photos-theme" type="button" aria-label="Modo de visualización: Claro/Oscuro">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="moon-icon" aria-hidden="true">
+            <path d="M11.3807 2.01886C9.91573 3.38768 9 5.3369 9 7.49999C9 11.6421 12.3579 15 16.5 15C18.6631 15 20.6123 14.0843 21.9811 12.6193C21.6613 17.8537 17.3149 22 12 22C6.47715 22 2 17.5228 2 12C2 6.68514 6.14629 2.33869 11.3807 2.01886Z"></path>
+          </svg>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="sun-icon" aria-hidden="true">
+            <path d="M12 18C8.68629 18 6 15.3137 6 12C6 8.68629 8.68629 6 12 6C15.3137 6 18 8.68629 18 12C18 15.3137 15.3137 18 12 18ZM11 1H13V4H11V1ZM11 20H13V23H11V20ZM3.51472 4.92893L4.92893 3.51472L7.05025 5.63604L5.63604 7.05025L3.51472 4.92893ZM16.9497 18.364L18.364 16.9497L20.4853 19.0711L19.0711 20.4853L16.9497 18.364ZM19.0711 3.51472L20.4853 4.92893L18.364 7.05025L16.9497 5.63604L19.0711 3.51472ZM5.63604 16.9497L7.05025 18.364L4.92893 20.4853L3.51472 19.0711L5.63604 16.9497ZM23 11V13H20V11H23ZM4 11V13H1V11H4Z"></path>
+          </svg>
+        </button>
+      </div>
+    </header>
+    <main id="review-main" class="photos-main">
+      <div class="container">
+        <h1 class="title-section">Antiguo Egipto: Introducción a su historia y cultura (Nun) (Spanish Edition)</h1>
+        <p class="author">Salima Ikram</p>
+        <p class="review-by">Reseña por Jorge I. Zuluaga</p>
+        <p class="cover"><img src="./covers/4065542288.jpg" alt="Portada de Antiguo Egipto: Introducción a su historia y cultura (Nun) (Spanish Edition)" /></p>
+        <p class="meta">Fecha de reseña: 2026-01-25</p>
+        <div class="rating-row">
+          <p class="rating" aria-label="Calificación: 5 de 5">★★★★★</p>
+          <p class="likes" aria-label="Likes en GoodReads: 9"><a href="https://www.goodreads.com/review/show/4065542288?utm_medium=api&amp;utm_source=rss" target="_blank" rel="noopener noreferrer">👍</a> 9</p>
+        </div>
+        <p><a class="link" href="https://www.goodreads.com/review/show/4065542288?utm_medium=api&amp;utm_source=rss" target="_blank" rel="noopener noreferrer">Ver reseña en GoodReads (necesita cuenta)</a></p>
+        <article class="card">
+          Solo se me ocurre una descripción breve de este libro: casi todo lo que necesitas saber sobre el antiguo Egipto empacado en ~400 páginas y narrado de forma amena pero rigurosa por una de las voces más autorizadas del presente en la arqueología egipcia, la Egiptóloga Pakistani (y hoy estrella de los medios, todo hay que decirlo) Salima Ikram.<br /><br />¡Lo disfrute como niño chiquito! <br /><br />Y es que el libro enamora desde las primeras páginas. La introducción al texto, y a la colección NUN en general (a la que pertenece e inicia), esta escrita por Raul López López, autor y director del Museo Liceo Egipcio de León (España). Creería uno que se trata de una introducción un poco protocolaria, tal vez escrita con algunas "fórmulas" editoriales conocidas. Pero no. Don Raul se tira tremenda reflexión sobre el valor de la Egiptología, la historia y el humanismo en general en un presente atravesado de crisis humanitarias y ambientales, que complementa con una muy bien escrita y pormenorizada justificación del nombre de la colección, "Nun", la materia sin forma, que era (o es) solo potencia y de la que se formo todo en el Universo en una de las más reconocidas cosmogonías del antiguo Egipto. <br /><br />¡Tremenda introducción! (se me antojo muy parecido a los estudios preliminares eruditos que uno encuentra por ahí en algunos grandes clásicos)<br /><br />Aquí un párrafo que me encanto: <br /><blockquote>
+  <i>Nos veo enfrascados en luchas intestinas entre el llamado Oriente y Occidente, dos partes imposibles en un mundo esférico. Creyendo que solo los apolíneos helenos inventaron el mundo y antes y fuera, todo era oscuridad —sin duda, una fértil oscuridad de miles de años—</i>
+</blockquote><br />Después de "redescubrir" a Egipto a través de esta y otras lecturas y conversaciones que he venido haciendo y teniendo recientemente (gracias al renacer de mi interés por esta cultura que me dio el proyecto de <a href="https://egiptologiamedellin.com/" rel="nofollow noopener">Egiptología Medellín</a> y su creadora la egiptóloga <a href="https://www.instagram.com/elianubis/" rel="nofollow noopener">Elizabeth Noreña</a>), me identifico cada vez más con esta reflexión, como alguien que pensó por mucho tiempo que somos, en occidente, lo que los griegos hicieron de nosotros. Entre mejor conozco al antiguo Egipto (y apenas he raspado la superficie del Iceberg) más cuenta me doy de que los 3.000 años de historia de está increíble "nación", dejaron una huella profunda y duradera en occidente. Hay más Egipto en nosotros de lo que realmente estaríamos dispuestos a reconocer.<br /><br />Como sucede con todas sus apariciones en medios, televisión, Internet, revistas, podcasts, etc. Salima Ikram, autora de esté excelente libro, presenta todos los temas que abarca en un lenguaje sospechosamente asequible; uno sabe que le están hablando de ciencias duras - arqueología, filología, geología, anatomía, etc. - pero parece entenderlo todo. ¡Esa es divulgación científica de la buena!. Al mismo tiempo, y como buena científica la Profesora Ikram no deja de usar el lenguaje riguroso propio de estas ciencia para referirse a cada uno de los innumerables detalles que recoge en sus páginas. <br /><br />Me encantó que usará los nombres científicos de plantas y animales, que describiera formaciones geológicas, rocas y minerales por su nombre, que en muchos de los vocablos y frases del egipcio clásico que cita a lo largo del texto usará versiones transliteradas (fonéticas), en lugar de traducirlo todo al español o al inglés (ej. <i>nfr</i> - bello, completo, hermoso - en lugar de escribir simplemente <i>nefer</i>); que llamara al popular rey Tut, Tutankhatón (su verdadero nombre de nacimiento) en lugar de Tutankhamon como termino nombrándose para adaptarse a la crisis política de su tiempo, y como finalmente terminamos conociéndolo a largo plazo. Para un apasionado entusiasta (aficionado) de la egiptología (que también es científico) estos son detalles que "enamoran".<br /><br />Se siente uno tratado como un estudiante de egiptología, más que como un turista que prepara un viaje a Egipto (aunque los que lo lean también con ese propósito lo disfrutaran igual).<br /><br />Su explicación de lo que son el ka, el ba y el akh (las partes del espíritu de una persona en la religión egipcia) es de las más claras que he leído y oído (y no se las compartiré para que se obliguen a leerla). Y de la misma manera, se suceden explicaciones sobre otro sin numero de temas de interés sobre la cultura, la religión, la vida cotidiana, la política, los rituales, la arquitectura, la comida, la geografía, la historia, etc, etc.<br /><br />Las fotos que acompañan el texto son geniales. La mayoría, tomadas por la misma profesora Ikram, se salen del canon de las fotografías profesionales en los templos y las tumbas a las que nos tienen acostumbrados la mayoría de los libros de egiptología (¡y bien acostumbrados afortunadamente!). Ver estas fotografías, que parecen mas bien recordarle a uno los viajes de descubrimiento de la misma autora, es sencillamente genial y te transportan al lugar. En más de una ocasión, analizando con detalle las imágenes me imagine a la profesora Ikram con esa actitud de genuina sorpresa, pero también de profundo conocimiento de Egipto, con el que la vemos en los documentales, descubriendo por primera vez esas escenas. <br /><br />La parte que mas me gusto del libro fue la dedicada a la vida cotidiana (capítulos 7 y 8), que también es la menos común de encontrar en muchos libros de divulgación sobre el antiguo Egipto. Todavía me sorprendo que la arqueología, la filología y todas las ciencias que convergen alrededor de ellas, hayan podido reconstruir de forma tan pormenorizada la vida de personas que vivieron hace más de 4000 años (en algunos casos casi 5000). <br /><br />Mi conclusión de la lectura de esos capítulos es que en lo que respecta al día a día, los egipcios están tan lejos de nosotros en el tiempo, como cerca en gustos, tradiciones, cuestiones básicas de la vida, etc. Es increíble lo poco que en realidad ha cambiado el núcleo mismo de la humanidad en tanto tiempo.<br /><br />El libro abunda en datos curiosos que tuve la oportunidad de compartir en Twitter (a los curiosos busquen <a href="https://twitter.com/search?q=%40zuluagajorge%20%23KemetLovers&src=typed_query" rel="nofollow noopener">@zuluagajorge #KemetLovers</a>). Esto para decir que además de su amplio y riguroso contenido académico, la profesora Ikram le ha impreso al libro una buena dosis de daticos para quiénes simplemente pasan (o pasamos) por sus páginas animados por la curiosidad espontánea y no necesariamente por un interés académico más profundo.<br /><br />¿Pero tiene algún defecto este libro?. Dos cosas podría mencionar. Esta es la primera edición y noté que más o menos a partir de la mitad del texto empezaron a aparecer a algunos errores tipográficos, incluso cronológicos, que aunque no son muchos en número, sí dan una impresión negativa; adicionalmente, en mi experiencia, son más de los que he encontrado en otros textos. Imaginó que los editores sabrán corregirlos en futuras ediciones (¡no me cabe la menor duda que este libro las tendrá!). La otra cosa es que siento que el libro término demasiado abruptamente. Cuando menos pensé, la lectura había acabado. Por eso creo que al libro le hace falta un epilogo. <br /><br />Léanlo y me cuentan si sienten lo mismo.
+        </article>
+      </div>
+    </main>
+    <footer class="print-mode-target">
+      <p>Jorge I. Zuluaga — <a class="link" href="../index.html">Currículum en línea</a></p>
+    </footer>
+  </div>
+</body>
+</html>

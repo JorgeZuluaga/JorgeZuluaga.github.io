@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="color-scheme" content="light dark" />
+  <title>Reseña en Goodreads (mirror local)</title>
+  <link rel="icon" type="image/png" sizes="48x48" href="../assets/favicon.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="../assets/apple-touch-icon.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../assets/style.css?v=2" />
+  <script src="../assets/template.js" defer></script>
+  <style>
+    .review-page-custom .meta { color: var(--black); opacity: 0.8; font-size: 0.95rem; }
+    .review-page-custom .author { font-size: 1.4rem; font-weight: 600; margin: 0.35rem 0 0.75rem; }
+    .review-page-custom .review-by { font-size: 1rem; margin: -0.35rem 0 0.8rem; opacity: 0.88; }
+    .review-page-custom .rating-row { display: flex; align-items: center; gap: 0.8rem; margin: 0.25rem 0 0.2rem; }
+    .review-page-custom .rating { font-size: 1.2rem; letter-spacing: 0.04em; margin: 0; }
+    .review-page-custom .likes { margin: 0; font-size: 1rem; }
+    .review-page-custom .likes a { color: var(--accent); text-decoration: none; }
+    .review-page-custom .likes a:hover { text-decoration: underline; }
+    .review-page-custom .cover { margin: 0.75rem 0 1rem; }
+    .review-page-custom .cover img { max-width: 220px; height: auto; border-radius: 8px; border: 1px solid var(--line); }
+    .review-page-custom .card { border: 1px solid var(--line); border-radius: 12px; padding: 1rem; margin-top: 1rem; background: var(--card); }
+    .review-page-custom .card,
+    .review-page-custom .card p,
+    .review-page-custom .card div,
+    .review-page-custom .card span,
+    .review-page-custom .card li,
+    .review-page-custom .card blockquote,
+    .review-page-custom .card i,
+    .review-page-custom .card b,
+    .review-page-custom .card strong,
+    .review-page-custom .card em {
+      color: var(--black) !important;
+    }
+    .review-page-custom .card a {
+      color: var(--accent) !important;
+      text-decoration: underline;
+      text-underline-offset: 2px;
+    }
+    .review-page-custom .card a i,
+    .review-page-custom .card a em,
+    .review-page-custom .card a span,
+    .review-page-custom .card a strong,
+    .review-page-custom .card a b {
+      color: var(--accent) !important;
+    }
+  </style>
+</head>
+<body class="photos-page review-page-custom">
+  <div class="wrapper">
+    <a class="skip-link" href="#review-main">Saltar al contenido</a>
+    <header class="photos-header">
+      <div class="photos-header__bar">
+        <a class="link photos-back" href="../biblioteca.html">← Volver a la Biblioteca de Jorge Zuluaga</a>
+        <button class="theme-button photos-theme" type="button" aria-label="Modo de visualización: Claro/Oscuro">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="moon-icon" aria-hidden="true">
+            <path d="M11.3807 2.01886C9.91573 3.38768 9 5.3369 9 7.49999C9 11.6421 12.3579 15 16.5 15C18.6631 15 20.6123 14.0843 21.9811 12.6193C21.6613 17.8537 17.3149 22 12 22C6.47715 22 2 17.5228 2 12C2 6.68514 6.14629 2.33869 11.3807 2.01886Z"></path>
+          </svg>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="sun-icon" aria-hidden="true">
+            <path d="M12 18C8.68629 18 6 15.3137 6 12C6 8.68629 8.68629 6 12 6C15.3137 6 18 8.68629 18 12C18 15.3137 15.3137 18 12 18ZM11 1H13V4H11V1ZM11 20H13V23H11V20ZM3.51472 4.92893L4.92893 3.51472L7.05025 5.63604L5.63604 7.05025L3.51472 4.92893ZM16.9497 18.364L18.364 16.9497L20.4853 19.0711L19.0711 20.4853L16.9497 18.364ZM19.0711 3.51472L20.4853 4.92893L18.364 7.05025L16.9497 5.63604L19.0711 3.51472ZM5.63604 16.9497L7.05025 18.364L4.92893 20.4853L3.51472 19.0711L5.63604 16.9497ZM23 11V13H20V11H23ZM4 11V13H1V11H4Z"></path>
+          </svg>
+        </button>
+      </div>
+    </header>
+    <main id="review-main" class="photos-main">
+      <div class="container">
+        <h1 class="title-section">Historia del alfabeto</h1>
+        <p class="author">A.C. Moorhouse</p>
+        <p class="review-by">Reseña por Jorge I. Zuluaga</p>
+        <p class="cover"><img src="./covers/8213165605.jpg" alt="Portada de Historia del alfabeto" /></p>
+        <p class="meta">Fecha de reseña: 2026-01-11</p>
+        <div class="rating-row">
+          <p class="rating" aria-label="Calificación: 4 de 5">★★★★☆</p>
+          <p class="likes" aria-label="Likes en GoodReads: 2"><a href="https://www.goodreads.com/review/show/8213165605?utm_medium=api&amp;utm_source=rss" target="_blank" rel="noopener noreferrer">👍</a> 2</p>
+        </div>
+        <p><a class="link" href="https://www.goodreads.com/review/show/8213165605?utm_medium=api&amp;utm_source=rss" target="_blank" rel="noopener noreferrer">Ver reseña en GoodReads (necesita cuenta)</a></p>
+        <article class="card">
+          Muy interesante e informativo. <br /><br />El libro hace un recorrido amplio por la historia de los sistemas de escritura de prácticamente todo el mundo, no solo los alfabéticos, que son los que le dan el nombre al texto, sino también los pictográficos e ideográficos que, como muestra el autor, correspondieron en muchos casos a las primeras etapas del desarrollo del lenguaje escrito.<br /><br />El libro está lleno de datos curiosos y asombrosos que fue realmente la razón que me impulso a leerlo originalmente. <br /><br />Siempre me ha llamado la atención leer sobre la ciencia e historia de las lenguas. Ya había tenido la oportunidad de leer un poco sobre la historia del sistema de escritura egipcio (posiblemente, el que más conozco de la antigüedad) y de allí de los sistema que se derivaron de él, entre los que se encuentran, según confirme en este libro, los sistemas de escritura de la región del Sinaí y después del norte de Palestina de los que se derivo finalmente los alfabetos fenicio, griego, etrusco y latino. Pero me encantó aprender a través de este libro sobre los sistemas de escritura de los que sabía menos, la escritura cuneiforme de las importantes, milenarias y diversas culturas mesopotámicas y de Asia menor, los sistemas de escritura asiáticos, chinos, coreanos y japoneses de los que no sabía casi nada.<br /><br />Me llevo muchos datos no solo geniales sino también muy útiles. Por ejemplo, me encantó aprender que el número de símbolos de un sistema de escritura es clave para saber si es de tipo pictográfico, ideográfico, silábico o alfabético. Así, mientras que los primeros usan miles o decenas de miles de signos (como es el caso de la escritura China y Japonesa), los de tipo silábico (pe. Maya y Azteca) no superan un centenar de caracteres y los alfabéticos, los que usan actualmente las lenguas de occidente (pe. griego, latino, cirílico) raramente pasan de 30 o 40 de ellos. Me impresiono saber que nuestro alfabeto (el alfabeto latino) es realmente pobre en signos para representar los sonido vocálicos y que esa limitación se ve reflejada en las dificultades para escribir lenguas como el francés, el portugués o el inglés con fonéticas realmente ricas. Según aprendí, un alfabeto con un número suficientemente rico de vocales debería contener más de 10 símbolos para estos sonidos y que algunos alfabetos antiguos llegaron a tener hasta 30.<br /><br />La historia de cómo llego la idea del alfabeto, desde los denominados símbolos unilíteros de la antigua y sagrada lengua egipcia, hasta el pragmático alfabeto latino, es realmente interesante. Saber que posiblemente a través de la imitación (o difusión cultural como aprendí en este libro) más que la copia directa se concibieron los primeros sistemas simplificados de escritura alfabética en palestina, de los que a larga derivarían los sistemas alfabéticos griego y latino, fue muy interesante. Me impresiono saber también que el alfabeto árabe y algunos alfabetos de la india vienen del arameo, la conocida lengua del sur de palestina.<br /><br />El libro tiene una estructura curiosa. La primera parte trata sobre la historia de los sistemas de escritura, incluyendo por supuesto el alfabético y la segunda (más corta) sobre el uso que se dio a la escritura en la antigüedad. Ambas piezas, parecen escritas en momentos diferentes y para propósitos diversos, pero en conjunto funciona bien. Desde mi perspectiva, sin embargo, solo tiene en contra el hecho de que es un libro con más de 70 años de antigüedad. Muchos descubrimientos hechos entre los años 1950 y el presente no están presentes en el libro. Su antigüedad se nota también en aspectos más sutiles y tal vez controversiales. Por ejemplo, el texto tiene el tufillo de una enquistada visión colonial del mundo; también se nota que fue escrito en un tiempo en la que la idea de un progreso lineal de las sociedades no había sido cabalmente criticada.
+        </article>
+      </div>
+    </main>
+    <footer class="print-mode-target">
+      <p>Jorge I. Zuluaga — <a class="link" href="../index.html">Currículum en línea</a></p>
+    </footer>
+  </div>
+</body>
+</html>

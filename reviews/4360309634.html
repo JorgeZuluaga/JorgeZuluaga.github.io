@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="color-scheme" content="light dark" />
+  <title>Reseña en Goodreads (mirror local)</title>
+  <link rel="icon" type="image/png" sizes="48x48" href="../assets/favicon.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="../assets/apple-touch-icon.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../assets/style.css?v=2" />
+  <script src="../assets/template.js" defer></script>
+  <style>
+    .review-page-custom .meta { color: var(--black); opacity: 0.8; font-size: 0.95rem; }
+    .review-page-custom .author { font-size: 1.4rem; font-weight: 600; margin: 0.35rem 0 0.75rem; }
+    .review-page-custom .review-by { font-size: 1rem; margin: -0.35rem 0 0.8rem; opacity: 0.88; }
+    .review-page-custom .rating-row { display: flex; align-items: center; gap: 0.8rem; margin: 0.25rem 0 0.2rem; }
+    .review-page-custom .rating { font-size: 1.2rem; letter-spacing: 0.04em; margin: 0; }
+    .review-page-custom .likes { margin: 0; font-size: 1rem; }
+    .review-page-custom .likes a { color: var(--accent); text-decoration: none; }
+    .review-page-custom .likes a:hover { text-decoration: underline; }
+    .review-page-custom .cover { margin: 0.75rem 0 1rem; }
+    .review-page-custom .cover img { max-width: 220px; height: auto; border-radius: 8px; border: 1px solid var(--line); }
+    .review-page-custom .card { border: 1px solid var(--line); border-radius: 12px; padding: 1rem; margin-top: 1rem; background: var(--card); }
+    .review-page-custom .card,
+    .review-page-custom .card p,
+    .review-page-custom .card div,
+    .review-page-custom .card span,
+    .review-page-custom .card li,
+    .review-page-custom .card blockquote,
+    .review-page-custom .card i,
+    .review-page-custom .card b,
+    .review-page-custom .card strong,
+    .review-page-custom .card em {
+      color: var(--black) !important;
+    }
+    .review-page-custom .card a {
+      color: var(--accent) !important;
+      text-decoration: underline;
+      text-underline-offset: 2px;
+    }
+    .review-page-custom .card a i,
+    .review-page-custom .card a em,
+    .review-page-custom .card a span,
+    .review-page-custom .card a strong,
+    .review-page-custom .card a b {
+      color: var(--accent) !important;
+    }
+  </style>
+</head>
+<body class="photos-page review-page-custom">
+  <div class="wrapper">
+    <a class="skip-link" href="#review-main">Saltar al contenido</a>
+    <header class="photos-header">
+      <div class="photos-header__bar">
+        <a class="link photos-back" href="../biblioteca.html">← Volver a la Biblioteca de Jorge Zuluaga</a>
+        <button class="theme-button photos-theme" type="button" aria-label="Modo de visualización: Claro/Oscuro">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="moon-icon" aria-hidden="true">
+            <path d="M11.3807 2.01886C9.91573 3.38768 9 5.3369 9 7.49999C9 11.6421 12.3579 15 16.5 15C18.6631 15 20.6123 14.0843 21.9811 12.6193C21.6613 17.8537 17.3149 22 12 22C6.47715 22 2 17.5228 2 12C2 6.68514 6.14629 2.33869 11.3807 2.01886Z"></path>
+          </svg>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="sun-icon" aria-hidden="true">
+            <path d="M12 18C8.68629 18 6 15.3137 6 12C6 8.68629 8.68629 6 12 6C15.3137 6 18 8.68629 18 12C18 15.3137 15.3137 18 12 18ZM11 1H13V4H11V1ZM11 20H13V23H11V20ZM3.51472 4.92893L4.92893 3.51472L7.05025 5.63604L5.63604 7.05025L3.51472 4.92893ZM16.9497 18.364L18.364 16.9497L20.4853 19.0711L19.0711 20.4853L16.9497 18.364ZM19.0711 3.51472L20.4853 4.92893L18.364 7.05025L16.9497 5.63604L19.0711 3.51472ZM5.63604 16.9497L7.05025 18.364L4.92893 20.4853L3.51472 19.0711L5.63604 16.9497ZM23 11V13H20V11H23ZM4 11V13H1V11H4Z"></path>
+          </svg>
+        </button>
+      </div>
+    </header>
+    <main id="review-main" class="photos-main">
+      <div class="container">
+        <h1 class="title-section">Hamnet</h1>
+        <p class="author">Maggie O&#x27;Farrell</p>
+        <p class="review-by">Reseña por Jorge I. Zuluaga</p>
+        <p class="cover"><img src="./covers/4360309634.jpg" alt="Portada de Hamnet" /></p>
+        <p class="meta">Fecha de reseña: 2025-12-13</p>
+        <div class="rating-row">
+          <p class="rating" aria-label="Calificación: 5 de 5">★★★★★</p>
+          <p class="likes" aria-label="Likes en GoodReads: 10"><a href="https://www.goodreads.com/review/show/4360309634?utm_medium=api&amp;utm_source=rss" target="_blank" rel="noopener noreferrer">👍</a> 10</p>
+        </div>
+        <p><a class="link" href="https://www.goodreads.com/review/show/4360309634?utm_medium=api&amp;utm_source=rss" target="_blank" rel="noopener noreferrer">Ver reseña en GoodReads (necesita cuenta)</a></p>
+        <article class="card">
+          ¡Que es esta hermosura de novela! <br /><br />Profundamente conmovedora y magistralmente bien escrita. <br /><br />Fui feliz y muy triste a la vez leyéndola. <br /><br />Aunque la tenía en mi lista de libros por leer, al fin me decidí a meterle el diente motivado por la proximidad del lanzamiento de una película basada en la novela. Ya un buen amigo, Samuel Castro, me había hablado muy bien del libro y ver el trailer me convenció de que tenía que adelantarme antes de que una recreación cinematográfica de 2 horas me arruinara la experiencia completa.<br /><br />Como deben saber por la descripción del libro, "Hamnet" narra, esencialmente, una parte de la vida de Anne Hathaway (Agnes) y su esposo, William Shakespeare (cuyo nombre nunca es mencionado en la novela, punto para la autora), centrándose particularmente en uno de los más dolorosos capítulos de su historia juntos: la muerte de uno de sus tres hijos, Hamnet. Como señala su autora en la nota histórica al final del libro, los personajes por supuesto son reales y gran parte de los eventos también lo fueron. <br /><br />El estilo de narración le da a la novela buena parte de su capacidad para atraparte sin demora en la historia. La autora salta entre el "presente" del evento alrededor del que pivota la historia, es decir, los eventos que rodearon la muerte del niño, y el pasado, durante el que nos cuentan la original historia de Agnes, su madre y su familia adoptiva, y en paralelo la del (innominado) William y su también peculiar familia. <br /><br />Me sorprendió mucho el desarrollo de cada uno de los personajes. Desde los protagónicos (Agnes, sus hijas Susan, Judith y Hamnet -estos últimos mellizos-, el esposo, su padre John -que personaje-, su madre Mary, la madrastras Johan, etc.); incluso algunos de los menos mencionados terminaron en mi cabeza imaginados como seres complejos y plenamente reconocibles como personas reales y contradictorias (como lo somos las personas reales y no esos avatares que encuentra uno en la mala literatura). <br /><br />Sin duda alguna el personaje más entrañable es la mismísima Agnes, protagonista indudable de la novela. Insisto en que me encanta que la autora haya escogido contar la historia desde su perspectiva, sin ceder a la poderosa tentación de hacerlo desde la perspectiva del personaje más atractivo para la mayoría, su esposo, el papá de Hamnet, el autor de Hamlet. <br /><br />Que bello y complejo personaje es la Agnes de O'Farrell. Desde su aparición en la obra ya produce atracción. Que dolor tan infinito el que transmite la autora el que siente Agnes ante la muerte de su Hamnet y el trauma duradero que le sigue. <br /><br />Yo también perdí un hijo hace unos años y por supuesto pude identificarme en el drama de Agnes y de su esposo ante lo repentino de la muerte de una persona joven, la absurda perdida del potencial de una persona joven por una natural situación de salud, las cosas no dichas, las heridas no sanadas; la falta de la oportunidad que da la mayoría de edad o la vejez para que la relación con el niño y luego con el adulto joven (en mi caso una relación conflictiva y compleja) cambie y se convierta en una relación diferente. En fin, una experiencia que creo todas las personas entienden bien no se le desea a nadie (y aún así una experiencia que ha sido tan común en la historia). <br /><br />Tres escenas de esta novela quedaran grabadas de forma indeleble en mi cabeza gracias a la capacidad narrativa de Maggie O'Farrell de la que espero leer sus otras novelas: un parto, la preparación del muerto y una obra de teatro. No profundizo más para no arruinar ninguna sorpresa, pero quienes han llegado hasta aquí en la reseña y que ya han leído la novela o la leerán, entenderán de que escenas les hablo. ¡Fantásticas!<br /><br />Me impresiono también el realismo de la narración. La descripción de los lugares, los objetos, los olores. De verdad por momentos me sentí transportado a la Inglaterra rural de finales de los 1500 (el tiempo en el que se desarrolla la historia), a una casita en forma de A, a unas escaleras estrechas y un jergón de paja con las sabanas limpias. A una cocina llena de hierbas, al taller de un guantero, a la mitad de un rebaño de ovejas, al solar de una enorme casa. A la mitad de un bosque, a una caseta llena de manzanas en la que vive una Cernícola. Un verdadero festín para los sentidos.<br /><br />Las escenas finales te llevan hasta las lagrimas (que es una forma de decir que son de una intensidad emocional alta, cada quien llora por lo que pueda). Esa parte final hace que valga la pena aguantar (que no es difícil) hasta la última página.<br /><br />Me siento muy afortunado por haber leído la novela antes de la película. Como sucede siempre, son dos obras de arte distintas y el error está en creer que una de ellas es el sustituto de la otra.<br /><br />Si no la han leído, tienen que leerla pronto. Si van a ver la película, léanla primero por favor.
+        </article>
+      </div>
+    </main>
+    <footer class="print-mode-target">
+      <p>Jorge I. Zuluaga — <a class="link" href="../index.html">Currículum en línea</a></p>
+    </footer>
+  </div>
+</body>
+</html>

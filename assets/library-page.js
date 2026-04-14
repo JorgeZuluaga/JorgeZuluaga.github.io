@@ -78,17 +78,32 @@ function renderBookList(container, items, lang) {
     const actions = document.createElement("p");
     actions.className = "library-book-item__actions";
     const reviewUrl = String(item.reviewUrl || "");
+    const localReviewUrl = String(item.reviewLocalUrl || "");
     const hasReviewUrl = reviewUrl.includes("/review/show/");
+    const hasLocalReview = localReviewUrl.endsWith(".html");
+    if (hasLocalReview) {
+      const localLink = document.createElement("a");
+      localLink.className = "link";
+      localLink.href = localReviewUrl;
+      localLink.textContent = t("library_view_review_local", lang);
+      actions.appendChild(localLink);
+    }
+    if (hasReviewUrl && hasLocalReview) {
+      actions.append(" - ");
+    }
     if (hasReviewUrl) {
-      const a = document.createElement("a");
-      a.className = "link";
-      a.href = reviewUrl;
-      a.target = "_blank";
-      a.rel = "noopener noreferrer";
-      a.textContent = t("library_view_review", lang);
-      actions.appendChild(a);
-    } else {
+      const goodreadsLink = document.createElement("a");
+      goodreadsLink.className = "link";
+      goodreadsLink.href = reviewUrl;
+      goodreadsLink.target = "_blank";
+      goodreadsLink.rel = "noopener noreferrer";
+      goodreadsLink.textContent = t("library_view_review_goodreads", lang);
+      actions.appendChild(goodreadsLink);
+    }
+    if (!hasReviewUrl && !hasLocalReview) {
       actions.textContent = t("library_no_review", lang);
+    } else {
+      actions.setAttribute("aria-label", t("library_review_links", lang));
     }
 
     entry.appendChild(title);
@@ -216,7 +231,7 @@ async function main() {
   introEl.textContent = t("library_intro", lang);
   profileEl.href = "https://www.goodreads.com/user/show/91991657";
   profileEl.textContent = t("library_profile", lang);
-  sourceEl.textContent = `${t("library_source", lang)} (${totalRead} ${t("library_books_read", lang)}).`;
+  sourceEl.textContent = "";
   totalReadEl.textContent = `${totalRead}`;
   totalReviewedEl.textContent = `${totalReviewed} (${reviewedPct.toFixed(1)}%)`;
   totalLikesEl.textContent = `${totalLikes}`;

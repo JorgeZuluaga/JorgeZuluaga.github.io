@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="color-scheme" content="light dark" />
+  <title>Reseña en Goodreads (mirror local)</title>
+  <link rel="icon" type="image/png" sizes="48x48" href="../assets/favicon.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="../assets/apple-touch-icon.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../assets/style.css?v=2" />
+  <script src="../assets/template.js" defer></script>
+  <style>
+    .review-page-custom .meta { color: var(--black); opacity: 0.8; font-size: 0.95rem; }
+    .review-page-custom .author { font-size: 1.4rem; font-weight: 600; margin: 0.35rem 0 0.75rem; }
+    .review-page-custom .review-by { font-size: 1rem; margin: -0.35rem 0 0.8rem; opacity: 0.88; }
+    .review-page-custom .rating-row { display: flex; align-items: center; gap: 0.8rem; margin: 0.25rem 0 0.2rem; }
+    .review-page-custom .rating { font-size: 1.2rem; letter-spacing: 0.04em; margin: 0; }
+    .review-page-custom .likes { margin: 0; font-size: 1rem; }
+    .review-page-custom .likes a { color: var(--accent); text-decoration: none; }
+    .review-page-custom .likes a:hover { text-decoration: underline; }
+    .review-page-custom .cover { margin: 0.75rem 0 1rem; }
+    .review-page-custom .cover img { max-width: 220px; height: auto; border-radius: 8px; border: 1px solid var(--line); }
+    .review-page-custom .card { border: 1px solid var(--line); border-radius: 12px; padding: 1rem; margin-top: 1rem; background: var(--card); }
+    .review-page-custom .card,
+    .review-page-custom .card p,
+    .review-page-custom .card div,
+    .review-page-custom .card span,
+    .review-page-custom .card li,
+    .review-page-custom .card blockquote,
+    .review-page-custom .card i,
+    .review-page-custom .card b,
+    .review-page-custom .card strong,
+    .review-page-custom .card em {
+      color: var(--black) !important;
+    }
+    .review-page-custom .card a {
+      color: var(--accent) !important;
+      text-decoration: underline;
+      text-underline-offset: 2px;
+    }
+    .review-page-custom .card a i,
+    .review-page-custom .card a em,
+    .review-page-custom .card a span,
+    .review-page-custom .card a strong,
+    .review-page-custom .card a b {
+      color: var(--accent) !important;
+    }
+  </style>
+</head>
+<body class="photos-page review-page-custom">
+  <div class="wrapper">
+    <a class="skip-link" href="#review-main">Saltar al contenido</a>
+    <header class="photos-header">
+      <div class="photos-header__bar">
+        <a class="link photos-back" href="../biblioteca.html">← Volver a la Biblioteca de Jorge Zuluaga</a>
+        <button class="theme-button photos-theme" type="button" aria-label="Modo de visualización: Claro/Oscuro">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="moon-icon" aria-hidden="true">
+            <path d="M11.3807 2.01886C9.91573 3.38768 9 5.3369 9 7.49999C9 11.6421 12.3579 15 16.5 15C18.6631 15 20.6123 14.0843 21.9811 12.6193C21.6613 17.8537 17.3149 22 12 22C6.47715 22 2 17.5228 2 12C2 6.68514 6.14629 2.33869 11.3807 2.01886Z"></path>
+          </svg>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="sun-icon" aria-hidden="true">
+            <path d="M12 18C8.68629 18 6 15.3137 6 12C6 8.68629 8.68629 6 12 6C15.3137 6 18 8.68629 18 12C18 15.3137 15.3137 18 12 18ZM11 1H13V4H11V1ZM11 20H13V23H11V20ZM3.51472 4.92893L4.92893 3.51472L7.05025 5.63604L5.63604 7.05025L3.51472 4.92893ZM16.9497 18.364L18.364 16.9497L20.4853 19.0711L19.0711 20.4853L16.9497 18.364ZM19.0711 3.51472L20.4853 4.92893L18.364 7.05025L16.9497 5.63604L19.0711 3.51472ZM5.63604 16.9497L7.05025 18.364L4.92893 20.4853L3.51472 19.0711L5.63604 16.9497ZM23 11V13H20V11H23ZM4 11V13H1V11H4Z"></path>
+          </svg>
+        </button>
+      </div>
+    </header>
+    <main id="review-main" class="photos-main">
+      <div class="container">
+        <h1 class="title-section">Ser humano: Cómo nuestra biología ha moldeado la historia universal</h1>
+        <p class="author">Lewis Dartnell</p>
+        <p class="review-by">Reseña por Jorge I. Zuluaga</p>
+        <p class="cover"><img src="./covers/7144177282.jpg" alt="Portada de Ser humano: Cómo nuestra biología ha moldeado la historia universal" /></p>
+        <p class="meta">Fecha de reseña: 2025-01-02</p>
+        <div class="rating-row">
+          <p class="rating" aria-label="Calificación: 5 de 5">★★★★★</p>
+          <p class="likes" aria-label="Likes en GoodReads: 4"><a href="https://www.goodreads.com/review/show/7144177282?utm_medium=api&amp;utm_source=rss" target="_blank" rel="noopener noreferrer">👍</a> 4</p>
+        </div>
+        <p><a class="link" href="https://www.goodreads.com/review/show/7144177282?utm_medium=api&amp;utm_source=rss" target="_blank" rel="noopener noreferrer">Ver reseña en GoodReads (necesita cuenta)</a></p>
+        <article class="card">
+          Lewis Dartnell es de esos autores de ensayo científico que no solo no una tiene página mala, sino que además presenta temas sobre los que se ha escrito hasta la saciedad organizándolos de una forma original, construyendo para ellos una historia diferente que te atrapa hasta la última página.<br /><br />"Ser humano" no es la excepción a ese <i>modus scribendi</i> de Dartnell. <br /><br />En menos de 300 páginas esboza una Historia de la humanidad centrada alrededor de cómo nuestra biología ha determinado o afectado profundamente algunos eventos decisivos en el devenir humano en la Tierra. La tesis parece ser bastante "esencialista" aunque no es de esperar menos de un biólogo como él. Aún así Dartnell reconoce en algunos apartes que no todo ha sido estrictamente determinado por nuestra constitución como animales o por nuestra relación con otros organismos con los que convivimos en los ecosistemas. Sin embargo la suposición del esencialismo (que no es del todo inocente, ni entraña consecuencias desafortunadas como ya sabemos) en este libro funciona como una herramienta divulgativa que sirve para exponer conexiones increíbles entre eventos históricos y fenómenos de la biología humana que no esperarías que existen. Aquí radica su originalidad.<br /><br />El libro es así pues, una deliciosa mezcla de buena ciencia, sociología, biología, neurociencias y psicología, con una alta dosis de buena historiografía. <br /><br />¡De todo mi gusto!<br /><br />Debo confesar, sin embargo, que los primeros capítulos me causaron alguna dificultad; incluso me vi tentado a abandonar el libro por algunas afirmaciones que encontré allí y que he leído ya no se sustentan. <br /><br />Me refiero a su tratamiento de algunos temas álgidos tales como el origen de las relaciones sociales o los roles de los sexos, que, a mi buen saber y entender, no esta muy informado. Sugiere, por ejemplo, que en la prehistoria la división sexual del trabajo estaba claramente definida, los hombres se dedicaban a la cazan y las mujeres a la recolección y las crías. Una multitud de autoras y autores han corregido sistemáticamente esta creencia tan extendida. <br /><br />También asume de manera simplificada que las sociedades humanas se parecen más a las de los chimpancés, con su dominancia masculina y su agresividad, en lugar de a la de los bonobos en la que el liderazgo de las hembras es reconocido así como el hecho de ser sociedades más pacíficas. ¿Por qué íbamos a creer, basándonos exclusivamente en el comportamiento humano en tiempos históricos -y vale la pena aclarar, no existió en todas las culturas- que la humanidad del pasado se comportaría de esa manera?. Podrían haber existido formas de organización diversas, posiblemente un espectro casi continuo entre las de nuestros primos cercanos, Chimpances y Bonobos, que determinaron las organizaciones sociales primigenias. Es más, no solo está última idea es relativamente aceptada en la literatura antropológica sino que es casi intuitivo que las capacidades lingüisticas humanas no solamente nos hicieron distintos de nuestros primos antropoides en temas tecnológicos o artisticos, sino que seguramente sirvieron para crear sociedades mucho más diversas. <br /><br />Superados estos capítulos que contienen lo que para mí es un material debatible, Dartnell se sumerge en otros aspectos de la historia en los que no existen debates antropológicos tan álgidos, tales como el rol de las enfermedades y la manera en la que ellas determinaron las relaciones entre sociedades del pasado, o el papel de la demografía, las drogas psicoactivas y los sesgos cognitivos.<br /><br />Me quedo con un montón de datos y la tarea de leer el primer libro de esta serie -según me entere en la introducción de "Ser humano"-, es decir "Abrir en caso de apocalipsis" que es el único que me falta leer de Dartnell. Los otros, "Orígenes" (el segundo de esta serie) y "Astrobiología", ya fueron devorados y disfrutados.
+        </article>
+      </div>
+    </main>
+    <footer class="print-mode-target">
+      <p>Jorge I. Zuluaga — <a class="link" href="../index.html">Currículum en línea</a></p>
+    </footer>
+  </div>
+</body>
+</html>

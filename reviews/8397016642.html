@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="color-scheme" content="light dark" />
+  <title>Reseña en Goodreads (mirror local)</title>
+  <link rel="icon" type="image/png" sizes="48x48" href="../assets/favicon.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="../assets/apple-touch-icon.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../assets/style.css?v=2" />
+  <script src="../assets/template.js" defer></script>
+  <style>
+    .review-page-custom .meta { color: var(--black); opacity: 0.8; font-size: 0.95rem; }
+    .review-page-custom .author { font-size: 1.4rem; font-weight: 600; margin: 0.35rem 0 0.75rem; }
+    .review-page-custom .review-by { font-size: 1rem; margin: -0.35rem 0 0.8rem; opacity: 0.88; }
+    .review-page-custom .rating-row { display: flex; align-items: center; gap: 0.8rem; margin: 0.25rem 0 0.2rem; }
+    .review-page-custom .rating { font-size: 1.2rem; letter-spacing: 0.04em; margin: 0; }
+    .review-page-custom .likes { margin: 0; font-size: 1rem; }
+    .review-page-custom .likes a { color: var(--accent); text-decoration: none; }
+    .review-page-custom .likes a:hover { text-decoration: underline; }
+    .review-page-custom .cover { margin: 0.75rem 0 1rem; }
+    .review-page-custom .cover img { max-width: 220px; height: auto; border-radius: 8px; border: 1px solid var(--line); }
+    .review-page-custom .card { border: 1px solid var(--line); border-radius: 12px; padding: 1rem; margin-top: 1rem; background: var(--card); }
+    .review-page-custom .card,
+    .review-page-custom .card p,
+    .review-page-custom .card div,
+    .review-page-custom .card span,
+    .review-page-custom .card li,
+    .review-page-custom .card blockquote,
+    .review-page-custom .card i,
+    .review-page-custom .card b,
+    .review-page-custom .card strong,
+    .review-page-custom .card em {
+      color: var(--black) !important;
+    }
+    .review-page-custom .card a {
+      color: var(--accent) !important;
+      text-decoration: underline;
+      text-underline-offset: 2px;
+    }
+    .review-page-custom .card a i,
+    .review-page-custom .card a em,
+    .review-page-custom .card a span,
+    .review-page-custom .card a strong,
+    .review-page-custom .card a b {
+      color: var(--accent) !important;
+    }
+  </style>
+</head>
+<body class="photos-page review-page-custom">
+  <div class="wrapper">
+    <a class="skip-link" href="#review-main">Saltar al contenido</a>
+    <header class="photos-header">
+      <div class="photos-header__bar">
+        <a class="link photos-back" href="../biblioteca.html">← Volver a la Biblioteca de Jorge Zuluaga</a>
+        <button class="theme-button photos-theme" type="button" aria-label="Modo de visualización: Claro/Oscuro">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="moon-icon" aria-hidden="true">
+            <path d="M11.3807 2.01886C9.91573 3.38768 9 5.3369 9 7.49999C9 11.6421 12.3579 15 16.5 15C18.6631 15 20.6123 14.0843 21.9811 12.6193C21.6613 17.8537 17.3149 22 12 22C6.47715 22 2 17.5228 2 12C2 6.68514 6.14629 2.33869 11.3807 2.01886Z"></path>
+          </svg>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="sun-icon" aria-hidden="true">
+            <path d="M12 18C8.68629 18 6 15.3137 6 12C6 8.68629 8.68629 6 12 6C15.3137 6 18 8.68629 18 12C18 15.3137 15.3137 18 12 18ZM11 1H13V4H11V1ZM11 20H13V23H11V20ZM3.51472 4.92893L4.92893 3.51472L7.05025 5.63604L5.63604 7.05025L3.51472 4.92893ZM16.9497 18.364L18.364 16.9497L20.4853 19.0711L19.0711 20.4853L16.9497 18.364ZM19.0711 3.51472L20.4853 4.92893L18.364 7.05025L16.9497 5.63604L19.0711 3.51472ZM5.63604 16.9497L7.05025 18.364L4.92893 20.4853L3.51472 19.0711L5.63604 16.9497ZM23 11V13H20V11H23ZM4 11V13H1V11H4Z"></path>
+          </svg>
+        </button>
+      </div>
+    </header>
+    <main id="review-main" class="photos-main">
+      <div class="container">
+        <h1 class="title-section">El Partenón</h1>
+        <p class="author">Mary Beard</p>
+        <p class="review-by">Reseña por Jorge I. Zuluaga</p>
+        <p class="cover"><img src="./covers/8397016642.jpg" alt="Portada de El Partenón" /></p>
+        <p class="meta">Fecha de reseña: 2026-03-02</p>
+        <div class="rating-row">
+          <p class="rating" aria-label="Calificación: 4 de 5">★★★★☆</p>
+          <p class="likes" aria-label="Likes en GoodReads: 0"><a href="https://www.goodreads.com/review/show/8397016642?utm_medium=api&amp;utm_source=rss" target="_blank" rel="noopener noreferrer">👍</a> 0</p>
+        </div>
+        <p><a class="link" href="https://www.goodreads.com/review/show/8397016642?utm_medium=api&amp;utm_source=rss" target="_blank" rel="noopener noreferrer">Ver reseña en GoodReads (necesita cuenta)</a></p>
+        <article class="card">
+          Después de leer este libro solo puedo decir una cosa: hay que visitar el Partenón. O Partenoon, o como sea que se haya llamado en la antigüedad según le aprendí a su autora, la ilustre Mary Beard. Si ya lo han hecho, tienen que leer este libro; y si lo van a hacer, no dejen tampoco de recorrer la historia de este lugar icónico.<br /><br />Soy un seguidor fiel de Mary Beard; he leído la totalidad de sus libros y visto sus documentales y conferencias. Creo que somos verdaderamente afortunados de que autoridades del mundo clásico como ella hayan decidido hacer divulgación como la que encontramos en sus obras. No todo lo que escribe me ha gustado, pero <i>El Partenón</i> pertenece a una serie que incluye <i>Pompeya</i> y <i>El Coliseo</i> y que, por su extensión (libros cortos de 200 a 300 páginas) y enfoque, se diferencia bastante de lo que se suele escribir sobre estos monumentos.<br /><br />Creo que la mayoría reconocemos, al menos en fotos, el edificio protagonista de este libro. Muchas personas habrán viajado a Atenas y visitado la colina, la Acrópolis, en la que se encuentra junto con otros vestigios antiguos y medievales. Yo no he tenido la fortuna de hacerlo, pero este libro ha hecho que suba en mi lista de prioridades futuras. Si bien conocía lo básico, me interesaba en especial el debate sobre los fragmentos (esculturas y altorrelieves) del friso del Partenón que custodia el Museo Británico.<br /><br />La estructura del libro es original y te mantiene enganchado hasta el final. En lugar de lanzarse desde el primer capítulo con una relación cronológica de los hechos, Beard comienza con una mirada panorámica sobre el edificio. Más adelante, realiza un recorrido histórico que sorprende por no enfocarse únicamente en el origen griego, sino en los eventos que marcaron la vida del sitio, especialmente durante la Edad Media.<br /><br />El libro está lleno de datos sorprendentes. Desde el hecho de que se desconoce su verdadera función original —si se trataba de un templo (no parece), un almacén de tesoros o un sitio de encuentro para los atenienses del periodo dorado—, pasando por el dato increíble de que el edificio fue, por casi la mitad de su historia, una iglesia: <i>Nuestra Señora de Atenas</i>. También relata las tétricas historias sobre su destrucción parcial al principio de la Edad Moderna, el saqueo de sus tesoros y la eterna discusión sobre los fragmentos dispersos en museos como el Louvre y el Museo Británico.<br /><br />Aunque no conozco la Acrópolis, estuve en el Museo Británico hace unos años y vi directamente los frisos. De alguna manera, he sido beneficiario de lo que sus directivos defienden: que la institución es un lugar ideal para ver juntas las civilizaciones del pasado. Esto no significa que esté de acuerdo con que no se repatríen tesoros a Grecia o Egipto —casos significativos donde ya existe una infraestructura científica y museística capaz de recibirlos—, pero este libro, en especial los capítulos finales, me ayudó a entender mejor la complejidad de la discusión.<br /><br />Me encantaron los planos incluidos en el texto y las imágenes que lo acompañan, aunque la diagramación no me pareció tan profesional como esperaría de una autora tan reconocida como Mary Beard.<br /><br />De acuerdo con lo dicho, las personas que han llegado hasta este punto en la reseña (¡gracias!) me podrían preguntar por qué no le doy la máxima puntuación. Creo que <i>El Partenón</i> adolece de un defecto presente en la mitad de la obra de Mary Beard: a pesar de su capacidad divulgadora, a veces sus lecturas se hacen pesadas y demasiado específicas. En este caso, los capítulos dedicados a la historia contemporánea (4 y 5) son lo suficientemente densos como para que alguien abandone el libro sin disfrutar de los últimos apartes. Pero si se animan a leerlo, ¡aguanten! Hay que recorrerlo completo para comprender el mensaje general de la autora.
+        </article>
+      </div>
+    </main>
+    <footer class="print-mode-target">
+      <p>Jorge I. Zuluaga — <a class="link" href="../index.html">Currículum en línea</a></p>
+    </footer>
+  </div>
+</body>
+</html>

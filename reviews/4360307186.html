@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="color-scheme" content="light dark" />
+  <title>Reseña en Goodreads (mirror local)</title>
+  <link rel="icon" type="image/png" sizes="48x48" href="../assets/favicon.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="../assets/apple-touch-icon.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../assets/style.css?v=2" />
+  <script src="../assets/template.js" defer></script>
+  <style>
+    .review-page-custom .meta { color: var(--black); opacity: 0.8; font-size: 0.95rem; }
+    .review-page-custom .author { font-size: 1.4rem; font-weight: 600; margin: 0.35rem 0 0.75rem; }
+    .review-page-custom .review-by { font-size: 1rem; margin: -0.35rem 0 0.8rem; opacity: 0.88; }
+    .review-page-custom .rating-row { display: flex; align-items: center; gap: 0.8rem; margin: 0.25rem 0 0.2rem; }
+    .review-page-custom .rating { font-size: 1.2rem; letter-spacing: 0.04em; margin: 0; }
+    .review-page-custom .likes { margin: 0; font-size: 1rem; }
+    .review-page-custom .likes a { color: var(--accent); text-decoration: none; }
+    .review-page-custom .likes a:hover { text-decoration: underline; }
+    .review-page-custom .cover { margin: 0.75rem 0 1rem; }
+    .review-page-custom .cover img { max-width: 220px; height: auto; border-radius: 8px; border: 1px solid var(--line); }
+    .review-page-custom .card { border: 1px solid var(--line); border-radius: 12px; padding: 1rem; margin-top: 1rem; background: var(--card); }
+    .review-page-custom .card,
+    .review-page-custom .card p,
+    .review-page-custom .card div,
+    .review-page-custom .card span,
+    .review-page-custom .card li,
+    .review-page-custom .card blockquote,
+    .review-page-custom .card i,
+    .review-page-custom .card b,
+    .review-page-custom .card strong,
+    .review-page-custom .card em {
+      color: var(--black) !important;
+    }
+    .review-page-custom .card a {
+      color: var(--accent) !important;
+      text-decoration: underline;
+      text-underline-offset: 2px;
+    }
+    .review-page-custom .card a i,
+    .review-page-custom .card a em,
+    .review-page-custom .card a span,
+    .review-page-custom .card a strong,
+    .review-page-custom .card a b {
+      color: var(--accent) !important;
+    }
+  </style>
+</head>
+<body class="photos-page review-page-custom">
+  <div class="wrapper">
+    <a class="skip-link" href="#review-main">Saltar al contenido</a>
+    <header class="photos-header">
+      <div class="photos-header__bar">
+        <a class="link photos-back" href="../biblioteca.html">← Volver a la Biblioteca de Jorge Zuluaga</a>
+        <button class="theme-button photos-theme" type="button" aria-label="Modo de visualización: Claro/Oscuro">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="moon-icon" aria-hidden="true">
+            <path d="M11.3807 2.01886C9.91573 3.38768 9 5.3369 9 7.49999C9 11.6421 12.3579 15 16.5 15C18.6631 15 20.6123 14.0843 21.9811 12.6193C21.6613 17.8537 17.3149 22 12 22C6.47715 22 2 17.5228 2 12C2 6.68514 6.14629 2.33869 11.3807 2.01886Z"></path>
+          </svg>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="sun-icon" aria-hidden="true">
+            <path d="M12 18C8.68629 18 6 15.3137 6 12C6 8.68629 8.68629 6 12 6C15.3137 6 18 8.68629 18 12C18 15.3137 15.3137 18 12 18ZM11 1H13V4H11V1ZM11 20H13V23H11V20ZM3.51472 4.92893L4.92893 3.51472L7.05025 5.63604L5.63604 7.05025L3.51472 4.92893ZM16.9497 18.364L18.364 16.9497L20.4853 19.0711L19.0711 20.4853L16.9497 18.364ZM19.0711 3.51472L20.4853 4.92893L18.364 7.05025L16.9497 5.63604L19.0711 3.51472ZM5.63604 16.9497L7.05025 18.364L4.92893 20.4853L3.51472 19.0711L5.63604 16.9497ZM23 11V13H20V11H23ZM4 11V13H1V11H4Z"></path>
+          </svg>
+        </button>
+      </div>
+    </header>
+    <main id="review-main" class="photos-main">
+      <div class="container">
+        <h1 class="title-section">Proyecto Hail Mary</h1>
+        <p class="author">Andy Weir</p>
+        <p class="review-by">Reseña por Jorge I. Zuluaga</p>
+        <p class="cover"><img src="./covers/4360307186.jpg" alt="Portada de Proyecto Hail Mary" /></p>
+        <p class="meta">Fecha de reseña: 2026-03-22</p>
+        <div class="rating-row">
+          <p class="rating" aria-label="Calificación: 5 de 5">★★★★★</p>
+          <p class="likes" aria-label="Likes en GoodReads: 19"><a href="https://www.goodreads.com/review/show/4360307186?utm_medium=api&amp;utm_source=rss" target="_blank" rel="noopener noreferrer">👍</a> 19</p>
+        </div>
+        <p><a class="link" href="https://www.goodreads.com/review/show/4360307186?utm_medium=api&amp;utm_source=rss" target="_blank" rel="noopener noreferrer">Ver reseña en GoodReads (necesita cuenta)</a></p>
+        <article class="card">
+          <b>Primera lectura (2022)</b>:<br /><br />Este es posiblemente el mejor libro que leeré en 2022. Tal vez me estoy adelantando al hacer un pronóstico como este en el mes enero, pero de verdad, no creo que me encuentre pronto con una historia más original, un relato más entretenido e incluso divertido y que al mismo tiempo satisfaga mis mas "bajos instintos" científicos y técnicos.<br /><br />Andy Weir es sencillamente ¡un puto genio!<br /><br />Comencé a leer "Proyecto Hail Mary" por la peor de las razones: todo el mundo lo estaba leyendo. Es decir, sucumbí a la tendencia. <br /><br />Lo que no imagine, y, la verdad sea dicha, nadie de los que lo estaba leyendo en mi entorno inmediato me lo contó, era la excepcional cantidad de buenas atributos que tenía la novela. A diferencia de otras tendencias, estos atributos si que explican bien porque es una novela tan leída. Tal vez para muchos no sea más que una obra de ciencia ficción entre cientos. Pero para mí, ha sido un verdadero manjar literario.<br /><br />Debo confesar que, a pesar de mi profesión (soy físico y trabajo en astronomía, en particular en exoplanetas y astrobiología) el género de ciencia ficción no es precisamente mi especialidad. A decir verdad ningún genero literario lo es: me considero un lector más bien omnívoro (con ciertas alergias leves). Aún así creo que, por páginas leídas, puedo juzgar mejor una novela histórica que una novela de ciencia ficción. Por eso debo pedirles que se tomen esta reseña con mucho escepticismo; sobre todo aquellos apartes con un exceso de superlativos (antes y después de este párrafo).<br /><br />También es importante advertir que lo que sigue puede contener algunos <i>spoilers</i>. Porque si una cosa tiene "Proyecto Hail Mary", es que cualquier dato, por pequeño que parezca, podría arruinar las mejores sorpresas de la historia.<br /><br />Por dónde comenzar (¡¿comenzar?! ¡pero si ya llevas 3 mil caracteres!).<br /><br />Empecemos por el título: nada que ver con la historia. <br /><br />Tal vez ese sea uno de las cosas que hace atractiva la novela para la mayoría. Pero también puede hacerla no tan atractiva para un cierto tipo de lectores (fue mi caso por ejemplo). <br /><br />Después de sus otros dos exitosos <i>Best sellers</i>, "El marciano" y "Artemisa", que tienen nombres que se corresponden perfectamente con su contenido, Andy Weir, el genio creador de esta epopeya extraterrestre (que es el género que deberíamos inventar para clasificarla) sorprende con un título como "Proyecto Ave María", como podría traducirse al castellano. <br /><br />De entrada les advierto también: no esperen una explicación para el nombre en la novela (no lo he hecho, pero estoy seguro que en entrevistas con su autor o en la Wikipedia debe estar la razón del nombre del proyecto; no he leído todavía la explicación, ni la leeré por ahora).<br /><br />Si me pidieran que propusiera un mejor nombre llamaría a la novela: "Tau ceti" (¿predecible?), "Astrofagos" (¿muy directo?) o "The Grace of Rocky", un juego de palabras que entenderán quiénes la hayan leído. Si este es el caso, estoy seguro que algunos estarán de acuerdo conmigo y de que podrán inventar otros dos o tres títulos más convenientes.<br /><br />Uno de los aspectos más originales de la historia es la narración a dos tiempos (debe existir un término técnico en la literatura para este recurso, disculpen la ignorancia): una en el futuro lejano (o en el presente de sus protagonista) y otra en el pasado. La manera en la que Weir se la ingenia para no contarnos toda la historia desde el principio es sencillamente ¡muy ingeniosa!, y el resultado ¡simplemente genial!.<br /><br />Lo más sobresaliente para mí de "Proyecto Hail Mary" es el nivel de los detalles técnicos. <br /><br />Estoy seguro que quienes, como yo, aprecian la precisión y el rigor científico, incluso en el arte y en particular en la literatura o el cine de ciencia ficción, encontraran esta novela como un ejemplo excepcional de lo que debería ser una narración construída alrededor de la ciencia y la técnica. <br /><br />Y es que no hay una sola página de "Proyecto Hail Mary" donde no haya algo de ciencia y tecnología en el centro de la trama. Incluso los apartes más humanos, están cargados de un de buenas ciencias humanas (sociología, psicología, ciencias políticas e incluso filología).<br /><br />Ahora bien, a quiénes les gusten menos los detalles científicos y técnicos, o los encuentren muy difíciles de entender, tal vez pensaran que a Andy Weir se le fue un poco la mano. Y en efecto. Hay que admitir que "Proyecto Hail Mary" es una novela muy técnica.<br /><br />En no pocas ocasiones sentí que estaba leyendo una obra de divulgación científica. <br /><br />Así por ejemplo, la descripción pormenorizada de los mecanismos celulares, moleculares y atómicos implicados en la biología de los astrófagos y de otros organismos vivos que aparecen en la novela (y dejo ahí para no arruinar la sorpresa), así como de los nuevos materiales que inventa Weir (siendo la xenonita el más increíble) es sencillamente impresionante. <br /><br />Ya había leído algo sobre el que ahora considero es el "súper" poder de Weir como autor de ciencia ficción: sus conocimientos técnicos y la poca vergüenza que demuestra para usarlos. Pero una cosa es saberlo por un chisme y otra leerlo directamente. ¡Grande Andy Weir!<br /><br />Quiénes hayan leído mucha más ciencia ficción que yo, seguro podrán contradecir lo que voy a decir. La solución que plantea Andy Weir para lo que será el primer contacto de la especie humana con una civilización extraterrestre (<i>spoiler alert</i>) es muy ingeniosa: el lenguaje de los extraterrestres, su nivel de desarrollo relativo, sus sentidos y sistemas de comunicación, su desarrollo tecnológico versus su desarrollo científico, su lugar de origen, su origen biológico, etc. <br /><br />El uso de la hipótesis de la panspermia (la idea de que la vida en la Tierra podría haber llegado del espacio ultraterrestre) para justificar algunos de los aspectos más problemáticos del descubrimiento de vida extraterrestre, pero aún peor, de sus extrañas propiedades, es también muy ingenioso.<br /><br />No hay casi ninguna área de la ciencia o la tecnología que quede por fuera de la novela: biomedicina, nuevos materiales, astrofísica estelar, física de partículas, ciencias planetarias, biología celular (¡sobre todo biología celular!), filología, procesamiento de señales, astronáutica, mecánica orbital, exoplanetas, electromagnetismo, física de la radiación ionizante y no ionizante, espectroscopía, relatividad, genética, evolución, acústica, química y bioquímica, neurología del sueño, tecnología de alimentos, medicina del vuelo espacial y posiblemente un muy largo etcétera (solo estoy mencionando las que recuerdo).<br /><br />El personaje de Rocky es alucinante: imaginativo, curioso, habilidoso y al mismo tiempo entrañable. Quién no quede prendado de Rocky al leer "Proyecto Hail Mary", y para usar el mejor estilo de Andy Weir, es porque no tiene una buena bomba que haga circular plasma con glóbulos rojos por su sistema circulatorio.<br /><br />Si hay algo que todos los humanos apreciamos de una historia es que su final satisfaga nuestras expectativas. Una novela puede ser maravillosa, pero si tiene un final inapropiado, pierde gran parte de su atractivo. Con "Proyecto Hail Mary" imagine un par de finales bastante predecibles, pero ninguno como el que finalmente quedó. Aún así ¡mejor final imposible!.<br /><br />Eso sí. Me quede esperando al final la reacción de un cierto personaje (¡ya sabrán de quién estoy hablando cuando lean la novela!). Sin embargo, debo aceptar que en la literatura, y en el arte en general, no todo tiene que ser explícito y exhaustivo (ya Andy Weir nos suelta suficiente pita a través de la novela a aquellos que tenemos la mente más bien cuadriculada). Aún así conservo la esperanza de que la reacción de ese personaje, fue como me la imagino.<br /><br />Así que me sostengo: "Proyecto Hail Mary" será el mejor libro que leeré en 2022. <br /><br />No dejen ustedes para el 2023 comenzar a leerlo.<br /><br /><b>Segunda lectura (2026)</b>:<br /><br />Heme aquí, sentado poco más de cuatro años después, escribiendo un complemento de mi reseña original tras haber leído por segunda vez —y en una modalidad mixta: audiolibro y papel— esta novela maravillosa.<br /><br />La motivación para la relectura fue el lanzamiento de la adaptación al cine de esta historia. En el momento en el que escribo estas palabras, no he visto la película y no sé si quienes adaptaron estas 550 páginas (o casi 19 horas de audio) de aventuras, ciencia y técnica lograron un buen resultado en solo dos horas y media de metraje.<br /><br />Ahora sé por qué se llama <i>Proyecto Hail Mary</i> y ya no me parece tan malo el título. Como era de esperarse de un autor tan estadounidense como Weir —algo de lo que se burla permanentemente en la voz de Ryland Grace—, <i>Hail Mary</i> es un término del fútbol americano usado para un pase desesperado al final de un partido, lanzado con la esperanza de ganar en el último segundo. Ahora todo tiene sentido (gracias a <a href="https://www.goodreads.com/user/show/179021244-carlos-andres" rel="nofollow noopener">Caliche</a>, por aclararme lo del nombre en un comentario a esta reseña). Mi propuesta de llamarla <i>Astrófagos</i> no estaba tan mal encaminada; de hecho, un amigo que vive en <b>São Paulo</b> me contó que allí se tituló <i>Devoradores de Estrellas</i>. En Latinoamérica se optó por <i>Proyecto Fin del Mundo</i>, una adaptación literal que explica mejor el contexto a quienes no conocen el término deportivo.<br /><br />Después de cuatro años de lecturas, he descubierto otras novelas con ese estilo narrativo que tanto admiré en esta obra: dos historias paralelas en tiempos diferentes. Sin ir más lejos, la maravillosa novela <a href="https://www.goodreads.com/review/show/4360309634" rel="nofollow noopener">
+  <b>Hamnet</b>
+</a> de Maggie O’Farrell, que también adoré, utiliza la <i>prolepsis</i>, que sería el nombre técnico de este recurso.<br /><br />En esta ocasión salté entre el audiolibro y el papel porque quería terminar la novela en solo dos días. Este experimento (me siento como una suerte de Ryland Grace literario) me permitió descubrir que mi velocidad de lectura en papel equivale a una escucha de 1.8x. Este dato puede servir para informar a quienes critican a los que audioleemos: no lo hacemos para terminar antes, sino por el placer de que nos cuenten una historia con la emoción del lenguaje hablado, además de la ventaja obvia de poder «leer» en cualquier situación.<br /><br />Si ya leyeron <i>Proyecto Hail Mary</i> en papel, por favor, escúchenlo en audiolibro sin demora. ¡Amarán cien veces más a Rocky y reirán a carcajadas con las ocurrencias de Grace! El libro está disponible en <a href="https://a.co/d/0b182Lc3" rel="nofollow noopener">Amazon</a> y <a href="https://play.google.com/store/audiobooks/details/Andy_Weir_Project_Hail_Mary?id=AQAAAECaS2kL4M&hl=en" rel="nofollow noopener">Google Play Books</a> a muy buen precio.<br /><br />Sobre el contenido de la novela, me mantengo en lo dicho en mi primera reseña, aunque en esta relectura he captado muchos más detalles científicos. Al punto que ahora sueño con diseñar un curso de astrobiología basado en la novela. ¡Es una herramienta pedagógica increíble! Tomen la siguiente enumeración como un «mensaje en una botella» para mi yo del futuro, el profesor del curso «Astrófagos y eridianos».<br /><br />- Anatomía del estado comatoso.<br />- Relatividad de los viajes interestelares.<br />- Biología celular básica.<br />- Rayos cósmicos y sus efectos sobre la vida.<br />- Física de la gravedad artificial.<br />- Física de las atmósferas planetarias.<br />- Estrellas cercanas.<br />- Distancias en astronomía.<br />- Física de la radiación: radiación de cuerpo negro y radiaciones de alta energía.<br />- Mecánica orbital: planetas y naves.<br />- Física de materiales.<br />- Física del sonido y posibles modalidades de comunicación terrestre y extraterrestre.<br />- Evolución biológica natural y dirigida.<br />- Dinámica de poblaciones: depredadores y presas.<br />- Organismos eusociales multicelulares.<br />- Sistemas numéricos y su relación con la rotación y traslación de los planetas.<br />- Propiedades de las estrellas: actividad magnética y rotación.<br />- Neutrinos y conversión de energía en pares y viceversa.<br />- Física de la propulsión con luz.<br /><br />Si ven otros temas que me falten, no dejen de escribirme.
+        </article>
+      </div>
+    </main>
+    <footer class="print-mode-target">
+      <p>Jorge I. Zuluaga — <a class="link" href="../index.html">Currículum en línea</a></p>
+    </footer>
+  </div>
+</body>
+</html>
