@@ -27,8 +27,8 @@
     "icon": "website",
     "href": "http://drz.academy",
     "target": "_blank",
-    "ariaLabel": "Sitio web",
-    "label": "Sitio web: drz.academy"
+    "ariaLabel": "Sitio web privado",
+    "label": "Sitio web privado: drz.academy"
   },
   {
     "key": "cvlac",
@@ -37,6 +37,14 @@
     "target": "_blank",
     "ariaLabel": "CvLAC",
     "label": "CvLAC: 0000144800"
+  },
+  {
+    "key": "library",
+    "icon": "library",
+    "href": "https://jorgezuluaga.github.io/biblioteca.html",
+    "target": "_blank",
+    "ariaLabel": "Biblioteca personal",
+    "label": "Biblioteca personal: https://jorgezuluaga.github.io/biblioteca.html"
   }
 ]
 
