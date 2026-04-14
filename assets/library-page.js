@@ -38,7 +38,7 @@ function formatRating(rating) {
   const value = Number(rating);
   if (!value) return "Sin calificación";
   const stars = Math.round(value);
-  return "⭐".repeat(stars);
+  return "⭐".repeat(stars) + '<span style="filter: grayscale(100%); opacity: 0.4;">⭐</span>'.repeat(5 - stars);
 }
 
 function renderBookList(container, items) {
@@ -59,12 +59,12 @@ function renderBookList(container, items) {
 
     const meta = document.createElement("p");
     meta.className = "library-book-item__meta";
-    const author = item.author ? `Autor: ${item.author}` : "Autor: —";
+    const author = item.author ? `Por: ${item.author}` : "Por: —";
     const date = item.dateRead || item.dateAdded || "Fecha: —";
     const likes = Number.isFinite(Number(item.reviewLikes))
       ? `Likes reseña: ${item.reviewLikes}`
       : "Likes reseña: —";
-    meta.textContent = `${author} · Fecha: ${date} · Calificación: ${formatRating(item.rating)} · ${likes}`;
+    meta.innerHTML = `${author} · Fecha: ${date} · Calificación: ${formatRating(item.rating)} · ${likes}`;
 
     const actions = document.createElement("p");
     actions.className = "library-book-item__actions";
