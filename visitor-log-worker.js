@@ -21,7 +21,7 @@ function jsonResponse(data, status = 200) {
       "content-type": "application/json; charset=utf-8",
       "access-control-allow-origin": "*",
       "access-control-allow-methods": "POST, GET, OPTIONS",
-      "access-control-allow-headers": "content-type",
+      "access-control-allow-headers": "content-type, authorization",
     },
   });
 }
@@ -34,6 +34,13 @@ function getIp(request) {
   );
 }
 
+function extractReadToken(request, url) {
+  const auth = request.headers.get("authorization") || "";
+  const bearerMatch = auth.match(/^Bearer\s+(.+)$/i);
+  if (bearerMatch) return bearerMatch[1].trim();
+  return (url.searchParams.get("token") || "").trim();
+}
+
 export default {
   async fetch(request, env) {
     const url = new URL(request.url);
@@ -44,7 +51,7 @@ export default {
         headers: {
           "access-control-allow-origin": "*",
           "access-control-allow-methods": "POST, GET, OPTIONS",
-          "access-control-allow-headers": "content-type",
+          "access-control-allow-headers": "content-type, authorization",
         },
       });
     }
@@ -78,7 +85,7 @@ export default {
     }
 
     if (request.method === "GET" && url.pathname === "/logs") {
-      const token = url.searchParams.get("token");
+      const token = extractReadToken(request, url);
       if (!env.LOG_READ_TOKEN || token !== env.LOG_READ_TOKEN) {
         return jsonResponse({ ok: false, error: "unauthorized" }, 401);
       }

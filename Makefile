@@ -1,7 +1,33 @@
-.PHONY: start dev stop classroom
+.PHONY: \
+	help start dev stop \
+	classroom \
+	library-build library-stats library-refresh \
+	reviews-all reviews-force reviews-refresh
 
 PORT ?= 8000
 HOST ?= 127.0.0.1
+LIBRARY_JSON ?= info/library.json
+LIBRARY_STATS_JSON ?= info/library-stats.json
+RSS_URL ?=
+COOKIE ?=
+RSS_PAGES ?= 1
+REVIEW_RSS_PAGES ?= 80
+
+help:
+	@echo "Available targets:"
+	@echo "  make help               - Show this help"
+	@echo "  make start              - Start simple HTTP server (background)"
+	@echo "  make dev                - Start hot-reload local dev server"
+	@echo "  make stop               - Stop server running on PORT"
+	@echo "  make classroom          - Sync Google Classroom courses"
+	@echo "  make library-build      - Build info/library.json from Goodreads RSS"
+	@echo "                            Required: RSS_URL=... Optional: COOKIE=... RSS_PAGES=..."
+	@echo "  make library-stats      - Rebuild info/library-stats.json"
+	@echo "  make library-refresh    - Run library-build + library-stats"
+	@echo "  make reviews-all        - Mirror all reviews in reviews/"
+	@echo "                            Optional: COOKIE=... REVIEW_RSS_PAGES=..."
+	@echo "  make reviews-force      - Force regenerate all mirrored reviews"
+	@echo "  make reviews-refresh    - Run reviews-all + library-stats"
 
 start:
 	@echo "Starting server on http://$(HOST):$(PORT)"
@@ -30,3 +56,51 @@ stop:
 
 classroom:
 	@python3 bin/sync_classroom.py
+
+# Rebuild info/library.json from Goodreads RSS.
+# Example:
+# make library-build RSS_URL="https://www.goodreads.com/review/list_rss/..."
+# Optional:
+# make library-build RSS_URL="..." COOKIE="..." RSS_PAGES=5
+library-build:
+	@if [ -z "$(RSS_URL)" ]; then \
+		echo "RSS_URL es obligatorio. Ejemplo:"; \
+		echo "make library-build RSS_URL=\"https://www.goodreads.com/review/list_rss/...\""; \
+		exit 1; \
+	fi
+	@python3 bin/build_library_from_goodreads.py \
+		--rss-url "$(RSS_URL)" \
+		--out "$(LIBRARY_JSON)" \
+		--rss-pages "$(RSS_PAGES)" \
+		--scrape-likes \
+		--cookie "$(COOKIE)" \
+		--verbose
+
+# Regenerate info/library-stats.json from info/library.json.
+library-stats:
+	@python3 bin/update_library_stats.py "$(LIBRARY_JSON)" --out "$(LIBRARY_STATS_JSON)"
+
+# Full refresh for library data + derived stats.
+library-refresh: library-build library-stats
+	@echo "Library refresh completed."
+
+# Generate/update local mirror for all reviews found.
+reviews-all:
+	@python3 bin/mirror_all_reviews.py \
+		--library-json "$(LIBRARY_JSON)" \
+		--reviews-dir reviews \
+		--cookie "$(COOKIE)" \
+		--rss-pages "$(REVIEW_RSS_PAGES)"
+
+# Force regenerate local mirror for all reviews.
+reviews-force:
+	@python3 bin/mirror_all_reviews.py \
+		--library-json "$(LIBRARY_JSON)" \
+		--reviews-dir reviews \
+		--cookie "$(COOKIE)" \
+		--rss-pages "$(REVIEW_RSS_PAGES)" \
+		--force
+
+# Typical review update workflow.
+reviews-refresh: reviews-all library-stats
+	@echo "Reviews refresh completed."

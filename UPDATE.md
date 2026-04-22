@@ -6,6 +6,12 @@ Este sitio mezcla **contenido estático** (marcado en `index.html`) con **conten
 
 Si dentro de 1 año necesitas actualizar la hoja de vida completa, sigue este orden:
 
+Tip: para ver todos los comandos disponibles:
+
+```bash
+make help
+```
+
 ### 1) Actualizar publicaciones (artículos)
 
 1. Descarga insumos y guárdalos en `update/`:
@@ -24,7 +30,6 @@ Si dentro de 1 año necesitas actualizar la hoja de vida completa, sigue este or
    ```bash
    make classroom
    ```
-   (o `python3 bin/sync_classroom.py`).
 2. Si hay cursos nuevos o cambió el contenido, actualiza:
    - `info/teaching-course-details.json` (descripción y tópicos).
 3. Verifica sección “Docencia”.
@@ -38,19 +43,20 @@ Si dentro de 1 año necesitas actualizar la hoja de vida completa, sigue este or
    ```
 3. Genera `info/library.json` desde RSS con likes:
    ```bash
-   python3 bin/build_library_from_goodreads.py \
-     --rss-url "https://www.goodreads.com/review/list_rss/91991657?key=kpN1wAHi2GZUUO7BHv1v3ZCOGhOk_QjljXSDnXSc3kA-lzU7&shelf=%23ALL%23" \
-     --rss-pages 60 \
-     --scrape-likes \
-     --cookie "$GR_COOKIE" \
-     --out "info/library.json" \
-     --verbose
+   make library-build \
+     RSS_URL="https://www.goodreads.com/review/list_rss/91991657?key=kpN1wAHi2GZUUO7BHv1v3ZCOGhOk_QjljXSDnXSc3kA-lzU7&shelf=%23ALL%23" \
+     RSS_PAGES=60 \
+     COOKIE="$GR_COOKIE"
    ```
 4. Genera resumen derivado:
    ```bash
-   python3 bin/update_library_stats.py "info/library.json" --out "info/library-stats.json"
+   make library-stats
    ```
-5. Verifica en `biblioteca.html`:
+5. Genera/actualiza mirrors locales de reseñas:
+   ```bash
+   make reviews-all COOKIE="$GR_COOKIE" REVIEW_RSS_PAGES=80
+   ```
+6. Verifica en `biblioteca.html`:
    - reporte (leídos, reseñados, likes),
    - barras por año,
    - últimos 5 leídos,
@@ -81,7 +87,7 @@ Edita JSONs según cambios:
 
 1. Levanta servidor:
    ```bash
-   python3 -m http.server 8000
+   make dev
    ```
 2. Abre `http://localhost:8000` y revisa:
    - `index.html` completo (publicaciones, docencia, contacto, etc.)
@@ -243,13 +249,10 @@ Script:
 Comando recomendado (con scraping de likes y progreso):
 
 ```bash
-python3 bin/build_library_from_goodreads.py \
-  --rss-url "https://www.goodreads.com/review/list_rss/<USER_ID>?key=<KEY>&shelf=%23ALL%23" \
-  --rss-pages 40 \
-  --scrape-likes \
-  --cookie "$GR_COOKIE" \
-  --out "info/library.json" \
-  --verbose
+make library-build \
+  RSS_URL="https://www.goodreads.com/review/list_rss/<USER_ID>?key=<KEY>&shelf=%23ALL%23" \
+  RSS_PAGES=40 \
+  COOKIE="$GR_COOKIE"
 ```
 
 RSS de este sitio:
@@ -287,7 +290,7 @@ Script:
 Comando:
 
 ```bash
-python3 bin/update_library_stats.py "info/library.json" --out "info/library-stats.json"
+make library-stats
 ```
 
 Qué calcula:
@@ -306,20 +309,16 @@ Notas:
 
 Scripts:
 
-- `bin/mirror_first_review.py`: prueba con la primera reseña encontrada.
 - `bin/mirror_all_reviews.py`: mirror masivo de todas las reseñas con `reviewUrl`.
 
 Comandos:
 
 ```bash
-# Probar con una sola reseña
-python3 bin/mirror_first_review.py
-
 # Mirror de todas las reseñas (salta las ya mirrorizadas)
-python3 bin/mirror_all_reviews.py
+make reviews-all COOKIE="$GR_COOKIE" REVIEW_RSS_PAGES=80
 
 # Regenerar todas, incluso las ya existentes
-python3 bin/mirror_all_reviews.py --force
+make reviews-force COOKIE="$GR_COOKIE" REVIEW_RSS_PAGES=80
 ```
 
 Notas importantes del mirror:
@@ -334,7 +333,7 @@ Notas importantes del mirror:
 
 Desde la raíz del proyecto:
 ```bash
-python3 -m http.server 8000
+make dev
 ```
 Luego abre `http://localhost:8000` y revisa:
 - “Experiencia laboral” carga desde `profile.json`
@@ -355,7 +354,7 @@ Luego abre `http://localhost:8000` y revisa:
 El script usa tus credenciales/token guardados en `sources/` y genera el JSON que la página consume.
 
 ```bash
-python3 bin/sync_classroom.py
+make classroom
 ```
 
 ## Notas de formato (evitar errores silenciosos)
