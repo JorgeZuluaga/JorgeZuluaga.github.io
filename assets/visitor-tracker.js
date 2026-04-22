@@ -30,11 +30,20 @@ function safeJsonStringify(payload) {
   }
 }
 
+function isSameOrigin(endpoint) {
+  try {
+    return new URL(endpoint).origin === window.location.origin;
+  } catch {
+    return false;
+  }
+}
+
 function sendPayload(endpoint, payload) {
   const body = safeJsonStringify(payload);
   if (!endpoint) return false;
 
-  if (navigator.sendBeacon) {
+  // Avoid cross-origin sendBeacon ("ping") because some browsers block it by CORS.
+  if (navigator.sendBeacon && isSameOrigin(endpoint)) {
     const blob = new Blob([body], { type: "application/json" });
     const ok = navigator.sendBeacon(endpoint, blob);
     if (ok) return true;
@@ -46,6 +55,7 @@ function sendPayload(endpoint, payload) {
     body,
     keepalive: true,
     mode: "cors",
+    credentials: "omit",
   }).catch(() => {});
   return true;
 }
