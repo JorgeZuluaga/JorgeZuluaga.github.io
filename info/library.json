@@ -610,6 +610,7 @@
     {
       "bookId": "236033220",
       "title": "Los tres mundos (Julio César, #3)",
+      "series": "Julio César",
       "author": "Santiago Posteguillo",
       "dateRead": "2025-11-28",
       "rating": 5,
@@ -3051,6 +3052,7 @@
     {
       "bookId": "193575492",
       "title": "Maldita Roma: La conquista del poder de Julio César (Julio César, #2)",
+      "series": "Julio César",
       "author": "Santiago Posteguillo",
       "dateRead": "2023-12-13",
       "rating": 5,
@@ -5058,6 +5060,7 @@
     {
       "bookId": "60622051",
       "title": "Roma soy yo: La verdadera historia de Julio César",
+      "series": "Julio César",
       "author": "Santiago Posteguillo",
       "dateRead": "2022-04-17",
       "rating": 5,

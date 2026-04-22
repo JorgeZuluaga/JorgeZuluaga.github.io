@@ -79,6 +79,17 @@ li {
   list-style-type: none;
 }
 
+.library-book-item__series {
+  list-style: disc;
+  margin: 0.45rem 0 0 1.25rem;
+  padding: 0;
+}
+
+.library-book-item__series li {
+  list-style: disc;
+  margin: 0.2rem 0;
+}
+
 a {
   text-decoration: none;
 }

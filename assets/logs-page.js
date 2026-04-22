@@ -19,6 +19,15 @@ function countBy(items, selector) {
   return [...map.entries()].sort((a, b) => b[1] - a[1]);
 }
 
+function escapeHtml(value) {
+  return String(value ?? "")
+    .replaceAll("&", "&amp;")
+    .replaceAll("<", "&lt;")
+    .replaceAll(">", "&gt;")
+    .replaceAll('"', "&quot;")
+    .replaceAll("'", "&#39;");
+}
+
 function renderRows(tbodyId, rows) {
   const tbody = document.getElementById(tbodyId);
   if (!tbody) return;
@@ -27,7 +36,19 @@ function renderRows(tbodyId, rows) {
     return;
   }
   tbody.innerHTML = rows
-    .map(([k, v]) => `<tr><td>${String(k)}</td><td>${fmt(v)}</td></tr>`)
+    .map(([k, v]) => `<tr><td>${escapeHtml(k)}</td><td>${fmt(v)}</td></tr>`)
+    .join("");
+}
+
+function renderRowsHtml(tbodyId, rows) {
+  const tbody = document.getElementById(tbodyId);
+  if (!tbody) return;
+  if (!rows.length) {
+    tbody.innerHTML = '<tr><td colspan="2">Sin datos</td></tr>';
+    return;
+  }
+  tbody.innerHTML = rows
+    .map(([kHtml, v]) => `<tr><td>${kHtml}</td><td>${fmt(v)}</td></tr>`)
     .join("");
 }
 
@@ -79,26 +100,53 @@ function reviewIdFromPath(pagePath) {
   return m ? m[1] : "";
 }
 
+function reviewLinkHtml(pagePath, title) {
+  const href = String(pagePath || "").trim();
+  const label = escapeHtml(title || "Libro no encontrado en library.json");
+  if (!href) return label;
+  return `<a class="link" href="${escapeHtml(href)}" target="_blank" rel="noopener noreferrer">${label}</a>`;
+}
+
+function imageLinkHtml(fileName) {
+  const raw = String(fileName || "").trim();
+  if (!raw) return escapeHtml("(sin nombre)");
+  const href = /^https?:\/\//i.test(raw)
+    ? raw
+    : `./info/photos/${encodeURIComponent(raw)}`;
+  return `<a class="link" href="${escapeHtml(href)}" target="_blank" rel="noopener noreferrer">${escapeHtml(raw)}</a>`;
+}
+
 async function renderReport(logs) {
   const reviewTitleMap = await buildReviewTitleMap();
   renderSummary(logs);
 
   const pageViews = logs.filter((x) => x.eventType === "page_view");
-  renderRows("by-page", countBy(pageViews, (x) => x.page || "(sin página)"));
+  const reviewPathRegex = /\/reviews\/\d+\.html$/;
+  const nonReviewPageViews = pageViews.filter((x) => !reviewPathRegex.test(String(x.page || "")));
+  renderRows("by-page", countBy(nonReviewPageViews, (x) => x.page || "(sin página)"));
 
-  const reviewViews = pageViews.filter((x) => /\/reviews\/\d+\.html$/.test(String(x.page || "")));
-  renderRows(
+  const reviewViews = pageViews.filter((x) => reviewPathRegex.test(String(x.page || "")));
+  const reviewRows = countBy(reviewViews, (x) => {
+    const reviewId = reviewIdFromPath(x.page);
+    if (!reviewId) return "(reseña sin id)";
+    const title = reviewTitleMap.get(reviewId) || "Libro no encontrado en library.json";
+    return `${x.page}|||${title}`;
+  }).map(([k, v]) => {
+    const [pagePath, title] = String(k).split("|||");
+    return [reviewLinkHtml(pagePath, title), v];
+  });
+  renderRowsHtml(
     "by-review",
-    countBy(reviewViews, (x) => {
-      const reviewId = reviewIdFromPath(x.page);
-      if (!reviewId) return "(reseña sin id)";
-      return reviewTitleMap.get(reviewId) || "Libro no encontrado en library.json";
-    }),
+    reviewRows,
   );
 
-  renderRows(
+  const imageRows = countBy(
+    logs.filter((x) => x.eventType === "image_download"),
+    (x) => x?.details?.fileName || "(sin nombre)",
+  ).map(([fileName, count]) => [imageLinkHtml(fileName), count]);
+  renderRowsHtml(
     "by-image",
-    countBy(logs.filter((x) => x.eventType === "image_download"), (x) => x?.details?.fileName || "(sin nombre)"),
+    imageRows,
   );
 
   renderRows(

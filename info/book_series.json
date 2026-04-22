@@ -1,0 +1,574 @@
+{
+  "series": [
+    {
+      "name": "Colección 'Sapiens a un neandertal'",
+      "author": "Juan José Millás",
+      "latestDateRead": "2026-04-03",
+      "books": [
+        {
+          "libraryBookId": "55333158",
+          "title": "La vida contada por un sapiens a un neandertal"
+        },
+        {
+          "libraryBookId": "59799981",
+          "title": "La muerte contada por un sapiens a un neandertal"
+        },
+        {
+          "libraryBookId": "216802309",
+          "title": "La conciencia contada por un sapiens a un neandertal"
+        }
+      ]
+    },
+    {
+      "name": "Ciclo de Sherlock Holmes",
+      "author": "Arthur Conan Doyle",
+      "latestDateRead": "2026-04-03",
+      "books": [
+        {
+          "libraryBookId": "39305612",
+          "title": "El perro de los Baskerville (Sherlock Holmes, #5)"
+        },
+        {
+          "libraryBookId": "20740274",
+          "title": "Estudio en escarlata"
+        },
+        {
+          "libraryBookId": "59245399",
+          "title": "El signo de los cuatro"
+        },
+        {
+          "libraryBookId": "36632175",
+          "title": "Las aventuras de Sherlock Holmes"
+        },
+        {
+          "libraryBookId": "24114125",
+          "title": "Las memorias de Sherlock Holmes"
+        }
+      ]
+    },
+    {
+      "name": "Ensayos y no ficción de Tito Vivas",
+      "author": "Tito Vivas",
+      "latestDateRead": "2026-03-28",
+      "books": [
+        {
+          "libraryBookId": "50536154",
+          "title": "El viaje de un egiptólogo ingenuo"
+        },
+        {
+          "libraryBookId": "65778966",
+          "title": "Tutankhamon, Howard y yo: Cien años del descubrimiento de la tumba"
+        },
+        {
+          "libraryBookId": "56845375",
+          "title": "Historia fabulosa de un viaje a Etiopía: La leyenda del Arca de la Alianza"
+        },
+        {
+          "libraryBookId": "230992651",
+          "title": "Guía de Egipto para piramidólogos y marcianos"
+        },
+        {
+          "libraryBookId": "244149479",
+          "title": "Pirámides, dioses y sabidurías perdidas del mundo antiguo"
+        }
+      ]
+    },
+    {
+      "name": "Novelas de Andy Weir",
+      "author": "Andy Weir",
+      "latestDateRead": "2026-03-22",
+      "books": [
+        {
+          "libraryBookId": "22820681",
+          "title": "El marciano"
+        },
+        {
+          "libraryBookId": "57299481",
+          "title": "Proyecto Hail Mary"
+        }
+      ]
+    },
+    {
+      "name": "Ensayos de Byung-Chul Han",
+      "author": "Byung-Chul Han",
+      "latestDateRead": "2026-03-15",
+      "books": [
+        {
+          "libraryBookId": "59237846",
+          "title": "No-cosas: Quiebras del mundo de hoy"
+        },
+        {
+          "libraryBookId": "64995169",
+          "title": "Vida contemplativa: Elogio de la inactividad"
+        },
+        {
+          "libraryBookId": "60774041",
+          "title": "Infocracia: La digitalización y la crisis de la democracia"
+        }
+      ]
+    },
+    {
+      "name": "Historia y clásicos de Mary Beard",
+      "author": "Mary Beard",
+      "latestDateRead": "2026-03-01",
+      "books": [
+        {
+          "libraryBookId": "30288040",
+          "title": "SPQR: Una historia de la Antigua Roma"
+        },
+        {
+          "libraryBookId": "20428005",
+          "title": "La herencia viva de los clásicos: Tradiciones, aventuras e innovaciones"
+        },
+        {
+          "libraryBookId": "58554633",
+          "title": "Doce césares: La representación del poder desde el mundo antiguo hasta la actualidad"
+        },
+        {
+          "libraryBookId": "40791418",
+          "title": "Mujeres y poder"
+        },
+        {
+          "libraryBookId": "128747007",
+          "title": "Emperor of Rome: Ruling the Ancient Roman World"
+        },
+        {
+          "libraryBookId": "241162726",
+          "title": "El Partenón"
+        }
+      ]
+    },
+    {
+      "name": "La Ilíada y la Odisea",
+      "author": "Homer",
+      "latestDateRead": "2026-02-08",
+      "books": [
+        {
+          "libraryBookId": "26567125",
+          "title": "La Iliada"
+        },
+        {
+          "libraryBookId": "54657941",
+          "title": "Odisea"
+        }
+      ]
+    },
+    {
+      "name": "Divulgación científica de Federico Kukso",
+      "author": "Federico Kukso",
+      "latestDateRead": "2026-02-08",
+      "books": [
+        {
+          "libraryBookId": "49020183",
+          "title": "Odorama: Historia cultural del olor"
+        },
+        {
+          "libraryBookId": "217382766",
+          "title": "Frutologías: Historia política y cultural de las frutas (Spanish Edition)"
+        }
+      ]
+    },
+    {
+      "name": "Obra leída de Gilmer Mesa",
+      "author": "Gilmer Mesa",
+      "latestDateRead": "2026-01-14",
+      "books": [
+        {
+          "libraryBookId": "32904032",
+          "title": "La cuadra"
+        }
+      ]
+    },
+    {
+      "name": "Divulgación médica de Siddhartha Mukherjee",
+      "author": "Siddhartha Mukherjee",
+      "latestDateRead": "2026-01-08",
+      "books": [
+        {
+          "libraryBookId": "34150210",
+          "title": "El gen: una historia personal"
+        },
+        {
+          "libraryBookId": "122941880",
+          "title": "La armonía de las células: Una exploración de la medicina y del nuevo ser humano / The Song of the Cell: An Exploration of Medicine and the New Human (Spanish Edition)"
+        }
+      ]
+    },
+    {
+      "name": "Novelas de Michael Crichton",
+      "author": "Michael Crichton",
+      "latestDateRead": "2025-12-22",
+      "books": [
+        {
+          "libraryBookId": "39940542",
+          "title": "Dientes de dragón"
+        },
+        {
+          "libraryBookId": "39742374",
+          "title": "Jurassic Park"
+        },
+        {
+          "libraryBookId": "40652099",
+          "title": "El Mundo Perdido"
+        }
+      ]
+    },
+    {
+      "name": "Julio César",
+      "author": "Santiago Posteguillo",
+      "latestDateRead": "2025-11-28",
+      "books": [
+        {
+          "libraryBookId": "60622051",
+          "title": "Roma soy yo: La verdadera historia de Julio César"
+        },
+        {
+          "libraryBookId": "193575492",
+          "title": "Maldita Roma: La conquista del poder de Julio César (Julio César, #2)"
+        },
+        {
+          "libraryBookId": "236033220",
+          "title": "Los tres mundos (Julio César, #3)"
+        }
+      ]
+    },
+    {
+      "name": "Los Reyes Malditos",
+      "author": "Maurice Druon",
+      "latestDateRead": "2025-07-04",
+      "books": [
+        {
+          "libraryBookId": "35618912",
+          "title": "El rey de hierro (Los reyes malditos, #1)"
+        },
+        {
+          "libraryBookId": "1044175",
+          "title": "La reina estrangulada (Los reyes malditos, #2)"
+        },
+        {
+          "libraryBookId": "99489",
+          "title": "Los venenos de la corona (Los reyes malditos, #3)"
+        },
+        {
+          "libraryBookId": "99500",
+          "title": "La ley de los varones (Los Reyes Malditos, #4)"
+        },
+        {
+          "libraryBookId": "99499",
+          "title": "La loba de Francia (Los Reyes Malditos, #5)"
+        },
+        {
+          "libraryBookId": "7663502",
+          "title": "La flor de lis y el león"
+        },
+        {
+          "libraryBookId": "7830894",
+          "title": "De cómo un rey perdió Francia"
+        }
+      ]
+    },
+    {
+      "name": "Novelas históricas de Marcos Chicot",
+      "author": "Marcos Chicot",
+      "latestDateRead": "2025-06-16",
+      "books": [
+        {
+          "libraryBookId": "32729271",
+          "title": "El asesinato de Sócrates"
+        },
+        {
+          "libraryBookId": "18001084",
+          "title": "El asesinato de Pitágoras"
+        },
+        {
+          "libraryBookId": "23382193",
+          "title": "La Hermandad (El asesinato de Pitágoras #2)"
+        },
+        {
+          "libraryBookId": "55022795",
+          "title": "El asesinato de Platón"
+        },
+        {
+          "libraryBookId": "229056488",
+          "title": "El asesinato de Aristóteles"
+        }
+      ]
+    },
+    {
+      "name": "Narrativa mítica de Madeline Miller",
+      "author": "Madeline Miller",
+      "latestDateRead": "2025-05-25",
+      "books": [
+        {
+          "libraryBookId": "35959740",
+          "title": "Circe"
+        },
+        {
+          "libraryBookId": "56648087",
+          "title": "La canción de Aquiles"
+        }
+      ]
+    },
+    {
+      "name": "Los hijos de la tierra",
+      "author": "Jean M. Auel",
+      "latestDateRead": "2025-01-28",
+      "books": [
+        {
+          "libraryBookId": "35998224",
+          "title": "El clan del oso cavernario"
+        },
+        {
+          "libraryBookId": "25834165",
+          "title": "El valle de los caballos"
+        },
+        {
+          "libraryBookId": "6916879",
+          "title": "Los cazadores de mamuts (Los hijos de la tierra, #3)"
+        },
+        {
+          "libraryBookId": "2631671",
+          "title": "Las llanuras del tránsito (Los hijos de la tierra, #4)"
+        },
+        {
+          "libraryBookId": "947938",
+          "title": "Los refugios de piedra (Los hijos de la tierra, #5)"
+        },
+        {
+          "libraryBookId": "10979076",
+          "title": "La Tierra de las Cuevas Pintadas (Los Hijos de la Tierra, #6)"
+        }
+      ]
+    },
+    {
+      "name": "Obras de Gabriel García Márquez",
+      "author": "Gabriel García Márquez",
+      "latestDateRead": "2025-01-04",
+      "books": [
+        {
+          "libraryBookId": "95722",
+          "title": "La hojarasca"
+        },
+        {
+          "libraryBookId": "4390",
+          "title": "Los funerales de la Mamá Grande"
+        },
+        {
+          "libraryBookId": "49616655",
+          "title": "El general en su laberinto"
+        },
+        {
+          "libraryBookId": "166683",
+          "title": "Crónica de una muerte anunciada"
+        },
+        {
+          "libraryBookId": "500400",
+          "title": "El amor en los tiempos del cólera"
+        },
+        {
+          "libraryBookId": "200142395",
+          "title": "En agosto nos vemos"
+        },
+        {
+          "libraryBookId": "13514795",
+          "title": "Cien años de soledad"
+        },
+        {
+          "libraryBookId": "24997740",
+          "title": "El coronel no tiene quien le escriba"
+        }
+      ]
+    },
+    {
+      "name": "Divulgación botánica de Stefano Mancuso",
+      "author": "Stefano Mancuso",
+      "latestDateRead": "2024-03-31",
+      "books": [
+        {
+          "libraryBookId": "36589022",
+          "title": "El futuro es vegetal"
+        },
+        {
+          "libraryBookId": "31178359",
+          "title": "Sensibilidad e inteligencia en el mundo vegetal"
+        },
+        {
+          "libraryBookId": "44709813",
+          "title": "El increíble viaje de las plantas"
+        }
+      ]
+    },
+    {
+      "name": "Obras de José Saramago",
+      "author": "José Saramago",
+      "latestDateRead": "2024-02-28",
+      "books": [
+        {
+          "libraryBookId": "769660",
+          "title": "El Evangelio según Jesucristo"
+        },
+        {
+          "libraryBookId": "7086348",
+          "title": "Caín"
+        },
+        {
+          "libraryBookId": "61764009",
+          "title": "El viaje del elefante"
+        },
+        {
+          "libraryBookId": "60525672",
+          "title": "Las intermitencias de la muerte"
+        },
+        {
+          "libraryBookId": "177138221",
+          "title": "Ensayo sobre la ceguera"
+        },
+        {
+          "libraryBookId": "60776217",
+          "title": "Ensayo sobre la lucidez"
+        },
+        {
+          "libraryBookId": "127652",
+          "title": "Memorial del convento"
+        }
+      ]
+    },
+    {
+      "name": "Kingsbridge",
+      "author": "Ken Follett",
+      "latestDateRead": "2024-01-09",
+      "books": [
+        {
+          "libraryBookId": "53972981",
+          "title": "Las tinieblas y el alba (Kingsbridge, #0)"
+        },
+        {
+          "libraryBookId": "5050",
+          "title": "Los pilares de la tierra (Kingsbridge, #1)"
+        },
+        {
+          "libraryBookId": "8098446",
+          "title": "Un mundo sin fin"
+        },
+        {
+          "libraryBookId": "34616436",
+          "title": "Una columna de fuego"
+        },
+        {
+          "libraryBookId": "157620810",
+          "title": "La armadura de la luz (Los pilares de la tierra #4)"
+        }
+      ]
+    },
+    {
+      "name": "Historia de Heródoto",
+      "author": "Heródoto",
+      "latestDateRead": "2023-02-04",
+      "books": [
+        {
+          "libraryBookId": "55359307",
+          "title": "Historia. Libros I-II"
+        },
+        {
+          "libraryBookId": "58841459",
+          "title": "Historia. Libros III-V"
+        },
+        {
+          "libraryBookId": "63000056",
+          "title": "Historia. Libros VIII-IX"
+        }
+      ]
+    },
+    {
+      "name": "Trilogía del siglo XX",
+      "author": "Ken Follett",
+      "latestDateRead": "2021-11-08",
+      "books": [
+        {
+          "libraryBookId": "9594222",
+          "title": "La caída de los gigantes"
+        },
+        {
+          "libraryBookId": "13227988",
+          "title": "El invierno del mundo"
+        },
+        {
+          "libraryBookId": "23221695",
+          "title": "El umbral de la eternidad"
+        }
+      ]
+    },
+    {
+      "name": "Publio Cornelio Escipión",
+      "author": "Santiago Posteguillo",
+      "latestDateRead": "2021-06-05",
+      "books": [
+        {
+          "libraryBookId": "43554612",
+          "title": "Africanus. El hijo del cónsul (Publio Cornelio Escipión, #1)"
+        },
+        {
+          "libraryBookId": "42610931",
+          "title": "Las legiones malditas (Publio Cornelio Escipión #2)"
+        },
+        {
+          "libraryBookId": "6966227",
+          "title": "La traición de Roma (Publio Cornelio Escipión, #3)"
+        }
+      ]
+    },
+    {
+      "name": "Trajano",
+      "author": "Santiago Posteguillo",
+      "latestDateRead": "2021-01-17",
+      "books": [
+        {
+          "libraryBookId": "12638953",
+          "title": "Los asesinos del emperador (Trajano, #1)"
+        },
+        {
+          "libraryBookId": "18165452",
+          "title": "Circo Máximo: La ira de Trajano (Trajano, #2)"
+        },
+        {
+          "libraryBookId": "27888988",
+          "title": "La legión perdida: El sueño de Trajano (Trajano #3)"
+        }
+      ]
+    },
+    {
+      "name": "Julia Domna",
+      "author": "Santiago Posteguillo",
+      "latestDateRead": "2020-08-29",
+      "books": [
+        {
+          "libraryBookId": "42392875",
+          "title": "Yo, Julia (Julia Domna, #1)"
+        },
+        {
+          "libraryBookId": "50262027",
+          "title": "Y Julia retó a los dioses (Julia Domna, #2)"
+        }
+      ]
+    },
+    {
+      "name": "Trilogía de los tres cuerpos",
+      "author": "Liu Cixin",
+      "latestDateRead": "2019-09-10",
+      "books": [
+        {
+          "libraryBookId": "28487182",
+          "title": "El problema de los tres cuerpos (Trilogía de los tres cuerpos, #1)"
+        },
+        {
+          "libraryBookId": "32827084",
+          "title": "El bosque oscuro (Trilogía de los tres cuerpos, #2)"
+        },
+        {
+          "libraryBookId": "32827109",
+          "title": "El fin de la muerte (Trilogía de los tres cuerpos, #3)"
+        }
+      ]
+    }
+  ]
+}

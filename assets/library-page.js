@@ -7,6 +7,7 @@ import {
 import { trackPageView } from "./visitor-tracker.js";
 
 const LIBRARY_JSON = "./info/library.json";
+const BOOK_SERIES_JSON = "./info/book_series.json";
 
 function parseDate(dateText) {
   const raw = String(dateText ?? "").trim();
@@ -115,6 +116,77 @@ function renderBookList(container, items, lang) {
   container.replaceChildren(frag);
 }
 
+function renderSeriesList(container, seriesItems, booksById, lang) {
+  if (!container) return;
+  if (!Array.isArray(seriesItems) || seriesItems.length === 0) {
+    container.innerHTML = `<p class="photo-card__error">${escapeLibrary(t("library_no_data", lang))}</p>`;
+    return;
+  }
+
+  const frag = document.createDocumentFragment();
+
+  for (const series of seriesItems) {
+    const entry = document.createElement("article");
+    entry.className = "library-book-item";
+
+    const title = document.createElement("h3");
+    title.className = "library-book-item__title";
+    title.textContent = series.name || "Saga";
+
+    const meta = document.createElement("p");
+    meta.className = "library-book-item__meta";
+    meta.textContent = series.author || "—";
+
+    const list = document.createElement("ul");
+    list.className = "library-book-item__series";
+
+    for (const bookRef of series.books || []) {
+      const li = document.createElement("li");
+      const bookId = String(bookRef.libraryBookId || "");
+      const matchedBook = booksById.get(bookId);
+      const bookTitle = String(bookRef.title || matchedBook?.title || "Libro");
+      const localReviewUrl = String(matchedBook?.reviewLocalUrl || "");
+      const dateRead = String(matchedBook?.dateRead || "");
+
+      const titleSpan = document.createElement("span");
+      titleSpan.textContent = bookTitle;
+      li.appendChild(titleSpan);
+
+      const links = [];
+      if (localReviewUrl.endsWith(".html")) {
+        const localLink = document.createElement("a");
+        localLink.className = "link";
+        localLink.href = localReviewUrl;
+        localLink.target = "_blank";
+        localLink.rel = "noopener noreferrer";
+        localLink.textContent = t("library_view_review_local", lang);
+        links.push(localLink);
+      }
+
+      if (dateRead) {
+        li.appendChild(document.createTextNode(` (${t("library_date", lang)} ${dateRead})`));
+      }
+
+      if (links.length) {
+        li.appendChild(document.createTextNode(" — "));
+        links.forEach((lnk, idx) => {
+          if (idx > 0) li.appendChild(document.createTextNode(" · "));
+          li.appendChild(lnk);
+        });
+      }
+
+      list.appendChild(li);
+    }
+
+    entry.appendChild(title);
+    entry.appendChild(meta);
+    entry.appendChild(list);
+    frag.appendChild(entry);
+  }
+
+  container.replaceChildren(frag);
+}
+
 function escapeLibrary(s) {
   return (s ?? "")
     .toString()
@@ -161,6 +233,8 @@ function applyLibraryChrome(lang) {
   if (hLatest) hLatest.textContent = t("library_latest10", lang);
   const hTop = document.getElementById("library-h2-top");
   if (hTop) hTop.textContent = t("library_top10", lang);
+  const hSeries = document.getElementById("library-h2-series");
+  if (hSeries) hSeries.textContent = lang === "en" ? "Personal series and collections" : "Sagas y colecciones personales";
 
   const allLink = document.querySelector(".library-all-link");
   if (allLink) {
@@ -183,6 +257,9 @@ async function main() {
   const res = await fetch(LIBRARY_JSON, { cache: "no-store" });
   if (!res.ok) throw new Error(`No se pudo cargar ${LIBRARY_JSON} (${res.status})`);
   const data = await res.json();
+  const seriesData = await fetch(BOOK_SERIES_JSON, { cache: "no-store" })
+    .then((r) => (r.ok ? r.json() : { series: [] }))
+    .catch(() => ({ series: [] }));
 
   const titleEl = document.getElementById("library-page-title");
   const introEl = document.getElementById("library-page-intro");
@@ -194,6 +271,7 @@ async function main() {
   const chartEl = document.getElementById("library-yearly-chart");
   const latestReadEl = document.getElementById("library-latest-read");
   const topReviewedEl = document.getElementById("library-top-reviewed");
+  const seriesReadEl = document.getElementById("library-series-read");
   if (
     !titleEl ||
     !introEl ||
@@ -204,7 +282,8 @@ async function main() {
     !totalLikesEl ||
     !chartEl ||
     !latestReadEl ||
-    !topReviewedEl
+    !topReviewedEl ||
+    !seriesReadEl
   ) {
     return;
   }
@@ -216,6 +295,7 @@ async function main() {
     .sort((a, b) => b._date - a._date)
     .slice(0, 10);
   const reviewed = books.filter((b) => hasReview(b));
+  const booksById = new Map(books.map((b) => [String(b.bookId || ""), b]));
   const topReviewedByLikes = [...reviewed]
     .sort((a, b) => {
       if (b.reviewLikes !== a.reviewLikes) return b.reviewLikes - a.reviewLikes;
@@ -285,6 +365,7 @@ async function main() {
   chartEl.replaceChildren(frag);
   renderBookList(latestReadEl, latestRead, lang);
   renderBookList(topReviewedEl, topReviewedByLikes, lang);
+  renderSeriesList(seriesReadEl, seriesData.series || [], booksById, lang);
 }
 
 main().catch((err) => {
