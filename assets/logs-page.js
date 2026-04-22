@@ -1,4 +1,6 @@
 const TOKEN_STORAGE_KEY = "visitorLogsReadToken";
+let allLogsCache = [];
+let selectedCountry = "";
 
 function endpointFromMeta() {
   const el = document.querySelector('meta[name="visitor-log-read-endpoint"]');
@@ -17,6 +19,39 @@ function countBy(items, selector) {
     map.set(key, (map.get(key) ?? 0) + 1);
   }
   return [...map.entries()].sort((a, b) => b[1] - a[1]);
+}
+
+function codeToFlagEmoji(code) {
+  const cc = String(code || "").trim().toUpperCase();
+  if (!/^[A-Z]{2}$/.test(cc)) return "🏳️";
+  const base = 127397;
+  return String.fromCodePoint(...cc.split("").map((c) => base + c.charCodeAt(0)));
+}
+
+function countryLabel(code) {
+  const cc = String(code || "XX").toUpperCase();
+  return `${codeToFlagEmoji(cc)} ${cc}`;
+}
+
+function isKnownCountry(code) {
+  const cc = String(code || "").trim().toUpperCase();
+  return /^[A-Z]{2}$/.test(cc) && cc !== "XX";
+}
+
+function computeCountryUniqueIpRows(pageViews) {
+  const map = new Map();
+  for (const row of pageViews) {
+    const cc = String(row.country || "").trim().toUpperCase();
+    if (!isKnownCountry(cc)) continue;
+    const ip = String(row.ip || "").trim();
+    if (!ip) continue;
+    if (!map.has(cc)) map.set(cc, new Set());
+    map.get(cc).add(ip);
+  }
+  const rows = [...map.entries()].map(([cc, set]) => [cc, set.size]);
+  rows.sort((a, b) => b[1] - a[1]);
+  const total = rows.reduce((acc, [, c]) => acc + c, 0);
+  return { rows, total };
 }
 
 function escapeHtml(value) {
@@ -48,7 +83,7 @@ function renderRowsHtml(tbodyId, rows) {
     return;
   }
   tbody.innerHTML = rows
-    .map(([kHtml, v]) => `<tr><td>${kHtml}</td><td>${fmt(v)}</td></tr>`)
+    .map(([kHtml, v]) => `<tr><td>${kHtml}</td><td>${v}</td></tr>`)
     .join("");
 }
 
@@ -59,11 +94,15 @@ function renderSummary(logs) {
   const uniquePages = new Set(logs.map((x) => x.page).filter(Boolean)).size;
   const imageDownloads = logs.filter((x) => x.eventType === "image_download").length;
   const pdfClicks = logs.filter((x) => x.eventType === "pdf_print_click").length;
+  const reviewOpens = logs.filter(
+    (x) => x.eventType === "page_view" && /\/reviews\/\d+\.html$/.test(String(x.page || "")),
+  ).length;
 
   box.innerHTML = [
     ["Total eventos", fmt(logs.length)],
     ["IPs únicas", fmt(uniqueIps)],
     ["Páginas únicas", fmt(uniquePages)],
+    ["Reseñas abiertas", fmt(reviewOpens)],
     ["Descargas imagen", fmt(imageDownloads)],
     ["Clic PDF", fmt(pdfClicks)],
   ]
@@ -72,6 +111,39 @@ function renderSummary(logs) {
         `<article class="logs-card"><p class="logs-card__k">${k}</p><p class="logs-card__v">${v}</p></article>`,
     )
     .join("");
+}
+
+function renderCountryFilterStatus() {
+  const el = document.getElementById("country-filter-status");
+  if (!el) return;
+  if (!selectedCountry) {
+    el.textContent = "Filtro: todos los países.";
+    return;
+  }
+  el.textContent = `Filtro: ${countryLabel(selectedCountry)}.`;
+}
+
+function renderCountryCloud(rows, total) {
+  const el = document.getElementById("country-cloud");
+  if (!el) return;
+  const chips = [];
+  chips.push(`<button class="country-chip${selectedCountry ? "" : " active"}" data-country="">🌍 Todos</button>`);
+  for (const [code, count] of rows) {
+    const cc = String(code || "XX").toUpperCase();
+    chips.push(
+      `<button class="country-chip${selectedCountry === cc ? " active" : ""}" data-country="${escapeHtml(cc)}">${countryLabel(cc)}</button>`,
+    );
+  }
+  el.innerHTML = chips.join("");
+  el.querySelectorAll(".country-chip").forEach((btn) => {
+    btn.addEventListener("click", () => {
+      selectedCountry = String(btn.getAttribute("data-country") || "").toUpperCase();
+      renderCountryFilterStatus();
+      renderReportFromCache().catch((e) => {
+        setError(e.message || "No fue posible actualizar filtro por país.");
+      });
+    });
+  });
 }
 
 async function buildReviewTitleMap() {
@@ -117,10 +189,26 @@ function imageLinkHtml(fileName) {
 }
 
 async function renderReport(logs) {
-  const reviewTitleMap = await buildReviewTitleMap();
-  renderSummary(logs);
+  const allPageViews = logs.filter((x) => x.eventType === "page_view");
+  const { rows: countryRows, total: countryTotal } = computeCountryUniqueIpRows(allPageViews);
+  renderCountryCloud(countryRows, countryTotal);
+  renderRowsHtml(
+    "by-country",
+    countryRows.map(([code, count]) => {
+      const pct = countryTotal > 0 ? ((count / countryTotal) * 100).toFixed(1) : "0.0";
+      return [countryLabel(code), `${fmt(count)} (${pct}%)`];
+    }),
+  );
+  renderCountryFilterStatus();
 
-  const pageViews = logs.filter((x) => x.eventType === "page_view");
+  const filteredLogs = selectedCountry
+    ? logs.filter((x) => String(x.country || "XX").toUpperCase() === selectedCountry)
+    : logs;
+
+  const reviewTitleMap = await buildReviewTitleMap();
+  renderSummary(filteredLogs);
+
+  const pageViews = filteredLogs.filter((x) => x.eventType === "page_view");
   const reviewPathRegex = /\/reviews\/\d+\.html$/;
   const nonReviewPageViews = pageViews.filter((x) => !reviewPathRegex.test(String(x.page || "")));
   renderRows("by-page", countBy(nonReviewPageViews, (x) => x.page || "(sin página)"));
@@ -141,7 +229,7 @@ async function renderReport(logs) {
   );
 
   const imageRows = countBy(
-    logs.filter((x) => x.eventType === "image_download"),
+    filteredLogs.filter((x) => x.eventType === "image_download"),
     (x) => x?.details?.fileName || "(sin nombre)",
   ).map(([fileName, count]) => [imageLinkHtml(fileName), count]);
   renderRowsHtml(
@@ -154,7 +242,11 @@ async function renderReport(logs) {
     countBy(pageViews, (x) => String(x.timestampServer || "").slice(0, 7)),
   );
 
-  renderRows("by-event", countBy(logs, (x) => x.eventType || "unknown"));
+  renderRows("by-event", countBy(filteredLogs, (x) => x.eventType || "unknown"));
+}
+
+async function renderReportFromCache() {
+  await renderReport(allLogsCache);
 }
 
 function setStatus(msg) {
@@ -216,8 +308,12 @@ async function loadLogs() {
 
   const data = await res.json();
   const logs = Array.isArray(data.logs) ? data.logs : [];
-  await renderReport(logs);
-  setStatus(`Actualizado: ${new Date().toLocaleString("es-CO")} · ${fmt(logs.length)} eventos`);
+  allLogsCache = logs;
+  await renderReportFromCache();
+  const visibleCount = selectedCountry
+    ? logs.filter((x) => String(x.country || "XX").toUpperCase() === selectedCountry).length
+    : logs.length;
+  setStatus(`Actualizado: ${new Date().toLocaleString("es-CO")} · ${fmt(visibleCount)} eventos visibles`);
 }
 
 function wire() {

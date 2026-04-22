@@ -30,6 +30,9 @@
     .logs-table { width: 100%; border-collapse: collapse; font-size: .9rem; }
     .logs-table th, .logs-table td { text-align: left; padding: .55rem .7rem; border-bottom: 1px solid var(--border-bottom); color: var(--black); }
     .logs-error { color: #b91c1c; font-weight: 600; margin-top: .7rem; }
+    .country-cloud { display: flex; flex-wrap: wrap; gap: .45rem; margin-top: .6rem; }
+    .country-chip { border: 1px solid var(--border-bottom); background: var(--box); color: var(--black); border-radius: 999px; padding: .35rem .6rem; font-size: .88rem; cursor: pointer; }
+    .country-chip.active { background: var(--accent); color: #fff; border-color: var(--accent); }
   </style>
 </head>
 
@@ -59,6 +62,13 @@
       <section class="logs-section">
         <h2>Páginas visitadas</h2>
         <div class="logs-table-wrap"><table class="logs-table"><thead><tr><th>Página</th><th>Vistas</th></tr></thead><tbody id="by-page"></tbody></table></div>
+      </section>
+
+      <section class="logs-section">
+        <h2>Visitantes por país</h2>
+        <p class="logs-note" id="country-filter-status">Filtro: todos los países.</p>
+        <div class="country-cloud" id="country-cloud"></div>
+        <div class="logs-table-wrap"><table class="logs-table"><thead><tr><th>País</th><th>Páginas (IPs únicas)</th></tr></thead><tbody id="by-country"></tbody></table></div>
       </section>
 
       <section class="logs-section">

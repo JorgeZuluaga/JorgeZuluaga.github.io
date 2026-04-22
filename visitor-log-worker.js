@@ -34,6 +34,12 @@ function getIp(request) {
   );
 }
 
+function getCountry(request) {
+  const raw = (request.headers.get("cf-ipcountry") || "").trim().toUpperCase();
+  if (/^[A-Z]{2}$/.test(raw)) return raw;
+  return "XX";
+}
+
 function extractReadToken(request, url) {
   const auth = request.headers.get("authorization") || "";
   const bearerMatch = auth.match(/^Bearer\s+(.+)$/i);
@@ -69,6 +75,7 @@ export default {
         id: crypto.randomUUID(),
         timestampServer: now,
         ip: getIp(request),
+        country: getCountry(request),
         eventType: body.eventType || "unknown",
         page: body.page || "",
         url: body.url || "",
