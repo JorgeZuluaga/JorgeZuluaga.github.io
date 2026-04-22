@@ -1,0 +1,8 @@
+name = "visitor-log-worker"
+main = "visitor-log-worker.js"
+compatibility_date = "2026-04-22"
+
+[[kv_namespaces]]
+binding = "VISITOR_LOGS"
+id = "ff2dcb126ee743ba95616016b85aa50f"
+

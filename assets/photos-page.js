@@ -5,6 +5,7 @@ import {
   t,
   withLangQuery,
 } from "./i18n.js";
+import { trackEvent, trackPageView } from "./visitor-tracker.js";
 
 const PHOTOS_JSON = "./info/photos/photos.json";
 
@@ -154,6 +155,13 @@ function openLightbox(p, imgPath, lang, locale) {
   dlEl.href = imgPath;
   dlEl.setAttribute("download", p.file ?? "");
   dlEl.textContent = `${t("photos_download", lang)} (${formatBytes(p.sizeBytes)})`;
+  dlEl.onclick = () => {
+    trackEvent("image_download", {
+      source: "photos_lightbox",
+      fileName: p.file ?? "",
+      title: pickLocalized(p, "title", lang) ?? "",
+    });
+  };
 
   lb.hidden = false;
   document.body.style.overflow = "hidden";
@@ -193,6 +201,7 @@ function wireLightbox() {
 async function main() {
   const lang = getPageLang();
   const locale = lang === "en" ? "en-US" : "es-CO";
+  trackPageView("photos_page");
   applyPhotosChrome(lang);
   wireLightbox();
 
@@ -275,6 +284,13 @@ async function main() {
     dl.target = "_blank";
     dl.rel = "noopener noreferrer";
     dl.textContent = t("photos_download", lang);
+    dl.addEventListener("click", () => {
+      trackEvent("image_download", {
+        source: "photos_grid",
+        fileName: file,
+        title: titleText,
+      });
+    });
 
     body.appendChild(h3);
     if (p.dateLabel) body.appendChild(dateP);

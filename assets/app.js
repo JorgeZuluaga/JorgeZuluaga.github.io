@@ -6,6 +6,7 @@ import {
   t,
   withLangQuery,
 } from "./i18n.js";
+import { trackEvent, trackPageView } from "./visitor-tracker.js";
 
 // Publications are loaded from info/papers.json (single source of truth).
 const SOURCES = [];
@@ -1225,6 +1226,7 @@ async function renderAwardsPage(lang = "es") {
 
 async function main() {
   const lang = getPageLang();
+  trackPageView("cv_home");
   applyIndexChrome(lang);
   applyThemeAriaFromLang(lang);
 
@@ -1445,6 +1447,24 @@ async function main() {
 
   setText("count", String(latestFinal.length));
   document.getElementById("empty").hidden = latestFinal.length !== 0;
+
+  const printBtn = document.getElementById("btn-print");
+  if (printBtn) {
+    printBtn.addEventListener("click", () => {
+      trackEvent("pdf_print_click", { source: "index_footer" });
+    });
+  }
+
+  const avatarDownload = document.getElementById("avatar-download");
+  if (avatarDownload) {
+    avatarDownload.addEventListener("click", () => {
+      const fileName = avatarDownload.getAttribute("download") || "profile-photo";
+      trackEvent("image_download", {
+        source: "profile_avatar",
+        fileName,
+      });
+    });
+  }
 }
 
 main().catch((err) => {

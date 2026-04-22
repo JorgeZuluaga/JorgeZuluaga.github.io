@@ -4,6 +4,7 @@ import {
   t,
   withLangQuery,
 } from "./i18n.js";
+import { trackPageView } from "./visitor-tracker.js";
 
 const LIBRARY_JSON = "./info/library.json";
 
@@ -139,6 +140,7 @@ function applyLibraryAllChrome(lang) {
 
 async function main() {
   const lang = getPageLang();
+  trackPageView("library_all_page");
   applyLibraryAllChrome(lang);
 
   const res = await fetch(LIBRARY_JSON, { cache: "no-store" });
