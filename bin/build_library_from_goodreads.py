@@ -45,9 +45,22 @@ def parse_read_date(value: str) -> str:
         return raw
 
 
-def is_read_item(user_shelves: str, user_read_at: str) -> bool:
+def resolve_date_read(item: ET.Element) -> str:
+    """Best-effort read date: user_read_at, then user_date_added, then item pubDate."""
+    for tag in ("user_read_at", "user_date_added", "pubDate"):
+        raw = (item.findtext(tag) or "").strip()
+        parsed = parse_read_date(raw)
+        if parsed:
+            return parsed
+    return ""
+
+
+def is_read_item(user_shelves: str, user_read_at: str, user_rating: int) -> bool:
     shelves = [s.strip().lower() for s in (user_shelves or "").split(",") if s.strip()]
-    return bool(user_read_at.strip()) or ("read" in shelves)
+    # Goodreads RSS is inconsistent across accounts:
+    # - Some feeds omit user_shelves and user_read_at for read books
+    # - user_rating is often present and >0 for books the user has read
+    return bool(user_read_at.strip()) or ("read" in shelves) or (user_rating > 0)
 
 
 def extract_like_count(html: str) -> int:
@@ -119,23 +132,23 @@ def build_library_data(
         review_url = (item.findtext("link") or "").strip()
         user_review = (item.findtext("user_review") or "").strip()
 
-        if not is_read_item(user_shelves, user_read_at_raw):
+        try:
+            rating = int(rating_raw) if rating_raw else 0
+        except ValueError:
+            rating = 0
+
+        if not is_read_item(user_shelves, user_read_at_raw, rating):
             continue
 
         has_review = bool(user_review) and "/review/show/" in review_url
         review_likes = 0
         scrape_status = "not_requested"
 
-        try:
-            rating = int(rating_raw) if rating_raw else 0
-        except ValueError:
-            rating = 0
-
         entry = {
             "bookId": book_id,
             "title": title,
             "author": author,
-            "dateRead": parse_read_date(user_read_at_raw),
+            "dateRead": resolve_date_read(item),
             "rating": rating,
             "reviewUrl": review_url if has_review else "",
             "hasReview": has_review,

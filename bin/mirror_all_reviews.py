@@ -5,6 +5,7 @@ from __future__ import annotations
 
 import argparse
 import json
+from collections import Counter
 from datetime import datetime, timezone
 from pathlib import Path
 from urllib.parse import urlparse
@@ -33,6 +34,54 @@ def local_html_path_from_book(book: dict, reviews_dir: Path) -> Path:
         return Path(local_url)
     review_id = extract_review_id(str(book.get("reviewUrl") or ""))
     return reviews_dir / f"{review_id}.html"
+
+
+def build_example_series_from_repeated_author(books: list[dict]) -> dict:
+    """Build one example series using the most repeated author in library."""
+    author_counts: Counter[str] = Counter()
+    for book in books:
+        author = str(book.get("author") or "").strip()
+        if author:
+            author_counts[author] += 1
+
+    top_author = ""
+    top_count = 0
+    for author, count in author_counts.items():
+        if count > top_count:
+            top_author = author
+            top_count = count
+
+    if top_count < 2 or not top_author:
+        return {"series": []}
+
+    author_books = []
+    for book in books:
+        author = str(book.get("author") or "").strip()
+        if author != top_author:
+            continue
+        book_id = str(book.get("bookId") or "").strip()
+        title = str(book.get("title") or "").strip()
+        if not book_id or not title:
+            continue
+        author_books.append(
+            {
+                "libraryBookId": book_id,
+                "title": title,
+            }
+        )
+
+    if len(author_books) < 2:
+        return {"series": []}
+
+    return {
+        "series": [
+            {
+                "name": f"Series by {top_author}",
+                "author": top_author,
+                "books": author_books,
+            }
+        ]
+    }
 
 
 def main() -> int:
@@ -169,12 +218,22 @@ def main() -> int:
         json.dump(library, f, ensure_ascii=False, indent=2)
         f.write("\n")
 
+    # Keep book_series aligned with current library data:
+    # if there is a repeated author, generate one example series;
+    # otherwise leave the series list empty.
+    series_path = library_path.parent / "book_series.json"
+    series_data = build_example_series_from_repeated_author(books)
+    with series_path.open("w", encoding="utf-8") as f:
+        json.dump(series_data, f, ensure_ascii=False, indent=2)
+        f.write("\n")
+
     print("")
     print("[RESUMEN]")
     print(f"- Mirror nuevos/regenerados: {mirrored}")
     print(f"- Skipped: {skipped}")
     print(f"- Errores: {errors}")
     print(f"- Archivo actualizado: {library_path}")
+    print(f"- Series de ejemplo actualizadas: {series_path}")
     return 0
 
 

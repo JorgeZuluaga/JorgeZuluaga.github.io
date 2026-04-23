@@ -2,7 +2,7 @@
 	help start dev stop \
 	classroom \
 	library-build library-stats library-refresh \
-	reviews-all reviews-force reviews-refresh
+	reviews-first reviews-all reviews-force reviews-refresh
 
 PORT ?= 8000
 HOST ?= 127.0.0.1
@@ -11,7 +11,7 @@ LIBRARY_STATS_JSON ?= info/library-stats.json
 RSS_URL ?=
 COOKIE ?=
 RSS_PAGES ?= 1
-REVIEW_RSS_PAGES ?= 80
+REVIEW_RSS_PAGES ?= 40
 
 help:
 	@echo "Available targets:"
@@ -26,6 +26,7 @@ help:
 	@echo "  make library-refresh    - Run library-build + library-stats"
 	@echo "  make reviews-all        - Mirror all reviews in reviews/"
 	@echo "                            Optional: COOKIE=... REVIEW_RSS_PAGES=..."
+	@echo "  make reviews-first      - Mirror only the first review (smoke test)"
 	@echo "  make reviews-force      - Force regenerate all mirrored reviews"
 	@echo "  make reviews-refresh    - Run reviews-all + library-stats"
 
@@ -83,6 +84,14 @@ library-stats:
 # Full refresh for library data + derived stats.
 library-refresh: library-build library-stats
 	@echo "Library refresh completed."
+
+# Generate/update local mirror for the first review only.
+reviews-first:
+	@python3 bin/mirror_first_review.py \
+		--library-json "$(LIBRARY_JSON)" \
+		--reviews-dir reviews \
+		--cookie "$(COOKIE)" \
+		--rss-pages "$(REVIEW_RSS_PAGES)"
 
 # Generate/update local mirror for all reviews found.
 reviews-all:

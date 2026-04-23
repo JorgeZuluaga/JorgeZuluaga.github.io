@@ -119,7 +119,7 @@ function renderBookList(container, items, lang) {
 function renderSeriesList(container, seriesItems, booksById, lang) {
   if (!container) return;
   if (!Array.isArray(seriesItems) || seriesItems.length === 0) {
-    container.innerHTML = `<p class="photo-card__error">${escapeLibrary(t("library_no_data", lang))}</p>`;
+    container.replaceChildren();
     return;
   }
 
@@ -272,6 +272,7 @@ async function main() {
   const latestReadEl = document.getElementById("library-latest-read");
   const topReviewedEl = document.getElementById("library-top-reviewed");
   const seriesReadEl = document.getElementById("library-series-read");
+  const seriesCardEl = seriesReadEl?.closest(".library-list-card");
   if (
     !titleEl ||
     !introEl ||
@@ -296,6 +297,15 @@ async function main() {
     .slice(0, 10);
   const reviewed = books.filter((b) => hasReview(b));
   const booksById = new Map(books.map((b) => [String(b.bookId || ""), b]));
+  const seriesWithMatches = (seriesData.series || [])
+    .map((series) => ({
+      ...series,
+      books: (series.books || []).filter((bookRef) => {
+        const id = String(bookRef?.libraryBookId || "");
+        return id && booksById.has(id);
+      }),
+    }))
+    .filter((series) => Array.isArray(series.books) && series.books.length > 0);
   const topReviewedByLikes = [...reviewed]
     .sort((a, b) => {
       if (b.reviewLikes !== a.reviewLikes) return b.reviewLikes - a.reviewLikes;
@@ -365,7 +375,10 @@ async function main() {
   chartEl.replaceChildren(frag);
   renderBookList(latestReadEl, latestRead, lang);
   renderBookList(topReviewedEl, topReviewedByLikes, lang);
-  renderSeriesList(seriesReadEl, seriesData.series || [], booksById, lang);
+  if (seriesCardEl) {
+    seriesCardEl.hidden = seriesWithMatches.length === 0;
+  }
+  renderSeriesList(seriesReadEl, seriesWithMatches, booksById, lang);
 }
 
 main().catch((err) => {
