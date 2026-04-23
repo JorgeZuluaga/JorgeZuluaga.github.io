@@ -192,10 +192,15 @@ async function renderReport(logs) {
   const allPageViews = logs.filter((x) => x.eventType === "page_view");
   const { rows: countryRows, total: countryTotal } = computeCountryUniqueIpRows(allPageViews);
   renderCountryCloud(countryRows, countryTotal);
+  const visibleCountryRows = selectedCountry
+    ? countryRows.filter(([code]) => String(code || "").toUpperCase() === selectedCountry)
+    : countryRows;
+  const visibleCountryTotal = visibleCountryRows.reduce((acc, [, c]) => acc + c, 0);
   renderRowsHtml(
     "by-country",
-    countryRows.map(([code, count]) => {
-      const pct = countryTotal > 0 ? ((count / countryTotal) * 100).toFixed(1) : "0.0";
+    visibleCountryRows.map(([code, count]) => {
+      const baseTotal = selectedCountry ? visibleCountryTotal : countryTotal;
+      const pct = baseTotal > 0 ? ((count / baseTotal) * 100).toFixed(1) : "0.0";
       return [countryLabel(code), `${fmt(count)} (${pct}%)`];
     }),
   );
