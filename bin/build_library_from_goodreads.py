@@ -109,12 +109,39 @@ def fetch_rss_items(rss_url: str, max_pages: int, verbose: bool = False) -> list
     return all_items
 
 
+def load_existing_books(path: str) -> dict[str, dict]:
+    existing_path = Path(path)
+    if not existing_path.exists():
+        return {}
+    try:
+        with existing_path.open("r", encoding="utf-8") as f:
+            data = json.load(f)
+    except (json.JSONDecodeError, OSError):
+        return {}
+    books = list(data.get("books") or [])
+    by_id: dict[str, dict] = {}
+    for book in books:
+        book_id = str(book.get("bookId") or "").strip()
+        if book_id:
+            by_id[book_id] = book
+    return by_id
+
+
 def build_library_data(
-    rss_url: str, scrape_likes: bool, cookie: str, max_rss_pages: int, verbose: bool = False
+    rss_url: str,
+    scrape_likes_mode: str,
+    cookie: str,
+    max_rss_pages: int,
+    merge_from: str = "",
+    verbose: bool = False,
 ) -> dict:
     rss_items = fetch_rss_items(rss_url, max_rss_pages, verbose=verbose)
     if verbose:
         print(f"[RSS] Total ítems leídos del feed: {len(rss_items)}")
+
+    existing_by_id = load_existing_books(merge_from) if merge_from else {}
+    if verbose and merge_from:
+        print(f"[MERGE] Libros previos disponibles: {len(existing_by_id)}")
 
     books = []
     seen_ids: set[str] = set()
@@ -143,27 +170,69 @@ def build_library_data(
         has_review = bool(user_review) and "/review/show/" in review_url
         review_likes = 0
         scrape_status = "not_requested"
+        existing = existing_by_id.get(book_id)
+        is_new = existing is None
 
-        entry = {
-            "bookId": book_id,
-            "title": title,
-            "author": author,
-            "dateRead": resolve_date_read(item),
-            "rating": rating,
-            "reviewUrl": review_url if has_review else "",
-            "hasReview": has_review,
-            "reviewLikes": review_likes,
-            "scrapeStatus": scrape_status,
-        }
+        if existing:
+            entry = dict(existing)
+            existing_has_review = bool(entry.get("hasReview"))
+            existing_review_url = str(entry.get("reviewUrl") or "").strip()
+
+            # Goodreads RSS can omit user_review for already-known reviews.
+            # Preserve prior review metadata unless RSS clearly provides it.
+            effective_has_review = has_review or (
+                existing_has_review and "/review/show/" in existing_review_url
+            )
+            effective_review_url = (
+                review_url if has_review else (existing_review_url if effective_has_review else "")
+            )
+
+            # Overwrite fields that come from RSS so we keep data fresh.
+            entry.update(
+                {
+                    "bookId": book_id,
+                    "title": title,
+                    "author": author,
+                    "dateRead": resolve_date_read(item),
+                    "rating": rating,
+                    "reviewUrl": effective_review_url,
+                    "hasReview": effective_has_review,
+                }
+            )
+            if "reviewLikes" not in entry:
+                entry["reviewLikes"] = review_likes
+            if "scrapeStatus" not in entry:
+                entry["scrapeStatus"] = scrape_status
+        else:
+            entry = {
+                "bookId": book_id,
+                "title": title,
+                "author": author,
+                "dateRead": resolve_date_read(item),
+                "rating": rating,
+                "reviewUrl": review_url if has_review else "",
+                "hasReview": has_review,
+                "reviewLikes": review_likes,
+                "scrapeStatus": scrape_status,
+            }
+
         books.append(entry)
-        if scrape_likes and has_review:
+        should_scrape_likes = False
+        entry_has_review = bool(entry.get("hasReview")) and "/review/show/" in str(
+            entry.get("reviewUrl") or ""
+        )
+        if entry_has_review and scrape_likes_mode == "all":
+            should_scrape_likes = True
+        elif entry_has_review and scrape_likes_mode == "new" and is_new:
+            should_scrape_likes = True
+        if should_scrape_likes:
             scrape_queue.append(entry)
 
     if verbose:
         print(f"[LIBROS] Libros leídos detectados: {len(books)}")
         print(f"[SCRAPE] Reseñas candidatas para likes: {len(scrape_queue)}")
 
-    if scrape_likes:
+    if scrape_queue:
         total = len(scrape_queue)
         for idx, entry in enumerate(scrape_queue, start=1):
             try:
@@ -179,11 +248,21 @@ def build_library_data(
                     f"faltan={remaining} | {entry['title'][:80]}"
                 )
 
+    # Keep older books not present in fetched RSS window to avoid data loss.
+    for existing_id, existing_entry in existing_by_id.items():
+        if existing_id in seen_ids:
+            continue
+        books.append(dict(existing_entry))
+
     books.sort(key=lambda b: (b.get("dateRead") or ""), reverse=True)
 
     return {
         "generatedAt": datetime.now(timezone.utc).isoformat(),
-        "source": {"rssUrl": rss_url, "scrapeLikes": scrape_likes},
+        "source": {
+            "rssUrl": rss_url,
+            "scrapeLikes": scrape_likes_mode != "none",
+            "scrapeLikesMode": scrape_likes_mode,
+        },
         "books": books,
     }
 
@@ -203,9 +282,18 @@ def main() -> int:
         help="Output JSON file.",
     )
     parser.add_argument(
+        "--scrape-likes-mode",
+        choices=("none", "new", "all"),
+        default="none",
+        help=(
+            "Política de likes: none (no scrape), new (solo libros nuevos), "
+            "all (todos los libros con reseña)."
+        ),
+    )
+    parser.add_argument(
         "--scrape-likes",
         action="store_true",
-        help="Fetch each review page and extract likes count.",
+        help="Compatibilidad: equivalente a --scrape-likes-mode=all.",
     )
     parser.add_argument(
         "--cookie",
@@ -219,17 +307,27 @@ def main() -> int:
         help="Número máximo de páginas RSS a leer (Goodreads pagina resultados).",
     )
     parser.add_argument(
+        "--merge-from",
+        default="",
+        help=(
+            "Ruta a un library.json existente para mantener campos previos "
+            "(likes/reviewLocal*), y detectar libros nuevos."
+        ),
+    )
+    parser.add_argument(
         "--verbose",
         action="store_true",
         help="Muestra progreso detallado en consola.",
     )
     args = parser.parse_args()
+    scrape_likes_mode = "all" if args.scrape_likes else args.scrape_likes_mode
 
     data = build_library_data(
         rss_url=args.rss_url,
-        scrape_likes=args.scrape_likes,
+        scrape_likes_mode=scrape_likes_mode,
         cookie=args.cookie,
         max_rss_pages=max(1, args.rss_pages),
+        merge_from=args.merge_from,
         verbose=args.verbose,
     )
 
@@ -240,7 +338,7 @@ def main() -> int:
         f.write("\n")
 
     print(f"Archivo generado: {out_path} ({len(data['books'])} libros leídos)")
-    if args.scrape_likes and not args.cookie:
+    if scrape_likes_mode != "none" and not args.cookie:
         print("Aviso: --scrape-likes sin --cookie puede devolver 0 likes en reseñas privadas.")
     return 0
 

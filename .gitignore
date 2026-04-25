@@ -4,3 +4,6 @@ sources/
 contrib/*
 update/*
 spinoffs/*
+.cookie
+.rss
+.update.sh

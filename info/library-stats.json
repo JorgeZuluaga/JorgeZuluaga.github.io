@@ -7,7 +7,7 @@
   "yearlyReads": [
     {
       "year": 2026,
-      "count": 25
+      "count": 30
     },
     {
       "year": 2025,
@@ -19,11 +19,11 @@
     },
     {
       "year": 2023,
-      "count": 83
+      "count": 84
     },
     {
       "year": 2022,
-      "count": 77
+      "count": 78
     },
     {
       "year": 2021,
@@ -48,6 +48,52 @@
   ],
   "latestRead": [
     {
+      "bookId": "5996229",
+      "title": "A las puertas del El Ubérrimo",
+      "author": "Iván Cepeda",
+      "dateRead": "2026-04-25",
+      "rating": 5,
+      "reviewUrl": "",
+      "reviewLikes": 0
+    },
+    {
+      "bookId": "59021993",
+      "title": "La música del universo: Qué son la ondas gravitacionales y por qué cambiaron nuestra forma de entender el cosmos",
+      "author": "Lidia Díaz",
+      "dateRead": "2026-04-24",
+      "rating": 5,
+      "reviewUrl": "https://www.goodreads.com/review/show/7583251244?utm_medium=api&utm_source=rss",
+      "reviewLikes": 1,
+      "reviewLocalUrl": "./reviews/7583251244.html",
+      "reviewLocalCoverUrl": "./reviews/covers/7583251244.jpg",
+      "reviewDate": "2026-04-25",
+      "reviewLocalStatus": "ok",
+      "reviewLocalGeneratedAt": "2026-04-25T17:20:30.020488+00:00"
+    },
+    {
+      "bookId": "220648311",
+      "title": "En el amor y en la guerra (La catedral del mar #3)",
+      "author": "Ildefonso Falcones",
+      "dateRead": "2026-04-19",
+      "rating": 5,
+      "reviewUrl": "https://www.goodreads.com/review/show/7697087651?utm_medium=api&utm_source=rss",
+      "reviewLikes": 1,
+      "reviewLocalUrl": "./reviews/7697087651.html",
+      "reviewLocalCoverUrl": "./reviews/covers/7697087651.jpg",
+      "reviewDate": "2026-04-25",
+      "reviewLocalStatus": "ok",
+      "reviewLocalGeneratedAt": "2026-04-25T17:20:31.838487+00:00"
+    },
+    {
+      "bookId": "242110718",
+      "title": "Humanidades: Lo visible y lo invisible",
+      "author": "Carlos Peña",
+      "dateRead": "2026-04-15",
+      "rating": 5,
+      "reviewUrl": "",
+      "reviewLikes": 0
+    },
+    {
       "bookId": "216802309",
       "title": "La conciencia contada por un sapiens a un neandertal",
       "author": "Juan José Millás",
@@ -55,42 +101,6 @@
       "rating": 5,
       "reviewUrl": "",
       "reviewLikes": 0
-    },
-    {
-      "bookId": "24114125",
-      "title": "Las memorias de Sherlock Holmes",
-      "author": "Arthur Conan Doyle",
-      "dateRead": "2026-04-03",
-      "rating": 3,
-      "reviewUrl": "",
-      "reviewLikes": 0
-    },
-    {
-      "bookId": "244149479",
-      "title": "Pirámides, dioses y sabidurías perdidas del mundo antiguo",
-      "author": "Tito Vivas",
-      "dateRead": "2026-03-28",
-      "rating": 5,
-      "reviewUrl": "https://www.goodreads.com/review/show/8472202778?utm_medium=api&utm_source=rss",
-      "reviewLikes": 0
-    },
-    {
-      "bookId": "241640739",
-      "title": "Un himno a la vida: Mi historia",
-      "author": "Gisèle Pelicot",
-      "dateRead": "2026-03-27",
-      "rating": 5,
-      "reviewUrl": "https://www.goodreads.com/review/show/8460915900?utm_medium=api&utm_source=rss",
-      "reviewLikes": 1
-    },
-    {
-      "bookId": "57299481",
-      "title": "Proyecto Hail Mary",
-      "author": "Andy Weir",
-      "dateRead": "2026-03-22",
-      "rating": 5,
-      "reviewUrl": "https://www.goodreads.com/review/show/4360307186?utm_medium=api&utm_source=rss",
-      "reviewLikes": 19
     }
   ],
   "topReviewedByLikes": [
@@ -101,7 +111,12 @@
       "dateRead": "2021-12-30",
       "rating": 4,
       "reviewUrl": "https://www.goodreads.com/review/show/4423951235?utm_medium=api&utm_source=rss",
-      "reviewLikes": 70
+      "reviewLikes": 70,
+      "reviewLocalUrl": "./reviews/4423951235.html",
+      "reviewLocalCoverUrl": "./reviews/covers/4423951235.jpg",
+      "reviewDate": "2025-01-07",
+      "reviewLocalStatus": "ok",
+      "reviewLocalGeneratedAt": "2026-04-14T13:22:33.231193+00:00"
     },
     {
       "bookId": "58978750",
@@ -110,7 +125,12 @@
       "dateRead": "2021-09-12",
       "rating": 5,
       "reviewUrl": "https://www.goodreads.com/review/show/4232235817?utm_medium=api&utm_source=rss",
-      "reviewLikes": 63
+      "reviewLikes": 63,
+      "reviewLocalUrl": "./reviews/4232235817.html",
+      "reviewLocalStatus": "ok",
+      "reviewLocalGeneratedAt": "2026-04-14T13:25:42.686095+00:00",
+      "reviewLocalCoverUrl": "./reviews/covers/4232235817.jpg",
+      "reviewDate": "2021-09-14"
     },
     {
       "bookId": "61967442",
@@ -119,7 +139,12 @@
       "dateRead": "2024-07-20",
       "rating": 5,
       "reviewUrl": "https://www.goodreads.com/review/show/6667355680?utm_medium=api&utm_source=rss",
-      "reviewLikes": 54
+      "reviewLikes": 54,
+      "reviewLocalUrl": "./reviews/6667355680.html",
+      "reviewLocalStatus": "ok",
+      "reviewLocalGeneratedAt": "2026-04-14T13:06:02.524894+00:00",
+      "reviewLocalCoverUrl": "./reviews/covers/6667355680.jpg",
+      "reviewDate": "2024-07-20"
     },
     {
       "bookId": "21524683",
@@ -128,7 +153,12 @@
       "dateRead": "2023-02-22",
       "rating": 5,
       "reviewUrl": "https://www.goodreads.com/review/show/3063403087?utm_medium=api&utm_source=rss",
-      "reviewLikes": 48
+      "reviewLikes": 48,
+      "reviewLocalUrl": "./reviews/3063403087.html",
+      "reviewLocalStatus": "ok",
+      "reviewLocalGeneratedAt": "2026-04-14T13:14:04.215916+00:00",
+      "reviewLocalCoverUrl": "./reviews/covers/3063403087.jpg",
+      "reviewDate": "2023-02-26"
     },
     {
       "bookId": "44577138",
@@ -137,7 +167,12 @@
       "dateRead": "2022-04-14",
       "rating": 5,
       "reviewUrl": "https://www.goodreads.com/review/show/4664229801?utm_medium=api&utm_source=rss",
-      "reviewLikes": 41
+      "reviewLikes": 41,
+      "reviewLocalUrl": "./reviews/4664229801.html",
+      "reviewLocalStatus": "ok",
+      "reviewLocalGeneratedAt": "2026-04-14T13:20:46.272362+00:00",
+      "reviewLocalCoverUrl": "./reviews/covers/4664229801.jpg",
+      "reviewDate": "2022-04-15"
     },
     {
       "bookId": "59110779",
@@ -146,7 +181,12 @@
       "dateRead": "2021-10-10",
       "rating": 5,
       "reviewUrl": "https://www.goodreads.com/review/show/4278716233?utm_medium=api&utm_source=rss",
-      "reviewLikes": 33
+      "reviewLikes": 33,
+      "reviewLocalUrl": "./reviews/4278716233.html",
+      "reviewLocalStatus": "ok",
+      "reviewLocalGeneratedAt": "2026-04-14T13:25:08.468113+00:00",
+      "reviewLocalCoverUrl": "./reviews/covers/4278716233.jpg",
+      "reviewDate": "2021-10-12"
     },
     {
       "bookId": "40135796",
@@ -155,7 +195,12 @@
       "dateRead": "2020-07-01",
       "rating": 5,
       "reviewUrl": "https://www.goodreads.com/review/show/3344914655?utm_medium=api&utm_source=rss",
-      "reviewLikes": 33
+      "reviewLikes": 33,
+      "reviewLocalUrl": "./reviews/3344914655.html",
+      "reviewLocalStatus": "ok",
+      "reviewLocalGeneratedAt": "2026-04-14T13:36:21.923900+00:00",
+      "reviewLocalCoverUrl": "./reviews/covers/3344914655.jpg",
+      "reviewDate": "2020-07-03"
     },
     {
       "bookId": "125064740",
@@ -164,7 +209,12 @@
       "dateRead": "2023-05-26",
       "rating": 5,
       "reviewUrl": "https://www.goodreads.com/review/show/5469066244?utm_medium=api&utm_source=rss",
-      "reviewLikes": 30
+      "reviewLikes": 30,
+      "reviewLocalUrl": "./reviews/5469066244.html",
+      "reviewLocalStatus": "ok",
+      "reviewLocalGeneratedAt": "2026-04-14T13:12:17.048634+00:00",
+      "reviewLocalCoverUrl": "./reviews/covers/5469066244.jpg",
+      "reviewDate": "2023-05-28"
     },
     {
       "bookId": "17567272",
@@ -173,7 +223,12 @@
       "dateRead": "2023-05-22",
       "rating": 5,
       "reviewUrl": "https://www.goodreads.com/review/show/3758441020?utm_medium=api&utm_source=rss",
-      "reviewLikes": 28
+      "reviewLikes": 28,
+      "reviewLocalUrl": "./reviews/3758441020.html",
+      "reviewLocalStatus": "ok",
+      "reviewLocalGeneratedAt": "2026-04-14T13:12:22.430656+00:00",
+      "reviewLocalCoverUrl": "./reviews/covers/3758441020.jpg",
+      "reviewDate": "2023-06-21"
     },
     {
       "bookId": "49394794",
@@ -182,10 +237,43 @@
       "dateRead": "2021-02-28",
       "rating": 5,
       "reviewUrl": "https://www.goodreads.com/review/show/3742582688?utm_medium=api&utm_source=rss",
-      "reviewLikes": 28
+      "reviewLikes": 28,
+      "reviewLocalUrl": "./reviews/3742582688.html",
+      "reviewLocalStatus": "ok",
+      "reviewLocalGeneratedAt": "2026-04-14T13:30:25.914420+00:00",
+      "reviewLocalCoverUrl": "./reviews/covers/3742582688.jpg",
+      "reviewDate": "2024-06-10"
     }
   ],
   "latestReviewed": [
+    {
+      "bookId": "59021993",
+      "title": "La música del universo: Qué son la ondas gravitacionales y por qué cambiaron nuestra forma de entender el cosmos",
+      "author": "Lidia Díaz",
+      "dateRead": "2026-04-24",
+      "rating": 5,
+      "reviewUrl": "https://www.goodreads.com/review/show/7583251244?utm_medium=api&utm_source=rss",
+      "reviewLikes": 1,
+      "reviewLocalUrl": "./reviews/7583251244.html",
+      "reviewLocalCoverUrl": "./reviews/covers/7583251244.jpg",
+      "reviewDate": "2026-04-25",
+      "reviewLocalStatus": "ok",
+      "reviewLocalGeneratedAt": "2026-04-25T17:20:30.020488+00:00"
+    },
+    {
+      "bookId": "220648311",
+      "title": "En el amor y en la guerra (La catedral del mar #3)",
+      "author": "Ildefonso Falcones",
+      "dateRead": "2026-04-19",
+      "rating": 5,
+      "reviewUrl": "https://www.goodreads.com/review/show/7697087651?utm_medium=api&utm_source=rss",
+      "reviewLikes": 1,
+      "reviewLocalUrl": "./reviews/7697087651.html",
+      "reviewLocalCoverUrl": "./reviews/covers/7697087651.jpg",
+      "reviewDate": "2026-04-25",
+      "reviewLocalStatus": "ok",
+      "reviewLocalGeneratedAt": "2026-04-25T17:20:31.838487+00:00"
+    },
     {
       "bookId": "244149479",
       "title": "Pirámides, dioses y sabidurías perdidas del mundo antiguo",
@@ -193,7 +281,12 @@
       "dateRead": "2026-03-28",
       "rating": 5,
       "reviewUrl": "https://www.goodreads.com/review/show/8472202778?utm_medium=api&utm_source=rss",
-      "reviewLikes": 0
+      "reviewLikes": 0,
+      "reviewLocalUrl": "./reviews/8472202778.html",
+      "reviewLocalStatus": "ok",
+      "reviewLocalGeneratedAt": "2026-04-25T17:20:33.728976+00:00",
+      "reviewLocalCoverUrl": "./reviews/covers/8472202778.jpg",
+      "reviewDate": "2026-03-28"
     },
     {
       "bookId": "241640739",
@@ -202,7 +295,12 @@
       "dateRead": "2026-03-27",
       "rating": 5,
       "reviewUrl": "https://www.goodreads.com/review/show/8460915900?utm_medium=api&utm_source=rss",
-      "reviewLikes": 1
+      "reviewLikes": 1,
+      "reviewLocalUrl": "./reviews/8460915900.html",
+      "reviewLocalCoverUrl": "./reviews/covers/8460915900.jpg",
+      "reviewDate": "2026-03-28",
+      "reviewLocalStatus": "ok",
+      "reviewLocalGeneratedAt": "2026-04-25T17:20:35.617791+00:00"
     },
     {
       "bookId": "57299481",
@@ -211,30 +309,17 @@
       "dateRead": "2026-03-22",
       "rating": 5,
       "reviewUrl": "https://www.goodreads.com/review/show/4360307186?utm_medium=api&utm_source=rss",
-      "reviewLikes": 19
-    },
-    {
-      "bookId": "60774041",
-      "title": "Infocracia: La digitalización y la crisis de la democracia",
-      "author": "Byung-Chul Han",
-      "dateRead": "2026-03-15",
-      "rating": 5,
-      "reviewUrl": "https://www.goodreads.com/review/show/8436209556?utm_medium=api&utm_source=rss",
-      "reviewLikes": 3
-    },
-    {
-      "bookId": "64995169",
-      "title": "Vida contemplativa: Elogio de la inactividad",
-      "author": "Byung-Chul Han",
-      "dateRead": "2026-03-14",
-      "rating": 4,
-      "reviewUrl": "https://www.goodreads.com/review/show/5278047196?utm_medium=api&utm_source=rss",
-      "reviewLikes": 5
+      "reviewLikes": 19,
+      "reviewLocalUrl": "./reviews/4360307186.html",
+      "reviewLocalCoverUrl": "./reviews/covers/4360307186.jpg",
+      "reviewDate": "2026-03-22",
+      "reviewLocalStatus": "ok",
+      "reviewLocalGeneratedAt": "2026-04-25T17:20:37.957072+00:00"
     }
   ],
   "totals": {
-    "booksRead": 574,
-    "booksReviewed": 447,
-    "totalReviewLikes": 2968
+    "booksRead": 581,
+    "booksReviewed": 451,
+    "totalReviewLikes": 2980
   }
 }

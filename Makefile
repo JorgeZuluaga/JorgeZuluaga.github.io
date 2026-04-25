@@ -1,7 +1,7 @@
 .PHONY: \
 	help start dev stop \
 	classroom \
-	library-build library-stats library-refresh \
+	library-build library-update library-stats library-refresh \
 	reviews-first reviews-all reviews-force reviews-refresh
 
 PORT ?= 8000
@@ -9,9 +9,10 @@ HOST ?= 127.0.0.1
 LIBRARY_JSON ?= info/library.json
 LIBRARY_STATS_JSON ?= info/library-stats.json
 RSS_URL ?=
-COOKIE ?=
-RSS_PAGES ?= 1
-REVIEW_RSS_PAGES ?= 40
+COOKIE ?= 
+RSS_PAGES ?= 100
+REVIEW_RSS_PAGES ?= 100
+FORCE ?= 0
 
 help:
 	@echo "Available targets:"
@@ -21,7 +22,11 @@ help:
 	@echo "  make stop               - Stop server running on PORT"
 	@echo "  make classroom          - Sync Google Classroom courses"
 	@echo "  make library-build      - Build info/library.json from Goodreads RSS"
-	@echo "                            Required: RSS_URL=... Optional: COOKIE=... RSS_PAGES=..."
+	@echo "                            Required: RSS_URL=... Optional: COOKIE=... RSS_PAGES=... (likes completos)"
+	@echo "  make library-update     - Incremental update (books + reviews) using FORCE mode"
+	@echo "                            FORCE=0: solo libros nuevos, sin refresh de likes"
+	@echo "                            FORCE=1: likes/reseñas solo de libros nuevos"
+	@echo "                            FORCE=2: likes y reseñas completas (full refresh)"
 	@echo "  make library-stats      - Rebuild info/library-stats.json"
 	@echo "  make library-refresh    - Run library-build + library-stats"
 	@echo "  make reviews-all        - Mirror all reviews in reviews/"
@@ -73,9 +78,43 @@ library-build:
 		--rss-url "$(RSS_URL)" \
 		--out "$(LIBRARY_JSON)" \
 		--rss-pages "$(RSS_PAGES)" \
-		--scrape-likes \
+		--scrape-likes-mode all \
 		--cookie "$(COOKIE)" \
 		--verbose
+
+# Incremental update:
+# FORCE=0 -> no likes scrape; only new books are added to library, existing metadata is preserved.
+# FORCE=1 -> scrape likes only for new books, mirror only new reviews.
+# FORCE=2 -> full likes + full reviews refresh.
+library-update:
+	@if [ -z "$(RSS_URL)" ]; then \
+		echo "RSS_URL es obligatorio. Ejemplo:"; \
+		echo "make library-update RSS_URL=\"https://www.goodreads.com/review/list_rss/...\" FORCE=0"; \
+		exit 1; \
+	fi
+	@if [ "$(FORCE)" != "0" ] && [ "$(FORCE)" != "1" ] && [ "$(FORCE)" != "2" ]; then \
+		echo "FORCE debe ser 0, 1 o 2."; \
+		exit 1; \
+	fi
+	@LIKES_MODE="none"; \
+	if [ "$(FORCE)" = "1" ]; then LIKES_MODE="new"; fi; \
+	if [ "$(FORCE)" = "2" ]; then LIKES_MODE="all"; fi; \
+	echo "library-update: FORCE=$(FORCE) likes=$$LIKES_MODE"; \
+	python3 bin/build_library_from_goodreads.py \
+		--rss-url "$(RSS_URL)" \
+		--out "$(LIBRARY_JSON)" \
+		--rss-pages "$(RSS_PAGES)" \
+		--scrape-likes-mode "$$LIKES_MODE" \
+		--merge-from "$(LIBRARY_JSON)" \
+		--cookie "$(COOKIE)" \
+		--verbose
+	@if [ "$(FORCE)" = "2" ]; then \
+		$(MAKE) reviews-force COOKIE="$(COOKIE)" REVIEW_RSS_PAGES="$(REVIEW_RSS_PAGES)"; \
+	else \
+		$(MAKE) reviews-all COOKIE="$(COOKIE)" REVIEW_RSS_PAGES="$(REVIEW_RSS_PAGES)"; \
+	fi
+	@$(MAKE) library-stats
+	@echo "Library update completed (FORCE=$(FORCE))."
 
 # Regenerate info/library-stats.json from info/library.json.
 library-stats:

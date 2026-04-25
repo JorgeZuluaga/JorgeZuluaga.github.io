@@ -21,6 +21,8 @@ from mirror_first_review import (
     is_signin_page,
 )
 
+DEFAULT_REFRESH_LATEST = 10
+
 
 def has_review_url(book: dict) -> bool:
     return "/review/show/" in str(book.get("reviewUrl") or "")
@@ -84,6 +86,16 @@ def build_example_series_from_repeated_author(books: list[dict]) -> dict:
     }
 
 
+def sort_books_latest_first(books: list[dict]) -> list[dict]:
+    def key(book: dict) -> tuple[str, str]:
+        # Prefer reviewDate when present; fallback to dateRead.
+        primary_date = str(book.get("reviewDate") or book.get("dateRead") or "").strip()
+        book_id = str(book.get("bookId") or "").strip()
+        return (primary_date, book_id)
+
+    return sorted(books, key=key, reverse=True)
+
+
 def main() -> int:
     parser = argparse.ArgumentParser(
         description="Genera mirror local para TODAS las reseñas en info/library.json."
@@ -114,6 +126,15 @@ def main() -> int:
         action="store_true",
         help="Regenera mirrors aunque ya existan.",
     )
+    parser.add_argument(
+        "--refresh-latest",
+        type=int,
+        default=DEFAULT_REFRESH_LATEST,
+        help=(
+            "Número de reseñas más recientes a regenerar siempre, "
+            "incluso si ya existen."
+        ),
+    )
     args = parser.parse_args()
 
     library_path = Path(args.library_json)
@@ -130,14 +151,17 @@ def main() -> int:
 
     books = list(library.get("books") or [])
     candidates = [b for b in books if has_review_url(b)]
+    candidates = sort_books_latest_first(candidates)
     total = len(candidates)
     if total == 0:
         print("No hay reseñas en library.json para mirror.")
         return 0
 
     rss_url = str((library.get("source") or {}).get("rssUrl") or "").strip()
+    refresh_latest = max(0, args.refresh_latest)
     print(f"[INFO] Reseñas candidatas: {total}")
     print(f"[INFO] Modo force: {'sí' if args.force else 'no'}")
+    print(f"[INFO] Reseñas recientes a refrescar: {refresh_latest}")
 
     mirrored = 0
     skipped = 0
@@ -151,7 +175,8 @@ def main() -> int:
         existing_local = local_html_path_from_book(book, reviews_dir)
         already_mirrored = existing_local.exists() and bool(book.get("reviewLocalStatus") == "ok")
 
-        if already_mirrored and not args.force:
+        is_latest_window = idx <= refresh_latest
+        if already_mirrored and not args.force and not is_latest_window:
             skipped += 1
             print(f"[{idx}/{total}] SKIP | {title}")
             continue
@@ -218,14 +243,16 @@ def main() -> int:
         json.dump(library, f, ensure_ascii=False, indent=2)
         f.write("\n")
 
-    # Keep book_series aligned with current library data:
-    # if there is a repeated author, generate one example series;
-    # otherwise leave the series list empty.
+    # Preserve custom book series if the file already exists.
+    # Only create an example file on first run.
     series_path = library_path.parent / "book_series.json"
-    series_data = build_example_series_from_repeated_author(books)
-    with series_path.open("w", encoding="utf-8") as f:
-        json.dump(series_data, f, ensure_ascii=False, indent=2)
-        f.write("\n")
+    series_created = False
+    if not series_path.exists():
+        series_data = build_example_series_from_repeated_author(books)
+        with series_path.open("w", encoding="utf-8") as f:
+            json.dump(series_data, f, ensure_ascii=False, indent=2)
+            f.write("\n")
+        series_created = True
 
     print("")
     print("[RESUMEN]")
@@ -233,7 +260,10 @@ def main() -> int:
     print(f"- Skipped: {skipped}")
     print(f"- Errores: {errors}")
     print(f"- Archivo actualizado: {library_path}")
-    print(f"- Series de ejemplo actualizadas: {series_path}")
+    if series_created:
+        print(f"- Series de ejemplo creadas: {series_path}")
+    else:
+        print(f"- Series preservadas (no sobreescritas): {series_path}")
     return 0
 
 
