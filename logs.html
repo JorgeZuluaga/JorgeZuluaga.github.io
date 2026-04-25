@@ -33,6 +33,16 @@
     .country-cloud { display: flex; flex-wrap: wrap; gap: .45rem; margin-top: .6rem; }
     .country-chip { border: 1px solid var(--border-bottom); background: var(--box); color: var(--black); border-radius: 999px; padding: .35rem .6rem; font-size: .88rem; cursor: pointer; }
     .country-chip.active { background: var(--accent); color: #fff; border-color: var(--accent); }
+    .logs-range { display: flex; flex-wrap: wrap; gap: .45rem; margin: .5rem 0 .8rem; }
+    .logs-range-btn { border: 1px solid var(--border-bottom); background: var(--box); color: var(--black); border-radius: 999px; padding: .35rem .65rem; font-size: .86rem; cursor: pointer; }
+    .logs-range-btn.active { background: var(--accent); color: #fff; border-color: var(--accent); }
+    .logs-chart-wrap { background: var(--box); border-radius: 10px; box-shadow: var(--box-shadow); padding: .9rem; }
+    .logs-chart-legend { display: flex; flex-wrap: wrap; gap: .8rem; font-size: .82rem; margin-bottom: .5rem; color: var(--black); opacity: .9; }
+    .logs-dot { display: inline-block; width: .65rem; height: .65rem; border-radius: 50%; margin-right: .35rem; vertical-align: middle; }
+    .logs-dot-events { background: var(--accent); }
+    .logs-dot-visitors { background: #16a34a; }
+    .logs-chart-svg { width: 100%; height: 280px; display: block; }
+    .logs-chart-empty { font-size: .9rem; opacity: .8; color: var(--black); }
   </style>
 </head>
 
@@ -58,6 +68,24 @@
       <p id="logs-error" class="logs-error" hidden></p>
 
       <section class="logs-grid" id="logs-summary"></section>
+
+      <section class="logs-section">
+        <h2>Curva temporal (eventos vs visitantes únicos)</h2>
+        <div class="logs-range" id="logs-range-buttons">
+          <button class="logs-range-btn active" type="button" data-range-days="7">Última semana</button>
+          <button class="logs-range-btn" type="button" data-range-days="30">Último mes</button>
+          <button class="logs-range-btn" type="button" data-range-days="90">Último trimestre</button>
+          <button class="logs-range-btn" type="button" data-range-days="180">Último semestre</button>
+          <button class="logs-range-btn" type="button" data-range-days="365">Último año</button>
+        </div>
+        <div class="logs-chart-wrap">
+          <p class="logs-chart-legend">
+            <span><span class="logs-dot logs-dot-events"></span>Eventos</span>
+            <span><span class="logs-dot logs-dot-visitors"></span>Visitantes únicos (IPs)</span>
+          </p>
+          <div id="logs-timeseries"></div>
+        </div>
+      </section>
 
       <section class="logs-section">
         <h2>Páginas visitadas</h2>

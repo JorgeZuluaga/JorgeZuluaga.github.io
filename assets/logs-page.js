@@ -1,6 +1,7 @@
 const TOKEN_STORAGE_KEY = "visitorLogsReadToken";
 let allLogsCache = [];
 let selectedCountry = "";
+let selectedRangeDays = 7;
 
 function endpointFromMeta() {
   const el = document.querySelector('meta[name="visitor-log-read-endpoint"]');
@@ -85,6 +86,150 @@ function renderRowsHtml(tbodyId, rows) {
   tbody.innerHTML = rows
     .map(([kHtml, v]) => `<tr><td>${kHtml}</td><td>${v}</td></tr>`)
     .join("");
+}
+
+function dateKeyLocal(dateObj) {
+  const y = dateObj.getFullYear();
+  const m = String(dateObj.getMonth() + 1).padStart(2, "0");
+  const d = String(dateObj.getDate()).padStart(2, "0");
+  return `${y}-${m}-${d}`;
+}
+
+function plusDays(dateObj, deltaDays) {
+  const copy = new Date(dateObj);
+  copy.setDate(copy.getDate() + deltaDays);
+  return copy;
+}
+
+function formatShortDate(dateObj) {
+  const dd = String(dateObj.getDate()).padStart(2, "0");
+  const mm = String(dateObj.getMonth() + 1).padStart(2, "0");
+  return `${dd}/${mm}`;
+}
+
+function buildTimeSeries(logs, days) {
+  const safeDays = Math.max(1, Number(days) || 7);
+  const end = new Date();
+  end.setHours(0, 0, 0, 0);
+  const start = plusDays(end, -(safeDays - 1));
+  const rows = [];
+  const byDay = new Map();
+
+  for (let i = 0; i < safeDays; i += 1) {
+    const dt = plusDays(start, i);
+    const key = dateKeyLocal(dt);
+    byDay.set(key, { date: dt, events: 0, ipSet: new Set() });
+  }
+
+  for (const log of logs) {
+    const rawTs = String(log?.timestampServer || "").trim();
+    if (!rawTs) continue;
+    const dt = new Date(rawTs);
+    if (Number.isNaN(dt.getTime())) continue;
+    const key = dateKeyLocal(dt);
+    const bucket = byDay.get(key);
+    if (!bucket) continue;
+    bucket.events += 1;
+    const ip = String(log?.ip || "").trim();
+    if (ip) bucket.ipSet.add(ip);
+  }
+
+  for (const [, bucket] of byDay) {
+    rows.push({
+      date: bucket.date,
+      label: formatShortDate(bucket.date),
+      events: bucket.events,
+      visitors: bucket.ipSet.size,
+    });
+  }
+
+  return rows;
+}
+
+function pointsForSeries(series, valueSelector, width, height, padX, padTop, padBottom, maxY) {
+  const n = series.length;
+  const plotW = Math.max(1, width - 2 * padX);
+  const plotH = Math.max(1, height - padTop - padBottom);
+  return series.map((row, idx) => {
+    const x = padX + (n === 1 ? plotW / 2 : (idx / (n - 1)) * plotW);
+    const raw = Number(valueSelector(row) || 0);
+    const y = padTop + (1 - raw / maxY) * plotH;
+    return `${x.toFixed(2)},${y.toFixed(2)}`;
+  });
+}
+
+function renderTimeSeries(logs) {
+  const host = document.getElementById("logs-timeseries");
+  if (!host) return;
+  const series = buildTimeSeries(logs, selectedRangeDays);
+  const maxY = Math.max(
+    1,
+    ...series.map((x) => x.events),
+    ...series.map((x) => x.visitors),
+  );
+  const width = 920;
+  const height = 280;
+  const padX = 40;
+  const padTop = 16;
+  const padBottom = 36;
+  const yTickCount = 4;
+  const yTicks = [];
+  for (let i = 0; i <= yTickCount; i += 1) {
+    const yValue = (maxY * i) / yTickCount;
+    yTicks.push(Math.round(yValue));
+  }
+  const uniqueTicks = [...new Set(yTicks)];
+
+  if (!series.length) {
+    host.innerHTML = '<p class="logs-chart-empty">Sin datos para el rango seleccionado.</p>';
+    return;
+  }
+
+  const eventsPoints = pointsForSeries(
+    series,
+    (r) => r.events,
+    width,
+    height,
+    padX,
+    padTop,
+    padBottom,
+    maxY,
+  ).join(" ");
+  const visitorsPoints = pointsForSeries(
+    series,
+    (r) => r.visitors,
+    width,
+    height,
+    padX,
+    padTop,
+    padBottom,
+    maxY,
+  ).join(" ");
+
+  const plotH = Math.max(1, height - padTop - padBottom);
+  const grid = uniqueTicks
+    .map((tick) => {
+      const y = padTop + (1 - tick / maxY) * plotH;
+      return `<line x1="${padX}" y1="${y.toFixed(2)}" x2="${(width - padX).toFixed(2)}" y2="${y.toFixed(2)}" stroke="rgba(128,128,128,0.25)" stroke-width="1" />
+      <text x="${(padX - 8).toFixed(2)}" y="${(y + 4).toFixed(2)}" text-anchor="end" font-size="11" fill="var(--black)" opacity="0.8">${tick}</text>`;
+    })
+    .join("");
+
+  const xLabelsStep = Math.max(1, Math.floor(series.length / 8));
+  const xLabels = series
+    .map((row, idx) => {
+      if (idx % xLabelsStep !== 0 && idx !== series.length - 1) return "";
+      const x = padX + (series.length === 1 ? (width - 2 * padX) / 2 : (idx / (series.length - 1)) * (width - 2 * padX));
+      return `<text x="${x.toFixed(2)}" y="${(height - 10).toFixed(2)}" text-anchor="middle" font-size="11" fill="var(--black)" opacity="0.8">${row.label}</text>`;
+    })
+    .join("");
+
+  host.innerHTML = `<svg class="logs-chart-svg" viewBox="0 0 ${width} ${height}" role="img" aria-label="Serie temporal de eventos y visitantes únicos">
+    ${grid}
+    <polyline fill="none" stroke="var(--accent)" stroke-width="2.5" points="${eventsPoints}" />
+    <polyline fill="none" stroke="#16a34a" stroke-width="2.5" points="${visitorsPoints}" />
+    ${xLabels}
+  </svg>`;
 }
 
 function renderSummary(logs) {
@@ -209,6 +354,7 @@ async function renderReport(logs) {
   const filteredLogs = selectedCountry
     ? logs.filter((x) => String(x.country || "XX").toUpperCase() === selectedCountry)
     : logs;
+  renderTimeSeries(filteredLogs);
 
   const reviewTitleMap = await buildReviewTitleMap();
   renderSummary(filteredLogs);
@@ -327,6 +473,19 @@ function wire() {
     setError(e.message || "No fue posible cargar logs.");
     setStatus("Error de consulta.");
   }));
+
+  const rangeBox = document.getElementById("logs-range-buttons");
+  rangeBox?.querySelectorAll("[data-range-days]").forEach((btn) => {
+    btn.addEventListener("click", () => {
+      const days = Number(btn.getAttribute("data-range-days") || 7);
+      selectedRangeDays = Math.max(1, days);
+      rangeBox.querySelectorAll("[data-range-days]").forEach((x) => x.classList.remove("active"));
+      btn.classList.add("active");
+      renderReportFromCache().catch((e) => {
+        setError(e.message || "No fue posible actualizar la curva temporal.");
+      });
+    });
+  });
 }
 
 wire();
