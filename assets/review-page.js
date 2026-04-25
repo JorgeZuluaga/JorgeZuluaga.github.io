@@ -43,6 +43,29 @@ function likesStorageKey(reviewId) {
   return `review_like_clicked_${reviewId}`;
 }
 
+function isEnglishPage() {
+  return String(document.documentElement.lang || "").toLowerCase().startsWith("en");
+}
+
+function uiText() {
+  if (isEnglishPage()) {
+    return {
+      like: "Like",
+      liked: "You like",
+      likeAria: "Like. Total",
+      localLikesAria: "Local likes:",
+      localLikesSuffix: "(local likes)",
+    };
+  }
+  return {
+    like: "Me gusta",
+    liked: "Te gusta",
+    likeAria: "Me gusta. Total",
+    localLikesAria: "Me gusta locales:",
+    localLikesSuffix: "(me gusta locales)",
+  };
+}
+
 function updateLikesInPage(likesValue) {
   const likesNode = document.querySelector(".likes");
   if (!likesNode) return;
@@ -56,6 +79,21 @@ function updateLikesInPage(likesValue) {
     return;
   }
   likesNode.textContent = `👍 ${likes}`;
+}
+
+function updateLocalLikesInPage(count) {
+  const text = uiText();
+  const safeCount = Number.isFinite(Number(count)) ? Math.max(0, Number(count)) : 0;
+  let localNode = document.querySelector(".likes-local-inline");
+  if (!localNode) {
+    const row = document.querySelector(".rating-row");
+    if (!row) return;
+    localNode = document.createElement("p");
+    localNode.className = "likes likes-local-inline";
+    row.appendChild(localNode);
+  }
+  localNode.setAttribute("aria-label", `${text.localLikesAria} ${safeCount}`);
+  localNode.textContent = `👏 ${safeCount} ${text.localLikesSuffix}`;
 }
 
 async function hydrateReviewLikesFromLibrary() {
@@ -75,6 +113,7 @@ async function hydrateReviewLikesFromLibrary() {
 }
 
 function upsertLikeButtonUI(reviewId, initialCount = 0) {
+  const text = uiText();
   const fixedHost = document.getElementById("review-like-actions");
   const card = document.querySelector("article.card");
   const host = fixedHost || card;
@@ -91,12 +130,12 @@ function upsertLikeButtonUI(reviewId, initialCount = 0) {
   btn.className = "logs-refresh";
   btn.style.padding = "0.45rem 0.75rem";
   btn.style.fontSize = "0.9rem";
-  btn.textContent = `Me gusta (${initialCount})`;
-  btn.setAttribute("aria-label", `Me gusta. Total ${initialCount}`);
+  btn.textContent = `${text.like} (${initialCount})`;
+  btn.setAttribute("aria-label", `${text.likeAria} ${initialCount}`);
 
   if (localStorage.getItem(likesStorageKey(reviewId)) === "1") {
     btn.disabled = true;
-    btn.textContent = `Te gusta (${initialCount})`;
+    btn.textContent = `${text.liked} (${initialCount})`;
   }
 
   wrap.appendChild(btn);
@@ -104,11 +143,12 @@ function upsertLikeButtonUI(reviewId, initialCount = 0) {
 }
 
 function updateLikeButtonCount(count, likedByMe = false) {
+  const text = uiText();
   const btn = document.getElementById("review-like-btn");
   if (!btn) return;
   const safeCount = Number.isFinite(Number(count)) ? Math.max(0, Number(count)) : 0;
-  btn.textContent = likedByMe ? `Te gusta (${safeCount})` : `Me gusta (${safeCount})`;
-  btn.setAttribute("aria-label", `Me gusta. Total ${safeCount}`);
+  btn.textContent = likedByMe ? `${text.liked} (${safeCount})` : `${text.like} (${safeCount})`;
+  btn.setAttribute("aria-label", `${text.likeAria} ${safeCount}`);
 }
 
 async function fetchLikeCount(base, reviewId) {
@@ -129,6 +169,7 @@ async function wireReviewLikeButton() {
   if (!reviewId || !base) return;
 
   const initialCount = await fetchLikeCount(base, reviewId);
+  updateLocalLikesInPage(initialCount);
   upsertLikeButtonUI(reviewId, initialCount);
   const btn = document.getElementById("review-like-btn");
   if (!btn) return;
@@ -151,6 +192,7 @@ async function wireReviewLikeButton() {
       const data = await response.json();
       const count = Number.isFinite(Number(data?.count)) ? Number(data.count) : initialCount;
       localStorage.setItem(likesStorageKey(reviewId), "1");
+      updateLocalLikesInPage(count);
       updateLikeButtonCount(count, true);
       trackEvent("review_like_click", { reviewId, count, alreadyLiked: Boolean(data?.alreadyLiked) });
     } catch {

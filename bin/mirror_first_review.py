@@ -277,6 +277,7 @@ def build_local_page(
         <div class="rating-row">
           <p class="rating" aria-label="Calificación: {rating} de 5">{stars}</p>
           <p class="likes" aria-label="Likes en GoodReads: {likes}"><a href="{html.escape(review_url)}" target="_blank" rel="noopener noreferrer">👍</a> {likes}</p>
+          <p class="likes likes-local-inline" aria-label="Me gusta locales: 0">👏 0 (me gusta locales)</p>
         </div>
         <p><a class="link" href="{html.escape(review_url)}" target="_blank" rel="noopener noreferrer">Ver reseña en GoodReads (necesita cuenta)</a></p>
         <article class="card">
