@@ -1251,6 +1251,12 @@ body.photos-page .photos-intro {
   flex: 0 0 auto;
 }
 
+/* Biblioteca principal: avatar 30% más grande que el base. */
+#library-main .library-identity__avatar {
+  width: 15em;
+  height: 15em;
+}
+
 .library-identity__avatar img {
   width: 100%;
   height: 100%;

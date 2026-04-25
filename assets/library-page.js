@@ -122,6 +122,21 @@ function renderLocalLikesInContainer(container, map, lang) {
   });
 }
 
+async function mapWithConcurrency(items, worker, concurrency = 8) {
+  const queue = [...items];
+  const runners = [];
+  for (let i = 0; i < Math.max(1, concurrency); i += 1) {
+    runners.push((async () => {
+      while (queue.length) {
+        const next = queue.shift();
+        if (!next) return;
+        await worker(next);
+      }
+    })());
+  }
+  await Promise.all(runners);
+}
+
 async function hydrateLocalLikes(container, items, lang) {
   if (!container || !Array.isArray(items) || items.length === 0) return;
   const base = workerBaseFromLogEndpoint();
@@ -143,16 +158,35 @@ async function hydrateLocalLikes(container, items, lang) {
 
   renderLocalLikesInContainer(container, counts, lang);
 
-  await Promise.all(
-    missing.map(async (reviewId) => {
-      const count = await fetchLocalLikeCount(base, reviewId);
-      if (count === null) return;
-      writeCachedLocalLikes(reviewId, count);
-      counts.set(reviewId, count);
-    }),
-  );
+  await mapWithConcurrency(missing, async (reviewId) => {
+    const count = await fetchLocalLikeCount(base, reviewId);
+    if (count === null) return;
+    writeCachedLocalLikes(reviewId, count);
+    counts.set(reviewId, count);
+  }, 8);
 
   renderLocalLikesInContainer(container, counts, lang);
+}
+
+async function hydrateTotalLocalLikes(totalEl, reviewedItems) {
+  if (!totalEl || !Array.isArray(reviewedItems)) return;
+  const base = workerBaseFromLogEndpoint();
+  if (!base) return;
+  const reviewIds = [...new Set(reviewedItems.map((x) => parseReviewIdFromUrl(x?.reviewUrl)).filter(Boolean))];
+  if (reviewIds.length === 0) {
+    totalEl.textContent = "0";
+    return;
+  }
+  let total = 0;
+  await mapWithConcurrency(reviewIds, async (reviewId) => {
+    let count = readCachedLocalLikes(reviewId);
+    if (count === null) {
+      count = await fetchLocalLikeCount(base, reviewId);
+      if (count !== null) writeCachedLocalLikes(reviewId, count);
+    }
+    if (count !== null) total += count;
+  }, 8);
+  totalEl.textContent = String(total);
 }
 
 function renderBookList(container, items, lang) {
@@ -375,6 +409,7 @@ async function main() {
   const totalReadEl = document.getElementById("library-report-total-read");
   const totalReviewedEl = document.getElementById("library-report-reviewed");
   const totalLikesEl = document.getElementById("library-report-likes");
+  const totalLocalLikesEl = document.getElementById("library-report-likes-local");
   const chartEl = document.getElementById("library-yearly-chart");
   const latestReadEl = document.getElementById("library-latest-read");
   const topReviewedEl = document.getElementById("library-top-reviewed");
@@ -389,6 +424,7 @@ async function main() {
     !totalReadEl ||
     !totalReviewedEl ||
     !totalLikesEl ||
+    !totalLocalLikesEl ||
     !chartEl ||
     !latestReadEl ||
     !topReviewedEl ||
@@ -436,6 +472,7 @@ async function main() {
   totalReadEl.textContent = `${totalRead}`;
   totalReviewedEl.textContent = `${totalReviewed} (${reviewedPct.toFixed(1)}%)`;
   totalLikesEl.textContent = `${totalLikes}`;
+  totalLocalLikesEl.textContent = "0";
 
   const label1 = document.querySelector(
     ".library-report__card:nth-of-type(1) .library-report__label",
@@ -449,6 +486,10 @@ async function main() {
     ".library-report__card:nth-of-type(3) .library-report__label",
   );
   if (label3) label3.textContent = t("library_likes", lang);
+  const label4 = document.querySelector(
+    ".library-report__card:nth-of-type(4) .library-report__label",
+  );
+  if (label4) label4.textContent = t("library_likes_local_total", lang);
 
   document.querySelector(".library-chart")?.setAttribute("aria-label", t("library_by_year", lang));
 
@@ -486,6 +527,7 @@ async function main() {
   renderBookList(topReviewedEl, topReviewedByLikes, lang);
   hydrateLocalLikes(latestReadEl, latestRead, lang).catch(() => {});
   hydrateLocalLikes(topReviewedEl, topReviewedByLikes, lang).catch(() => {});
+  hydrateTotalLocalLikes(totalLocalLikesEl, reviewed).catch(() => {});
   if (seriesCardEl) {
     seriesCardEl.hidden = seriesWithMatches.length === 0;
   }
