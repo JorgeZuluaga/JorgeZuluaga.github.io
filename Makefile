@@ -3,7 +3,8 @@
 	classroom \
 	library-build library-update library-stats library-refresh \
 	reviews-first reviews-all reviews-force reviews-refresh \
-	library-details-import library-details-match library-details-sync
+	library-details-import library-details-match library-details-sync \
+	worker-deploy
 
 PORT ?= 8000
 HOST ?= 127.0.0.1
@@ -41,6 +42,7 @@ help:
 	@echo "  make library-details-import - Import $(BOOKBUDDY_CSV) into $(LIBRARY_DETAILS_JSON)"
 	@echo "  make library-details-match  - Match bookId from $(LIBRARY_JSON) into $(LIBRARY_DETAILS_JSON)"
 	@echo "  make library-details-sync   - Run import + match (use after changing bookbuddy.csv)"
+	@echo "  make worker-deploy      - Deploy Cloudflare worker (visitor-log-worker)"
 
 start:
 	@echo "Starting server on http://$(HOST):$(PORT)"
@@ -179,3 +181,7 @@ library-details-match:
 # Recommended workflow when bookbuddy.csv changes.
 library-details-sync: library-details-import library-details-match
 	@echo "Library details sync completed."
+
+# Deploy Cloudflare Worker defined in wrangler.toml.
+worker-deploy:
+	@npx wrangler deploy

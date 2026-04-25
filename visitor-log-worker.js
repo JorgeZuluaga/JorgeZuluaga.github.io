@@ -75,6 +75,29 @@ async function countReviewLikes(kv, reviewId) {
   return keys.length;
 }
 
+function reviewLikeCountKey(reviewId) {
+  return `review_like_count:${reviewId}`;
+}
+
+async function getStoredReviewLikeCount(kv, reviewId) {
+  const raw = await kv.get(reviewLikeCountKey(reviewId));
+  const parsed = Number(raw);
+  if (!Number.isFinite(parsed) || parsed < 0) return null;
+  return Math.floor(parsed);
+}
+
+async function setStoredReviewLikeCount(kv, reviewId, count) {
+  const safe = Number.isFinite(Number(count)) ? Math.max(0, Math.floor(Number(count))) : 0;
+  await kv.put(reviewLikeCountKey(reviewId), String(safe));
+}
+
+async function incrementStoredReviewLikeCount(kv, reviewId) {
+  const current = await getStoredReviewLikeCount(kv, reviewId);
+  const next = (current ?? 0) + 1;
+  await setStoredReviewLikeCount(kv, reviewId, next);
+  return next;
+}
+
 export default {
   async fetch(request, env) {
     try {
@@ -149,16 +172,39 @@ export default {
             timestampServer: now,
           };
           await env.VISITOR_LOGS.put(key, JSON.stringify(likeRecord));
+          await incrementStoredReviewLikeCount(env.VISITOR_LOGS, reviewId);
         }
 
-        const count = await countReviewLikes(env.VISITOR_LOGS, reviewId);
+        let count = await getStoredReviewLikeCount(env.VISITOR_LOGS, reviewId);
+        if (count === null) {
+          try {
+            count = await countReviewLikes(env.VISITOR_LOGS, reviewId);
+            await setStoredReviewLikeCount(env.VISITOR_LOGS, reviewId, count);
+          } catch {
+            count = 0;
+          }
+        }
         return jsonResponse({ ok: true, reviewId, liked: !already, alreadyLiked: already, count });
       }
 
       if (request.method === "GET" && url.pathname.startsWith("/review-like-count/")) {
         const reviewId = parseReviewId(url.pathname, "/review-like-count/");
         if (!reviewId) return jsonResponse({ ok: false, error: "invalid_review_id" }, 400);
-        const count = await countReviewLikes(env.VISITOR_LOGS, reviewId);
+
+        let count = await getStoredReviewLikeCount(env.VISITOR_LOGS, reviewId);
+        if (count === null) {
+          try {
+            // Fallback path (one-time) for old data before the counter key existed.
+            count = await countReviewLikes(env.VISITOR_LOGS, reviewId);
+            await setStoredReviewLikeCount(env.VISITOR_LOGS, reviewId, count);
+          } catch (err) {
+            const message = err instanceof Error ? err.message : "unknown_error";
+            return jsonResponse(
+              { ok: false, error: "kv_quota_exceeded", message },
+              429,
+            );
+          }
+        }
         return jsonResponse({ ok: true, reviewId, count });
       }
 
@@ -197,7 +243,16 @@ export default {
           return jsonResponse({ ok: false, error: "unauthorized" }, 401);
         }
 
-        const list = await env.VISITOR_LOGS.list({ limit: 200 });
+        let list;
+        try {
+          list = await env.VISITOR_LOGS.list({ limit: 200 });
+        } catch (err) {
+          const message = err instanceof Error ? err.message : "unknown_error";
+          return jsonResponse(
+            { ok: false, error: "kv_quota_exceeded", message },
+            429,
+          );
+        }
         const values = await Promise.all(
           list.keys.map(async (k) => {
             const raw = await env.VISITOR_LOGS.get(k.name);
