@@ -282,6 +282,7 @@ def build_local_page(
         <article class="card">
           {review_fragment}
         </article>
+        <div id="review-like-actions" aria-label="Interacciones de la reseña"></div>
       </div>
     </main>
     <footer class="print-mode-target">

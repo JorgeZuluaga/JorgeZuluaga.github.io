@@ -5,6 +5,17 @@
   "intro_en": "High-resolution images of Jorge I. Zuluaga for programs, credentials, and media use. Click “Preview” (or the thumbnail) to inspect the large image before downloading it.",
   "photos": [
     {
+      "file": "jorge-zuluaga-biblioteca-promocional-2026-04-01.png",
+      "title": "Imagen promocional de la biblioteca",
+      "dateLabel": "Abril 2026",
+      "year": 2026,
+      "month": 4,
+      "description": "Imagen promocional de la biblioteca incluida en esta hoja de vida.",
+      "width": 1200,
+      "height": 1680,
+      "sizeBytes": 2157647
+    },
+    {
       "file": "jorge-zuluaga-perfil-cv-2025-03.jpg",
       "title": "Foto de perfil (misma que el CV web)",
       "dateLabel": "Marzo 2025",

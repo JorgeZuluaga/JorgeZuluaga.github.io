@@ -7,6 +7,7 @@ import {
 import { trackPageView } from "./visitor-tracker.js";
 
 const LIBRARY_JSON = "./info/library.json";
+const LOCAL_LIKES_CACHE_PREFIX = "review_local_likes_count_";
 
 function parseDate(dateText) {
   const raw = String(dateText ?? "").trim();
@@ -20,6 +21,122 @@ function formatRating(rating, lang) {
   if (!value) return t("library_no_rating", lang);
   const stars = Math.round(value);
   return "⭐".repeat(stars) + '<span style="filter: grayscale(100%); opacity: 0.4;">⭐</span>'.repeat(5 - stars);
+}
+
+function parseReviewIdFromUrl(reviewUrl) {
+  const match = String(reviewUrl || "").match(/\/review\/show\/(\d+)/);
+  return match ? match[1] : "";
+}
+
+function endpointFromMeta() {
+  const el = document.querySelector('meta[name="visitor-log-endpoint"]');
+  return String(el?.getAttribute("content") || "").trim();
+}
+
+function workerBaseFromLogEndpoint() {
+  const endpoint = endpointFromMeta();
+  if (!endpoint) return "";
+  try {
+    const url = new URL(endpoint, window.location.href);
+    if (url.pathname.endsWith("/log")) {
+      url.pathname = url.pathname.slice(0, -4) || "/";
+    } else {
+      url.pathname = "/";
+    }
+    url.search = "";
+    url.hash = "";
+    return url.toString().replace(/\/$/, "");
+  } catch {
+    return "";
+  }
+}
+
+function localLikesCacheKey(reviewId) {
+  return `${LOCAL_LIKES_CACHE_PREFIX}${reviewId}`;
+}
+
+function readCachedLocalLikes(reviewId) {
+  const raw = sessionStorage.getItem(localLikesCacheKey(reviewId));
+  if (raw === null) return null;
+  const value = Number(raw);
+  return Number.isFinite(value) ? Math.max(0, value) : null;
+}
+
+function writeCachedLocalLikes(reviewId, count) {
+  const safe = Number.isFinite(Number(count)) ? Math.max(0, Number(count)) : 0;
+  sessionStorage.setItem(localLikesCacheKey(reviewId), String(safe));
+}
+
+function localLikesSuffixHtml(reviewId, lang) {
+  if (!reviewId) return "";
+  return ` · <span data-local-likes-for="${reviewId}">${escapeLibrary(t("library_review_likes_local", lang))} —</span>`;
+}
+
+async function fetchLocalLikeCount(base, reviewId) {
+  if (!base || !reviewId) return null;
+  try {
+    const response = await fetch(`${base}/review-like-count/${reviewId}`, { cache: "no-store" });
+    if (!response.ok) return null;
+    const data = await response.json();
+    const count = Number(data?.count);
+    return Number.isFinite(count) ? Math.max(0, count) : null;
+  } catch {
+    return null;
+  }
+}
+
+function renderLocalLikesInContainer(container, map, lang) {
+  if (!container || !map?.size) return;
+  container.querySelectorAll("[data-local-likes-for]").forEach((node) => {
+    const reviewId = String(node.getAttribute("data-local-likes-for") || "");
+    if (!reviewId || !map.has(reviewId)) return;
+    node.textContent = `${t("library_review_likes_local", lang)} ${map.get(reviewId)}`;
+  });
+}
+
+async function mapWithConcurrency(items, worker, concurrency = 8) {
+  const queue = [...items];
+  const runners = [];
+  for (let i = 0; i < Math.max(1, concurrency); i += 1) {
+    runners.push((async () => {
+      while (queue.length) {
+        const next = queue.shift();
+        if (!next) return;
+        await worker(next);
+      }
+    })());
+  }
+  await Promise.all(runners);
+}
+
+async function hydrateLocalLikes(container, items, lang) {
+  if (!container || !Array.isArray(items) || items.length === 0) return;
+  const base = workerBaseFromLogEndpoint();
+  if (!base) return;
+
+  const reviewIds = [...new Set(items.map((x) => parseReviewIdFromUrl(x?.reviewUrl)).filter(Boolean))];
+  if (reviewIds.length === 0) return;
+
+  const counts = new Map();
+  const missing = [];
+  for (const reviewId of reviewIds) {
+    const cached = readCachedLocalLikes(reviewId);
+    if (cached === null) {
+      missing.push(reviewId);
+    } else {
+      counts.set(reviewId, cached);
+    }
+  }
+  renderLocalLikesInContainer(container, counts, lang);
+
+  await mapWithConcurrency(missing, async (reviewId) => {
+    const count = await fetchLocalLikeCount(base, reviewId);
+    if (count === null) return;
+    writeCachedLocalLikes(reviewId, count);
+    counts.set(reviewId, count);
+  }, 8);
+
+  renderLocalLikesInContainer(container, counts, lang);
 }
 
 function escapeLibrary(s) {
@@ -52,10 +169,11 @@ function renderBookList(container, items, lang) {
       ? `${t("library_by_author", lang)} ${item.author}`
       : `${t("library_by_author", lang)} —`;
     const datePart = item.dateRead || "—";
+    const reviewId = parseReviewIdFromUrl(item.reviewUrl);
     const likesLine = Number.isFinite(Number(item.reviewLikes))
       ? `${t("library_review_likes", lang)} ${item.reviewLikes}`
       : `${t("library_review_likes", lang)} —`;
-    meta.innerHTML = `${author} · ${t("library_date", lang)} ${datePart} · ${t("library_rating_label", lang)}: ${formatRating(item.rating, lang)} · ${likesLine}`;
+    meta.innerHTML = `${author} · ${t("library_date", lang)} ${datePart} · ${t("library_rating_label", lang)}: ${formatRating(item.rating, lang)} · ${likesLine}${localLikesSuffixHtml(reviewId, lang)}`;
 
     const actions = document.createElement("p");
     actions.className = "library-book-item__actions";
@@ -155,6 +273,7 @@ async function main() {
     .sort((a, b) => (b._date?.getTime() ?? 0) - (a._date?.getTime() ?? 0));
 
   renderBookList(listEl, books, lang);
+  hydrateLocalLikes(listEl, books, lang).catch(() => {});
 }
 
 main().catch((err) => {

@@ -10,6 +10,9 @@
  *    id = "TU_NAMESPACE_ID"
  *
  * Endpoint: POST /log
+ * Like de reseñas: POST /review-like
+ * Conteo de likes por reseña: GET /review-like-count/:reviewId
+ * Detalle JSON por reseña (IPs): GET /review-likes/:reviewId.json?token=TU_TOKEN
  * (Opcional) Listado protegido por token: GET /logs?token=TU_TOKEN
  * Define LOG_READ_TOKEN en variables del Worker para leer logs.
  */
@@ -45,6 +48,31 @@ function extractReadToken(request, url) {
   const bearerMatch = auth.match(/^Bearer\s+(.+)$/i);
   if (bearerMatch) return bearerMatch[1].trim();
   return (url.searchParams.get("token") || "").trim();
+}
+
+function parseReviewId(pathname, prefix, suffix = "") {
+  if (!pathname.startsWith(prefix)) return "";
+  if (suffix && !pathname.endsWith(suffix)) return "";
+  const raw = pathname.slice(prefix.length, pathname.length - suffix.length).trim();
+  if (!/^\d+$/.test(raw)) return "";
+  return raw;
+}
+
+async function listAllByPrefix(kv, prefix) {
+  const keys = [];
+  let cursor;
+  do {
+    const page = await kv.list({ prefix, cursor, limit: 1000 });
+    keys.push(...page.keys);
+    cursor = page.list_complete ? undefined : page.cursor;
+  } while (cursor);
+  return keys;
+}
+
+async function countReviewLikes(kv, reviewId) {
+  const prefix = `review_like:${reviewId}:`;
+  const keys = await listAllByPrefix(kv, prefix);
+  return keys.length;
 }
 
 export default {
@@ -89,6 +117,77 @@ export default {
       const key = `${now}_${record.id}`;
       await env.VISITOR_LOGS.put(key, JSON.stringify(record));
       return jsonResponse({ ok: true });
+    }
+
+    if (request.method === "POST" && url.pathname === "/review-like") {
+      let body;
+      try {
+        body = await request.json();
+      } catch {
+        return jsonResponse({ ok: false, error: "invalid_json" }, 400);
+      }
+
+      const reviewId = String(body?.reviewId || "").trim();
+      if (!/^\d+$/.test(reviewId)) {
+        return jsonResponse({ ok: false, error: "invalid_review_id" }, 400);
+      }
+
+      const now = new Date().toISOString();
+      const ip = getIp(request);
+      const key = `review_like:${reviewId}:${ip}`;
+      const alreadyRaw = await env.VISITOR_LOGS.get(key);
+      const already = Boolean(alreadyRaw);
+
+      if (!already) {
+        const likeRecord = {
+          reviewId,
+          ip,
+          country: getCountry(request),
+          page: body?.page || "",
+          url: body?.url || "",
+          timestampServer: now,
+        };
+        await env.VISITOR_LOGS.put(key, JSON.stringify(likeRecord));
+      }
+
+      const count = await countReviewLikes(env.VISITOR_LOGS, reviewId);
+      return jsonResponse({ ok: true, reviewId, liked: !already, alreadyLiked: already, count });
+    }
+
+    if (request.method === "GET" && url.pathname.startsWith("/review-like-count/")) {
+      const reviewId = parseReviewId(url.pathname, "/review-like-count/");
+      if (!reviewId) return jsonResponse({ ok: false, error: "invalid_review_id" }, 400);
+      const count = await countReviewLikes(env.VISITOR_LOGS, reviewId);
+      return jsonResponse({ ok: true, reviewId, count });
+    }
+
+    if (request.method === "GET" && url.pathname.startsWith("/review-likes/") && url.pathname.endsWith(".json")) {
+      const reviewId = parseReviewId(url.pathname, "/review-likes/", ".json");
+      if (!reviewId) return jsonResponse({ ok: false, error: "invalid_review_id" }, 400);
+
+      const token = extractReadToken(request, url);
+      if (!env.LOG_READ_TOKEN || token !== env.LOG_READ_TOKEN) {
+        return jsonResponse({ ok: false, error: "unauthorized" }, 401);
+      }
+
+      const prefix = `review_like:${reviewId}:`;
+      const keys = await listAllByPrefix(env.VISITOR_LOGS, prefix);
+      const values = await Promise.all(
+        keys.map(async (k) => {
+          const raw = await env.VISITOR_LOGS.get(k.name);
+          if (!raw) return null;
+          try {
+            return JSON.parse(raw);
+          } catch {
+            return null;
+          }
+        }),
+      );
+      const likes = values
+        .filter(Boolean)
+        .sort((a, b) => String(b.timestampServer).localeCompare(String(a.timestampServer)));
+
+      return jsonResponse({ ok: true, reviewId, count: likes.length, likes });
     }
 
     if (request.method === "GET" && url.pathname === "/logs") {
