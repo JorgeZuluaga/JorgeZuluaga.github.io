@@ -453,7 +453,19 @@ async function loadLogs() {
   });
 
   if (!res.ok) {
+    let backendError = "";
+    try {
+      const payload = await res.json();
+      const err = String(payload?.error || "").trim();
+      const msg = String(payload?.message || "").trim();
+      if (err && msg) backendError = `${err}: ${msg}`;
+      else if (err) backendError = err;
+      else if (msg) backendError = msg;
+    } catch {
+      backendError = "";
+    }
     if (res.status === 401) throw new Error("Token inválido.");
+    if (backendError) throw new Error(`Error HTTP ${res.status} (${backendError})`);
     throw new Error(`Error HTTP ${res.status}`);
   }
 

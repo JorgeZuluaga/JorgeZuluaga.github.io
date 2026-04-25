@@ -77,144 +77,149 @@ async function countReviewLikes(kv, reviewId) {
 
 export default {
   async fetch(request, env) {
-    const url = new URL(request.url);
+    try {
+      const url = new URL(request.url);
 
-    if (request.method === "OPTIONS") {
-      return new Response(null, {
-        status: 204,
-        headers: {
-          "access-control-allow-origin": "*",
-          "access-control-allow-methods": "POST, GET, OPTIONS",
-          "access-control-allow-headers": "content-type, authorization",
-        },
-      });
-    }
-
-    if (request.method === "POST" && url.pathname === "/log") {
-      let body;
-      try {
-        body = await request.json();
-      } catch {
-        return jsonResponse({ ok: false, error: "invalid_json" }, 400);
+      if (request.method === "OPTIONS") {
+        return new Response(null, {
+          status: 204,
+          headers: {
+            "access-control-allow-origin": "*",
+            "access-control-allow-methods": "POST, GET, OPTIONS",
+            "access-control-allow-headers": "content-type, authorization",
+          },
+        });
       }
 
-      const now = new Date().toISOString();
-      const record = {
-        id: crypto.randomUUID(),
-        timestampServer: now,
-        ip: getIp(request),
-        country: getCountry(request),
-        eventType: body.eventType || "unknown",
-        page: body.page || "",
-        url: body.url || "",
-        referrer: body.referrer || "",
-        userAgent: body.userAgent || "",
-        language: body.language || "",
-        details: body.details || {},
-        timestampClient: body.timestamp || "",
-      };
+      if (request.method === "POST" && url.pathname === "/log") {
+        let body;
+        try {
+          body = await request.json();
+        } catch {
+          return jsonResponse({ ok: false, error: "invalid_json" }, 400);
+        }
 
-      const key = `${now}_${record.id}`;
-      await env.VISITOR_LOGS.put(key, JSON.stringify(record));
-      return jsonResponse({ ok: true });
-    }
-
-    if (request.method === "POST" && url.pathname === "/review-like") {
-      let body;
-      try {
-        body = await request.json();
-      } catch {
-        return jsonResponse({ ok: false, error: "invalid_json" }, 400);
-      }
-
-      const reviewId = String(body?.reviewId || "").trim();
-      if (!/^\d+$/.test(reviewId)) {
-        return jsonResponse({ ok: false, error: "invalid_review_id" }, 400);
-      }
-
-      const now = new Date().toISOString();
-      const ip = getIp(request);
-      const key = `review_like:${reviewId}:${ip}`;
-      const alreadyRaw = await env.VISITOR_LOGS.get(key);
-      const already = Boolean(alreadyRaw);
-
-      if (!already) {
-        const likeRecord = {
-          reviewId,
-          ip,
-          country: getCountry(request),
-          page: body?.page || "",
-          url: body?.url || "",
+        const now = new Date().toISOString();
+        const record = {
+          id: crypto.randomUUID(),
           timestampServer: now,
+          ip: getIp(request),
+          country: getCountry(request),
+          eventType: body.eventType || "unknown",
+          page: body.page || "",
+          url: body.url || "",
+          referrer: body.referrer || "",
+          userAgent: body.userAgent || "",
+          language: body.language || "",
+          details: body.details || {},
+          timestampClient: body.timestamp || "",
         };
-        await env.VISITOR_LOGS.put(key, JSON.stringify(likeRecord));
+
+        const key = `${now}_${record.id}`;
+        await env.VISITOR_LOGS.put(key, JSON.stringify(record));
+        return jsonResponse({ ok: true });
       }
 
-      const count = await countReviewLikes(env.VISITOR_LOGS, reviewId);
-      return jsonResponse({ ok: true, reviewId, liked: !already, alreadyLiked: already, count });
-    }
+      if (request.method === "POST" && url.pathname === "/review-like") {
+        let body;
+        try {
+          body = await request.json();
+        } catch {
+          return jsonResponse({ ok: false, error: "invalid_json" }, 400);
+        }
 
-    if (request.method === "GET" && url.pathname.startsWith("/review-like-count/")) {
-      const reviewId = parseReviewId(url.pathname, "/review-like-count/");
-      if (!reviewId) return jsonResponse({ ok: false, error: "invalid_review_id" }, 400);
-      const count = await countReviewLikes(env.VISITOR_LOGS, reviewId);
-      return jsonResponse({ ok: true, reviewId, count });
-    }
+        const reviewId = String(body?.reviewId || "").trim();
+        if (!/^\d+$/.test(reviewId)) {
+          return jsonResponse({ ok: false, error: "invalid_review_id" }, 400);
+        }
 
-    if (request.method === "GET" && url.pathname.startsWith("/review-likes/") && url.pathname.endsWith(".json")) {
-      const reviewId = parseReviewId(url.pathname, "/review-likes/", ".json");
-      if (!reviewId) return jsonResponse({ ok: false, error: "invalid_review_id" }, 400);
+        const now = new Date().toISOString();
+        const ip = getIp(request);
+        const key = `review_like:${reviewId}:${ip}`;
+        const alreadyRaw = await env.VISITOR_LOGS.get(key);
+        const already = Boolean(alreadyRaw);
 
-      const token = extractReadToken(request, url);
-      if (!env.LOG_READ_TOKEN || token !== env.LOG_READ_TOKEN) {
-        return jsonResponse({ ok: false, error: "unauthorized" }, 401);
+        if (!already) {
+          const likeRecord = {
+            reviewId,
+            ip,
+            country: getCountry(request),
+            page: body?.page || "",
+            url: body?.url || "",
+            timestampServer: now,
+          };
+          await env.VISITOR_LOGS.put(key, JSON.stringify(likeRecord));
+        }
+
+        const count = await countReviewLikes(env.VISITOR_LOGS, reviewId);
+        return jsonResponse({ ok: true, reviewId, liked: !already, alreadyLiked: already, count });
       }
 
-      const prefix = `review_like:${reviewId}:`;
-      const keys = await listAllByPrefix(env.VISITOR_LOGS, prefix);
-      const values = await Promise.all(
-        keys.map(async (k) => {
-          const raw = await env.VISITOR_LOGS.get(k.name);
-          if (!raw) return null;
-          try {
-            return JSON.parse(raw);
-          } catch {
-            return null;
-          }
-        }),
-      );
-      const likes = values
-        .filter(Boolean)
-        .sort((a, b) => String(b.timestampServer).localeCompare(String(a.timestampServer)));
-
-      return jsonResponse({ ok: true, reviewId, count: likes.length, likes });
-    }
-
-    if (request.method === "GET" && url.pathname === "/logs") {
-      const token = extractReadToken(request, url);
-      if (!env.LOG_READ_TOKEN || token !== env.LOG_READ_TOKEN) {
-        return jsonResponse({ ok: false, error: "unauthorized" }, 401);
+      if (request.method === "GET" && url.pathname.startsWith("/review-like-count/")) {
+        const reviewId = parseReviewId(url.pathname, "/review-like-count/");
+        if (!reviewId) return jsonResponse({ ok: false, error: "invalid_review_id" }, 400);
+        const count = await countReviewLikes(env.VISITOR_LOGS, reviewId);
+        return jsonResponse({ ok: true, reviewId, count });
       }
 
-      const list = await env.VISITOR_LOGS.list({ limit: 200 });
-      const values = await Promise.all(
-        list.keys.map(async (k) => {
-          const raw = await env.VISITOR_LOGS.get(k.name);
-          if (!raw) return null;
-          try {
-            return JSON.parse(raw);
-          } catch {
-            return null;
-          }
-        }),
-      );
-      const logs = values.filter(Boolean).sort((a, b) =>
-        String(b.timestampServer).localeCompare(String(a.timestampServer)),
-      );
-      return jsonResponse({ ok: true, count: logs.length, logs });
-    }
+      if (request.method === "GET" && url.pathname.startsWith("/review-likes/") && url.pathname.endsWith(".json")) {
+        const reviewId = parseReviewId(url.pathname, "/review-likes/", ".json");
+        if (!reviewId) return jsonResponse({ ok: false, error: "invalid_review_id" }, 400);
 
-    return jsonResponse({ ok: false, error: "not_found" }, 404);
+        const token = extractReadToken(request, url);
+        if (!env.LOG_READ_TOKEN || token !== env.LOG_READ_TOKEN) {
+          return jsonResponse({ ok: false, error: "unauthorized" }, 401);
+        }
+
+        const prefix = `review_like:${reviewId}:`;
+        const keys = await listAllByPrefix(env.VISITOR_LOGS, prefix);
+        const values = await Promise.all(
+          keys.map(async (k) => {
+            const raw = await env.VISITOR_LOGS.get(k.name);
+            if (!raw) return null;
+            try {
+              return JSON.parse(raw);
+            } catch {
+              return null;
+            }
+          }),
+        );
+        const likes = values
+          .filter(Boolean)
+          .sort((a, b) => String(b.timestampServer).localeCompare(String(a.timestampServer)));
+
+        return jsonResponse({ ok: true, reviewId, count: likes.length, likes });
+      }
+
+      if (request.method === "GET" && url.pathname === "/logs") {
+        const token = extractReadToken(request, url);
+        if (!env.LOG_READ_TOKEN || token !== env.LOG_READ_TOKEN) {
+          return jsonResponse({ ok: false, error: "unauthorized" }, 401);
+        }
+
+        const list = await env.VISITOR_LOGS.list({ limit: 200 });
+        const values = await Promise.all(
+          list.keys.map(async (k) => {
+            const raw = await env.VISITOR_LOGS.get(k.name);
+            if (!raw) return null;
+            try {
+              return JSON.parse(raw);
+            } catch {
+              return null;
+            }
+          }),
+        );
+        const logs = values.filter(Boolean).sort((a, b) =>
+          String(b.timestampServer).localeCompare(String(a.timestampServer)),
+        );
+        return jsonResponse({ ok: true, count: logs.length, logs });
+      }
+
+      return jsonResponse({ ok: false, error: "not_found" }, 404);
+    } catch (err) {
+      const message = err instanceof Error ? err.message : "unknown_worker_error";
+      return jsonResponse({ ok: false, error: "worker_exception", message }, 500);
+    }
   },
 };
 

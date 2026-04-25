@@ -2,12 +2,15 @@
 	help start dev stop \
 	classroom \
 	library-build library-update library-stats library-refresh \
-	reviews-first reviews-all reviews-force reviews-refresh
+	reviews-first reviews-all reviews-force reviews-refresh \
+	library-details-import library-details-match library-details-sync
 
 PORT ?= 8000
 HOST ?= 127.0.0.1
 LIBRARY_JSON ?= info/library.json
 LIBRARY_STATS_JSON ?= info/library-stats.json
+LIBRARY_DETAILS_JSON ?= info/library-details.json
+BOOKBUDDY_CSV ?= info/bookbuddy.csv
 RSS_URL ?=
 COOKIE ?= 
 RSS_PAGES ?= 100
@@ -35,6 +38,9 @@ help:
 	@echo "  make reviews-first      - Mirror only the first review (smoke test)"
 	@echo "  make reviews-force      - Force regenerate all mirrored reviews"
 	@echo "  make reviews-refresh    - Run reviews-all + library-stats"
+	@echo "  make library-details-import - Import $(BOOKBUDDY_CSV) into $(LIBRARY_DETAILS_JSON)"
+	@echo "  make library-details-match  - Match bookId from $(LIBRARY_JSON) into $(LIBRARY_DETAILS_JSON)"
+	@echo "  make library-details-sync   - Run import + match (use after changing bookbuddy.csv)"
 
 start:
 	@echo "Starting server on http://$(HOST):$(PORT)"
@@ -114,6 +120,7 @@ library-update:
 	else \
 		$(MAKE) reviews-all COOKIE="$(COOKIE)" REVIEW_RSS_PAGES="$(REVIEW_RSS_PAGES)"; \
 	fi
+	@$(MAKE) library-details-sync
 	@$(MAKE) library-stats
 	@echo "Library update completed (FORCE=$(FORCE))."
 
@@ -121,8 +128,8 @@ library-update:
 library-stats:
 	@python3 bin/update_library_stats.py "$(LIBRARY_JSON)" --out "$(LIBRARY_STATS_JSON)"
 
-# Full refresh for library data + derived stats.
-library-refresh: library-build library-stats
+# Full refresh for library data + details sync + derived stats.
+library-refresh: library-build library-details-sync library-stats
 	@echo "Library refresh completed."
 
 # Generate/update local mirror for the first review only.
@@ -156,3 +163,19 @@ reviews-force:
 # Typical review update workflow.
 reviews-refresh: reviews-all library-stats
 	@echo "Reviews refresh completed."
+
+# Import rows from BookBuddy CSV into library-details JSON (no duplicates).
+library-details-import:
+	@python3 bin/import_bookbuddy_to_library_details.py \
+		--csv "$(BOOKBUDDY_CSV)" \
+		--out "$(LIBRARY_DETAILS_JSON)"
+
+# Match Goodreads bookId values into library-details JSON by title+author.
+library-details-match:
+	@python3 bin/match_library_details_bookids.py \
+		--library-json "$(LIBRARY_JSON)" \
+		--library-details-json "$(LIBRARY_DETAILS_JSON)"
+
+# Recommended workflow when bookbuddy.csv changes.
+library-details-sync: library-details-import library-details-match
+	@echo "Library details sync completed."
