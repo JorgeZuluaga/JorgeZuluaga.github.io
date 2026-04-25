@@ -11,6 +11,7 @@ from pathlib import Path
 from urllib.parse import urlparse
 
 from mirror_first_review import (
+    DEFAULT_SITE_BASE_URL,
     build_local_page,
     extract_page_title,
     extract_review_data_from_rss,
@@ -135,6 +136,11 @@ def main() -> int:
             "incluso si ya existen."
         ),
     )
+    parser.add_argument(
+        "--site-base-url",
+        default=DEFAULT_SITE_BASE_URL,
+        help="Base URL pública del sitio para metadatos de compartir (Open Graph).",
+    )
     args = parser.parse_args()
 
     library_path = Path(args.library_json)
@@ -158,6 +164,7 @@ def main() -> int:
         return 0
 
     rss_url = str((library.get("source") or {}).get("rssUrl") or "").strip()
+    site_base_url = str(args.site_base_url or DEFAULT_SITE_BASE_URL).rstrip("/")
     refresh_latest = max(0, args.refresh_latest)
     print(f"[INFO] Reseñas candidatas: {total}")
     print(f"[INFO] Modo force: {'sí' if args.force else 'no'}")
@@ -214,12 +221,19 @@ def main() -> int:
                 local_cover_url = f"./{covers_dir.as_posix()}/{cover_path.name}"
                 local_cover_src = f"./covers/{cover_path.name}"
 
+            review_page_url = f"{site_base_url}/reviews/{review_id}.html"
+            og_image_url = f"{site_base_url}/assets/profile.jpg"
+            if local_cover_src:
+                og_image_url = f"{site_base_url}/reviews/{local_cover_src[2:]}"
+
             local_page = build_local_page(
                 book=book,
                 review_url=review_url,
                 review_fragment=review_fragment,
                 review_date=review_date,
                 local_cover_src=local_cover_src,
+                review_page_url=review_page_url,
+                og_image_url=og_image_url,
                 page_title=page_title,
             )
             out_file.write_text(local_page, encoding="utf-8")

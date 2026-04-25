@@ -18,6 +18,7 @@ USER_AGENT = (
     "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) "
     "AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0 Safari/537.36"
 )
+DEFAULT_SITE_BASE_URL = "https://jorgezuluaga.github.io"
 
 
 def get_url(url: str, cookie: str = "", timeout: int = 20) -> str:
@@ -157,6 +158,8 @@ def build_local_page(
     review_fragment: str,
     review_date: str,
     local_cover_src: str,
+    review_page_url: str,
+    og_image_url: str,
     page_title: str,
 ) -> str:
     safe_book = html.escape(str(book.get("title") or "Libro"))
@@ -182,6 +185,9 @@ def build_local_page(
         safe_cover = html.escape(local_cover_src)
         cover_block = f'<img src="{safe_cover}" alt="Portada de {safe_book}" />'
     cover_markup = f'<p class="cover">{cover_block}</p>' if cover_block else ""
+    safe_review_page_url = html.escape(review_page_url)
+    safe_og_image_url = html.escape(og_image_url)
+    og_description = f"Reseña de {safe_book} por Jorge I. Zuluaga"
 
     return f"""<!doctype html>
 <html lang="es">
@@ -190,6 +196,15 @@ def build_local_page(
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="color-scheme" content="light dark" />
   <meta name="visitor-log-endpoint" content="https://visitor-log-worker.jorgezuluaga.workers.dev/log" />
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="{safe_book}" />
+  <meta property="og:description" content="{og_description}" />
+  <meta property="og:url" content="{safe_review_page_url}" />
+  <meta property="og:image" content="{safe_og_image_url}" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="{safe_book}" />
+  <meta name="twitter:description" content="{og_description}" />
+  <meta name="twitter:image" content="{safe_og_image_url}" />
   <title>{page_title}</title>
   <link rel="icon" type="image/png" sizes="48x48" href="../assets/favicon.png" />
   <link rel="apple-touch-icon" sizes="180x180" href="../assets/apple-touch-icon.png" />
@@ -304,6 +319,11 @@ def main() -> int:
         default=3,
         help="Máximo de páginas RSS para fallback de texto de reseña.",
     )
+    parser.add_argument(
+        "--site-base-url",
+        default=DEFAULT_SITE_BASE_URL,
+        help="Base URL pública del sitio para metadatos de compartir (Open Graph).",
+    )
     args = parser.parse_args()
 
     library_path = Path(args.library_json)
@@ -357,12 +377,20 @@ def main() -> int:
         local_cover_url = f"./{covers_dir.as_posix()}/{cover_path.name}"
         local_cover_src = f"./covers/{cover_path.name}"
 
+    site_base_url = str(args.site_base_url or DEFAULT_SITE_BASE_URL).rstrip("/")
+    review_page_url = f"{site_base_url}/reviews/{review_id}.html"
+    og_image_url = f"{site_base_url}/assets/profile.jpg"
+    if local_cover_src:
+        og_image_url = f"{site_base_url}/reviews/{local_cover_src[2:]}"
+
     local_page = build_local_page(
         book=book,
         review_url=review_url,
         review_fragment=review_fragment,
         review_date=review_date,
         local_cover_src=local_cover_src,
+        review_page_url=review_page_url,
+        og_image_url=og_image_url,
         page_title=page_title,
     )
 

@@ -83,11 +83,13 @@ li {
   list-style: disc;
   margin: 0.45rem 0 0 1.25rem;
   padding: 0;
+  color: var(--black);
 }
 
 .library-book-item__series li {
   list-style: disc;
   margin: 0.2rem 0;
+  color: var(--black);
 }
 
 a {

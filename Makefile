@@ -13,6 +13,7 @@ COOKIE ?=
 RSS_PAGES ?= 100
 REVIEW_RSS_PAGES ?= 100
 FORCE ?= 0
+SITE_BASE_URL ?= https://jorgezuluaga.github.io
 
 help:
 	@echo "Available targets:"
@@ -130,7 +131,8 @@ reviews-first:
 		--library-json "$(LIBRARY_JSON)" \
 		--reviews-dir reviews \
 		--cookie "$(COOKIE)" \
-		--rss-pages "$(REVIEW_RSS_PAGES)"
+		--rss-pages "$(REVIEW_RSS_PAGES)" \
+		--site-base-url "$(SITE_BASE_URL)"
 
 # Generate/update local mirror for all reviews found.
 reviews-all:
@@ -138,7 +140,8 @@ reviews-all:
 		--library-json "$(LIBRARY_JSON)" \
 		--reviews-dir reviews \
 		--cookie "$(COOKIE)" \
-		--rss-pages "$(REVIEW_RSS_PAGES)"
+		--rss-pages "$(REVIEW_RSS_PAGES)" \
+		--site-base-url "$(SITE_BASE_URL)"
 
 # Force regenerate local mirror for all reviews.
 reviews-force:
@@ -147,6 +150,7 @@ reviews-force:
 		--reviews-dir reviews \
 		--cookie "$(COOKIE)" \
 		--rss-pages "$(REVIEW_RSS_PAGES)" \
+		--site-base-url "$(SITE_BASE_URL)" \
 		--force
 
 # Typical review update workflow.
