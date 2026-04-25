@@ -1,11 +1,22 @@
 {
-  "generatedAt": "2026-04-25T17:20:27.995308+00:00",
+  "generatedAt": "2026-04-25T20:41:34.910485+00:00",
   "source": {
     "rssUrl": "https://www.goodreads.com/review/list_rss/91991657?key=kpN1wAHi2GZUUO7BHv1v3ZCOGhOk_QjljXSDnXSc3kA-lzU7&shelf=%23ALL%23",
-    "scrapeLikes": true,
-    "scrapeLikesMode": "new"
+    "scrapeLikes": false,
+    "scrapeLikesMode": "none"
   },
   "books": [
+    {
+      "bookId": "5996229",
+      "title": "A las puertas del El Ubérrimo",
+      "author": "Iván Cepeda",
+      "dateRead": "2026-04-25",
+      "rating": 5,
+      "reviewUrl": "",
+      "hasReview": false,
+      "reviewLikes": 0,
+      "scrapeStatus": "not_requested"
+    },
     {
       "bookId": "59021993",
       "title": "La música del universo: Qué son la ondas gravitacionales y por qué cambiaron nuestra forma de entender el cosmos",
@@ -20,7 +31,7 @@
       "reviewLocalCoverUrl": "./reviews/covers/7583251244.jpg",
       "reviewDate": "2026-04-25",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-25T18:53:13.325357+00:00"
+      "reviewLocalGeneratedAt": "2026-04-25T20:41:38.227923+00:00"
     },
     {
       "bookId": "220648311",
@@ -36,7 +47,7 @@
       "reviewLocalCoverUrl": "./reviews/covers/7697087651.jpg",
       "reviewDate": "2026-04-25",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-25T18:53:14.952979+00:00"
+      "reviewLocalGeneratedAt": "2026-04-25T20:41:39.620211+00:00"
     },
     {
       "bookId": "242110718",
@@ -83,7 +94,7 @@
       "scrapeStatus": "ok",
       "reviewLocalUrl": "./reviews/8472202778.html",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-25T18:53:16.655306+00:00",
+      "reviewLocalGeneratedAt": "2026-04-25T20:41:40.967618+00:00",
       "reviewLocalCoverUrl": "./reviews/covers/8472202778.jpg",
       "reviewDate": "2026-03-28"
     },
@@ -101,7 +112,7 @@
       "reviewLocalCoverUrl": "./reviews/covers/8460915900.jpg",
       "reviewDate": "2026-03-28",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-25T18:53:18.315404+00:00"
+      "reviewLocalGeneratedAt": "2026-04-25T20:41:42.383947+00:00"
     },
     {
       "bookId": "57299481",
@@ -117,7 +128,7 @@
       "reviewLocalCoverUrl": "./reviews/covers/4360307186.jpg",
       "reviewDate": "2026-03-22",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-25T18:53:20.185974+00:00"
+      "reviewLocalGeneratedAt": "2026-04-25T20:41:43.849141+00:00"
     },
     {
       "bookId": "36632175",
@@ -144,7 +155,7 @@
       "reviewLocalCoverUrl": "./reviews/covers/8436209556.jpg",
       "reviewDate": "2026-03-15",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-25T18:53:23.466885+00:00"
+      "reviewLocalGeneratedAt": "2026-04-25T20:41:46.908072+00:00"
     },
     {
       "bookId": "64995169",
@@ -160,7 +171,7 @@
       "reviewLocalCoverUrl": "./reviews/covers/5278047196.jpg",
       "reviewDate": "2026-03-15",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-25T18:53:21.706892+00:00"
+      "reviewLocalGeneratedAt": "2026-04-25T20:41:45.375750+00:00"
     },
     {
       "bookId": "241162726",
@@ -176,7 +187,7 @@
       "reviewLocalCoverUrl": "./reviews/covers/8397016642.jpg",
       "reviewDate": "2026-03-02",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-25T18:53:26.857618+00:00"
+      "reviewLocalGeneratedAt": "2026-04-25T20:41:49.540911+00:00"
     },
     {
       "bookId": "198386595",
@@ -208,7 +219,7 @@
       "reviewLocalCoverUrl": "./reviews/covers/8397016151.jpg",
       "reviewDate": "2026-03-02",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-25T18:53:25.227490+00:00"
+      "reviewLocalGeneratedAt": "2026-04-25T20:41:48.259987+00:00"
     },
     {
       "bookId": "59245399",
@@ -3988,7 +3999,7 @@
       "scrapeStatus": "ok",
       "reviewLocalUrl": "./reviews/5395713632.html",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-25T19:04:43.109615+00:00",
+      "reviewLocalGeneratedAt": "2026-04-25T20:41:36.711564+00:00",
       "reviewLocalCoverUrl": "./reviews/covers/5395713632.jpg",
       "reviewDate": "2026-04-25"
     },
