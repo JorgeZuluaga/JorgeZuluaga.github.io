@@ -156,6 +156,8 @@ const STRINGS = {
     library_title: "Biblioteca personal de Jorge Zuluaga",
     library_intro:
       "Como buen académico, la lectura para mí es más que una pasión: es una actividad intelectual en toda regla que exige dedicación y disciplina. En particular me he propuesto escribir de cada libro que leo (siempre que pueda y valga la pena) una reseña (corta o extensa) para esencialmente intentar conjurar el olvido y recordar lo que sentí cuando leí el libro. Si la reseña además le sirve a alguien para animarse a leer el libro o para compartir sus sentimientos hacia él, ¡excelente!. En esta página enumero los libros leídos y las reseñas escritas sobre ellos. Espero que quién aterrice por aquí, lo encuentre útil.",
+    library_goodreads_note:
+      "Estas estadísticas y reseñas las llevo registrando y escribiendo en Goodreads. Pero esta plataforma es relativamente restrictiva y por eso creé esta página. Para quienes tienen cuenta en esa red social, abajo encontrarán el enlace a mi perfil en Goodreads.",
     library_profile: "Mi perfil en Goodreads",
     library_source: "Datos cargados desde info/library.json",
     library_books_read: "libros leídos",
@@ -315,6 +317,8 @@ const STRINGS = {
     library_title: "Jorge Zuluaga's personal library",
     library_intro:
       "As a good academic, reading for me is more than a passion: it is a fully intellectual activity that demands dedication and discipline. In particular, I have set myself the goal of writing, for every book I read (whenever I can and whenever it is worth it), a review (short or long), essentially to ward off forgetting and remember what I felt when I read the book. If the review also helps someone feel encouraged to read the book or to share their own feelings about it, excellent! On this page I list the books I have read and the reviews I have written about them. I hope whoever lands here finds it useful.",
+    library_goodreads_note:
+      "I have been tracking these statistics and writing these reviews on Goodreads. But that platform is relatively restrictive, so I created this page. For those who have an account on that social network, below you will find the link to my Goodreads profile.",
     library_profile: "My Goodreads profile",
     library_source: "Data loaded from info/library.json",
     library_books_read: "books read",

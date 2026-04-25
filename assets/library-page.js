@@ -263,6 +263,7 @@ async function main() {
 
   const titleEl = document.getElementById("library-page-title");
   const introEl = document.getElementById("library-page-intro");
+  const goodreadsNoteEl = document.getElementById("library-goodreads-note");
   const profileEl = document.getElementById("goodreads-profile-link");
   const sourceEl = document.getElementById("library-source-note");
   const totalReadEl = document.getElementById("library-report-total-read");
@@ -276,6 +277,7 @@ async function main() {
   if (
     !titleEl ||
     !introEl ||
+    !goodreadsNoteEl ||
     !profileEl ||
     !sourceEl ||
     !totalReadEl ||
@@ -321,6 +323,7 @@ async function main() {
 
   titleEl.textContent = t("library_title", lang);
   introEl.textContent = t("library_intro", lang);
+  goodreadsNoteEl.textContent = t("library_goodreads_note", lang);
   profileEl.href = "https://www.goodreads.com/user/show/91991657";
   profileEl.textContent = t("library_profile", lang);
   sourceEl.textContent = "";
