@@ -6,5 +6,5 @@ update/*
 spinoffs/*
 .cookie
 .rss
-.update.sh
+.update*.sh
 .googleapi
