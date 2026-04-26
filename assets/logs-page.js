@@ -107,6 +107,19 @@ function formatShortDate(dateObj) {
   return `${dd}/${mm}`;
 }
 
+function formatLastEventTimestamp(logs) {
+  const latest = logs.reduce((best, row) => {
+    const raw = String(row?.timestampServer || "").trim();
+    if (!raw) return best;
+    const ts = Date.parse(raw);
+    if (Number.isNaN(ts)) return best;
+    if (!best || ts > best.ts) return { ts, raw };
+    return best;
+  }, null);
+  if (!latest) return "Sin datos";
+  return new Date(latest.raw).toLocaleString("es-CO");
+}
+
 function buildTimeSeries(logs, days) {
   const safeDays = Math.max(1, Number(days) || 7);
   const end = new Date();
@@ -239,6 +252,7 @@ function renderSummary(logs) {
   const uniquePages = new Set(logs.map((x) => x.page).filter(Boolean)).size;
   const imageDownloads = logs.filter((x) => x.eventType === "image_download").length;
   const pdfClicks = logs.filter((x) => x.eventType === "pdf_print_click").length;
+  const lastEvent = formatLastEventTimestamp(logs);
   const reviewOpens = logs.filter(
     (x) => x.eventType === "page_view" && /\/reviews\/\d+\.html$/.test(String(x.page || "")),
   ).length;
@@ -250,6 +264,7 @@ function renderSummary(logs) {
     ["Reseñas abiertas", fmt(reviewOpens)],
     ["Descargas imagen", fmt(imageDownloads)],
     ["Clic PDF", fmt(pdfClicks)],
+    ["Último evento", lastEvent],
   ]
     .map(
       ([k, v]) =>

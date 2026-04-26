@@ -69,6 +69,17 @@ async function listAllByPrefix(kv, prefix) {
   return keys;
 }
 
+async function listAllKeys(kv) {
+  const keys = [];
+  let cursor;
+  do {
+    const page = await kv.list({ cursor, limit: 1000 });
+    keys.push(...page.keys);
+    cursor = page.list_complete ? undefined : page.cursor;
+  } while (cursor);
+  return keys;
+}
+
 async function countReviewLikes(kv, reviewId) {
   const prefix = `review_like:${reviewId}:`;
   const keys = await listAllByPrefix(kv, prefix);
@@ -243,9 +254,9 @@ export default {
           return jsonResponse({ ok: false, error: "unauthorized" }, 401);
         }
 
-        let list;
+        let keys;
         try {
-          list = await env.VISITOR_LOGS.list({ limit: 200 });
+          keys = await listAllKeys(env.VISITOR_LOGS);
         } catch (err) {
           const message = err instanceof Error ? err.message : "unknown_error";
           return jsonResponse(
@@ -254,7 +265,7 @@ export default {
           );
         }
         const values = await Promise.all(
-          list.keys.map(async (k) => {
+          keys.map(async (k) => {
             const raw = await env.VISITOR_LOGS.get(k.name);
             if (!raw) return null;
             try {
@@ -264,9 +275,9 @@ export default {
             }
           }),
         );
-        const logs = values.filter(Boolean).sort((a, b) =>
-          String(b.timestampServer).localeCompare(String(a.timestampServer)),
-        );
+        const logs = values
+          .filter((entry) => entry && typeof entry === "object" && "eventType" in entry)
+          .sort((a, b) => String(b.timestampServer).localeCompare(String(a.timestampServer)));
         return jsonResponse({ ok: true, count: logs.length, logs });
       }
 
