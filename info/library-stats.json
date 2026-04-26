@@ -68,7 +68,7 @@
       "reviewLocalCoverUrl": "./reviews/covers/7583251244.jpg",
       "reviewDate": "2026-04-25",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-25T20:41:38.227923+00:00"
+      "reviewLocalGeneratedAt": "2026-04-26T04:15:09.069344+00:00"
     },
     {
       "bookId": "220648311",
@@ -82,7 +82,7 @@
       "reviewLocalCoverUrl": "./reviews/covers/7697087651.jpg",
       "reviewDate": "2026-04-25",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-25T20:41:39.620211+00:00"
+      "reviewLocalGeneratedAt": "2026-04-26T04:15:10.675359+00:00"
     },
     {
       "bookId": "242110718",
@@ -90,8 +90,13 @@
       "author": "Carlos Peña",
       "dateRead": "2026-04-15",
       "rating": 5,
-      "reviewUrl": "",
-      "reviewLikes": 0
+      "reviewUrl": "https://www.goodreads.com/review/show/8492649731?utm_medium=api&utm_source=rss",
+      "reviewLikes": 0,
+      "reviewLocalUrl": "./reviews/8492649731.html",
+      "reviewLocalCoverUrl": "./reviews/covers/8492649731.jpg",
+      "reviewDate": "2026-04-25",
+      "reviewLocalStatus": "ok",
+      "reviewLocalGeneratedAt": "2026-04-26T04:15:12.631312+00:00"
     },
     {
       "bookId": "216802309",
@@ -258,7 +263,7 @@
       "reviewLocalCoverUrl": "./reviews/covers/7583251244.jpg",
       "reviewDate": "2026-04-25",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-25T20:41:38.227923+00:00"
+      "reviewLocalGeneratedAt": "2026-04-26T04:15:09.069344+00:00"
     },
     {
       "bookId": "220648311",
@@ -272,7 +277,21 @@
       "reviewLocalCoverUrl": "./reviews/covers/7697087651.jpg",
       "reviewDate": "2026-04-25",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-25T20:41:39.620211+00:00"
+      "reviewLocalGeneratedAt": "2026-04-26T04:15:10.675359+00:00"
+    },
+    {
+      "bookId": "242110718",
+      "title": "Humanidades: Lo visible y lo invisible",
+      "author": "Carlos Peña",
+      "dateRead": "2026-04-15",
+      "rating": 5,
+      "reviewUrl": "https://www.goodreads.com/review/show/8492649731?utm_medium=api&utm_source=rss",
+      "reviewLikes": 0,
+      "reviewLocalUrl": "./reviews/8492649731.html",
+      "reviewLocalCoverUrl": "./reviews/covers/8492649731.jpg",
+      "reviewDate": "2026-04-25",
+      "reviewLocalStatus": "ok",
+      "reviewLocalGeneratedAt": "2026-04-26T04:15:12.631312+00:00"
     },
     {
       "bookId": "244149479",
@@ -284,7 +303,7 @@
       "reviewLikes": 0,
       "reviewLocalUrl": "./reviews/8472202778.html",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-25T20:41:40.967618+00:00",
+      "reviewLocalGeneratedAt": "2026-04-26T04:15:14.332455+00:00",
       "reviewLocalCoverUrl": "./reviews/covers/8472202778.jpg",
       "reviewDate": "2026-03-28"
     },
@@ -300,26 +319,12 @@
       "reviewLocalCoverUrl": "./reviews/covers/8460915900.jpg",
       "reviewDate": "2026-03-28",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-25T20:41:42.383947+00:00"
-    },
-    {
-      "bookId": "57299481",
-      "title": "Proyecto Hail Mary",
-      "author": "Andy Weir",
-      "dateRead": "2026-03-22",
-      "rating": 5,
-      "reviewUrl": "https://www.goodreads.com/review/show/4360307186?utm_medium=api&utm_source=rss",
-      "reviewLikes": 19,
-      "reviewLocalUrl": "./reviews/4360307186.html",
-      "reviewLocalCoverUrl": "./reviews/covers/4360307186.jpg",
-      "reviewDate": "2026-03-22",
-      "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-25T20:41:43.849141+00:00"
+      "reviewLocalGeneratedAt": "2026-04-26T04:15:16.027322+00:00"
     }
   ],
   "totals": {
     "booksRead": 581,
-    "booksReviewed": 451,
+    "booksReviewed": 452,
     "totalReviewLikes": 2980
   }
 }

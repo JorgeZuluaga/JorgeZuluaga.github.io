@@ -1,9 +1,9 @@
 {
-  "generatedAt": "2026-04-25T20:41:34.910485+00:00",
+  "generatedAt": "2026-04-26T04:15:05.691525+00:00",
   "source": {
     "rssUrl": "https://www.goodreads.com/review/list_rss/91991657?key=kpN1wAHi2GZUUO7BHv1v3ZCOGhOk_QjljXSDnXSc3kA-lzU7&shelf=%23ALL%23",
-    "scrapeLikes": false,
-    "scrapeLikesMode": "none"
+    "scrapeLikes": true,
+    "scrapeLikesMode": "new"
   },
   "books": [
     {
@@ -31,7 +31,7 @@
       "reviewLocalCoverUrl": "./reviews/covers/7583251244.jpg",
       "reviewDate": "2026-04-25",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-25T20:41:38.227923+00:00"
+      "reviewLocalGeneratedAt": "2026-04-26T04:15:09.069344+00:00"
     },
     {
       "bookId": "220648311",
@@ -47,7 +47,7 @@
       "reviewLocalCoverUrl": "./reviews/covers/7697087651.jpg",
       "reviewDate": "2026-04-25",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-25T20:41:39.620211+00:00"
+      "reviewLocalGeneratedAt": "2026-04-26T04:15:10.675359+00:00"
     },
     {
       "bookId": "242110718",
@@ -55,10 +55,15 @@
       "author": "Carlos Peña",
       "dateRead": "2026-04-15",
       "rating": 5,
-      "reviewUrl": "",
-      "hasReview": false,
+      "reviewUrl": "https://www.goodreads.com/review/show/8492649731?utm_medium=api&utm_source=rss",
+      "hasReview": true,
       "reviewLikes": 0,
-      "scrapeStatus": "not_requested"
+      "scrapeStatus": "not_requested",
+      "reviewLocalUrl": "./reviews/8492649731.html",
+      "reviewLocalCoverUrl": "./reviews/covers/8492649731.jpg",
+      "reviewDate": "2026-04-25",
+      "reviewLocalStatus": "ok",
+      "reviewLocalGeneratedAt": "2026-04-26T04:15:12.631312+00:00"
     },
     {
       "bookId": "216802309",
@@ -94,7 +99,7 @@
       "scrapeStatus": "ok",
       "reviewLocalUrl": "./reviews/8472202778.html",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-25T20:41:40.967618+00:00",
+      "reviewLocalGeneratedAt": "2026-04-26T04:15:14.332455+00:00",
       "reviewLocalCoverUrl": "./reviews/covers/8472202778.jpg",
       "reviewDate": "2026-03-28"
     },
@@ -112,7 +117,7 @@
       "reviewLocalCoverUrl": "./reviews/covers/8460915900.jpg",
       "reviewDate": "2026-03-28",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-25T20:41:42.383947+00:00"
+      "reviewLocalGeneratedAt": "2026-04-26T04:15:16.027322+00:00"
     },
     {
       "bookId": "57299481",
@@ -128,7 +133,7 @@
       "reviewLocalCoverUrl": "./reviews/covers/4360307186.jpg",
       "reviewDate": "2026-03-22",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-25T20:41:43.849141+00:00"
+      "reviewLocalGeneratedAt": "2026-04-26T04:15:17.923169+00:00"
     },
     {
       "bookId": "36632175",
@@ -155,7 +160,7 @@
       "reviewLocalCoverUrl": "./reviews/covers/8436209556.jpg",
       "reviewDate": "2026-03-15",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-25T20:41:46.908072+00:00"
+      "reviewLocalGeneratedAt": "2026-04-26T04:15:21.484802+00:00"
     },
     {
       "bookId": "64995169",
@@ -171,7 +176,7 @@
       "reviewLocalCoverUrl": "./reviews/covers/5278047196.jpg",
       "reviewDate": "2026-03-15",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-25T20:41:45.375750+00:00"
+      "reviewLocalGeneratedAt": "2026-04-26T04:15:19.673225+00:00"
     },
     {
       "bookId": "241162726",
@@ -219,7 +224,7 @@
       "reviewLocalCoverUrl": "./reviews/covers/8397016151.jpg",
       "reviewDate": "2026-03-02",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-25T20:41:48.259987+00:00"
+      "reviewLocalGeneratedAt": "2026-04-26T04:15:23.140777+00:00"
     },
     {
       "bookId": "59245399",
@@ -3999,7 +4004,7 @@
       "scrapeStatus": "ok",
       "reviewLocalUrl": "./reviews/5395713632.html",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-25T20:41:36.711564+00:00",
+      "reviewLocalGeneratedAt": "2026-04-26T04:15:07.594093+00:00",
       "reviewLocalCoverUrl": "./reviews/covers/5395713632.jpg",
       "reviewDate": "2026-04-25"
     },
