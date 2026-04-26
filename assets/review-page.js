@@ -98,17 +98,25 @@ function updateLocalLikesInPage(count) {
 
 async function hydrateReviewLikesFromLibrary() {
   const reviewId = getCurrentReviewId();
-  if (!reviewId) return;
+  if (!reviewId) return { localLikes: null };
   try {
     const response = await fetch("../info/library.json", { cache: "no-store" });
-    if (!response.ok) return;
+    if (!response.ok) return { localLikes: null };
     const library = await response.json();
     const books = Array.isArray(library?.books) ? library.books : [];
     const match = books.find((book) => parseReviewIdFromUrl(book?.reviewUrl) === reviewId);
-    if (!match) return;
+    if (!match) return { localLikes: null };
     updateLikesInPage(match.reviewLikes);
+    const localLikes = Number(match.reviewLocalLikes);
+    if (Number.isFinite(localLikes)) {
+      const safe = Math.max(0, localLikes);
+      updateLocalLikesInPage(safe);
+      return { localLikes: safe };
+    }
+    return { localLikes: null };
   } catch (_err) {
     // Non-critical: keep static likes from generated HTML.
+    return { localLikes: null };
   }
 }
 
@@ -168,7 +176,11 @@ async function wireReviewLikeButton() {
   const base = workerBaseFromLogEndpoint();
   if (!reviewId || !base) return;
 
-  const initialCount = await fetchLikeCount(base, reviewId);
+  const fromLibrary = await hydrateReviewLikesFromLibrary();
+  let initialCount = await fetchLikeCount(base, reviewId);
+  if (initialCount <= 0 && Number.isFinite(Number(fromLibrary?.localLikes))) {
+    initialCount = Number(fromLibrary.localLikes);
+  }
   updateLocalLikesInPage(initialCount);
   upsertLikeButtonUI(reviewId, initialCount);
   const btn = document.getElementById("review-like-btn");
@@ -202,6 +214,5 @@ async function wireReviewLikeButton() {
 }
 
 trackReviewVisit();
-hydrateReviewLikesFromLibrary();
 wireReviewLikeButton();
 

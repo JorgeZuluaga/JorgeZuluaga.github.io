@@ -72,6 +72,11 @@ function localLikesSuffixHtml(reviewId, lang) {
   return ` · <span data-local-likes-for="${reviewId}">${escapeLibrary(t("library_review_likes_local", lang))} —</span>`;
 }
 
+function readSnapshotLocalLikes(item) {
+  const value = Number(item?.reviewLocalLikes);
+  return Number.isFinite(value) ? Math.max(0, value) : null;
+}
+
 async function fetchLocalLikeCount(base, reviewId) {
   if (!base || !reviewId) return null;
   try {
@@ -119,13 +124,22 @@ async function hydrateLocalLikes(container, items, lang) {
 
   const counts = new Map();
   const missing = [];
+  const bookByReviewId = new Map();
+  for (const item of items) {
+    const reviewId = parseReviewIdFromUrl(item?.reviewUrl);
+    if (reviewId) bookByReviewId.set(reviewId, item);
+  }
   for (const reviewId of reviewIds) {
-    const cached = readCachedLocalLikes(reviewId);
-    if (cached === null) {
-      missing.push(reviewId);
-    } else {
-      counts.set(reviewId, cached);
+    const fromSnapshot = readSnapshotLocalLikes(bookByReviewId.get(reviewId));
+    if (fromSnapshot !== null) {
+      counts.set(reviewId, fromSnapshot);
     }
+    const cached = readCachedLocalLikes(reviewId);
+    if (cached !== null) {
+      counts.set(reviewId, cached);
+      continue;
+    }
+    missing.push(reviewId);
   }
   renderLocalLikesInContainer(container, counts, lang);
 

@@ -240,6 +240,48 @@ Y el archivo derivado para otros usos es:
 
 - `info/library-stats.json` (resumen calculado desde `library.json`)
 
+#### 0) Nota para mi yo del futuro: snapshot de likes locales (respaldo)
+
+Problema que resolvimos:
+- Si el worker falla/no responde, `biblioteca.html`, `biblioteca-todos.html` y `reviews/*.html` no deberían perder los “me gusta locales”.
+- Se agregó respaldo persistente dentro de `info/library.json`.
+
+Qué se implementó:
+- Script: `bin/sync_local_review_likes.py`
+- Make target: `make library-local-likes-sync`
+- Campos nuevos por libro con reseña:
+  - `reviewLocalLikes`
+  - `reviewLocalLikesUpdatedAt`
+- Bloque global:
+  - `localLikesSnapshot` (fecha, totales y razones de fallo)
+
+Comando normal:
+
+```bash
+make library-local-likes-sync
+```
+
+Comando con más detalle de progreso:
+
+```bash
+python3 -u bin/sync_local_review_likes.py --progress-every 50
+```
+
+Qué verás en consola:
+- inicio con total de reseñas,
+- progreso cada N reseñas,
+- primeros fallos con `reviewId` y causa (`http_403`, `timeout`, etc.),
+- resumen final de fallos.
+
+Lección importante (incidente real):
+- Si ves `failed=XXX` para todas, revisa `User-Agent`.
+- Con `urllib` sin UA, el worker devolvía `403`.
+- El script ya envía `User-Agent` (`curl/8.0`) por defecto para evitar ese bloqueo.
+
+Fallback en frontend (ya integrado):
+- `assets/library-page.js` y `assets/library-all-page.js` usan primero snapshot/cache y luego worker.
+- `assets/review-page.js` usa snapshot local si el worker no devuelve conteo útil.
+
 #### 1) Generar/actualizar `info/library.json` desde Goodreads RSS
 
 Script:
@@ -328,6 +370,35 @@ Notas importantes del mirror:
 - Por eso en el script masivo el valor por defecto de `--rss-pages` es **80** (para alcanzar reseñas antiguas).
 - Si aun así faltan reseñas, sube más el rango (`--rss-pages 100`, por ejemplo) o usa `--cookie`.
 - `mirror_all_reviews.py` muestra avance en consola (`[i/N] SKIP|OK|ERROR`) y actualiza `info/library.json` al final del proceso.
+
+#### 5) Corrección ortográfica de reseñas (Gemini) sin exponer API key
+
+Problema que resolvimos:
+- Había una Google API key hardcodeada en `fix_reviews.py` (riesgo de seguridad).
+
+Qué se cambió:
+- El script se movió de raíz a `bin/fix_reviews.py`.
+- Ahora la key es obligatoria por CLI: `--api-key`.
+- El Makefile expone workflow seguro por variable de entorno:
+  - `make reviews-fix` (requiere `GOOGLE_API_KEY`).
+- El script corrige **solo** reseñas que NO tengan diff en:
+  - `reviews/corrections/*.diff`
+
+Uso recomendado:
+
+```bash
+GOOGLE_API_KEY="$(cat .googleapi)" make reviews-fix
+```
+
+Notas operativas:
+- Si ya existe `reviews/corrections/<id>.diff`, esa reseña se salta.
+- Si no hay cambios, se crea diff vacío y también se considera “ya revisada”.
+- Mantiene pausa entre requests para no chocar con rate limits.
+
+Higiene de seguridad (obligatorio si vuelves a ver alertas):
+- Rotar/revocar inmediatamente una key filtrada.
+- Nunca volver a guardar keys en código.
+- Mantener `.googleapi` fuera de git (ya está ignorado).
 
 ## Verificación local (recomendado)
 

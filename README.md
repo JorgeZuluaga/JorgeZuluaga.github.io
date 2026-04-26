@@ -88,6 +88,20 @@ Este template usa rutas relativas (`./assets/...`, `./info/...`), así que funci
 - **Publicaciones**: edita `info/papers.json`.
 - **Resto de secciones**: edita los JSON correspondientes en `info/`.
 
+## Snapshot local de "Me gusta" (reseñas)
+
+Si quieres guardar periódicamente los **me gusta locales** (del worker) dentro de `info/library.json` para tener respaldo offline/fallback:
+
+```bash
+make library-local-likes-sync
+```
+
+Esto actualiza, por cada libro con reseña local, los campos:
+- `reviewLocalLikes`
+- `reviewLocalLikesUpdatedAt`
+
+Además escribe el bloque `localLikesSnapshot` en la raíz de `info/library.json`.
+
 ## Descargar insumos en `update/` (Scholar + ORCID)
 
 Para futuras actualizaciones, guarda en `update/`:

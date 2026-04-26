@@ -1,8 +1,8 @@
 .PHONY: \
 	help start dev stop \
 	classroom \
-	library-build library-update library-stats library-refresh \
-	reviews-first reviews-all reviews-force reviews-refresh \
+	library-build library-update library-stats library-refresh library-local-likes-sync \
+	reviews-first reviews-all reviews-force reviews-refresh reviews-fix \
 	library-details-import library-details-match library-details-sync \
 	worker-deploy
 
@@ -18,6 +18,7 @@ RSS_PAGES ?= 100
 REVIEW_RSS_PAGES ?= 100
 FORCE ?= 0
 SITE_BASE_URL ?= https://jorgezuluaga.github.io
+VISITOR_WORKER_BASE ?= https://visitor-log-worker.jorgezuluaga.workers.dev
 
 help:
 	@echo "Available targets:"
@@ -34,11 +35,15 @@ help:
 	@echo "                            FORCE=2: likes y reseñas completas (full refresh)"
 	@echo "  make library-stats      - Rebuild info/library-stats.json"
 	@echo "  make library-refresh    - Run library-build + library-stats"
+	@echo "  make library-local-likes-sync - Snapshot local likes from worker into info/library.json"
+	@echo "                            Optional: VISITOR_WORKER_BASE=... (default worker URL)"
 	@echo "  make reviews-all        - Mirror all reviews in reviews/"
 	@echo "                            Optional: COOKIE=... REVIEW_RSS_PAGES=..."
 	@echo "  make reviews-first      - Mirror only the first review (smoke test)"
 	@echo "  make reviews-force      - Force regenerate all mirrored reviews"
 	@echo "  make reviews-refresh    - Run reviews-all + library-stats"
+	@echo "  make reviews-fix        - Fix review HTML text with Gemini"
+	@echo "                            Required env: GOOGLE_API_KEY=..."
 	@echo "  make library-details-import - Import $(BOOKBUDDY_CSV) into $(LIBRARY_DETAILS_JSON)"
 	@echo "  make library-details-match  - Match bookId from $(LIBRARY_JSON) into $(LIBRARY_DETAILS_JSON)"
 	@echo "  make library-details-sync   - Run import + match (use after changing bookbuddy.csv)"
@@ -134,6 +139,12 @@ library-stats:
 library-refresh: library-build library-details-sync library-stats
 	@echo "Library refresh completed."
 
+# Save local review likes snapshot directly into info/library.json.
+library-local-likes-sync:
+	@python3 bin/sync_local_review_likes.py \
+		--library-json "$(LIBRARY_JSON)" \
+		--worker-base "$(VISITOR_WORKER_BASE)"
+
 # Generate/update local mirror for the first review only.
 reviews-first:
 	@python3 bin/mirror_first_review.py \
@@ -165,6 +176,15 @@ reviews-force:
 # Typical review update workflow.
 reviews-refresh: reviews-all library-stats
 	@echo "Reviews refresh completed."
+
+# Fix spelling/grammar in review HTML files not yet corrected.
+reviews-fix:
+	@if [ -z "$$GOOGLE_API_KEY" ]; then \
+		echo "GOOGLE_API_KEY es obligatorio."; \
+		echo "Ejemplo: GOOGLE_API_KEY=... make reviews-fix"; \
+		exit 1; \
+	fi
+	@python3 bin/fix_reviews.py --api-key "$$GOOGLE_API_KEY"
 
 # Import rows from BookBuddy CSV into library-details JSON (no duplicates).
 library-details-import:
