@@ -1,0 +1,11 @@
+--- 5183918890.html.orig
++++ 5183918890.html
+@@ -91,7 +91,7 @@
+         </div>
+         <p><a class="link" href="https://www.goodreads.com/review/show/5183918890?utm_medium=api&amp;utm_source=rss" target="_blank" rel="noopener noreferrer">Ver reseña en GoodReads (necesita cuenta)</a></p>
+         <article class="card">
+-          ¡De todo mi gusto! <br /><br />Una novela escrita seguramente con esmero y que nos acerca de manera muy bella a lo que pudo pasar por la cabeza de grandes personajes de la Historia de la Música. <br /><br />Solo por recrearnos las almas de Mozart y de Bach ya está obra tiene suficiente mérito.<br /><br />Imperdible para amantes de la música clásica.<br /><br />Reseña en extenso en cocción…<br /><br />P.D. Es de verdad muy extraño que “Allegro” tenga tan mal puntaje y tan negativas reseñas aquí. No se si la gente no la entendió o no aprecia realmente el valor de la obra. <br />
++          ¡De todo mi gusto! <br /><br />Una novela escrita seguramente con esmero y que nos acerca de manera muy bella a lo que pudo pasar por la cabeza de grandes personajes de la historia de la música. <br /><br />Solo por recrearnos las almas de Mozart y de Bach, ya esta obra tiene suficiente mérito.<br /><br />Imperdible para amantes de la música clásica.<br /><br />Reseña en extenso en cocción…<br /><br />P. D. Es de verdad muy extraño que “Allegro” tenga tan mal puntaje y tan negativas reseñas aquí. No sé si la gente no la entendió o no aprecia realmente el valor de la obra.
+         </article>
+         <div id="review-like-actions" aria-label="Interacciones de la reseña"></div>
+       </div>

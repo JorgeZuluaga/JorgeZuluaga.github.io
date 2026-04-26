@@ -1,0 +1,11 @@
+--- 2668265713.html.orig
++++ 2668265713.html
+@@ -91,7 +91,7 @@
+         </div>
+         <p><a class="link" href="https://www.goodreads.com/review/show/2668265713?utm_medium=api&amp;utm_source=rss" target="_blank" rel="noopener noreferrer">Ver reseña en GoodReads (necesita cuenta)</a></p>
+         <article class="card">
+-          Un excelente libro de referencia en mitologías del mundo. Incluye los clásicos mitos griegos y romanos, pero también se extiende en las mitologías del norte de Europa, las leyendas de caballeros y asesinos de dragones de la Edad Media, el Medio Oriente, Egipto y hasta América.<br /><br />En general es agradable de leer pero hay momentos en los que se convierte en una relación extensa y poco profunda de los mitos de una determinada cultura. Bueno tenerlo a la mano para consultar algún mito o personaje mitológico (tiene un extenso y pormenorizado índice por personajes y temas al final) pero no es una lectura del todo entretenida.
++          Un excelente libro de referencia sobre las mitologías del mundo. Incluye los clásicos mitos griegos y romanos, pero también se extiende a las mitologías del norte de Europa, las leyendas de caballeros y asesinos de dragones de la Edad Media, el Oriente Medio, Egipto y hasta América.<br /><br />En general, es agradable de leer, pero hay momentos en los que se convierte en una relación extensa y poco profunda de los mitos de una determinada cultura. Es bueno tenerlo a mano para consultar algún mito o personaje mitológico (tiene un extenso y pormenorizado índice por personajes y temas al final), pero no es una lectura del todo entretenida.
+         </article>
+         <div id="review-like-actions" aria-label="Interacciones de la reseña"></div>
+       </div>

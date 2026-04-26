@@ -1,0 +1,11 @@
+--- 5680360013.html.orig
++++ 5680360013.html
+@@ -91,7 +91,7 @@
+         </div>
+         <p><a class="link" href="https://www.goodreads.com/review/show/5680360013?utm_medium=api&amp;utm_source=rss" target="_blank" rel="noopener noreferrer">Ver reseña en GoodReads (necesita cuenta)</a></p>
+         <article class="card">
+-          ¡Excepcional! La más rigurosa y completa novela histórica recreada en el antiguo Egipto que he leído hasta ahora.<br /><br />Me ha sorprendido mucho descubrir en Nacho Ares, a quien conocí primero como destacado divulgador histórico, un narrador competente.<br /><br />Reseña en extenso en cocción…
++          ¡Excepcional! La más rigurosa y completa novela histórica recreada en el antiguo Egipto que he leído hasta ahora.<br /><br />Me ha sorprendido mucho descubrir en Nacho Ares, a quien conocí primero como destacado divulgador histórico, a un narrador competente.<br /><br />Reseña en extenso en cocción…
+         </article>
+         <div id="review-like-actions" aria-label="Interacciones de la reseña"></div>
+       </div>

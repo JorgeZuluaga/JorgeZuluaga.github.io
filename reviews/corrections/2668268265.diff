@@ -1,0 +1,11 @@
+--- 2668268265.html.orig
++++ 2668268265.html
+@@ -91,7 +91,7 @@
+         </div>
+         <p><a class="link" href="https://www.goodreads.com/review/show/2668268265?utm_medium=api&amp;utm_source=rss" target="_blank" rel="noopener noreferrer">Ver reseña en GoodReads (necesita cuenta)</a></p>
+         <article class="card">
+-          Aunque no me gusta leer obras de teatro (me aterra el formato y la manera como están descritas para orientar a directores y actores), los diálogos de esta obra me engancharon desde la primera página. Tal vez por la admiración (casi deificación) por la figura de Da Vinci o por la ilusión de ser transportado a su estudio y acercarse a cómo creó su obra maestra, La Gioconda.<br /><br />Como sea, el autor logra de manera muy efectiva recrear los que pudieron ser los diálogos entre Leonardo, sus clientes y aprendices-amantes. <br /><br />Muy conmovedoras las palabras que el autor pone en boca de Leonardo y que ilustran la que debió ser su profunda relación con la belleza, el seco y la naturaleza.
++          Aunque no me gusta leer obras de teatro (me aterra el formato y la manera como están descritas para orientar a directores y actores), los diálogos de esta obra me engancharon desde la primera página. Tal vez por la admiración (casi deificación) por la figura de Da Vinci o por la ilusión de ser transportado a su estudio y acercarme a cómo creó su obra maestra, La Gioconda.<br /><br />Como sea, el autor logra de manera muy efectiva recrear los que pudieron ser los diálogos entre Leonardo, sus clientes y sus aprendices-amantes.<br /><br />Muy conmovedoras las palabras que el autor pone en boca de Leonardo y que ilustran la que debió ser su profunda relación con la belleza, el genio y la naturaleza.
+         </article>
+         <div id="review-like-actions" aria-label="Interacciones de la reseña"></div>
+       </div>
