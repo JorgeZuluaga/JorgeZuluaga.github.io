@@ -6,3 +6,11 @@ compatibility_date = "2026-04-22"
 binding = "VISITOR_LOGS"
 id = "ff2dcb126ee743ba95616016b85aa50f"
 
+# Optional: comma-separated list of IPs to exclude from logging.
+# Example:
+# [vars]
+# EXCLUDED_LOG_IPS = "200.10.20.30, 181.55.44.33"
+
+[vars]
+EXCLUDED_LOG_IPS = "181.32.143.7" 
+

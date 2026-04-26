@@ -206,7 +206,12 @@ async function wireReviewLikeButton() {
       localStorage.setItem(likesStorageKey(reviewId), "1");
       updateLocalLikesInPage(count);
       updateLikeButtonCount(count, true);
-      trackEvent("review_like_click", { reviewId, count, alreadyLiked: Boolean(data?.alreadyLiked) });
+      const alreadyLiked = Boolean(data?.alreadyLiked);
+      if (alreadyLiked) {
+        trackEvent("review_like_already_liked", { reviewId, count, alreadyLiked });
+      } else {
+        trackEvent("review_like_click", { reviewId, count, alreadyLiked });
+      }
     } catch {
       btn.disabled = false;
     }

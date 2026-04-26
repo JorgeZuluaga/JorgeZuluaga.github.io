@@ -171,6 +171,72 @@ function pointsForSeries(series, valueSelector, width, height, padX, padTop, pad
   });
 }
 
+function pointDataForSeries(series, valueSelector, width, height, padX, padTop, padBottom, maxY) {
+  const n = series.length;
+  const plotW = Math.max(1, width - 2 * padX);
+  const plotH = Math.max(1, height - padTop - padBottom);
+  return series.map((row, idx) => {
+    const x = padX + (n === 1 ? plotW / 2 : (idx / (n - 1)) * plotW);
+    const value = Number(valueSelector(row) || 0);
+    const y = padTop + (1 - value / maxY) * plotH;
+    return { x, y, value, label: row.label };
+  });
+}
+
+function wireTimeSeriesTooltip(host) {
+  if (!host) return;
+  host.style.position = "relative";
+  let tooltip = host.querySelector(".logs-chart-tooltip");
+  if (!tooltip) {
+    tooltip = document.createElement("div");
+    tooltip.className = "logs-chart-tooltip";
+    Object.assign(tooltip.style, {
+      position: "absolute",
+      left: "0px",
+      top: "0px",
+      transform: "translate(-50%, calc(-100% - 10px))",
+      background: "rgba(15, 23, 42, 0.94)",
+      color: "#fff",
+      fontSize: "12px",
+      lineHeight: "1.2",
+      borderRadius: "6px",
+      padding: "6px 8px",
+      whiteSpace: "nowrap",
+      pointerEvents: "none",
+      opacity: "0",
+      transition: "opacity .12s ease",
+      zIndex: "10",
+    });
+    host.appendChild(tooltip);
+  }
+
+  const show = (evt) => {
+    const target = evt.currentTarget;
+    const text = String(target?.getAttribute("data-tooltip") || "").trim();
+    if (!text) return;
+    tooltip.textContent = text;
+    tooltip.style.left = `${evt.offsetX}px`;
+    tooltip.style.top = `${evt.offsetY}px`;
+    tooltip.style.opacity = "1";
+  };
+
+  const move = (evt) => {
+    tooltip.style.left = `${evt.offsetX}px`;
+    tooltip.style.top = `${evt.offsetY}px`;
+  };
+
+  const hide = () => {
+    tooltip.style.opacity = "0";
+  };
+
+  host.querySelectorAll(".logs-chart-point").forEach((point) => {
+    point.addEventListener("mouseenter", show);
+    point.addEventListener("mousemove", move);
+    point.addEventListener("mouseleave", hide);
+    point.addEventListener("blur", hide);
+  });
+}
+
 function renderTimeSeries(logs) {
   const host = document.getElementById("logs-timeseries");
   if (!host) return;
@@ -218,6 +284,26 @@ function renderTimeSeries(logs) {
     padBottom,
     maxY,
   ).join(" ");
+  const eventsPointData = pointDataForSeries(
+    series,
+    (r) => r.events,
+    width,
+    height,
+    padX,
+    padTop,
+    padBottom,
+    maxY,
+  );
+  const visitorsPointData = pointDataForSeries(
+    series,
+    (r) => r.visitors,
+    width,
+    height,
+    padX,
+    padTop,
+    padBottom,
+    maxY,
+  );
 
   const plotH = Math.max(1, height - padTop - padBottom);
   const grid = uniqueTicks
@@ -236,13 +322,28 @@ function renderTimeSeries(logs) {
       return `<text x="${x.toFixed(2)}" y="${(height - 10).toFixed(2)}" text-anchor="middle" font-size="11" fill="var(--black)" opacity="0.8">${row.label}</text>`;
     })
     .join("");
+  const eventDots = eventsPointData
+    .map(
+      (p) =>
+        `<circle class="logs-chart-point" cx="${p.x.toFixed(2)}" cy="${p.y.toFixed(2)}" r="5" fill="var(--accent)" data-tooltip="${escapeHtml(`${p.label}: ${fmt(p.value)} eventos`)}" />`,
+    )
+    .join("");
+  const visitorDots = visitorsPointData
+    .map(
+      (p) =>
+        `<circle class="logs-chart-point" cx="${p.x.toFixed(2)}" cy="${p.y.toFixed(2)}" r="5" fill="#16a34a" data-tooltip="${escapeHtml(`${p.label}: ${fmt(p.value)} visitantes únicos`)}" />`,
+    )
+    .join("");
 
   host.innerHTML = `<svg class="logs-chart-svg" viewBox="0 0 ${width} ${height}" role="img" aria-label="Serie temporal de eventos y visitantes únicos">
     ${grid}
     <polyline fill="none" stroke="var(--accent)" stroke-width="2.5" points="${eventsPoints}" />
     <polyline fill="none" stroke="#16a34a" stroke-width="2.5" points="${visitorsPoints}" />
+    ${eventDots}
+    ${visitorDots}
     ${xLabels}
   </svg>`;
+  wireTimeSeriesTooltip(host);
 }
 
 function renderSummary(logs) {

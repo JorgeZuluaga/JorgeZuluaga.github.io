@@ -30,11 +30,12 @@ function jsonResponse(data, status = 200) {
 }
 
 function getIp(request) {
-  return (
+  const raw = (
     request.headers.get("cf-connecting-ip") ||
     request.headers.get("x-forwarded-for") ||
     "unknown"
   );
+  return String(raw).split(",")[0].trim() || "unknown";
 }
 
 function getCountry(request) {
@@ -48,6 +49,23 @@ function extractReadToken(request, url) {
   const bearerMatch = auth.match(/^Bearer\s+(.+)$/i);
   if (bearerMatch) return bearerMatch[1].trim();
   return (url.searchParams.get("token") || "").trim();
+}
+
+function parseExcludedIps(env) {
+  const raw = String(env?.EXCLUDED_LOG_IPS || "").trim();
+  if (!raw) return new Set();
+  const parts = raw
+    .split(/[,\s]+/)
+    .map((x) => String(x || "").trim())
+    .filter(Boolean);
+  return new Set(parts);
+}
+
+function isExcludedIp(ip, env) {
+  const safeIp = String(ip || "").trim();
+  if (!safeIp) return false;
+  const excluded = parseExcludedIps(env);
+  return excluded.has(safeIp);
 }
 
 function parseReviewId(pathname, prefix, suffix = "") {
@@ -133,11 +151,16 @@ export default {
           return jsonResponse({ ok: false, error: "invalid_json" }, 400);
         }
 
+        const ip = getIp(request);
+        if (isExcludedIp(ip, env)) {
+          return jsonResponse({ ok: true, skipped: true, reason: "excluded_ip" });
+        }
+
         const now = new Date().toISOString();
         const record = {
           id: crypto.randomUUID(),
           timestampServer: now,
-          ip: getIp(request),
+          ip,
           country: getCountry(request),
           eventType: body.eventType || "unknown",
           page: body.page || "",
@@ -169,6 +192,26 @@ export default {
 
         const now = new Date().toISOString();
         const ip = getIp(request);
+        if (isExcludedIp(ip, env)) {
+          let count = await getStoredReviewLikeCount(env.VISITOR_LOGS, reviewId);
+          if (count === null) {
+            try {
+              count = await countReviewLikes(env.VISITOR_LOGS, reviewId);
+              await setStoredReviewLikeCount(env.VISITOR_LOGS, reviewId, count);
+            } catch {
+              count = 0;
+            }
+          }
+          return jsonResponse({
+            ok: true,
+            skipped: true,
+            reason: "excluded_ip",
+            reviewId,
+            liked: false,
+            alreadyLiked: true,
+            count,
+          });
+        }
         const key = `review_like:${reviewId}:${ip}`;
         const alreadyRaw = await env.VISITOR_LOGS.get(key);
         const already = Boolean(alreadyRaw);
