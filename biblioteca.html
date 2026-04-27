@@ -95,19 +95,20 @@
           </article>
 
           <article class="library-list-card">
-            <h2 id="library-h2-series" class="title-section title-section--small">Sagas y colecciones personales</h2>
-            <div id="library-series-read" class="library-book-list" aria-live="polite"></div>
+            <h2 id="library-h2-top50" class="title-section title-section--small">Los 50 libros preferidos</h2>
+            <div id="library-top50" class="library-book-list" aria-live="polite"></div>
           </article>
         </section>
 
         <section class="library-chart" aria-label="Libros leídos por año">
-          <h2 id="library-h2-year" class="title-section title-section--small">Libros leídos por año</h2>
+          <h2 id="library-h2-year" class="title-section title-section--small">Estadística de libros leídos por año</h2>
           <div id="library-yearly-chart" class="library-chart__list" aria-live="polite"></div>
         </section>
 
-        <p class="library-all-link-wrap">
-          <a class="link library-all-link" href="./biblioteca-todos.html">¿Mostrar todos los libros?</a>
-        </p>
+        <div class="library-all-link-wrap" style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+          <a class="link library-all-link" id="btn-all-books" href="./biblioteca-todos.html">¿Mostrar todos los libros?</a>
+          <a class="link library-all-link" id="btn-all-sagas" href="./biblioteca-series.html">¿Mostrar las sagas y colecciones?</a>
+        </div>
       </div>
     </main>
 

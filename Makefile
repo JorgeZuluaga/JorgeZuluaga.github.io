@@ -129,11 +129,18 @@ library-update:
 	fi
 	@$(MAKE) library-details-sync
 	@$(MAKE) library-stats
+	@$(MAKE) library-drzrating-update
 	@echo "Library update completed (FORCE=$(FORCE))."
 
 # Regenerate info/library-stats.json from info/library.json.
 library-stats:
 	@python3 bin/update_library_stats.py "$(LIBRARY_JSON)" --out "$(LIBRARY_STATS_JSON)"
+
+# Update custom drzrating for newly added books (drzrating = 0)
+library-drzrating-update:
+	@python3 bin/update_drzrating.py \
+		--library-json "$(LIBRARY_JSON)" \
+		--base-dir "."
 
 # Full refresh for library data + details sync + derived stats.
 library-refresh: library-build library-details-sync library-stats

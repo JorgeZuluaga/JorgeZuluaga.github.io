@@ -176,6 +176,10 @@ def build_local_page(
     rating = max(0, min(5, rating))
     likes = max(0, likes)
     stars = ("★" * rating) + ("☆" * (5 - rating))
+    
+    drzrating = book.get("drzrating", -1)
+    drz_text = "(pendiente)" if drzrating == -1 else str(drzrating)
+    review_id = extract_review_id(review_url)
     if not review_fragment:
         review_fragment = (
             "<p>No fue posible extraer el contenido visible de la reseña automáticamente.</p>"
@@ -275,9 +279,10 @@ def build_local_page(
         {cover_markup}
         <p class="meta">Fecha de reseña: {safe_review_date}</p>
         <div class="rating-row">
-          <p class="rating" aria-label="Calificación: {rating} de 5">{stars}</p>
-          <p class="likes" aria-label="Likes en GoodReads: {likes}"><a href="{html.escape(review_url)}" target="_blank" rel="noopener noreferrer">👍</a> {likes}</p>
-          <p class="likes likes-local-inline" aria-label="Me gusta locales: 0">👏 0 (me gusta locales)</p>
+          <span class="library-tooltip rating" data-title="Calificación en Goodreads asignada por Jorge Zuluaga" aria-label="Calificación: {rating} de 5">{stars}</span>
+          <span class="library-tooltip" data-title="Calificación especial de Jorge Zuluaga Dr.Z">🤓 {drz_text}</span>
+          <span class="library-tooltip likes" data-title="Me gusta en Goodreads" aria-label="Likes en GoodReads: {likes}"><a href="{html.escape(review_url)}" target="_blank" rel="noopener noreferrer">👍</a> {likes}</span>
+          <span class="library-tooltip likes likes-local-inline" data-title="Aplausos recibidos en esta página" aria-label="Me gusta locales: 0" data-local-likes-for="{review_id}">👏 0</span>
         </div>
         <p><a class="link" href="{html.escape(review_url)}" target="_blank" rel="noopener noreferrer">Ver reseña en GoodReads (necesita cuenta)</a></p>
         <article class="card">

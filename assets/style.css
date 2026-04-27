@@ -1664,3 +1664,42 @@ body.photos-page .photos-intro {
   border-radius: 8px;
   font-weight: 500;
 }
+/* Custom Tooltip for Library Ratings */
+.library-tooltip {
+  position: relative;
+  cursor: help;
+  display: inline-block;
+}
+
+.library-tooltip::after {
+  content: attr(data-title);
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-2px);
+  background-color: var(--black);
+  color: var(--white);
+  padding: 0.4rem 0.7rem;
+  border-radius: 5px;
+  font-size: 0.82rem;
+  white-space: nowrap;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.2s ease-in-out;
+  pointer-events: none;
+  z-index: 100;
+  box-shadow: var(--box-shadow);
+  font-weight: normal;
+  line-height: 1.2;
+}
+
+.library-tooltip:hover::after {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(-50%) translateY(-6px);
+}
+
+.dark-theme .library-tooltip::after {
+  background-color: var(--white);
+  color: var(--black);
+}

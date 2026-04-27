@@ -203,6 +203,8 @@ def build_library_data(
                 entry["reviewLikes"] = review_likes
             if "scrapeStatus" not in entry:
                 entry["scrapeStatus"] = scrape_status
+            if "drzrating" not in entry:
+                entry["drzrating"] = 0
         else:
             entry = {
                 "bookId": book_id,
@@ -214,6 +216,7 @@ def build_library_data(
                 "hasReview": has_review,
                 "reviewLikes": review_likes,
                 "scrapeStatus": scrape_status,
+                "drzrating": 0,
             }
 
         books.append(entry)

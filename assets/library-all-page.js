@@ -69,7 +69,7 @@ function writeCachedLocalLikes(reviewId, count) {
 
 function localLikesSuffixHtml(reviewId, lang) {
   if (!reviewId) return "";
-  return ` · <span data-local-likes-for="${reviewId}">${escapeLibrary(t("library_review_likes_local", lang))} —</span>`;
+  return ` · <span class="library-tooltip" data-title="${escapeLibrary(t("library_likes_local_hover", lang))}" data-local-likes-for="${reviewId}">👏 —</span>`;
 }
 
 function readSnapshotLocalLikes(item) {
@@ -95,7 +95,7 @@ function renderLocalLikesInContainer(container, map, lang) {
   container.querySelectorAll("[data-local-likes-for]").forEach((node) => {
     const reviewId = String(node.getAttribute("data-local-likes-for") || "");
     if (!reviewId || !map.has(reviewId)) return;
-    node.textContent = `${t("library_review_likes_local", lang)} ${map.get(reviewId)}`;
+    node.textContent = `👏 ${map.get(reviewId)}`;
   });
 }
 
@@ -161,7 +161,7 @@ function escapeLibrary(s) {
     .replaceAll(">", "&gt;");
 }
 
-function renderBookList(container, items, lang) {
+function renderBookList(container, items, lang, seriesMap = new Map()) {
   if (!container) return;
   if (!Array.isArray(items) || items.length === 0) {
     container.innerHTML = `<p class="photo-card__error">${escapeLibrary(t("library_no_data", lang))}</p>`;
@@ -175,53 +175,60 @@ function renderBookList(container, items, lang) {
 
     const title = document.createElement("h3");
     title.className = "library-book-item__title";
+    // Title is already bold via CSS, we keep it as it is
     title.textContent = item.title ?? t("library_book_title_fallback", lang);
 
-    const meta = document.createElement("p");
-    meta.className = "library-book-item__meta";
+    const meta1 = document.createElement("p");
+    meta1.className = "library-book-item__meta";
     const author = item.author
       ? `${t("library_by_author", lang)} ${item.author}`
       : `${t("library_by_author", lang)} —`;
-    const datePart = item.dateRead || "—";
-    const reviewId = parseReviewIdFromUrl(item.reviewUrl);
-    const likesLine = Number.isFinite(Number(item.reviewLikes))
-      ? `${t("library_review_likes", lang)} ${item.reviewLikes}`
-      : `${t("library_review_likes", lang)} —`;
-    meta.innerHTML = `${author} · ${t("library_date", lang)} ${datePart} · ${t("library_rating_label", lang)}: ${formatRating(item.rating, lang)} · ${likesLine}${localLikesSuffixHtml(reviewId, lang)}`;
+      
+    const bookId = String(item.bookId || "");
+    const seriesName = (bookId && seriesMap.has(bookId)) ? seriesMap.get(bookId) : t("library_series_none", lang);
+    meta1.textContent = `${author} · ${t("library_series", lang)} ${seriesName}`;
+
+    const meta2 = document.createElement("p");
+    meta2.className = "library-book-item__meta";
+    const datePart = item.dateRead || item.dateAdded || "—";
+    
+    let drzRatingText = t("library_drz_pending", lang);
+    if (item.drzrating !== undefined && item.drzrating !== -1) {
+      drzRatingText = `${item.drzrating}`;
+    }
+    
+    meta2.innerHTML = `${t("library_date_read", lang)} ${datePart} · ${t("library_rating_label", lang)}: <span class="library-tooltip" data-title="${escapeLibrary(t("library_rating_gr_hover", lang))}">${formatRating(item.rating, lang)}</span> · ${t("library_rating_drz", lang)} <span class="library-tooltip" data-title="${escapeLibrary(t("library_rating_drz_hover", lang))}">🤓 ${escapeLibrary(drzRatingText)}</span>`;
 
     const actions = document.createElement("p");
     actions.className = "library-book-item__actions";
+    
     const reviewUrl = String(item.reviewUrl || "");
     const localReviewUrl = String(item.reviewLocalUrl || "");
     const hasReviewUrl = reviewUrl.includes("/review/show/");
     const hasLocalReview = localReviewUrl.endsWith(".html");
+    const reviewId = parseReviewIdFromUrl(item.reviewUrl);
+    
+    let actionsHtml = "";
+
     if (hasLocalReview) {
-      const localLink = document.createElement("a");
-      localLink.className = "link";
-      localLink.href = localReviewUrl;
-      localLink.textContent = t("library_view_review_local", lang);
-      actions.appendChild(localLink);
-    }
-    if (hasReviewUrl && hasLocalReview) {
-      actions.append(" - ");
-    }
-    if (hasReviewUrl) {
-      const goodreadsLink = document.createElement("a");
-      goodreadsLink.className = "link";
-      goodreadsLink.href = reviewUrl;
-      goodreadsLink.target = "_blank";
-      goodreadsLink.rel = "noopener noreferrer";
-      goodreadsLink.textContent = t("library_view_review_goodreads", lang);
-      actions.appendChild(goodreadsLink);
-    }
-    if (!hasReviewUrl && !hasLocalReview) {
-      actions.textContent = t("library_no_review", lang);
+      actionsHtml += `<a class="link" href="${escapeLibrary(localReviewUrl)}">${escapeLibrary(t("library_view_review", lang))}</a>`;
+    } else if (hasReviewUrl) {
+      actionsHtml += `<a class="link" href="${escapeLibrary(reviewUrl)}" target="_blank" rel="noopener noreferrer">${escapeLibrary(t("library_view_review", lang))}</a>`;
     } else {
+      actionsHtml += t("library_no_review", lang);
+    }
+    
+    const likesCount = Number.isFinite(Number(item.reviewLikes)) ? item.reviewLikes : 0;
+    actionsHtml += ` · <span class="library-tooltip" data-title="${escapeLibrary(t("library_likes_gr_hover", lang))}">👍 ${likesCount}</span>${localLikesSuffixHtml(reviewId, lang)}`;
+
+    actions.innerHTML = actionsHtml;
+    if (hasReviewUrl || hasLocalReview) {
       actions.setAttribute("aria-label", t("library_review_links", lang));
     }
 
     entry.appendChild(title);
-    entry.appendChild(meta);
+    entry.appendChild(meta1);
+    entry.appendChild(meta2);
     entry.appendChild(actions);
     frag.appendChild(entry);
   }
@@ -281,12 +288,25 @@ async function main() {
   const listEl = document.getElementById("all-books-list");
   if (!listEl) return;
 
+  const seriesData = await fetch("./info/book_series.json", { cache: "no-store" })
+    .then((r) => (r.ok ? r.json() : { series: [] }))
+    .catch(() => ({ series: [] }));
+
+  const seriesMap = new Map();
+  for (const series of seriesData.series || []) {
+    for (const b of series.books || []) {
+      if (b.libraryBookId) {
+        seriesMap.set(String(b.libraryBookId), series.name);
+      }
+    }
+  }
+
   const books = [...(data.books ?? [])]
     .filter((b) => b && b.title)
     .map((b) => ({ ...b, _date: parseDate(b.dateRead) }))
     .sort((a, b) => (b._date?.getTime() ?? 0) - (a._date?.getTime() ?? 0));
 
-  renderBookList(listEl, books, lang);
+  renderBookList(listEl, books, lang, seriesMap);
   hydrateLocalLikes(listEl, books, lang).catch(() => {});
 }
 

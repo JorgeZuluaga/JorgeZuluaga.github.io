@@ -93,7 +93,7 @@ function updateLocalLikesInPage(count) {
     row.appendChild(localNode);
   }
   localNode.setAttribute("aria-label", `${text.localLikesAria} ${safeCount}`);
-  localNode.textContent = `👏 ${safeCount} ${text.localLikesSuffix}`;
+  localNode.textContent = `👏 ${safeCount}`;
 }
 
 async function hydrateReviewLikesFromLibrary() {
