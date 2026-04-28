@@ -192,13 +192,22 @@ function renderBookList(container, items, lang, seriesMap = new Map()) {
       meta2Parts.push(`${escapeLibrary(t("library_series", lang))} ${escapeLibrary(seriesName)}`);
     }
 
-    const datePart = item.dateRead || item.dateAdded || "";
-    if (datePart && datePart !== "—") {
-      meta2Parts.push(`<strong>${escapeLibrary(t("library_date_read", lang))}</strong> ${escapeLibrary(datePart)}`);
-    }
-
     if (meta2Parts.length > 0) {
       meta2.innerHTML = meta2Parts.join(" · ");
+    }
+
+    const metaDate = document.createElement("p");
+    metaDate.className = "library-book-item__meta";
+    const datePart = item.dateRead || item.dateAdded || "";
+    if (datePart && datePart !== "—") {
+      const hasDetails = Number(item.bookDetails) === 1;
+      const detailLabel = hasDetails
+        ? t("library_details_present", lang)
+        : t("library_details_missing", lang);
+      const detailClass = hasDetails
+        ? "library-details-status library-details-status--present"
+        : "library-details-status library-details-status--missing";
+      metaDate.innerHTML = `<strong>${escapeLibrary(t("library_date_read", lang))}</strong> ${escapeLibrary(datePart)} (<span class="${detailClass}">${escapeLibrary(detailLabel)}</span>)`;
     }
 
     const meta3 = document.createElement("p");
@@ -243,6 +252,7 @@ function renderBookList(container, items, lang, seriesMap = new Map()) {
     entry.appendChild(title);
     entry.appendChild(meta1);
     if (meta2Parts.length > 0) entry.appendChild(meta2);
+    if (datePart && datePart !== "—") entry.appendChild(metaDate);
     entry.appendChild(meta3);
     if (actionsHtml) entry.appendChild(actions);
     frag.appendChild(entry);

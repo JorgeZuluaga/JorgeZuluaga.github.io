@@ -821,12 +821,12 @@ code {
 }
 
 /* Enlaces "inline" (libros, software, etc.) */
-a.link {
+.link {
   color: var(--accent);
   font-weight: 500;
 }
 
-a.link:hover {
+.link:hover {
   opacity: 0.9;
 }
 
@@ -1648,6 +1648,14 @@ body.photos-page .photos-intro {
   opacity: 0.88;
 }
 
+.library-details-status--present {
+  color: var(--accent);
+}
+
+.library-details-status--missing {
+  color: #b32020;
+}
+
 .library-book-item__actions {
   margin: 0.35rem 0 0;
   font-size: 0.88rem;
@@ -1659,9 +1667,13 @@ body.photos-page .photos-intro {
 
 .library-all-link {
   display: inline-block;
+  background: transparent;
   padding: 0.45rem 0.8rem;
   border: 1px solid var(--accent);
   border-radius: 8px;
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
   font-weight: 500;
 }
 /* Custom Tooltip for Library Ratings */

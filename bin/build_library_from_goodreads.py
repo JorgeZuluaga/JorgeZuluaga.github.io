@@ -127,12 +127,30 @@ def load_existing_books(path: str) -> dict[str, dict]:
     return by_id
 
 
+def load_details_book_ids(path: str) -> set[str]:
+    details_path = Path(path)
+    if not details_path.exists():
+        return set()
+    try:
+        with details_path.open("r", encoding="utf-8") as f:
+            data = json.load(f)
+    except (json.JSONDecodeError, OSError):
+        return set()
+    books = list(data.get("books") or [])
+    return {
+        str(book.get("bookId") or "").strip()
+        for book in books
+        if str(book.get("bookId") or "").strip()
+    }
+
+
 def build_library_data(
     rss_url: str,
     scrape_likes_mode: str,
     cookie: str,
     max_rss_pages: int,
     merge_from: str = "",
+    library_details_json: str = "info/library-details.json",
     verbose: bool = False,
 ) -> dict:
     rss_items = fetch_rss_items(rss_url, max_rss_pages, verbose=verbose)
@@ -142,6 +160,9 @@ def build_library_data(
     existing_by_id = load_existing_books(merge_from) if merge_from else {}
     if verbose and merge_from:
         print(f"[MERGE] Libros previos disponibles: {len(existing_by_id)}")
+    details_book_ids = load_details_book_ids(library_details_json)
+    if verbose:
+        print(f"[DETAILS] bookId disponibles en library-details: {len(details_book_ids)}")
 
     books = []
     seen_ids: set[str] = set()
@@ -218,6 +239,7 @@ def build_library_data(
                 "scrapeStatus": scrape_status,
                 "drzrating": 0,
             }
+        entry["bookDetails"] = 1 if book_id in details_book_ids else 0
 
         books.append(entry)
         should_scrape_likes = False
@@ -318,6 +340,11 @@ def main() -> int:
         ),
     )
     parser.add_argument(
+        "--library-details-json",
+        default="info/library-details.json",
+        help="Ruta a info/library-details.json para marcar el campo bookDetails (0/1).",
+    )
+    parser.add_argument(
         "--verbose",
         action="store_true",
         help="Muestra progreso detallado en consola.",
@@ -331,6 +358,7 @@ def main() -> int:
         cookie=args.cookie,
         max_rss_pages=max(1, args.rss_pages),
         merge_from=args.merge_from,
+        library_details_json=args.library_details_json,
         verbose=args.verbose,
     )
 

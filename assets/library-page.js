@@ -296,6 +296,45 @@ function renderBookList(container, items, lang, seriesMap = new Map()) {
   container.replaceChildren(frag);
 }
 
+function addListToggleControls(container, items, lang, seriesMap, showAllKey) {
+  if (!container || !Array.isArray(items) || items.length === 0) return;
+  const initialItems = items.slice(0, 5);
+  let showingAll = false;
+
+  renderBookList(container, initialItems, lang, seriesMap);
+  hydrateLocalLikes(container, initialItems, lang).catch(() => {});
+
+  const toggleContainer = document.createElement("div");
+  toggleContainer.className = "library-all-link-wrap";
+  toggleContainer.style.marginTop = "1rem";
+  toggleContainer.style.display = "flex";
+  toggleContainer.style.gap = "1rem";
+  toggleContainer.style.justifyContent = "center";
+  toggleContainer.style.flexWrap = "wrap";
+
+  const toggleBtn = document.createElement("button");
+  toggleBtn.type = "button";
+  toggleBtn.className = "link library-all-link";
+  toggleBtn.textContent = t(showAllKey, lang);
+
+  toggleBtn.addEventListener("click", () => {
+    showingAll = !showingAll;
+    const visibleItems = showingAll ? items : initialItems;
+    renderBookList(container, visibleItems, lang, seriesMap);
+    hydrateLocalLikes(container, visibleItems, lang).catch(() => {});
+    toggleBtn.textContent = showingAll ? t("library_show_latest_5", lang) : t(showAllKey, lang);
+  });
+
+  const allBooksLink = document.createElement("a");
+  allBooksLink.className = "link library-all-link";
+  allBooksLink.href = withLangQuery("./biblioteca-todos.html");
+  allBooksLink.textContent = t("library_view_all_books", lang);
+
+  toggleContainer.appendChild(toggleBtn);
+  toggleContainer.appendChild(allBooksLink);
+  container.parentElement?.appendChild(toggleContainer);
+}
+
 
 function escapeLibrary(s) {
   return (s ?? "")
@@ -421,15 +460,15 @@ async function main() {
       if (b.rating !== a.rating) return b.rating - a.rating;
       return (b._date?.getTime() ?? 0) - (a._date?.getTime() ?? 0);
     })
-    .slice(0, 10);
+    .slice(0, 20);
 
-  const top50Favorite = [...books]
+  const topFavorite = [...books]
     .filter((b) => typeof b.drzrating === "number" && b.drzrating > 0)
     .sort((a, b) => {
       if (b.drzrating !== a.drzrating) return b.drzrating - a.drzrating;
       return (b._date?.getTime() ?? 0) - (a._date?.getTime() ?? 0);
     })
-    .slice(0, 50);
+    .slice(0, 20);
 
   const totalRead = books.length;
   const totalReviewed = reviewed.length;
@@ -505,54 +544,9 @@ async function main() {
   }
 
   chartEl.replaceChildren(frag);
-  renderBookList(latestReadEl, latestRead.slice(0, 5), lang, seriesMap);
-  
-  const toggleContainer = document.createElement("div");
-  toggleContainer.className = "library-all-link-wrap";
-  toggleContainer.style.marginTop = "1rem";
-  toggleContainer.style.display = "flex";
-  toggleContainer.style.gap = "1rem";
-  toggleContainer.style.justifyContent = "center";
-  toggleContainer.style.flexWrap = "wrap";
-  
-  const toggleBtn = document.createElement("button");
-  toggleBtn.className = "link library-all-link";
-  toggleBtn.style.cursor = "pointer";
-  toggleBtn.style.background = "transparent";
-  toggleBtn.style.border = "none";
-  toggleBtn.style.fontFamily = "inherit";
-  toggleBtn.style.fontSize = "inherit";
-  toggleBtn.textContent = t("library_show_latest_20", lang);
-  
-  let showingAllLatest = false;
-  toggleBtn.addEventListener("click", () => {
-    showingAllLatest = !showingAllLatest;
-    if (showingAllLatest) {
-      renderBookList(latestReadEl, latestRead, lang, seriesMap);
-      hydrateLocalLikes(latestReadEl, latestRead, lang).catch(() => {});
-      toggleBtn.textContent = t("library_show_latest_5", lang);
-    } else {
-      renderBookList(latestReadEl, latestRead.slice(0, 5), lang, seriesMap);
-      hydrateLocalLikes(latestReadEl, latestRead.slice(0, 5), lang).catch(() => {});
-      toggleBtn.textContent = t("library_show_latest_20", lang);
-    }
-  });
-
-  const allBooksLink = document.createElement("a");
-  allBooksLink.className = "link library-all-link";
-  allBooksLink.href = withLangQuery("./biblioteca-todos.html");
-  allBooksLink.textContent = t("library_view_all_books", lang);
-  
-  toggleContainer.appendChild(toggleBtn);
-  toggleContainer.appendChild(allBooksLink);
-  
-  latestReadEl.parentElement.appendChild(toggleContainer);
-
-  renderBookList(topReviewedEl, topReviewedByLikes, lang, seriesMap);
-  renderBookList(top50El, top50Favorite, lang, seriesMap);
-  hydrateLocalLikes(latestReadEl, latestRead.slice(0, 5), lang).catch(() => {});
-  hydrateLocalLikes(topReviewedEl, topReviewedByLikes, lang).catch(() => {});
-  hydrateLocalLikes(top50El, top50Favorite, lang).catch(() => {});
+  addListToggleControls(latestReadEl, latestRead, lang, seriesMap, "library_show_latest_20");
+  addListToggleControls(topReviewedEl, topReviewedByLikes, lang, seriesMap, "library_show_top_20");
+  addListToggleControls(top50El, topFavorite, lang, seriesMap, "library_show_top_20");
   hydrateTotalLocalLikes(totalLocalLikesEl, reviewed).catch(() => {});
 }
 

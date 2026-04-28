@@ -2,7 +2,7 @@
 	help start dev stop \
 	classroom \
 	library-build library-update library-stats library-refresh library-local-likes-sync \
-	reviews-first reviews-all reviews-force reviews-refresh reviews-fix \
+	reviews-first reviews-all reviews-force reviews-refresh reviews-fix reviews-enrich reviews-enrich-dry \
 	library-details-import library-details-match library-details-sync \
 	worker-deploy
 
@@ -44,6 +44,8 @@ help:
 	@echo "  make reviews-refresh    - Run reviews-all + library-stats"
 	@echo "  make reviews-fix        - Fix review HTML text with Gemini"
 	@echo "                            Required env: GOOGLE_API_KEY=..."
+	@echo "  make reviews-enrich     - Enrich reviews/*.html with ISBN + purchase metadata from library-details"
+	@echo "  make reviews-enrich-dry - Preview review enrichment without writing changes"
 	@echo "  make library-details-import - Import $(BOOKBUDDY_CSV) into $(LIBRARY_DETAILS_JSON)"
 	@echo "  make library-details-match  - Match bookId from $(LIBRARY_JSON) into $(LIBRARY_DETAILS_JSON)"
 	@echo "  make library-details-sync   - Run import + match (use after changing bookbuddy.csv)"
@@ -192,6 +194,19 @@ reviews-fix:
 		exit 1; \
 	fi
 	@python3 bin/fix_reviews.py --api-key "$$GOOGLE_API_KEY"
+
+# Enrich local review pages with ISBN/Purchase metadata from library-details.
+reviews-enrich:
+	@python3 bin/enrich_review_pages_from_library_details.py \
+		--library-json "$(LIBRARY_JSON)" \
+		--library-details-json "$(LIBRARY_DETAILS_JSON)"
+
+# Dry-run preview for review metadata enrichment.
+reviews-enrich-dry:
+	@python3 bin/enrich_review_pages_from_library_details.py \
+		--library-json "$(LIBRARY_JSON)" \
+		--library-details-json "$(LIBRARY_DETAILS_JSON)" \
+		--dry-run
 
 # Import rows from BookBuddy CSV into library-details JSON (no duplicates).
 library-details-import:
