@@ -5,6 +5,39 @@
   "intro_en": "High-resolution images of Jorge I. Zuluaga for programs, credentials, and media use. Click “Preview” (or the thumbnail) to inspect the large image before downloading it.",
   "photos": [
     {
+      "file": "jorge-zuluaga-artemis-ii-2026-04-21-1.JPG",
+      "title": "Grabación Artemis II — toma 1",
+      "dateLabel": "Abril 2026",
+      "year": 2026,
+      "month": 4,
+      "description": "Fotografía tomada durante la grabación de un video explicando algunos aspectos interesantes de la misión Artemis II.",
+      "width": 3197,
+      "height": 4806,
+      "sizeBytes": 3692817
+    },
+    {
+      "file": "jorge-zuluaga-artemis-ii-2026-04-21-2.JPG",
+      "title": "Grabación Artemis II — toma 2",
+      "dateLabel": "Abril 2026",
+      "year": 2026,
+      "month": 4,
+      "description": "Fotografía tomada durante la grabación de un video explicando algunos aspectos interesantes de la misión Artemis II.",
+      "width": 2889,
+      "height": 4553,
+      "sizeBytes": 3229568
+    },
+    {
+      "file": "jorge-zuluaga-artemis-ii-2026-04-21-2-full.JPG",
+      "title": "Grabación Artemis II — toma 2 (completa)",
+      "dateLabel": "Abril 2026",
+      "year": 2026,
+      "month": 4,
+      "description": "Fotografía tomada durante la grabación de un video explicando algunos aspectos interesantes de la misión Artemis II.",
+      "width": 7008,
+      "height": 4672,
+      "sizeBytes": 9938724
+    },
+    {
       "file": "jorge-zuluaga-biblioteca-promocional-2026-04-01.png",
       "title": "Imagen promocional de la biblioteca",
       "dateLabel": "Abril 2026",
@@ -16,12 +49,12 @@
       "sizeBytes": 2157647
     },
     {
-      "file": "jorge-zuluaga-perfil-cv-2025-03.jpg",
+      "file": "jorge-zuluaga-perfil-cv-2022-09.jpg",
       "title": "Foto de perfil (misma que el CV web)",
-      "dateLabel": "Marzo 2025",
-      "year": 2025,
-      "month": 3,
-      "description": "Copia en alta resolución de la imagen usada en la hoja de vida en línea; adecuada para prensa y anuncios recientes.",
+      "dateLabel": "Septiembre 2022",
+      "year": 2022,
+      "month": 9,
+      "description": "Sesión fotográfica para un artículo biográfico en un periódico de circulación Nacional.",
       "width": 915,
       "height": 1280,
       "sizeBytes": 726855
@@ -98,7 +131,7 @@
       "dateLabel": "Septiembre 2022",
       "year": 2022,
       "month": 9,
-      "description": "Sesión de fotos para uso en conferencias y material institucional.",
+      "description": "Sesión fotográfica para un artículo biográfico en un periódico de circulación Nacional.",
       "width": 4409,
       "height": 2888,
       "sizeBytes": 3899626
@@ -109,7 +142,7 @@
       "dateLabel": "Septiembre 2022",
       "year": 2022,
       "month": 9,
-      "description": "Sesión de fotos para uso en conferencias y material institucional.",
+      "description": "Sesión fotográfica para un artículo biográfico en un periódico de circulación Nacional.",
       "width": 2659,
       "height": 3915,
       "sizeBytes": 3044848
@@ -120,7 +153,7 @@
       "dateLabel": "Septiembre 2022",
       "year": 2022,
       "month": 9,
-      "description": "Sesión de fotos para uso en conferencias y material institucional.",
+      "description": "Sesión fotográfica para un artículo biográfico en un periódico de circulación Nacional.",
       "width": 2816,
       "height": 3324,
       "sizeBytes": 2066477

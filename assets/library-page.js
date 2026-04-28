@@ -221,29 +221,45 @@ function renderBookList(container, items, lang, seriesMap = new Map()) {
 
     const title = document.createElement("h3");
     title.className = "library-book-item__title";
-    // Title is already bold via CSS, we keep it as it is
     title.textContent = item.title ?? t("library_book_title_fallback", lang);
 
     const meta1 = document.createElement("p");
     meta1.className = "library-book-item__meta";
-    const author = item.author
-      ? `${t("library_by_author", lang)} ${item.author}`
-      : `${t("library_by_author", lang)} —`;
-      
-    const bookId = String(item.bookId || "");
-    const seriesName = (bookId && seriesMap.has(bookId)) ? seriesMap.get(bookId) : t("library_series_none", lang);
-    meta1.textContent = `${author} · ${t("library_series", lang)} ${seriesName}`;
+    const author = item.author ? item.author : "—";
+    meta1.innerHTML = `<strong>${escapeLibrary(t("library_by_author", lang))}</strong> ${escapeLibrary(author)}`;
 
     const meta2 = document.createElement("p");
     meta2.className = "library-book-item__meta";
-    const datePart = item.dateRead || item.dateAdded || "—";
+    let meta2Parts = [];
     
-    let drzRatingText = t("library_drz_pending", lang);
-    if (item.drzrating !== undefined && item.drzrating !== -1) {
-      drzRatingText = `${item.drzrating}`;
+    const bookId = String(item.bookId || "");
+    const seriesName = (bookId && seriesMap.has(bookId)) ? seriesMap.get(bookId) : "";
+    if (seriesName && seriesName !== "(Ninguna)" && seriesName !== "(None)") {
+      meta2Parts.push(`${escapeLibrary(t("library_series", lang))} ${escapeLibrary(seriesName)}`);
     }
+
+    const datePart = item.dateRead || item.dateAdded || "";
+    if (datePart && datePart !== "—") {
+      meta2Parts.push(`<strong>${escapeLibrary(t("library_date_read", lang))}</strong> ${escapeLibrary(datePart)}`);
+    }
+
+    if (meta2Parts.length > 0) {
+      meta2.innerHTML = meta2Parts.join(" · ");
+    }
+
+    const meta3 = document.createElement("p");
+    meta3.className = "library-book-item__meta";
+    let meta3Parts = [];
     
-    meta2.innerHTML = `${t("library_date_read", lang)} ${datePart} · ${t("library_rating_label", lang)}: <span class="library-tooltip" data-title="${escapeLibrary(t("library_rating_gr_hover", lang))}">${formatRating(item.rating, lang)}</span> · ${t("library_rating_drz", lang)} <span class="library-tooltip" data-title="${escapeLibrary(t("library_rating_drz_hover", lang))}">🤓 ${escapeLibrary(drzRatingText)}</span>`;
+    let ratingLabel = t("library_rating_label", lang);
+    meta3Parts.push(`<strong>${escapeLibrary(ratingLabel)}</strong> <span class="library-tooltip" data-title="${escapeLibrary(t("library_rating_gr_hover", lang))}">${formatRating(item.rating, lang)}</span>`);
+
+    if (item.drzrating !== undefined && item.drzrating !== -1) {
+      let drzLabel = t("library_rating_drz", lang);
+      meta3Parts.push(`<strong>${escapeLibrary(drzLabel)}</strong> <span class="library-tooltip" data-title="${escapeLibrary(t("library_rating_drz_hover", lang))}">🤓 ${escapeLibrary(String(item.drzrating))}</span>`);
+    }
+
+    meta3.innerHTML = meta3Parts.join(" · ");
 
     const actions = document.createElement("p");
     actions.className = "library-book-item__actions";
@@ -260,22 +276,21 @@ function renderBookList(container, items, lang, seriesMap = new Map()) {
       actionsHtml += `<a class="link" href="${escapeLibrary(localReviewUrl)}">${escapeLibrary(t("library_view_review", lang))}</a>`;
     } else if (hasReviewUrl) {
       actionsHtml += `<a class="link" href="${escapeLibrary(reviewUrl)}" target="_blank" rel="noopener noreferrer">${escapeLibrary(t("library_view_review", lang))}</a>`;
-    } else {
-      actionsHtml += t("library_no_review", lang);
     }
     
-    const likesCount = Number.isFinite(Number(item.reviewLikes)) ? item.reviewLikes : 0;
-    actionsHtml += ` · <span class="library-tooltip" data-title="${escapeLibrary(t("library_likes_gr_hover", lang))}">👍 ${likesCount}</span>${localLikesSuffixHtml(reviewId, lang)}`;
-
-    actions.innerHTML = actionsHtml;
-    if (hasReviewUrl || hasLocalReview) {
+    if (actionsHtml) {
+      const reactionsText = lang === "en" ? "Reactions" : "Reacciones a la reseña";
+      const likesCount = Number.isFinite(Number(item.reviewLikes)) ? item.reviewLikes : 0;
+      actionsHtml += ` · ${reactionsText} <span class="library-tooltip" data-title="${escapeLibrary(t("library_likes_gr_hover", lang))}">👍 ${likesCount}</span>${localLikesSuffixHtml(reviewId, lang)}`;
+      actions.innerHTML = actionsHtml;
       actions.setAttribute("aria-label", t("library_review_links", lang));
     }
 
     entry.appendChild(title);
     entry.appendChild(meta1);
-    entry.appendChild(meta2);
-    entry.appendChild(actions);
+    if (meta2Parts.length > 0) entry.appendChild(meta2);
+    entry.appendChild(meta3);
+    if (actionsHtml) entry.appendChild(actions);
     frag.appendChild(entry);
   }
   container.replaceChildren(frag);
@@ -325,7 +340,7 @@ function applyLibraryChrome(lang) {
   const hYear = document.getElementById("library-h2-year");
   if (hYear) hYear.textContent = t("library_by_year", lang);
   const hLatest = document.getElementById("library-h2-latest");
-  if (hLatest) hLatest.textContent = t("library_latest10", lang);
+  if (hLatest) hLatest.textContent = t("library_latest", lang);
   const hTop = document.getElementById("library-h2-top");
   if (hTop) hTop.textContent = t("library_top10", lang);
   const hTop50 = document.getElementById("library-h2-top50");
@@ -398,7 +413,7 @@ async function main() {
   const latestRead = [...books]
     .filter((b) => b._date)
     .sort((a, b) => b._date - a._date)
-    .slice(0, 10);
+    .slice(0, 20);
   const reviewed = books.filter((b) => hasReview(b));
   const topReviewedByLikes = [...reviewed]
     .sort((a, b) => {
@@ -490,10 +505,52 @@ async function main() {
   }
 
   chartEl.replaceChildren(frag);
-  renderBookList(latestReadEl, latestRead, lang, seriesMap);
+  renderBookList(latestReadEl, latestRead.slice(0, 5), lang, seriesMap);
+  
+  const toggleContainer = document.createElement("div");
+  toggleContainer.className = "library-all-link-wrap";
+  toggleContainer.style.marginTop = "1rem";
+  toggleContainer.style.display = "flex";
+  toggleContainer.style.gap = "1rem";
+  toggleContainer.style.justifyContent = "center";
+  toggleContainer.style.flexWrap = "wrap";
+  
+  const toggleBtn = document.createElement("button");
+  toggleBtn.className = "link library-all-link";
+  toggleBtn.style.cursor = "pointer";
+  toggleBtn.style.background = "transparent";
+  toggleBtn.style.border = "none";
+  toggleBtn.style.fontFamily = "inherit";
+  toggleBtn.style.fontSize = "inherit";
+  toggleBtn.textContent = t("library_show_latest_20", lang);
+  
+  let showingAllLatest = false;
+  toggleBtn.addEventListener("click", () => {
+    showingAllLatest = !showingAllLatest;
+    if (showingAllLatest) {
+      renderBookList(latestReadEl, latestRead, lang, seriesMap);
+      hydrateLocalLikes(latestReadEl, latestRead, lang).catch(() => {});
+      toggleBtn.textContent = t("library_show_latest_5", lang);
+    } else {
+      renderBookList(latestReadEl, latestRead.slice(0, 5), lang, seriesMap);
+      hydrateLocalLikes(latestReadEl, latestRead.slice(0, 5), lang).catch(() => {});
+      toggleBtn.textContent = t("library_show_latest_20", lang);
+    }
+  });
+
+  const allBooksLink = document.createElement("a");
+  allBooksLink.className = "link library-all-link";
+  allBooksLink.href = withLangQuery("./biblioteca-todos.html");
+  allBooksLink.textContent = t("library_view_all_books", lang);
+  
+  toggleContainer.appendChild(toggleBtn);
+  toggleContainer.appendChild(allBooksLink);
+  
+  latestReadEl.parentElement.appendChild(toggleContainer);
+
   renderBookList(topReviewedEl, topReviewedByLikes, lang, seriesMap);
   renderBookList(top50El, top50Favorite, lang, seriesMap);
-  hydrateLocalLikes(latestReadEl, latestRead, lang).catch(() => {});
+  hydrateLocalLikes(latestReadEl, latestRead.slice(0, 5), lang).catch(() => {});
   hydrateLocalLikes(topReviewedEl, topReviewedByLikes, lang).catch(() => {});
   hydrateLocalLikes(top50El, top50Favorite, lang).catch(() => {});
   hydrateTotalLocalLikes(totalLocalLikesEl, reviewed).catch(() => {});

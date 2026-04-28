@@ -175,29 +175,45 @@ function renderBookList(container, items, lang, seriesMap = new Map()) {
 
     const title = document.createElement("h3");
     title.className = "library-book-item__title";
-    // Title is already bold via CSS, we keep it as it is
     title.textContent = item.title ?? t("library_book_title_fallback", lang);
 
     const meta1 = document.createElement("p");
     meta1.className = "library-book-item__meta";
-    const author = item.author
-      ? `${t("library_by_author", lang)} ${item.author}`
-      : `${t("library_by_author", lang)} —`;
-      
-    const bookId = String(item.bookId || "");
-    const seriesName = (bookId && seriesMap.has(bookId)) ? seriesMap.get(bookId) : t("library_series_none", lang);
-    meta1.textContent = `${author} · ${t("library_series", lang)} ${seriesName}`;
+    const author = item.author ? item.author : "—";
+    meta1.innerHTML = `<strong>${escapeLibrary(t("library_by_author", lang))}</strong> ${escapeLibrary(author)}`;
 
     const meta2 = document.createElement("p");
     meta2.className = "library-book-item__meta";
-    const datePart = item.dateRead || item.dateAdded || "—";
+    let meta2Parts = [];
     
-    let drzRatingText = t("library_drz_pending", lang);
-    if (item.drzrating !== undefined && item.drzrating !== -1) {
-      drzRatingText = `${item.drzrating}`;
+    const bookId = String(item.bookId || "");
+    const seriesName = (bookId && seriesMap.has(bookId)) ? seriesMap.get(bookId) : "";
+    if (seriesName && seriesName !== "(Ninguna)" && seriesName !== "(None)") {
+      meta2Parts.push(`${escapeLibrary(t("library_series", lang))} ${escapeLibrary(seriesName)}`);
     }
+
+    const datePart = item.dateRead || item.dateAdded || "";
+    if (datePart && datePart !== "—") {
+      meta2Parts.push(`<strong>${escapeLibrary(t("library_date_read", lang))}</strong> ${escapeLibrary(datePart)}`);
+    }
+
+    if (meta2Parts.length > 0) {
+      meta2.innerHTML = meta2Parts.join(" · ");
+    }
+
+    const meta3 = document.createElement("p");
+    meta3.className = "library-book-item__meta";
+    let meta3Parts = [];
     
-    meta2.innerHTML = `${t("library_date_read", lang)} ${datePart} · ${t("library_rating_label", lang)}: <span class="library-tooltip" data-title="${escapeLibrary(t("library_rating_gr_hover", lang))}">${formatRating(item.rating, lang)}</span> · ${t("library_rating_drz", lang)} <span class="library-tooltip" data-title="${escapeLibrary(t("library_rating_drz_hover", lang))}">🤓 ${escapeLibrary(drzRatingText)}</span>`;
+    let ratingLabel = t("library_rating_label", lang);
+    meta3Parts.push(`<strong>${escapeLibrary(ratingLabel)}</strong> <span class="library-tooltip" data-title="${escapeLibrary(t("library_rating_gr_hover", lang))}">${formatRating(item.rating, lang)}</span>`);
+
+    if (item.drzrating !== undefined && item.drzrating !== -1) {
+      let drzLabel = t("library_rating_drz", lang);
+      meta3Parts.push(`<strong>${escapeLibrary(drzLabel)}</strong> <span class="library-tooltip" data-title="${escapeLibrary(t("library_rating_drz_hover", lang))}">🤓 ${escapeLibrary(String(item.drzrating))}</span>`);
+    }
+
+    meta3.innerHTML = meta3Parts.join(" · ");
 
     const actions = document.createElement("p");
     actions.className = "library-book-item__actions";
@@ -214,22 +230,21 @@ function renderBookList(container, items, lang, seriesMap = new Map()) {
       actionsHtml += `<a class="link" href="${escapeLibrary(localReviewUrl)}">${escapeLibrary(t("library_view_review", lang))}</a>`;
     } else if (hasReviewUrl) {
       actionsHtml += `<a class="link" href="${escapeLibrary(reviewUrl)}" target="_blank" rel="noopener noreferrer">${escapeLibrary(t("library_view_review", lang))}</a>`;
-    } else {
-      actionsHtml += t("library_no_review", lang);
     }
     
-    const likesCount = Number.isFinite(Number(item.reviewLikes)) ? item.reviewLikes : 0;
-    actionsHtml += ` · <span class="library-tooltip" data-title="${escapeLibrary(t("library_likes_gr_hover", lang))}">👍 ${likesCount}</span>${localLikesSuffixHtml(reviewId, lang)}`;
-
-    actions.innerHTML = actionsHtml;
-    if (hasReviewUrl || hasLocalReview) {
+    if (actionsHtml) {
+      const reactionsText = lang === "en" ? "Reactions" : "Reacciones a la reseña";
+      const likesCount = Number.isFinite(Number(item.reviewLikes)) ? item.reviewLikes : 0;
+      actionsHtml += ` · ${reactionsText} <span class="library-tooltip" data-title="${escapeLibrary(t("library_likes_gr_hover", lang))}">👍 ${likesCount}</span>${localLikesSuffixHtml(reviewId, lang)}`;
+      actions.innerHTML = actionsHtml;
       actions.setAttribute("aria-label", t("library_review_links", lang));
     }
 
     entry.appendChild(title);
     entry.appendChild(meta1);
-    entry.appendChild(meta2);
-    entry.appendChild(actions);
+    if (meta2Parts.length > 0) entry.appendChild(meta2);
+    entry.appendChild(meta3);
+    if (actionsHtml) entry.appendChild(actions);
     frag.appendChild(entry);
   }
   container.replaceChildren(frag);

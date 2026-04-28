@@ -10,11 +10,12 @@ import { trackEvent, trackPageView } from "./visitor-tracker.js";
 const PHOTOS_JSON = "./info/photos/photos.json";
 
 function sortPhotos(photos) {
-  return [...photos].sort((a, b) => {
-    const y = (b.year ?? 0) - (a.year ?? 0);
-    if (y !== 0) return y;
-    return (b.month ?? 0) - (a.month ?? 0);
-  });
+  const arr = [...photos];
+  for (let i = arr.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [arr[i], arr[j]] = [arr[j], arr[i]];
+  }
+  return arr;
 }
 
 function photoSrcPath(file) {

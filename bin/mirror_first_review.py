@@ -279,10 +279,10 @@ def build_local_page(
         {cover_markup}
         <p class="meta">Fecha de reseña: {safe_review_date}</p>
         <div class="rating-row">
-          <span class="library-tooltip rating" data-title="Calificación en Goodreads asignada por Jorge Zuluaga" aria-label="Calificación: {rating} de 5">{stars}</span>
-          <span class="library-tooltip" data-title="Calificación especial de Jorge Zuluaga Dr.Z">🤓 {drz_text}</span>
-          <span class="library-tooltip likes" data-title="Me gusta en Goodreads" aria-label="Likes en GoodReads: {likes}"><a href="{html.escape(review_url)}" target="_blank" rel="noopener noreferrer">👍</a> {likes}</span>
-          <span class="library-tooltip likes likes-local-inline" data-title="Aplausos recibidos en esta página" aria-label="Me gusta locales: 0" data-local-likes-for="{review_id}">👏 0</span>
+          <span class="library-tooltip rating" data-title="Calificación de 1 a 5 estrellas asignada por Jorge Zuluaga en Goodreads" aria-label="Calificación: {rating} de 5">{stars}</span>
+          <span class="library-tooltip" data-title="Un puntaje de 0 a 100 usado por Jorge Zuluaga recomendar libros">🤓 {drz_text}</span>
+          <span class="library-tooltip likes" data-title="Me gusta de la comunidad De Goodreads" aria-label="Likes en GoodReads: {likes}"><a href="{html.escape(review_url)}" target="_blank" rel="noopener noreferrer">👍</a> {likes}</span>
+          <span class="library-tooltip likes likes-local-inline" data-title="Me gustas recibidos en esta página (ver final de las reseñas)" aria-label="Me gusta locales: 0" data-local-likes-for="{review_id}">👏 0</span>
         </div>
         <p><a class="link" href="{html.escape(review_url)}" target="_blank" rel="noopener noreferrer">Ver reseña en GoodReads (necesita cuenta)</a></p>
         <article class="card">
