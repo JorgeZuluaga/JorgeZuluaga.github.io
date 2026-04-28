@@ -12,6 +12,14 @@ function fmt(n) {
   return Number(n || 0).toLocaleString("es-CO");
 }
 
+function normalizePagePath(rawPath) {
+  const value = String(rawPath || "").trim();
+  if (!value) return "";
+  const withLeadingSlash = value.startsWith("/") ? value : `/${value}`;
+  const collapsed = withLeadingSlash.replace(/\/{2,}/g, "/");
+  return collapsed || "/";
+}
+
 function countBy(items, selector) {
   const map = new Map();
   for (const item of items) {
@@ -350,12 +358,12 @@ function renderSummary(logs) {
   const box = document.getElementById("logs-summary");
   if (!box) return;
   const uniqueIps = new Set(logs.map((x) => x.ip).filter(Boolean)).size;
-  const uniquePages = new Set(logs.map((x) => x.page).filter(Boolean)).size;
+  const uniquePages = new Set(logs.map((x) => normalizePagePath(x.page)).filter(Boolean)).size;
   const imageDownloads = logs.filter((x) => x.eventType === "image_download").length;
   const pdfClicks = logs.filter((x) => x.eventType === "pdf_print_click").length;
   const lastEvent = formatLastEventTimestamp(logs);
   const reviewOpens = logs.filter(
-    (x) => x.eventType === "page_view" && /\/reviews\/\d+\.html$/.test(String(x.page || "")),
+    (x) => x.eventType === "page_view" && /\/reviews\/\d+\.html$/.test(normalizePagePath(x.page)),
   ).length;
 
   box.innerHTML = [
@@ -477,15 +485,16 @@ async function renderReport(logs) {
 
   const pageViews = filteredLogs.filter((x) => x.eventType === "page_view");
   const reviewPathRegex = /\/reviews\/\d+\.html$/;
-  const nonReviewPageViews = pageViews.filter((x) => !reviewPathRegex.test(String(x.page || "")));
-  renderRows("by-page", countBy(nonReviewPageViews, (x) => x.page || "(sin página)"));
+  const nonReviewPageViews = pageViews.filter((x) => !reviewPathRegex.test(normalizePagePath(x.page)));
+  renderRows("by-page", countBy(nonReviewPageViews, (x) => normalizePagePath(x.page) || "(sin página)"));
 
-  const reviewViews = pageViews.filter((x) => reviewPathRegex.test(String(x.page || "")));
+  const reviewViews = pageViews.filter((x) => reviewPathRegex.test(normalizePagePath(x.page)));
   const reviewRows = countBy(reviewViews, (x) => {
-    const reviewId = reviewIdFromPath(x.page);
+    const normalizedPath = normalizePagePath(x.page);
+    const reviewId = reviewIdFromPath(normalizedPath);
     if (!reviewId) return "(reseña sin id)";
     const title = reviewTitleMap.get(reviewId) || "Libro no encontrado en library.json";
-    return `${x.page}|||${title}`;
+    return `${normalizedPath}|||${title}`;
   }).map(([k, v]) => {
     const [pagePath, title] = String(k).split("|||");
     return [reviewLinkHtml(pagePath, title), v];

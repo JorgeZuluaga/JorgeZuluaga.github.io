@@ -38,6 +38,14 @@ function isSameOrigin(endpoint) {
   }
 }
 
+function normalizePathname(rawPathname) {
+  const value = String(rawPathname || "").trim();
+  if (!value) return "/";
+  const withLeadingSlash = value.startsWith("/") ? value : `/${value}`;
+  const collapsed = withLeadingSlash.replace(/\/{2,}/g, "/");
+  return collapsed || "/";
+}
+
 function sendPayload(endpoint, payload) {
   const body = safeJsonStringify(payload);
   if (!endpoint) return false;
@@ -67,7 +75,7 @@ export function trackEvent(eventType, details = {}) {
   const payload = {
     eventType,
     timestamp: new Date().toISOString(),
-    page: location.pathname,
+    page: normalizePathname(location.pathname),
     url: location.href,
     referrer: document.referrer || "",
     userAgent: navigator.userAgent || "",
