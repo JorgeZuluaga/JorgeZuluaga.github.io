@@ -1229,6 +1229,19 @@ body.photos-page .photos-intro {
   opacity: 0.92;
 }
 
+.photos-profile {
+  max-width: 48rem;
+  margin-bottom: 1.25rem;
+}
+
+.photos-profile .title-section {
+  margin-bottom: 0.6rem;
+}
+
+.photos-profile__text {
+  margin-bottom: 1.5rem;
+}
+
 .library-page .photos-intro {
   max-width: none;
   width: 100%;

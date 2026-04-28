@@ -46,7 +46,7 @@ export function pickLocalizedArray(obj, key, lang) {
 const STRINGS = {
   es: {
     skip: "Saltar al contenido",
-    gallery: "Galería",
+    gallery: "Galería y Perfil",
     menu_open: "Menú de navegación",
     menu_close: "Cerrar menú de navegación",
     theme_toggle: "Modo de visualización: Claro/Oscuro",
@@ -214,6 +214,9 @@ const STRINGS = {
     photos_title: "Fotografías para conferencias y prensa",
     photos_intro:
       "Imágenes de Jorge I. Zuluaga en alta resolución para programas, credenciales y comunicación. Pulse «Vista previa» (o la miniatura) para ver la foto grande antes de descargarla.",
+    photos_profile_title: "Perfil breve",
+    photos_profile_text:
+      "Físico y Doctor en Física, profesor titular e investigador en la Universidad de Antioquia. Su trabajo integra investigación en ciencias planetarias y astrobiología, computación científica de alto desempeño y formación avanzada en física y astronomía. Ha liderado grupos y programas académicos, y cuenta con una trayectoria de publicaciones en exoplanetas, exolunas, campos magnéticos planetarios, dinámica orbital y meteoroides, junto con una labor sostenida de divulgación científica en escenarios académicos y públicos.",
     photos_preview: "Vista previa",
     photos_preview_close: "Cerrar vista previa",
     photos_preview_title: "Vista previa",
@@ -229,7 +232,7 @@ const STRINGS = {
   },
   en: {
     skip: "Skip to content",
-    gallery: "Gallery",
+    gallery: "Gallery and Profile",
     menu_open: "Navigation menu",
     menu_close: "Close navigation menu",
     theme_toggle: "Display mode: Light/Dark",
@@ -396,6 +399,9 @@ const STRINGS = {
     photos_title: "Photos for talks and press",
     photos_intro:
       "High-resolution images of Jorge I. Zuluaga for programs, credentials, and media use. Click “Preview” (or the thumbnail) to inspect the large image before downloading it.",
+    photos_profile_title: "Brief profile",
+    photos_profile_text:
+      "Physicist and PhD in Physics, full professor and researcher at the University of Antioquia. His work integrates research in planetary science and astrobiology, high-performance scientific computing, and advanced training in physics and astronomy. He has led research groups and academic programs, and has published extensively on exoplanets, exomoons, planetary magnetic fields, orbital dynamics, and meteoroids, alongside sustained science communication in academic and public settings.",
     photos_preview: "Preview",
     photos_preview_close: "Close preview",
     photos_preview_title: "Preview",

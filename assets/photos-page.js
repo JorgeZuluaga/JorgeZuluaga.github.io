@@ -212,11 +212,15 @@ async function main() {
 
   const titleEl = document.getElementById("photos-page-title");
   const introEl = document.getElementById("photos-page-intro");
+  const profileTitleEl = document.getElementById("photos-profile-title");
+  const profileTextEl = document.getElementById("photos-profile-text");
   const gridEl = document.getElementById("photos-grid");
   if (!titleEl || !introEl || !gridEl) return;
 
   titleEl.textContent = pickLocalized(data, "title", lang) ?? t("photos_title", lang);
   introEl.textContent = pickLocalized(data, "intro", lang) ?? t("photos_intro", lang);
+  if (profileTitleEl) profileTitleEl.textContent = t("photos_profile_title", lang);
+  if (profileTextEl) profileTextEl.textContent = t("photos_profile_text", lang);
 
   const photos = await filterPhotosWithExistingFiles(data.photos ?? []);
   const frag = document.createDocumentFragment();
