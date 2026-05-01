@@ -492,25 +492,48 @@ function renderCountryCloud(rows, total) {
   });
 }
 
-async function buildReviewTitleMap() {
+function localReviewHrefFromBook(book) {
+  const localUrl = String(book?.reviewLocalUrl || "").trim();
+  if (!localUrl) return "";
+  if (/^https?:\/\//i.test(localUrl)) return localUrl;
+  return normalizePagePath(localUrl);
+}
+
+async function buildReviewLibraryData() {
   try {
     const res = await fetch("./info/library.json", { cache: "no-store" });
-    if (!res.ok) return new Map();
+    if (!res.ok) return { titleMap: new Map(), localLikeRows: [] };
     const data = await res.json();
     const books = Array.isArray(data?.books) ? data.books : [];
-    const out = new Map();
+    const titleMap = new Map();
+    const localLikeRows = [];
     for (const book of books) {
       const localUrl = String(book?.reviewLocalUrl || "");
       const title = String(book?.title || "").trim();
-      if (!localUrl || !title) continue;
-      const m = localUrl.match(/\/reviews\/(\d+)\.html$/);
-      if (!m) continue;
-      out.set(m[1], title);
+      if (localUrl && title) {
+        const m = localUrl.match(/\/reviews\/(\d+)\.html$/);
+        if (m) titleMap.set(m[1], title);
+      }
+      const likes = Number(book?.reviewLocalLikes);
+      if (!Number.isFinite(likes) || likes <= 0 || !title) continue;
+      localLikeRows.push({
+        title,
+        likes: Math.max(0, Math.floor(likes)),
+        href: localReviewHrefFromBook(book),
+      });
     }
-    return out;
+    localLikeRows.sort((a, b) => b.likes - a.likes || a.title.localeCompare(b.title, "es"));
+    return { titleMap, localLikeRows };
   } catch {
-    return new Map();
+    return { titleMap: new Map(), localLikeRows: [] };
   }
+}
+
+function reviewTitleCellHtml(row) {
+  const title = escapeHtml(row?.title || "Libro");
+  const href = String(row?.href || "").trim();
+  if (!href) return title;
+  return `<a class="link" href="${escapeHtml(href)}" target="_blank" rel="noopener noreferrer">${title}</a>`;
 }
 
 function reviewIdFromPath(pagePath) {
@@ -557,7 +580,7 @@ async function renderReport(logs) {
     : logs;
   renderTimeSeries(filteredLogs);
 
-  const reviewTitleMap = await buildReviewTitleMap();
+  const { titleMap: reviewTitleMap, localLikeRows } = await buildReviewLibraryData();
   renderSummary(filteredLogs);
 
   const pageViews = filteredLogs.filter((x) => x.eventType === "page_view");
@@ -579,6 +602,11 @@ async function renderReport(logs) {
   renderRowsHtml(
     "by-review",
     reviewRows,
+  );
+
+  renderRowsHtml(
+    "by-review-local-likes",
+    localLikeRows.map((row) => [reviewTitleCellHtml(row), fmt(row.likes)]),
   );
 
   const imageRows = countBy(
