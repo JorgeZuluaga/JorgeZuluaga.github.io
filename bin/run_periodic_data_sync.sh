@@ -47,6 +47,7 @@ fi
 echo "[$(date -u +"%Y-%m-%dT%H:%M:%SZ")] Starting periodic data sync..."
 make visitor-logs-sync
 make library-local-likes-sync
+"$REPO_DIR/.secrets/update-likes.sh"
 
 git add \
   info/visitor-logs-backup.ndjson \
