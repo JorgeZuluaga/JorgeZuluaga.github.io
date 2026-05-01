@@ -98,6 +98,12 @@ async function listAllKeys(kv) {
   return keys;
 }
 
+function parsePositiveInt(value, fallback, { min = 1, max = 1000 } = {}) {
+  const parsed = Number.parseInt(String(value ?? ""), 10);
+  if (!Number.isFinite(parsed)) return fallback;
+  return Math.min(max, Math.max(min, parsed));
+}
+
 async function countReviewLikes(kv, reviewId) {
   const prefix = `review_like:${reviewId}:`;
   const keys = await listAllByPrefix(kv, prefix);
@@ -297,6 +303,7 @@ export default {
           return jsonResponse({ ok: false, error: "unauthorized" }, 401);
         }
 
+        const limit = parsePositiveInt(url.searchParams.get("limit"), 300, { min: 1, max: 1000 });
         let keys;
         try {
           keys = await listAllKeys(env.VISITOR_LOGS);
@@ -307,8 +314,9 @@ export default {
             429,
           );
         }
+        const selectedKeys = keys.slice(-limit);
         const values = await Promise.all(
-          keys.map(async (k) => {
+          selectedKeys.map(async (k) => {
             const raw = await env.VISITOR_LOGS.get(k.name);
             if (!raw) return null;
             try {
@@ -321,7 +329,14 @@ export default {
         const logs = values
           .filter((entry) => entry && typeof entry === "object" && "eventType" in entry)
           .sort((a, b) => String(b.timestampServer).localeCompare(String(a.timestampServer)));
-        return jsonResponse({ ok: true, count: logs.length, logs });
+        return jsonResponse({
+          ok: true,
+          count: logs.length,
+          logs,
+          totalKeys: keys.length,
+          limited: keys.length > limit,
+          limit,
+        });
       }
 
       return jsonResponse({ ok: false, error: "not_found" }, 404);

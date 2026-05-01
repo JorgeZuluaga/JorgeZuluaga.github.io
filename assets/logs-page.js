@@ -570,6 +570,7 @@ async function loadLogs() {
 
   const url = new URL(endpoint);
   url.searchParams.set("token", token);
+  url.searchParams.set("limit", "300");
 
   const res = await fetch(url.toString(), {
     method: "GET",
