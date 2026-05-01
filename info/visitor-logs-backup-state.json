@@ -1,11 +1,11 @@
 {
-  "generatedAt": "2026-05-01T14:22:48.886164+00:00",
+  "generatedAt": "2026-05-01T14:34:56.140980+00:00",
   "workerBase": "https://visitor-log-worker.jorgezuluaga.workers.dev",
   "nextCursor": "",
   "reachedEnd": true,
   "pagesFetched": 5,
   "fetchedLogsThisRun": 1040,
-  "appendedLogsThisRun": 1040,
-  "knownLogsBeforeRun": 0,
+  "appendedLogsThisRun": 0,
+  "knownLogsBeforeRun": 1040,
   "knownLogsAfterRun": 1040
 }

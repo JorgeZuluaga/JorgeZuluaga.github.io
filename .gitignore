@@ -6,7 +6,4 @@ sources/
 contrib/*
 update/*
 spinoffs/*
-.cookie
-.rss
-.update*.sh
-.googleapi
+.secrets/

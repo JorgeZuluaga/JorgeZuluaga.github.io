@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+  <key>Label</key>
+  <string>com.jorgezuluaga.cv-data-sync</string>
+
+  <key>ProgramArguments</key>
+  <array>
+    <string>/bin/bash</string>
+    <string>/Users/jzuluaga/dev/jorgezuluaga/bin/run_periodic_data_sync.sh</string>
+  </array>
+
+  <key>WorkingDirectory</key>
+  <string>/Users/jzuluaga/dev/jorgezuluaga</string>
+
+  <key>StartCalendarInterval</key>
+  <dict>
+    <key>Hour</key>
+    <integer>9</integer>
+    <key>Minute</key>
+    <integer>0</integer>
+  </dict>
+
+  <key>RunAtLoad</key>
+  <true/>
+
+  <key>StandardOutPath</key>
+  <string>/Users/jzuluaga/dev/jorgezuluaga/.secrets/cv-data-sync.out.log</string>
+  <key>StandardErrorPath</key>
+  <string>/Users/jzuluaga/dev/jorgezuluaga/.secrets/cv-data-sync.err.log</string>
+</dict>
+</plist>

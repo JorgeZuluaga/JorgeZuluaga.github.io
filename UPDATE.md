@@ -347,6 +347,68 @@ Notas:
 - Sin `--cookie`, muchas reseñas devolverán login y los likes quedarán en `0`.
 - Trata el cookie como contraseña: no lo subas al repo ni lo compartas.
 
+#### 3.1) Automatización con launchd (logs históricos + likes locales)
+
+Para no depender de ejecución manual, quedó listo un job de macOS `launchd` que corre ambas tareas:
+
+1) backup histórico de logs del worker (`make visitor-logs-sync`)
+2) snapshot local de likes de reseñas (`make library-local-likes-sync`)
+
+Archivos:
+- `bin/run_periodic_data_sync.sh` (runner)
+- `launchd/com.jorgezuluaga.cv-data-sync.plist` (job)
+
+Paso 1: guarda el token en archivo local (fuera de git):
+
+```bash
+mkdir -p ".secrets"
+printf '%s\n' 'TU_LOG_READ_TOKEN' > ".secrets/log_read_token"
+chmod 600 ".secrets/log_read_token"
+```
+
+Paso 2: da permisos al script:
+
+```bash
+chmod +x bin/run_periodic_data_sync.sh
+```
+
+Paso 3: instala el job en `launchd` (usuario actual):
+
+```bash
+mkdir -p "$HOME/Library/LaunchAgents"
+cp launchd/com.jorgezuluaga.cv-data-sync.plist "$HOME/Library/LaunchAgents/"
+launchctl unload "$HOME/Library/LaunchAgents/com.jorgezuluaga.cv-data-sync.plist" 2>/dev/null || true
+launchctl load "$HOME/Library/LaunchAgents/com.jorgezuluaga.cv-data-sync.plist"
+```
+
+Qué hace:
+- corre al cargar sesión (`RunAtLoad`)
+- corre diariamente a las 09:00 (`StartCalendarInterval`)
+- ejecuta `make visitor-logs-sync` + `make library-local-likes-sync`
+- hace `git add/commit/push` automático si hay cambios en snapshots
+- escribe logs en:
+  - `.secrets/cv-data-sync.out.log`
+  - `.secrets/cv-data-sync.err.log`
+
+Verificar estado:
+
+```bash
+launchctl list | rg cv-data-sync
+```
+
+Forzar ejecución manual del job:
+
+```bash
+launchctl kickstart -k gui/$(id -u)/com.jorgezuluaga.cv-data-sync
+```
+
+Desinstalar:
+
+```bash
+launchctl unload "$HOME/Library/LaunchAgents/com.jorgezuluaga.cv-data-sync.plist"
+rm -f "$HOME/Library/LaunchAgents/com.jorgezuluaga.cv-data-sync.plist"
+```
+
 #### 4) Mirror local de reseñas (HTML en `reviews/`)
 
 Scripts:
@@ -387,7 +449,7 @@ Qué se cambió:
 Uso recomendado:
 
 ```bash
-GOOGLE_API_KEY="$(cat .googleapi)" make reviews-fix
+GOOGLE_API_KEY="$(cat .secrets/googleapi)" make reviews-fix
 ```
 
 Notas operativas:
@@ -398,7 +460,7 @@ Notas operativas:
 Higiene de seguridad (obligatorio si vuelves a ver alertas):
 - Rotar/revocar inmediatamente una key filtrada.
 - Nunca volver a guardar keys en código.
-- Mantener `.googleapi` fuera de git (ya está ignorado).
+- Mantener `.secrets/googleapi` fuera de git (ya está ignorado con `.secrets/`).
 
 ## Verificación local (recomendado)
 
