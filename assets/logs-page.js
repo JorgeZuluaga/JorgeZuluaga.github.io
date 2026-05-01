@@ -4,6 +4,10 @@ let historicalLogsCache = [];
 let selectedCountry = "";
 let selectedRangeDays = 7;
 let historicalSnapshot = null;
+let allReviewRowsCache = [];
+let showAllReviewRows = false;
+let allReviewLocalLikesRowsCache = [];
+let showAllReviewLocalLikesRows = false;
 
 function endpointFromMeta() {
   const el = document.querySelector('meta[name="visitor-log-read-endpoint"]');
@@ -96,6 +100,30 @@ function renderRowsHtml(tbodyId, rows) {
   tbody.innerHTML = rows
     .map(([kHtml, v]) => `<tr><td>${kHtml}</td><td>${v}</td></tr>`)
     .join("");
+}
+
+function renderReviewRowsWithToggle() {
+  const toggleBtn = document.getElementById("by-review-toggle");
+  const rows = Array.isArray(allReviewRowsCache) ? allReviewRowsCache : [];
+  const visibleRows = showAllReviewRows ? rows : rows.slice(0, 10);
+  renderRowsHtml("by-review", visibleRows);
+  if (!toggleBtn) return;
+  const shouldShowToggle = rows.length > 10;
+  toggleBtn.hidden = !shouldShowToggle;
+  if (!shouldShowToggle) return;
+  toggleBtn.textContent = showAllReviewRows ? "Mostrar solo top 10" : "Mostrar todas";
+}
+
+function renderReviewLocalLikesRowsWithToggle() {
+  const toggleBtn = document.getElementById("by-review-local-likes-toggle");
+  const rows = Array.isArray(allReviewLocalLikesRowsCache) ? allReviewLocalLikesRowsCache : [];
+  const visibleRows = showAllReviewLocalLikesRows ? rows : rows.slice(0, 10);
+  renderRowsHtml("by-review-local-likes", visibleRows);
+  if (!toggleBtn) return;
+  const shouldShowToggle = rows.length > 10;
+  toggleBtn.hidden = !shouldShowToggle;
+  if (!shouldShowToggle) return;
+  toggleBtn.textContent = showAllReviewLocalLikesRows ? "Mostrar solo top 10" : "Mostrar todas";
 }
 
 function dateKeyLocal(dateObj) {
@@ -599,15 +627,11 @@ async function renderReport(logs) {
     const [pagePath, title] = String(k).split("|||");
     return [reviewLinkHtml(pagePath, title), v];
   });
-  renderRowsHtml(
-    "by-review",
-    reviewRows,
-  );
+  allReviewRowsCache = reviewRows;
+  renderReviewRowsWithToggle();
 
-  renderRowsHtml(
-    "by-review-local-likes",
-    localLikeRows.map((row) => [reviewTitleCellHtml(row), fmt(row.likes)]),
-  );
+  allReviewLocalLikesRowsCache = localLikeRows.map((row) => [reviewTitleCellHtml(row), fmt(row.likes)]);
+  renderReviewLocalLikesRowsWithToggle();
 
   const imageRows = countBy(
     filteredLogs.filter((x) => x.eventType === "image_download"),
@@ -739,6 +763,18 @@ function wire() {
         setError(e.message || "No fue posible actualizar la curva temporal.");
       });
     });
+  });
+
+  const reviewToggleBtn = document.getElementById("by-review-toggle");
+  reviewToggleBtn?.addEventListener("click", () => {
+    showAllReviewRows = !showAllReviewRows;
+    renderReviewRowsWithToggle();
+  });
+
+  const reviewLocalLikesToggleBtn = document.getElementById("by-review-local-likes-toggle");
+  reviewLocalLikesToggleBtn?.addEventListener("click", () => {
+    showAllReviewLocalLikesRows = !showAllReviewLocalLikesRows;
+    renderReviewLocalLikesRowsWithToggle();
   });
 }
 

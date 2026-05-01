@@ -103,11 +103,17 @@
       <section class="logs-section">
         <h2>Reseñas leídas</h2>
         <div class="logs-table-wrap"><table class="logs-table"><thead><tr><th>Libro</th><th>Visitas</th></tr></thead><tbody id="by-review"></tbody></table></div>
+        <div class="logs-actions">
+          <button id="by-review-toggle" class="logs-refresh" type="button" hidden>Mostrar todas</button>
+        </div>
       </section>
 
       <section class="logs-section">
         <h2>Reseñas con Me gusta locales</h2>
         <div class="logs-table-wrap"><table class="logs-table"><thead><tr><th>Libro</th><th>Me gusta locales</th></tr></thead><tbody id="by-review-local-likes"></tbody></table></div>
+        <div class="logs-actions">
+          <button id="by-review-local-likes-toggle" class="logs-refresh" type="button" hidden>Mostrar todas</button>
+        </div>
       </section>
 
       <section class="logs-section">
@@ -127,7 +133,7 @@
     </main>
   </div>
 
-  <script type="module" src="./assets/logs-page.js"></script>
+  <script type="module" src="./assets/logs-page.js?v=2"></script>
 </body>
 
 </html>
