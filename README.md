@@ -102,6 +102,21 @@ Esto actualiza, por cada libro con reseña local, los campos:
 
 Además escribe el bloque `localLikesSnapshot` en la raíz de `info/library.json`.
 
+## Backup histórico de logs (worker -> repo)
+
+Para evitar límites del Worker en consultas grandes y conservar histórico completo, puedes sincronizar periódicamente un respaldo local:
+
+```bash
+LOG_READ_TOKEN=TU_TOKEN make visitor-logs-sync
+```
+
+Esto usa el endpoint paginado `/logs-export` del Worker y actualiza:
+- `info/visitor-logs-backup.ndjson` (histórico completo en líneas JSON)
+- `info/visitor-logs-backup-state.json` (cursor/estado incremental)
+- `info/visitor-logs-snapshot.json` (totales para el panel de logs)
+
+La página `logs.html` usa ese snapshot local para mostrar el total histórico sin pedir todo el dataset al Worker en cada carga.
+
 ## Descargar insumos en `update/` (Scholar + ORCID)
 
 Para futuras actualizaciones, guarda en `update/`:

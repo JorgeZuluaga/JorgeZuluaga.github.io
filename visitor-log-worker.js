@@ -104,6 +104,14 @@ function parsePositiveInt(value, fallback, { min = 1, max = 1000 } = {}) {
   return Math.min(max, Math.max(min, parsed));
 }
 
+function isEventLogKey(keyName) {
+  const name = String(keyName || "").trim();
+  if (!name) return false;
+  if (name.startsWith("review_like:")) return false;
+  if (name.startsWith("review_like_count:")) return false;
+  return true;
+}
+
 async function countReviewLikes(kv, reviewId) {
   const prefix = `review_like:${reviewId}:`;
   const keys = await listAllByPrefix(kv, prefix);
@@ -335,6 +343,54 @@ export default {
           logs,
           totalKeys: keys.length,
           limited: keys.length > limit,
+          limit,
+        });
+      }
+
+      if (request.method === "GET" && url.pathname === "/logs-export") {
+        const token = extractReadToken(request, url);
+        if (!env.LOG_READ_TOKEN || token !== env.LOG_READ_TOKEN) {
+          return jsonResponse({ ok: false, error: "unauthorized" }, 401);
+        }
+
+        const limit = parsePositiveInt(url.searchParams.get("limit"), 250, { min: 1, max: 500 });
+        const cursorParam = String(url.searchParams.get("cursor") || "").trim();
+        const page = await env.VISITOR_LOGS.list({
+          limit,
+          cursor: cursorParam || undefined,
+        });
+
+        const eventKeys = page.keys.filter((k) => isEventLogKey(k.name));
+        const values = await Promise.all(
+          eventKeys.map(async (k) => {
+            const raw = await env.VISITOR_LOGS.get(k.name);
+            if (!raw) return null;
+            try {
+              const parsed = JSON.parse(raw);
+              if (!parsed || typeof parsed !== "object" || !("eventType" in parsed)) return null;
+              return { key: k.name, value: parsed };
+            } catch {
+              return null;
+            }
+          }),
+        );
+
+        const logs = values
+          .filter(Boolean)
+          .map((item) => ({
+            ...item.value,
+            _kvKey: item.key,
+          }))
+          .sort((a, b) => String(a.timestampServer).localeCompare(String(b.timestampServer)));
+
+        return jsonResponse({
+          ok: true,
+          logs,
+          scannedKeys: page.keys.length,
+          eventKeys: eventKeys.length,
+          exportedLogs: logs.length,
+          nextCursor: page.list_complete ? null : page.cursor,
+          listComplete: page.list_complete,
           limit,
         });
       }

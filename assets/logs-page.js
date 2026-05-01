@@ -2,6 +2,7 @@ const TOKEN_STORAGE_KEY = "visitorLogsReadToken";
 let allLogsCache = [];
 let selectedCountry = "";
 let selectedRangeDays = 7;
+let historicalSnapshot = null;
 
 function endpointFromMeta() {
   const el = document.querySelector('meta[name="visitor-log-read-endpoint"]');
@@ -126,6 +127,14 @@ function formatLastEventTimestamp(logs) {
   }, null);
   if (!latest) return "Sin datos";
   return new Date(latest.raw).toLocaleString("es-CO");
+}
+
+function formatSnapshotTimestamp(rawIso) {
+  const raw = String(rawIso || "").trim();
+  if (!raw) return "Sin datos";
+  const dt = new Date(raw);
+  if (Number.isNaN(dt.getTime())) return "Sin datos";
+  return dt.toLocaleString("es-CO");
 }
 
 function buildTimeSeries(logs, days) {
@@ -365,8 +374,12 @@ function renderSummary(logs) {
   const reviewOpens = logs.filter(
     (x) => x.eventType === "page_view" && /\/reviews\/\d+\.html$/.test(normalizePagePath(x.page)),
   ).length;
+  const historicalTotal = Number(historicalSnapshot?.totalEvents);
+  const historicalTs = formatSnapshotTimestamp(historicalSnapshot?.generatedAt);
 
   box.innerHTML = [
+    ["Total histórico (backup local)", Number.isFinite(historicalTotal) ? fmt(historicalTotal) : "Sin snapshot"],
+    ["Snapshot histórico", historicalTs],
     ["Total eventos", fmt(logs.length)],
     ["IPs únicas", fmt(uniqueIps)],
     ["Páginas únicas", fmt(uniquePages)],
@@ -380,6 +393,20 @@ function renderSummary(logs) {
         `<article class="logs-card"><p class="logs-card__k">${k}</p><p class="logs-card__v">${v}</p></article>`,
     )
     .join("");
+}
+
+async function loadHistoricalSnapshot() {
+  try {
+    const res = await fetch("./info/visitor-logs-snapshot.json", { cache: "no-store" });
+    if (!res.ok) {
+      historicalSnapshot = null;
+      return;
+    }
+    const payload = await res.json();
+    historicalSnapshot = payload && typeof payload === "object" ? payload : null;
+  } catch {
+    historicalSnapshot = null;
+  }
 }
 
 function renderCountryFilterStatus() {
@@ -567,6 +594,7 @@ async function loadLogs() {
 
   setError("");
   setStatus("Consultando logs...");
+  await loadHistoricalSnapshot();
 
   const url = new URL(endpoint);
   url.searchParams.set("token", token);
@@ -602,7 +630,13 @@ async function loadLogs() {
   const visibleCount = selectedCountry
     ? logs.filter((x) => String(x.country || "XX").toUpperCase() === selectedCountry).length
     : logs.length;
-  setStatus(`Actualizado: ${new Date().toLocaleString("es-CO")} · ${fmt(visibleCount)} eventos visibles`);
+  const historicalTotal = Number(historicalSnapshot?.totalEvents);
+  const historicalPart = Number.isFinite(historicalTotal)
+    ? ` · total histórico local: ${fmt(historicalTotal)}`
+    : "";
+  setStatus(
+    `Actualizado: ${new Date().toLocaleString("es-CO")} · ${fmt(visibleCount)} eventos visibles (consulta live limitada)${historicalPart}`,
+  );
 }
 
 function wire() {

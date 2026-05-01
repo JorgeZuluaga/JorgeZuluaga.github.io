@@ -1,7 +1,7 @@
 .PHONY: \
 	help start dev stop \
 	classroom \
-	library-build library-update library-stats library-refresh library-local-likes-sync \
+	library-build library-update library-stats library-refresh library-local-likes-sync visitor-logs-sync \
 	reviews-first reviews-all reviews-force reviews-refresh reviews-fix reviews-enrich reviews-enrich-dry \
 	library-details-import library-details-match library-details-sync \
 	worker-deploy
@@ -37,6 +37,8 @@ help:
 	@echo "  make library-refresh    - Run library-build + library-stats"
 	@echo "  make library-local-likes-sync - Snapshot local likes from worker into info/library.json"
 	@echo "                            Optional: VISITOR_WORKER_BASE=... (default worker URL)"
+	@echo "  make visitor-logs-sync  - Sync historical visitor logs to local backup files in info/"
+	@echo "                            Required env: LOG_READ_TOKEN=... Optional: VISITOR_WORKER_BASE=..."
 	@echo "  make reviews-all        - Mirror all reviews in reviews/"
 	@echo "                            Optional: COOKIE=... REVIEW_RSS_PAGES=..."
 	@echo "  make reviews-first      - Mirror only the first review (smoke test)"
@@ -153,6 +155,17 @@ library-local-likes-sync:
 	@python3 bin/sync_local_review_likes.py \
 		--library-json "$(LIBRARY_JSON)" \
 		--worker-base "$(VISITOR_WORKER_BASE)"
+
+# Sync historical visitor logs from worker into local backup snapshot files.
+visitor-logs-sync:
+	@if [ -z "$$LOG_READ_TOKEN" ]; then \
+		echo "LOG_READ_TOKEN es obligatorio."; \
+		echo "Ejemplo: LOG_READ_TOKEN=... make visitor-logs-sync"; \
+		exit 1; \
+	fi
+	@python3 bin/sync_visitor_logs_backup.py \
+		--worker-base "$(VISITOR_WORKER_BASE)" \
+		--token "$$LOG_READ_TOKEN"
 
 # Generate/update local mirror for the first review only.
 reviews-first:
