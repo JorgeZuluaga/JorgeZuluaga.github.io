@@ -77,6 +77,13 @@ function readSnapshotLocalLikes(item) {
   return Number.isFinite(value) ? Math.max(0, value) : null;
 }
 
+function pickBestKnownLocalLikes(snapshotValue, cachedValue) {
+  if (snapshotValue === null && cachedValue === null) return null;
+  if (snapshotValue === null) return cachedValue;
+  if (cachedValue === null) return snapshotValue;
+  return Math.max(snapshotValue, cachedValue);
+}
+
 async function fetchLocalLikeCount(base, reviewId) {
   if (!base || !reviewId) return null;
   try {
@@ -131,12 +138,13 @@ async function hydrateLocalLikes(container, items, lang) {
   }
   for (const reviewId of reviewIds) {
     const fromSnapshot = readSnapshotLocalLikes(bookByReviewId.get(reviewId));
-    if (fromSnapshot !== null) {
-      counts.set(reviewId, fromSnapshot);
-    }
     const cached = readCachedLocalLikes(reviewId);
-    if (cached !== null) {
-      counts.set(reviewId, cached);
+    const known = pickBestKnownLocalLikes(fromSnapshot, cached);
+    if (known !== null) {
+      counts.set(reviewId, known);
+      if (cached === null || known > cached) {
+        writeCachedLocalLikes(reviewId, known);
+      }
       continue;
     }
     missing.push(reviewId);
