@@ -1,5 +1,6 @@
 const TOKEN_STORAGE_KEY = "visitorLogsReadToken";
 let allLogsCache = [];
+let historicalLogsCache = [];
 let selectedCountry = "";
 let selectedRangeDays = 7;
 let historicalSnapshot = null;
@@ -409,6 +410,55 @@ async function loadHistoricalSnapshot() {
   }
 }
 
+async function loadHistoricalLogs() {
+  try {
+    const res = await fetch("./info/visitor-logs-backup.ndjson", { cache: "no-store" });
+    if (!res.ok) {
+      historicalLogsCache = [];
+      return;
+    }
+    const raw = await res.text();
+    const lines = String(raw || "")
+      .split(/\r?\n/)
+      .map((x) => x.trim())
+      .filter(Boolean);
+    const out = [];
+    for (const line of lines) {
+      try {
+        const row = JSON.parse(line);
+        if (row && typeof row === "object" && "eventType" in row) out.push(row);
+      } catch {
+        // Ignore malformed lines to keep dashboard resilient.
+      }
+    }
+    historicalLogsCache = out;
+  } catch {
+    historicalLogsCache = [];
+  }
+}
+
+function mergeLogs(primaryLogs, secondaryLogs) {
+  const byId = new Map();
+  const addRow = (row) => {
+    const key = String(row?.id || row?._kvKey || "").trim();
+    if (key) {
+      if (!byId.has(key)) byId.set(key, row);
+      return;
+    }
+    const fallback = [
+      String(row?.timestampServer || ""),
+      String(row?.eventType || ""),
+      String(row?.ip || ""),
+      String(row?.page || ""),
+      String(row?.url || ""),
+    ].join("|");
+    if (!byId.has(fallback)) byId.set(fallback, row);
+  };
+  primaryLogs.forEach(addRow);
+  secondaryLogs.forEach(addRow);
+  return [...byId.values()];
+}
+
 function renderCountryFilterStatus() {
   const el = document.getElementById("country-filter-status");
   if (!el) return;
@@ -595,6 +645,7 @@ async function loadLogs() {
   setError("");
   setStatus("Consultando logs...");
   await loadHistoricalSnapshot();
+  await loadHistoricalLogs();
 
   const url = new URL(endpoint);
   url.searchParams.set("token", token);
@@ -625,17 +676,20 @@ async function loadLogs() {
 
   const data = await res.json();
   const logs = Array.isArray(data.logs) ? data.logs : [];
-  allLogsCache = logs;
+  allLogsCache = mergeLogs(historicalLogsCache, logs);
   await renderReportFromCache();
-  const visibleCount = selectedCountry
+  const liveVisibleCount = selectedCountry
     ? logs.filter((x) => String(x.country || "XX").toUpperCase() === selectedCountry).length
     : logs.length;
+  const visibleCount = selectedCountry
+    ? allLogsCache.filter((x) => String(x.country || "XX").toUpperCase() === selectedCountry).length
+    : allLogsCache.length;
   const historicalTotal = Number(historicalSnapshot?.totalEvents);
   const historicalPart = Number.isFinite(historicalTotal)
     ? ` · total histórico local: ${fmt(historicalTotal)}`
     : "";
   setStatus(
-    `Actualizado: ${new Date().toLocaleString("es-CO")} · ${fmt(visibleCount)} eventos visibles (consulta live limitada)${historicalPart}`,
+    `Actualizado: ${new Date().toLocaleString("es-CO")} · ${fmt(visibleCount)} eventos visibles (incluye respaldo local) · live: ${fmt(liveVisibleCount)}${historicalPart}`,
   );
 }
 

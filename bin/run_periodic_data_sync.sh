@@ -8,6 +8,27 @@ set -euo pipefail
 REPO_DIR="$(cd "$(dirname "$0")/.." && pwd)"
 cd "$REPO_DIR"
 
+LOCK_DIR="$REPO_DIR/.secrets/cv-data-sync.lockdir"
+LOCK_PID_FILE="$LOCK_DIR/pid"
+mkdir -p "$REPO_DIR/.secrets"
+
+if mkdir "$LOCK_DIR" 2>/dev/null; then
+  printf '%s\n' "$$" > "$LOCK_PID_FILE"
+  trap 'rm -rf "$LOCK_DIR"' EXIT INT TERM
+else
+  if [[ -f "$LOCK_PID_FILE" ]]; then
+    LOCK_PID="$(tr -d '\r\n' < "$LOCK_PID_FILE" || true)"
+    if [[ -n "${LOCK_PID:-}" ]] && kill -0 "$LOCK_PID" 2>/dev/null; then
+      echo "[$(date -u +"%Y-%m-%dT%H:%M:%SZ")] Another sync is already running (pid=$LOCK_PID). Exiting."
+      exit 0
+    fi
+  fi
+  rm -rf "$LOCK_DIR"
+  mkdir "$LOCK_DIR"
+  printf '%s\n' "$$" > "$LOCK_PID_FILE"
+  trap 'rm -rf "$LOCK_DIR"' EXIT INT TERM
+fi
+
 # Optional token file support for unattended runs.
 # You can override with LOG_READ_TOKEN_FILE env var.
 TOKEN_FILE_DEFAULT="$REPO_DIR/.secrets/log_read_token"
