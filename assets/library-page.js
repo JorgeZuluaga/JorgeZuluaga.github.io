@@ -27,6 +27,7 @@ function normalizeBooks(rawBooks) {
     .map((b) => ({
       ...b,
       _date: parseDate(b.dateRead),
+      _reviewDate: parseDate(b.reviewDate),
       rating: Number.isFinite(Number(b.rating)) ? Number(b.rating) : 0,
       reviewLikes: Number.isFinite(Number(b.reviewLikes)) ? Number(b.reviewLikes) : 0,
     }));
@@ -217,7 +218,11 @@ async function hydrateTotalLocalLikes(totalEl, reviewedItems) {
   totalEl.textContent = String(total);
 }
 
-function renderBookList(container, items, lang, seriesMap = new Map()) {
+function renderBookList(container, items, lang, seriesMap = new Map(), options = {}) {
+  const dateLabelKey = String(options.dateLabelKey || "library_date_read");
+  const dateValueSelector = typeof options.dateValueSelector === "function"
+    ? options.dateValueSelector
+    : ((item) => item.dateRead || item.dateAdded || "");
   if (!container) return;
   if (!Array.isArray(items) || items.length === 0) {
     container.innerHTML = `<p class="photo-card__error">${escapeLibrary(t("library_no_data", lang))}</p>`;
@@ -248,9 +253,9 @@ function renderBookList(container, items, lang, seriesMap = new Map()) {
       meta2Parts.push(`${escapeLibrary(t("library_series", lang))} ${escapeLibrary(seriesName)}`);
     }
 
-    const datePart = item.dateRead || item.dateAdded || "";
+    const datePart = String(dateValueSelector(item) || "").trim();
     if (datePart && datePart !== "—") {
-      meta2Parts.push(`<strong>${escapeLibrary(t("library_date_read", lang))}</strong> ${escapeLibrary(datePart)}`);
+      meta2Parts.push(`<strong>${escapeLibrary(t(dateLabelKey, lang))}</strong> ${escapeLibrary(datePart)}`);
     }
 
     if (meta2Parts.length > 0) {
@@ -306,12 +311,28 @@ function renderBookList(container, items, lang, seriesMap = new Map()) {
   container.replaceChildren(frag);
 }
 
-function addListToggleControls(container, items, lang, seriesMap, showAllKey) {
+function addListToggleControls(
+  container,
+  items,
+  lang,
+  seriesMap,
+  {
+    initialCount = 5,
+    expandedCount = null,
+    showMoreKey = "library_show_latest_20",
+    showLessKey = "library_show_latest_5",
+    includeAllBooksLink = true,
+    renderOptions = {},
+  } = {},
+) {
   if (!container || !Array.isArray(items) || items.length === 0) return;
-  const initialItems = items.slice(0, 5);
+  const initialItems = items.slice(0, initialCount);
+  const expandedItems = Number.isFinite(Number(expandedCount))
+    ? items.slice(0, Math.max(initialCount, Number(expandedCount)))
+    : items;
   let showingAll = false;
 
-  renderBookList(container, initialItems, lang, seriesMap);
+  renderBookList(container, initialItems, lang, seriesMap, renderOptions);
   hydrateLocalLikes(container, initialItems, lang).catch(() => {});
 
   const toggleContainer = document.createElement("div");
@@ -325,23 +346,24 @@ function addListToggleControls(container, items, lang, seriesMap, showAllKey) {
   const toggleBtn = document.createElement("button");
   toggleBtn.type = "button";
   toggleBtn.className = "link library-all-link";
-  toggleBtn.textContent = t(showAllKey, lang);
+  toggleBtn.textContent = t(showMoreKey, lang);
 
   toggleBtn.addEventListener("click", () => {
     showingAll = !showingAll;
-    const visibleItems = showingAll ? items : initialItems;
-    renderBookList(container, visibleItems, lang, seriesMap);
+    const visibleItems = showingAll ? expandedItems : initialItems;
+    renderBookList(container, visibleItems, lang, seriesMap, renderOptions);
     hydrateLocalLikes(container, visibleItems, lang).catch(() => {});
-    toggleBtn.textContent = showingAll ? t("library_show_latest_5", lang) : t(showAllKey, lang);
+    toggleBtn.textContent = showingAll ? t(showLessKey, lang) : t(showMoreKey, lang);
   });
 
-  const allBooksLink = document.createElement("a");
-  allBooksLink.className = "link library-all-link";
-  allBooksLink.href = withLangQuery("./biblioteca-todos.html");
-  allBooksLink.textContent = t("library_view_all_books", lang);
-
   toggleContainer.appendChild(toggleBtn);
-  toggleContainer.appendChild(allBooksLink);
+  if (includeAllBooksLink) {
+    const allBooksLink = document.createElement("a");
+    allBooksLink.className = "link library-all-link";
+    allBooksLink.href = withLangQuery("./biblioteca-todos.html");
+    allBooksLink.textContent = t("library_view_all_books", lang);
+    toggleContainer.appendChild(allBooksLink);
+  }
   container.parentElement?.appendChild(toggleContainer);
 }
 
@@ -392,6 +414,8 @@ function applyLibraryChrome(lang) {
   if (hLatest) hLatest.textContent = t("library_latest", lang);
   const hTop = document.getElementById("library-h2-top");
   if (hTop) hTop.textContent = t("library_top10", lang);
+  const hLatestReviews = document.getElementById("library-h2-latest-reviews");
+  if (hLatestReviews) hLatestReviews.textContent = t("library_latest_reviews_written", lang);
   const hTop50 = document.getElementById("library-h2-top50");
   if (hTop50) hTop50.textContent = t("library_top50_title", lang);
 
@@ -444,6 +468,7 @@ async function main() {
   const chartEl = document.getElementById("library-yearly-chart");
   const latestReadEl = document.getElementById("library-latest-read");
   const topReviewedEl = document.getElementById("library-top-reviewed");
+  const latestReviewedEl = document.getElementById("library-latest-reviewed");
   const top50El = document.getElementById("library-top50");
   if (
     !titleEl ||
@@ -458,6 +483,7 @@ async function main() {
     !chartEl ||
     !latestReadEl ||
     !topReviewedEl ||
+    !latestReviewedEl ||
     !top50El
   ) {
     return;
@@ -478,6 +504,9 @@ async function main() {
       return (b._date?.getTime() ?? 0) - (a._date?.getTime() ?? 0);
     })
     .slice(0, 20);
+  const latestReviewsWritten = [...reviewed]
+    .filter((b) => b._reviewDate)
+    .sort((a, b) => (b._reviewDate?.getTime() ?? 0) - (a._reviewDate?.getTime() ?? 0));
 
   const topFavorite = [...readBooks]
     .filter((b) => typeof b.drzrating === "number" && b.drzrating > 0)
@@ -561,9 +590,35 @@ async function main() {
   }
 
   chartEl.replaceChildren(frag);
-  addListToggleControls(latestReadEl, latestRead, lang, seriesMap, "library_show_latest_20");
-  addListToggleControls(topReviewedEl, topReviewedByLikes, lang, seriesMap, "library_show_top_20");
-  addListToggleControls(top50El, topFavorite, lang, seriesMap, "library_show_top_20");
+  addListToggleControls(latestReadEl, latestRead, lang, seriesMap, {
+    initialCount: 5,
+    showMoreKey: "library_show_latest_20",
+    showLessKey: "library_show_latest_5",
+    includeAllBooksLink: true,
+  });
+  addListToggleControls(topReviewedEl, topReviewedByLikes, lang, seriesMap, {
+    initialCount: 5,
+    showMoreKey: "library_show_top_20",
+    showLessKey: "library_show_latest_5",
+    includeAllBooksLink: true,
+  });
+  addListToggleControls(latestReviewedEl, latestReviewsWritten, lang, seriesMap, {
+    initialCount: 5,
+    expandedCount: 20,
+    showMoreKey: "library_show_latest_20",
+    showLessKey: "library_show_latest_5",
+    includeAllBooksLink: true,
+    renderOptions: {
+      dateLabelKey: "library_review_date",
+      dateValueSelector: (item) => item.reviewDate || "",
+    },
+  });
+  addListToggleControls(top50El, topFavorite, lang, seriesMap, {
+    initialCount: 5,
+    showMoreKey: "library_show_top_20",
+    showLessKey: "library_show_latest_5",
+    includeAllBooksLink: true,
+  });
   hydrateTotalLocalLikes(totalLocalLikesEl, reviewed).catch(() => {});
 }
 
