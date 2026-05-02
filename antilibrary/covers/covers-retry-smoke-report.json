@@ -1,0 +1,121 @@
+{
+  "generatedAt": "2026-05-02T14:27:47.425986+00:00",
+  "limit": 10,
+  "processed": 10,
+  "copiedLocal": 0,
+  "downloaded": 4,
+  "missingIsbn": 0,
+  "failed": 6,
+  "results": [
+    {
+      "bookId": "",
+      "title": "Cartago",
+      "author": "Eve MacDonald",
+      "dateAdded": "2026-04-22",
+      "isbn": "9788430628391",
+      "outputFile": "antilibrary/covers-retry-smoke/9788430628391.jpg",
+      "status": "failed",
+      "source": "",
+      "error": "HTTP Error 503: Service Unavailable"
+    },
+    {
+      "bookId": "",
+      "title": "La risa en la antigua Roma",
+      "author": "Mary Beard",
+      "dateAdded": "2026-04-13",
+      "isbn": "9788411488983",
+      "outputFile": "antilibrary/covers-retry-smoke/9788411488983.jpg",
+      "status": "failed",
+      "source": "",
+      "error": "HTTP Error 404: Not Found"
+    },
+    {
+      "bookId": "",
+      "title": "Mas Rapido Que La Velocidad de La Luz",
+      "author": "Joao Magueijo",
+      "dateAdded": "2026-04-13",
+      "isbn": "9789505576838",
+      "outputFile": "antilibrary/covers-retry-smoke/9789505576838.jpg",
+      "status": "downloaded",
+      "source": "https://books.google.com/books/content?id=J0TyAQAACAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api",
+      "error": ""
+    },
+    {
+      "bookId": "",
+      "title": "Nuestro cuerpo",
+      "author": "Juan Luis Arsuaga",
+      "dateAdded": "2026-03-31",
+      "isbn": "9788423363278",
+      "outputFile": "antilibrary/covers-retry-smoke/9788423363278.jpg",
+      "status": "failed",
+      "source": "",
+      "error": "HTTP Error 503: Service Unavailable"
+    },
+    {
+      "bookId": "",
+      "title": "Naturaleza esencial",
+      "author": "Christian De Quincey",
+      "dateAdded": "2026-03-29",
+      "isbn": "9788412431551",
+      "outputFile": "antilibrary/covers-retry-smoke/9788412431551.jpg",
+      "status": "failed",
+      "source": "",
+      "error": "HTTP Error 503: Service Unavailable"
+    },
+    {
+      "bookId": "",
+      "title": "Aranjuez",
+      "author": "Gilmer Mesa",
+      "dateAdded": "2026-03-21",
+      "isbn": "9786287638167",
+      "outputFile": "antilibrary/covers-retry-smoke/9786287638167.jpg",
+      "status": "failed",
+      "source": "",
+      "error": "HTTP Error 404: Not Found"
+    },
+    {
+      "bookId": "",
+      "title": "Diecinueve garras y un pájaro oscuro",
+      "author": "Agustina Bazterrica",
+      "dateAdded": "2026-03-21",
+      "isbn": "9788410496606",
+      "outputFile": "antilibrary/covers-retry-smoke/9788410496606.jpg",
+      "status": "downloaded",
+      "source": "https://books.google.com/books/content?id=68BxEQAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
+      "error": ""
+    },
+    {
+      "bookId": "",
+      "title": "El Hijo Del Hombre / the Son of Man",
+      "author": "Juan Esteban CONSTAIN CROCE",
+      "dateAdded": "2026-03-21",
+      "isbn": "9786287874039",
+      "outputFile": "antilibrary/covers-retry-smoke/9786287874039.jpg",
+      "status": "downloaded",
+      "source": "https://books.google.com/books/content?id=NlzX0QEACAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api",
+      "error": ""
+    },
+    {
+      "bookId": "",
+      "title": "Patogénesis",
+      "author": "Jonathan Kennedy",
+      "dateAdded": "2026-03-21",
+      "isbn": "9788410340206",
+      "outputFile": "antilibrary/covers-retry-smoke/9788410340206.jpg",
+      "status": "failed",
+      "source": "",
+      "error": "HTTP Error 503: Service Unavailable"
+    },
+    {
+      "bookId": "",
+      "title": "Ensayos completos",
+      "author": "Jorge Luis Borges",
+      "dateAdded": "2026-03-05",
+      "isbn": "9791387846374",
+      "outputFile": "antilibrary/covers-retry-smoke/9791387846374.jpg",
+      "status": "downloaded",
+      "source": "https://books.google.com/books/content?id=nfOxEQAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
+      "error": ""
+    }
+  ]
+}

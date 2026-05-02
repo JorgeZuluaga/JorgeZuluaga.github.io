@@ -401,6 +401,12 @@ function applyLibraryChrome(lang) {
     allLink.setAttribute("href", withLangQuery("./biblioteca-todos.html"));
   }
 
+  const antiLink = document.getElementById("btn-anti-library");
+  if (antiLink) {
+    antiLink.textContent = t("library_show_antilibrary", lang);
+    antiLink.setAttribute("href", withLangQuery("./antibiblioteca.html"));
+  }
+
   const sagasLink = document.getElementById("btn-all-sagas");
   if (sagasLink) {
     sagasLink.textContent = t("library_show_sagas", lang);
@@ -458,12 +464,13 @@ async function main() {
   }
 
   const books = normalizeBooks(data.books);
-  const rows = computeYearlyReads(books);
-  const latestRead = [...books]
+  const readBooks = books.filter((b) => b._date);
+  const rows = computeYearlyReads(readBooks);
+  const latestRead = [...readBooks]
     .filter((b) => b._date)
     .sort((a, b) => b._date - a._date)
     .slice(0, 20);
-  const reviewed = books.filter((b) => hasReview(b));
+  const reviewed = readBooks.filter((b) => hasReview(b));
   const topReviewedByLikes = [...reviewed]
     .sort((a, b) => {
       if (b.reviewLikes !== a.reviewLikes) return b.reviewLikes - a.reviewLikes;
@@ -472,7 +479,7 @@ async function main() {
     })
     .slice(0, 20);
 
-  const topFavorite = [...books]
+  const topFavorite = [...readBooks]
     .filter((b) => typeof b.drzrating === "number" && b.drzrating > 0)
     .sort((a, b) => {
       if (b.drzrating !== a.drzrating) return b.drzrating - a.drzrating;
@@ -480,7 +487,7 @@ async function main() {
     })
     .slice(0, 20);
 
-  const totalRead = books.length;
+  const totalRead = readBooks.length;
   const totalReviewed = reviewed.length;
   const reviewedPct = totalRead ? (totalReviewed / totalRead) * 100 : 0;
   const totalLikes = reviewed.reduce((acc, b) => acc + (b.reviewLikes || 0), 0);

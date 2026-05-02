@@ -40,6 +40,30 @@ Esto hace:
 - import a `info/library-details.json`,
 - match de `bookId` contra `info/library.json`.
 
+### C.1 Extraer carátulas embebidas desde `update/bookbuddy.htm`
+
+Si exportaste BookBuddy en HTML (con imágenes embebidas), guarda el archivo como:
+- `update/bookbuddy.htm`
+
+Luego corre:
+
+```bash
+python3 bin/extract_bookbuddy_embedded_covers.py --input-html update/bookbuddy.htm
+```
+
+Regla del script:
+- si la portada no existe en `antilibrary/covers`, la crea,
+- si ya existe y tiene el mismo tamaño en bytes, la deja igual,
+- si ya existe pero cambia de tamaño, la reemplaza (asume imagen actualizada).
+
+### D. Exportar reseñas para NotebookLM (lotes de 5)
+
+```bash
+make notebooklm-reviews-export
+```
+
+Genera/actualiza `update/reviews/` con archivos `reviews-batch-XXX.md` (5 reseñas por archivo), listos para subir a NotebookLM.
+
 ---
 
 ## 2) Flujo manual semestral (cursos, artículos, citaciones)

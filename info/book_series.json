@@ -47,6 +47,224 @@
       ]
     },
     {
+      "name": "La Ilíada y la Odisea",
+      "author": "Homer",
+      "latestDateRead": "2026-02-08",
+      "books": [
+        {
+          "libraryBookId": "26567125",
+          "title": "La Iliada"
+        },
+        {
+          "libraryBookId": "54657941",
+          "title": "Odisea"
+        }
+      ]
+    },
+    {
+      "name": "Julio César",
+      "author": "Santiago Posteguillo",
+      "latestDateRead": "2025-11-28",
+      "books": [
+        {
+          "libraryBookId": "60622051",
+          "title": "Roma soy yo: La verdadera historia de Julio César"
+        },
+        {
+          "libraryBookId": "193575492",
+          "title": "Maldita Roma: La conquista del poder de Julio César (Julio César, #2)"
+        },
+        {
+          "libraryBookId": "236033220",
+          "title": "Los tres mundos (Julio César, #3)"
+        }
+      ]
+    },
+    {
+      "name": "Los Reyes Malditos",
+      "author": "Maurice Druon",
+      "latestDateRead": "2025-07-04",
+      "books": [
+        {
+          "libraryBookId": "35618912",
+          "title": "El rey de hierro (Los reyes malditos, #1)"
+        },
+        {
+          "libraryBookId": "1044175",
+          "title": "La reina estrangulada (Los reyes malditos, #2)"
+        },
+        {
+          "libraryBookId": "99489",
+          "title": "Los venenos de la corona (Los reyes malditos, #3)"
+        },
+        {
+          "libraryBookId": "99500",
+          "title": "La ley de los varones (Los Reyes Malditos, #4)"
+        },
+        {
+          "libraryBookId": "99499",
+          "title": "La loba de Francia (Los Reyes Malditos, #5)"
+        },
+        {
+          "libraryBookId": "7663502",
+          "title": "La flor de lis y el león"
+        },
+        {
+          "libraryBookId": "7830894",
+          "title": "De cómo un rey perdió Francia"
+        }
+      ]
+    },
+    {
+      "name": "Los hijos de la tierra",
+      "author": "Jean M. Auel",
+      "latestDateRead": "2025-01-28",
+      "books": [
+        {
+          "libraryBookId": "35998224",
+          "title": "El clan del oso cavernario"
+        },
+        {
+          "libraryBookId": "25834165",
+          "title": "El valle de los caballos"
+        },
+        {
+          "libraryBookId": "6916879",
+          "title": "Los cazadores de mamuts (Los hijos de la tierra, #3)"
+        },
+        {
+          "libraryBookId": "2631671",
+          "title": "Las llanuras del tránsito (Los hijos de la tierra, #4)"
+        },
+        {
+          "libraryBookId": "947938",
+          "title": "Los refugios de piedra (Los hijos de la tierra, #5)"
+        },
+        {
+          "libraryBookId": "10979076",
+          "title": "La Tierra de las Cuevas Pintadas (Los Hijos de la Tierra, #6)"
+        }
+      ]
+    },
+    {
+      "name": "Kingsbridge",
+      "author": "Ken Follett",
+      "latestDateRead": "2024-01-09",
+      "books": [
+        {
+          "libraryBookId": "53972981",
+          "title": "Las tinieblas y el alba (Kingsbridge, #0)"
+        },
+        {
+          "libraryBookId": "5050",
+          "title": "Los pilares de la tierra (Kingsbridge, #1)"
+        },
+        {
+          "libraryBookId": "8098446",
+          "title": "Un mundo sin fin"
+        },
+        {
+          "libraryBookId": "34616436",
+          "title": "Una columna de fuego"
+        },
+        {
+          "libraryBookId": "157620810",
+          "title": "La armadura de la luz (Los pilares de la tierra #4)"
+        }
+      ]
+    },
+    {
+      "name": "Trilogía del siglo XX",
+      "author": "Ken Follett",
+      "latestDateRead": "2021-11-08",
+      "books": [
+        {
+          "libraryBookId": "9594222",
+          "title": "La caída de los gigantes"
+        },
+        {
+          "libraryBookId": "13227988",
+          "title": "El invierno del mundo"
+        },
+        {
+          "libraryBookId": "23221695",
+          "title": "El umbral de la eternidad"
+        }
+      ]
+    },
+    {
+      "name": "Publio Cornelio Escipión",
+      "author": "Santiago Posteguillo",
+      "latestDateRead": "2021-06-05",
+      "books": [
+        {
+          "libraryBookId": "43554612",
+          "title": "Africanus. El hijo del cónsul (Publio Cornelio Escipión, #1)"
+        },
+        {
+          "libraryBookId": "42610931",
+          "title": "Las legiones malditas (Publio Cornelio Escipión #2)"
+        },
+        {
+          "libraryBookId": "6966227",
+          "title": "La traición de Roma (Publio Cornelio Escipión, #3)"
+        }
+      ]
+    },
+    {
+      "name": "Trajano",
+      "author": "Santiago Posteguillo",
+      "latestDateRead": "2021-01-17",
+      "books": [
+        {
+          "libraryBookId": "12638953",
+          "title": "Los asesinos del emperador (Trajano, #1)"
+        },
+        {
+          "libraryBookId": "18165452",
+          "title": "Circo Máximo: La ira de Trajano (Trajano, #2)"
+        },
+        {
+          "libraryBookId": "27888988",
+          "title": "La legión perdida: El sueño de Trajano (Trajano #3)"
+        }
+      ]
+    },
+    {
+      "name": "Julia Domna",
+      "author": "Santiago Posteguillo",
+      "latestDateRead": "2020-08-29",
+      "books": [
+        {
+          "libraryBookId": "42392875",
+          "title": "Yo, Julia (Julia Domna, #1)"
+        },
+        {
+          "libraryBookId": "50262027",
+          "title": "Y Julia retó a los dioses (Julia Domna, #2)"
+        }
+      ]
+    },
+    {
+      "name": "Trilogía de los tres cuerpos",
+      "author": "Liu Cixin",
+      "latestDateRead": "2019-09-10",
+      "books": [
+        {
+          "libraryBookId": "28487182",
+          "title": "El problema de los tres cuerpos (Trilogía de los tres cuerpos, #1)"
+        },
+        {
+          "libraryBookId": "32827084",
+          "title": "El bosque oscuro (Trilogía de los tres cuerpos, #2)"
+        },
+        {
+          "libraryBookId": "32827109",
+          "title": "El fin de la muerte (Trilogía de los tres cuerpos, #3)"
+        }
+      ]
+    },
+    {
       "name": "Ensayos y no ficción de Tito Vivas",
       "author": "Tito Vivas",
       "latestDateRead": "2026-03-28",
@@ -139,21 +357,6 @@
       ]
     },
     {
-      "name": "La Ilíada y la Odisea",
-      "author": "Homer",
-      "latestDateRead": "2026-02-08",
-      "books": [
-        {
-          "libraryBookId": "26567125",
-          "title": "La Iliada"
-        },
-        {
-          "libraryBookId": "54657941",
-          "title": "Odisea"
-        }
-      ]
-    },
-    {
       "name": "Divulgación científica de Federico Kukso",
       "author": "Federico Kukso",
       "latestDateRead": "2026-02-08",
@@ -214,60 +417,6 @@
       ]
     },
     {
-      "name": "Julio César",
-      "author": "Santiago Posteguillo",
-      "latestDateRead": "2025-11-28",
-      "books": [
-        {
-          "libraryBookId": "60622051",
-          "title": "Roma soy yo: La verdadera historia de Julio César"
-        },
-        {
-          "libraryBookId": "193575492",
-          "title": "Maldita Roma: La conquista del poder de Julio César (Julio César, #2)"
-        },
-        {
-          "libraryBookId": "236033220",
-          "title": "Los tres mundos (Julio César, #3)"
-        }
-      ]
-    },
-    {
-      "name": "Los Reyes Malditos",
-      "author": "Maurice Druon",
-      "latestDateRead": "2025-07-04",
-      "books": [
-        {
-          "libraryBookId": "35618912",
-          "title": "El rey de hierro (Los reyes malditos, #1)"
-        },
-        {
-          "libraryBookId": "1044175",
-          "title": "La reina estrangulada (Los reyes malditos, #2)"
-        },
-        {
-          "libraryBookId": "99489",
-          "title": "Los venenos de la corona (Los reyes malditos, #3)"
-        },
-        {
-          "libraryBookId": "99500",
-          "title": "La ley de los varones (Los Reyes Malditos, #4)"
-        },
-        {
-          "libraryBookId": "99499",
-          "title": "La loba de Francia (Los Reyes Malditos, #5)"
-        },
-        {
-          "libraryBookId": "7663502",
-          "title": "La flor de lis y el león"
-        },
-        {
-          "libraryBookId": "7830894",
-          "title": "De cómo un rey perdió Francia"
-        }
-      ]
-    },
-    {
       "name": "Novelas históricas de Marcos Chicot",
       "author": "Marcos Chicot",
       "latestDateRead": "2025-06-16",
@@ -306,37 +455,6 @@
         {
           "libraryBookId": "56648087",
           "title": "La canción de Aquiles"
-        }
-      ]
-    },
-    {
-      "name": "Los hijos de la tierra",
-      "author": "Jean M. Auel",
-      "latestDateRead": "2025-01-28",
-      "books": [
-        {
-          "libraryBookId": "35998224",
-          "title": "El clan del oso cavernario"
-        },
-        {
-          "libraryBookId": "25834165",
-          "title": "El valle de los caballos"
-        },
-        {
-          "libraryBookId": "6916879",
-          "title": "Los cazadores de mamuts (Los hijos de la tierra, #3)"
-        },
-        {
-          "libraryBookId": "2631671",
-          "title": "Las llanuras del tránsito (Los hijos de la tierra, #4)"
-        },
-        {
-          "libraryBookId": "947938",
-          "title": "Los refugios de piedra (Los hijos de la tierra, #5)"
-        },
-        {
-          "libraryBookId": "10979076",
-          "title": "La Tierra de las Cuevas Pintadas (Los Hijos de la Tierra, #6)"
         }
       ]
     },
@@ -434,33 +552,6 @@
       ]
     },
     {
-      "name": "Kingsbridge",
-      "author": "Ken Follett",
-      "latestDateRead": "2024-01-09",
-      "books": [
-        {
-          "libraryBookId": "53972981",
-          "title": "Las tinieblas y el alba (Kingsbridge, #0)"
-        },
-        {
-          "libraryBookId": "5050",
-          "title": "Los pilares de la tierra (Kingsbridge, #1)"
-        },
-        {
-          "libraryBookId": "8098446",
-          "title": "Un mundo sin fin"
-        },
-        {
-          "libraryBookId": "34616436",
-          "title": "Una columna de fuego"
-        },
-        {
-          "libraryBookId": "157620810",
-          "title": "La armadura de la luz (Los pilares de la tierra #4)"
-        }
-      ]
-    },
-    {
       "name": "Historia de Heródoto",
       "author": "Heródoto",
       "latestDateRead": "2023-02-04",
@@ -480,93 +571,96 @@
       ]
     },
     {
-      "name": "Trilogía del siglo XX",
-      "author": "Ken Follett",
-      "latestDateRead": "2021-11-08",
+      "name": "Biografías",
+      "author": "Colección personal (primera clasificación; completar)",
+      "latestDateRead": "2026-05-02",
       "books": [
         {
-          "libraryBookId": "9594222",
-          "title": "La caída de los gigantes"
+          "libraryBookId": "10297104",
+          "title": "Einstein: Su vida y su universo"
         },
         {
-          "libraryBookId": "13227988",
-          "title": "El invierno del mundo"
+          "libraryBookId": "48614844",
+          "title": "Galileo"
         },
         {
-          "libraryBookId": "23221695",
-          "title": "El umbral de la eternidad"
+          "libraryBookId": "8803371",
+          "title": "Galileo: Watcher of the Skies"
+        },
+        {
+          "libraryBookId": "36235446",
+          "title": "Kepler"
+        },
+        {
+          "libraryBookId": "39721554",
+          "title": "Leonardo Da Vinci: La biografía"
+        },
+        {
+          "libraryBookId": "9859056",
+          "title": "Longitud: la verdadera historia de un genio solitario que resolvió el mayor problema científico de su tiempo"
+        },
+        {
+          "libraryBookId": "2339744",
+          "title": "Marie Curie"
+        },
+        {
+          "libraryBookId": "24976877",
+          "title": "Mileva Marić Einstein: Life with Albert Einstein"
+        },
+        {
+          "libraryBookId": "48614905",
+          "title": "Newton (1)"
+        },
+        {
+          "libraryBookId": "48614965",
+          "title": "Newton (2)"
+        },
+        {
+          "libraryBookId": "21953517",
+          "title": "Newton: Una biografía breve"
+        },
+        {
+          "libraryBookId": "36661512",
+          "title": "Rodolfo Llinás: La pregunta difícil"
         }
       ]
     },
     {
-      "name": "Publio Cornelio Escipión",
-      "author": "Santiago Posteguillo",
-      "latestDateRead": "2021-06-05",
+      "name": "Novelas biográficas",
+      "author": "Colección personal (primera clasificación; completar)",
+      "latestDateRead": "2026-05-02",
       "books": [
         {
-          "libraryBookId": "43554612",
-          "title": "Africanus. El hijo del cónsul (Publio Cornelio Escipión, #1)"
+          "libraryBookId": "21524683",
+          "title": "Memorias de Adriano"
         },
         {
-          "libraryBookId": "42610931",
-          "title": "Las legiones malditas (Publio Cornelio Escipión #2)"
+          "libraryBookId": "24079375",
+          "title": "DA VINCI ENAMORADO: La interminable historia de amor de Da Vinci y Mona Lisa. (Spanish Edition)"
         },
         {
-          "libraryBookId": "6966227",
-          "title": "La traición de Roma (Publio Cornelio Escipión, #3)"
-        }
-      ]
-    },
-    {
-      "name": "Trajano",
-      "author": "Santiago Posteguillo",
-      "latestDateRead": "2021-01-17",
-      "books": [
-        {
-          "libraryBookId": "12638953",
-          "title": "Los asesinos del emperador (Trajano, #1)"
+          "libraryBookId": "44772198",
+          "title": "La catadora de Hitler"
         },
         {
-          "libraryBookId": "18165452",
-          "title": "Circo Máximo: La ira de Trajano (Trajano, #2)"
+          "libraryBookId": "43178331",
+          "title": "El otro Einstein (Spanish Edition)"
         },
         {
-          "libraryBookId": "27888988",
-          "title": "La legión perdida: El sueño de Trajano (Trajano #3)"
-        }
-      ]
-    },
-    {
-      "name": "Julia Domna",
-      "author": "Santiago Posteguillo",
-      "latestDateRead": "2020-08-29",
-      "books": [
-        {
-          "libraryBookId": "42392875",
-          "title": "Yo, Julia (Julia Domna, #1)"
+          "libraryBookId": "213133138",
+          "title": "Marco Aurelio y los límites del imperio (Spanish Edition)"
         },
         {
-          "libraryBookId": "50262027",
-          "title": "Y Julia retó a los dioses (Julia Domna, #2)"
-        }
-      ]
-    },
-    {
-      "name": "Trilogía de los tres cuerpos",
-      "author": "Liu Cixin",
-      "latestDateRead": "2019-09-10",
-      "books": [
-        {
-          "libraryBookId": "28487182",
-          "title": "El problema de los tres cuerpos (Trilogía de los tres cuerpos, #1)"
+          "libraryBookId": "58212185",
+          "title": "A flor de piel"
         },
         {
-          "libraryBookId": "32827084",
-          "title": "El bosque oscuro (Trilogía de los tres cuerpos, #2)"
+          "libraryBookId": "18716111",
+          "title": "El enigma Spinoza"
         },
         {
-          "libraryBookId": "32827109",
-          "title": "El fin de la muerte (Trilogía de los tres cuerpos, #3)"
+          "libraryBookId": "52275150",
+          "title": "La única mujer"
         }
       ]
     }

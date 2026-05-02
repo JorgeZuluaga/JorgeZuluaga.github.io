@@ -1,7 +1,10 @@
 .PHONY: \
 	help start dev stop \
 	classroom \
-	library-build library-update library-stats library-refresh library-local-likes-sync visitor-logs-sync \
+	library-build library-update library-stats library-refresh library-local-likes-sync visitor-logs-sync library-antibiblioteca-sync \
+	notebooklm-reviews-export \
+	antilibrary-covers-fetch \
+	antilibrary-covers-extract-html \
 	reviews-first reviews-all reviews-force reviews-refresh reviews-fix reviews-enrich reviews-enrich-dry \
 	library-details-import library-details-match library-details-sync \
 	worker-deploy
@@ -39,6 +42,13 @@ help:
 	@echo "                            Optional: VISITOR_WORKER_BASE=... (default worker URL)"
 	@echo "  make visitor-logs-sync  - Sync historical visitor logs to local backup files in info/"
 	@echo "                            Required env: LOG_READ_TOKEN=... Optional: VISITOR_WORKER_BASE=..."
+	@echo "  make library-antibiblioteca-sync - Match library-details and seed unread books into library.json"
+	@echo "  make notebooklm-reviews-export - Export reviews to update/reviews in Markdown batches"
+	@echo "                            Optional: CHUNK_SIZE=5 (reviews per file)"
+	@echo "  make antilibrary-covers-fetch - Fetch anti-library covers by ISBN (pilot default 50)"
+	@echo "                            Optional: LIMIT=50 OUTPUT_DIR=antilibrary/covers RETRIES=3"
+	@echo "  make antilibrary-covers-extract-html - Extract embedded covers from BookBuddy HTML only"
+	@echo "                            Optional: BOOKBUDDY_HTML='update/BookBuddy ... .htm' OUTPUT_DIR=antilibrary/covers"
 	@echo "  make reviews-all        - Mirror all reviews in reviews/"
 	@echo "                            Optional: COOKIE=... REVIEW_RSS_PAGES=..."
 	@echo "  make reviews-first      - Mirror only the first review (smoke test)"
@@ -166,6 +176,31 @@ visitor-logs-sync:
 	@python3 bin/sync_visitor_logs_backup.py \
 		--worker-base "$(VISITOR_WORKER_BASE)" \
 		--token "$$LOG_READ_TOKEN"
+
+library-antibiblioteca-sync:
+	@python3 bin/match_library_details_bookids.py \
+		--library-json "$(LIBRARY_JSON)" \
+		--library-details-json "$(LIBRARY_DETAILS_JSON)"
+
+notebooklm-reviews-export:
+	@python3 bin/export_reviews_for_notebooklm.py \
+		--library-json "$(LIBRARY_JSON)" \
+		--output-dir "update/reviews" \
+		--chunk-size "$${CHUNK_SIZE:-5}"
+
+antilibrary-covers-fetch:
+	@python3 bin/fetch_antilibrary_covers.py \
+		--library-json "$(LIBRARY_JSON)" \
+		--library-details-json "$(LIBRARY_DETAILS_JSON)" \
+		--output-dir "$${OUTPUT_DIR:-antilibrary/covers}" \
+		--limit "$${LIMIT:-50}" \
+		--retries "$${RETRIES:-3}"
+
+antilibrary-covers-extract-html:
+	@python3 bin/extract_bookbuddy_embedded_covers.py \
+		--input-html "$${BOOKBUDDY_HTML:-update/BookBuddy 2026-05-02 093121.htm}" \
+		--output-dir "$${OUTPUT_DIR:-antilibrary/covers}" \
+		--report-json "$${OUTPUT_DIR:-antilibrary/covers}/extract-from-html-report.json"
 
 # Generate/update local mirror for the first review only.
 reviews-first:

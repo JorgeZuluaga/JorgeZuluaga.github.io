@@ -175,9 +175,11 @@ const STRINGS = {
     library_top50_title: "Los libros preferidos",
     library_show_top_20: "Mostrar las 20 mejores",
     library_show_all: "Ver todos los libros",
+    library_show_antilibrary: "Ver antibiblioteca",
     library_no_rating: "Sin calificación",
     library_by_author: "Por:",
     library_date: "Fecha:",
+    library_date_added: "Fecha de agregado:",
     library_review_likes: "Likes Goodreads:",
     library_review_likes_local: "Me gusta locales:",
     library_rating_label: "Mi Calificación:",
@@ -206,6 +208,17 @@ const STRINGS = {
     library_all_title: "Todos los libros leídos",
     library_all_intro:
       "Listado completo ordenado del más reciente al más antiguo.",
+    antilibrary_title: "Antibiblioteca personal",
+    antilibrary_intro:
+      "Toda persona lectora conserva en su biblioteca un cierto número de libros, muchos o solo unos pocos, que no ha leído y posiblemente no leerá jamás. El escritor Nassim Nicholas Taleb llamó a este conjunto de libros deseados la <i>antibiblioteca</i> (ver cita abajo). En esta página comparto el listado de libros en mi biblioteca personal que no he leído, mi antibiblioteca, y que por la misma razón no he registrado en Goodreads, ordenado por fecha de incorporación.",
+    antilibrary_back: "← Volver a Biblioteca",
+    antilibrary_quote:
+      "«El escritor Umberto Eco pertenece a esa pequeña clase de eruditos enciclopédicos, perspicaces y aburridos. Poseedor de una gran biblioteca personal (con treinta mil libros), divide a los visitantes en dos categorías: los que reaccionan con un «¡Vaya! Signore professore dottore Eco, ¡qué biblioteca tiene usted! ¿Cuántos de estos libros ha leído?» y los otros -una minoría muy pequeña- que entienden que una biblioteca privada no es un apéndice para aumentar el ego, sino una herramienta de investigación. Los libros leídos tienen mucho menos valor que los no leídos. La biblioteca debería contener tanto de lo que no sabes como te permitan tus medios económicos, los tipos de interés de las hipotecas y el ajustado mercado inmobiliario actual. Acumularás más conocimientos y más libros a medida que envejezcas, y el creciente número de libros sin leer en las estanterías te mirará amenazadoramente. En efecto, cuanto más sepas, mayores serán las filas de libros sin leer. Llamemos a esta colección de libros sin leer antilibrería.»",
+    antilibrary_source_original: "Fuente original:",
+    antilibrary_source_translation: "Traducción:",
+    antilibrary_stats_total: "Total de libros",
+    antilibrary_stats_unread: "Libros no leídos",
+    antilibrary_stats_read: "Libros leídos",
     library_back: "← Volver a Biblioteca",
     library_list_error:
       "No se pudieron cargar los libros. Compruebe que exista <code>info/library.json</code>.",
@@ -360,9 +373,11 @@ const STRINGS = {
     library_top50_title: "Favorite books",
     library_show_top_20: "Show the top 20",
     library_show_all: "View all books",
+    library_show_antilibrary: "View anti-library",
     library_no_rating: "No rating",
     library_by_author: "By:",
     library_date: "Date:",
+    library_date_added: "Date added:",
     library_review_likes: "Goodreads likes:",
     library_review_likes_local: "Local claps:",
     library_rating_label: "My Rating:",
@@ -391,6 +406,17 @@ const STRINGS = {
     library_all_title: "All books read",
     library_all_intro:
       "Full list sorted from most recent to oldest.",
+    antilibrary_title: "Personal anti-library",
+    antilibrary_intro:
+      "Every reader keeps in their library a certain number of books — many or just a few — that they have not read and may never read. Writer Nassim Nicholas Taleb called this set of desired books the <i>antilibrary</i> (see quote below). On this page I share the list of books in my personal library that I have not read — my antilibrary — and which, for the same reason, I have not logged in Goodreads, sorted by date added.",
+    antilibrary_back: "← Back to library",
+    antilibrary_quote:
+      "The writer Umberto Eco belongs to that small class of scholars who are encyclopedic, insightful, and nondull. He is the owner of a large personal library (containing thirty thousand books), and separates visitors into two categories: those who react with “Wow! Signore professore dottore Eco, what a library you have! How many of these books have you read?” and the others — a very small minority — who get the point that a private library is not an ego-boosting appendage but a research tool. Read books are far less valuable than unread ones. The library should contain as much of what you do not know as your financial means, mortgage rates, and the currently tight real-estate market allows you to put there. You will accumulate more knowledge and more books as you grow older, and the growing number of unread books on the shelves will look at you menacingly. Indeed, the more you know, the larger the rows of unread books. Let us call this collection of unread books an antilibrary.",
+    antilibrary_source_original: "Original source:",
+    antilibrary_source_translation: "Translation:",
+    antilibrary_stats_total: "Total books",
+    antilibrary_stats_unread: "Unread books",
+    antilibrary_stats_read: "Read books",
     library_back: "← Back to library",
     library_list_error:
       "Could not load books. <code>info/library.json</code> must exist.",

@@ -7,6 +7,7 @@ import argparse
 import json
 import re
 import unicodedata
+from datetime import datetime
 from pathlib import Path
 
 
@@ -56,6 +57,10 @@ def build_indexes(goodreads_books: list[dict]) -> tuple[dict[str, list[dict]], d
     return by_title_author, by_title
 
 
+def library_key(title: object, author: object) -> str:
+    return f"{normalize_text(title)}|{normalize_text(author)}"
+
+
 def choose_by_date(candidates: list[dict]) -> dict:
     # Prefer most recently read when ambiguous.
     return sorted(
@@ -63,6 +68,46 @@ def choose_by_date(candidates: list[dict]) -> dict:
         key=lambda x: str(x.get("dateRead") or ""),
         reverse=True,
     )[0]
+
+
+def normalize_date_added(value: object) -> str:
+    raw = str(value or "").strip()
+    if not raw:
+        return ""
+    # BookBuddy usually exports "YYYY/MM/DD HH:MM:SS.fffffffff" (nanoseconds).
+    m = re.match(r"^(\d{4})/(\d{2})/(\d{2})", raw)
+    if m:
+        return f"{m.group(1)}-{m.group(2)}-{m.group(3)}"
+    for fmt in ("%Y/%m/%d %H:%M:%S.%f", "%Y/%m/%d %H:%M:%S", "%Y/%m/%d"):
+        try:
+            return datetime.strptime(raw, fmt).date().isoformat()
+        except ValueError:
+            continue
+    return ""
+
+
+def details_to_library_book(row: dict, fallback_book_id: str = "") -> dict:
+    title = str(row.get("Title") or row.get("title") or "").strip()
+    author = str(row.get("Author") or row.get("author") or "").strip()
+    book_id = str(row.get("bookId") or fallback_book_id or "").strip()
+    date_added = normalize_date_added(row.get("Date Added") or row.get("dateAdded"))
+    return {
+        "bookId": book_id,
+        "title": title,
+        "author": author,
+        "dateRead": "",
+        "dateAdded": date_added,
+        "rating": 0,
+        "reviewUrl": "",
+        "hasReview": False,
+        "reviewLikes": 0,
+        "scrapeStatus": "not_in_goodreads",
+        "reviewLocalStatus": "",
+        "reviewDate": "",
+        "reviewLocalLikes": 0,
+        "drzrating": -1,
+        "bookDetails": 1,
+    }
 
 
 def main() -> int:
@@ -102,9 +147,32 @@ def main() -> int:
         raise SystemExit("Invalid library-details.json format.")
 
     by_title_author, by_title = build_indexes(goodreads_books)
+    library_books = list(library_data.get("books") or [])
+    library_books_by_id: dict[str, dict] = {}
+    library_books_by_key: dict[str, dict] = {}
+    for b in library_books:
+        if not isinstance(b, dict):
+            continue
+        bid = str(b.get("bookId") or "").strip()
+        if bid:
+            library_books_by_id[bid] = b
+        lkey = library_key(b.get("title"), b.get("author"))
+        if lkey != "|":
+            library_books_by_key[lkey] = b
+    existing_book_ids = {
+        str(b.get("bookId") or "").strip()
+        for b in library_books
+        if isinstance(b, dict) and str(b.get("bookId") or "").strip()
+    }
+    existing_title_author = {
+        library_key(b.get("title"), b.get("author"))
+        for b in library_books
+        if isinstance(b, dict)
+    }
 
     matched = 0
     unmatched = 0
+    added_to_library = 0
 
     for row in details_books:
         if not isinstance(row, dict):
@@ -112,6 +180,7 @@ def main() -> int:
 
         d_title = str(row.get("Title") or row.get("title") or "").strip()
         d_author = str(row.get("Author") or row.get("author") or "").strip()
+        d_date_added = normalize_date_added(row.get("Date Added") or row.get("dateAdded"))
 
         n_title = normalize_text(d_title)
         n_author = normalize_text(d_author)
@@ -140,13 +209,51 @@ def main() -> int:
             row["bookId"] = str(chosen.get("bookId") or "")
             matched += 1
 
+        # Propagate Date Added from library-details into library.json entries.
+        detail_book_id = str(row.get("bookId") or "").strip()
+        detail_key = library_key(d_title, d_author)
+        target_book = None
+        if detail_book_id:
+            target_book = library_books_by_id.get(detail_book_id)
+        if target_book is None:
+            target_book = library_books_by_key.get(detail_key)
+        if target_book is not None and d_date_added:
+            target_book["dateAdded"] = d_date_added
+
+        # Add details-only books to library.json (antibiblioteca seed).
+        detail_title = d_title
+        detail_author = d_author
+        if not detail_title:
+            continue
+        if detail_book_id and detail_book_id in existing_book_ids:
+            continue
+        if detail_key in existing_title_author:
+            continue
+
+        new_book = details_to_library_book(row=row, fallback_book_id=detail_book_id)
+        library_books.append(new_book)
+        if detail_book_id:
+            existing_book_ids.add(detail_book_id)
+        existing_title_author.add(detail_key)
+        if detail_book_id:
+            library_books_by_id[detail_book_id] = new_book
+        library_books_by_key[detail_key] = new_book
+        added_to_library += 1
+
     with details_path.open("w", encoding="utf-8") as f:
         json.dump(details_data, f, ensure_ascii=False, indent=2)
         f.write("\n")
 
+    library_data["books"] = library_books
+    with library_path.open("w", encoding="utf-8") as f:
+        json.dump(library_data, f, ensure_ascii=False, indent=2)
+        f.write("\n")
+
     print(f"Matched: {matched}")
     print(f"Unmatched: {unmatched}")
+    print(f"Added to library.json: {added_to_library}")
     print(f"Updated: {details_path}")
+    print(f"Updated: {library_path}")
     return 0
 
 

@@ -302,6 +302,11 @@ function applyLibraryAllChrome(lang) {
   if (h1) h1.textContent = t("library_all_title", lang);
   const intro = document.querySelector("#all-books-main .photos-intro");
   if (intro) intro.textContent = t("library_all_intro", lang);
+  const antiLink = document.getElementById("btn-all-anti-library");
+  if (antiLink) {
+    antiLink.textContent = t("library_show_antilibrary", lang);
+    antiLink.setAttribute("href", withLangQuery("./antibiblioteca.html"));
+  }
 
   const footer = document.querySelector("footer.print-mode-target p");
   if (footer) {
@@ -337,6 +342,7 @@ async function main() {
   const books = [...(data.books ?? [])]
     .filter((b) => b && b.title)
     .map((b) => ({ ...b, _date: parseDate(b.dateRead) }))
+    .filter((b) => b._date)
     .sort((a, b) => (b._date?.getTime() ?? 0) - (a._date?.getTime() ?? 0));
 
   renderBookList(listEl, books, lang, seriesMap);
