@@ -224,14 +224,11 @@ async function resolveCover(meta, bookid) {
   }
   if (isbn) {
     COVER_EXTS.forEach((ext) => candidates.push(`${COVER_DIR}/${isbn}.${ext}`));
-    COVER_EXTS.forEach((ext) => candidates.push(`./antilibrary/backup/${isbn}.${ext}`));
   }
   if (bookid.startsWith("anti:")) {
     const raw = bookid.slice(5);
     COVER_EXTS.forEach((ext) => candidates.push(`${COVER_DIR}/noisbn-${raw}.${ext}`));
     COVER_EXTS.forEach((ext) => candidates.push(`${COVER_DIR}/${raw}.${ext}`));
-    COVER_EXTS.forEach((ext) => candidates.push(`./antilibrary/backup/noisbn-${raw}.${ext}`));
-    COVER_EXTS.forEach((ext) => candidates.push(`./antilibrary/backup/${raw}.${ext}`));
   }
   const tried = new Set();
   for (const src of candidates) {
