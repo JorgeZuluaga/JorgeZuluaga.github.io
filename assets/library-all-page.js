@@ -8,6 +8,7 @@ import { trackPageView } from "./visitor-tracker.js";
 
 const LIBRARY_JSON = "./info/library.json";
 const LOCAL_LIKES_CACHE_PREFIX = "review_local_likes_count_";
+const DEFAULT_PAGE_SIZE = 50;
 
 function parseDate(dateText) {
   const raw = String(dateText ?? "").trim();
@@ -20,7 +21,10 @@ function formatRating(rating, lang) {
   const value = Number(rating);
   if (!value) return t("library_no_rating", lang);
   const stars = Math.round(value);
-  return "⭐".repeat(stars) + '<span style="filter: grayscale(100%); opacity: 0.4;">⭐</span>'.repeat(5 - stars);
+  return (
+    `<span class="library-rating-stars">${"★".repeat(stars)}</span>` +
+    `<span class="library-rating-stars library-rating-stars--empty">${"★".repeat(5 - stars)}</span>`
+  );
 }
 
 function parseReviewIdFromUrl(reviewUrl) {
@@ -167,6 +171,127 @@ function escapeLibrary(s) {
     .replaceAll("&", "&amp;")
     .replaceAll("<", "&lt;")
     .replaceAll(">", "&gt;");
+}
+
+function buildPagerLabels(lang) {
+  if (lang === "en") {
+    return {
+      prev: "Previous",
+      next: "Next",
+      perPage: "Books per page",
+      showAll: "Show all",
+      showPaged: "Use pagination",
+      page: "Page",
+      of: "of",
+      total: "Total",
+    };
+  }
+  return {
+    prev: "Anterior",
+    next: "Siguiente",
+    perPage: "Libros por página",
+    showAll: "Mostrar todos",
+    showPaged: "Usar paginación",
+    page: "Página",
+    of: "de",
+    total: "Total",
+  };
+}
+
+function createPagerControls(listEl, lang, onChange, position = "before") {
+  const labels = buildPagerLabels(lang);
+  const wrap = document.createElement("section");
+  wrap.className = "library-list-card library-pager";
+  if (position === "after") wrap.classList.add("library-pager--bottom");
+
+  const prevBtn = document.createElement("button");
+  prevBtn.type = "button";
+  prevBtn.className = "library-pager__btn";
+  prevBtn.textContent = labels.prev;
+
+  const pageInfo = document.createElement("span");
+  pageInfo.className = "library-pager__info";
+
+  const nextBtn = document.createElement("button");
+  nextBtn.type = "button";
+  nextBtn.className = "library-pager__btn";
+  nextBtn.textContent = labels.next;
+
+  const perPageLabel = document.createElement("label");
+  perPageLabel.className = "library-pager__label";
+  perPageLabel.textContent = `${labels.perPage}: `;
+  const perPageInput = document.createElement("input");
+  perPageInput.type = "number";
+  perPageInput.min = "1";
+  perPageInput.step = "1";
+  perPageInput.value = String(DEFAULT_PAGE_SIZE);
+  perPageInput.className = "library-pager__input";
+  perPageLabel.appendChild(perPageInput);
+
+  const showAllBtn = document.createElement("button");
+  showAllBtn.type = "button";
+  showAllBtn.className = "library-pager__btn";
+
+  wrap.appendChild(prevBtn);
+  wrap.appendChild(pageInfo);
+  wrap.appendChild(nextBtn);
+  wrap.appendChild(perPageLabel);
+  wrap.appendChild(showAllBtn);
+  if (position === "after") {
+    listEl.parentElement?.insertBefore(wrap, listEl.nextSibling);
+  } else {
+    listEl.parentElement?.insertBefore(wrap, listEl);
+  }
+
+  function emitFromUI() {
+    const parsed = Number(perPageInput.value);
+    const pageSize = Number.isFinite(parsed) && parsed > 0 ? Math.floor(parsed) : DEFAULT_PAGE_SIZE;
+    perPageInput.value = String(pageSize);
+    onChange({
+      action: "ui",
+      pageSize,
+    });
+  }
+
+  prevBtn.addEventListener("click", () => {
+    onChange({ action: "prev" });
+  });
+  nextBtn.addEventListener("click", () => {
+    onChange({ action: "next" });
+  });
+  perPageInput.addEventListener("change", () => {
+    emitFromUI();
+  });
+  showAllBtn.addEventListener("click", () => {
+    onChange({ action: "toggle_all" });
+  });
+
+  function renderState(state, totalItems) {
+    const currentPage = state.currentPage;
+    const pageSize = state.pageSize;
+    const showAll = state.showAll;
+    perPageInput.value = String(pageSize);
+    const maxPage = Math.max(1, Math.ceil(totalItems / Math.max(1, pageSize)));
+    if (showAll) {
+      pageInfo.textContent = `${labels.total}: ${totalItems}`;
+    } else {
+      pageInfo.textContent = `${labels.page} ${currentPage} ${labels.of} ${maxPage} · ${labels.total}: ${totalItems}`;
+    }
+    prevBtn.disabled = showAll || currentPage <= 1;
+    nextBtn.disabled = showAll || currentPage >= maxPage;
+    showAllBtn.textContent = showAll ? labels.showPaged : labels.showAll;
+  }
+
+  return {
+    renderState,
+  };
+}
+
+function applyPagination(items, pagerState) {
+  if (pagerState.showAll) return items;
+  const size = Math.max(1, pagerState.pageSize);
+  const start = (pagerState.currentPage - 1) * size;
+  return items.slice(start, start + size);
 }
 
 function renderBookList(container, items, lang, seriesMap = new Map()) {
@@ -344,9 +469,36 @@ async function main() {
     .map((b) => ({ ...b, _date: parseDate(b.dateRead) }))
     .filter((b) => b._date)
     .sort((a, b) => (b._date?.getTime() ?? 0) - (a._date?.getTime() ?? 0));
-
-  renderBookList(listEl, books, lang, seriesMap);
-  hydrateLocalLikes(listEl, books, lang).catch(() => {});
+  let pagerState = { currentPage: 1, pageSize: DEFAULT_PAGE_SIZE, showAll: false };
+  const onPagerAction = (event) => {
+    const maxPage = Math.max(1, Math.ceil(books.length / Math.max(1, pagerState.pageSize)));
+    if (event.action === "prev") {
+      pagerState.currentPage = Math.max(1, pagerState.currentPage - 1);
+    } else if (event.action === "next") {
+      pagerState.currentPage = Math.min(maxPage, pagerState.currentPage + 1);
+    } else if (event.action === "toggle_all") {
+      pagerState.showAll = !pagerState.showAll;
+      pagerState.currentPage = 1;
+    } else if (event.action === "ui") {
+      pagerState.pageSize = event.pageSize;
+      pagerState.currentPage = 1;
+    }
+    rerender();
+  };
+  let pagerTop = null;
+  let pagerBottom = null;
+  const rerender = () => {
+    const maxPage = Math.max(1, Math.ceil(books.length / Math.max(1, pagerState.pageSize)));
+    if (pagerState.currentPage > maxPage) pagerState.currentPage = maxPage;
+    pagerTop?.renderState(pagerState, books.length);
+    pagerBottom?.renderState(pagerState, books.length);
+    const visibleBooks = applyPagination(books, pagerState);
+    renderBookList(listEl, visibleBooks, lang, seriesMap);
+    hydrateLocalLikes(listEl, visibleBooks, lang).catch(() => {});
+  };
+  pagerTop = createPagerControls(listEl, lang, onPagerAction, "before");
+  pagerBottom = createPagerControls(listEl, lang, onPagerAction, "after");
+  rerender();
 }
 
 main().catch((err) => {

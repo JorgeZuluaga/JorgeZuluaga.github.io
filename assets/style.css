@@ -52,6 +52,12 @@ body {
   background: var(--body);
 }
 
+html,
+body {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
 h1,
 h2,
 h3,
@@ -1689,6 +1695,68 @@ body.photos-page .photos-intro {
   line-height: inherit;
   font-weight: 500;
 }
+
+.library-pager {
+  margin-bottom: 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.65rem;
+}
+
+.library-pager--bottom {
+  margin-top: 1.4rem;
+}
+
+.library-pager__btn {
+  display: inline-block;
+  background: transparent;
+  padding: 0.45rem 0.8rem;
+  border: 1px solid var(--accent);
+  border-radius: 8px;
+  color: var(--accent);
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.library-pager__btn:hover:not(:disabled) {
+  background: color-mix(in srgb, var(--accent) 10%, transparent);
+}
+
+.library-pager__btn:disabled {
+  opacity: 0.45;
+  cursor: default;
+}
+
+.library-pager__info {
+  margin: 0;
+  font-size: 0.9rem;
+  color: var(--black);
+  opacity: 0.9;
+}
+
+.library-pager__label {
+  margin: 0;
+  font-size: 0.9rem;
+  color: var(--black);
+  opacity: 0.9;
+}
+
+.library-pager__input {
+  width: 5.5rem;
+  margin-left: 0.35rem;
+  padding: 0.2rem 0.35rem;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  background: var(--white);
+  color: var(--black);
+  font-family: inherit;
+  /* iOS auto-zooms inputs under 16px and breaks layout width. */
+  font-size: 16px;
+}
 /* Custom Tooltip for Library Ratings */
 .library-tooltip {
   position: relative;
@@ -1716,6 +1784,16 @@ body.photos-page .photos-intro {
   box-shadow: var(--box-shadow);
   font-weight: normal;
   line-height: 1.2;
+}
+
+.review-page-custom .rating,
+.review-page-custom .rating span,
+.library-rating-stars {
+  color: #f5c542 !important;
+}
+
+.library-rating-stars--empty {
+  opacity: 0.35;
 }
 
 .library-tooltip:hover::after {
