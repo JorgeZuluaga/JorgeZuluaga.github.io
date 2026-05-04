@@ -7,6 +7,7 @@ import {
 import { trackPageView } from "./visitor-tracker.js";
 
 const LIBRARY_JSON = "./info/library.json";
+const LIBRARY_DETAILS_JSON = "./info/library-details.json";
 const LOCAL_STORAGE_KEY_PREFIX = "anti_book_id_";
 const DEFAULT_PAGE_SIZE = 50;
 
@@ -64,6 +65,73 @@ function isReadBook(book) {
   if (book?.hasReview === true) return true;
   if (String(book?.reviewLocalUrl || "").trim()) return true;
   return false;
+}
+
+function buildLibraryBookIdMap(books) {
+  const m = new Map();
+  for (const b of books) {
+    const id = String(b?.bookId || "").trim();
+    if (id) m.set(id, b);
+  }
+  return m;
+}
+
+/** Goodreads catalog ids from library.json (read shelf export). */
+function buildGoodreadsBookIdSet(books) {
+  const set = new Set();
+  for (const b of books) {
+    const id = String(b?.bookId || "").trim();
+    if (id) set.add(id);
+  }
+  return set;
+}
+
+/** Physical rows in BookBuddy whose bookId matches a Goodreads library entry. */
+function countDetailsRowsLinkedToGoodreads(detailsRows, goodreadsIds) {
+  let n = 0;
+  for (const row of detailsRows) {
+    const bid = String(row?.bookId ?? "").trim();
+    if (bid && goodreadsIds.has(bid)) n += 1;
+  }
+  return n;
+}
+
+function statusIsUnreadRow(row) {
+  const s = String(row?.Status ?? row?.status ?? "").trim().toLowerCase();
+  return s === "unread";
+}
+
+/** BookBuddy row already counted as read on this site / Goodreads (library.json). */
+function isDetailsRowCountedAsReadOnGoodreads(row, libraryByBookId, readIdentity) {
+  const bid = String(row?.bookId ?? "").trim();
+  if (bid) {
+    const lb = libraryByBookId.get(bid);
+    if (lb && isReadBook(lb)) return true;
+  }
+  const key = bookIdentityKey({
+    title: row?.Title ?? row?.title,
+    author: row?.Author ?? row?.author,
+  });
+  return Boolean(key && readIdentity.has(key));
+}
+
+function detailsRowToAntiBook(row) {
+  const title = String(row?.Title ?? row?.title ?? "").trim();
+  const author = String(row?.Author ?? row?.author ?? "").trim();
+  const dateAdded = String(row?.["Date Added"] ?? row?.dateAdded ?? "").trim();
+  const isbn = String(row?.ISBN ?? row?.isbn ?? "").trim();
+  const bookId = String(row?.bookId ?? "").trim();
+  return {
+    title,
+    author,
+    dateAdded,
+    isbn,
+    ISBN: isbn,
+    bookId,
+    rating: 0,
+    bookDetails: 1,
+    _dateAdded: parseDate(dateAdded),
+  };
 }
 
 function simpleHash(value) {
@@ -336,15 +404,53 @@ async function main() {
   const readIdentity = new Set(
     books.filter((b) => isReadBook(b)).map((b) => bookIdentityKey(b)).filter(Boolean),
   );
-  const antiBooks = books
-    .filter((b) => !isReadBook(b))
-    .filter((b) => !readIdentity.has(bookIdentityKey(b)))
-    .sort((a, b) => (b._dateAdded?.getTime() ?? 0) - (a._dateAdded?.getTime() ?? 0));
+  const libraryByBookId = buildLibraryBookIdMap(books);
+  const goodreadsIds = buildGoodreadsBookIdSet(books);
 
-  const readBooks = books.filter((b) => isReadBook(b));
-  const total = readBooks.length + antiBooks.length;
-  const unread = antiBooks.length;
-  const read = readBooks.length;
+  let detailsRows = [];
+  try {
+    const resDetails = await fetch(LIBRARY_DETAILS_JSON, { cache: "no-store" });
+    if (resDetails.ok) {
+      const detailsData = await resDetails.json();
+      detailsRows = Array.isArray(detailsData?.books) ? detailsData.books : [];
+    }
+  } catch {
+    // Optional file: fall back to library.json only.
+  }
+
+  let antiBooks;
+  let total;
+  let unread;
+  let read;
+
+  if (detailsRows.length > 0) {
+    antiBooks = detailsRows
+      .filter((row) => row && typeof row === "object")
+      .filter((row) => statusIsUnreadRow(row))
+      .filter((row) => !isDetailsRowCountedAsReadOnGoodreads(row, libraryByBookId, readIdentity))
+      .map((row) => detailsRowToAntiBook(row))
+      .filter((b) => b.title)
+      .sort((a, b) => (b._dateAdded?.getTime() ?? 0) - (a._dateAdded?.getTime() ?? 0));
+
+    // Summary cards (inventario físico + Goodreads; los 358/224/etc. salen de los datos):
+    // - Total = BookBuddy + libros solo en Goodreads (sin bookDetails en BookBuddy).
+    // - Libros no leídos = filas BookBuddy que no tienen bookId en el catálogo Goodreads exportado.
+    // - Libros leídos = todos los libros del export Goodreads (library.json).
+    const linkedBuddyToGr = countDetailsRowsLinkedToGoodreads(detailsRows, goodreadsIds);
+    const goodreadsOnlyWithoutBuddy = books.filter((b) => Number(b.bookDetails) !== 1).length;
+    total = detailsRows.length + goodreadsOnlyWithoutBuddy;
+    unread = detailsRows.length - linkedBuddyToGr;
+    read = books.length;
+  } else {
+    antiBooks = books
+      .filter((b) => !isReadBook(b))
+      .filter((b) => !readIdentity.has(bookIdentityKey(b)))
+      .sort((a, b) => (b._dateAdded?.getTime() ?? 0) - (a._dateAdded?.getTime() ?? 0));
+    const readBooks = books.filter((b) => isReadBook(b));
+    total = readBooks.length + antiBooks.length;
+    unread = antiBooks.length;
+    read = readBooks.length;
+  }
   const unreadPct = total > 0 ? ((unread / total) * 100).toFixed(1) : "0.0";
   const readPct = total > 0 ? ((read / total) * 100).toFixed(1) : "0.0";
   const totalEl = document.getElementById("anti-report-total");
