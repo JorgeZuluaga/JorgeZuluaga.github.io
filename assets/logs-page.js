@@ -527,6 +527,53 @@ function localReviewHrefFromBook(book) {
   return normalizePagePath(localUrl);
 }
 
+function workerBaseFromLogsMeta() {
+  const el = document.querySelector('meta[name="visitor-log-read-endpoint"]');
+  const endpoint = String(el?.getAttribute("content") || "").trim();
+  if (!endpoint) return "";
+  try {
+    const url = new URL(endpoint, window.location.href);
+    if (url.pathname.endsWith("/logs")) {
+      url.pathname = url.pathname.slice(0, -5) || "/";
+    } else {
+      url.pathname = "/";
+    }
+    url.search = "";
+    url.hash = "";
+    return url.toString().replace(/\/$/, "");
+  } catch {
+    return "";
+  }
+}
+
+async function fetchReviewLikeCountFromWorker(base, reviewId) {
+  if (!base || !reviewId) return null;
+  try {
+    const response = await fetch(`${base}/review-like-count/${reviewId}`, { cache: "no-store" });
+    if (!response.ok) return null;
+    const data = await response.json();
+    const count = Number(data?.count);
+    return Number.isFinite(count) ? Math.max(0, count) : null;
+  } catch {
+    return null;
+  }
+}
+
+async function mapWithConcurrency(items, worker, concurrency = 8) {
+  const queue = [...items];
+  const runners = [];
+  for (let i = 0; i < Math.max(1, concurrency); i += 1) {
+    runners.push((async () => {
+      while (queue.length) {
+        const next = queue.shift();
+        if (!next) return;
+        await worker(next);
+      }
+    })());
+  }
+  await Promise.all(runners);
+}
+
 async function buildReviewLibraryData() {
   try {
     const res = await fetch("./info/library.json", { cache: "no-store" });
@@ -534,22 +581,42 @@ async function buildReviewLibraryData() {
     const data = await res.json();
     const books = Array.isArray(data?.books) ? data.books : [];
     const titleMap = new Map();
-    const localLikeRows = [];
+    const pending = [];
     for (const book of books) {
-      const localUrl = String(book?.reviewLocalUrl || "");
       const title = String(book?.title || "").trim();
-      if (localUrl && title) {
-        const m = localUrl.match(/\/reviews\/(\d+)\.html$/);
-        if (m) titleMap.set(m[1], title);
+      if (!title) continue;
+
+      const localUrl = String(book?.reviewLocalUrl || "");
+      if (localUrl) {
+        const lm = localUrl.match(/\/reviews\/(\d+)\.html$/);
+        if (lm) titleMap.set(lm[1], title);
       }
-      const likes = Number(book?.reviewLocalLikes);
-      if (!Number.isFinite(likes) || likes <= 0 || !title) continue;
-      localLikeRows.push({
+      const rm = String(book?.reviewUrl || "").match(/\/review\/show\/(\d+)/);
+      if (rm) titleMap.set(rm[1], title);
+
+      if (!rm) continue;
+      const reviewId = rm[1];
+      let likes = Number(book?.reviewLocalLikes);
+      if (!Number.isFinite(likes)) likes = 0;
+      pending.push({
         title,
+        reviewId,
         likes: Math.max(0, Math.floor(likes)),
         href: localReviewHrefFromBook(book),
       });
     }
+
+    const base = workerBaseFromLogsMeta();
+    if (base) {
+      await mapWithConcurrency(pending, async (row) => {
+        const fetched = await fetchReviewLikeCountFromWorker(base, row.reviewId);
+        if (fetched !== null) row.likes = fetched;
+      }, 8);
+    }
+
+    const localLikeRows = pending
+      .filter((row) => row.likes > 0)
+      .map(({ title, likes, href }) => ({ title, likes, href }));
     localLikeRows.sort((a, b) => b.likes - a.likes || a.title.localeCompare(b.title, "es"));
     return { titleMap, localLikeRows };
   } catch {

@@ -167,33 +167,33 @@ async function hydrateLocalLikes(container, items, lang) {
   if (reviewIds.length === 0) return;
 
   const counts = new Map();
-  const missing = [];
   const bookByReviewId = new Map();
   for (const item of items) {
     const reviewId = parseReviewIdFromUrl(item?.reviewUrl);
     if (reviewId) bookByReviewId.set(reviewId, item);
   }
+
+  // Quick paint from snapshot/cache (may be stale until worker responds).
   for (const reviewId of reviewIds) {
     const fromSnapshot = readSnapshotLocalLikes(bookByReviewId.get(reviewId));
     const cached = readCachedLocalLikes(reviewId);
     const known = pickBestKnownLocalLikes(fromSnapshot, cached);
-    if (known !== null) {
-      counts.set(reviewId, known);
-      if (cached === null || known > cached) {
-        writeCachedLocalLikes(reviewId, known);
-      }
-      continue;
-    }
-    missing.push(reviewId);
+    if (known !== null) counts.set(reviewId, known);
   }
-
   renderLocalLikesInContainer(container, counts, lang);
 
-  await mapWithConcurrency(missing, async (reviewId) => {
-    const count = await fetchLocalLikeCount(base, reviewId);
-    if (count === null) return;
-    writeCachedLocalLikes(reviewId, count);
-    counts.set(reviewId, count);
+  // Always refresh from worker so 👏 matches individual review pages (review-page.js).
+  await mapWithConcurrency(reviewIds, async (reviewId) => {
+    const fetched = await fetchLocalLikeCount(base, reviewId);
+    if (fetched !== null) {
+      counts.set(reviewId, fetched);
+      writeCachedLocalLikes(reviewId, fetched);
+      return;
+    }
+    const fromSnapshot = readSnapshotLocalLikes(bookByReviewId.get(reviewId));
+    const cached = readCachedLocalLikes(reviewId);
+    const known = pickBestKnownLocalLikes(fromSnapshot, cached);
+    if (known !== null) counts.set(reviewId, known);
   }, 8);
 
   renderLocalLikesInContainer(container, counts, lang);
@@ -211,15 +211,13 @@ async function hydrateTotalLocalLikes(totalEl, reviewedItems) {
   let total = 0;
   await mapWithConcurrency(reviewIds, async (reviewId) => {
     const item = reviewedItems.find((x) => parseReviewIdFromUrl(x?.reviewUrl) === reviewId);
-    const fromSnapshot = readSnapshotLocalLikes(item);
-    const fromCache = readCachedLocalLikes(reviewId);
-    let count = pickBestKnownLocalLikes(fromSnapshot, fromCache);
-    if (count !== null && (fromCache === null || count > fromCache)) {
+    let count = await fetchLocalLikeCount(base, reviewId);
+    if (count !== null) {
       writeCachedLocalLikes(reviewId, count);
-    }
-    if (count === null) {
-      count = await fetchLocalLikeCount(base, reviewId);
-      if (count !== null) writeCachedLocalLikes(reviewId, count);
+    } else {
+      const fromSnapshot = readSnapshotLocalLikes(item);
+      const fromCache = readCachedLocalLikes(reviewId);
+      count = pickBestKnownLocalLikes(fromSnapshot, fromCache);
     }
     if (count !== null) total += count;
   }, 8);
@@ -326,7 +324,8 @@ function addListToggleControls(
   seriesMap,
   {
     initialCount = 5,
-    expandedCount = null,
+    // Omit expandedCount in callers → cap = full `items` list (null must not become 0).
+    expandedCount: expandedCountOpt,
     showMoreKey = "library_show_latest_20",
     showLessKey = "library_show_latest_5",
     includeAllBooksLink = true,
@@ -334,10 +333,12 @@ function addListToggleControls(
   } = {},
 ) {
   if (!container || !Array.isArray(items) || items.length === 0) return;
+  const expandedCap =
+    expandedCountOpt != null && Number.isFinite(Number(expandedCountOpt))
+      ? Math.max(initialCount, Number(expandedCountOpt))
+      : items.length;
   const initialItems = items.slice(0, initialCount);
-  const expandedItems = Number.isFinite(Number(expandedCount))
-    ? items.slice(0, Math.max(initialCount, Number(expandedCount)))
-    : items;
+  const expandedItems = items.slice(0, expandedCap);
   let showingAll = false;
 
   renderBookList(container, initialItems, lang, seriesMap, renderOptions);
