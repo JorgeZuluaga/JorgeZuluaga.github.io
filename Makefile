@@ -6,6 +6,7 @@
 	antilibrary-covers-fetch \
 	antilibrary-covers-extract-html \
 	reviews-first reviews-all reviews-force reviews-refresh reviews-fix reviews-enrich reviews-enrich-dry \
+	library-review-counts \
 	library-details-import library-details-match library-details-sync \
 	worker-deploy
 
@@ -58,6 +59,7 @@ help:
 	@echo "                            Required env: GOOGLE_API_KEY=..."
 	@echo "  make reviews-enrich     - Enrich reviews/*.html with ISBN + purchase metadata from library-details"
 	@echo "  make reviews-enrich-dry - Preview review enrichment without writing changes"
+	@echo "  make library-review-counts - Recalculate reviewCount (word count) from local reviews/*.html"
 	@echo "  make library-details-import - Import $(BOOKBUDDY_CSV) into $(LIBRARY_DETAILS_JSON)"
 	@echo "  make library-details-match  - Match bookId from $(LIBRARY_JSON) into $(LIBRARY_DETAILS_JSON)"
 	@echo "  make library-details-sync   - Run import + match (use after changing bookbuddy.csv)"
@@ -233,6 +235,10 @@ reviews-force:
 # Typical review update workflow.
 reviews-refresh: reviews-all library-stats
 	@echo "Reviews refresh completed."
+
+# Recalculate reviewCount (words in local mirror body) for all books with reviewUrl.
+library-review-counts:
+	@python3 bin/review_word_count.py --library-json "$(LIBRARY_JSON)"
 
 # Fix spelling/grammar in review HTML files not yet corrected.
 reviews-fix:

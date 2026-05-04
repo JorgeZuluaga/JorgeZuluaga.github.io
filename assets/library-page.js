@@ -57,6 +57,14 @@ function parseReviewIdFromUrl(reviewUrl) {
   return match ? match[1] : "";
 }
 
+function reviewActionLabel(item, lang) {
+  const n = Number(item?.reviewCount);
+  if (Number.isFinite(n) && n < 100) {
+    return t("library_view_minireview", lang);
+  }
+  return t("library_view_review", lang);
+}
+
 function endpointFromMeta() {
   const el = document.querySelector('meta[name="visitor-log-endpoint"]');
   return String(el?.getAttribute("content") || "").trim();
@@ -288,9 +296,9 @@ function renderBookList(container, items, lang, seriesMap = new Map(), options =
     let actionsHtml = "";
 
     if (hasLocalReview) {
-      actionsHtml += `<a class="link" href="${escapeLibrary(localReviewUrl)}">${escapeLibrary(t("library_view_review", lang))}</a>`;
+      actionsHtml += `<a class="link" href="${escapeLibrary(localReviewUrl)}">${escapeLibrary(reviewActionLabel(item, lang))}</a>`;
     } else if (hasReviewUrl) {
-      actionsHtml += `<a class="link" href="${escapeLibrary(reviewUrl)}" target="_blank" rel="noopener noreferrer">${escapeLibrary(t("library_view_review", lang))}</a>`;
+      actionsHtml += `<a class="link" href="${escapeLibrary(reviewUrl)}" target="_blank" rel="noopener noreferrer">${escapeLibrary(reviewActionLabel(item, lang))}</a>`;
     }
     
     if (actionsHtml) {

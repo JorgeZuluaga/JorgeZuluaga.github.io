@@ -21,6 +21,7 @@ from mirror_first_review import (
     get_url,
     is_signin_page,
 )
+from review_word_count import apply_review_counts_to_books
 
 DEFAULT_REFRESH_LATEST = 10
 
@@ -252,6 +253,13 @@ def main() -> int:
             errors += 1
             book["reviewLocalStatus"] = f"error: {err}"
             print(f"[{idx}/{total}] ERROR| {title} | {err}")
+
+    repo_root = library_path.resolve().parent.parent
+    apply_review_counts_to_books(
+        books,
+        repo_root=repo_root,
+        reviews_dir_name=reviews_dir.as_posix(),
+    )
 
     with library_path.open("w", encoding="utf-8") as f:
         json.dump(library, f, ensure_ascii=False, indent=2)

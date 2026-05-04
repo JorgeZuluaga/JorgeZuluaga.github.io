@@ -13,6 +13,8 @@ from urllib.parse import parse_qsl, urlencode, urlparse, urlunparse
 from urllib.request import Request, urlopen
 import xml.etree.ElementTree as ET
 
+from review_word_count import count_words_in_review_html_file
+
 
 USER_AGENT = (
     "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) "
@@ -403,6 +405,8 @@ def main() -> int:
 
     out_file = reviews_dir / f"{review_id}.html"
     out_file.write_text(local_page, encoding="utf-8")
+
+    book["reviewCount"] = count_words_in_review_html_file(out_file.resolve())
 
     # Persist local mirror path in library.json to enable UI links.
     book["reviewLocalUrl"] = f"./{reviews_dir.as_posix()}/{out_file.name}"

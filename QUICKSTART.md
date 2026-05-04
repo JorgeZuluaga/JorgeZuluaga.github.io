@@ -26,6 +26,7 @@ GOOGLE_API_KEY="$(cat .secrets/googleapi)" make reviews-fix
 Notas rápidas:
 - el script salta reseñas que ya tengan diff en `reviews/corrections/`,
 - corrige solo pendientes.
+- tras corregir texto en `reviews/*.html`, opcional: `make library-review-counts` para volver a calcular `reviewCount` (palabras del cuerpo de la reseña).
 
 ### C. Cuando agregues libros nuevos en BookBuddy
 

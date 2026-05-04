@@ -432,6 +432,8 @@ Notas importantes del mirror:
 - Por eso en el script masivo el valor por defecto de `--rss-pages` es **80** (para alcanzar reseñas antiguas).
 - Si aun así faltan reseñas, sube más el rango (`--rss-pages 100`, por ejemplo) o usa `--cookie`.
 - `mirror_all_reviews.py` muestra avance en consola (`[i/N] SKIP|OK|ERROR`) y actualiza `info/library.json` al final del proceso.
+- Tras escribir `library.json`, el mirror recalcula **`reviewCount`**: número de palabras del cuerpo de la reseña en el HTML local (`<article class="card">`), para cada libro con `reviewUrl`.
+- Para refrescar solo los conteos (p. ej. tras editar `reviews/*.html` a mano o con `reviews-fix`): `make library-review-counts` (script `bin/review_word_count.py`).
 
 #### 5) Corrección ortográfica de reseñas (Gemini) sin exponer API key
 
