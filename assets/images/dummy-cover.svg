@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 280">
+  <g fill="#f8f9fa" stroke="#ced4da" stroke-width="4" stroke-linejoin="round">
+    <!-- Back cover / pages edge -->
+    <path d="M 40 20 L 170 20 L 180 30 L 180 260 L 50 260 Z" fill="#ffffff" />
+    <!-- Front cover -->
+    <path d="M 30 30 L 170 30 L 170 270 L 30 270 Z" />
+    <!-- Spine line -->
+    <line x1="45" y1="30" x2="45" y2="270" stroke-width="3" />
+  </g>
+</svg>

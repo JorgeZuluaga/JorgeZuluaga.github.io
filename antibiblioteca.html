@@ -8,6 +8,19 @@
   <meta name="visitor-log-endpoint" content="https://visitor-log-worker.jorgezuluaga.workers.dev/log" />
   <title>Antibiblioteca personal — Jorge I. Zuluaga</title>
   <meta name="description" content="Listado de libros no leídos o no registrados en Goodreads." />
+  
+  <!-- Open Graph / WhatsApp / Facebook -->
+  <meta property="og:title" content="Antibiblioteca personal — Jorge I. Zuluaga" />
+  <meta property="og:description" content="Listado de libros no leídos o no registrados en Goodreads." />
+  <meta property="og:image" content="https://jorgezuluaga.github.io/assets/images/AntibibliotecaUmbertoEcco.webp" />
+  <meta property="og:url" content="https://jorgezuluaga.github.io/antibiblioteca.html" />
+  <meta property="og:type" content="website" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Antibiblioteca personal — Jorge I. Zuluaga" />
+  <meta name="twitter:description" content="Listado de libros no leídos o no registrados en Goodreads." />
+  <meta name="twitter:image" content="https://jorgezuluaga.github.io/assets/images/AntibibliotecaUmbertoEcco.webp" />
   <script>
     document.documentElement.lang =
       new URLSearchParams(location.search).get("lang") === "en" ? "en" : "es";
@@ -58,13 +71,18 @@
         <p id="anti-library-intro" class="photos-intro">Listado de libros no leídos ordenado del más reciente al más antiguo.</p>
         <section class="library-list-card" aria-label="Cita sobre la antibiblioteca">
           <blockquote id="anti-library-quote" class="photos-intro" style="font-style: italic; margin-bottom: 0.8rem;"></blockquote>
+          
+          <figure style="margin: 1.5rem 0; text-align: center;">
+            <img src="./assets/images/AntibibliotecaUmbertoEcco.webp" alt="Antibiblioteca de Umberto Eco" style="width: 60%; min-width: 250px; max-width: 100%; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.1);" />
+            <figcaption style="margin-top: 0.5rem; font-size: 0.85em; color: var(--text-color);">
+              <strong id="anti-library-image-caption-label">Adaptada de:</strong>
+              <a class="link" href="https://universoabierto.org/2025/01/02/la-antibiblioteca-de-umberto-eco-el-valor-de-los-libros-no-leidos/" target="_blank" rel="noopener noreferrer">Universo Abierto (2025)</a>
+            </figcaption>
+          </figure>
+
           <p class="library-book-item__meta" style="margin-bottom: 0.4rem;">
             <strong id="anti-library-source-original-label">Fuente original:</strong>
             <a class="link" href="https://www.themarginalian.org/2015/03/24/umberto-eco-antilibrary/" target="_blank" rel="noopener noreferrer">The Marginalian (2015)</a>
-          </p>
-          <p class="library-book-item__meta">
-            <strong id="anti-library-source-translation-label">Traducción:</strong>
-            <a class="link" href="https://universoabierto.org/2025/01/02/la-antibiblioteca-de-umberto-eco-el-valor-de-los-libros-no-leidos/" target="_blank" rel="noopener noreferrer">Universo Abierto (2025)</a>
           </p>
         </section>
         <section class="library-report" aria-label="Resumen de antibiblioteca" style="margin-top: 1.25rem;">

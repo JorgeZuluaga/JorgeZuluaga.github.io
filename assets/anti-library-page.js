@@ -121,6 +121,7 @@ function detailsRowToAntiBook(row) {
   const dateAdded = String(row?.["Date Added"] ?? row?.dateAdded ?? "").trim();
   const isbn = String(row?.ISBN ?? row?.isbn ?? "").trim();
   const bookId = String(row?.bookId ?? "").trim();
+  const uploadedImageUrl = String(row?.["Uploaded Image URL"] ?? "").trim();
   return {
     title,
     author,
@@ -128,6 +129,7 @@ function detailsRowToAntiBook(row) {
     isbn,
     ISBN: isbn,
     bookId,
+    uploadedImageUrl,
     rating: 0,
     bookDetails: 1,
     _dateAdded: parseDate(dateAdded),
@@ -320,6 +322,8 @@ function applyChrome(lang) {
   if (intro) intro.innerHTML = t("antilibrary_intro", lang);
   const quote = document.getElementById("anti-library-quote");
   if (quote) quote.textContent = t("antilibrary_quote", lang);
+  const imageCaption = document.getElementById("anti-library-image-caption-label");
+  if (imageCaption) imageCaption.textContent = t("antilibrary_image_caption", lang);
   const sourceOriginal = document.getElementById("anti-library-source-original-label");
   if (sourceOriginal) sourceOriginal.textContent = t("antilibrary_source_original", lang);
   const sourceTranslation = document.getElementById("anti-library-source-translation-label");
@@ -342,7 +346,10 @@ function renderBooks(container, books, lang) {
   const frag = document.createDocumentFragment();
   for (const item of books) {
     const entry = document.createElement("article");
-    entry.className = "library-book-item";
+    entry.className = "library-book-item library-book-item--with-cover";
+
+    const contentDiv = document.createElement("div");
+    contentDiv.className = "library-book-item__content";
 
     const title = document.createElement("h3");
     title.className = "library-book-item__title";
@@ -380,10 +387,64 @@ function renderBooks(container, books, lang) {
       // Ignore storage issues.
     }
 
-    entry.appendChild(title);
-    entry.appendChild(meta1);
-    entry.appendChild(meta2);
-    entry.appendChild(actions);
+    contentDiv.appendChild(title);
+    contentDiv.appendChild(meta1);
+    contentDiv.appendChild(meta2);
+    contentDiv.appendChild(actions);
+
+    const coverWrapper = document.createElement("div");
+    coverWrapper.className = "library-book-item__cover";
+    const img = document.createElement("img");
+    img.loading = "lazy";
+    img.decoding = "async";
+    img.alt = `Portada de ${item.title}`;
+    
+    const candidates = [];
+    if (item.reviewLocalCoverUrl) candidates.push(item.reviewLocalCoverUrl);
+    if (item.uploadedImageUrl) candidates.push(item.uploadedImageUrl);
+    
+    const isbnStr = String(item.isbn || item.ISBN || "").replace(/[^0-9Xx]/g, "").toUpperCase();
+    if (isbnStr) {
+      candidates.push(`./antilibrary/covers/${isbnStr}.png`);
+      candidates.push(`./antilibrary/covers/${isbnStr}.jpg`);
+      candidates.push(`./antilibrary/covers/${isbnStr}.webp`);
+      candidates.push(`./antilibrary/covers/${isbnStr}.jpeg`);
+    } else {
+      const hashBasis = [
+        normalizeText(item.title),
+        normalizeText(item.author),
+        String(item.dateAdded || "").trim()
+      ].join("|");
+      const rawHash = simpleHash(hashBasis);
+      candidates.push(`./antilibrary/covers/noisbn-${rawHash}.png`);
+      candidates.push(`./antilibrary/covers/noisbn-${rawHash}.jpg`);
+      candidates.push(`./antilibrary/covers/noisbn-${rawHash}.webp`);
+    }
+
+    img.dataset.candidates = JSON.stringify(candidates);
+    img.dataset.candidateIdx = "0";
+    
+    img.onerror = function() {
+      const list = JSON.parse(this.dataset.candidates || "[]");
+      const idx = parseInt(this.dataset.candidateIdx, 10) + 1;
+      if (idx < list.length) {
+        this.dataset.candidateIdx = idx;
+        this.src = list[idx];
+      } else {
+        this.onerror = null;
+        this.src = "./assets/images/dummy-cover.svg";
+      }
+    };
+
+    if (candidates.length > 0) {
+      img.src = candidates[0];
+    } else {
+      img.src = "./assets/images/dummy-cover.svg";
+    }
+    coverWrapper.appendChild(img);
+
+    entry.appendChild(coverWrapper);
+    entry.appendChild(contentDiv);
     frag.appendChild(entry);
   }
   container.replaceChildren(frag);

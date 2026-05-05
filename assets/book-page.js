@@ -160,6 +160,8 @@ function mergeBook(libraryBook, detailsRow, storageHint, bookid) {
   const reviewLocalCoverUrl = String(libraryBook?.reviewLocalCoverUrl || "").trim();
   const uploadedImageUrl = String(detailsRow?.["Uploaded Image URL"] || "").trim();
   const id = String(libraryBook?.bookId || detailsRow?.bookId || "").trim();
+  const ddc = String(libraryBook?.ddc || detailsRow?.DDC || "").trim();
+  const ddc_topic = libraryBook?.ddc_topic || detailsRow?.ddc_topic || null;
   return {
     title,
     author,
@@ -167,6 +169,8 @@ function mergeBook(libraryBook, detailsRow, storageHint, bookid) {
     isbn,
     purchasePlace,
     purchasePrice,
+    ddc,
+    ddc_topic,
     id,
     reviewLocalCoverUrl,
     uploadedImageUrl,
@@ -293,14 +297,35 @@ async function main() {
   if (authorEl) authorEl.textContent = String(meta.author || "");
   document.title = `${meta.title} — Antibiblioteca`;
 
-  const ym = formatYearMonth(meta.dateAdded);
-  setText("book-date-added", ym || meta.dateAdded, "Fecha de agregado");
-  setText("book-isbn", meta.isbn, "ISBN");
-  setText("book-purchase-place", meta.purchasePlace, "Lugar de compra");
-  if (isZeroPrice(meta.purchasePrice)) {
-    setText("book-purchase-price", "Regalo, bono o herencia", "");
+  const ddcLabel = lang === "en" ? "DCC Classification" : "Clasificación DCC";
+  if (meta.ddc) {
+    let topicText = "";
+    if (meta.ddc_topic) {
+      topicText = meta.ddc_topic[lang] || meta.ddc_topic["es"] || "";
+    }
+    const ddcDisplay = topicText ? `${topicText} (${meta.ddc})` : meta.ddc;
+    setText("book-ddc", ddcDisplay, ddcLabel);
   } else {
-    setText("book-purchase-price", formatCopPrice(meta.purchasePrice), "Precio de compra");
+    const el = document.getElementById("book-ddc");
+    if (el) el.hidden = true;
+  }
+
+  const ym = formatYearMonth(meta.dateAdded);
+  const dateAddedLabel = lang === "en" ? "Date added" : "Fecha de agregado";
+  setText("book-date-added", ym || meta.dateAdded, dateAddedLabel);
+  
+  setText("book-isbn", meta.isbn, "ISBN");
+  
+  const purchasePlaceLabel = lang === "en" ? "Purchase place" : "Lugar de compra";
+  setText("book-purchase-place", meta.purchasePlace, purchasePlaceLabel);
+  
+  const purchasePriceLabel = lang === "en" ? "Purchase price" : "Precio de compra";
+  const giftLabel = lang === "en" ? "Gift, voucher or inheritance" : "Regalo, bono o herencia";
+  
+  if (isZeroPrice(meta.purchasePrice)) {
+    setText("book-purchase-price", giftLabel, "");
+  } else {
+    setText("book-purchase-price", formatCopPrice(meta.purchasePrice), purchasePriceLabel);
   }
 
   const coverSrc = await resolveCover(meta, bookid);

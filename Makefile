@@ -8,6 +8,7 @@
 	reviews-first reviews-all reviews-force reviews-refresh reviews-fix reviews-enrich reviews-enrich-dry \
 	library-review-counts \
 	library-details-import library-details-match library-details-sync \
+	library-ddc-update \
 	worker-deploy
 
 PORT ?= 8000
@@ -63,6 +64,7 @@ help:
 	@echo "  make library-details-import - Import $(BOOKBUDDY_CSV) into $(LIBRARY_DETAILS_JSON)"
 	@echo "  make library-details-match  - Match bookId from $(LIBRARY_JSON) into $(LIBRARY_DETAILS_JSON)"
 	@echo "  make library-details-sync   - Run import + match (use after changing bookbuddy.csv)"
+	@echo "  make library-ddc-update     - Update Dewey Decimal Classification (DDC) in library files"
 	@echo "  make worker-deploy      - Deploy Cloudflare worker (visitor-log-worker)"
 
 start:
@@ -277,6 +279,10 @@ library-details-match:
 # Recommended workflow when bookbuddy.csv changes.
 library-details-sync: library-details-import library-details-match
 	@echo "Library details sync completed."
+
+# Update Dewey Decimal Classification based on OpenLibrary and Genres.
+library-ddc-update:
+	@python3 bin/update_ddc.py
 
 # Deploy Cloudflare Worker defined in wrangler.toml.
 worker-deploy:

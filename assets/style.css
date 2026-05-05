@@ -1650,6 +1650,30 @@ body.photos-page .photos-intro {
   padding-bottom: 0;
 }
 
+.library-book-item--with-cover {
+  display: flex;
+  gap: 1.15rem;
+  align-items: flex-start;
+}
+
+.library-book-item__cover {
+  flex-shrink: 0;
+  width: 65px;
+}
+
+.library-book-item__cover img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  object-fit: cover;
+}
+
+.library-book-item__content {
+  flex-grow: 1;
+}
+
 .dark-theme .library-book-item {
   border-bottom-color: rgba(255, 255, 255, 0.12);
 }
