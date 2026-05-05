@@ -14,21 +14,7 @@ import re
 from datetime import datetime, timezone
 from pathlib import Path
 
-
-ROW_SPLIT_MARKER = '<tr><td style="vertical-align: top;"><img src="data:image'
-IMG_RE = re.compile(r'src="data:image/([^;"]+);base64,([^"]+)"', re.IGNORECASE | re.DOTALL)
-ISBN_RE = re.compile(
-    r"<b>\s*ISBN:\s*</b>\s*</span>\s*<span>\s*</span>\s*<span[^>]*>\s*([^<]+)\s*</span>",
-    re.IGNORECASE | re.DOTALL,
-)
-TITLE_RE = re.compile(
-    r"<b>\s*Title:\s*</b>\s*</span>\s*<span>\s*</span>\s*<span[^>]*>\s*([^<]+)\s*</span>",
-    re.IGNORECASE | re.DOTALL,
-)
-FIELD_RE = re.compile(
-    r"<b>\s*([^:<]+):\s*</b>\s*</span>\s*<span>\s*</span>\s*<span[^>]*>\s*([^<]*)\s*</span>",
-    re.IGNORECASE | re.DOTALL,
-)
+from bs4 import BeautifulSoup
 
 
 def normalize_isbn(value: str) -> str:
@@ -104,8 +90,12 @@ def main() -> int:
     output_dir.mkdir(parents=True, exist_ok=True)
     report_json.parent.mkdir(parents=True, exist_ok=True)
 
+    print(f"Reading {input_html}...")
     html_text = input_html.read_text(encoding="utf-8", errors="ignore")
-    parts = html_text.split(ROW_SPLIT_MARKER)
+    
+    print("Parsing HTML...")
+    soup = BeautifulSoup(html_text, 'html.parser')
+    thumbnails = soup.find_all('img', alt='thumbnail')
 
     extracted = 0
     skipped_existing = 0
@@ -117,39 +107,63 @@ def main() -> int:
     results: list[dict] = []
 
     seq = 0
-    for idx, part in enumerate(parts):
-        if idx == 0:
-            continue
+    for img in thumbnails:
         rows_seen += 1
-        chunk = "data:image" + part
-
-        img_match = IMG_RE.search(chunk)
-        if not img_match:
+        src = img.get('src')
+        if not src or not src.startswith('data:image/'):
             continue
-
-        subtype = img_match.group(1)
-        b64_data = img_match.group(2)
+            
+        match = re.match(r'data:image/([a-zA-Z0-9]+);base64,(.*)', src)
+        if not match:
+            continue
+            
+        subtype = match.group(1)
+        b64_data = match.group(2)
+        
         image_bytes = maybe_decode_base64(b64_data)
         if not image_bytes or len(image_bytes) < 512:
             invalid_image += 1
             continue
+            
+        # Traverse DOM to find details
+        book_header_table = img.find_parent('table')
+        title = ""
+        author = ""
+        date_added = ""
+        
+        if book_header_table:
+            title_td = book_header_table.find('td', class_='title')
+            if title_td:
+                title = title_td.text.strip()
+            author_td = book_header_table.find('td', class_='author')
+            if author_td:
+                author = author_td.text.strip()
+                
+        details_table = book_header_table.find_next_sibling('table') if book_header_table else None
+        
+        raw_isbn = ""
+        if details_table:
+            # Date Added
+            date_label = details_table.find(string=re.compile('Date Added:'))
+            if date_label:
+                parent_td = date_label.find_parent('td')
+                if parent_td:
+                    spans = parent_td.find_all('span')
+                    if len(spans) >= 3:
+                        date_added = spans[2].text.strip()
 
-        fields = {}
-        for m in FIELD_RE.finditer(chunk):
-            key = re.sub(r"\s+", " ", m.group(1)).strip().lower()
-            val = m.group(2).strip()
-            if key and key not in fields and val:
-                fields[key] = val
+            # ISBN
+            isbn_label = details_table.find(string=re.compile('ISBN:'))
+            if isbn_label:
+                parent_td = isbn_label.find_parent('td')
+                if parent_td:
+                    spans = parent_td.find_all('span')
+                    if len(spans) >= 3:
+                        raw_isbn = spans[2].text.strip()
 
-        title_match = TITLE_RE.search(chunk)
-        isbn_match = ISBN_RE.search(chunk)
-        title = (title_match.group(1).strip() if title_match else fields.get("title", ""))
-        author = fields.get("author", "")
-        date_added = fields.get("date added", "")
-        raw_isbn = (isbn_match.group(1).strip() if isbn_match else fields.get("isbn", ""))
         isbn = normalize_isbn(raw_isbn)
-
         ext = ext_from_mime_subtype(subtype)
+
         if isbn:
             cover_id = isbn
             filename = f"{cover_id}.{ext}"
@@ -171,6 +185,23 @@ def main() -> int:
         seen_names.add(filename)
 
         out_path = output_dir / filename
+        
+        # Cleanup old mismatching extension files
+        if ext == 'jpg':
+            old_png = output_dir / f"{cover_id}.png"
+            if old_png.exists() and old_png != out_path:
+                try:
+                    old_png.unlink()
+                except OSError:
+                    pass
+        elif ext == 'png':
+            old_jpg = output_dir / f"{cover_id}.jpg"
+            if old_jpg.exists() and old_jpg != out_path:
+                try:
+                    old_jpg.unlink()
+                except OSError:
+                    pass
+
         if out_path.exists() and not args.overwrite:
             existing_size = out_path.stat().st_size
             if existing_size == len(image_bytes):
