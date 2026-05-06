@@ -1830,3 +1830,18 @@ body.photos-page .photos-intro {
   background-color: var(--white);
   color: var(--black);
 }
+
+@media screen and (max-width: 36em) {
+  .library-pager, .library-all-link-wrap {
+    gap: 0.4rem !important;
+  }
+  .library-pager__btn,
+  .library-all-link {
+    padding: 0.35rem 0.6rem !important;
+    font-size: 0.85rem !important;
+  }
+  .library-pager__info,
+  .library-pager__label {
+    font-size: 0.85rem !important;
+  }
+}
