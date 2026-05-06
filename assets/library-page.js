@@ -37,7 +37,7 @@ function computeYearlyReads(books) {
   const byYear = new Map();
   for (const b of books) {
     const y = b._date?.getFullYear();
-    if (!y) continue;
+    if (!y || y < 2019) continue;
     byYear.set(y, (byYear.get(y) ?? 0) + 1);
   }
   return [...byYear.entries()]
