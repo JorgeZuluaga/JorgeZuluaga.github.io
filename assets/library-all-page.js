@@ -51,25 +51,24 @@ function parseDeweyGeneralCode(rawCode) {
   return Math.floor(n / 100) * 100;
 }
 
-function extractBookDeweyGeneralCodes(book) {
-  const found = new Set();
+function extractBookPrimaryDeweyGeneralCode(book) {
   const classes = book?.dcc_classes;
   if (classes && typeof classes === "object") {
     for (const key of Object.keys(classes)) {
       const code = parseDeweyGeneralCode(key);
-      if (code !== null) found.add(code);
+      if (code !== null) return code;
     }
   }
   const codes = book?.dcc_codes;
   if (codes && typeof codes === "object") {
     for (const key of Object.keys(codes)) {
       const code = parseDeweyGeneralCode(key);
-      if (code !== null) found.add(code);
+      if (code !== null) return code;
     }
   }
   const ddcCode = parseDeweyGeneralCode(book?.ddc);
-  if (ddcCode !== null) found.add(ddcCode);
-  return found;
+  if (ddcCode !== null) return ddcCode;
+  return null;
 }
 
 function computeDeweyGeneralCounts(books) {
@@ -77,15 +76,13 @@ function computeDeweyGeneralCounts(books) {
   let unclassifiedCount = 0;
 
   for (const book of books) {
-    const classes = extractBookDeweyGeneralCodes(book);
-    if (classes.size === 0) {
+    const primaryClass = extractBookPrimaryDeweyGeneralCode(book);
+    if (primaryClass === null) {
       unclassifiedCount += 1;
       continue;
     }
-    for (const code of classes) {
-      if (!counts.has(code)) continue;
-      counts.set(code, (counts.get(code) ?? 0) + 1);
-    }
+    if (!counts.has(primaryClass)) continue;
+    counts.set(primaryClass, (counts.get(primaryClass) ?? 0) + 1);
   }
 
   const areaRows = DEWEY_GENERAL_CODES.map((code) => ({
@@ -161,9 +158,9 @@ function getActiveClassFilter() {
 function applyClassFilter(books, filter) {
   if (filter === null) return books;
   if (filter === "unclassified") {
-    return books.filter((b) => extractBookDeweyGeneralCodes(b).size === 0);
+    return books.filter((b) => extractBookPrimaryDeweyGeneralCode(b) === null);
   }
-  return books.filter((b) => extractBookDeweyGeneralCodes(b).has(filter));
+  return books.filter((b) => extractBookPrimaryDeweyGeneralCode(b) === filter);
 }
 
 function renderDeweyFilter(selectEl, books, lang, onFilterChange) {

@@ -52,25 +52,24 @@ function parseDeweyGeneralCode(rawCode) {
   return Math.floor(n / 100) * 100;
 }
 
-function extractBookDeweyGeneralCodes(book) {
-  const found = new Set();
+function extractBookPrimaryDeweyGeneralCode(book) {
   const classes = book?.dcc_classes;
   if (classes && typeof classes === "object") {
     for (const key of Object.keys(classes)) {
       const code = parseDeweyGeneralCode(key);
-      if (code !== null) found.add(code);
+      if (code !== null) return code;
     }
   }
   const codes = book?.dcc_codes;
   if (codes && typeof codes === "object") {
     for (const key of Object.keys(codes)) {
       const code = parseDeweyGeneralCode(key);
-      if (code !== null) found.add(code);
+      if (code !== null) return code;
     }
   }
   const ddcCode = parseDeweyGeneralCode(book?.ddc);
-  if (ddcCode !== null) found.add(ddcCode);
-  return found;
+  if (ddcCode !== null) return ddcCode;
+  return null;
 }
 
 function computeDeweyGeneralCounts(books) {
@@ -78,15 +77,13 @@ function computeDeweyGeneralCounts(books) {
   let unclassifiedCount = 0;
 
   for (const book of books) {
-    const classes = extractBookDeweyGeneralCodes(book);
-    if (classes.size === 0) {
+    const primaryClass = extractBookPrimaryDeweyGeneralCode(book);
+    if (primaryClass === null) {
       unclassifiedCount += 1;
       continue;
     }
-    for (const code of classes) {
-      if (!counts.has(code)) continue;
-      counts.set(code, (counts.get(code) ?? 0) + 1);
-    }
+    if (!counts.has(primaryClass)) continue;
+    counts.set(primaryClass, (counts.get(primaryClass) ?? 0) + 1);
   }
 
   const areaRows = DEWEY_GENERAL_CODES.map((code) => ({
@@ -166,9 +163,9 @@ function getActiveClassFilter() {
 function applyClassFilter(books, filter) {
   if (filter === null) return books;
   if (filter === "unclassified") {
-    return books.filter((b) => extractBookDeweyGeneralCodes(b).size === 0);
+    return books.filter((b) => extractBookPrimaryDeweyGeneralCode(b) === null);
   }
-  return books.filter((b) => extractBookDeweyGeneralCodes(b).has(filter));
+  return books.filter((b) => extractBookPrimaryDeweyGeneralCode(b) === filter);
 }
 
 function renderDeweyFilter(selectEl, books, lang, onFilterChange) {
@@ -284,26 +281,6 @@ function buildLibraryBookIdMap(books) {
     if (id) m.set(id, b);
   }
   return m;
-}
-
-/** Goodreads catalog ids from library.json (read shelf export). */
-function buildGoodreadsBookIdSet(books) {
-  const set = new Set();
-  for (const b of books) {
-    const id = String(b?.bookId || "").trim();
-    if (id) set.add(id);
-  }
-  return set;
-}
-
-/** Physical rows in BookBuddy whose bookId matches a Goodreads library entry. */
-function countDetailsRowsLinkedToGoodreads(detailsRows, goodreadsIds) {
-  let n = 0;
-  for (const row of detailsRows) {
-    const bid = String(row?.bookId ?? "").trim();
-    if (bid && goodreadsIds.has(bid)) n += 1;
-  }
-  return n;
 }
 
 function statusIsUnreadRow(row) {
@@ -699,7 +676,6 @@ async function main() {
     books.filter((b) => isReadBook(b)).map((b) => bookIdentityKey(b)).filter(Boolean),
   );
   const libraryByBookId = buildLibraryBookIdMap(books);
-  const goodreadsIds = buildGoodreadsBookIdSet(books);
 
   let detailsRows = [];
   try {
@@ -726,15 +702,13 @@ async function main() {
       .filter((b) => b.title)
       .sort((a, b) => (b._dateAdded?.getTime() ?? 0) - (a._dateAdded?.getTime() ?? 0));
 
-    // Summary cards (inventario físico + Goodreads; los 358/224/etc. salen de los datos):
-    // - Total = BookBuddy + libros solo en Goodreads (sin bookDetails en BookBuddy).
-    // - Libros no leídos = filas BookBuddy que no tienen bookId en el catálogo Goodreads exportado.
-    // - Libros leídos = todos los libros del export Goodreads (library.json).
-    const linkedBuddyToGr = countDetailsRowsLinkedToGoodreads(detailsRows, goodreadsIds);
-    const goodreadsOnlyWithoutBuddy = books.filter((b) => Number(b.bookDetails) !== 1).length;
-    total = detailsRows.length + goodreadsOnlyWithoutBuddy;
-    unread = detailsRows.length - linkedBuddyToGr;
+    // Keep summary cards consistent with the list/pagination universe.
+    // - unread: exactly the same antiBooks collection used for rendering and paging.
+    // - read: all Goodreads books from library.json.
+    // - total: read + unread.
+    unread = antiBooks.length;
     read = books.length;
+    total = unread + read;
   } else {
     antiBooks = books
       .filter((b) => !isReadBook(b))
