@@ -1,7 +1,13 @@
 import json
-import requests
 import time
 import os
+import urllib.request
+import urllib.error
+
+try:
+    import requests
+except ModuleNotFoundError:
+    requests = None
 
 # Mapeo de géneros comunes a clases CDD principales
 GENRE_TO_DDC = {
@@ -83,14 +89,27 @@ def get_ddc_from_openlibrary(isbn, session):
         return None
     url = f"https://openlibrary.org/search.json?isbn={isbn}"
     try:
-        response = session.get(url, timeout=3)
-        if response.status_code == 200:
-            data = response.json()
-            docs = data.get("docs", [])
-            if docs:
-                ddc_list = docs[0].get("ddc", [])
-                if ddc_list:
-                    return ddc_list[0]
+        if session is not None:
+            response = session.get(url, timeout=3)
+            if response.status_code == 200:
+                data = response.json()
+            else:
+                return None
+        else:
+            req = urllib.request.Request(
+                url,
+                headers={"User-Agent": "Mozilla/5.0"},
+            )
+            with urllib.request.urlopen(req, timeout=3) as response:
+                if response.status != 200:
+                    return None
+                data = json.loads(response.read().decode("utf-8"))
+
+        docs = data.get("docs", [])
+        if docs:
+            ddc_list = docs[0].get("ddc", [])
+            if ddc_list:
+                return ddc_list[0]
     except Exception as e:
         print(f"Error fetching {isbn}: {e}")
     return None
@@ -112,9 +131,11 @@ def main():
     ddc_map = {}
     modified_details = False
 
-    # Session para mantener la conexión viva y acelerar
-    session = requests.Session()
-    session.headers.update({"User-Agent": "Mozilla/5.0"})
+    # Session para mantener la conexión viva y acelerar (si requests está disponible)
+    session = None
+    if requests is not None:
+        session = requests.Session()
+        session.headers.update({"User-Agent": "Mozilla/5.0"})
 
     books = lib_details.get("books", [])
     total_books = len(books)

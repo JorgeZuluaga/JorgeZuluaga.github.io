@@ -23,6 +23,7 @@ Opciones:
 from __future__ import annotations
 
 import argparse
+import hashlib
 import json
 import re
 from dataclasses import dataclass
@@ -86,6 +87,21 @@ def code_to_main_class(code: str) -> str | None:
     except ValueError:
         return None
     return f"{(base // 100) * 100:03d}"
+
+
+def normalized_title_author(title: str, author: str) -> str:
+    t = re.sub(r"\s+", " ", (title or "").strip().lower())
+    a = re.sub(r"\s+", " ", (author or "").strip().lower())
+    return f"{t}::{a}"
+
+
+def generated_details_id(book: dict[str, Any], idx: int) -> str | None:
+    title = (book.get("Title") or "").strip()
+    author = (book.get("Author") or "").strip()
+    if not title and not author:
+        return None
+    seed = f"details_{title}_{author}_{idx}"
+    return "gen_" + hashlib.md5(seed.encode("utf-8")).hexdigest()[:12]
 
 
 def load_dewey_maps(dewey_plain_path: Path) -> tuple[dict[str, str], dict[str, str]]:
@@ -261,8 +277,9 @@ def build_aggregations(
     files: list[Path],
     main_classes: dict[str, str],
     dewey_code_names: dict[str, str],
-) -> dict[str, BookAgg]:
+) -> tuple[dict[str, BookAgg], dict[str, str]]:
     agg: dict[str, BookAgg] = {}
+    aliases: dict[str, str] = {}
 
     for f in files:
         items = parse_classification_file(f)
@@ -282,6 +299,19 @@ def build_aggregations(
 
             if book_id not in agg:
                 agg[book_id] = BookAgg(codes={}, notes_reasoning="", notes_confidence=-1.0)
+
+            aliases[book_id] = book_id
+
+            isbn = str(item.get("isbn", "")).strip()
+            if isbn:
+                aliases[f"isbn_{isbn}"] = book_id
+
+            ta = normalized_title_author(
+                str(item.get("title", "")).strip(),
+                str(item.get("author", "")).strip(),
+            )
+            if ta != "::":
+                aliases[f"ta::{ta}"] = book_id
 
             target = agg[book_id]
 
@@ -316,7 +346,7 @@ def build_aggregations(
                 target.notes_confidence = confidence
                 target.notes_reasoning = reasoning
 
-    return agg
+    return agg, aliases
 
 
 def build_classes_from_codes(codes: dict[str, str], main_classes: dict[str, str]) -> dict[str, str]:
@@ -347,12 +377,18 @@ def clean_old_fields_library_details(book: dict[str, Any]) -> None:
         book.pop(key, None)
 
 
-def apply_to_library_json(lib_path: Path, agg: dict[str, BookAgg], main_classes: dict[str, str]) -> tuple[int, int]:
+def apply_to_library_json(
+    lib_path: Path,
+    agg: dict[str, BookAgg],
+    aliases: dict[str, str],
+    main_classes: dict[str, str],
+) -> tuple[int, int, int]:
     data = json.loads(lib_path.read_text(encoding="utf-8"))
     books = data.get("books", []) if isinstance(data, dict) else []
 
     cleaned = 0
     updated = 0
+    updated_by_title_author = 0
 
     for b in books:
         if not isinstance(b, dict):
@@ -361,48 +397,15 @@ def apply_to_library_json(lib_path: Path, agg: dict[str, BookAgg], main_classes:
         cleaned += 1
 
         bid = str(b.get("bookId", "")).strip()
-        if bid and bid in agg:
-            info = agg[bid]
-            dcc_codes = dict(sorted(info.codes.items(), key=lambda kv: float(kv[0])))
-            dcc_classes = build_classes_from_codes(dcc_codes, main_classes)
-
-            b["dcc_classes"] = dcc_classes
-            b["dcc_codes"] = dcc_codes
-            b["dcc_notes"] = {
-                "reasoning": info.notes_reasoning,
-                "confidence": round(info.notes_confidence, 6) if info.notes_confidence >= 0 else 0.0,
-            }
-            updated += 1
-
-    lib_path.write_text(json.dumps(data, ensure_ascii=False, indent=2), encoding="utf-8")
-    return cleaned, updated
-
-
-def apply_to_library_details(lib_path: Path, agg: dict[str, BookAgg], main_classes: dict[str, str]) -> tuple[int, int, int]:
-    data = json.loads(lib_path.read_text(encoding="utf-8"))
-    books = data.get("books", []) if isinstance(data, dict) else []
-
-    cleaned = 0
-    updated = 0
-    updated_by_isbn = 0
-
-    for b in books:
-        if not isinstance(b, dict):
-            continue
-        clean_old_fields_library_details(b)
-        cleaned += 1
-
-        bid = str(b.get("bookId", "")).strip()
-        isbn = str(b.get("ISBN", "")).strip()
-
         key: str | None = None
         if bid and bid in agg:
             key = bid
-        elif isbn:
-            synthetic = f"isbn_{isbn}"
-            if synthetic in agg:
-                key = synthetic
-                updated_by_isbn += 1
+        else:
+            ta = normalized_title_author(b.get("title", ""), b.get("author", ""))
+            alias_key = f"ta::{ta}"
+            if alias_key in aliases:
+                key = aliases[alias_key]
+                updated_by_title_author += 1
 
         if key:
             info = agg[key]
@@ -418,7 +421,70 @@ def apply_to_library_details(lib_path: Path, agg: dict[str, BookAgg], main_class
             updated += 1
 
     lib_path.write_text(json.dumps(data, ensure_ascii=False, indent=2), encoding="utf-8")
-    return cleaned, updated, updated_by_isbn
+    return cleaned, updated, updated_by_title_author
+
+
+def apply_to_library_details(
+    lib_path: Path,
+    agg: dict[str, BookAgg],
+    aliases: dict[str, str],
+    main_classes: dict[str, str],
+) -> tuple[int, int, int, int, int]:
+    data = json.loads(lib_path.read_text(encoding="utf-8"))
+    books = data.get("books", []) if isinstance(data, dict) else []
+
+    cleaned = 0
+    updated = 0
+    updated_by_isbn = 0
+    updated_by_gen = 0
+    updated_by_title_author = 0
+
+    for idx, b in enumerate(books):
+        if not isinstance(b, dict):
+            continue
+        clean_old_fields_library_details(b)
+        cleaned += 1
+
+        bid = str(b.get("bookId", "")).strip()
+        isbn = str(b.get("ISBN", "")).strip()
+
+        key: str | None = None
+        if bid and bid in agg:
+            key = bid
+        elif isbn:
+            synthetic = f"isbn_{isbn}"
+            if synthetic in aliases:
+                key = aliases[synthetic]
+                updated_by_isbn += 1
+
+        if not key:
+            synthetic_gen = generated_details_id(b, idx)
+            if synthetic_gen and synthetic_gen in aliases:
+                key = aliases[synthetic_gen]
+                updated_by_gen += 1
+
+        if not key:
+            ta = normalized_title_author(b.get("Title", ""), b.get("Author", ""))
+            alias_key = f"ta::{ta}"
+            if alias_key in aliases:
+                key = aliases[alias_key]
+                updated_by_title_author += 1
+
+        if key:
+            info = agg[key]
+            dcc_codes = dict(sorted(info.codes.items(), key=lambda kv: float(kv[0])))
+            dcc_classes = build_classes_from_codes(dcc_codes, main_classes)
+
+            b["dcc_classes"] = dcc_classes
+            b["dcc_codes"] = dcc_codes
+            b["dcc_notes"] = {
+                "reasoning": info.notes_reasoning,
+                "confidence": round(info.notes_confidence, 6) if info.notes_confidence >= 0 else 0.0,
+            }
+            updated += 1
+
+    lib_path.write_text(json.dumps(data, ensure_ascii=False, indent=2), encoding="utf-8")
+    return cleaned, updated, updated_by_isbn, updated_by_gen, updated_by_title_author
 
 
 def parse_args() -> argparse.Namespace:
@@ -445,33 +511,38 @@ def main() -> None:
         raise FileNotFoundError("No se encontraron rutas:\n- " + "\n- ".join(missing))
 
     main_classes, dewey_code_names = load_dewey_maps(dewey_plain)
-    agg = build_aggregations(classification_files, main_classes, dewey_code_names)
+    agg, aliases = build_aggregations(classification_files, main_classes, dewey_code_names)
 
     if args.dry_run:
         print(json.dumps({
             "classification_files": len(classification_files),
             "books_classified_detected": len(agg),
+            "classification_aliases_detected": len(aliases),
             "library_json": str(lib_json),
             "library_details": str(lib_details),
             "dewey_plain": str(dewey_plain),
         }, ensure_ascii=False, indent=2))
         return
 
-    cleaned_json, updated_json = apply_to_library_json(lib_json, agg, main_classes)
-    cleaned_details, updated_details, updated_details_by_isbn = apply_to_library_details(lib_details, agg, main_classes)
+    cleaned_json, updated_json, updated_json_by_title_author = apply_to_library_json(lib_json, agg, aliases, main_classes)
+    cleaned_details, updated_details, updated_details_by_isbn, updated_details_by_gen, updated_details_by_title_author = apply_to_library_details(lib_details, agg, aliases, main_classes)
 
     print(json.dumps({
         "classification_files": len(classification_files),
         "books_classified_detected": len(agg),
+        "classification_aliases_detected": len(aliases),
         "library_json": {
             "cleaned_books": cleaned_json,
             "updated_books": updated_json,
+            "updated_by_title_author": updated_json_by_title_author,
             "path": str(lib_json),
         },
         "library_details": {
             "cleaned_books": cleaned_details,
             "updated_books": updated_details,
             "updated_by_isbn": updated_details_by_isbn,
+            "updated_by_gen": updated_details_by_gen,
+            "updated_by_title_author": updated_details_by_title_author,
             "path": str(lib_details),
         },
     }, ensure_ascii=False, indent=2))

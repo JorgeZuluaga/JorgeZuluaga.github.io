@@ -86,6 +86,38 @@ def extract_dcc_classes(dcc_classes, dcc_codes) -> list[str]:
     return parts
 
 
+def extract_dcc_codes(dcc_codes) -> list[str]:
+    """Return specific DCC codes formatted as 'Description (code)' (up to 3 max).
+    dcc_codes can be a dict (code -> description) or list (just codes).
+    """
+    codes = []
+    
+    if isinstance(dcc_codes, dict):
+        # Dict format: code -> description
+        for code_str, description in dcc_codes.items():
+            try:
+                code_val = str(code_str).strip()
+                # Format as "Description (code)"
+                desc = str(description).strip() if description else code_val
+                codes.append(f"{desc} ({code_val})")
+            except (TypeError, ValueError):
+                continue
+            if len(codes) >= 3:
+                break
+    elif isinstance(dcc_codes, list):
+        # List format: just codes, format as "code"
+        for code_str in dcc_codes:
+            try:
+                code_val = str(int(code_str)).strip()
+                codes.append(code_val)
+            except (TypeError, ValueError):
+                continue
+            if len(codes) >= 3:
+                break
+
+    return codes
+
+
 def extract_notes(dcc_notes) -> tuple[str, str]:
     """Return (reasoning, confidence) from dcc_notes when available."""
     if not isinstance(dcc_notes, dict):
@@ -108,15 +140,19 @@ def max_class_count(rows: list[dict]) -> int:
 
 
 def base_headers_and_widths(class_cols: int) -> tuple[list[str], list[int]]:
-    headers = ["Fuente", "bookId/ISBN", "Título", "Autor"]
-    widths = [18, 24, 50, 30]
+    headers = ["Fuente", "bookId/ISBN", "Cross bookId/ISBN", "Título", "Autor"]
+    widths = [18, 24, 24, 50, 30]
 
     for idx in range(1, class_cols + 1):
-        headers.append(f"Clase DCC {idx} (actual)")
+        headers.append(f"Clase {idx}")
         widths.append(34)
 
-    headers.extend(["Razonamiento", "Confianza", "Clases DCC (manual)"])
-    widths.extend([64, 14, 45])
+    for idx in range(1, class_cols + 1):
+        headers.append(f"Código {idx}")
+        widths.append(20)
+
+    headers.extend(["Razonamiento", "Confianza", "Revisión"])
+    widths.extend([64, 14, 12])
     return headers, widths
 
 
@@ -124,6 +160,7 @@ def row_values(row: dict, class_cols: int) -> list[str]:
     values = [
         row["source"],
         display_bookid(row["source"], row["bookId"], row.get("isbn", "")),
+        row.get("cross_ref", ""),
         row["title"],
         row["author"],
     ]
@@ -132,35 +169,43 @@ def row_values(row: dict, class_cols: int) -> list[str]:
     for idx in range(class_cols):
         values.append(classes[idx] if idx < len(classes) else "")
 
+    codes = row.get("dcc_codes_list", [])
+    for idx in range(class_cols):
+        values.append(codes[idx] if idx < len(codes) else "")
+
     values.extend([
         row.get("reasoning", ""),
         row.get("confidence", ""),
-        "",  # manual column — empty for user to fill
+        "0",  # Revisión default 0
     ])
     return values
 
 
-def load_library_books() -> list[dict]:
+def load_library_books(isbn_to_bookid: dict) -> list[dict]:
     data = json.loads(LIB_JSON.read_text(encoding="utf-8"))
     rows = []
     for b in data.get("books", []):
         if not b or not b.get("title"):
             continue
         reasoning, confidence = extract_notes(b.get("dcc_notes"))
+        isbn = str(b.get("ISBN", b.get("isbn", "")) or "").strip()
+        cross_ref = isbn_to_bookid.get(isbn, "")
         rows.append({
             "source": "library.json",
             "bookId": str(b.get("bookId", "")),
-            "isbn": str(b.get("ISBN", b.get("isbn", "")) or ""),
+            "isbn": isbn,
+            "cross_ref": cross_ref,
             "title": b.get("title", ""),
             "author": b.get("author", ""),
             "dcc_classes_list": extract_dcc_classes(b.get("dcc_classes"), b.get("dcc_codes")),
+            "dcc_codes_list": extract_dcc_codes(b.get("dcc_codes")),
             "reasoning": reasoning,
             "confidence": confidence,
         })
     return rows
 
 
-def load_details_books(library_ids: set) -> list[dict]:
+def load_details_books(library_ids: set, bookid_to_isbn: dict) -> list[dict]:
     data = json.loads(DET_JSON.read_text(encoding="utf-8"))
     rows = []
     for b in data.get("books", []):
@@ -172,13 +217,16 @@ def load_details_books(library_ids: set) -> list[dict]:
         if book_id and book_id in library_ids:
             continue
         reasoning, confidence = extract_notes(b.get("dcc_notes"))
+        cross_ref = bookid_to_isbn.get(book_id, "")
         rows.append({
             "source": "library-details.json",
             "bookId": book_id,
             "isbn": isbn,
+            "cross_ref": cross_ref,
             "title": b.get("Title", ""),
             "author": b.get("Author", ""),
             "dcc_classes_list": extract_dcc_classes(b.get("dcc_classes"), b.get("dcc_codes")),
+            "dcc_codes_list": extract_dcc_codes(b.get("dcc_codes")),
             "reasoning": reasoning,
             "confidence": confidence,
         })
@@ -186,9 +234,67 @@ def load_details_books(library_ids: set) -> list[dict]:
 
 
 def build_rows() -> list[dict]:
-    lib_rows = load_library_books()
+    lib_data = json.loads(LIB_JSON.read_text(encoding="utf-8"))
+    lib_books = lib_data.get("books", [])
+    
+    det_data = json.loads(DET_JSON.read_text(encoding="utf-8"))
+    det_books = det_data.get("books", [])
+
+    # Build cross-reference maps (priority: direct bookId > ISBN > title)
+    
+    # 1. BookId -> ISBN map (from library-details books with both)
+    bookid_to_isbn = {}
+    for b in det_books:
+        if b:
+            bid = str(b.get("bookId", "")).strip()
+            isbn = str(b.get("ISBN", "")).strip()
+            if bid and isbn:
+                bookid_to_isbn[bid] = isbn
+    
+    # 2. ISBN -> BookId map (for reverse lookup from library.json)
+    isbn_to_bookid = {}
+    for b in det_books:
+        if b:
+            isbn = str(b.get("ISBN", "")).strip()
+            bid = str(b.get("bookId", "")).strip()
+            if isbn and bid:
+                isbn_to_bookid[isbn] = bid
+
+    # 3. Title-based fallback maps (normalized titles)
+    def normalize_title(t):
+        return (t or "").lower().strip()[:40]  # First 40 chars, normalized
+    
+    lib_title_to_bookid = {normalize_title(b.get("title")): str(b.get("bookId", "")).strip() 
+                           for b in lib_books if b and b.get("title") and b.get("bookId")}
+    det_title_to_id = {normalize_title(b.get("Title")): (str(b.get("bookId", "")).strip(), str(b.get("ISBN", "")).strip())
+                       for b in det_books if b and b.get("Title")}
+
+    # Load rows with cross-ref lookup
+    lib_rows = load_library_books(isbn_to_bookid)
     lib_ids = {str(r["bookId"]) for r in lib_rows if r["bookId"]}
-    det_rows = load_details_books(lib_ids)
+    det_rows = load_details_books(lib_ids, bookid_to_isbn)
+    
+    # Enrich cross-refs: library.json books try bookId lookup first
+    for row in lib_rows:
+        if not row["cross_ref"]:
+            bid = str(row["bookId"]).strip() if row["bookId"] else ""
+            # Try bookId -> ISBN lookup (from library-details)
+            if bid and bid in bookid_to_isbn:
+                row["cross_ref"] = bookid_to_isbn[bid]
+            # Fallback: title-based matching
+            elif not row["cross_ref"]:
+                norm_title = normalize_title(row["title"])
+                if norm_title in det_title_to_id:
+                    bid_det, isbn_det = det_title_to_id[norm_title]
+                    row["cross_ref"] = isbn_det or bid_det
+    
+    # Enrich cross-refs: library-details rows try title matching
+    for row in det_rows:
+        if not row["cross_ref"]:
+            norm_title = normalize_title(row["title"])
+            if norm_title in lib_title_to_bookid:
+                row["cross_ref"] = lib_title_to_bookid[norm_title]
+    
     all_rows = lib_rows + det_rows
     # Sort: unclassified first, then alphabetical by title
     all_rows.sort(key=lambda r: (bool(r["dcc_classes_list"]), r["title"].lower()))
