@@ -212,7 +212,7 @@ const STRINGS = {
       "No se pudieron cargar las estadísticas de lectura. Compruebe que exista <code>info/library.json</code>.",
     library_all_title: "Todos los libros leídos",
     library_all_intro:
-      "Listado completo ordenado del más reciente al más antiguo.",
+      "Aquí están todos los libros que he leído en los años que llevo registrando mi actividad lectora en GoodReads. Dice una frase por ahí que uno es los libros que ha leído, pues aquí me tienen. Ahora bien, podríamos también decir que uno puede ser los libros que no ha leído, es decir los que están en su antibiblioteca. Hagan click en el enlace abajo para ver los libros que me esperan en mi colección física o electrónica.",
     antilibrary_title: "Antibiblioteca personal",
     antilibrary_intro:
       "Toda persona lectora conserva en su biblioteca un cierto número de libros, muchos o solo unos pocos, que no ha leído y posiblemente no leerá jamás. El escritor Nassim Nicholas Taleb llamó a este conjunto de libros deseados la <i>antibiblioteca</i> (ver cita abajo). En esta página comparto el listado de libros en mi biblioteca personal que no he leído, mi antibiblioteca, y que por la misma razón no he registrado en Goodreads, ordenado por fecha de incorporación.",
@@ -416,7 +416,7 @@ const STRINGS = {
       "Could not load reading statistics. <code>info/library.json</code> must exist.",
     library_all_title: "All books read",
     library_all_intro:
-      "Full list sorted from most recent to oldest.",
+      "Here are all the books I have read over the years I have been tracking my reading on Goodreads. There is a saying that you are the books you have read — well, here I am. But we could also say that you are the books you have not yet read, those waiting in your antilibrary. Click the link below to see the books that await me in my physical or digital collection.",
     antilibrary_title: "Personal anti-library",
     antilibrary_intro:
       "Every reader keeps in their library a certain number of books — many or just a few — that they have not read and may never read. Writer Nassim Nicholas Taleb called this set of desired books the <i>antilibrary</i> (see quote below). On this page I share the list of books in my personal library that I have not read — my antilibrary — and which, for the same reason, I have not logged in Goodreads, sorted by date added.",

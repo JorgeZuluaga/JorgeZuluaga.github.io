@@ -9,6 +9,212 @@ import { trackPageView } from "./visitor-tracker.js";
 const LIBRARY_JSON = "./info/library.json";
 const LOCAL_LIKES_CACHE_PREFIX = "review_local_likes_count_";
 const DEFAULT_PAGE_SIZE = 50;
+const DEWEY_GENERAL_CODES = [0, 100, 200, 300, 400, 500, 600, 700, 800, 900];
+
+function deweyAreaName(code, lang) {
+  const labelsEs = {
+    0: "Generalidades",
+    100: "Filosofia y psicologia",
+    200: "Religion",
+    300: "Ciencias sociales",
+    400: "Lenguas",
+    500: "Ciencias naturales y matematicas",
+    600: "Tecnologia",
+    700: "Artes y recreacion",
+    800: "Literatura",
+    900: "Historia y geografia",
+  };
+  const labelsEn = {
+    0: "General works",
+    100: "Philosophy and psychology",
+    200: "Religion",
+    300: "Social sciences",
+    400: "Language",
+    500: "Science",
+    600: "Technology",
+    700: "Arts and recreation",
+    800: "Literature",
+    900: "History and geography",
+  };
+  const labels = lang === "en" ? labelsEn : labelsEs;
+  return labels[code] ?? String(code).padStart(3, "0");
+}
+
+function parseDeweyGeneralCode(rawCode) {
+  const raw = String(rawCode ?? "").trim();
+  if (!raw) return null;
+  const digits = raw.match(/\d{1,3}/);
+  if (!digits) return null;
+  const n = Number.parseInt(digits[0], 10);
+  if (!Number.isFinite(n)) return null;
+  if (n < 0 || n > 999) return null;
+  return Math.floor(n / 100) * 100;
+}
+
+function extractBookDeweyGeneralCodes(book) {
+  const found = new Set();
+  const classes = book?.dcc_classes;
+  if (classes && typeof classes === "object") {
+    for (const key of Object.keys(classes)) {
+      const code = parseDeweyGeneralCode(key);
+      if (code !== null) found.add(code);
+    }
+  }
+  const codes = book?.dcc_codes;
+  if (codes && typeof codes === "object") {
+    for (const key of Object.keys(codes)) {
+      const code = parseDeweyGeneralCode(key);
+      if (code !== null) found.add(code);
+    }
+  }
+  const ddcCode = parseDeweyGeneralCode(book?.ddc);
+  if (ddcCode !== null) found.add(ddcCode);
+  return found;
+}
+
+function computeDeweyGeneralCounts(books) {
+  const counts = new Map(DEWEY_GENERAL_CODES.map((code) => [code, 0]));
+  let unclassifiedCount = 0;
+
+  for (const book of books) {
+    const classes = extractBookDeweyGeneralCodes(book);
+    if (classes.size === 0) {
+      unclassifiedCount += 1;
+      continue;
+    }
+    for (const code of classes) {
+      if (!counts.has(code)) continue;
+      counts.set(code, (counts.get(code) ?? 0) + 1);
+    }
+  }
+
+  const areaRows = DEWEY_GENERAL_CODES.map((code) => ({
+    kind: "area",
+    code,
+    count: counts.get(code) ?? 0,
+  }));
+  const totalAreasCount = areaRows.reduce((acc, row) => acc + row.count, 0);
+
+  return { areaRows, totalAreasCount, unclassifiedCount };
+}
+
+function renderDeweyChart(chartEl, books, lang) {
+  if (!chartEl) return;
+
+  const { areaRows, unclassifiedCount } = computeDeweyGeneralCounts(books);
+  const sortedAreas = [...areaRows].sort((a, b) => (b.count - a.count) || (a.code - b.code));
+  const rows = [
+    ...sortedAreas,
+    { kind: "unclassified", code: null, count: unclassifiedCount },
+  ];
+
+  const maxCount = Math.max(...rows.map((r) => r.count), 1);
+  const frag = document.createDocumentFragment();
+
+  for (const row of rows) {
+    const item = document.createElement("article");
+    item.className = "library-chart__row";
+
+    const area = document.createElement("div");
+    area.className = "library-chart__year anti-dewey-chart__area";
+    if (row.kind === "unclassified") {
+      area.textContent = lang === "en" ? "Unclassified" : "No clasificados";
+    } else {
+      area.textContent = deweyAreaName(row.code, lang);
+    }
+
+    const barWrap = document.createElement("div");
+    barWrap.className = "library-chart__bar-wrap anti-dewey-chart__bar-wrap";
+
+    const bar = document.createElement("div");
+    bar.className = "library-chart__bar";
+    if (row.count <= 0) {
+      bar.style.width = "0%";
+      bar.style.minWidth = "0";
+    } else {
+      bar.style.width = `${Math.max((row.count / maxCount) * 100, 2)}%`;
+    }
+
+    const label = document.createElement("span");
+    label.className = "library-chart__value";
+    const bookWord = lang === "en" ? "books" : "libros";
+    label.textContent = `${row.count} ${bookWord}`;
+
+    barWrap.appendChild(bar);
+    barWrap.appendChild(label);
+    item.appendChild(area);
+    item.appendChild(barWrap);
+    frag.appendChild(item);
+  }
+
+  chartEl.replaceChildren(frag);
+}
+
+function getActiveClassFilter() {
+  const param = new URLSearchParams(location.search).get("class");
+  if (!param) return null;
+  if (param === "unclassified") return "unclassified";
+  const n = Number.parseInt(param, 10);
+  return Number.isFinite(n) ? n : null;
+}
+
+function applyClassFilter(books, filter) {
+  if (filter === null) return books;
+  if (filter === "unclassified") {
+    return books.filter((b) => extractBookDeweyGeneralCodes(b).size === 0);
+  }
+  return books.filter((b) => extractBookDeweyGeneralCodes(b).has(filter));
+}
+
+function renderDeweyFilter(selectEl, books, lang, onFilterChange) {
+  if (!selectEl) return;
+  const { areaRows, unclassifiedCount } = computeDeweyGeneralCounts(books);
+  const activeFilter = getActiveClassFilter();
+  const sortedAreas = [...areaRows]
+    .filter((r) => r.count > 0)
+    .sort((a, b) => (b.count - a.count) || (a.code - b.code));
+
+  const allLabel = lang === "en" ? "All areas" : "Todas las áreas";
+  const unclassifiedLabel = lang === "en" ? "Unclassified" : "No clasificados";
+
+  const frag = document.createDocumentFragment();
+
+  const allOpt = document.createElement("option");
+  allOpt.value = "";
+  allOpt.textContent = allLabel;
+  if (activeFilter === null) allOpt.selected = true;
+  frag.appendChild(allOpt);
+
+  for (const row of sortedAreas) {
+    const opt = document.createElement("option");
+    opt.value = String(row.code);
+    opt.textContent = `${deweyAreaName(row.code, lang)} (${row.count})`;
+    if (activeFilter === row.code) opt.selected = true;
+    frag.appendChild(opt);
+  }
+
+  if (unclassifiedCount > 0) {
+    const opt = document.createElement("option");
+    opt.value = "unclassified";
+    opt.textContent = `${unclassifiedLabel} (${unclassifiedCount})`;
+    if (activeFilter === "unclassified") opt.selected = true;
+    frag.appendChild(opt);
+  }
+
+  selectEl.replaceChildren(frag);
+  selectEl.addEventListener("change", () => {
+    const val = selectEl.value;
+    const params = new URLSearchParams(location.search);
+    if (val) {
+      params.set("class", val);
+    } else {
+      params.delete("class");
+    }
+    const newSearch = params.toString() ? `?${params.toString()}` : "";
+    history.replaceState(null, "", `${location.pathname}${newSearch}${location.hash}`);
+    onFilterChange();
+  });
+}
 
 function parseDate(dateText) {
   const raw = String(dateText ?? "").trim();
@@ -428,14 +634,14 @@ function renderBookList(container, items, lang, seriesMap = new Map()) {
         this.src = list[idx];
       } else {
         this.onerror = null;
-        this.src = "./assets/images/dummy-cover.svg";
+        this.src = "./assets/images/dummy-cover.jpeg";
       }
     };
 
     if (candidates.length > 0) {
       img.src = candidates[0];
     } else {
-      img.src = "./assets/images/dummy-cover.svg";
+      img.src = "./assets/images/dummy-cover.jpeg";
     }
     coverWrapper.appendChild(img);
 
@@ -522,9 +728,15 @@ async function main() {
     .map((b) => ({ ...b, _date: parseDate(b.dateRead) }))
     .filter((b) => b._date)
     .sort((a, b) => (b._date?.getTime() ?? 0) - (a._date?.getTime() ?? 0));
+
+  const deweyChartEl = document.getElementById("lib-all-dewey-chart");
+  renderDeweyChart(deweyChartEl, books, lang);
+
   let pagerState = { currentPage: 1, pageSize: DEFAULT_PAGE_SIZE, showAll: false };
+  const getFilteredBooks = () => applyClassFilter(books, getActiveClassFilter());
   const onPagerAction = (event) => {
-    const maxPage = Math.max(1, Math.ceil(books.length / Math.max(1, pagerState.pageSize)));
+    const filtered = getFilteredBooks();
+    const maxPage = Math.max(1, Math.ceil(filtered.length / Math.max(1, pagerState.pageSize)));
     if (event.action === "prev") {
       pagerState.currentPage = Math.max(1, pagerState.currentPage - 1);
     } else if (event.action === "next") {
@@ -541,14 +753,20 @@ async function main() {
   let pagerTop = null;
   let pagerBottom = null;
   const rerender = () => {
-    const maxPage = Math.max(1, Math.ceil(books.length / Math.max(1, pagerState.pageSize)));
+    const filtered = getFilteredBooks();
+    const maxPage = Math.max(1, Math.ceil(filtered.length / Math.max(1, pagerState.pageSize)));
     if (pagerState.currentPage > maxPage) pagerState.currentPage = maxPage;
-    pagerTop?.renderState(pagerState, books.length);
-    pagerBottom?.renderState(pagerState, books.length);
-    const visibleBooks = applyPagination(books, pagerState);
+    pagerTop?.renderState(pagerState, filtered.length);
+    pagerBottom?.renderState(pagerState, filtered.length);
+    const visibleBooks = applyPagination(filtered, pagerState);
     renderBookList(listEl, visibleBooks, lang, seriesMap);
     hydrateLocalLikes(listEl, visibleBooks, lang).catch(() => {});
   };
+  const filterEl = document.getElementById("lib-all-dewey-filter");
+  renderDeweyFilter(filterEl, books, lang, () => {
+    pagerState.currentPage = 1;
+    rerender();
+  });
   pagerTop = createPagerControls(listEl, lang, onPagerAction, "before");
   pagerBottom = createPagerControls(listEl, lang, onPagerAction, "after");
   rerender();

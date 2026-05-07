@@ -59,7 +59,16 @@
         <div class="library-all-link-wrap" style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; margin-bottom: 1rem;">
           <a class="link library-all-link" id="btn-all-anti-library" href="./antibiblioteca.html">Ver antibiblioteca</a>
         </div>
+        <div id="lib-all-dewey-filter-wrap" class="library-filter-wrap">
+          <label for="lib-all-dewey-filter" id="lib-all-dewey-filter-label">Filtrar por área:</label>
+          <select id="lib-all-dewey-filter" class="library-filter-select"></select>
+        </div>
         <div id="all-books-list" class="library-book-list" aria-live="polite"></div>
+
+        <section id="lib-all-dewey-chart-section" class="library-chart" aria-label="Libros por clases Dewey" style="margin-top: 2.5rem;">
+          <h2 id="lib-all-h2-dewey" class="title-section title-section--small">Libros por áreas</h2>
+          <div id="lib-all-dewey-chart" class="library-chart__list anti-dewey-chart" aria-live="polite"></div>
+        </section>
       </div>
     </main>
 

@@ -345,14 +345,14 @@ function renderBookList(container, items, lang, seriesMap = new Map(), options =
         this.src = list[idx];
       } else {
         this.onerror = null;
-        this.src = "./assets/images/dummy-cover.svg";
+        this.src = "./assets/images/dummy-cover.jpeg";
       }
     };
 
     if (candidates.length > 0) {
       img.src = candidates[0];
     } else {
-      img.src = "./assets/images/dummy-cover.svg";
+      img.src = "./assets/images/dummy-cover.jpeg";
     }
     coverWrapper.appendChild(img);
 

@@ -1617,6 +1617,49 @@ body.photos-page .photos-intro {
   color: var(--black) !important;
 }
 
+#anti-dewey-chart-section .library-chart__row,
+#lib-all-dewey-chart-section .library-chart__row {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 0.35rem;
+}
+
+#anti-dewey-chart-section .anti-dewey-chart__area,
+#lib-all-dewey-chart-section .anti-dewey-chart__area {
+  font-weight: 600;
+}
+
+#anti-dewey-chart-section .anti-dewey-chart__bar-wrap,
+#lib-all-dewey-chart-section .anti-dewey-chart__bar-wrap {
+  width: 100%;
+}
+
+.library-filter-wrap {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin-bottom: 1rem;
+  flex-wrap: wrap;
+}
+
+.library-filter-wrap label {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--black);
+}
+
+.library-filter-select {
+  padding: 0.3rem 0.6rem;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  background: var(--white);
+  color: var(--black);
+  font-family: inherit;
+  font-size: 0.9rem;
+  cursor: pointer;
+}
+
 .library-lists {
   margin-top: 1rem;
   display: grid;
