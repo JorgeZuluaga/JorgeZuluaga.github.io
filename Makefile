@@ -8,7 +8,7 @@
 	reviews-first reviews-all reviews-force reviews-refresh reviews-fix reviews-enrich reviews-enrich-dry \
 	library-review-counts \
 	library-details-import library-details-match library-details-sync \
-	library-ddc-update \
+	library-ddc-update library-ddc-generate-pending library-ddc-apply-gemini \
 	worker-deploy
 
 PORT ?= 8000
@@ -24,6 +24,8 @@ REVIEW_RSS_PAGES ?= 100
 FORCE ?= 0
 SITE_BASE_URL ?= https://jorgezuluaga.github.io
 VISITOR_WORKER_BASE ?= https://visitor-log-worker.jorgezuluaga.workers.dev
+BATCH_SIZE ?= 50
+GEMINI_CLASSIFICATION_FILES ?= update/books-to-classify/gemini-code-*.json
 
 help:
 	@echo "Available targets:"
@@ -65,6 +67,10 @@ help:
 	@echo "  make library-details-match  - Match bookId from $(LIBRARY_JSON) into $(LIBRARY_DETAILS_JSON)"
 	@echo "  make library-details-sync   - Run import + match (use after changing bookbuddy.csv)"
 	@echo "  make library-ddc-update     - Update Dewey Decimal Classification (DDC) in library files"
+	@echo "  make library-ddc-generate-pending - Generate update/books_to_classify*.json for books without dcc_notes"
+	@echo "                            Optional: BATCH_SIZE=50"
+	@echo "  make library-ddc-apply-gemini - Apply Gemini classification files into library.json and library-details.json"
+	@echo "                            Optional: GEMINI_CLASSIFICATION_FILES='update/books-to-classify/gemini-code-*.json'"
 	@echo "  make worker-deploy      - Deploy Cloudflare worker (visitor-log-worker)"
 
 start:
@@ -278,6 +284,17 @@ library-details-match:
 
 # Recommended workflow when bookbuddy.csv changes.
 library-details-sync: library-details-import library-details-match
+
+library-ddc-generate-pending:
+	@python3 bin/generate_books_to_classify.py \
+		--library-json "$(LIBRARY_JSON)" \
+		--library-details "$(LIBRARY_DETAILS_JSON)" \
+		--output-dir update \
+		--prefix books_to_classify \
+		--batch-size "$(BATCH_SIZE)"
+
+library-ddc-apply-gemini:
+	@python3 bin/apply_dcc_from_gemini.py $(GEMINI_CLASSIFICATION_FILES)
 	@echo "Library details sync completed."
 
 # Update Dewey Decimal Classification based on OpenLibrary and Genres.
