@@ -8,6 +8,14 @@ El paso RSS/scrape de `build_library_from_goodreads.py` muestra **progreso en co
 
 ---
 
+## Dependencias (Python)
+
+Algunos scripts (p. ej. import de portadas desde BookBuddy) requieren paquetes extra.
+
+```bash
+python3 -m pip install -r requirements.txt
+```
+
 ## A. Actualizar solo los likes de Goodreads
 
 **Qué hace:** vuelve a leer el RSS (para tener la lista actual de libros leídos en la ventana paginada), **fusiona** con tu `library.json` existente y **recorre las páginas de reseña** en Goodreads para actualizar `reviewLikes`. No genera ni actualiza los HTML locales en `reviews/`.
@@ -75,7 +83,7 @@ Copiar o actualizar el plist en `~/Library/LaunchAgents/` y cargar con `launchct
 ## D. Actualizar lista desde BookBuddy
 
 1. Exporta desde BookBuddy y coloca (o actualiza) **`info/bookbuddy.csv`**.
-2. Opcional: export HTML con imágenes embebidas como **`update/bookbuddy.htm`** (nombre por defecto del extractor).
+2. Opcional: export HTML con imágenes embebidas como **`info/bookbuddy.htm`** (fallback: `update/bookbuddy.htm`).
 
 Importar filas nuevas a `library-details.json` y enlazar `bookId` con Goodreads:
 
@@ -91,7 +99,13 @@ Portadas desde el HTML:
 make library-bookbuddy-covers
 ```
 
-(Usa por defecto `update/bookbuddy.htm`; directorio de salida `antilibrary/covers` salvo que cambies `OUTPUT_DIR`.)
+(Usa por defecto `info/bookbuddy.htm` (fallback: `update/bookbuddy.htm`); directorio de salida `antilibrary/covers` salvo que cambies `OUTPUT_DIR`.)
+
+Nota: el paso de `library-details-match` **ya no añade** libros “solo BookBuddy” a `info/library.json` (para no inflar los totales). Si alguna vez quieres sembrar la antibiblioteca con esos libros, ejecuta:
+
+```bash
+python3 bin/match_library_details_bookids.py --add-details-only-to-library
+```
 
 ---
 
@@ -103,7 +117,7 @@ Antes o después de `make library-details-match`, genera un informe legible de f
 make library-cross-ref-report
 ```
 
-Salida: `update/cross-reference-report.md`. Revísalo y corrige a mano si hace falta; luego:
+Salida: `update/cross-reference-overrides.json`. Ábrelo y, para cada libro pendiente (en `library.json` con `matched:false`), rellena `chosenIsbn` con el ISBN correcto (idealmente uno de los `candidates[].isbn`; si no hay candidates, búscalo en `library-details.json` y pégalo). Luego:
 
 ```bash
 make library-details-match
@@ -126,7 +140,7 @@ Archivos típicos: `update/books_to_classify.json` o `update/books_to_classify_0
 ## G. Aplicar clasificaciones de Gemini
 
 ```bash
-make library-ddc-apply-gemini GEMINI_CLASSIFICATION_FILES='update/books-to-classify/gemini-code-*.json'
+make library-ddc-apply-gemini GEMINI_CLASSIFICATION_FILES='update/gemini-code-*.json'
 ```
 
 Opcionalmente alinea la misma metadata Dewey hacia `library-details.json` para filas ya enlazadas por `bookId` / ISBN:
@@ -134,6 +148,39 @@ Opcionalmente alinea la misma metadata Dewey hacia `library-details.json` para f
 ```bash
 make sync-dcc-library-details
 ```
+
+---
+
+## H. Puntuación DrZ (Gemini → `drzrating`)
+
+1) Exporta pendientes + contexto:
+
+```bash
+make library-drzrating-gemini-export
+```
+
+- Pendientes: `update/drzrating_pending.json`
+- Contexto: `update/drzrating_context.json`
+- Prompt del Gem: `update/gem-puntuacion.md`
+
+2) Pasa `update/drzrating_pending.json` por tu Gem de Gemini y guarda la salida como un JSON con este formato:
+
+```json
+[
+  { "bookId": "237811588", "DrZRating": 94 },
+  { "bookId": "36006321", "DrZRating": 88 }
+]
+```
+
+Guárdalo por ejemplo como: `update/drzrating_gemini_output.json`.
+
+3) Aplica el puntaje a `info/library.json`:
+
+```bash
+make library-drzrating-gemini-apply IN=update/drzrating_gemini_output.json
+```
+
+Esto actualiza el campo `drzrating` de cada `bookId` encontrado.
 
 ---
 
@@ -147,17 +194,38 @@ Ejecuta en orden: likes → últimas reseñas → import BookBuddy → stub `dcc
 
 ---
 
-## Otros objetivos útiles (`make help`)
+## 2) Flujo manual semestral (cursos, artículos, citaciones)
 
-| Target | Uso |
-|--------|-----|
-| `library-stats` | Regenera `info/library-stats.json`. |
-| `reviews-all` / `reviews-force` | Mirror completo de reseñas (pesado). |
-| `library-update` | Flujo **legado** `FORCE=0|1|2` + reviews + details-sync (preferir A/B/C arriba). |
-| `notebooklm-reviews-export` | Exporta reseñas a Markdown en `update/reviews/`. |
+### A. Actualizar cursos (Google Classroom)
+
+```bash
+make classroom
+```
+
+Si hay cambios en contenido de cursos, revisa también:
+- `info/teaching-course-details.json`.
+
+### B. Actualizar artículos y citaciones
+
+1) guarda insumos en `update/`:
+- `update/google-scholar.html`
+- `update/google-scholar.bib`
+- `update/orcid.bib`
+
+2) actualiza `info/papers.json` (manual o con apoyo de IA), validando:
+- recientes,
+- top citados,
+- preprints.
+
+### C. (Opcional semestral) recomputar stats derivados
+
+```bash
+make library-stats
+```
 
 ---
 
-## Scripts viejos
+## Más detalle
 
-Herramientas sustituidas o poco usadas están en **`update/deprecated-bin/`** (véase el README allí).
+Para el procedimiento completo y troubleshooting, ver `UPDATE.md`.
+

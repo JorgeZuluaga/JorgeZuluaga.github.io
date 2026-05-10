@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
-"""Genera archivos de libros pendientes de clasificar (sin razonamiento Gemini).
+"""Genera archivos de libros pendientes de clasificar (sin clasificación DCC).
 
-Un libro se considera ya clasificado solo si ``dcc_notes.reasoning`` tiene texto.
+Un libro se considera ya clasificado si tiene cualquier señal de clasificación DCC:
+`dcc_codes`, `dcc_classes` o `dcc_notes` con contenido.
 Busca en:
 - info/library.json
 - info/library-details.json
@@ -62,6 +63,39 @@ def has_dcc_notes(book: dict[str, Any]) -> bool:
         return False
     return bool(str(notes.get("reasoning") or "").strip())
 
+def has_any_dcc_classification(book: dict[str, Any]) -> bool:
+    """True si el libro ya tiene clasificación DCC (en cualquier forma).
+
+    Acepta distintos estados:
+    - `dcc_codes` con al menos un código
+    - `dcc_classes` no vacío
+    - `dcc_notes` con cualquier campo no vacío (incluye `reasoning`)
+    """
+    if not isinstance(book, dict):
+        return False
+    codes = book.get("dcc_codes")
+    if isinstance(codes, list) and any(str(x or "").strip() for x in codes):
+        return True
+    classes = book.get("dcc_classes")
+    if isinstance(classes, dict) and any(str(k).strip() for k in classes.keys()):
+        return True
+    notes = book.get("dcc_notes")
+    if isinstance(notes, dict):
+        for v in notes.values():
+            if isinstance(v, str) and v.strip():
+                return True
+            if isinstance(v, (int, float)) and v != 0:
+                return True
+            if isinstance(v, (list, dict)) and len(v) > 0:
+                return True
+    return False
+
+def norm_isbn(value: Any) -> str:
+    return re.sub(r"[^0-9Xx]", "", str(value or "")).upper()
+
+def key_title_author(title: str, author: str) -> str:
+    return normalized_title_author(title, author)
+
 
 def to_float(value: Any) -> float:
     try:
@@ -73,7 +107,7 @@ def to_float(value: Any) -> float:
 
 
 def build_from_library_details(book: dict[str, Any], idx: int) -> dict[str, Any] | None:
-    if has_dcc_notes(book):
+    if has_any_dcc_classification(book):
         return None
 
     title = (book.get("Title") or "").strip()
@@ -107,7 +141,7 @@ def build_from_library_details(book: dict[str, Any], idx: int) -> dict[str, Any]
 
 
 def build_from_library(book: dict[str, Any], idx: int) -> dict[str, Any] | None:
-    if has_dcc_notes(book):
+    if has_any_dcc_classification(book):
         return None
 
     title = (book.get("title") or "").strip()
@@ -237,9 +271,49 @@ def main() -> None:
 
     missing_candidates: list[dict[str, Any]] = []
 
-    print("[books-to-classify] Filtrando filas sin reasoning Gemini…", flush=True)
+    # Build "already classified" indexes across both sources.
+    classified_book_ids: set[str] = set()
+    classified_isbns: set[str] = set()
+    classified_title_author: set[str] = set()
+
+    for b in library_data.get("books", []):
+        if not isinstance(b, dict):
+            continue
+        if not has_any_dcc_classification(b):
+            continue
+        bid = str(b.get("bookId") or "").strip()
+        if bid:
+            classified_book_ids.add(bid)
+        classified_title_author.add(key_title_author(str(b.get("title") or ""), str(b.get("author") or "")))
+
+    for b in details_data.get("books", []):
+        if not isinstance(b, dict):
+            continue
+        if not has_any_dcc_classification(b):
+            continue
+        bid = str(b.get("bookId") or "").strip()
+        if bid:
+            classified_book_ids.add(bid)
+        isbn = norm_isbn(b.get("ISBN") or b.get("isbn"))
+        if isbn:
+            classified_isbns.add(isbn)
+        classified_title_author.add(
+            key_title_author(str(b.get("Title") or b.get("title") or ""), str(b.get("Author") or b.get("author") or ""))
+        )
+
+    print("[books-to-classify] Filtrando filas sin clasificación DCC…", flush=True)
     for idx, b in enumerate(details_data.get("books", [])):
         if not isinstance(b, dict):
+            continue
+        # Skip if classified elsewhere (linked by bookId/isbn/title+author).
+        bid = str(b.get("bookId") or "").strip()
+        if bid and bid in classified_book_ids:
+            continue
+        isbn = norm_isbn(b.get("ISBN") or b.get("isbn"))
+        if isbn and isbn in classified_isbns:
+            continue
+        ta = key_title_author(str(b.get("Title") or b.get("title") or ""), str(b.get("Author") or b.get("author") or ""))
+        if ta in classified_title_author:
             continue
         row = build_from_library_details(b, idx)
         if row:
@@ -247,6 +321,12 @@ def main() -> None:
 
     for idx, b in enumerate(library_data.get("books", [])):
         if not isinstance(b, dict):
+            continue
+        bid = str(b.get("bookId") or "").strip()
+        if bid and bid in classified_book_ids:
+            continue
+        ta = key_title_author(str(b.get("title") or ""), str(b.get("author") or ""))
+        if ta in classified_title_author:
             continue
         row = build_from_library(b, idx)
         if row:

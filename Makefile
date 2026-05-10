@@ -44,7 +44,9 @@ help:
 	@echo "  make library-goodreads-reviews-latest - Últimas ~10 reseñas en reviews/"
 	@echo "  make library-daily-goodreads      - Script diario: likes + últimas reseñas + stats"
 	@echo "  make library-bookbuddy-update     - Import CSV + stub dcc_classes + match bookIds"
-	@echo "  make library-bookbuddy-covers     - Portadas desde update/bookbuddy.htm"
+	@echo "  make library-bookbuddy-covers     - Portadas desde info/bookbuddy.htm (fallback: update/bookbuddy.htm)"
+	@echo "  make library-drzrating-gemini-export - Exporta pendientes+contexto DrZ para Gemini"
+	@echo "  make library-drzrating-gemini-apply  - Aplica DrZRating desde JSON de Gemini"
 	@echo "  make library-cross-ref-report     - Informe cruces → update/cross-reference-report.md"
 	@echo "  make library-ddc-generate-pending - Lotes Gemini (sin reasoning detallado)"
 	@echo "  make library-ddc-apply-gemini     - Aplicar JSON devueltos por Gemini"
@@ -330,7 +332,8 @@ library-details-import:
 library-details-match:
 	@python3 bin/match_library_details_bookids.py \
 		--library-json "$(LIBRARY_JSON)" \
-		--library-details-json "$(LIBRARY_DETAILS_JSON)"
+		--library-details-json "$(LIBRARY_DETAILS_JSON)" \
+		--cross-ref-json "update/cross-reference-overrides.json"
 
 # Recommended workflow when bookbuddy.csv changes.
 library-details-sync: library-details-import library-details-match
@@ -341,7 +344,7 @@ library-bookbuddy-update: library-details-import library-stub-dcc-details librar
 library-stub-dcc-details:
 	@python3 bin/stub_empty_dcc_library_details.py --library-details-json "$(LIBRARY_DETAILS_JSON)"
 
-# Portadas embebidas desde export HTML BookBuddy (por defecto update/bookbuddy.htm).
+# Portadas embebidas desde export HTML BookBuddy (por defecto info/bookbuddy.htm; fallback update/bookbuddy.htm).
 library-bookbuddy-covers:
 	@python3 bin/extract_bookbuddy_embedded_covers.py \
 		--output-dir "$${OUTPUT_DIR:-antilibrary/covers}"
@@ -350,7 +353,9 @@ library-bookbuddy-covers:
 library-cross-ref-report:
 	@python3 bin/report_cross_reference_candidates.py \
 		--library-json "$(LIBRARY_JSON)" \
-		--library-details-json "$(LIBRARY_DETAILS_JSON)"
+		--library-details-json "$(LIBRARY_DETAILS_JSON)" \
+		--only-unmatched \
+		--out "update/cross-reference-overrides.json"
 
 # Copiar clasificación DCC desde library.json hacia filas enlazadas en library-details.json.
 sync-dcc-library-details:
@@ -365,6 +370,18 @@ library-ddc-generate-pending:
 		--output-dir update \
 		--prefix books_to_classify \
 		--batch-size "$(BATCH_SIZE)"
+
+library-drzrating-gemini-export:
+	@echo ""
+	@echo ">>> library-drzrating-gemini-export → update/drzrating_pending.json + update/drzrating_context.json"
+	@python3 bin/export_drzrating_for_gemini.py --library-json "$(LIBRARY_JSON)"
+
+library-drzrating-gemini-apply:
+	@echo ""
+	@echo ">>> library-drzrating-gemini-apply IN=update/drzrating_gemini_output.json → $(LIBRARY_JSON)"
+	@python3 bin/apply_drzrating_from_gemini.py \
+		--in-json "$${IN:-update/drzrating_gemini_output.json}" \
+		--library-json "$(LIBRARY_JSON)"
 
 library-ddc-apply-gemini:
 	@echo ""

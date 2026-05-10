@@ -302,6 +302,8 @@ def build_library_data(
                 "drzrating": -1,
             }
         entry["bookDetails"] = 1 if book_id in details_book_ids else 0
+        # matched means: this Goodreads bookId is already linked to some row in library-details.json
+        entry["matched"] = bool(book_id in details_book_ids)
 
         books.append(entry)
         should_scrape_likes = False

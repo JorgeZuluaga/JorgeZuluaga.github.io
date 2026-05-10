@@ -60,7 +60,7 @@ def main() -> int:
     )
     parser.add_argument(
         "--input-html",
-        default="update/bookbuddy.htm",
+        default="info/bookbuddy.htm",
         help="Path to BookBuddy HTML export.",
     )
     parser.add_argument(
@@ -81,6 +81,11 @@ def main() -> int:
     args = parser.parse_args()
 
     input_html = Path(args.input_html)
+    # Backwards-compatible fallback: older docs/scripts used update/bookbuddy.htm
+    if str(args.input_html) == "info/bookbuddy.htm" and not input_html.exists():
+        fallback = Path("update/bookbuddy.htm")
+        if fallback.exists():
+            input_html = fallback
     output_dir = Path(args.output_dir)
     report_json = Path(args.report_json)
 
