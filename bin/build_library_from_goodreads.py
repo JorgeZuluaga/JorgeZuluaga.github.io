@@ -247,6 +247,12 @@ def build_library_data(
         is_new = existing is None
 
         if existing:
+            # Never overwrite drzrating from RSS/sync — it is user- or script-maintained.
+            preserved_drz = (
+                existing["drzrating"]
+                if "drzrating" in existing
+                else -1
+            )
             entry = dict(existing)
             existing_review_url = str(entry.get("reviewUrl") or "").strip()
 
@@ -281,8 +287,7 @@ def build_library_data(
                 entry["reviewLikes"] = review_likes
             if "scrapeStatus" not in entry:
                 entry["scrapeStatus"] = scrape_status
-            if "drzrating" not in entry:
-                entry["drzrating"] = 0
+            entry["drzrating"] = preserved_drz
         else:
             entry = {
                 "bookId": book_id,
@@ -294,7 +299,7 @@ def build_library_data(
                 "hasReview": has_review,
                 "reviewLikes": review_likes,
                 "scrapeStatus": scrape_status,
-                "drzrating": 0,
+                "drzrating": -1,
             }
         entry["bookDetails"] = 1 if book_id in details_book_ids else 0
 

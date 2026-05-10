@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Calculates drzrating for books that have drzrating: 0 in info/library.json."""
+"""Calculates drzrating for books that still have drzrating -1 or 0 in info/library.json."""
 
 import argparse
 import json
@@ -70,7 +70,9 @@ def calculate_drzrating(book, base_path):
     return final_score
 
 def main() -> int:
-    parser = argparse.ArgumentParser(description="Update drzrating for new books (where drzrating=0).")
+    parser = argparse.ArgumentParser(
+        description="Update drzrating for pending books (drzrating is -1 or 0)."
+    )
     parser.add_argument("--library-json", default="info/library.json", help="Path to library.json")
     parser.add_argument("--base-dir", default=".", help="Base directory for resolving review paths")
     args = parser.parse_args()
@@ -84,12 +86,16 @@ def main() -> int:
         data = json.load(f)
         
     books = data.get("books", [])
-    pending = sum(1 for b in books if isinstance(b, dict) and b.get("drzrating") == 0)
-    print(f"[drzrating] Libros con drzrating=0 a evaluar: {pending}", flush=True)
+
+    def _pending_drz(b: dict) -> bool:
+        return isinstance(b, dict) and b.get("drzrating") in (-1, 0)
+
+    pending = sum(1 for b in books if _pending_drz(b))
+    print(f"[drzrating] Libros pendientes (drzrating -1 o 0) a evaluar: {pending}", flush=True)
     changed = 0
 
     for book in books:
-        if book.get("drzrating") == 0:
+        if _pending_drz(book):
             new_rating = calculate_drzrating(book, args.base_dir)
             if new_rating != 0:
                 book["drzrating"] = new_rating

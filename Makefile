@@ -101,6 +101,8 @@ library-build:
 		--out "$(LIBRARY_JSON)" \
 		--rss-pages "$(RSS_PAGES)" \
 		--scrape-likes-mode all \
+		--merge-from "$(LIBRARY_JSON)" \
+		--library-details-json "$(LIBRARY_DETAILS_JSON)" \
 		--cookie "$(COOKIE)" \
 		--verbose
 
@@ -196,7 +198,7 @@ library-stats:
 	@echo ">>> library-stats → $(LIBRARY_STATS_JSON)"
 	@python3 bin/update_library_stats.py "$(LIBRARY_JSON)" --out "$(LIBRARY_STATS_JSON)"
 
-# Update custom drzrating for newly added books (drzrating = 0)
+# Update custom drzrating for books still pending (drzrating -1 or 0)
 library-drzrating-update:
 	@echo ""
 	@echo ">>> library-drzrating-update"
