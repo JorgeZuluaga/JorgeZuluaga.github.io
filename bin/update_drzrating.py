@@ -84,8 +84,10 @@ def main() -> int:
         data = json.load(f)
         
     books = data.get("books", [])
+    pending = sum(1 for b in books if isinstance(b, dict) and b.get("drzrating") == 0)
+    print(f"[drzrating] Libros con drzrating=0 a evaluar: {pending}", flush=True)
     changed = 0
-    
+
     for book in books:
         if book.get("drzrating") == 0:
             new_rating = calculate_drzrating(book, args.base_dir)

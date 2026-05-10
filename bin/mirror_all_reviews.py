@@ -3,7 +3,7 @@
 
 HTML layout (incl. menú de secciones de biblioteca) viene de
 ``mirror_first_review.build_local_page`` / ``REVIEW_PAGE_LIBRARY_SUBNAV_HTML``.
-Para insertar solo el menú en mirrors antiguos: ``python3 bin/inject_review_library_nav.py``.
+Para insertar solo el menú en mirrors antiguos: ``python3 update/deprecated-bin/inject_review_library_nav.py``.
 """
 
 from __future__ import annotations
@@ -158,6 +158,7 @@ def main() -> int:
     covers_dir = reviews_dir / "covers"
     covers_dir.mkdir(parents=True, exist_ok=True)
 
+    print(f"[mirror] Cargando {library_path} …", flush=True)
     with library_path.open("r", encoding="utf-8") as f:
         library = json.load(f)
 
@@ -190,6 +191,11 @@ def main() -> int:
 
         is_latest_window = idx <= refresh_latest
         if already_mirrored and not args.force and not is_latest_window:
+            if out_file.exists():
+                book.setdefault(
+                    "reviewLocalUrl",
+                    f"./{reviews_dir.as_posix()}/{out_file.name}",
+                )
             skipped += 1
             print(f"[{idx}/{total}] SKIP | {title}")
             continue
@@ -210,6 +216,11 @@ def main() -> int:
 
             if not review_fragment:
                 review_fragment = str(rss_data.get("review_text") or "").strip()
+                if review_fragment and is_signin_page(page_title):
+                    print(
+                        "[mirror] Texto tomado del RSS (la página de Goodreads exige iniciar sesión).",
+                        flush=True,
+                    )
             review_date = str(rss_data.get("review_date") or "").strip()
             cover_url = str(rss_data.get("cover_url") or "").strip()
 

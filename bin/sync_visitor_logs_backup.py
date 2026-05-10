@@ -145,6 +145,11 @@ def main() -> int:
     pages = 0
     reached_end = False
 
+    print(
+        f"[visitor-logs] Sincronizando logs → {ndjson_path} (worker {args.worker_base})…",
+        flush=True,
+    )
+
     with ndjson_path.open("a", encoding="utf-8") as out:
         while pages < max_pages:
             pages += 1

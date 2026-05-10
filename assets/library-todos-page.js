@@ -414,11 +414,21 @@ function bookIdentityKey(book) {
   return `${titleCore(book?.title)}|${authorCore(book?.author)}`;
 }
 
+function hasReview(item) {
+  if (!String(item?.reviewUrl ?? "").includes("/review/show/")) return false;
+  if (item?.hasReview === false) return false;
+  if (item?.hasReview === true) return true;
+  const wc = Number(item?.reviewCount);
+  if (Number.isFinite(wc)) return wc >= 25;
+  return true;
+}
+
 function isReadBook(book) {
   if (book?._dateRead) return true;
-  if (String(book?.reviewUrl || "").trim()) return true;
-  if (book?.hasReview === true) return true;
-  if (String(book?.reviewLocalUrl || "").trim()) return true;
+  const dr = String(book?.dateRead || "").trim();
+  if (dr) return true;
+  const r = Number(book?.rating);
+  if (Number.isFinite(r) && r > 0) return true;
   return false;
 }
 
@@ -516,6 +526,23 @@ function formatRating(rating, lang) {
 function parseReviewIdFromUrl(reviewUrl) {
   const match = String(reviewUrl || "").match(/\/review\/show\/(\d+)/);
   return match ? match[1] : "";
+}
+
+function effectiveLocalReviewHref(item) {
+  const explicit = String(item?.reviewLocalUrl || "").trim();
+  if (explicit.endsWith(".html")) return explicit;
+  const id = parseReviewIdFromUrl(item?.reviewUrl);
+  if (!id) return "";
+  return `./reviews/${id}.html`;
+}
+
+function pushReviewMirrorCoverCandidates(candidates, reviewUrl) {
+  const id = parseReviewIdFromUrl(reviewUrl);
+  if (!id) return;
+  candidates.push(`./reviews/covers/${id}.jpg`);
+  candidates.push(`./reviews/covers/${id}.jpeg`);
+  candidates.push(`./reviews/covers/${id}.png`);
+  candidates.push(`./reviews/covers/${id}.webp`);
 }
 
 function reviewActionLabel(item, lang) {
@@ -691,12 +718,8 @@ async function hydrateGoodreadsStatsLocalTotal(totalEl, reviewedItems) {
   totalEl.textContent = String(total);
 }
 
-function hasGoodreadsReviewUrl(item) {
-  return String(item?.reviewUrl ?? "").includes("/review/show/");
-}
-
 function populateTodosGoodreadsStats(booksRead, catalogTotal) {
-  const reviewed = booksRead.filter((b) => hasGoodreadsReviewUrl(b));
+  const reviewed = booksRead.filter((b) => hasReview(b));
   const totalReviewed = reviewed.length;
   const pctBase = Number.isFinite(Number(catalogTotal)) && Number(catalogTotal) > 0
     ? Number(catalogTotal)
@@ -895,6 +918,7 @@ function appendUnreadCard(frag, item, lang) {
 
   const candidates = [];
   if (item.reviewLocalCoverUrl) candidates.push(item.reviewLocalCoverUrl);
+  pushReviewMirrorCoverCandidates(candidates, item.reviewUrl);
   if (item.uploadedImageUrl) candidates.push(item.uploadedImageUrl);
 
   const isbnStr = String(item.isbn || item.ISBN || "").replace(/[^0-9Xx]/g, "").toUpperCase();
@@ -998,13 +1022,14 @@ function appendReadCard(frag, item, lang, seriesMap, detailsBookIdSet) {
   meta3.innerHTML = meta3Parts.join(" · ");
 
   const reviewUrl = String(item.reviewUrl || "");
-  const localReviewUrl = String(item.reviewLocalUrl || "");
+  const localReviewHref = effectiveLocalReviewHref(item);
   const hasReviewUrl = reviewUrl.includes("/review/show/");
-  const hasLocalReview = localReviewUrl.endsWith(".html");
+  const hasLocalReview = Boolean(localReviewHref);
   const reviewId = parseReviewIdFromUrl(item.reviewUrl);
+  const publishedReview = hasReview(item);
+  const hasAnyReviewUrl = hasLocalReview || hasReviewUrl;
 
   const grBookId = String(item.bookId || "").trim();
-  const hasReview = hasLocalReview || hasReviewUrl;
 
   const actionsDesc = document.createElement("p");
   actionsDesc.className = "library-book-item__actions";
@@ -1018,12 +1043,12 @@ function appendReadCard(frag, item, lang, seriesMap, detailsBookIdSet) {
   }
 
   let reviewHtml = "";
-  if (hasLocalReview) {
-    reviewHtml += `<a class="link" href="${escapeLibrary(localReviewUrl)}">${escapeLibrary(reviewActionLabel(item, lang))}</a>`;
-  } else if (hasReviewUrl) {
+  if (publishedReview && hasLocalReview) {
+    reviewHtml += `<a class="link" href="${escapeLibrary(localReviewHref)}">${escapeLibrary(reviewActionLabel(item, lang))}</a>`;
+  } else if (publishedReview && hasReviewUrl) {
     reviewHtml += `<a class="link" href="${escapeLibrary(reviewUrl)}" target="_blank" rel="noopener noreferrer">${escapeLibrary(reviewActionLabel(item, lang))}</a>`;
   }
-  if (hasReview) {
+  if (publishedReview && hasAnyReviewUrl) {
     const reactionsText = lang === "en" ? "Reactions to the review" : "Reacciones a la reseña";
     const likesCount = Number.isFinite(Number(item.reviewLikes)) ? item.reviewLikes : 0;
     const reactionsPart = `${reactionsText} <span class="library-tooltip" data-title="${escapeLibrary(t("library_likes_gr_hover", lang))}">👍 ${likesCount}</span>${localLikesSuffixHtml(reviewId, lang)}`;
@@ -1056,6 +1081,7 @@ function appendReadCard(frag, item, lang, seriesMap, detailsBookIdSet) {
 
   const candidates = [];
   if (item.reviewLocalCoverUrl) candidates.push(item.reviewLocalCoverUrl);
+  pushReviewMirrorCoverCandidates(candidates, item.reviewUrl);
 
   const isbnStr = String(item.isbn || item.ISBN || "").replace(/[^0-9Xx]/g, "").toUpperCase();
   if (isbnStr) {

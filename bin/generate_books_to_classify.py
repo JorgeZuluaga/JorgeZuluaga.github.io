@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
-"""Genera archivos de libros pendientes de clasificar (sin dcc_notes).
+"""Genera archivos de libros pendientes de clasificar (sin razonamiento Gemini).
 
+Un libro se considera ya clasificado solo si ``dcc_notes.reasoning`` tiene texto.
 Busca en:
 - info/library.json
 - info/library-details.json
@@ -55,7 +56,11 @@ def normalized_title_author(title: str, author: str) -> str:
 
 
 def has_dcc_notes(book: dict[str, Any]) -> bool:
-    return isinstance(book.get("dcc_notes"), dict)
+    """Considera clasificado solo si hay razonamiento Gemini (texto no vacío)."""
+    notes = book.get("dcc_notes")
+    if not isinstance(notes, dict):
+        return False
+    return bool(str(notes.get("reasoning") or "").strip())
 
 
 def to_float(value: Any) -> float:
@@ -204,7 +209,9 @@ def write_batches(books: list[dict[str, Any]], output_dir: Path, batch_size: int
 
 
 def parse_args() -> argparse.Namespace:
-    p = argparse.ArgumentParser(description="Genera lotes de libros sin dcc_notes")
+    p = argparse.ArgumentParser(
+        description="Genera lotes de libros pendientes de clasificación detallada (reasoning Gemini vacío)."
+    )
     p.add_argument("--library-json", default="info/library.json", help="Ruta a library.json")
     p.add_argument("--library-details", default="info/library-details.json", help="Ruta a library-details.json")
     p.add_argument("--output-dir", default="update", help="Directorio de salida")
@@ -221,11 +228,16 @@ def main() -> None:
     library_details_path = (workspace / args.library_details).resolve()
     output_dir = (workspace / args.output_dir).resolve()
 
+    print(
+        f"[books-to-classify] Leyendo {library_json_path} y {library_details_path} …",
+        flush=True,
+    )
     library_data = json.loads(library_json_path.read_text(encoding="utf-8"))
     details_data = json.loads(library_details_path.read_text(encoding="utf-8"))
 
     missing_candidates: list[dict[str, Any]] = []
 
+    print("[books-to-classify] Filtrando filas sin reasoning Gemini…", flush=True)
     for idx, b in enumerate(details_data.get("books", [])):
         if not isinstance(b, dict):
             continue

@@ -1,14 +1,20 @@
 .PHONY: \
 	help start dev stop \
 	classroom \
-	library-build library-update library-stats library-refresh library-local-likes-sync visitor-logs-sync library-antibiblioteca-sync \
+	library-build \
+	library-goodreads-likes library-goodreads-books-only library-goodreads-reviews-latest \
+	library-daily-goodreads \
+	library-update library-stats library-refresh library-local-likes-sync visitor-logs-sync library-antibiblioteca-sync \
 	notebooklm-reviews-export \
 	antilibrary-covers-fetch \
 	antilibrary-covers-extract-html \
 	reviews-first reviews-all reviews-force reviews-refresh reviews-fix reviews-enrich reviews-enrich-dry \
 	library-review-counts \
 	library-details-import library-details-match library-details-sync \
+	library-bookbuddy-update library-bookbuddy-covers library-stub-dcc-details library-cross-ref-report \
 	library-ddc-update library-ddc-generate-pending library-ddc-apply-gemini \
+	sync-dcc-library-details \
+	update-all-books \
 	worker-deploy
 
 PORT ?= 8000
@@ -17,8 +23,10 @@ LIBRARY_JSON ?= info/library.json
 LIBRARY_STATS_JSON ?= info/library-stats.json
 LIBRARY_DETAILS_JSON ?= info/library-details.json
 BOOKBUDDY_CSV ?= info/bookbuddy.csv
-RSS_URL ?=
-COOKIE ?= 
+# Por defecto: una línea en cada archivo (sin commit; .secrets/ está en .gitignore).
+RSS_URL ?= $(shell cat .secrets/rss 2>/dev/null | tr -d '\r\n')
+COOKIE ?= $(shell cat .secrets/cookie 2>/dev/null | tr -d '\r\n')
+export RSS_URL COOKIE
 RSS_PAGES ?= 100
 REVIEW_RSS_PAGES ?= 100
 FORCE ?= 0
@@ -28,50 +36,26 @@ BATCH_SIZE ?= 50
 GEMINI_CLASSIFICATION_FILES ?= update/books-to-classify/gemini-code-*.json
 
 help:
-	@echo "Available targets:"
-	@echo "  make help               - Show this help"
-	@echo "  make start              - Start simple HTTP server (background)"
-	@echo "  make dev                - Start hot-reload local dev server"
-	@echo "  make stop               - Stop server running on PORT"
-	@echo "  make classroom          - Sync Google Classroom courses"
-	@echo "  make library-build      - Build info/library.json from Goodreads RSS"
-	@echo "                            Required: RSS_URL=... Optional: COOKIE=... RSS_PAGES=... (likes completos)"
-	@echo "  make library-update     - Incremental update (books + reviews) using FORCE mode"
-	@echo "                            FORCE=0: solo libros nuevos, sin refresh de likes"
-	@echo "                            FORCE=1: likes/reseñas solo de libros nuevos"
-	@echo "                            FORCE=2: likes y reseñas completas (full refresh)"
-	@echo "  make library-stats      - Rebuild info/library-stats.json"
-	@echo "  make library-refresh    - Run library-build + library-stats"
-	@echo "  make library-local-likes-sync - Snapshot local likes from worker into info/library.json"
-	@echo "                            Optional: VISITOR_WORKER_BASE=... (default worker URL)"
-	@echo "  make visitor-logs-sync  - Sync historical visitor logs to local backup files in info/"
-	@echo "                            Required env: LOG_READ_TOKEN=... Optional: VISITOR_WORKER_BASE=..."
-	@echo "  make library-antibiblioteca-sync - Match library-details and seed unread books into library.json"
-	@echo "  make notebooklm-reviews-export - Export reviews to update/reviews in Markdown batches"
-	@echo "                            Optional: CHUNK_SIZE=5 (reviews per file)"
-	@echo "  make antilibrary-covers-fetch - Fetch anti-library covers by ISBN (pilot default 50)"
-	@echo "                            Optional: LIMIT=50 OUTPUT_DIR=antilibrary/covers RETRIES=3"
-	@echo "  make antilibrary-covers-extract-html - Extract embedded covers from BookBuddy HTML only"
-	@echo "                            Optional: BOOKBUDDY_HTML='update/BookBuddy ... .htm' OUTPUT_DIR=antilibrary/covers"
-	@echo "  make reviews-all        - Mirror all reviews in reviews/"
-	@echo "                            Optional: COOKIE=... REVIEW_RSS_PAGES=..."
-	@echo "  make reviews-first      - Mirror only the first review (smoke test)"
-	@echo "  make reviews-force      - Force regenerate all mirrored reviews"
-	@echo "  make reviews-refresh    - Run reviews-all + library-stats"
-	@echo "  make reviews-fix        - Fix review HTML text with Gemini"
-	@echo "                            Required env: GOOGLE_API_KEY=..."
-	@echo "  make reviews-enrich     - Enrich reviews/*.html with ISBN + purchase metadata from library-details"
-	@echo "  make reviews-enrich-dry - Preview review enrichment without writing changes"
-	@echo "  make library-review-counts - Recalculate reviewCount (word count) from local reviews/*.html"
-	@echo "  make library-details-import - Import $(BOOKBUDDY_CSV) into $(LIBRARY_DETAILS_JSON)"
-	@echo "  make library-details-match  - Match bookId from $(LIBRARY_JSON) into $(LIBRARY_DETAILS_JSON)"
-	@echo "  make library-details-sync   - Run import + match (use after changing bookbuddy.csv)"
-	@echo "  make library-ddc-update     - Update Dewey Decimal Classification (DDC) in library files"
-	@echo "  make library-ddc-generate-pending - Generate update/books_to_classify*.json for books without dcc_notes"
-	@echo "                            Optional: BATCH_SIZE=50"
-	@echo "  make library-ddc-apply-gemini - Apply Gemini classification files into library.json and library-details.json"
-	@echo "                            Optional: GEMINI_CLASSIFICATION_FILES='update/books-to-classify/gemini-code-*.json'"
-	@echo "  make worker-deploy      - Deploy Cloudflare worker (visitor-log-worker)"
+	@echo "Guía detallada: QUICKSTART.md"
+	@echo ""
+	@echo "Biblioteca (Goodreads / BookBuddy / Gemini):"
+	@echo "  make library-goodreads-likes      - Solo likes (RSS merge + scrape; sin mirror HTML)"
+	@echo "  make library-goodreads-books-only - Solo libros nuevos desde RSS (sin likes; preserva titles)"
+	@echo "  make library-goodreads-reviews-latest - Últimas ~10 reseñas en reviews/"
+	@echo "  make library-daily-goodreads      - Script diario: likes + últimas reseñas + stats"
+	@echo "  make library-bookbuddy-update     - Import CSV + stub dcc_classes + match bookIds"
+	@echo "  make library-bookbuddy-covers     - Portadas desde update/bookbuddy.htm"
+	@echo "  make library-cross-ref-report     - Informe cruces → update/cross-reference-report.md"
+	@echo "  make library-ddc-generate-pending - Lotes Gemini (sin reasoning detallado)"
+	@echo "  make library-ddc-apply-gemini     - Aplicar JSON devueltos por Gemini"
+	@echo "  make sync-dcc-library-details     - Copiar DCC de library.json a library-details"
+	@echo "  make update-all-books             - Cadena A→G parcial (véase QUICKSTART.md)"
+	@echo "  make library-update               - LEGACY: FORCE=0|1|2 + reviews-all/force + details-sync"
+	@echo ""
+	@echo "Servidor / otros:"
+	@echo "  make start | dev | stop | classroom | worker-deploy"
+	@echo "  make visitor-logs-sync (LOG_READ_TOKEN) | library-local-likes-sync"
+	@echo "  make reviews-all | reviews-force | notebooklm-reviews-export | ..."
 
 start:
 	@echo "Starting server on http://$(HOST):$(PORT)"
@@ -120,11 +104,61 @@ library-build:
 		--cookie "$(COOKIE)" \
 		--verbose
 
+# A: Solo actualizar likes desde Goodreads (RSS merge + scrape en páginas de reseña; no genera HTML en reviews/).
+library-goodreads-likes:
+	@echo ""
+	@echo ">>> library-goodreads-likes: RSS ($(RSS_PAGES) páginas) + scrape de likes → $(LIBRARY_JSON)"
+	@if [ -z "$(RSS_URL)" ]; then \
+		echo "RSS_URL vacío. Ejemplo: RSS_URL=\$$(python3 bin/read_library_rss_url.py) o export en la shell."; \
+		exit 1; \
+	fi
+	@python3 bin/build_library_from_goodreads.py \
+		--rss-url "$(RSS_URL)" \
+		--out "$(LIBRARY_JSON)" \
+		--rss-pages "$(RSS_PAGES)" \
+		--scrape-likes-mode all \
+		--merge-from "$(LIBRARY_JSON)" \
+		--library-details-json "$(LIBRARY_DETAILS_JSON)" \
+		--cookie "$(COOKIE)"
+
+# B: Solo incorporar libros leídos nuevos desde RSS (sin scrape de likes ni mirrors). No cambia title si ya existía.
+library-goodreads-books-only:
+	@echo ""
+	@echo ">>> library-goodreads-books-only: RSS sin likes → $(LIBRARY_JSON)"
+	@if [ -z "$(RSS_URL)" ]; then echo "RSS_URL vacío."; exit 1; fi
+	@python3 bin/build_library_from_goodreads.py \
+		--rss-url "$(RSS_URL)" \
+		--out "$(LIBRARY_JSON)" \
+		--rss-pages "$(RSS_PAGES)" \
+		--scrape-likes-mode none \
+		--merge-from "$(LIBRARY_JSON)" \
+		--library-details-json "$(LIBRARY_DETAILS_JSON)" \
+		--preserve-existing-titles \
+		--cookie "$(COOKIE)"
+
+# C: Mirror solo las ~10 reseñas más recientes (y portadas vía RSS cuando existan).
+library-goodreads-reviews-latest:
+	@echo ""
+	@echo ">>> library-goodreads-reviews-latest: mirror --refresh-latest 10"
+	@python3 bin/mirror_all_reviews.py \
+		--library-json "$(LIBRARY_JSON)" \
+		--reviews-dir reviews \
+		--cookie "$(COOKIE)" \
+		--rss-pages "$(REVIEW_RSS_PAGES)" \
+		--site-base-url "$(SITE_BASE_URL)" \
+		--refresh-latest 10
+
+# A+B+C en un script (usa RSS_URL de library.json si no se exporta).
+library-daily-goodreads:
+	@bash bin/run_daily_goodreads_sync.sh
+
 # Incremental update:
 # FORCE=0 -> no likes scrape; only new books are added to library, existing metadata is preserved.
 # FORCE=1 -> scrape likes only for new books, mirror only new reviews.
 # FORCE=2 -> full likes + full reviews refresh.
 library-update:
+	@echo ""
+	@echo ">>> library-update (LEGACY) FORCE=$(FORCE) → RSS + reviews + details-sync"
 	@if [ -z "$(RSS_URL)" ]; then \
 		echo "RSS_URL es obligatorio. Ejemplo:"; \
 		echo "make library-update RSS_URL=\"https://www.goodreads.com/review/list_rss/...\" FORCE=0"; \
@@ -158,10 +192,14 @@ library-update:
 
 # Regenerate info/library-stats.json from info/library.json.
 library-stats:
+	@echo ""
+	@echo ">>> library-stats → $(LIBRARY_STATS_JSON)"
 	@python3 bin/update_library_stats.py "$(LIBRARY_JSON)" --out "$(LIBRARY_STATS_JSON)"
 
 # Update custom drzrating for newly added books (drzrating = 0)
 library-drzrating-update:
+	@echo ""
+	@echo ">>> library-drzrating-update"
 	@python3 bin/update_drzrating.py \
 		--library-json "$(LIBRARY_JSON)" \
 		--base-dir "."
@@ -172,12 +210,16 @@ library-refresh: library-build library-details-sync library-stats
 
 # Save local review likes snapshot directly into info/library.json.
 library-local-likes-sync:
+	@echo ""
+	@echo ">>> library-local-likes-sync ($(VISITOR_WORKER_BASE))"
 	@python3 bin/sync_local_review_likes.py \
 		--library-json "$(LIBRARY_JSON)" \
 		--worker-base "$(VISITOR_WORKER_BASE)"
 
 # Sync historical visitor logs from worker into local backup snapshot files.
 visitor-logs-sync:
+	@echo ""
+	@echo ">>> visitor-logs-sync (worker $(VISITOR_WORKER_BASE))"
 	@if [ -z "$$LOG_READ_TOKEN" ]; then \
 		echo "LOG_READ_TOKEN es obligatorio."; \
 		echo "Ejemplo: LOG_READ_TOKEN=... make visitor-logs-sync"; \
@@ -214,6 +256,8 @@ antilibrary-covers-extract-html:
 
 # Generate/update local mirror for the first review only.
 reviews-first:
+	@echo ""
+	@echo ">>> reviews-first (smoke test mirror)"
 	@python3 bin/mirror_first_review.py \
 		--library-json "$(LIBRARY_JSON)" \
 		--reviews-dir reviews \
@@ -223,6 +267,8 @@ reviews-first:
 
 # Generate/update local mirror for all reviews found.
 reviews-all:
+	@echo ""
+	@echo ">>> reviews-all (mirror completo; puede tardar mucho)"
 	@python3 bin/mirror_all_reviews.py \
 		--library-json "$(LIBRARY_JSON)" \
 		--reviews-dir reviews \
@@ -232,6 +278,8 @@ reviews-all:
 
 # Force regenerate local mirror for all reviews.
 reviews-force:
+	@echo ""
+	@echo ">>> reviews-force (regenera todas las reseñas)"
 	@python3 bin/mirror_all_reviews.py \
 		--library-json "$(LIBRARY_JSON)" \
 		--reviews-dir reviews \
@@ -285,7 +333,30 @@ library-details-match:
 # Recommended workflow when bookbuddy.csv changes.
 library-details-sync: library-details-import library-details-match
 
+# D: Tras copiar bookbuddy.csv (y opcionalmente export HTML BookBuddy): import + marcador DCC vacío + match bookIds.
+library-bookbuddy-update: library-details-import library-stub-dcc-details library-details-match
+
+library-stub-dcc-details:
+	@python3 bin/stub_empty_dcc_library_details.py --library-details-json "$(LIBRARY_DETAILS_JSON)"
+
+# Portadas embebidas desde export HTML BookBuddy (por defecto update/bookbuddy.htm).
+library-bookbuddy-covers:
+	@python3 bin/extract_bookbuddy_embedded_covers.py \
+		--output-dir "$${OUTPUT_DIR:-antilibrary/covers}"
+
+# E: Informe markdown para revisar cruces antes/después de match_library_details_bookids.
+library-cross-ref-report:
+	@python3 bin/report_cross_reference_candidates.py \
+		--library-json "$(LIBRARY_JSON)" \
+		--library-details-json "$(LIBRARY_DETAILS_JSON)"
+
+# Copiar clasificación DCC desde library.json hacia filas enlazadas en library-details.json.
+sync-dcc-library-details:
+	@python3 bin/sync_dcc_library_to_library_details.py
+
 library-ddc-generate-pending:
+	@echo ""
+	@echo ">>> library-ddc-generate-pending → update/books_to_classify*.json"
 	@python3 bin/generate_books_to_classify.py \
 		--library-json "$(LIBRARY_JSON)" \
 		--library-details "$(LIBRARY_DETAILS_JSON)" \
@@ -294,12 +365,29 @@ library-ddc-generate-pending:
 		--batch-size "$(BATCH_SIZE)"
 
 library-ddc-apply-gemini:
+	@echo ""
+	@echo ">>> library-ddc-apply-gemini ($(GEMINI_CLASSIFICATION_FILES))"
 	@python3 bin/apply_dcc_from_gemini.py $(GEMINI_CLASSIFICATION_FILES)
-	@echo "Library details sync completed."
+	@echo "Clasificación Gemini aplicada. Opcional: make sync-dcc-library-details"
 
 # Update Dewey Decimal Classification based on OpenLibrary and Genres.
 library-ddc-update:
 	@python3 bin/update_ddc.py
+
+# Cadena automatizable (revisar informe de cruces antes de confiar en match).
+update-all-books:
+	@echo "→ likes Goodreads"
+	@$(MAKE) library-goodreads-likes
+	@echo "→ últimas reseñas locales"
+	@$(MAKE) library-goodreads-reviews-latest
+	@echo "→ BookBuddy CSV import + stub dcc_classes"
+	@$(MAKE) library-details-import
+	@$(MAKE) library-stub-dcc-details
+	@echo "→ informe cruces (editar details y luego: make library-details-match)"
+	@$(MAKE) library-cross-ref-report
+	@echo "→ lotes pendientes para Gemini"
+	@$(MAKE) library-ddc-generate-pending
+	@echo "Hecho. Pasos humanos: revisar update/cross-reference-report.md, make library-details-match, subir update/books_to_classify*.json a Gemini, make library-ddc-apply-gemini"
 
 # Deploy Cloudflare Worker defined in wrangler.toml.
 worker-deploy:

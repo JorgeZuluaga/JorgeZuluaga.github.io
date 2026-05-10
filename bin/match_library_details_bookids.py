@@ -125,6 +125,11 @@ def main() -> int:
     library_path = Path(args.library_json)
     details_path = Path(args.library_details_json)
 
+    print(
+        f"[match-details] Cruce bookId: {library_path} ↔ {details_path}",
+        flush=True,
+    )
+
     if not library_path.exists():
         raise SystemExit(f"File not found: {library_path}")
     if not details_path.exists():

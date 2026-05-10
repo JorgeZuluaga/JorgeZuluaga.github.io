@@ -51,6 +51,7 @@ def main() -> int:
     if not in_path.exists():
         raise SystemExit(f"Archivo no encontrado: {in_path}")
 
+    print(f"[library-stats] Leyendo {in_path} …", flush=True)
     src = read_json(in_path)
     existing = read_json(out_path)
     books = src.get("books", [])

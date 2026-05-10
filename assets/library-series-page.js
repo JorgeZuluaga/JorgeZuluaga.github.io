@@ -30,6 +30,19 @@ function escapeHtml(str) {
     .replace(/'/g, "&#039;");
 }
 
+function parseReviewIdFromUrl(reviewUrl) {
+  const match = String(reviewUrl || "").match(/\/review\/show\/(\d+)/);
+  return match ? match[1] : "";
+}
+
+function effectiveLocalReviewHref(book) {
+  const explicit = String(book?.reviewLocalUrl || "").trim();
+  if (explicit.endsWith(".html")) return explicit;
+  const id = parseReviewIdFromUrl(book?.reviewUrl);
+  if (!id) return "";
+  return `./reviews/${id}.html`;
+}
+
 function renderSeriesList(container, seriesItems, booksById, lang) {
   if (!container) return;
   if (!Array.isArray(seriesItems) || seriesItems.length === 0) {
@@ -59,7 +72,9 @@ function renderSeriesList(container, seriesItems, booksById, lang) {
       const bookId = String(bookRef.libraryBookId || "");
       const matchedBook = booksById.get(bookId);
       const bookTitle = String(bookRef.title || matchedBook?.title || "Libro");
-      const localReviewUrl = String(matchedBook?.reviewLocalUrl || "");
+      const localReviewHref = matchedBook
+        ? effectiveLocalReviewHref(matchedBook)
+        : "";
       const dateRead = String(matchedBook?.dateRead || "");
 
       const titleSpan = document.createElement("span");
@@ -67,10 +82,10 @@ function renderSeriesList(container, seriesItems, booksById, lang) {
       li.appendChild(titleSpan);
 
       const links = [];
-      if (localReviewUrl.endsWith(".html")) {
+      if (localReviewHref) {
         const localLink = document.createElement("a");
         localLink.className = "link";
-        localLink.href = withLangQuery(localReviewUrl);
+        localLink.href = withLangQuery(localReviewHref);
         localLink.textContent = t("library_view_review_local", lang);
         links.push(localLink);
       }

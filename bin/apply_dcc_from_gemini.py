@@ -510,6 +510,12 @@ def main() -> None:
     if missing:
         raise FileNotFoundError("No se encontraron rutas:\n- " + "\n- ".join(missing))
 
+    print(
+        f"[apply-dcc-gemini] Archivos Gemini: {len(classification_files)} → aplicando a "
+        f"{lib_json.name} y {lib_details.name}",
+        flush=True,
+    )
+
     main_classes, dewey_code_names = load_dewey_maps(dewey_plain)
     agg, aliases = build_aggregations(classification_files, main_classes, dewey_code_names)
 

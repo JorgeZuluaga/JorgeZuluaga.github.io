@@ -373,6 +373,32 @@ function parseReviewIdFromUrl(reviewUrl) {
   return match ? match[1] : "";
 }
 
+function hasReview(item) {
+  if (!String(item?.reviewUrl ?? "").includes("/review/show/")) return false;
+  if (item?.hasReview === false) return false;
+  if (item?.hasReview === true) return true;
+  const wc = Number(item?.reviewCount);
+  if (Number.isFinite(wc)) return wc >= 25;
+  return true;
+}
+
+function effectiveLocalReviewHref(item) {
+  const explicit = String(item?.reviewLocalUrl || "").trim();
+  if (explicit.endsWith(".html")) return explicit;
+  const id = parseReviewIdFromUrl(item?.reviewUrl);
+  if (!id) return "";
+  return `./reviews/${id}.html`;
+}
+
+function pushReviewMirrorCoverCandidates(candidates, reviewUrl) {
+  const id = parseReviewIdFromUrl(reviewUrl);
+  if (!id) return;
+  candidates.push(`./reviews/covers/${id}.jpg`);
+  candidates.push(`./reviews/covers/${id}.jpeg`);
+  candidates.push(`./reviews/covers/${id}.png`);
+  candidates.push(`./reviews/covers/${id}.webp`);
+}
+
 function reviewActionLabel(item, lang) {
   const n = Number(item?.reviewCount);
   if (Number.isFinite(n) && n < 100) {
@@ -546,12 +572,8 @@ async function hydrateGoodreadsStatsLocalTotal(totalEl, reviewedItems) {
   totalEl.textContent = String(total);
 }
 
-function hasGoodreadsReviewUrl(item) {
-  return String(item?.reviewUrl ?? "").includes("/review/show/");
-}
-
 function populateLibraryAllGoodreadsStats(booksRead) {
-  const reviewed = booksRead.filter((b) => hasGoodreadsReviewUrl(b));
+  const reviewed = booksRead.filter((b) => hasReview(b));
   const totalRead = booksRead.length;
   const totalReviewed = reviewed.length;
   const reviewedPct = totalRead ? (totalReviewed / totalRead) * 100 : 0;
@@ -764,13 +786,14 @@ function renderBookList(container, items, lang, seriesMap = new Map(), detailsBo
     meta3.innerHTML = meta3Parts.join(" · ");
 
     const reviewUrl = String(item.reviewUrl || "");
-    const localReviewUrl = String(item.reviewLocalUrl || "");
+    const localReviewHref = effectiveLocalReviewHref(item);
     const hasReviewUrl = reviewUrl.includes("/review/show/");
-    const hasLocalReview = localReviewUrl.endsWith(".html");
+    const hasLocalReview = Boolean(localReviewHref);
     const reviewId = parseReviewIdFromUrl(item.reviewUrl);
+    const publishedReview = hasReview(item);
+    const hasAnyReviewUrl = hasLocalReview || hasReviewUrl;
 
     const grBookId = String(item.bookId || "").trim();
-    const hasReview = hasLocalReview || hasReviewUrl;
 
     const actionsDesc = document.createElement("p");
     actionsDesc.className = "library-book-item__actions";
@@ -784,12 +807,12 @@ function renderBookList(container, items, lang, seriesMap = new Map(), detailsBo
     }
 
     let reviewHtml = "";
-    if (hasLocalReview) {
-      reviewHtml += `<a class="link" href="${escapeLibrary(localReviewUrl)}">${escapeLibrary(reviewActionLabel(item, lang))}</a>`;
-    } else if (hasReviewUrl) {
+    if (publishedReview && hasLocalReview) {
+      reviewHtml += `<a class="link" href="${escapeLibrary(localReviewHref)}">${escapeLibrary(reviewActionLabel(item, lang))}</a>`;
+    } else if (publishedReview && hasReviewUrl) {
       reviewHtml += `<a class="link" href="${escapeLibrary(reviewUrl)}" target="_blank" rel="noopener noreferrer">${escapeLibrary(reviewActionLabel(item, lang))}</a>`;
     }
-    if (hasReview) {
+    if (publishedReview && hasAnyReviewUrl) {
       const reactionsText = lang === "en" ? "Reactions" : "Reacciones a la reseña";
       const likesCount = Number.isFinite(Number(item.reviewLikes)) ? item.reviewLikes : 0;
       const reactionsPart = `${reactionsText} <span class="library-tooltip" data-title="${escapeLibrary(t("library_likes_gr_hover", lang))}">👍 ${likesCount}</span>${localLikesSuffixHtml(reviewId, lang)}`;
@@ -822,7 +845,8 @@ function renderBookList(container, items, lang, seriesMap = new Map(), detailsBo
     
     const candidates = [];
     if (item.reviewLocalCoverUrl) candidates.push(item.reviewLocalCoverUrl);
-    
+    pushReviewMirrorCoverCandidates(candidates, item.reviewUrl);
+
     const isbnStr = String(item.isbn || item.ISBN || "").replace(/[^0-9Xx]/g, "").toUpperCase();
     if (isbnStr) {
       candidates.push(`./antilibrary/covers/${isbnStr}.png`);

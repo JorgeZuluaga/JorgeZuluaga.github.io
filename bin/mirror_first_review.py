@@ -132,11 +132,32 @@ def canonical_review_url(value: str) -> str:
     return value.split("?", 1)[0].strip()
 
 
+def extract_review_text_from_description(description_html: str) -> str:
+    """Si ``user_review`` va vacío, el RSS a veces repite el texto en ``description`` tras ``review:``."""
+    raw = (description_html or "").strip()
+    if not raw:
+        return ""
+    lower = raw.lower()
+    key = "review:"
+    idx = lower.rfind(key)
+    if idx < 0:
+        return ""
+    tail = raw[idx + len(key) :].lstrip()
+    tail = re.sub(r"^(?:\s*<br\s*/?>)+", "", tail, flags=re.I)
+    return clean_review_html(html.unescape(tail)).strip()
+
+
 def extract_review_data_from_rss(
     rss_url: str, review_url: str, max_pages: int, cookie: str = ""
 ) -> dict:
     target = canonical_review_url(review_url)
+    print(
+        f"[RSS aux] Buscando fecha/portada en el feed (≤{max_pages} página(s))…",
+        flush=True,
+    )
     for page in range(1, max_pages + 1):
+        if max_pages > 3 and (page == 1 or page % 20 == 0):
+            print(f"[RSS aux]   …página {page}/{max_pages}", flush=True)
         xml_text = get_url(with_page(rss_url, page), cookie=cookie)
         root = ET.fromstring(xml_text)
         items = root.findall("./channel/item")
@@ -148,6 +169,9 @@ def extract_review_data_from_rss(
                 continue
             raw_review = (item.findtext("user_review") or "").strip()
             review_text = clean_review_html(html.unescape(raw_review)) if raw_review else ""
+            if not review_text:
+                desc_raw = (item.findtext("description") or "").strip()
+                review_text = extract_review_text_from_description(desc_raw)
             review_date_raw = (
                 (item.findtext("user_date_added") or "").strip()
                 or (item.findtext("pubDate") or "").strip()
@@ -195,7 +219,7 @@ def build_local_page(
     drzrating = book.get("drzrating", -1)
     drz_text = "(pendiente)" if drzrating == -1 else str(drzrating)
     review_id = extract_review_id(review_url)
-    if not review_fragment:
+    if not (review_fragment or "").strip():
         review_fragment = (
             "<p>No fue posible extraer el contenido visible de la reseña automáticamente.</p>"
         )

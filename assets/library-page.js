@@ -48,8 +48,14 @@ function parseBookBuddyDate(value) {
   return Number.isNaN(dt.getTime()) ? null : dt;
 }
 
+/** Reseña con texto (JSON hasReview o conteo local; evita placeholder del mirror ~11 palabras). */
 function hasReview(item) {
-  return String(item?.reviewUrl ?? "").includes("/review/show/");
+  if (!String(item?.reviewUrl ?? "").includes("/review/show/")) return false;
+  if (item?.hasReview === false) return false;
+  if (item?.hasReview === true) return true;
+  const wc = Number(item?.reviewCount);
+  if (Number.isFinite(wc)) return wc >= 25;
+  return true;
 }
 
 function normalizeBooks(rawBooks) {
@@ -91,9 +97,10 @@ function bookIdentityKey(book) {
 
 function isReadBook(book) {
   if (book?._dateRead) return true;
-  if (String(book?.reviewUrl || "").trim()) return true;
-  if (book?.hasReview === true) return true;
-  if (String(book?.reviewLocalUrl || "").trim()) return true;
+  const dr = String(book?.dateRead || "").trim();
+  if (dr) return true;
+  const r = Number(book?.rating);
+  if (Number.isFinite(r) && r > 0) return true;
   return false;
 }
 
@@ -211,6 +218,25 @@ function formatRating(rating, lang) {
 function parseReviewIdFromUrl(reviewUrl) {
   const match = String(reviewUrl || "").match(/\/review\/show\/(\d+)/);
   return match ? match[1] : "";
+}
+
+/** reviewLocalUrl en JSON, o ruta canónica del mirror (`./reviews/{id}.html`). */
+function effectiveLocalReviewHref(item) {
+  const explicit = String(item?.reviewLocalUrl || "").trim();
+  if (explicit.endsWith(".html")) return explicit;
+  const id = parseReviewIdFromUrl(item?.reviewUrl);
+  if (!id) return "";
+  return `./reviews/${id}.html`;
+}
+
+/** Portadas descargadas junto al mirror de reseña (`reviews/covers/`). */
+function pushReviewMirrorCoverCandidates(candidates, reviewUrl) {
+  const id = parseReviewIdFromUrl(reviewUrl);
+  if (!id) return;
+  candidates.push(`./reviews/covers/${id}.jpg`);
+  candidates.push(`./reviews/covers/${id}.jpeg`);
+  candidates.push(`./reviews/covers/${id}.png`);
+  candidates.push(`./reviews/covers/${id}.webp`);
 }
 
 function reviewActionLabel(item, lang) {
@@ -446,14 +472,15 @@ function renderBookList(container, items, lang, seriesMap = new Map(), options =
     actions.className = "library-book-item__actions";
     
     const reviewUrl = String(item.reviewUrl || "");
-    const localReviewUrl = String(item.reviewLocalUrl || "");
+    const localReviewHref = effectiveLocalReviewHref(item);
     const hasReviewUrl = reviewUrl.includes("/review/show/");
-    const hasLocalReview = localReviewUrl.endsWith(".html");
+    const hasLocalReview = Boolean(localReviewHref);
     const reviewId = parseReviewIdFromUrl(item.reviewUrl);
-    
+    const publishedReview = hasReview(item);
+    const hasAnyReviewUrl = hasLocalReview || hasReviewUrl;
+
     let actionsHtml = "";
     const grBookId = String(item.bookId || "").trim();
-    const hasReview = hasLocalReview || hasReviewUrl;
 
     if (grBookId) {
       const descHref = withLangQuery(
@@ -469,16 +496,16 @@ function renderBookList(container, items, lang, seriesMap = new Map(), options =
       }
     }
 
-    if (hasLocalReview) {
+    if (publishedReview && hasLocalReview) {
       if (actionsHtml) actionsHtml += " · ";
-      actionsHtml += `<a class="link" href="${escapeLibrary(localReviewUrl)}">${escapeLibrary(reviewActionLabel(item, lang))}</a>`;
-    } else if (hasReviewUrl) {
+      actionsHtml += `<a class="link" href="${escapeLibrary(localReviewHref)}">${escapeLibrary(reviewActionLabel(item, lang))}</a>`;
+    } else if (publishedReview && hasReviewUrl) {
       if (actionsHtml) actionsHtml += " · ";
       actionsHtml += `<a class="link" href="${escapeLibrary(reviewUrl)}" target="_blank" rel="noopener noreferrer">${escapeLibrary(reviewActionLabel(item, lang))}</a>`;
     }
 
     if (actionsHtml) {
-      if (hasReview) {
+      if (publishedReview && hasAnyReviewUrl) {
         const reactionsText = lang === "en" ? "Reactions" : "Reacciones a la reseña";
         const likesCount = Number.isFinite(Number(item.reviewLikes)) ? item.reviewLikes : 0;
         actionsHtml += ` · ${reactionsText} <span class="library-tooltip" data-title="${escapeLibrary(t("library_likes_gr_hover", lang))}">👍 ${likesCount}</span>${localLikesSuffixHtml(reviewId, lang)}`;
@@ -502,7 +529,8 @@ function renderBookList(container, items, lang, seriesMap = new Map(), options =
     
     const candidates = [];
     if (item.reviewLocalCoverUrl) candidates.push(item.reviewLocalCoverUrl);
-    
+    pushReviewMirrorCoverCandidates(candidates, item.reviewUrl);
+
     const isbnStr = String(item.isbn || item.ISBN || "").replace(/[^0-9Xx]/g, "").toUpperCase();
     if (isbnStr) {
       candidates.push(`./antilibrary/covers/${isbnStr}.png`);

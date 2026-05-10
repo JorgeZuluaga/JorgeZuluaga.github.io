@@ -98,6 +98,8 @@ def main() -> int:
     csv_path = Path(args.csv)
     out_path = Path(args.out)
 
+    print(f"[bookbuddy-import] CSV: {csv_path} → {out_path}", flush=True)
+
     if not csv_path.exists():
         raise SystemExit(f"CSV file not found: {csv_path}")
 

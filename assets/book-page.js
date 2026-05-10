@@ -479,12 +479,25 @@ function applyChrome(lang, fromReadLibrary) {
   applyLibrarySectionNav(lang, null);
 }
 
+function parseReviewIdFromUrl(reviewUrl) {
+  const match = String(reviewUrl || "").match(/\/review\/show\/(\d+)/);
+  return match ? match[1] : "";
+}
+
+function effectiveLocalReviewHref(book) {
+  const explicit = String(book?.reviewLocalUrl || "").trim();
+  if (explicit.endsWith(".html")) return explicit;
+  const id = parseReviewIdFromUrl(book?.reviewUrl);
+  if (!id) return "";
+  return `./reviews/${id}.html`;
+}
+
 function renderReviewLinks(lang, libraryBook) {
   const wrap = document.getElementById("book-review-links");
   if (!wrap) return;
-  const localUrl = String(libraryBook?.reviewLocalUrl || "").trim();
+  const localHref = effectiveLocalReviewHref(libraryBook);
   const remoteUrl = String(libraryBook?.reviewUrl || "").trim();
-  const hasLocal = localUrl.endsWith(".html");
+  const hasLocal = Boolean(localHref);
   const hasRemote = remoteUrl.includes("/review/show/");
   if (!libraryBook || (!hasLocal && !hasRemote)) {
     wrap.hidden = true;
@@ -496,7 +509,7 @@ function renderReviewLinks(lang, libraryBook) {
   if (hasLocal) {
     const a = document.createElement("a");
     a.className = "link";
-    a.href = localUrl;
+    a.href = withLangQuery(localHref);
     a.textContent =
       lang === "en" ? "Read review on this site" : "Ver reseña en este sitio";
     wrap.appendChild(a);

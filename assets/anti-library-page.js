@@ -380,9 +380,10 @@ function bookIdentityKey(book) {
 
 function isReadBook(book) {
   if (book?._dateRead) return true;
-  if (String(book?.reviewUrl || "").trim()) return true;
-  if (book?.hasReview === true) return true;
-  if (String(book?.reviewLocalUrl || "").trim()) return true;
+  const dr = String(book?.dateRead || "").trim();
+  if (dr) return true;
+  const r = Number(book?.rating);
+  if (Number.isFinite(r) && r > 0) return true;
   return false;
 }
 

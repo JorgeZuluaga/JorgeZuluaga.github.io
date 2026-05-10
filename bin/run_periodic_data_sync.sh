@@ -1,9 +1,6 @@
 #!/usr/bin/env bash
+# launchd (diario): Goodreads (likes + últimas reseñas + stats) + logs visitantes + likes locales.
 set -euo pipefail
-
-# Periodic sync runner for launchd:
-# 1) visitor logs backup (requires LOG_READ_TOKEN)
-# 2) local review likes snapshot
 
 REPO_DIR="$(cd "$(dirname "$0")/.." && pwd)"
 cd "$REPO_DIR"
@@ -29,8 +26,6 @@ else
   trap 'rm -rf "$LOCK_DIR"' EXIT INT TERM
 fi
 
-# Optional token file support for unattended runs.
-# You can override with LOG_READ_TOKEN_FILE env var.
 TOKEN_FILE_DEFAULT="$REPO_DIR/.secrets/log_read_token"
 TOKEN_FILE="${LOG_READ_TOKEN_FILE:-$TOKEN_FILE_DEFAULT}"
 
@@ -39,29 +34,38 @@ if [[ -z "${LOG_READ_TOKEN:-}" && -f "$TOKEN_FILE" ]]; then
   export LOG_READ_TOKEN
 fi
 
-if [[ -z "${LOG_READ_TOKEN:-}" ]]; then
-  echo "ERROR: LOG_READ_TOKEN is required (env var or file: $TOKEN_FILE)." >&2
-  exit 1
+echo "[$(date -u +"%Y-%m-%dT%H:%M:%SZ")] Goodreads (likes + reseñas recientes + stats)..."
+bash "$REPO_DIR/bin/run_daily_goodreads_sync.sh"
+
+if [[ -n "${LOG_READ_TOKEN:-}" ]]; then
+  echo "[$(date -u +"%Y-%m-%dT%H:%M:%SZ")] Visitor logs backup..."
+  make visitor-logs-sync
+else
+  echo "[$(date -u +"%Y-%m-%dT%H:%M:%SZ")] Sin LOG_READ_TOKEN: se omite visitor-logs-sync."
 fi
 
-echo "[$(date -u +"%Y-%m-%dT%H:%M:%SZ")] Starting periodic data sync..."
-make visitor-logs-sync
+echo "[$(date -u +"%Y-%m-%dT%H:%M:%SZ")] Snapshot likes locales..."
 make library-local-likes-sync
-"$REPO_DIR/.secrets/update-likes.sh"
+
+if [[ -x "$REPO_DIR/.secrets/update-likes.sh" ]]; then
+  echo "[$(date -u +"%Y-%m-%dT%H:%M:%SZ")] Hook opcional .secrets/update-likes.sh"
+  "$REPO_DIR/.secrets/update-likes.sh" || true
+fi
 
 git add \
   info/visitor-logs-backup.ndjson \
   info/visitor-logs-backup-state.json \
   info/visitor-logs-snapshot.json \
-  info/library.json
+  info/library.json \
+  info/library-stats.json 2>/dev/null || true
 
-if ! git diff --cached --quiet; then
+if ! git diff --cached --quiet 2>/dev/null; then
   COMMIT_TS="$(date +"%Y-%m-%d %H:%M:%S %Z")"
-  git commit -m "chore: sync visitor logs and local likes (${COMMIT_TS})"
-  git push
-  echo "[$(date -u +"%Y-%m-%dT%H:%M:%SZ")] Changes committed and pushed."
+  git commit -m "chore: sync biblioteca, visitor logs y likes (${COMMIT_TS})" || true
+  git push || true
+  echo "[$(date -u +"%Y-%m-%dT%H:%M:%SZ")] Cambios confirmados (si había repo limpio)."
 else
-  echo "[$(date -u +"%Y-%m-%dT%H:%M:%SZ")] No data changes to commit."
+  echo "[$(date -u +"%Y-%m-%dT%H:%M:%SZ")] Sin cambios para commit."
 fi
 
 echo "[$(date -u +"%Y-%m-%dT%H:%M:%SZ")] Periodic data sync completed."
