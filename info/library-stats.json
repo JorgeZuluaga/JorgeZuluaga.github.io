@@ -7,7 +7,7 @@
   "yearlyReads": [
     {
       "year": 2026,
-      "count": 30
+      "count": 35
     },
     {
       "year": 2025,
@@ -48,70 +48,140 @@
   ],
   "latestRead": [
     {
-      "bookId": "5996229",
-      "title": "A las puertas del El Ubérrimo",
-      "author": "Iván Cepeda",
-      "dateRead": "2026-04-25",
+      "bookId": "251441851",
+      "title": "Iván Cepeda, una vida contra el olvido (Spanish Edition)",
+      "author": "León Valencia Agudelo",
+      "dateRead": "2026-05-10",
       "rating": 5,
-      "reviewUrl": "",
-      "reviewLikes": 0
-    },
-    {
-      "bookId": "59021993",
-      "title": "La música del universo: Qué son la ondas gravitacionales y por qué cambiaron nuestra forma de entender el cosmos",
-      "author": "Lidia Díaz",
-      "dateRead": "2026-04-24",
-      "rating": 5,
-      "reviewUrl": "https://www.goodreads.com/review/show/7583251244?utm_medium=api&utm_source=rss",
-      "reviewLikes": 1,
-      "reviewLocalUrl": "./reviews/7583251244.html",
-      "reviewLocalCoverUrl": "./reviews/covers/7583251244.jpg",
-      "reviewDate": "2026-04-25",
-      "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-26T04:51:09.075907+00:00",
-      "reviewLocalLikes": 0,
-      "reviewLocalLikesUpdatedAt": "2026-04-26T04:41:17.575366+00:00"
-    },
-    {
-      "bookId": "220648311",
-      "title": "En el amor y en la guerra (La catedral del mar #3)",
-      "author": "Ildefonso Falcones",
-      "dateRead": "2026-04-19",
-      "rating": 5,
-      "reviewUrl": "https://www.goodreads.com/review/show/7697087651?utm_medium=api&utm_source=rss",
-      "reviewLikes": 1,
-      "reviewLocalUrl": "./reviews/7697087651.html",
-      "reviewLocalCoverUrl": "./reviews/covers/7697087651.jpg",
-      "reviewDate": "2026-04-25",
-      "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-26T04:51:12.555233+00:00",
-      "reviewLocalLikes": 0,
-      "reviewLocalLikesUpdatedAt": "2026-04-26T04:41:17.575366+00:00"
-    },
-    {
-      "bookId": "242110718",
-      "title": "Humanidades: Lo visible y lo invisible",
-      "author": "Carlos Peña",
-      "dateRead": "2026-04-15",
-      "rating": 5,
-      "reviewUrl": "https://www.goodreads.com/review/show/8492649731?utm_medium=api&utm_source=rss",
+      "reviewUrl": "https://www.goodreads.com/review/show/8590116363?utm_medium=api&utm_source=rss",
       "reviewLikes": 0,
-      "reviewLocalUrl": "./reviews/8492649731.html",
-      "reviewLocalCoverUrl": "./reviews/covers/8492649731.jpg",
-      "reviewDate": "2026-04-25",
+      "drzrating": -1,
+      "bookDetails": 0,
+      "matched": false,
+      "reviewLocalUrl": "./reviews/8590116363.html",
+      "reviewLocalCoverUrl": "./reviews/covers/8590116363.jpg",
+      "reviewDate": "2026-05-10",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-26T04:51:10.921295+00:00",
-      "reviewLocalLikes": 1,
-      "reviewLocalLikesUpdatedAt": "2026-04-26T04:41:17.575366+00:00"
+      "reviewLocalGeneratedAt": "2026-05-10T15:16:18.892665+00:00",
+      "reviewCount": 11
     },
     {
-      "bookId": "216802309",
-      "title": "La conciencia contada por un sapiens a un neandertal",
-      "author": "Juan José Millás",
-      "dateRead": "2026-04-03",
+      "bookId": "232453948",
+      "title": "El último secreto (Robert Langdon, #6)",
+      "author": "Dan    Brown",
+      "dateRead": "2026-05-09",
+      "rating": 4,
+      "reviewUrl": "https://www.goodreads.com/review/show/8200697347?utm_medium=api&utm_source=rss",
+      "reviewLikes": 0,
+      "drzrating": -1,
+      "bookDetails": 1,
+      "matched": true,
+      "dateAdded": "2026-05-03",
+      "dcc_classes": {
+        "800": "Literatura y retorica (800)"
+      },
+      "dcc_codes": {
+        "813": "Ficción americana en inglés."
+      },
+      "dcc_notes": {
+        "reasoning": "Novela de suspenso y acción escrita por el autor estadounidense Dan Brown[cite: 1].",
+        "confidence": 0.99
+      },
+      "reviewLocalUrl": "./reviews/8200697347.html",
+      "reviewLocalCoverUrl": "./reviews/covers/8200697347.jpg",
+      "reviewDate": "2026-05-09",
+      "reviewLocalStatus": "ok",
+      "reviewLocalGeneratedAt": "2026-05-10T15:16:20.958728+00:00",
+      "reviewCount": 11
+    },
+    {
+      "bookId": "237811588",
+      "title": "Vivir con los hombres. Reflexiones sobre el juicio Pelicot",
+      "author": "Manon Garcia",
+      "dateRead": "2026-05-04",
       "rating": 5,
-      "reviewUrl": "",
-      "reviewLikes": 0
+      "reviewUrl": "https://www.goodreads.com/review/show/8554509688?utm_medium=api&utm_source=rss",
+      "reviewLikes": 6,
+      "drzrating": 94,
+      "bookDetails": 1,
+      "dcc_classes": {
+        "300": "Ciencias sociales (300)"
+      },
+      "dcc_codes": {
+        "305": "Grupos de personas",
+        "110": "Feminismos y estudios de género"
+      },
+      "dcc_notes": {
+        "reasoning": "Ensayo de la filósofa Manon Garcia relacionado con el machismo, el feminismo y las cuestiones judiciales que afectan a mujeres y grupos sociales.",
+        "confidence": 0.85
+      },
+      "matched": true,
+      "dateAdded": "2026-04-26",
+      "reviewLocalUrl": "./reviews/8554509688.html",
+      "reviewLocalCoverUrl": "./reviews/covers/8554509688.jpg",
+      "reviewDate": "2026-05-10",
+      "reviewLocalStatus": "ok",
+      "reviewLocalGeneratedAt": "2026-05-10T15:16:22.953408+00:00",
+      "reviewCount": 932
+    },
+    {
+      "bookId": "62597512",
+      "title": "Salvo mi corazón, todo está bien",
+      "author": "Héctor Abad Faciolince",
+      "dateRead": "2026-05-03",
+      "rating": 5,
+      "reviewUrl": "https://www.goodreads.com/review/show/8534922230?utm_medium=api&utm_source=rss",
+      "reviewLikes": 4,
+      "drzrating": -1,
+      "bookDetails": 0,
+      "dcc_classes": {
+        "800": "Literatura (800)"
+      },
+      "dcc_codes": {
+        "863": "Ficción española"
+      },
+      "dcc_notes": {
+        "reasoning": "Es una novela literaria del aclamado escritor colombiano Héctor Abad Faciolince.",
+        "confidence": 0.95
+      },
+      "matched": false,
+      "reviewLocalUrl": "./reviews/8534922230.html",
+      "reviewLocalCoverUrl": "./reviews/covers/8534922230.jpg",
+      "reviewDate": "2026-05-03",
+      "reviewLocalStatus": "ok",
+      "reviewLocalGeneratedAt": "2026-05-10T15:16:25.007177+00:00",
+      "reviewCount": 11
+    },
+    {
+      "bookId": "36006321",
+      "title": "Artemisa",
+      "author": "Andy Weir",
+      "dateRead": "2026-05-02",
+      "rating": 5,
+      "reviewUrl": "https://www.goodreads.com/review/show/4419508543?utm_medium=api&utm_source=rss",
+      "reviewLikes": 4,
+      "drzrating": 88,
+      "bookDetails": 1,
+      "reviewLocalLikes": 3,
+      "reviewLocalLikesUpdatedAt": "2026-05-09T14:00:24.824386+00:00",
+      "reviewLocalUrl": "./reviews/4419508543.html",
+      "reviewLocalCoverUrl": "./reviews/covers/4419508543.jpg",
+      "reviewDate": "2026-05-02",
+      "reviewLocalStatus": "ok",
+      "reviewLocalGeneratedAt": "2026-05-10T15:16:30.221686+00:00",
+      "reviewCount": 1465,
+      "dcc_classes": {
+        "800": "Literatura (800)"
+      },
+      "dcc_codes": {
+        "813": "Ficción americana en inglés."
+      },
+      "dcc_notes": {
+        "reasoning": "Es una novela de ciencia ficción escrita por el autor estadounidense Andy Weir (autor de 'El Marciano').",
+        "confidence": 0.98
+      },
+      "matched": true,
+      "dateAdded": "2026-05-05"
     }
   ],
   "topReviewedByLikes": [
@@ -122,14 +192,30 @@
       "dateRead": "2021-12-30",
       "rating": 4,
       "reviewUrl": "https://www.goodreads.com/review/show/4423951235?utm_medium=api&utm_source=rss",
-      "reviewLikes": 70,
+      "reviewLikes": 71,
       "reviewLocalUrl": "./reviews/4423951235.html",
       "reviewLocalCoverUrl": "./reviews/covers/4423951235.jpg",
       "reviewDate": "2025-01-07",
       "reviewLocalStatus": "ok",
       "reviewLocalGeneratedAt": "2026-04-25T18:55:49.231144+00:00",
       "reviewLocalLikes": 0,
-      "reviewLocalLikesUpdatedAt": "2026-04-26T04:41:17.575366+00:00"
+      "reviewLocalLikesUpdatedAt": "2026-05-09T14:00:24.824386+00:00",
+      "drzrating": 87,
+      "bookDetails": 1,
+      "reviewCount": 91,
+      "dcc_classes": {
+        "100": "Filosofia y psicologia (100)"
+      },
+      "dcc_codes": {
+        "100": "Filosofia y psicologia"
+      },
+      "dcc_notes": {
+        "reasoning": "Ensayo de filosofía contemporánea que critica el impacto de la era digital y la sobreinformación.",
+        "confidence": 0.0
+      },
+      "isbn": "9788430624355",
+      "dateAdded": "2021-12-28",
+      "matched": true
     },
     {
       "bookId": "58978750",
@@ -145,7 +231,26 @@
       "reviewLocalCoverUrl": "./reviews/covers/4232235817.jpg",
       "reviewDate": "2021-09-14",
       "reviewLocalLikes": 0,
-      "reviewLocalLikesUpdatedAt": "2026-04-26T04:41:17.575366+00:00"
+      "reviewLocalLikesUpdatedAt": "2026-05-09T14:00:24.824386+00:00",
+      "drzrating": 100,
+      "bookDetails": 1,
+      "reviewCount": 1019,
+      "dcc_classes": {
+        "300": "Ciencias sociales (300)",
+        "900": "Historia y geografia (900)"
+      },
+      "dcc_codes": {
+        "305": "Grupos de personas",
+        "930": "Historia del mundo antiguo (hasta c. 499)",
+        "110": "Feminismos y estudios de género"
+      },
+      "dcc_notes": {
+        "reasoning": "Estudio centrado en la historia antropológica y la revisión del papel femenino en el origen del ser humano.",
+        "confidence": 0.0
+      },
+      "isbn": "9788426410115",
+      "dateAdded": "2021-09-19",
+      "matched": true
     },
     {
       "bookId": "61967442",
@@ -154,14 +259,31 @@
       "dateRead": "2024-07-20",
       "rating": 5,
       "reviewUrl": "https://www.goodreads.com/review/show/6667355680?utm_medium=api&utm_source=rss",
-      "reviewLikes": 54,
+      "reviewLikes": 56,
       "reviewLocalUrl": "./reviews/6667355680.html",
       "reviewLocalStatus": "ok",
       "reviewLocalGeneratedAt": "2026-04-25T18:58:02.986509+00:00",
       "reviewLocalCoverUrl": "./reviews/covers/6667355680.jpg",
       "reviewDate": "2024-07-20",
       "reviewLocalLikes": 0,
-      "reviewLocalLikesUpdatedAt": "2026-04-26T04:41:17.575366+00:00"
+      "reviewLocalLikesUpdatedAt": "2026-05-09T14:00:24.824386+00:00",
+      "drzrating": 96,
+      "bookDetails": 1,
+      "dateAdded": "2023-07-07",
+      "reviewCount": 307,
+      "dcc_classes": {
+        "100": "Filosofia y psicologia (100)"
+      },
+      "dcc_codes": {
+        "153": "Procesos mentales conscientes e inteligencia",
+        "612": "Fisiología humana"
+      },
+      "dcc_notes": {
+        "reasoning": "Neurociencia y psicología aplicadas al poder transformador de la conversación en el cerebro.",
+        "confidence": 0.95
+      },
+      "isbn": "9789877950472",
+      "matched": true
     },
     {
       "bookId": "21524683",
@@ -177,7 +299,23 @@
       "reviewLocalCoverUrl": "./reviews/covers/3063403087.jpg",
       "reviewDate": "2023-02-26",
       "reviewLocalLikes": 0,
-      "reviewLocalLikesUpdatedAt": "2026-04-26T04:41:17.575366+00:00"
+      "reviewLocalLikesUpdatedAt": "2026-05-09T14:00:24.824386+00:00",
+      "drzrating": 100,
+      "bookDetails": 1,
+      "reviewCount": 526,
+      "dcc_classes": {
+        "800": "Literatura (800)"
+      },
+      "dcc_codes": {
+        "843": "Ficción francesa"
+      },
+      "dcc_notes": {
+        "reasoning": "Obra en formato pseudobiográfico y ficción escrita en idioma original francés dedicada a los últimos días del emblemático emperador romano.",
+        "confidence": 0.0
+      },
+      "isbn": "9789871138692",
+      "dateAdded": "2020-12-31",
+      "matched": true
     },
     {
       "bookId": "44577138",
@@ -193,7 +331,25 @@
       "reviewLocalCoverUrl": "./reviews/covers/4664229801.jpg",
       "reviewDate": "2022-04-15",
       "reviewLocalLikes": 0,
-      "reviewLocalLikesUpdatedAt": "2026-04-26T04:41:17.575366+00:00"
+      "reviewLocalLikesUpdatedAt": "2026-05-09T14:00:24.824386+00:00",
+      "drzrating": 98,
+      "bookDetails": 1,
+      "reviewCount": 955,
+      "dcc_classes": {
+        "300": "Ciencias sociales (300)"
+      },
+      "dcc_codes": {
+        "301": "Sociología y antropología",
+        "305": "Grupos de personas",
+        "110": "Feminismos y estudios de género"
+      },
+      "dcc_notes": {
+        "reasoning": "Es un manual que analiza el feminismo y las cuestiones de género en el contexto latinoamericano contemporáneo.",
+        "confidence": 0.0
+      },
+      "isbn": "9789585464513",
+      "dateAdded": "2022-03-08",
+      "matched": true
     },
     {
       "bookId": "59110779",
@@ -209,7 +365,23 @@
       "reviewLocalCoverUrl": "./reviews/covers/4278716233.jpg",
       "reviewDate": "2021-10-12",
       "reviewLocalLikes": 0,
-      "reviewLocalLikesUpdatedAt": "2026-04-26T04:41:17.575366+00:00"
+      "reviewLocalLikesUpdatedAt": "2026-05-09T14:00:24.824386+00:00",
+      "drzrating": 99,
+      "bookDetails": 1,
+      "dateAdded": "2021-10-12",
+      "reviewCount": 2091,
+      "dcc_classes": {
+        "900": "Historia y geografia (900)"
+      },
+      "dcc_codes": {
+        "920": "Biografía y genealogía"
+      },
+      "dcc_notes": {
+        "reasoning": "Es el libro de memorias autobiográficas del presidente de Colombia Gustavo Petro.",
+        "confidence": 0.98
+      },
+      "isbn": "9789584297495",
+      "matched": true
     },
     {
       "bookId": "40135796",
@@ -225,7 +397,24 @@
       "reviewLocalCoverUrl": "./reviews/covers/3344914655.jpg",
       "reviewDate": "2020-07-03",
       "reviewLocalLikes": 0,
-      "reviewLocalLikesUpdatedAt": "2026-04-26T04:41:17.575366+00:00"
+      "reviewLocalLikesUpdatedAt": "2026-05-09T14:00:24.824386+00:00",
+      "drzrating": 100,
+      "bookDetails": 1,
+      "dateAdded": "2020-12-31",
+      "reviewCount": 765,
+      "dcc_classes": {
+        "900": "Historia y geografia (900)"
+      },
+      "dcc_codes": {
+        "980": "Historia de América del Sur",
+        "986": "Colombia y Ecuador"
+      },
+      "dcc_notes": {
+        "reasoning": "Ensayo de la historia social y política de Colombia apoyado con ilustraciones críticas.",
+        "confidence": 1.0
+      },
+      "isbn": "9789584268754",
+      "matched": true
     },
     {
       "bookId": "125064740",
@@ -241,7 +430,21 @@
       "reviewLocalCoverUrl": "./reviews/covers/5469066244.jpg",
       "reviewDate": "2023-05-28",
       "reviewLocalLikes": 0,
-      "reviewLocalLikesUpdatedAt": "2026-04-26T04:41:17.575366+00:00"
+      "reviewLocalLikesUpdatedAt": "2026-05-09T14:00:24.824386+00:00",
+      "drzrating": 100,
+      "bookDetails": 0,
+      "reviewCount": 1286,
+      "dcc_classes": {
+        "800": "Literatura (800)"
+      },
+      "dcc_codes": {
+        "863": "Ficción española"
+      },
+      "dcc_notes": {
+        "reasoning": "Novela narrativa basada en eventos históricos que ahonda en las travesías científicas de Alexander von Humboldt por América, de la pluma de un escritor colombiano.",
+        "confidence": 0.0
+      },
+      "matched": false
     },
     {
       "bookId": "17567272",
@@ -257,7 +460,25 @@
       "reviewLocalCoverUrl": "./reviews/covers/3758441020.jpg",
       "reviewDate": "2023-06-21",
       "reviewLocalLikes": 0,
-      "reviewLocalLikesUpdatedAt": "2026-04-26T04:41:17.575366+00:00"
+      "reviewLocalLikesUpdatedAt": "2026-05-09T14:00:24.824386+00:00",
+      "drzrating": 100,
+      "bookDetails": 1,
+      "dateAdded": "2021-01-04",
+      "reviewCount": 1745,
+      "dcc_classes": {
+        "500": "Ciencias naturales y matematicas (500)"
+      },
+      "dcc_codes": {
+        "860": "Literaturas española, portuguesa, gallega",
+        "863": "Ficción española",
+        "920": "Biografía y genealogía"
+      },
+      "dcc_notes": {
+        "reasoning": "Obra narrativa e íntima de Rosa Montero que mezcla sus reflexiones sobre el duelo personal con la biografía de Marie Curie.",
+        "confidence": 0.95
+      },
+      "isbn": "9788432215803",
+      "matched": true
     },
     {
       "bookId": "49394794",
@@ -273,94 +494,168 @@
       "reviewLocalCoverUrl": "./reviews/covers/3742582688.jpg",
       "reviewDate": "2024-06-10",
       "reviewLocalLikes": 0,
-      "reviewLocalLikesUpdatedAt": "2026-04-26T04:41:17.575366+00:00"
+      "reviewLocalLikesUpdatedAt": "2026-05-09T14:00:24.824386+00:00",
+      "drzrating": 100,
+      "bookDetails": 1,
+      "dateAdded": "2021-02-03",
+      "reviewCount": 695,
+      "dcc_classes": {
+        "900": "Historia y geografia (900)"
+      },
+      "dcc_codes": {
+        "002": "El libro (escritura, bibliotecas y temas relacionados con el libro)",
+        "809": "Historia, descripción, valoración crítica de más de dos literaturas",
+        "930": "Historia del mundo antiguo (hasta c. 499)"
+      },
+      "dcc_notes": {
+        "reasoning": "Aclamado ensayo de Irene Vallejo sobre la historia del libro, la escritura y las bibliotecas en el mundo antiguo.",
+        "confidence": 1.0
+      },
+      "isbn": "9788417860790",
+      "matched": true
     }
   ],
   "latestReviewed": [
     {
-      "bookId": "59021993",
-      "title": "La música del universo: Qué son la ondas gravitacionales y por qué cambiaron nuestra forma de entender el cosmos",
-      "author": "Lidia Díaz",
-      "dateRead": "2026-04-24",
+      "bookId": "251441851",
+      "title": "Iván Cepeda, una vida contra el olvido (Spanish Edition)",
+      "author": "León Valencia Agudelo",
+      "dateRead": "2026-05-10",
       "rating": 5,
-      "reviewUrl": "https://www.goodreads.com/review/show/7583251244?utm_medium=api&utm_source=rss",
-      "reviewLikes": 1,
-      "reviewLocalUrl": "./reviews/7583251244.html",
-      "reviewLocalCoverUrl": "./reviews/covers/7583251244.jpg",
-      "reviewDate": "2026-04-25",
-      "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-26T04:51:09.075907+00:00",
-      "reviewLocalLikes": 0,
-      "reviewLocalLikesUpdatedAt": "2026-04-26T04:41:17.575366+00:00"
-    },
-    {
-      "bookId": "220648311",
-      "title": "En el amor y en la guerra (La catedral del mar #3)",
-      "author": "Ildefonso Falcones",
-      "dateRead": "2026-04-19",
-      "rating": 5,
-      "reviewUrl": "https://www.goodreads.com/review/show/7697087651?utm_medium=api&utm_source=rss",
-      "reviewLikes": 1,
-      "reviewLocalUrl": "./reviews/7697087651.html",
-      "reviewLocalCoverUrl": "./reviews/covers/7697087651.jpg",
-      "reviewDate": "2026-04-25",
-      "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-26T04:51:12.555233+00:00",
-      "reviewLocalLikes": 0,
-      "reviewLocalLikesUpdatedAt": "2026-04-26T04:41:17.575366+00:00"
-    },
-    {
-      "bookId": "242110718",
-      "title": "Humanidades: Lo visible y lo invisible",
-      "author": "Carlos Peña",
-      "dateRead": "2026-04-15",
-      "rating": 5,
-      "reviewUrl": "https://www.goodreads.com/review/show/8492649731?utm_medium=api&utm_source=rss",
+      "reviewUrl": "https://www.goodreads.com/review/show/8590116363?utm_medium=api&utm_source=rss",
       "reviewLikes": 0,
-      "reviewLocalUrl": "./reviews/8492649731.html",
-      "reviewLocalCoverUrl": "./reviews/covers/8492649731.jpg",
-      "reviewDate": "2026-04-25",
+      "drzrating": -1,
+      "bookDetails": 0,
+      "matched": false,
+      "reviewLocalUrl": "./reviews/8590116363.html",
+      "reviewLocalCoverUrl": "./reviews/covers/8590116363.jpg",
+      "reviewDate": "2026-05-10",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-26T04:51:10.921295+00:00",
-      "reviewLocalLikes": 1,
-      "reviewLocalLikesUpdatedAt": "2026-04-26T04:41:17.575366+00:00"
+      "reviewLocalGeneratedAt": "2026-05-10T15:16:18.892665+00:00",
+      "reviewCount": 11
     },
     {
-      "bookId": "244149479",
-      "title": "Pirámides, dioses y sabidurías perdidas del mundo antiguo",
-      "author": "Tito Vivas",
-      "dateRead": "2026-03-28",
-      "rating": 5,
-      "reviewUrl": "https://www.goodreads.com/review/show/8472202778?utm_medium=api&utm_source=rss",
+      "bookId": "232453948",
+      "title": "El último secreto (Robert Langdon, #6)",
+      "author": "Dan    Brown",
+      "dateRead": "2026-05-09",
+      "rating": 4,
+      "reviewUrl": "https://www.goodreads.com/review/show/8200697347?utm_medium=api&utm_source=rss",
       "reviewLikes": 0,
-      "reviewLocalUrl": "./reviews/8472202778.html",
+      "drzrating": -1,
+      "bookDetails": 1,
+      "matched": true,
+      "dateAdded": "2026-05-03",
+      "dcc_classes": {
+        "800": "Literatura y retorica (800)"
+      },
+      "dcc_codes": {
+        "813": "Ficción americana en inglés."
+      },
+      "dcc_notes": {
+        "reasoning": "Novela de suspenso y acción escrita por el autor estadounidense Dan Brown[cite: 1].",
+        "confidence": 0.99
+      },
+      "reviewLocalUrl": "./reviews/8200697347.html",
+      "reviewLocalCoverUrl": "./reviews/covers/8200697347.jpg",
+      "reviewDate": "2026-05-09",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-26T04:51:14.255716+00:00",
-      "reviewLocalCoverUrl": "./reviews/covers/8472202778.jpg",
-      "reviewDate": "2026-03-28",
-      "reviewLocalLikes": 0,
-      "reviewLocalLikesUpdatedAt": "2026-04-26T04:41:17.575366+00:00"
+      "reviewLocalGeneratedAt": "2026-05-10T15:16:20.958728+00:00",
+      "reviewCount": 11
     },
     {
-      "bookId": "241640739",
-      "title": "Un himno a la vida: Mi historia",
-      "author": "Gisèle Pelicot",
-      "dateRead": "2026-03-27",
+      "bookId": "237811588",
+      "title": "Vivir con los hombres. Reflexiones sobre el juicio Pelicot",
+      "author": "Manon Garcia",
+      "dateRead": "2026-05-04",
       "rating": 5,
-      "reviewUrl": "https://www.goodreads.com/review/show/8460915900?utm_medium=api&utm_source=rss",
-      "reviewLikes": 1,
-      "reviewLocalUrl": "./reviews/8460915900.html",
-      "reviewLocalCoverUrl": "./reviews/covers/8460915900.jpg",
-      "reviewDate": "2026-03-28",
+      "reviewUrl": "https://www.goodreads.com/review/show/8554509688?utm_medium=api&utm_source=rss",
+      "reviewLikes": 6,
+      "drzrating": 94,
+      "bookDetails": 1,
+      "dcc_classes": {
+        "300": "Ciencias sociales (300)"
+      },
+      "dcc_codes": {
+        "305": "Grupos de personas",
+        "110": "Feminismos y estudios de género"
+      },
+      "dcc_notes": {
+        "reasoning": "Ensayo de la filósofa Manon Garcia relacionado con el machismo, el feminismo y las cuestiones judiciales que afectan a mujeres y grupos sociales.",
+        "confidence": 0.85
+      },
+      "matched": true,
+      "dateAdded": "2026-04-26",
+      "reviewLocalUrl": "./reviews/8554509688.html",
+      "reviewLocalCoverUrl": "./reviews/covers/8554509688.jpg",
+      "reviewDate": "2026-05-10",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-26T04:51:15.854048+00:00",
-      "reviewLocalLikes": 0,
-      "reviewLocalLikesUpdatedAt": "2026-04-26T04:41:17.575366+00:00"
+      "reviewLocalGeneratedAt": "2026-05-10T15:16:22.953408+00:00",
+      "reviewCount": 932
+    },
+    {
+      "bookId": "62597512",
+      "title": "Salvo mi corazón, todo está bien",
+      "author": "Héctor Abad Faciolince",
+      "dateRead": "2026-05-03",
+      "rating": 5,
+      "reviewUrl": "https://www.goodreads.com/review/show/8534922230?utm_medium=api&utm_source=rss",
+      "reviewLikes": 4,
+      "drzrating": -1,
+      "bookDetails": 0,
+      "dcc_classes": {
+        "800": "Literatura (800)"
+      },
+      "dcc_codes": {
+        "863": "Ficción española"
+      },
+      "dcc_notes": {
+        "reasoning": "Es una novela literaria del aclamado escritor colombiano Héctor Abad Faciolince.",
+        "confidence": 0.95
+      },
+      "matched": false,
+      "reviewLocalUrl": "./reviews/8534922230.html",
+      "reviewLocalCoverUrl": "./reviews/covers/8534922230.jpg",
+      "reviewDate": "2026-05-03",
+      "reviewLocalStatus": "ok",
+      "reviewLocalGeneratedAt": "2026-05-10T15:16:25.007177+00:00",
+      "reviewCount": 11
+    },
+    {
+      "bookId": "36006321",
+      "title": "Artemisa",
+      "author": "Andy Weir",
+      "dateRead": "2026-05-02",
+      "rating": 5,
+      "reviewUrl": "https://www.goodreads.com/review/show/4419508543?utm_medium=api&utm_source=rss",
+      "reviewLikes": 4,
+      "drzrating": 88,
+      "bookDetails": 1,
+      "reviewLocalLikes": 3,
+      "reviewLocalLikesUpdatedAt": "2026-05-09T14:00:24.824386+00:00",
+      "reviewLocalUrl": "./reviews/4419508543.html",
+      "reviewLocalCoverUrl": "./reviews/covers/4419508543.jpg",
+      "reviewDate": "2026-05-02",
+      "reviewLocalStatus": "ok",
+      "reviewLocalGeneratedAt": "2026-05-10T15:16:30.221686+00:00",
+      "reviewCount": 1465,
+      "dcc_classes": {
+        "800": "Literatura (800)"
+      },
+      "dcc_codes": {
+        "813": "Ficción americana en inglés."
+      },
+      "dcc_notes": {
+        "reasoning": "Es una novela de ciencia ficción escrita por el autor estadounidense Andy Weir (autor de 'El Marciano').",
+        "confidence": 0.98
+      },
+      "matched": true,
+      "dateAdded": "2026-05-05"
     }
   ],
   "totals": {
-    "booksRead": 581,
-    "booksReviewed": 452,
-    "totalReviewLikes": 2980
+    "booksRead": 586,
+    "booksReviewed": 586,
+    "totalReviewLikes": 3216
   }
 }

@@ -1,11 +1,31 @@
 {
-  "generatedAt": "2026-05-10T13:26:35.778041+00:00",
+  "generatedAt": "2026-05-10T15:16:15.339701+00:00",
   "source": {
     "rssUrl": "https://www.goodreads.com/review/list_rss/91991657?key=kpN1wAHi2GZUUO7BHv1v3ZCOGhOk_QjljXSDnXSc3kA-lzU7&shelf=%23ALL%23",
-    "scrapeLikes": false,
-    "scrapeLikesMode": "none"
+    "scrapeLikes": true,
+    "scrapeLikesMode": "all"
   },
   "books": [
+    {
+      "bookId": "251441851",
+      "title": "Iván Cepeda, una vida contra el olvido (Spanish Edition)",
+      "author": "León Valencia Agudelo",
+      "dateRead": "2026-05-10",
+      "rating": 5,
+      "reviewUrl": "https://www.goodreads.com/review/show/8590116363?utm_medium=api&utm_source=rss",
+      "hasReview": false,
+      "reviewLikes": 0,
+      "scrapeStatus": "ok",
+      "drzrating": -1,
+      "bookDetails": 0,
+      "matched": false,
+      "reviewLocalUrl": "./reviews/8590116363.html",
+      "reviewLocalCoverUrl": "./reviews/covers/8590116363.jpg",
+      "reviewDate": "2026-05-10",
+      "reviewLocalStatus": "ok",
+      "reviewLocalGeneratedAt": "2026-05-10T15:16:18.892665+00:00",
+      "reviewCount": 11
+    },
     {
       "bookId": "232453948",
       "title": "El último secreto (Robert Langdon, #6)",
@@ -15,10 +35,10 @@
       "reviewUrl": "https://www.goodreads.com/review/show/8200697347?utm_medium=api&utm_source=rss",
       "hasReview": false,
       "reviewLikes": 0,
-      "scrapeStatus": "not_requested",
+      "scrapeStatus": "ok",
       "drzrating": -1,
-      "bookDetails": 0,
-      "matched": false,
+      "bookDetails": 1,
+      "matched": true,
       "dateAdded": "2026-05-03",
       "dcc_classes": {
         "800": "Literatura y retorica (800)"
@@ -29,7 +49,13 @@
       "dcc_notes": {
         "reasoning": "Novela de suspenso y acción escrita por el autor estadounidense Dan Brown[cite: 1].",
         "confidence": 0.99
-      }
+      },
+      "reviewLocalUrl": "./reviews/8200697347.html",
+      "reviewLocalCoverUrl": "./reviews/covers/8200697347.jpg",
+      "reviewDate": "2026-05-09",
+      "reviewLocalStatus": "ok",
+      "reviewLocalGeneratedAt": "2026-05-10T15:16:20.958728+00:00",
+      "reviewCount": 11
     },
     {
       "bookId": "237811588",
@@ -39,8 +65,8 @@
       "rating": 5,
       "reviewUrl": "https://www.goodreads.com/review/show/8554509688?utm_medium=api&utm_source=rss",
       "hasReview": true,
-      "reviewLikes": 0,
-      "scrapeStatus": "not_requested",
+      "reviewLikes": 6,
+      "scrapeStatus": "ok",
       "drzrating": 94,
       "bookDetails": 1,
       "dcc_classes": {
@@ -54,8 +80,14 @@
         "reasoning": "Ensayo de la filósofa Manon Garcia relacionado con el machismo, el feminismo y las cuestiones judiciales que afectan a mujeres y grupos sociales.",
         "confidence": 0.85
       },
-      "matched": false,
-      "dateAdded": "2026-04-26"
+      "matched": true,
+      "dateAdded": "2026-04-26",
+      "reviewLocalUrl": "./reviews/8554509688.html",
+      "reviewLocalCoverUrl": "./reviews/covers/8554509688.jpg",
+      "reviewDate": "2026-05-10",
+      "reviewLocalStatus": "ok",
+      "reviewLocalGeneratedAt": "2026-05-10T15:16:22.953408+00:00",
+      "reviewCount": 932
     },
     {
       "bookId": "62597512",
@@ -65,8 +97,8 @@
       "rating": 5,
       "reviewUrl": "https://www.goodreads.com/review/show/8534922230?utm_medium=api&utm_source=rss",
       "hasReview": false,
-      "reviewLikes": 0,
-      "scrapeStatus": "not_requested",
+      "reviewLikes": 4,
+      "scrapeStatus": "ok",
       "drzrating": -1,
       "bookDetails": 0,
       "dcc_classes": {
@@ -79,7 +111,13 @@
         "reasoning": "Es una novela literaria del aclamado escritor colombiano Héctor Abad Faciolince.",
         "confidence": 0.95
       },
-      "matched": false
+      "matched": false,
+      "reviewLocalUrl": "./reviews/8534922230.html",
+      "reviewLocalCoverUrl": "./reviews/covers/8534922230.jpg",
+      "reviewDate": "2026-05-03",
+      "reviewLocalStatus": "ok",
+      "reviewLocalGeneratedAt": "2026-05-10T15:16:25.007177+00:00",
+      "reviewCount": 11
     },
     {
       "bookId": "36006321",
@@ -89,17 +127,17 @@
       "rating": 5,
       "reviewUrl": "https://www.goodreads.com/review/show/4419508543?utm_medium=api&utm_source=rss",
       "hasReview": true,
-      "reviewLikes": 3,
+      "reviewLikes": 4,
       "scrapeStatus": "ok",
       "drzrating": 88,
-      "bookDetails": 0,
+      "bookDetails": 1,
       "reviewLocalLikes": 3,
       "reviewLocalLikesUpdatedAt": "2026-05-09T14:00:24.824386+00:00",
       "reviewLocalUrl": "./reviews/4419508543.html",
       "reviewLocalCoverUrl": "./reviews/covers/4419508543.jpg",
       "reviewDate": "2026-05-02",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-05-06T00:22:19.318696+00:00",
+      "reviewLocalGeneratedAt": "2026-05-10T15:16:30.221686+00:00",
       "reviewCount": 1465,
       "dcc_classes": {
         "800": "Literatura (800)"
@@ -111,7 +149,7 @@
         "reasoning": "Es una novela de ciencia ficción escrita por el autor estadounidense Andy Weir (autor de 'El Marciano').",
         "confidence": 0.98
       },
-      "matched": false,
+      "matched": true,
       "dateAdded": "2026-05-05"
     },
     {
@@ -122,8 +160,8 @@
       "rating": 5,
       "reviewUrl": "https://www.goodreads.com/review/show/8547651140?utm_medium=api&utm_source=rss",
       "hasReview": false,
-      "reviewLikes": 0,
-      "scrapeStatus": "not_requested",
+      "reviewLikes": 2,
+      "scrapeStatus": "ok",
       "drzrating": -1,
       "bookDetails": 0,
       "dcc_classes": {
@@ -138,7 +176,13 @@
         "reasoning": "El autor es Iván Cepeda y el libro trata sobre política colombiana y figuras de poder, encajando en ciencias políticas y gobierno.",
         "confidence": 0.9
       },
-      "matched": false
+      "matched": false,
+      "reviewLocalUrl": "./reviews/8547651140.html",
+      "reviewLocalCoverUrl": "./reviews/covers/8547651140.jpg",
+      "reviewDate": "2026-04-25",
+      "reviewLocalStatus": "ok",
+      "reviewLocalGeneratedAt": "2026-05-10T15:16:36.536015+00:00",
+      "reviewCount": 11
     },
     {
       "bookId": "59021993",
@@ -154,7 +198,7 @@
       "reviewLocalCoverUrl": "./reviews/covers/7583251244.jpg",
       "reviewDate": "2026-04-25",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-05-06T00:22:25.606007+00:00",
+      "reviewLocalGeneratedAt": "2026-05-10T15:16:38.509699+00:00",
       "reviewLocalLikes": 1,
       "reviewLocalLikesUpdatedAt": "2026-05-09T14:00:24.824386+00:00",
       "drzrating": 96,
@@ -173,11 +217,11 @@
       },
       "isbn": "9789878010489",
       "dateAdded": "2025-05-24",
-      "matched": false
+      "matched": true
     },
     {
       "bookId": "220648311",
-      "title": "En el amor y en la guerra",
+      "title": "En el amor y en la guerra (La catedral del mar #3)",
       "author": "Ildefonso Falcones",
       "dateRead": "2026-04-19",
       "rating": 5,
@@ -242,7 +286,7 @@
       },
       "isbn": "9788430628889",
       "dateAdded": "2026-02-14",
-      "matched": false
+      "matched": true
     },
     {
       "bookId": "216802309",
@@ -252,8 +296,8 @@
       "rating": 5,
       "reviewUrl": "https://www.goodreads.com/review/show/8475668956?utm_medium=api&utm_source=rss",
       "hasReview": true,
-      "reviewLikes": 6,
-      "scrapeStatus": "error: The read operation timed out",
+      "reviewLikes": 7,
+      "scrapeStatus": "ok",
       "drzrating": 92,
       "bookDetails": 1,
       "dateAdded": "2026-03-21",
@@ -263,7 +307,7 @@
       "reviewLocalCoverUrl": "./reviews/covers/8475668956.jpg",
       "reviewDate": "2026-05-01",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-05-06T00:22:21.342926+00:00",
+      "reviewLocalGeneratedAt": "2026-05-10T15:16:32.494093+00:00",
       "reviewCount": 667,
       "dcc_classes": {
         "100": "Filosofia y psicologia (100)",
@@ -279,7 +323,7 @@
         "confidence": 0.98
       },
       "isbn": "9788420471228",
-      "matched": false
+      "matched": true
     },
     {
       "bookId": "24114125",
@@ -289,8 +333,8 @@
       "rating": 3,
       "reviewUrl": "https://www.goodreads.com/review/show/8460970380?utm_medium=api&utm_source=rss",
       "hasReview": false,
-      "reviewLikes": 0,
-      "scrapeStatus": "not_requested",
+      "reviewLikes": 1,
+      "scrapeStatus": "ok",
       "drzrating": -1,
       "bookDetails": 0,
       "dcc_classes": {
@@ -303,7 +347,13 @@
         "reasoning": "Colección de relatos de ficción y misterio británica.",
         "confidence": 0.98
       },
-      "matched": false
+      "matched": false,
+      "reviewLocalUrl": "./reviews/8460970380.html",
+      "reviewLocalCoverUrl": "./reviews/covers/8460970380.jpg",
+      "reviewDate": "2026-04-03",
+      "reviewLocalStatus": "ok",
+      "reviewLocalGeneratedAt": "2026-05-10T15:16:40.341896+00:00",
+      "reviewCount": 11
     },
     {
       "bookId": "244149479",
@@ -389,8 +439,8 @@
       "reviewLocalUrl": "./reviews/4360307186.html",
       "reviewLocalCoverUrl": "./reviews/covers/4360307186.jpg",
       "reviewDate": "2026-03-22",
-      "reviewLocalStatus": "error: The read operation timed out",
-      "reviewLocalGeneratedAt": "2026-05-02T21:09:54.133757+00:00",
+      "reviewLocalStatus": "ok",
+      "reviewLocalGeneratedAt": "2026-05-10T15:16:42.686650+00:00",
       "reviewLocalLikes": 0,
       "reviewLocalLikesUpdatedAt": "2026-05-09T14:00:24.824386+00:00",
       "drzrating": 100,
@@ -416,8 +466,8 @@
       "rating": 4,
       "reviewUrl": "https://www.goodreads.com/review/show/8398729076?utm_medium=api&utm_source=rss",
       "hasReview": false,
-      "reviewLikes": 0,
-      "scrapeStatus": "not_requested",
+      "reviewLikes": 1,
+      "scrapeStatus": "ok",
       "drzrating": -1,
       "bookDetails": 0,
       "dcc_classes": {
@@ -430,7 +480,13 @@
         "reasoning": "Famosa colección de cuentos del detective inglés creados por A. Conan Doyle.",
         "confidence": 0.98
       },
-      "matched": false
+      "matched": false,
+      "reviewLocalUrl": "./reviews/8398729076.html",
+      "reviewLocalCoverUrl": "./reviews/covers/8398729076.jpg",
+      "reviewDate": "2026-03-16",
+      "reviewLocalStatus": "ok",
+      "reviewLocalGeneratedAt": "2026-05-10T15:16:44.736731+00:00",
+      "reviewCount": 11
     },
     {
       "bookId": "60774041",
@@ -471,7 +527,7 @@
     },
     {
       "bookId": "64995169",
-      "title": "Vida Contemplativa: Elogio de la Inactividad",
+      "title": "Vida contemplativa: Elogio de la inactividad",
       "author": "Byung-Chul Han",
       "dateRead": "2026-03-14",
       "rating": 4,
@@ -578,7 +634,7 @@
     },
     {
       "bookId": "243727708",
-      "title": "En el palacio de los astrónomos: La transformación de la ciencia en la Europa del norte del siglo XVI",
+      "title": "En el palacio de los astrónomos: La transformación de la ciencia en la Europa del norte del siglo XVI (Spanish Edition)",
       "author": "Violet Moller",
       "dateRead": "2026-02-28",
       "rating": 4,
@@ -621,8 +677,8 @@
       "rating": 3,
       "reviewUrl": "https://www.goodreads.com/review/show/8378117757?utm_medium=api&utm_source=rss",
       "hasReview": false,
-      "reviewLikes": 0,
-      "scrapeStatus": "not_requested",
+      "reviewLikes": 1,
+      "scrapeStatus": "ok",
       "drzrating": -1,
       "bookDetails": 0,
       "dcc_classes": {
@@ -635,7 +691,13 @@
         "reasoning": "Novela de misterio del detective Sherlock Holmes, del autor británico Arthur Conan Doyle.",
         "confidence": 0.98
       },
-      "matched": false
+      "matched": false,
+      "reviewLocalUrl": "./reviews/8378117757.html",
+      "reviewLocalCoverUrl": "./reviews/covers/8378117757.jpg",
+      "reviewDate": "2026-02-28",
+      "reviewLocalStatus": "ok",
+      "reviewLocalGeneratedAt": "2026-05-10T15:16:46.691652+00:00",
+      "reviewCount": 11
     },
     {
       "bookId": "20740274",
@@ -646,7 +708,7 @@
       "reviewUrl": "https://www.goodreads.com/review/show/8370600982?utm_medium=api&utm_source=rss",
       "hasReview": true,
       "reviewLikes": 2,
-      "scrapeStatus": "ok",
+      "scrapeStatus": "error: The read operation timed out",
       "reviewLocalUrl": "./reviews/8370600982.html",
       "reviewLocalCoverUrl": "./reviews/covers/8370600982.jpg",
       "reviewDate": "2026-02-22",
@@ -711,7 +773,7 @@
       "reviewUrl": "https://www.goodreads.com/review/show/5557404068?utm_medium=api&utm_source=rss",
       "hasReview": false,
       "reviewLikes": 0,
-      "scrapeStatus": "not_requested",
+      "scrapeStatus": "ok",
       "drzrating": -1,
       "bookDetails": 0,
       "dcc_classes": {
@@ -724,7 +786,13 @@
         "reasoning": "Ficción histórica escrita por el famoso novelista español Miguel Delibes.",
         "confidence": 0.98
       },
-      "matched": false
+      "matched": false,
+      "reviewLocalUrl": "./reviews/5557404068.html",
+      "reviewLocalCoverUrl": "./reviews/covers/5557404068.jpg",
+      "reviewDate": "2026-02-18",
+      "reviewLocalStatus": "ok",
+      "reviewLocalGeneratedAt": "2026-05-10T15:16:48.648544+00:00",
+      "reviewCount": 11
     },
     {
       "bookId": "54657941",
@@ -735,7 +803,7 @@
       "reviewUrl": "https://www.goodreads.com/review/show/3824901157?utm_medium=api&utm_source=rss",
       "hasReview": true,
       "reviewLikes": 19,
-      "scrapeStatus": "ok",
+      "scrapeStatus": "error: The read operation timed out",
       "reviewLocalUrl": "./reviews/3824901157.html",
       "reviewLocalCoverUrl": "./reviews/covers/3824901157.jpg",
       "reviewDate": "2026-02-21",
@@ -763,14 +831,14 @@
     },
     {
       "bookId": "217382766",
-      "title": "Frutologías: Historia política y cultural de las frutas",
+      "title": "Frutologías: Historia política y cultural de las frutas (Spanish Edition)",
       "author": "Federico Kukso",
       "dateRead": "2026-02-08",
       "rating": 5,
       "reviewUrl": "https://www.goodreads.com/review/show/8272239325?utm_medium=api&utm_source=rss",
       "hasReview": false,
       "reviewLikes": 0,
-      "scrapeStatus": "not_requested",
+      "scrapeStatus": "ok",
       "drzrating": -1,
       "bookDetails": 0,
       "dcc_classes": {
@@ -786,7 +854,13 @@
         "reasoning": "El libro se centra en la botánica, economía y aspecto social e histórico del cultivo de frutas.",
         "confidence": 0.85
       },
-      "matched": false
+      "matched": false,
+      "reviewLocalUrl": "./reviews/8272239325.html",
+      "reviewLocalCoverUrl": "./reviews/covers/8272239325.jpg",
+      "reviewDate": "2026-02-08",
+      "reviewLocalStatus": "ok",
+      "reviewLocalGeneratedAt": "2026-05-10T15:16:50.555863+00:00",
+      "reviewCount": 11
     },
     {
       "bookId": "40538196",
@@ -807,7 +881,7 @@
       "reviewLocalCoverUrl": "./reviews/covers/8246699782.jpg",
       "reviewDate": "2026-05-02",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-05-06T00:22:17.198988+00:00",
+      "reviewLocalGeneratedAt": "2026-05-10T15:16:28.418401+00:00",
       "reviewCount": 1255,
       "dcc_classes": {
         "900": "Historia y geografia (900)"
@@ -868,7 +942,7 @@
       "reviewUrl": "https://www.goodreads.com/review/show/8218650989?utm_medium=api&utm_source=rss",
       "hasReview": false,
       "reviewLikes": 0,
-      "scrapeStatus": "not_requested",
+      "scrapeStatus": "ok",
       "drzrating": -1,
       "bookDetails": 1,
       "dcc_classes": {
@@ -884,7 +958,13 @@
       },
       "isbn": "9786070313691",
       "dateAdded": "2026-01-03",
-      "matched": true
+      "matched": true,
+      "reviewLocalUrl": "./reviews/8218650989.html",
+      "reviewLocalCoverUrl": "./reviews/covers/8218650989.jpg",
+      "reviewDate": "2026-01-16",
+      "reviewLocalStatus": "ok",
+      "reviewLocalGeneratedAt": "2026-05-10T15:16:52.465461+00:00",
+      "reviewCount": 11
     },
     {
       "bookId": "32904032",
@@ -894,8 +974,8 @@
       "rating": 5,
       "reviewUrl": "https://www.goodreads.com/review/show/6073922172?utm_medium=api&utm_source=rss",
       "hasReview": false,
-      "reviewLikes": 0,
-      "scrapeStatus": "not_requested",
+      "reviewLikes": 7,
+      "scrapeStatus": "ok",
       "drzrating": -1,
       "bookDetails": 1,
       "dateAdded": "2021-12-11",
@@ -911,7 +991,13 @@
         "confidence": 1.0
       },
       "isbn": "9789588979137",
-      "matched": true
+      "matched": true,
+      "reviewLocalUrl": "./reviews/6073922172.html",
+      "reviewLocalCoverUrl": "./reviews/covers/6073922172.jpg",
+      "reviewDate": "2026-01-14",
+      "reviewLocalStatus": "ok",
+      "reviewLocalGeneratedAt": "2026-05-10T15:16:54.198757+00:00",
+      "reviewCount": 11
     },
     {
       "bookId": "6707847",
@@ -950,7 +1036,7 @@
     },
     {
       "bookId": "122941880",
-      "title": "La armonía de las células: Una exploración de la medicina y del nuevo ser humano",
+      "title": "La armonía de las células: Una exploración de la medicina y del nuevo ser humano / The Song of the Cell: An Exploration of Medicine and the New Human (Spanish Edition)",
       "author": "Siddhartha Mukherjee",
       "dateRead": "2026-01-08",
       "rating": 5,
@@ -993,8 +1079,8 @@
       "rating": 3,
       "reviewUrl": "https://www.goodreads.com/review/show/8233735772?utm_medium=api&utm_source=rss",
       "hasReview": false,
-      "reviewLikes": 0,
-      "scrapeStatus": "not_requested",
+      "reviewLikes": 1,
+      "scrapeStatus": "ok",
       "drzrating": -1,
       "bookDetails": 0,
       "dcc_classes": {
@@ -1007,7 +1093,13 @@
         "reasoning": "Es un ensayo de Umberto Eco que analiza y explica su propia novela, por lo que pertenece a la crítica de ficción italiana.",
         "confidence": 0.95
       },
-      "matched": false
+      "matched": false,
+      "reviewLocalUrl": "./reviews/8233735772.html",
+      "reviewLocalCoverUrl": "./reviews/covers/8233735772.jpg",
+      "reviewDate": "2026-01-06",
+      "reviewLocalStatus": "ok",
+      "reviewLocalGeneratedAt": "2026-05-10T15:16:56.111834+00:00",
+      "reviewCount": 11
     },
     {
       "bookId": "71565",
@@ -1156,8 +1248,8 @@
       "rating": 2,
       "reviewUrl": "https://www.goodreads.com/review/show/7657133958?utm_medium=api&utm_source=rss",
       "hasReview": false,
-      "reviewLikes": 0,
-      "scrapeStatus": "not_requested",
+      "reviewLikes": 1,
+      "scrapeStatus": "ok",
       "drzrating": -1,
       "bookDetails": 1,
       "dcc_classes": {
@@ -1176,7 +1268,13 @@
       },
       "isbn": "9788434438439",
       "dateAdded": "2025-06-14",
-      "matched": true
+      "matched": true,
+      "reviewLocalUrl": "./reviews/7657133958.html",
+      "reviewLocalCoverUrl": "./reviews/covers/7657133958.jpg",
+      "reviewDate": "2025-12-28",
+      "reviewLocalStatus": "ok",
+      "reviewLocalGeneratedAt": "2026-05-10T15:16:58.067567+00:00",
+      "reviewCount": 11
     },
     {
       "bookId": "17972675",
@@ -1187,7 +1285,7 @@
       "reviewUrl": "https://www.goodreads.com/review/show/5506462882?utm_medium=api&utm_source=rss",
       "hasReview": false,
       "reviewLikes": 0,
-      "scrapeStatus": "not_requested",
+      "scrapeStatus": "ok",
       "drzrating": -1,
       "bookDetails": 1,
       "dateAdded": "2020-12-31",
@@ -1203,7 +1301,13 @@
         "confidence": 1.0
       },
       "isbn": "9789588611952",
-      "matched": true
+      "matched": true,
+      "reviewLocalUrl": "./reviews/5506462882.html",
+      "reviewLocalCoverUrl": "./reviews/covers/5506462882.jpg",
+      "reviewDate": "2025-12-28",
+      "reviewLocalStatus": "ok",
+      "reviewLocalGeneratedAt": "2026-05-10T15:17:00.050882+00:00",
+      "reviewCount": 11
     },
     {
       "bookId": "209668724",
@@ -1214,7 +1318,7 @@
       "reviewUrl": "https://www.goodreads.com/review/show/8173931972?utm_medium=api&utm_source=rss",
       "hasReview": false,
       "reviewLikes": 0,
-      "scrapeStatus": "not_requested",
+      "scrapeStatus": "ok",
       "drzrating": -1,
       "bookDetails": 1,
       "dateAdded": "2024-08-04",
@@ -1230,7 +1334,13 @@
         "confidence": 0.98
       },
       "isbn": "9788430626946",
-      "matched": true
+      "matched": true,
+      "reviewLocalUrl": "./reviews/8173931972.html",
+      "reviewLocalCoverUrl": "./reviews/covers/8173931972.jpg",
+      "reviewDate": "2025-12-26",
+      "reviewLocalStatus": "ok",
+      "reviewLocalGeneratedAt": "2026-05-10T15:17:01.946379+00:00",
+      "reviewCount": 11
     },
     {
       "bookId": "8513933",
@@ -1340,7 +1450,7 @@
     },
     {
       "bookId": "122775836",
-      "title": "¿Sufren las piedras?: Pequeño manual filosófico",
+      "title": "¿Sufren las piedras?: Pequeño manual filosófico (Spanish Edition)",
       "author": "Wolfram Eilenberger",
       "dateRead": "2025-12-21",
       "rating": 5,
@@ -1380,7 +1490,7 @@
       "reviewUrl": "https://www.goodreads.com/review/show/8157580649?utm_medium=api&utm_source=rss",
       "hasReview": false,
       "reviewLikes": 0,
-      "scrapeStatus": "not_requested",
+      "scrapeStatus": "ok",
       "drzrating": -1,
       "bookDetails": 0,
       "dcc_classes": {
@@ -1394,11 +1504,17 @@
         "reasoning": "Obra de teatro cumbre escrita por William Shakespeare, autor inglés.",
         "confidence": 0.99
       },
-      "matched": false
+      "matched": false,
+      "reviewLocalUrl": "./reviews/8157580649.html",
+      "reviewLocalCoverUrl": "./reviews/covers/8157580649.jpg",
+      "reviewDate": "2025-12-21",
+      "reviewLocalStatus": "ok",
+      "reviewLocalGeneratedAt": "2026-05-10T15:17:03.785458+00:00",
+      "reviewCount": 11
     },
     {
       "bookId": "25377233",
-      "title": "La escuela de la noche",
+      "title": "La escuela de la noche (Spanish Edition)",
       "author": "William Ospina",
       "dateRead": "2025-12-18",
       "rating": 4,
@@ -1464,14 +1580,14 @@
     },
     {
       "bookId": "113645",
-      "title": "The New Cosmic Onion: Quarks and the Nature of the Universe",
+      "title": "The New Cosmic Onion: Quarks and the Nature of the Universe (Discovering Physics)",
       "author": "Frank Close",
       "dateRead": "2025-12-16",
       "rating": 3,
       "reviewUrl": "https://www.goodreads.com/review/show/8004251715?utm_medium=api&utm_source=rss",
       "hasReview": false,
       "reviewLikes": 0,
-      "scrapeStatus": "not_requested",
+      "scrapeStatus": "ok",
       "drzrating": -1,
       "bookDetails": 0,
       "dcc_classes": {
@@ -1485,11 +1601,17 @@
         "reasoning": "Aborda el tema de la física de partículas elementales (quarks).",
         "confidence": 0.98
       },
-      "matched": false
+      "matched": false,
+      "reviewLocalUrl": "./reviews/8004251715.html",
+      "reviewLocalCoverUrl": "./reviews/covers/8004251715.jpg",
+      "reviewDate": "2025-12-16",
+      "reviewLocalStatus": "ok",
+      "reviewLocalGeneratedAt": "2026-05-10T15:17:05.675120+00:00",
+      "reviewCount": 11
     },
     {
       "bookId": "233875060",
-      "title": "El cielo en desorden",
+      "title": "El cielo en desorden (Spanish Edition)",
       "author": "Slavoj Žižek",
       "dateRead": "2025-12-14",
       "rating": 3,
@@ -1625,7 +1747,7 @@
     },
     {
       "bookId": "236033220",
-      "title": "Los tres mundos",
+      "title": "Los tres mundos (Julio César, #3)",
       "series": "Julio César",
       "author": "Santiago Posteguillo",
       "dateRead": "2025-11-28",
@@ -1667,8 +1789,8 @@
       "rating": 5,
       "reviewUrl": "https://www.goodreads.com/review/show/8094878471?utm_medium=api&utm_source=rss",
       "hasReview": false,
-      "reviewLikes": 0,
-      "scrapeStatus": "not_requested",
+      "reviewLikes": 1,
+      "scrapeStatus": "ok",
       "drzrating": -1,
       "bookDetails": 1,
       "dcc_classes": {
@@ -1685,18 +1807,24 @@
       },
       "isbn": "9788419951953",
       "dateAdded": "2025-11-23",
-      "matched": true
+      "matched": true,
+      "reviewLocalUrl": "./reviews/8094878471.html",
+      "reviewLocalCoverUrl": "./reviews/covers/8094878471.jpg",
+      "reviewDate": "2025-11-23",
+      "reviewLocalStatus": "ok",
+      "reviewLocalGeneratedAt": "2026-05-10T15:17:12.585612+00:00",
+      "reviewCount": 11
     },
     {
       "bookId": "242077118",
-      "title": "Consumidores de atención: Sobre la dispersión y la vida interior en la era digital",
+      "title": "Consumidores de atención: Sobre la dispersión y la vida interior en la era digital (Spanish Edition)",
       "author": "Jorge Roberto Palacio",
       "dateRead": "2025-11-23",
       "rating": 3,
       "reviewUrl": "https://www.goodreads.com/review/show/8073485463?utm_medium=api&utm_source=rss",
       "hasReview": false,
       "reviewLikes": 0,
-      "scrapeStatus": "not_requested",
+      "scrapeStatus": "ok",
       "drzrating": -1,
       "bookDetails": 1,
       "dcc_classes": {
@@ -1714,11 +1842,17 @@
       },
       "isbn": "9786287669949",
       "dateAdded": "2025-10-17",
-      "matched": true
+      "matched": true,
+      "reviewLocalUrl": "./reviews/8073485463.html",
+      "reviewLocalCoverUrl": "./reviews/covers/8073485463.jpg",
+      "reviewDate": "2025-11-23",
+      "reviewLocalStatus": "ok",
+      "reviewLocalGeneratedAt": "2026-05-10T15:17:08.381664+00:00",
+      "reviewCount": 11
     },
     {
       "bookId": "37483810",
-      "title": "La vida interior de los animales",
+      "title": "La vida interior de los animales (Spanish Edition)",
       "author": "Peter Wohlleben",
       "dateRead": "2025-11-16",
       "rating": 5,
@@ -1759,8 +1893,8 @@
       "rating": 5,
       "reviewUrl": "https://www.goodreads.com/review/show/7892700437?utm_medium=api&utm_source=rss",
       "hasReview": false,
-      "reviewLikes": 0,
-      "scrapeStatus": "not_requested",
+      "reviewLikes": 3,
+      "scrapeStatus": "ok",
       "drzrating": -1,
       "bookDetails": 0,
       "dcc_classes": {
@@ -1774,7 +1908,13 @@
         "reasoning": "El científico de Harvard, Avi Loeb, escribe sobre la investigación astrofísica en busca de vida extraterrestre.",
         "confidence": 0.98
       },
-      "matched": false
+      "matched": false,
+      "reviewLocalUrl": "./reviews/7892700437.html",
+      "reviewLocalCoverUrl": "./reviews/covers/7892700437.jpg",
+      "reviewDate": "2025-11-16",
+      "reviewLocalStatus": "ok",
+      "reviewLocalGeneratedAt": "2026-05-10T15:17:15.605659+00:00",
+      "reviewCount": 11
     },
     {
       "bookId": "3362986",
@@ -1852,7 +1992,7 @@
       "reviewUrl": "https://www.goodreads.com/review/show/8041198555?utm_medium=api&utm_source=rss",
       "hasReview": false,
       "reviewLikes": 0,
-      "scrapeStatus": "not_requested",
+      "scrapeStatus": "ok",
       "drzrating": -1,
       "bookDetails": 1,
       "dateAdded": "2025-10-17",
@@ -1868,7 +2008,13 @@
         "confidence": 1.0
       },
       "isbn": "9788491057857",
-      "matched": true
+      "matched": true,
+      "reviewLocalUrl": "./reviews/8041198555.html",
+      "reviewLocalCoverUrl": "./reviews/covers/8041198555.jpg",
+      "reviewDate": "2025-11-05",
+      "reviewLocalStatus": "ok",
+      "reviewLocalGeneratedAt": "2026-05-10T15:17:18.155009+00:00",
+      "reviewCount": 11
     },
     {
       "bookId": "19181819",
@@ -1878,8 +2024,8 @@
       "rating": 5,
       "reviewUrl": "https://www.goodreads.com/review/show/7941492920?utm_medium=api&utm_source=rss",
       "hasReview": false,
-      "reviewLikes": 0,
-      "scrapeStatus": "not_requested",
+      "reviewLikes": 2,
+      "scrapeStatus": "ok",
       "drzrating": -1,
       "bookDetails": 0,
       "dcc_classes": {
@@ -1893,7 +2039,13 @@
         "reasoning": "El autor, Edward Rutherfurd, es un novelista histórico inglés. Ficción sobre la ciudad de NY.",
         "confidence": 0.9
       },
-      "matched": false
+      "matched": false,
+      "reviewLocalUrl": "./reviews/7941492920.html",
+      "reviewLocalCoverUrl": "./reviews/covers/7941492920.jpg",
+      "reviewDate": "2025-11-02",
+      "reviewLocalStatus": "ok",
+      "reviewLocalGeneratedAt": "2026-05-10T15:17:20.681242+00:00",
+      "reviewCount": 11
     },
     {
       "bookId": "200887395",
@@ -1931,7 +2083,7 @@
     },
     {
       "bookId": "228357636",
-      "title": "Hacia un socialismo ecológico",
+      "title": "Hacia un socialismo ecológico: Crónicas 2020-2024 (Deusto) (Spanish Edition)",
       "author": "Thomas Piketty",
       "dateRead": "2025-11-01",
       "rating": 5,
@@ -1973,8 +2125,8 @@
       "rating": 5,
       "reviewUrl": "https://www.goodreads.com/review/show/7970222277?utm_medium=api&utm_source=rss",
       "hasReview": false,
-      "reviewLikes": 0,
-      "scrapeStatus": "not_requested",
+      "reviewLikes": 1,
+      "scrapeStatus": "ok",
       "drzrating": -1,
       "bookDetails": 0,
       "dcc_classes": {
@@ -1989,7 +2141,13 @@
         "reasoning": "Un análisis y crítica feminista contra las formas de opresión, por lo que entra en temas de grupos sociales o feminismo.",
         "confidence": 0.95
       },
-      "matched": false
+      "matched": false,
+      "reviewLocalUrl": "./reviews/7970222277.html",
+      "reviewLocalCoverUrl": "./reviews/covers/7970222277.jpg",
+      "reviewDate": "2025-10-12",
+      "reviewLocalStatus": "ok",
+      "reviewLocalGeneratedAt": "2026-05-10T15:17:43.567202+00:00",
+      "reviewCount": 11
     },
     {
       "bookId": "235679277",
@@ -1999,8 +2157,8 @@
       "rating": 4,
       "reviewUrl": "https://www.goodreads.com/review/show/7946233444?utm_medium=api&utm_source=rss",
       "hasReview": false,
-      "reviewLikes": 0,
-      "scrapeStatus": "not_requested",
+      "reviewLikes": 3,
+      "scrapeStatus": "ok",
       "drzrating": -1,
       "bookDetails": 0,
       "dcc_classes": {
@@ -2013,7 +2171,9 @@
         "reasoning": "Es una novela del prolífico escritor británico Ken Follett.",
         "confidence": 0.98
       },
-      "matched": false
+      "matched": false,
+      "reviewLocalStatus": "error: The read operation timed out",
+      "reviewCount": 11
     },
     {
       "bookId": "232494918",
@@ -2054,14 +2214,14 @@
     },
     {
       "bookId": "28457263",
-      "title": "Barcelona, una biografía",
+      "title": "Barcelona, una biografía (Imago Mundi) (Spanish Edition)",
       "author": "Enric Calpena i Ollé",
       "dateRead": "2025-09-26",
       "rating": 4,
       "reviewUrl": "https://www.goodreads.com/review/show/7862130465?utm_medium=api&utm_source=rss",
       "hasReview": false,
       "reviewLikes": 0,
-      "scrapeStatus": "not_requested",
+      "scrapeStatus": "ok",
       "drzrating": -1,
       "bookDetails": 0,
       "dcc_classes": {
@@ -2075,7 +2235,13 @@
         "reasoning": "Es un relato histórico o 'biografía' de la ciudad de Barcelona, en España.",
         "confidence": 0.95
       },
-      "matched": false
+      "matched": false,
+      "reviewLocalUrl": "./reviews/7862130465.html",
+      "reviewLocalCoverUrl": "./reviews/covers/7862130465.jpg",
+      "reviewDate": "2025-09-26",
+      "reviewLocalStatus": "ok",
+      "reviewLocalGeneratedAt": "2026-05-10T15:17:49.427714+00:00",
+      "reviewCount": 11
     },
     {
       "bookId": "59080630",
@@ -2086,7 +2252,7 @@
       "reviewUrl": "https://www.goodreads.com/review/show/7942026165?utm_medium=api&utm_source=rss",
       "hasReview": false,
       "reviewLikes": 0,
-      "scrapeStatus": "not_requested",
+      "scrapeStatus": "ok",
       "drzrating": -1,
       "bookDetails": 0,
       "dcc_classes": {
@@ -2101,7 +2267,13 @@
         "reasoning": "Obra de no-ficción, ensayo narrativo, literario y científico de Benjamín Labatut.",
         "confidence": 0.9
       },
-      "matched": false
+      "matched": false,
+      "reviewLocalUrl": "./reviews/7942026165.html",
+      "reviewLocalCoverUrl": "./reviews/covers/7942026165.jpg",
+      "reviewDate": "2025-09-26",
+      "reviewLocalStatus": "ok",
+      "reviewLocalGeneratedAt": "2026-05-10T15:17:46.579284+00:00",
+      "reviewCount": 11
     },
     {
       "bookId": "25516857",
@@ -2111,8 +2283,8 @@
       "rating": 3,
       "reviewUrl": "https://www.goodreads.com/review/show/4360309104?utm_medium=api&utm_source=rss",
       "hasReview": false,
-      "reviewLikes": 0,
-      "scrapeStatus": "not_requested",
+      "reviewLikes": 1,
+      "scrapeStatus": "ok",
       "drzrating": -1,
       "bookDetails": 0,
       "dcc_classes": {
@@ -2127,18 +2299,24 @@
         "confidence": 0.0
       },
       "isbn": "9788420650807",
-      "matched": false
+      "matched": false,
+      "reviewLocalUrl": "./reviews/4360309104.html",
+      "reviewLocalCoverUrl": "./reviews/covers/4360309104.jpg",
+      "reviewDate": "2025-09-24",
+      "reviewLocalStatus": "ok",
+      "reviewLocalGeneratedAt": "2026-05-10T15:17:53.544080+00:00",
+      "reviewCount": 11
     },
     {
       "bookId": "56920719",
-      "title": "Extraterrestre: La humanidad ante el primer signo de vida inteligente más allá de la Tierra",
+      "title": "Extraterrestre: La humanidad ante el primer signo de vida inteligente más allá de la Tierra (No Ficción) (Spanish Edition)",
       "author": "Avi Loeb",
       "dateRead": "2025-09-05",
       "rating": 4,
       "reviewUrl": "https://www.goodreads.com/review/show/7888036993?utm_medium=api&utm_source=rss",
       "hasReview": false,
       "reviewLikes": 0,
-      "scrapeStatus": "not_requested",
+      "scrapeStatus": "ok",
       "drzrating": -1,
       "bookDetails": 0,
       "dcc_classes": {
@@ -2152,18 +2330,24 @@
         "reasoning": "La obra es una investigación de ensayo enfocada primordialmente en la astrobiología y la posibilidad de vida extraterrestre.",
         "confidence": 0.0
       },
-      "matched": false
+      "matched": false,
+      "reviewLocalUrl": "./reviews/7888036993.html",
+      "reviewLocalCoverUrl": "./reviews/covers/7888036993.jpg",
+      "reviewDate": "2025-09-05",
+      "reviewLocalStatus": "ok",
+      "reviewLocalGeneratedAt": "2026-05-10T15:17:56.467170+00:00",
+      "reviewCount": 11
     },
     {
       "bookId": "17333142",
-      "title": "El maestro del Prado y las pinturas proféticas",
+      "title": "El maestro del Prado",
       "author": "Javier Sierra",
       "dateRead": "2025-09-02",
       "rating": 4,
       "reviewUrl": "https://www.goodreads.com/review/show/7864311880?utm_medium=api&utm_source=rss",
       "hasReview": false,
       "reviewLikes": 0,
-      "scrapeStatus": "not_requested",
+      "scrapeStatus": "ok",
       "drzrating": -1,
       "bookDetails": 1,
       "dcc_classes": {
@@ -2178,7 +2362,13 @@
       },
       "isbn": "9789584233844",
       "dateAdded": "2020-12-31",
-      "matched": true
+      "matched": true,
+      "reviewLocalUrl": "./reviews/7864311880.html",
+      "reviewLocalCoverUrl": "./reviews/covers/7864311880.jpg",
+      "reviewDate": "2025-09-02",
+      "reviewLocalStatus": "ok",
+      "reviewLocalGeneratedAt": "2026-05-10T15:18:01.944596+00:00",
+      "reviewCount": 11
     },
     {
       "bookId": "216472768",
@@ -2189,7 +2379,7 @@
       "reviewUrl": "https://www.goodreads.com/review/show/7846186542?utm_medium=api&utm_source=rss",
       "hasReview": false,
       "reviewLikes": 0,
-      "scrapeStatus": "not_requested",
+      "scrapeStatus": "ok",
       "drzrating": -1,
       "bookDetails": 0,
       "dcc_classes": {
@@ -2202,18 +2392,24 @@
         "reasoning": "Investigación biológica centrada en los microorganismos que subsisten bajo la superficie terrestre.",
         "confidence": 0.0
       },
-      "matched": false
+      "matched": false,
+      "reviewLocalUrl": "./reviews/7846186542.html",
+      "reviewLocalCoverUrl": "./reviews/covers/7846186542.jpg",
+      "reviewDate": "2025-08-25",
+      "reviewLocalStatus": "ok",
+      "reviewLocalGeneratedAt": "2026-05-10T15:18:04.615721+00:00",
+      "reviewCount": 11
     },
     {
       "bookId": "20768906",
-      "title": "Lo que hacen los mejores profesores universitarios",
+      "title": "Lo que hacen los mejores profesores universitarios (Spanish Edition)",
       "author": "Various",
       "dateRead": "2025-08-18",
       "rating": 5,
       "reviewUrl": "https://www.goodreads.com/review/show/7499085686?utm_medium=api&utm_source=rss",
       "hasReview": false,
       "reviewLikes": 0,
-      "scrapeStatus": "not_requested",
+      "scrapeStatus": "ok",
       "drzrating": -1,
       "bookDetails": 0,
       "dcc_classes": {
@@ -2226,7 +2422,13 @@
         "reasoning": "Estudio académico dedicado a métodos pedagógicos aplicados en el entorno universitario.",
         "confidence": 0.0
       },
-      "matched": false
+      "matched": false,
+      "reviewLocalUrl": "./reviews/7499085686.html",
+      "reviewLocalCoverUrl": "./reviews/covers/7499085686.jpg",
+      "reviewDate": "2025-08-18",
+      "reviewLocalStatus": "ok",
+      "reviewLocalGeneratedAt": "2026-05-10T15:18:13.514854+00:00",
+      "reviewCount": 11
     },
     {
       "bookId": "24379753",
@@ -2236,8 +2438,8 @@
       "rating": 5,
       "reviewUrl": "https://www.goodreads.com/review/show/3694939047?utm_medium=api&utm_source=rss",
       "hasReview": false,
-      "reviewLikes": 0,
-      "scrapeStatus": "not_requested",
+      "reviewLikes": 3,
+      "scrapeStatus": "ok",
       "drzrating": -1,
       "bookDetails": 1,
       "dateAdded": "2020-12-31",
@@ -2253,18 +2455,24 @@
         "confidence": 1.0
       },
       "isbn": "9788499187426",
-      "matched": true
+      "matched": true,
+      "reviewLocalUrl": "./reviews/3694939047.html",
+      "reviewLocalCoverUrl": "./reviews/covers/3694939047.jpg",
+      "reviewDate": "2025-08-18",
+      "reviewLocalStatus": "ok",
+      "reviewLocalGeneratedAt": "2026-05-10T15:18:10.564158+00:00",
+      "reviewCount": 11
     },
     {
       "bookId": "65156334",
-      "title": "La luz revelada: Del telescopio de Galileo a la extrañeza cuántica",
+      "title": "La luz revelada: Del telescopio de Galileo a la extrañeza cuántica (Spanish Edition)",
       "author": "Serge Haroche",
       "dateRead": "2025-08-18",
       "rating": 4,
       "reviewUrl": "https://www.goodreads.com/review/show/5161184371?utm_medium=api&utm_source=rss",
       "hasReview": false,
-      "reviewLikes": 0,
-      "scrapeStatus": "not_requested",
+      "reviewLikes": 1,
+      "scrapeStatus": "ok",
       "drzrating": -1,
       "bookDetails": 1,
       "dcc_classes": {
@@ -2279,7 +2487,13 @@
       },
       "isbn": "9788418619670",
       "dateAdded": "2023-04-25",
-      "matched": true
+      "matched": true,
+      "reviewLocalUrl": "./reviews/5161184371.html",
+      "reviewLocalCoverUrl": "./reviews/covers/5161184371.jpg",
+      "reviewDate": "2025-08-18",
+      "reviewLocalStatus": "ok",
+      "reviewLocalGeneratedAt": "2026-05-10T15:18:07.650800+00:00",
+      "reviewCount": 11
     },
     {
       "bookId": "222815644",
@@ -2289,8 +2503,8 @@
       "rating": 5,
       "reviewUrl": "https://www.goodreads.com/review/show/7818918347?utm_medium=api&utm_source=rss",
       "hasReview": false,
-      "reviewLikes": 0,
-      "scrapeStatus": "not_requested",
+      "reviewLikes": 2,
+      "scrapeStatus": "ok",
       "drzrating": -1,
       "bookDetails": 0,
       "dcc_classes": {
@@ -2305,18 +2519,24 @@
         "reasoning": "Ensayo centrado en la geopolítica moderna y la dinámica internacional a partir del crecimiento de China.",
         "confidence": 0.0
       },
-      "matched": false
+      "matched": false,
+      "reviewLocalUrl": "./reviews/7818918347.html",
+      "reviewLocalCoverUrl": "./reviews/covers/7818918347.jpg",
+      "reviewDate": "2025-08-17",
+      "reviewLocalStatus": "ok",
+      "reviewLocalGeneratedAt": "2026-05-10T15:18:16.956549+00:00",
+      "reviewCount": 11
     },
     {
       "bookId": "235770304",
-      "title": "Manifiesto comunista",
+      "title": "Manifiesto comunista (Serie Great Ideas) (Spanish Edition)",
       "author": "Karl Marx",
       "dateRead": "2025-08-10",
       "rating": 5,
       "reviewUrl": "https://www.goodreads.com/review/show/7817290317?utm_medium=api&utm_source=rss",
       "hasReview": false,
       "reviewLikes": 0,
-      "scrapeStatus": "not_requested",
+      "scrapeStatus": "ok",
       "drzrating": -1,
       "bookDetails": 1,
       "dateAdded": "2025-08-09",
@@ -2332,7 +2552,13 @@
         "confidence": 1.0
       },
       "isbn": "9788430627752",
-      "matched": true
+      "matched": true,
+      "reviewLocalUrl": "./reviews/7817290317.html",
+      "reviewLocalCoverUrl": "./reviews/covers/7817290317.jpg",
+      "reviewDate": "2025-08-10",
+      "reviewLocalStatus": "ok",
+      "reviewLocalGeneratedAt": "2026-05-10T15:18:19.565303+00:00",
+      "reviewCount": 11
     },
     {
       "bookId": "217324498",
@@ -2343,7 +2569,7 @@
       "reviewUrl": "https://www.goodreads.com/review/show/7813264654?utm_medium=api&utm_source=rss",
       "hasReview": false,
       "reviewLikes": 0,
-      "scrapeStatus": "not_requested",
+      "scrapeStatus": "ok",
       "drzrating": -1,
       "bookDetails": 1,
       "dcc_classes": {
@@ -2358,7 +2584,13 @@
       },
       "isbn": "9788430627004",
       "dateAdded": "2025-08-08",
-      "matched": true
+      "matched": true,
+      "reviewLocalUrl": "./reviews/7813264654.html",
+      "reviewLocalCoverUrl": "./reviews/covers/7813264654.jpg",
+      "reviewDate": "2025-08-10",
+      "reviewLocalStatus": "ok",
+      "reviewLocalGeneratedAt": "2026-05-10T15:18:22.548362+00:00",
+      "reviewCount": 11
     },
     {
       "bookId": "236941248",
@@ -2368,8 +2600,8 @@
       "rating": 5,
       "reviewUrl": "https://www.goodreads.com/review/show/7719133367?utm_medium=api&utm_source=rss",
       "hasReview": false,
-      "reviewLikes": 0,
-      "scrapeStatus": "not_requested",
+      "reviewLikes": 4,
+      "scrapeStatus": "ok",
       "drzrating": -1,
       "bookDetails": 0,
       "dcc_classes": {
@@ -2385,7 +2617,13 @@
         "reasoning": "Explora el impacto sociológico profundo que los modelos de inteligencia artificial tienen sobre los individuos.",
         "confidence": 0.0
       },
-      "matched": false
+      "matched": false,
+      "reviewLocalUrl": "./reviews/7719133367.html",
+      "reviewLocalCoverUrl": "./reviews/covers/7719133367.jpg",
+      "reviewDate": "2025-08-03",
+      "reviewLocalStatus": "ok",
+      "reviewLocalGeneratedAt": "2026-05-10T15:18:25.277057+00:00",
+      "reviewCount": 11
     },
     {
       "bookId": "51222253",
@@ -2395,8 +2633,8 @@
       "rating": 5,
       "reviewUrl": "https://www.goodreads.com/review/show/7793777102?utm_medium=api&utm_source=rss",
       "hasReview": false,
-      "reviewLikes": 0,
-      "scrapeStatus": "not_requested",
+      "reviewLikes": 1,
+      "scrapeStatus": "ok",
       "drzrating": -1,
       "bookDetails": 1,
       "dcc_classes": {
@@ -2413,18 +2651,24 @@
       },
       "isbn": "9788491818939",
       "dateAdded": "2024-07-16",
-      "matched": true
+      "matched": true,
+      "reviewLocalUrl": "./reviews/7793777102.html",
+      "reviewLocalCoverUrl": "./reviews/covers/7793777102.jpg",
+      "reviewDate": "2025-08-02",
+      "reviewLocalStatus": "ok",
+      "reviewLocalGeneratedAt": "2026-05-10T15:18:28.270979+00:00",
+      "reviewCount": 11
     },
     {
       "bookId": "18210750",
-      "title": "Quantum Mechanics: The Theoretical Minimum",
+      "title": "Quantum Mechanics: The Theoretical Minimum (Theoretical Minimum #2)",
       "author": "Leonard Susskind",
       "dateRead": "2025-07-20",
       "rating": 5,
       "reviewUrl": "https://www.goodreads.com/review/show/7752072552?utm_medium=api&utm_source=rss",
       "hasReview": false,
-      "reviewLikes": 0,
-      "scrapeStatus": "not_requested",
+      "reviewLikes": 1,
+      "scrapeStatus": "ok",
       "drzrating": -1,
       "bookDetails": 0,
       "dcc_classes": {
@@ -2437,18 +2681,24 @@
         "reasoning": "Texto introductorio de alto nivel matemático y teórico en torno a la mecánica cuántica.",
         "confidence": 0.0
       },
-      "matched": false
+      "matched": false,
+      "reviewLocalUrl": "./reviews/7752072552.html",
+      "reviewLocalCoverUrl": "./reviews/covers/7752072552.jpg",
+      "reviewDate": "2025-07-20",
+      "reviewLocalStatus": "ok",
+      "reviewLocalGeneratedAt": "2026-05-10T15:18:32.425967+00:00",
+      "reviewCount": 11
     },
     {
       "bookId": "62105428",
-      "title": "La tierra de los tesoros tristes",
+      "title": "La tierra de los tesoros tristes (Spanish Edition)",
       "author": "Simón Posada Tamayo",
       "dateRead": "2025-07-09",
       "rating": 4,
       "reviewUrl": "https://www.goodreads.com/review/show/7721996746?utm_medium=api&utm_source=rss",
       "hasReview": false,
       "reviewLikes": 0,
-      "scrapeStatus": "not_requested",
+      "scrapeStatus": "ok",
       "drzrating": -1,
       "bookDetails": 1,
       "dateAdded": "2023-12-11",
@@ -2466,7 +2716,13 @@
         "confidence": 0.95
       },
       "isbn": "9786287539099",
-      "matched": true
+      "matched": true,
+      "reviewLocalUrl": "./reviews/7721996746.html",
+      "reviewLocalCoverUrl": "./reviews/covers/7721996746.jpg",
+      "reviewDate": "2025-07-09",
+      "reviewLocalStatus": "ok",
+      "reviewLocalGeneratedAt": "2026-05-10T15:18:35.408788+00:00",
+      "reviewCount": 11
     },
     {
       "bookId": "61274281",
@@ -2476,8 +2732,8 @@
       "rating": 5,
       "reviewUrl": "https://www.goodreads.com/review/show/7708803302?utm_medium=api&utm_source=rss",
       "hasReview": false,
-      "reviewLikes": 0,
-      "scrapeStatus": "not_requested",
+      "reviewLikes": 2,
+      "scrapeStatus": "ok",
       "drzrating": -1,
       "bookDetails": 0,
       "dcc_classes": {
@@ -2490,7 +2746,13 @@
         "reasoning": "Relato histórico documentado durante la Segunda Guerra Mundial y el Holocausto.",
         "confidence": 0.0
       },
-      "matched": false
+      "matched": false,
+      "reviewLocalUrl": "./reviews/7708803302.html",
+      "reviewLocalCoverUrl": "./reviews/covers/7708803302.jpg",
+      "reviewDate": "2025-07-09",
+      "reviewLocalStatus": "ok",
+      "reviewLocalGeneratedAt": "2026-05-10T15:18:38.129080+00:00",
+      "reviewCount": 11
     },
     {
       "bookId": "153617796",
@@ -2501,7 +2763,7 @@
       "reviewUrl": "https://www.goodreads.com/review/show/7719132036?utm_medium=api&utm_source=rss",
       "hasReview": true,
       "reviewLikes": 8,
-      "scrapeStatus": "ok",
+      "scrapeStatus": "error: The read operation timed out",
       "reviewLocalUrl": "./reviews/7719132036.html",
       "reviewLocalCoverUrl": "./reviews/covers/7719132036.jpg",
       "reviewDate": "2025-07-08",
@@ -2604,7 +2866,7 @@
       "reviewUrl": "https://www.goodreads.com/review/show/7701762275?utm_medium=api&utm_source=rss",
       "hasReview": false,
       "reviewLikes": 0,
-      "scrapeStatus": "not_requested",
+      "scrapeStatus": "ok",
       "drzrating": -1,
       "bookDetails": 0,
       "dcc_classes": {
@@ -2617,7 +2879,13 @@
         "reasoning": "Ensayo filosófico que aborda cuestiones de ecofeminismo, ética medioambiental y la posición humana en la naturaleza.",
         "confidence": 0.0
       },
-      "matched": false
+      "matched": false,
+      "reviewLocalUrl": "./reviews/7701762275.html",
+      "reviewLocalCoverUrl": "./reviews/covers/7701762275.jpg",
+      "reviewDate": "2025-07-02",
+      "reviewLocalStatus": "ok",
+      "reviewLocalGeneratedAt": "2026-05-10T15:18:41.009132+00:00",
+      "reviewCount": 11
     },
     {
       "bookId": "218139790",
@@ -2656,7 +2924,7 @@
     },
     {
       "bookId": "201558781",
-      "title": "La medición del mundo",
+      "title": "La medición del mundo / Measuring the World (Spanish Edition)",
       "author": "Daniel Kehlmann",
       "dateRead": "2025-06-28",
       "rating": 5,
@@ -2721,7 +2989,7 @@
     },
     {
       "bookId": "234774982",
-      "title": "La maloca. 15 voces unidas por nuestro planeta",
+      "title": "La maloca. 15 voces unidas por nuestro planeta / The Maloca (Spanish Edition)",
       "author": "Martin Nova",
       "dateRead": "2025-06-24",
       "rating": 3,
@@ -2897,7 +3165,7 @@
     },
     {
       "bookId": "57061598",
-      "title": "En busca del origen del lenguaje: Dónde, cuándo y por qué el ser humano empezó a hablar",
+      "title": "En busca del origen del lenguaje: Dónde, cuándo y por qué el ser humano empezó a hablar (Ariel) (Spanish Edition)",
       "author": "Sverker Johansson",
       "dateRead": "2025-05-25",
       "rating": 5,
@@ -3140,7 +3408,7 @@
       "reviewUrl": "https://www.goodreads.com/review/show/7491410014?utm_medium=api&utm_source=rss",
       "hasReview": false,
       "reviewLikes": 0,
-      "scrapeStatus": "not_requested",
+      "scrapeStatus": "ok",
       "drzrating": -1,
       "bookDetails": 1,
       "dateAdded": "2025-03-11",
@@ -3156,7 +3424,13 @@
         "confidence": 0.9
       },
       "isbn": "9788418741838",
-      "matched": true
+      "matched": true,
+      "reviewLocalUrl": "./reviews/7491410014.html",
+      "reviewLocalCoverUrl": "./reviews/covers/7491410014.jpg",
+      "reviewDate": "2025-04-18",
+      "reviewLocalStatus": "ok",
+      "reviewLocalGeneratedAt": "2026-05-10T15:18:43.745036+00:00",
+      "reviewCount": 11
     },
     {
       "bookId": "9859056",
@@ -3166,8 +3440,8 @@
       "rating": 5,
       "reviewUrl": "https://www.goodreads.com/review/show/3659558110?utm_medium=api&utm_source=rss",
       "hasReview": false,
-      "reviewLikes": 0,
-      "scrapeStatus": "not_requested",
+      "reviewLikes": 1,
+      "scrapeStatus": "ok",
       "drzrating": -1,
       "bookDetails": 1,
       "dcc_classes": {
@@ -3182,7 +3456,13 @@
       },
       "isbn": "9788483061459",
       "dateAdded": "2025-02-03",
-      "matched": true
+      "matched": true,
+      "reviewLocalUrl": "./reviews/3659558110.html",
+      "reviewLocalCoverUrl": "./reviews/covers/3659558110.jpg",
+      "reviewDate": "2025-04-15",
+      "reviewLocalStatus": "ok",
+      "reviewLocalGeneratedAt": "2026-05-10T15:18:46.465975+00:00",
+      "reviewCount": 11
     },
     {
       "bookId": "215857232",
@@ -3229,7 +3509,7 @@
       "reviewUrl": "https://www.goodreads.com/review/show/7432656958?utm_medium=api&utm_source=rss",
       "hasReview": false,
       "reviewLikes": 0,
-      "scrapeStatus": "not_requested",
+      "scrapeStatus": "ok",
       "drzrating": -1,
       "bookDetails": 0,
       "dcc_classes": {
@@ -3244,7 +3524,13 @@
         "reasoning": "Investigación con fuerte matiz de género que revisa el rol y condiciones sociales femeninas en su época.",
         "confidence": 0.0
       },
-      "matched": false
+      "matched": false,
+      "reviewLocalUrl": "./reviews/7432656958.html",
+      "reviewLocalCoverUrl": "./reviews/covers/7432656958.jpg",
+      "reviewDate": "2025-04-13",
+      "reviewLocalStatus": "ok",
+      "reviewLocalGeneratedAt": "2026-05-10T15:18:52.115054+00:00",
+      "reviewCount": 11
     },
     {
       "bookId": "26196560",
@@ -3255,7 +3541,7 @@
       "reviewUrl": "https://www.goodreads.com/review/show/7459514209?utm_medium=api&utm_source=rss",
       "hasReview": false,
       "reviewLikes": 0,
-      "scrapeStatus": "not_requested",
+      "scrapeStatus": "ok",
       "drzrating": -1,
       "bookDetails": 0,
       "dcc_classes": {
@@ -3268,7 +3554,13 @@
         "reasoning": "Tratado de divulgación sobre el problema físico que entraña la edad cosmológica universal.",
         "confidence": 0.0
       },
-      "matched": false
+      "matched": false,
+      "reviewLocalUrl": "./reviews/7459514209.html",
+      "reviewLocalCoverUrl": "./reviews/covers/7459514209.jpg",
+      "reviewDate": "2025-04-13",
+      "reviewLocalStatus": "ok",
+      "reviewLocalGeneratedAt": "2026-05-10T15:18:49.282076+00:00",
+      "reviewCount": 11
     },
     {
       "bookId": "35959740",
@@ -3308,14 +3600,14 @@
     },
     {
       "bookId": "32596199",
-      "title": "Maestros del universo: Conversaciones con los cosmólogos del pasado",
+      "title": "Maestros del universo: Conversaciones con los cosmólogos del pasado (Drakontos) (Spanish Edition)",
       "author": "Helge Kragh",
       "dateRead": "2025-04-02",
       "rating": 4,
       "reviewUrl": "https://www.goodreads.com/review/show/7446438317?utm_medium=api&utm_source=rss",
       "hasReview": false,
-      "reviewLikes": 0,
-      "scrapeStatus": "not_requested",
+      "reviewLikes": 1,
+      "scrapeStatus": "ok",
       "drzrating": -1,
       "bookDetails": 1,
       "dcc_classes": {
@@ -3330,7 +3622,13 @@
       },
       "isbn": "9788416771325",
       "dateAdded": "2020-12-31",
-      "matched": true
+      "matched": true,
+      "reviewLocalUrl": "./reviews/7446438317.html",
+      "reviewLocalCoverUrl": "./reviews/covers/7446438317.jpg",
+      "reviewDate": "2025-04-02",
+      "reviewLocalStatus": "ok",
+      "reviewLocalGeneratedAt": "2026-05-10T15:18:55.809924+00:00",
+      "reviewCount": 11
     },
     {
       "bookId": "13183688",
@@ -3340,8 +3638,8 @@
       "rating": 5,
       "reviewUrl": "https://www.goodreads.com/review/show/4687283405?utm_medium=api&utm_source=rss",
       "hasReview": false,
-      "reviewLikes": 0,
-      "scrapeStatus": "not_requested",
+      "reviewLikes": 4,
+      "scrapeStatus": "ok",
       "drzrating": -1,
       "bookDetails": 0,
       "dcc_classes": {
@@ -3354,7 +3652,13 @@
         "reasoning": "Novela en español fuertemente apoyada en los perfiles y tensiones de la realeza histórica sudamericana.",
         "confidence": 0.0
       },
-      "matched": false
+      "matched": false,
+      "reviewLocalUrl": "./reviews/4687283405.html",
+      "reviewLocalCoverUrl": "./reviews/covers/4687283405.jpg",
+      "reviewDate": "2025-03-31",
+      "reviewLocalStatus": "ok",
+      "reviewLocalGeneratedAt": "2026-05-10T15:18:58.567627+00:00",
+      "reviewCount": 11
     },
     {
       "bookId": "60674842",
@@ -3424,7 +3728,7 @@
     },
     {
       "bookId": "209668727",
-      "title": "El tamaño de las cosas",
+      "title": "El tamaño de las cosas / Size : How It Explains the World (Spanish Edition)",
       "author": "Vaclav Smil",
       "dateRead": "2025-03-22",
       "rating": 5,
@@ -3529,14 +3833,14 @@
     },
     {
       "bookId": "108876355",
-      "title": "¿Deberíamos comer carne? Evolución y consecuencias de la dieta carnívora moderna",
+      "title": "¿Deberíamos comer carne? Evolución y consecuencias de la dieta carnívora moderna (Spanish Edition)",
       "author": "Vaclav Smil",
       "dateRead": "2025-03-01",
       "rating": 3,
       "reviewUrl": "https://www.goodreads.com/review/show/7267823506?utm_medium=api&utm_source=rss",
       "hasReview": false,
       "reviewLikes": 0,
-      "scrapeStatus": "not_requested",
+      "scrapeStatus": "ok",
       "drzrating": -1,
       "bookDetails": 0,
       "dcc_classes": {
@@ -3549,7 +3853,13 @@
         "reasoning": "Texto analítico centrado en las escalas macroeconómicas y el costo ecológico de sistemas alimentarios intensivos.",
         "confidence": 0.0
       },
-      "matched": false
+      "matched": false,
+      "reviewLocalUrl": "./reviews/7267823506.html",
+      "reviewLocalCoverUrl": "./reviews/covers/7267823506.jpg",
+      "reviewDate": "2025-03-01",
+      "reviewLocalStatus": "ok",
+      "reviewLocalGeneratedAt": "2026-05-10T15:19:05.638970+00:00",
+      "reviewCount": 11
     },
     {
       "bookId": "62012773",
@@ -3560,7 +3870,7 @@
       "reviewUrl": "https://www.goodreads.com/review/show/7294202965?utm_medium=api&utm_source=rss",
       "hasReview": false,
       "reviewLikes": 0,
-      "scrapeStatus": "not_requested",
+      "scrapeStatus": "ok",
       "drzrating": -1,
       "bookDetails": 0,
       "dcc_classes": {
@@ -3573,18 +3883,24 @@
         "reasoning": "Obra de naturaleza novelística del entorno literario colombiano.",
         "confidence": 0.0
       },
-      "matched": false
+      "matched": false,
+      "reviewLocalUrl": "./reviews/7294202965.html",
+      "reviewLocalCoverUrl": "./reviews/covers/7294202965.jpg",
+      "reviewDate": "2025-03-01",
+      "reviewLocalStatus": "ok",
+      "reviewLocalGeneratedAt": "2026-05-10T15:19:01.975191+00:00",
+      "reviewCount": 11
     },
     {
       "bookId": "6691227",
-      "title": "Guía del autoestopista galáctico",
+      "title": "Guía del autoestopista galáctico (Guía del autoestopista galáctico, #1)",
       "author": "Douglas Adams",
       "dateRead": "2025-02-12",
       "rating": 1,
       "reviewUrl": "https://www.goodreads.com/review/show/7283575204?utm_medium=api&utm_source=rss",
       "hasReview": false,
       "reviewLikes": 0,
-      "scrapeStatus": "not_requested",
+      "scrapeStatus": "ok",
       "drzrating": -1,
       "bookDetails": 0,
       "dcc_classes": {
@@ -3597,7 +3913,13 @@
         "reasoning": "Una de las novelas de ficción y sátira científica pioneras originaria del Reino Unido.",
         "confidence": 0.0
       },
-      "matched": false
+      "matched": false,
+      "reviewLocalUrl": "./reviews/7283575204.html",
+      "reviewLocalCoverUrl": "./reviews/covers/7283575204.jpg",
+      "reviewDate": "2025-02-12",
+      "reviewLocalStatus": "ok",
+      "reviewLocalGeneratedAt": "2026-05-10T15:19:09.341732+00:00",
+      "reviewCount": 11
     },
     {
       "bookId": "221527450",
@@ -3607,8 +3929,8 @@
       "rating": 5,
       "reviewUrl": "https://www.goodreads.com/review/show/7265744530?utm_medium=api&utm_source=rss",
       "hasReview": false,
-      "reviewLikes": 0,
-      "scrapeStatus": "not_requested",
+      "reviewLikes": 3,
+      "scrapeStatus": "ok",
       "drzrating": -1,
       "bookDetails": 1,
       "dateAdded": "2025-03-22",
@@ -3624,18 +3946,24 @@
         "confidence": 1.0
       },
       "isbn": "9788432244377",
-      "matched": true
+      "matched": true,
+      "reviewLocalUrl": "./reviews/7265744530.html",
+      "reviewLocalCoverUrl": "./reviews/covers/7265744530.jpg",
+      "reviewDate": "2025-02-05",
+      "reviewLocalStatus": "ok",
+      "reviewLocalGeneratedAt": "2026-05-10T15:19:12.905962+00:00",
+      "reviewCount": 11
     },
     {
       "bookId": "10979076",
-      "title": "La Tierra de las Cuevas Pintadas",
+      "title": "La Tierra de las Cuevas Pintadas (Los Hijos de la Tierra, #6)",
       "author": "Jean M. Auel",
       "dateRead": "2025-01-28",
       "rating": 3,
       "reviewUrl": "https://www.goodreads.com/review/show/7173512812?utm_medium=api&utm_source=rss",
       "hasReview": false,
-      "reviewLikes": 0,
-      "scrapeStatus": "not_requested",
+      "reviewLikes": 1,
+      "scrapeStatus": "ok",
       "drzrating": -1,
       "bookDetails": 0,
       "dcc_classes": {
@@ -3648,7 +3976,13 @@
         "reasoning": "Literatura de ficción norteamericana centrada en la vida humana paleolítica.",
         "confidence": 0.0
       },
-      "matched": false
+      "matched": false,
+      "reviewLocalUrl": "./reviews/7173512812.html",
+      "reviewLocalCoverUrl": "./reviews/covers/7173512812.jpg",
+      "reviewDate": "2025-01-28",
+      "reviewLocalStatus": "ok",
+      "reviewLocalGeneratedAt": "2026-05-10T15:19:16.403842+00:00",
+      "reviewCount": 11
     },
     {
       "bookId": "18333591",
@@ -3658,8 +3992,8 @@
       "rating": 5,
       "reviewUrl": "https://www.goodreads.com/review/show/7259258153?utm_medium=api&utm_source=rss",
       "hasReview": false,
-      "reviewLikes": 0,
-      "scrapeStatus": "not_requested",
+      "reviewLikes": 3,
+      "scrapeStatus": "ok",
       "drzrating": -1,
       "bookDetails": 0,
       "dcc_classes": {
@@ -3672,7 +4006,13 @@
         "reasoning": "Recopilación de ensayos humanísticos desde la perspectiva de las letras hispanas y el territorio colombiano.",
         "confidence": 0.0
       },
-      "matched": false
+      "matched": false,
+      "reviewLocalUrl": "./reviews/7259258153.html",
+      "reviewLocalCoverUrl": "./reviews/covers/7259258153.jpg",
+      "reviewDate": "2025-01-26",
+      "reviewLocalStatus": "ok",
+      "reviewLocalGeneratedAt": "2026-05-10T15:19:23.601934+00:00",
+      "reviewCount": 11
     },
     {
       "bookId": "204453898",
@@ -3682,8 +4022,8 @@
       "rating": 4,
       "reviewUrl": "https://www.goodreads.com/review/show/7212030177?utm_medium=api&utm_source=rss",
       "hasReview": false,
-      "reviewLikes": 0,
-      "scrapeStatus": "not_requested",
+      "reviewLikes": 4,
+      "scrapeStatus": "ok",
       "drzrating": -1,
       "bookDetails": 1,
       "dateAdded": "2024-12-17",
@@ -3698,7 +4038,13 @@
         "confidence": 0.6
       },
       "isbn": "9788411074315",
-      "matched": true
+      "matched": true,
+      "reviewLocalUrl": "./reviews/7212030177.html",
+      "reviewLocalCoverUrl": "./reviews/covers/7212030177.jpg",
+      "reviewDate": "2025-01-26",
+      "reviewLocalStatus": "ok",
+      "reviewLocalGeneratedAt": "2026-05-10T15:19:19.904383+00:00",
+      "reviewCount": 11
     },
     {
       "bookId": "202748516",
@@ -3709,7 +4055,7 @@
       "reviewUrl": "https://www.goodreads.com/review/show/7100665219?utm_medium=api&utm_source=rss",
       "hasReview": false,
       "reviewLikes": 0,
-      "scrapeStatus": "not_requested",
+      "scrapeStatus": "ok",
       "drzrating": -1,
       "bookDetails": 0,
       "dcc_classes": {
@@ -3722,7 +4068,13 @@
         "reasoning": "Perspectiva tecnológica e histórica referida a la invención y refinamiento de cronómetros mecánicos.",
         "confidence": 0.0
       },
-      "matched": false
+      "matched": false,
+      "reviewLocalUrl": "./reviews/7100665219.html",
+      "reviewLocalCoverUrl": "./reviews/covers/7100665219.jpg",
+      "reviewDate": "2025-01-13",
+      "reviewLocalStatus": "ok",
+      "reviewLocalGeneratedAt": "2026-05-10T15:19:27.177963+00:00",
+      "reviewCount": 11
     },
     {
       "bookId": "213130133",
@@ -3732,8 +4084,8 @@
       "rating": 5,
       "reviewUrl": "https://www.goodreads.com/review/show/7193871741?utm_medium=api&utm_source=rss",
       "hasReview": false,
-      "reviewLikes": 0,
-      "scrapeStatus": "not_requested",
+      "reviewLikes": 1,
+      "scrapeStatus": "ok",
       "drzrating": -1,
       "bookDetails": 0,
       "dcc_classes": {
@@ -3747,7 +4099,13 @@
         "reasoning": "Prosa reflexiva sobre poética y la problemática del mundo actual escrita desde la voz literaria hispanoamericana.",
         "confidence": 0.0
       },
-      "matched": false
+      "matched": false,
+      "reviewLocalUrl": "./reviews/7193871741.html",
+      "reviewLocalCoverUrl": "./reviews/covers/7193871741.jpg",
+      "reviewDate": "2025-01-09",
+      "reviewLocalStatus": "ok",
+      "reviewLocalGeneratedAt": "2026-05-10T15:19:30.836727+00:00",
+      "reviewCount": 11
     },
     {
       "bookId": "35078318",
@@ -3757,8 +4115,8 @@
       "rating": 5,
       "reviewUrl": "https://www.goodreads.com/review/show/7180822884?utm_medium=api&utm_source=rss",
       "hasReview": false,
-      "reviewLikes": 0,
-      "scrapeStatus": "not_requested",
+      "reviewLikes": 5,
+      "scrapeStatus": "ok",
       "drzrating": -1,
       "bookDetails": 1,
       "dcc_classes": {
@@ -3775,7 +4133,13 @@
       },
       "isbn": "9789584259882",
       "dateAdded": "2024-08-31",
-      "matched": true
+      "matched": true,
+      "reviewLocalUrl": "./reviews/7180822884.html",
+      "reviewLocalCoverUrl": "./reviews/covers/7180822884.jpg",
+      "reviewDate": "2025-01-06",
+      "reviewLocalStatus": "ok",
+      "reviewLocalGeneratedAt": "2026-05-10T15:19:34.213582+00:00",
+      "reviewCount": 11
     },
     {
       "bookId": "219505858",
@@ -3786,7 +4150,7 @@
       "reviewUrl": "https://www.goodreads.com/review/show/7175657457?utm_medium=api&utm_source=rss",
       "hasReview": false,
       "reviewLikes": 0,
-      "scrapeStatus": "not_requested",
+      "scrapeStatus": "ok",
       "drzrating": -1,
       "bookDetails": 0,
       "dcc_classes": {
@@ -3799,7 +4163,13 @@
         "reasoning": "Crónica de carácter generalista centrada en el comportamiento y registro del mito heroico antiguo.",
         "confidence": 0.0
       },
-      "matched": false
+      "matched": false,
+      "reviewLocalUrl": "./reviews/7175657457.html",
+      "reviewLocalCoverUrl": "./reviews/covers/7175657457.jpg",
+      "reviewDate": "2025-01-05",
+      "reviewLocalStatus": "ok",
+      "reviewLocalGeneratedAt": "2026-05-10T15:19:37.860280+00:00",
+      "reviewCount": 11
     },
     {
       "bookId": "217324285",
@@ -3810,7 +4180,7 @@
       "reviewUrl": "https://www.goodreads.com/review/show/7160873986?utm_medium=api&utm_source=rss",
       "hasReview": false,
       "reviewLikes": 0,
-      "scrapeStatus": "not_requested",
+      "scrapeStatus": "ok",
       "drzrating": -1,
       "bookDetails": 1,
       "dcc_classes": {
@@ -3827,7 +4197,13 @@
       },
       "isbn": "9788430624034",
       "dateAdded": "2024-11-27",
-      "matched": true
+      "matched": true,
+      "reviewLocalUrl": "./reviews/7160873986.html",
+      "reviewLocalCoverUrl": "./reviews/covers/7160873986.jpg",
+      "reviewDate": "2025-01-05",
+      "reviewLocalStatus": "ok",
+      "reviewLocalGeneratedAt": "2026-05-10T15:19:41.351420+00:00",
+      "reviewCount": 11
     },
     {
       "bookId": "24997740",
@@ -3837,8 +4213,8 @@
       "rating": 5,
       "reviewUrl": "https://www.goodreads.com/review/show/7160909719?utm_medium=api&utm_source=rss",
       "hasReview": false,
-      "reviewLikes": 0,
-      "scrapeStatus": "not_requested",
+      "reviewLikes": 4,
+      "scrapeStatus": "ok",
       "drzrating": -1,
       "bookDetails": 0,
       "dcc_classes": {
@@ -3851,7 +4227,13 @@
         "reasoning": "Pilar universal de la literatura en prosa novelada de origen colombiano.",
         "confidence": 0.0
       },
-      "matched": false
+      "matched": false,
+      "reviewLocalUrl": "./reviews/7160909719.html",
+      "reviewLocalCoverUrl": "./reviews/covers/7160909719.jpg",
+      "reviewDate": "2025-01-04",
+      "reviewLocalStatus": "ok",
+      "reviewLocalGeneratedAt": "2026-05-10T15:19:45.121844+00:00",
+      "reviewCount": 11
     },
     {
       "bookId": "216146481",
@@ -3927,8 +4309,8 @@
       "rating": 5,
       "reviewUrl": "https://www.goodreads.com/review/show/7133556984?utm_medium=api&utm_source=rss",
       "hasReview": false,
-      "reviewLikes": 0,
-      "scrapeStatus": "not_requested",
+      "reviewLikes": 1,
+      "scrapeStatus": "ok",
       "drzrating": -1,
       "bookDetails": 1,
       "dcc_classes": {
@@ -3945,7 +4327,13 @@
       },
       "isbn": "9788491994626",
       "dateAdded": "2024-12-10",
-      "matched": true
+      "matched": true,
+      "reviewLocalUrl": "./reviews/7133556984.html",
+      "reviewLocalCoverUrl": "./reviews/covers/7133556984.jpg",
+      "reviewDate": "2024-12-30",
+      "reviewLocalStatus": "ok",
+      "reviewLocalGeneratedAt": "2026-05-10T15:19:48.880696+00:00",
+      "reviewCount": 11
     },
     {
       "bookId": "44772198",
@@ -3981,7 +4369,7 @@
     },
     {
       "bookId": "207910816",
-      "title": "El patriarcado",
+      "title": "El patriarcado / The Partriarchy: Los orígenes de la dominación masculina / The origins of masculine domination (Spanish Edition)",
       "author": "Angela Saini",
       "dateRead": "2024-12-27",
       "rating": 5,
@@ -4017,7 +4405,7 @@
     },
     {
       "bookId": "110445463",
-      "title": "La invención de la ciencia en América. Propaganda científica en la novela histórica colombiana",
+      "title": "La invención de la ciencia en América. Propaganda científica en la novela histórica colombiana (Spanish Edition)",
       "author": "Jorge Manuel Escobar Ortiz",
       "dateRead": "2024-12-23",
       "rating": 5,
@@ -4160,7 +4548,7 @@
     },
     {
       "bookId": "220273268",
-      "title": "Antimanual de lenguaje igualitario",
+      "title": "Antimanual de lenguaje igualitario (Manuales prácticos) (Spanish Edition)",
       "author": "Paulina Chavira",
       "dateRead": "2024-12-21",
       "rating": 5,
@@ -4229,14 +4617,14 @@
     },
     {
       "bookId": "59484270",
-      "title": "Lecciones de epicureísmo: El arte de la felicidad",
+      "title": "Lecciones de epicureísmo: El arte de la felicidad (Spanish Edition)",
       "author": "John   Sellars",
       "dateRead": "2024-12-18",
       "rating": 5,
       "reviewUrl": "https://www.goodreads.com/review/show/5469062046?utm_medium=api&utm_source=rss",
       "hasReview": true,
       "reviewLikes": 4,
-      "scrapeStatus": "error: The read operation timed out",
+      "scrapeStatus": "ok",
       "reviewLocalUrl": "./reviews/5469062046.html",
       "reviewLocalCoverUrl": "./reviews/covers/5469062046.jpg",
       "reviewDate": "2024-12-18",
@@ -4299,7 +4687,7 @@
     },
     {
       "bookId": "18996367",
-      "title": "La columna de hierro : Cicerón y el esplendor del imperio romano",
+      "title": "La columna de hierro",
       "author": "Taylor Caldwell",
       "dateRead": "2024-12-16",
       "rating": 5,
@@ -4372,8 +4760,8 @@
       "rating": 5,
       "reviewUrl": "https://www.goodreads.com/review/show/7084604148?utm_medium=api&utm_source=rss",
       "hasReview": false,
-      "reviewLikes": 0,
-      "scrapeStatus": "not_requested",
+      "reviewLikes": 4,
+      "scrapeStatus": "ok",
       "drzrating": -1,
       "bookDetails": 1,
       "dateAdded": "2024-10-22",
@@ -4389,7 +4777,13 @@
         "confidence": 1.0
       },
       "isbn": "9789588773636",
-      "matched": true
+      "matched": true,
+      "reviewLocalUrl": "./reviews/7084604148.html",
+      "reviewLocalCoverUrl": "./reviews/covers/7084604148.jpg",
+      "reviewDate": "2024-12-15",
+      "reviewLocalStatus": "ok",
+      "reviewLocalGeneratedAt": "2026-05-10T15:19:52.498047+00:00",
+      "reviewCount": 11
     },
     {
       "bookId": "136978720",
@@ -4400,7 +4794,7 @@
       "reviewUrl": "https://www.goodreads.com/review/show/7084601960?utm_medium=api&utm_source=rss",
       "hasReview": false,
       "reviewLikes": 0,
-      "scrapeStatus": "not_requested",
+      "scrapeStatus": "ok",
       "drzrating": -1,
       "bookDetails": 0,
       "dcc_classes": {
@@ -4414,7 +4808,13 @@
         "reasoning": "Obra en prosa literaria poética y ficcional firmada por un ensayista colombiano.",
         "confidence": 0.0
       },
-      "matched": false
+      "matched": false,
+      "reviewLocalUrl": "./reviews/7084601960.html",
+      "reviewLocalCoverUrl": "./reviews/covers/7084601960.png",
+      "reviewDate": "2024-12-14",
+      "reviewLocalStatus": "ok",
+      "reviewLocalGeneratedAt": "2026-05-10T15:19:56.069994+00:00",
+      "reviewCount": 11
     },
     {
       "bookId": "183526597",
@@ -4425,7 +4825,7 @@
       "reviewUrl": "https://www.goodreads.com/review/show/6547265377?utm_medium=api&utm_source=rss",
       "hasReview": false,
       "reviewLikes": 0,
-      "scrapeStatus": "not_requested",
+      "scrapeStatus": "ok",
       "drzrating": -1,
       "bookDetails": 0,
       "dcc_classes": {
@@ -4438,7 +4838,13 @@
         "reasoning": "Traza el impacto social en esferas macro de desarrollos de control avanzado de las tecnologías modernas.",
         "confidence": 0.0
       },
-      "matched": false
+      "matched": false,
+      "reviewLocalUrl": "./reviews/6547265377.html",
+      "reviewLocalCoverUrl": "./reviews/covers/6547265377.jpg",
+      "reviewDate": "2024-12-13",
+      "reviewLocalStatus": "ok",
+      "reviewLocalGeneratedAt": "2026-05-10T15:20:00.864739+00:00",
+      "reviewCount": 11
     },
     {
       "bookId": "42959231",
@@ -4485,7 +4891,7 @@
       "reviewUrl": "https://www.goodreads.com/review/show/7044754740?utm_medium=api&utm_source=rss",
       "hasReview": false,
       "reviewLikes": 0,
-      "scrapeStatus": "not_requested",
+      "scrapeStatus": "ok",
       "drzrating": -1,
       "bookDetails": 0,
       "dcc_classes": {
@@ -4498,7 +4904,13 @@
         "reasoning": "Ilustra, como pieza de divulgación lúdica, conceptos clave en las ciencias físicas mediante los héroes de historieta.",
         "confidence": 0.0
       },
-      "matched": false
+      "matched": false,
+      "reviewLocalUrl": "./reviews/7044754740.html",
+      "reviewLocalCoverUrl": "./reviews/covers/7044754740.jpg",
+      "reviewDate": "2024-12-01",
+      "reviewLocalStatus": "ok",
+      "reviewLocalGeneratedAt": "2026-05-10T15:20:04.554229+00:00",
+      "reviewCount": 11
     },
     {
       "bookId": "209668687",
@@ -4508,8 +4920,8 @@
       "rating": 5,
       "reviewUrl": "https://www.goodreads.com/review/show/6940822986?utm_medium=api&utm_source=rss",
       "hasReview": false,
-      "reviewLikes": 0,
-      "scrapeStatus": "not_requested",
+      "reviewLikes": 4,
+      "scrapeStatus": "ok",
       "drzrating": -1,
       "bookDetails": 1,
       "dateAdded": "2024-10-14",
@@ -4525,7 +4937,13 @@
         "confidence": 1.0
       },
       "isbn": "9788439743903",
-      "matched": true
+      "matched": true,
+      "reviewLocalUrl": "./reviews/6940822986.html",
+      "reviewLocalCoverUrl": "./reviews/covers/6940822986.jpg",
+      "reviewDate": "2024-11-29",
+      "reviewLocalStatus": "ok",
+      "reviewLocalGeneratedAt": "2026-05-10T15:20:08.302529+00:00",
+      "reviewCount": 11
     },
     {
       "bookId": "55616855",
@@ -4536,7 +4954,7 @@
       "reviewUrl": "https://www.goodreads.com/review/show/6991343005?utm_medium=api&utm_source=rss",
       "hasReview": false,
       "reviewLikes": 0,
-      "scrapeStatus": "not_requested",
+      "scrapeStatus": "ok",
       "drzrating": -1,
       "bookDetails": 1,
       "dateAdded": "2024-10-22",
@@ -4554,7 +4972,13 @@
         "confidence": 0.98
       },
       "isbn": "9788417866631",
-      "matched": true
+      "matched": true,
+      "reviewLocalUrl": "./reviews/6991343005.html",
+      "reviewLocalCoverUrl": "./reviews/covers/6991343005.jpg",
+      "reviewDate": "2024-11-27",
+      "reviewLocalStatus": "ok",
+      "reviewLocalGeneratedAt": "2026-05-10T15:20:11.943194+00:00",
+      "reviewCount": 11
     },
     {
       "bookId": "6333294",
@@ -4599,8 +5023,8 @@
       "rating": 4,
       "reviewUrl": "https://www.goodreads.com/review/show/6946908278?utm_medium=api&utm_source=rss",
       "hasReview": false,
-      "reviewLikes": 0,
-      "scrapeStatus": "not_requested",
+      "reviewLikes": 1,
+      "scrapeStatus": "ok",
       "drzrating": -1,
       "bookDetails": 0,
       "dcc_classes": {
@@ -4615,7 +5039,13 @@
         "reasoning": "Libro de análisis enfocado enteramente en las amplias implicaciones comunitarias al lidiar con herramientas de I.A. masivas.",
         "confidence": 0.0
       },
-      "matched": false
+      "matched": false,
+      "reviewLocalUrl": "./reviews/6946908278.html",
+      "reviewLocalCoverUrl": "./reviews/covers/6946908278.jpg",
+      "reviewDate": "2024-11-04",
+      "reviewLocalStatus": "ok",
+      "reviewLocalGeneratedAt": "2026-05-10T15:20:16.612503+00:00",
+      "reviewCount": 11
     },
     {
       "bookId": "38667",
@@ -4692,8 +5122,8 @@
       "rating": 5,
       "reviewUrl": "https://www.goodreads.com/review/show/5135515968?utm_medium=api&utm_source=rss",
       "hasReview": false,
-      "reviewLikes": 0,
-      "scrapeStatus": "not_requested",
+      "reviewLikes": 1,
+      "scrapeStatus": "ok",
       "drzrating": -1,
       "bookDetails": 0,
       "dcc_classes": {
@@ -4706,7 +5136,13 @@
         "reasoning": "Mezcla la ciencia física y la novela policíaca bajo la autoría ficcional hispana.",
         "confidence": 0.0
       },
-      "matched": false
+      "matched": false,
+      "reviewLocalUrl": "./reviews/5135515968.html",
+      "reviewLocalCoverUrl": "./reviews/covers/5135515968.jpg",
+      "reviewDate": "2024-10-27",
+      "reviewLocalStatus": "ok",
+      "reviewLocalGeneratedAt": "2026-05-10T15:20:20.258328+00:00",
+      "reviewCount": 11
     },
     {
       "bookId": "199066748",
@@ -4816,7 +5252,7 @@
       "reviewUrl": "https://www.goodreads.com/review/show/6924028891?utm_medium=api&utm_source=rss",
       "hasReview": false,
       "reviewLikes": 0,
-      "scrapeStatus": "not_requested",
+      "scrapeStatus": "ok",
       "drzrating": -1,
       "bookDetails": 1,
       "dcc_classes": {
@@ -4833,7 +5269,13 @@
       },
       "isbn": "9788412799613",
       "dateAdded": "2024-09-28",
-      "matched": true
+      "matched": true,
+      "reviewLocalUrl": "./reviews/6924028891.html",
+      "reviewLocalCoverUrl": "./reviews/covers/6924028891.jpg",
+      "reviewDate": "2024-10-18",
+      "reviewLocalStatus": "ok",
+      "reviewLocalGeneratedAt": "2026-05-10T15:20:23.847248+00:00",
+      "reviewCount": 11
     },
     {
       "bookId": "219351690",
@@ -4943,8 +5385,8 @@
       "rating": 5,
       "reviewUrl": "https://www.goodreads.com/review/show/4835483048?utm_medium=api&utm_source=rss",
       "hasReview": false,
-      "reviewLikes": 0,
-      "scrapeStatus": "not_requested",
+      "reviewLikes": 2,
+      "scrapeStatus": "ok",
       "drzrating": -1,
       "bookDetails": 0,
       "dcc_classes": {
@@ -4957,18 +5399,24 @@
         "reasoning": "Legendario esfuerzo del conocido astrofísico en la literatura ficcional sobre contactos extraterrestres en Estados Unidos.",
         "confidence": 0.0
       },
-      "matched": false
+      "matched": false,
+      "reviewLocalUrl": "./reviews/4835483048.html",
+      "reviewLocalCoverUrl": "./reviews/covers/4835483048.jpg",
+      "reviewDate": "2024-10-07",
+      "reviewLocalStatus": "ok",
+      "reviewLocalGeneratedAt": "2026-05-10T15:20:27.292773+00:00",
+      "reviewCount": 11
     },
     {
       "bookId": "204927599",
-      "title": "Nexus",
+      "title": "Nexus: A Brief History of Information Networks from the Stone Age to AI",
       "author": "Yuval Noah Harari",
       "dateRead": "2024-10-06",
       "rating": 5,
       "reviewUrl": "https://www.goodreads.com/review/show/6867656586?utm_medium=api&utm_source=rss",
       "hasReview": false,
-      "reviewLikes": 0,
-      "scrapeStatus": "not_requested",
+      "reviewLikes": 5,
+      "scrapeStatus": "ok",
       "drzrating": -1,
       "bookDetails": 1,
       "dcc_classes": {
@@ -4985,7 +5433,13 @@
       },
       "isbn": "9788419951038",
       "dateAdded": "2024-09-16",
-      "matched": true
+      "matched": true,
+      "reviewLocalUrl": "./reviews/6867656586.html",
+      "reviewLocalCoverUrl": "./reviews/covers/6867656586.jpg",
+      "reviewDate": "2024-10-06",
+      "reviewLocalStatus": "ok",
+      "reviewLocalGeneratedAt": "2026-05-10T15:20:30.770904+00:00",
+      "reviewCount": 11
     },
     {
       "bookId": "60554656",
@@ -4996,7 +5450,7 @@
       "reviewUrl": "https://www.goodreads.com/review/show/5557403805?utm_medium=api&utm_source=rss",
       "hasReview": false,
       "reviewLikes": 0,
-      "scrapeStatus": "not_requested",
+      "scrapeStatus": "ok",
       "drzrating": -1,
       "bookDetails": 1,
       "dcc_classes": {
@@ -5011,11 +5465,17 @@
       },
       "isbn": "9788420461113",
       "dateAdded": "2023-10-21",
-      "matched": true
+      "matched": true,
+      "reviewLocalUrl": "./reviews/5557403805.html",
+      "reviewLocalCoverUrl": "./reviews/covers/5557403805.jpg",
+      "reviewDate": "2024-09-27",
+      "reviewLocalStatus": "ok",
+      "reviewLocalGeneratedAt": "2026-05-10T15:20:36.287419+00:00",
+      "reviewCount": 11
     },
     {
       "bookId": "198240516",
-      "title": "Justicia para los animales: Una responsabilidad colectiva (Estado y Sociedad)",
+      "title": "Justicia para los animales: Una responsabilidad colectiva (Estado y Sociedad) (Spanish Edition)",
       "author": "Martha C. Nussbaum",
       "dateRead": "2024-09-15",
       "rating": 5,
@@ -5087,7 +5547,7 @@
     },
     {
       "bookId": "947938",
-      "title": "Los refugios de piedra",
+      "title": "Los refugios de piedra (Los hijos de la tierra, #5)",
       "author": "Jean M. Auel",
       "dateRead": "2024-08-31",
       "rating": 4,
@@ -5125,8 +5585,8 @@
       "rating": 5,
       "reviewUrl": "https://www.goodreads.com/review/show/6773768690?utm_medium=api&utm_source=rss",
       "hasReview": false,
-      "reviewLikes": 0,
-      "scrapeStatus": "not_requested",
+      "reviewLikes": 2,
+      "scrapeStatus": "ok",
       "drzrating": -1,
       "bookDetails": 1,
       "dcc_classes": {
@@ -5142,7 +5602,13 @@
       },
       "isbn": "9789873752339",
       "dateAdded": "2023-07-07",
-      "matched": true
+      "matched": true,
+      "reviewLocalUrl": "./reviews/6773768690.html",
+      "reviewLocalCoverUrl": "./reviews/covers/6773768690.jpg",
+      "reviewDate": "2024-08-25",
+      "reviewLocalStatus": "ok",
+      "reviewLocalGeneratedAt": "2026-05-10T15:20:43.431355+00:00",
+      "reviewCount": 11
     },
     {
       "bookId": "35785007",
@@ -5178,7 +5644,7 @@
     },
     {
       "bookId": "208870354",
-      "title": "Helena la Reina Condenada II. El libro de los ritos",
+      "title": "Helena la Reina Condenada ii",
       "author": "Gabriela A. Arciniegas",
       "dateRead": "2024-08-19",
       "rating": 5,
@@ -5246,14 +5712,14 @@
     },
     {
       "bookId": "108851666",
-      "title": "Bases de astrofísica",
+      "title": "BASES DE ASTROFISICA",
       "author": "Alonso Sepúlveda Soto",
       "dateRead": "2024-08-17",
       "rating": 5,
       "reviewUrl": "https://www.goodreads.com/review/show/6766443560?utm_medium=api&utm_source=rss",
       "hasReview": false,
       "reviewLikes": 0,
-      "scrapeStatus": "not_requested",
+      "scrapeStatus": "error: The read operation timed out",
       "drzrating": -1,
       "bookDetails": 0,
       "dcc_classes": {
@@ -5266,7 +5732,13 @@
         "reasoning": "Compendio teórico y físico que ahonda exhaustivamente en áreas duras de la estructura e interacciones estelares.",
         "confidence": 0.0
       },
-      "matched": false
+      "matched": false,
+      "reviewLocalUrl": "./reviews/6766443560.html",
+      "reviewLocalCoverUrl": "./reviews/covers/6766443560.jpg",
+      "reviewDate": "2024-08-17",
+      "reviewLocalStatus": "ok",
+      "reviewLocalGeneratedAt": "2026-05-10T15:20:50.342910+00:00",
+      "reviewCount": 11
     },
     {
       "bookId": "58440113",
@@ -5302,7 +5774,7 @@
     },
     {
       "bookId": "2631671",
-      "title": "Las llanuras del tránsito",
+      "title": "Las llanuras del tránsito (Los hijos de la tierra, #4)",
       "author": "Jean M. Auel",
       "dateRead": "2024-08-10",
       "rating": 4,
@@ -5340,8 +5812,8 @@
       "rating": 5,
       "reviewUrl": "https://www.goodreads.com/review/show/6038997612?utm_medium=api&utm_source=rss",
       "hasReview": false,
-      "reviewLikes": 0,
-      "scrapeStatus": "not_requested",
+      "reviewLikes": 1,
+      "scrapeStatus": "ok",
       "drzrating": -1,
       "bookDetails": 1,
       "dcc_classes": {
@@ -5356,7 +5828,13 @@
       },
       "isbn": "9788419642677",
       "dateAdded": "2023-10-27",
-      "matched": true
+      "matched": true,
+      "reviewLocalUrl": "./reviews/6038997612.html",
+      "reviewLocalCoverUrl": "./reviews/covers/6038997612.jpg",
+      "reviewDate": "2024-08-06",
+      "reviewLocalStatus": "ok",
+      "reviewLocalGeneratedAt": "2026-05-10T15:20:54.803429+00:00",
+      "reviewCount": 11
     },
     {
       "bookId": "57028232",
@@ -5366,8 +5844,8 @@
       "rating": 5,
       "reviewUrl": "https://www.goodreads.com/review/show/6708694893?utm_medium=api&utm_source=rss",
       "hasReview": false,
-      "reviewLikes": 0,
-      "scrapeStatus": "not_requested",
+      "reviewLikes": 9,
+      "scrapeStatus": "ok",
       "drzrating": -1,
       "bookDetails": 0,
       "dcc_classes": {
@@ -5380,7 +5858,13 @@
         "reasoning": "Ejemplo vibrante y reciente de prosa nativa en ficción de Colombia abordando historias emotivas y locales.",
         "confidence": 0.0
       },
-      "matched": false
+      "matched": false,
+      "reviewLocalUrl": "./reviews/6708694893.html",
+      "reviewLocalCoverUrl": "./reviews/covers/6708694893.jpg",
+      "reviewDate": "2024-07-28",
+      "reviewLocalStatus": "ok",
+      "reviewLocalGeneratedAt": "2026-05-10T15:20:58.986557+00:00",
+      "reviewCount": 11
     },
     {
       "bookId": "209140616",
@@ -5391,7 +5875,7 @@
       "reviewUrl": "https://www.goodreads.com/review/show/6688724482?utm_medium=api&utm_source=rss",
       "hasReview": true,
       "reviewLikes": 3,
-      "scrapeStatus": "error: The read operation timed out",
+      "scrapeStatus": "ok",
       "reviewLocalUrl": "./reviews/6688724482.html",
       "reviewLocalCoverUrl": "./reviews/covers/6688724482.jpg",
       "reviewDate": "2024-10-14",
@@ -5523,8 +6007,8 @@
       "rating": 4,
       "reviewUrl": "https://www.goodreads.com/review/show/6647656887?utm_medium=api&utm_source=rss",
       "hasReview": false,
-      "reviewLikes": 0,
-      "scrapeStatus": "not_requested",
+      "reviewLikes": 2,
+      "scrapeStatus": "ok",
       "drzrating": -1,
       "bookDetails": 0,
       "dcc_classes": {
@@ -5538,7 +6022,13 @@
         "reasoning": "Mecanismos y aclaraciones satíricas para no iniciados de las computadoras que emplean cuántica.",
         "confidence": 0.0
       },
-      "matched": false
+      "matched": false,
+      "reviewLocalUrl": "./reviews/6647656887.html",
+      "reviewLocalCoverUrl": "./reviews/covers/6647656887.jpg",
+      "reviewDate": "2024-07-08",
+      "reviewLocalStatus": "ok",
+      "reviewLocalGeneratedAt": "2026-05-10T15:21:03.577421+00:00",
+      "reviewCount": 11
     },
     {
       "bookId": "210808890",
@@ -5548,8 +6038,8 @@
       "rating": 5,
       "reviewUrl": "https://www.goodreads.com/review/show/6407436035?utm_medium=api&utm_source=rss",
       "hasReview": false,
-      "reviewLikes": 0,
-      "scrapeStatus": "not_requested",
+      "reviewLikes": 2,
+      "scrapeStatus": "ok",
       "drzrating": -1,
       "bookDetails": 0,
       "dcc_classes": {
@@ -5563,7 +6053,13 @@
         "reasoning": "Describe metódicamente lo esencial alrededor del diseño e influencia operativa de las ciencias computacionales actuales.",
         "confidence": 0.0
       },
-      "matched": false
+      "matched": false,
+      "reviewLocalUrl": "./reviews/6407436035.html",
+      "reviewLocalCoverUrl": "./reviews/covers/6407436035.jpg",
+      "reviewDate": "2024-07-06",
+      "reviewLocalStatus": "ok",
+      "reviewLocalGeneratedAt": "2026-05-10T15:21:16.779903+00:00",
+      "reviewCount": 11
     },
     {
       "bookId": "57386590",
@@ -5667,14 +6163,14 @@
     },
     {
       "bookId": "60861366",
-      "title": "El hilo dorado: Cómo los tejidos han cambiado la historia de la humanidad",
+      "title": "El hilo dorado: Cómo los tejidos han cambiado la historia de la humanidad (Spanish Edition)",
       "author": "Kassia St. Clair",
       "dateRead": "2024-06-24",
       "rating": 4,
       "reviewUrl": "https://www.goodreads.com/review/show/6557202007?utm_medium=api&utm_source=rss",
       "hasReview": false,
-      "reviewLikes": 0,
-      "scrapeStatus": "not_requested",
+      "reviewLikes": 3,
+      "scrapeStatus": "ok",
       "drzrating": -1,
       "bookDetails": 1,
       "dcc_classes": {
@@ -5692,11 +6188,17 @@
       },
       "isbn": "9789585531758",
       "dateAdded": "2024-05-13",
-      "matched": true
+      "matched": true,
+      "reviewLocalUrl": "./reviews/6557202007.html",
+      "reviewLocalCoverUrl": "./reviews/covers/6557202007.jpg",
+      "reviewDate": "2024-06-24",
+      "reviewLocalStatus": "ok",
+      "reviewLocalGeneratedAt": "2026-05-10T15:21:23.120236+00:00",
+      "reviewCount": 11
     },
     {
       "bookId": "6916879",
-      "title": "Los cazadores de mamuts",
+      "title": "Los cazadores de mamuts (Los hijos de la tierra, #3)",
       "author": "Jean M. Auel",
       "dateRead": "2024-06-22",
       "rating": 5,
@@ -5802,8 +6304,8 @@
       "rating": 5,
       "reviewUrl": "https://www.goodreads.com/review/show/6482366807?utm_medium=api&utm_source=rss",
       "hasReview": false,
-      "reviewLikes": 0,
-      "scrapeStatus": "not_requested",
+      "reviewLikes": 2,
+      "scrapeStatus": "ok",
       "drzrating": -1,
       "bookDetails": 0,
       "dcc_classes": {
@@ -5816,7 +6318,13 @@
         "reasoning": "Compendio de argumentación esencial alrededor de la base teórica y validez real de la naturaleza metodológica.",
         "confidence": 0.0
       },
-      "matched": false
+      "matched": false,
+      "reviewLocalUrl": "./reviews/6482366807.html",
+      "reviewLocalCoverUrl": "./reviews/covers/6482366807.jpg",
+      "reviewDate": "2024-06-03",
+      "reviewLocalStatus": "ok",
+      "reviewLocalGeneratedAt": "2026-05-10T15:21:28.959260+00:00",
+      "reviewCount": 11
     },
     {
       "bookId": "53247016",
@@ -5862,8 +6370,8 @@
       "rating": 5,
       "reviewUrl": "https://www.goodreads.com/review/show/6531734816?utm_medium=api&utm_source=rss",
       "hasReview": false,
-      "reviewLikes": 0,
-      "scrapeStatus": "not_requested",
+      "reviewLikes": 3,
+      "scrapeStatus": "ok",
       "drzrating": -1,
       "bookDetails": 1,
       "dcc_classes": {
@@ -5878,7 +6386,13 @@
       },
       "isbn": "9788432242441",
       "dateAdded": "2024-03-30",
-      "matched": true
+      "matched": true,
+      "reviewLocalUrl": "./reviews/6531734816.html",
+      "reviewLocalCoverUrl": "./reviews/covers/6531734816.jpg",
+      "reviewDate": "2024-05-27",
+      "reviewLocalStatus": "ok",
+      "reviewLocalGeneratedAt": "2026-05-10T15:21:33.331923+00:00",
+      "reviewCount": 11
     },
     {
       "bookId": "98095162",
@@ -5917,7 +6431,7 @@
     },
     {
       "bookId": "212371663",
-      "title": "Bajo la superficie de las cosas",
+      "title": "Bajo la superficie de las cosas (Spanish Edition)",
       "author": "Wade Davis",
       "dateRead": "2024-05-14",
       "rating": 5,
@@ -5983,7 +6497,7 @@
     },
     {
       "bookId": "213133138",
-      "title": "Marco Aurelio y los límites del imperio",
+      "title": "Marco Aurelio y los límites del imperio (Spanish Edition)",
       "author": "Pablo Montoya",
       "dateRead": "2024-05-07",
       "rating": 5,
@@ -6024,8 +6538,8 @@
       "rating": 5,
       "reviewUrl": "https://www.goodreads.com/review/show/6482355597?utm_medium=api&utm_source=rss",
       "hasReview": false,
-      "reviewLikes": 0,
-      "scrapeStatus": "not_requested",
+      "reviewLikes": 1,
+      "scrapeStatus": "ok",
       "drzrating": -1,
       "bookDetails": 1,
       "dateAdded": "2024-05-11",
@@ -6041,11 +6555,17 @@
         "confidence": 0.95
       },
       "isbn": "9789588794280",
-      "matched": true
+      "matched": true,
+      "reviewLocalUrl": "./reviews/6482355597.html",
+      "reviewLocalCoverUrl": "./reviews/covers/6482355597.jpg",
+      "reviewDate": "2024-05-07",
+      "reviewLocalStatus": "ok",
+      "reviewLocalGeneratedAt": "2026-05-10T15:21:39.002501+00:00",
+      "reviewCount": 11
     },
     {
       "bookId": "99499",
-      "title": "La loba de Francia",
+      "title": "La loba de Francia (Los Reyes Malditos, #5)",
       "author": "Maurice Druon",
       "dateRead": "2024-05-01",
       "rating": 5,
@@ -6083,8 +6603,8 @@
       "rating": 5,
       "reviewUrl": "https://www.goodreads.com/review/show/6352354825?utm_medium=api&utm_source=rss",
       "hasReview": false,
-      "reviewLikes": 0,
-      "scrapeStatus": "not_requested",
+      "reviewLikes": 2,
+      "scrapeStatus": "ok",
       "drzrating": -1,
       "bookDetails": 0,
       "dcc_classes": {
@@ -6098,7 +6618,13 @@
         "reasoning": "Presenta el programa fuerte que entrelaza la práctica sociológica al desarrollo de la razón científica.",
         "confidence": 0.0
       },
-      "matched": false
+      "matched": false,
+      "reviewLocalUrl": "./reviews/6352354825.html",
+      "reviewLocalCoverUrl": "./reviews/covers/6352354825.jpg",
+      "reviewDate": "2024-05-01",
+      "reviewLocalStatus": "ok",
+      "reviewLocalGeneratedAt": "2026-05-10T15:21:43.543090+00:00",
+      "reviewCount": 11
     },
     {
       "bookId": "18754940",
@@ -6208,8 +6734,8 @@
       "rating": 5,
       "reviewUrl": "https://www.goodreads.com/review/show/6387592318?utm_medium=api&utm_source=rss",
       "hasReview": false,
-      "reviewLikes": 0,
-      "scrapeStatus": "not_requested",
+      "reviewLikes": 1,
+      "scrapeStatus": "ok",
       "drzrating": -1,
       "bookDetails": 1,
       "dateAdded": "2023-08-18",
@@ -6225,7 +6751,13 @@
         "confidence": 1.0
       },
       "isbn": "9788417747312",
-      "matched": true
+      "matched": true,
+      "reviewLocalUrl": "./reviews/6387592318.html",
+      "reviewLocalCoverUrl": "./reviews/covers/6387592318.jpg",
+      "reviewDate": "2024-03-31",
+      "reviewLocalStatus": "ok",
+      "reviewLocalGeneratedAt": "2026-05-10T15:21:49.090449+00:00",
+      "reviewCount": 11
     },
     {
       "bookId": "31178359",
@@ -6305,8 +6837,8 @@
       "rating": 5,
       "reviewUrl": "https://www.goodreads.com/review/show/6372923697?utm_medium=api&utm_source=rss",
       "hasReview": false,
-      "reviewLikes": 0,
-      "scrapeStatus": "not_requested",
+      "reviewLikes": 2,
+      "scrapeStatus": "ok",
       "drzrating": -1,
       "bookDetails": 0,
       "dcc_classes": {
@@ -6320,7 +6852,13 @@
         "reasoning": "Texto introductorio e histórico enfocado específicamente en el análisis del arte y las estructuras arquitectónicas del antiguo Egipto.",
         "confidence": 0.0
       },
-      "matched": false
+      "matched": false,
+      "reviewLocalUrl": "./reviews/6372923697.html",
+      "reviewLocalCoverUrl": "./reviews/covers/6372923697.jpg",
+      "reviewDate": "2024-03-25",
+      "reviewLocalStatus": "ok",
+      "reviewLocalGeneratedAt": "2026-05-10T15:21:55.184638+00:00",
+      "reviewCount": 11
     },
     {
       "bookId": "200142395",
@@ -6330,8 +6868,8 @@
       "rating": 5,
       "reviewUrl": "https://www.goodreads.com/review/show/6351834675?utm_medium=api&utm_source=rss",
       "hasReview": false,
-      "reviewLikes": 0,
-      "scrapeStatus": "not_requested",
+      "reviewLikes": 4,
+      "scrapeStatus": "ok",
       "drzrating": -1,
       "bookDetails": 0,
       "dcc_classes": {
@@ -6344,7 +6882,13 @@
         "reasoning": "Novela póstuma de ficción literaria escrita por el célebre autor colombiano Gabriel García Márquez.",
         "confidence": 0.0
       },
-      "matched": false
+      "matched": false,
+      "reviewLocalUrl": "./reviews/6351834675.html",
+      "reviewLocalCoverUrl": "./reviews/covers/6351834675.jpg",
+      "reviewDate": "2024-03-17",
+      "reviewLocalStatus": "ok",
+      "reviewLocalGeneratedAt": "2026-05-10T15:22:04.050872+00:00",
+      "reviewCount": 11
     },
     {
       "bookId": "200659844",
@@ -6354,8 +6898,8 @@
       "rating": 5,
       "reviewUrl": "https://www.goodreads.com/review/show/6294513698?utm_medium=api&utm_source=rss",
       "hasReview": false,
-      "reviewLikes": 0,
-      "scrapeStatus": "not_requested",
+      "reviewLikes": 1,
+      "scrapeStatus": "ok",
       "drzrating": -1,
       "bookDetails": 1,
       "dcc_classes": {
@@ -6370,7 +6914,13 @@
       },
       "isbn": "9788413528557",
       "dateAdded": "2024-02-09",
-      "matched": true
+      "matched": true,
+      "reviewLocalUrl": "./reviews/6294513698.html",
+      "reviewLocalCoverUrl": "./reviews/covers/6294513698.jpg",
+      "reviewDate": "2024-03-17",
+      "reviewLocalStatus": "ok",
+      "reviewLocalGeneratedAt": "2026-05-10T15:21:59.847711+00:00",
+      "reviewCount": 11
     },
     {
       "bookId": "36913879",
@@ -6380,8 +6930,8 @@
       "rating": 5,
       "reviewUrl": "https://www.goodreads.com/review/show/6313109632?utm_medium=api&utm_source=rss",
       "hasReview": false,
-      "reviewLikes": 0,
-      "scrapeStatus": "not_requested",
+      "reviewLikes": 2,
+      "scrapeStatus": "ok",
       "drzrating": -1,
       "bookDetails": 0,
       "dcc_classes": {
@@ -6394,7 +6944,13 @@
         "reasoning": "Obra que explora filosóficamente los límites, la ética y el significado del acercamiento científico hacia la definición y manipulación de la vida.",
         "confidence": 0.0
       },
-      "matched": false
+      "matched": false,
+      "reviewLocalUrl": "./reviews/6313109632.html",
+      "reviewLocalCoverUrl": "./reviews/covers/6313109632.jpg",
+      "reviewDate": "2024-03-14",
+      "reviewLocalStatus": "ok",
+      "reviewLocalGeneratedAt": "2026-05-10T15:22:08.171801+00:00",
+      "reviewCount": 11
     },
     {
       "bookId": "55050608",
@@ -6473,8 +7029,8 @@
       "rating": 5,
       "reviewUrl": "https://www.goodreads.com/review/show/6273729839?utm_medium=api&utm_source=rss",
       "hasReview": false,
-      "reviewLikes": 0,
-      "scrapeStatus": "not_requested",
+      "reviewLikes": 3,
+      "scrapeStatus": "ok",
       "drzrating": -1,
       "bookDetails": 1,
       "dateAdded": "2021-03-24",
@@ -6489,11 +7045,17 @@
         "confidence": 0.9
       },
       "isbn": "9788420674605",
-      "matched": true
+      "matched": true,
+      "reviewLocalUrl": "./reviews/6273729839.html",
+      "reviewLocalCoverUrl": "./reviews/covers/6273729839.jpg",
+      "reviewDate": "2024-02-25",
+      "reviewLocalStatus": "ok",
+      "reviewLocalGeneratedAt": "2026-05-10T15:22:14.528595+00:00",
+      "reviewCount": 11
     },
     {
       "bookId": "61815471",
-      "title": "Vida: su origen, evolución y búsqueda en el espacio",
+      "title": "Vida: su origen, evolución y búsqueda en el espacio (Spanish Edition)",
       "author": "Fundación Ciencias Planetarias",
       "dateRead": "2024-02-18",
       "rating": 5,
@@ -6557,7 +7119,7 @@
     },
     {
       "bookId": "121174855",
-      "title": "Mujeres, poder y conocimiento",
+      "title": "Mujeres, poder y conocimiento (Spanish Edition)",
       "author": "Flor Emilce Cely Ávila",
       "dateRead": "2024-02-10",
       "rating": 5,
@@ -6693,7 +7255,7 @@
     },
     {
       "bookId": "157620810",
-      "title": "La armadura de la luz",
+      "title": "La armadura de la luz (Los pilares de la tierra #4)",
       "author": "Ken Follett",
       "dateRead": "2024-01-09",
       "rating": 5,
@@ -6744,7 +7306,7 @@
       "reviewLocalLikes": 0,
       "reviewLocalLikesUpdatedAt": "2026-05-09T14:00:24.824386+00:00",
       "drzrating": 93,
-      "bookDetails": 1,
+      "bookDetails": 0,
       "reviewCount": 881,
       "dcc_classes": {
         "900": "Historia y geografia (900)"
@@ -6833,8 +7395,8 @@
       "rating": 5,
       "reviewUrl": "https://www.goodreads.com/review/show/6098868416?utm_medium=api&utm_source=rss",
       "hasReview": false,
-      "reviewLikes": 0,
-      "scrapeStatus": "not_requested",
+      "reviewLikes": 1,
+      "scrapeStatus": "ok",
       "drzrating": -1,
       "bookDetails": 1,
       "dateAdded": "2023-12-28",
@@ -6849,7 +7411,13 @@
         "confidence": 0.9
       },
       "isbn": "9789566045342",
-      "matched": true
+      "matched": true,
+      "reviewLocalUrl": "./reviews/6098868416.html",
+      "reviewLocalCoverUrl": "./reviews/covers/6098868416.jpg",
+      "reviewDate": "2023-12-30",
+      "reviewLocalStatus": "ok",
+      "reviewLocalGeneratedAt": "2026-05-10T15:22:18.978935+00:00",
+      "reviewCount": 11
     },
     {
       "bookId": "56845375",
@@ -6957,7 +7525,7 @@
     },
     {
       "bookId": "75262427",
-      "title": "Cómo Funciona El Mundo: Una Guía Científica de Nuestro Pasado, Presente Y Futuro",
+      "title": "Cómo funciona el mundo: Una guía científica de nuestro pasado, presente y futuro (Spanish Edition)",
       "author": "Vaclav Smil",
       "dateRead": "2023-12-16",
       "rating": 4,
@@ -6994,7 +7562,7 @@
     },
     {
       "bookId": "193575492",
-      "title": "Maldita Roma: La conquista del poder de Julio César",
+      "title": "Maldita Roma: La conquista del poder de Julio César (Julio César, #2)",
       "series": "Julio César",
       "author": "Santiago Posteguillo",
       "dateRead": "2023-12-13",
@@ -7062,7 +7630,7 @@
     },
     {
       "bookId": "128747007",
-      "title": "Emperador de Roma",
+      "title": "Emperor of Rome: Ruling the Ancient Roman World",
       "author": "Mary Beard",
       "dateRead": "2023-12-09",
       "rating": 5,
@@ -7176,7 +7744,7 @@
       "reviewUrl": "https://www.goodreads.com/review/show/5654700082?utm_medium=api&utm_source=rss",
       "hasReview": false,
       "reviewLikes": 0,
-      "scrapeStatus": "not_requested",
+      "scrapeStatus": "ok",
       "drzrating": -1,
       "bookDetails": 0,
       "dcc_classes": {
@@ -7190,11 +7758,17 @@
         "reasoning": "Investigación que revalúa la arqueología de las primeras sociedades humanas desde un enfoque que visibiliza y reivindica el papel de las mujeres en el mundo antiguo.",
         "confidence": 0.0
       },
-      "matched": false
+      "matched": false,
+      "reviewLocalUrl": "./reviews/5654700082.html",
+      "reviewLocalCoverUrl": "./reviews/covers/5654700082.jpg",
+      "reviewDate": "2023-11-30",
+      "reviewLocalStatus": "ok",
+      "reviewLocalGeneratedAt": "2026-05-10T15:22:27.667089+00:00",
+      "reviewCount": 11
     },
     {
       "bookId": "157390676",
-      "title": "Napoléon",
+      "title": "André Maurois,... Napoléon",
       "author": "André Maurois",
       "dateRead": "2023-11-26",
       "rating": 4,
@@ -7408,8 +7982,8 @@
       "rating": 5,
       "reviewUrl": "https://www.goodreads.com/review/show/5848474545?utm_medium=api&utm_source=rss",
       "hasReview": false,
-      "reviewLikes": 0,
-      "scrapeStatus": "not_requested",
+      "reviewLikes": 1,
+      "scrapeStatus": "ok",
       "drzrating": -1,
       "bookDetails": 1,
       "dcc_classes": {
@@ -7424,7 +7998,13 @@
       },
       "isbn": "9781728266053",
       "dateAdded": "2023-12-08",
-      "matched": true
+      "matched": true,
+      "reviewLocalUrl": "./reviews/5848474545.html",
+      "reviewLocalCoverUrl": "./reviews/covers/5848474545.jpg",
+      "reviewDate": "2023-10-30",
+      "reviewLocalStatus": "ok",
+      "reviewLocalGeneratedAt": "2026-05-10T15:22:32.990725+00:00",
+      "reviewCount": 11
     },
     {
       "bookId": "32202588",
@@ -7495,7 +8075,7 @@
     },
     {
       "bookId": "4912811",
-      "title": "El médico",
+      "title": "El médico (La trilogía de la familia Cole, #1)",
       "author": "Noah Gordon",
       "dateRead": "2023-09-17",
       "rating": 5,
@@ -7572,7 +8152,7 @@
       "reviewUrl": "https://www.goodreads.com/review/show/5731553832?utm_medium=api&utm_source=rss",
       "hasReview": false,
       "reviewLikes": 0,
-      "scrapeStatus": "not_requested",
+      "scrapeStatus": "ok",
       "drzrating": -1,
       "bookDetails": 0,
       "dcc_classes": {
@@ -7586,7 +8166,13 @@
         "reasoning": "Tratado académico orientado a la epistemología, tareas y métodos investigativos específicos para la historia y arqueología egipcias.",
         "confidence": 0.0
       },
-      "matched": false
+      "matched": false,
+      "reviewLocalUrl": "./reviews/5731553832.html",
+      "reviewLocalCoverUrl": "./reviews/covers/5731553832.jpg",
+      "reviewDate": "2023-09-01",
+      "reviewLocalStatus": "ok",
+      "reviewLocalGeneratedAt": "2026-05-10T15:22:40.384259+00:00",
+      "reviewCount": 11
     },
     {
       "bookId": "175083285",
@@ -7597,7 +8183,7 @@
       "reviewUrl": "https://www.goodreads.com/review/show/5776190600?utm_medium=api&utm_source=rss",
       "hasReview": true,
       "reviewLikes": 3,
-      "scrapeStatus": "error: The read operation timed out",
+      "scrapeStatus": "ok",
       "reviewLocalUrl": "./reviews/5776190600.html",
       "reviewLocalStatus": "ok",
       "reviewLocalGeneratedAt": "2026-04-25T19:01:30.071599+00:00",
@@ -7737,7 +8323,7 @@
       "reviewUrl": "https://www.goodreads.com/review/show/5748874171?utm_medium=api&utm_source=rss",
       "hasReview": true,
       "reviewLikes": 20,
-      "scrapeStatus": "ok",
+      "scrapeStatus": "error: The read operation timed out",
       "reviewLocalUrl": "./reviews/5748874171.html",
       "reviewLocalStatus": "ok",
       "reviewLocalGeneratedAt": "2026-04-25T19:01:34.900219+00:00",
@@ -7765,7 +8351,7 @@
     },
     {
       "bookId": "99500",
-      "title": "La ley de los varones",
+      "title": "La ley de los varones (Los Reyes Malditos, #4)",
       "author": "Maurice Druon",
       "dateRead": "2023-08-06",
       "rating": 4,
@@ -7803,8 +8389,8 @@
       "rating": 4,
       "reviewUrl": "https://www.goodreads.com/review/show/5700237733?utm_medium=api&utm_source=rss",
       "hasReview": false,
-      "reviewLikes": 0,
-      "scrapeStatus": "not_requested",
+      "reviewLikes": 7,
+      "scrapeStatus": "ok",
       "drzrating": -1,
       "bookDetails": 1,
       "dcc_classes": {
@@ -7821,11 +8407,17 @@
       },
       "isbn": "9788418967986",
       "dateAdded": "2023-07-19",
-      "matched": true
+      "matched": true,
+      "reviewLocalUrl": "./reviews/5700237733.html",
+      "reviewLocalCoverUrl": "./reviews/covers/5700237733.jpg",
+      "reviewDate": "2023-08-05",
+      "reviewLocalStatus": "ok",
+      "reviewLocalGeneratedAt": "2026-05-10T15:22:45.818793+00:00",
+      "reviewCount": 11
     },
     {
       "bookId": "35168542",
-      "title": "La hija del sol",
+      "title": "La hija del sol (Spanish Edition)",
       "author": "Nacho Ares",
       "dateRead": "2023-07-29",
       "rating": 5,
@@ -7995,7 +8587,7 @@
     },
     {
       "bookId": "124310968",
-      "title": "Crónica de un amor terrible: La historia secreta de la novia devuelta en la «muerte anunciada» de García Márquez",
+      "title": "Crónica de un amor terrible: La historia secreta de la novia devuelta en la «muerte anunciada» de García Márq (Spanish Edition)",
       "author": "Nadia Celis Salgado",
       "dateRead": "2023-07-05",
       "rating": 5,
@@ -8410,14 +9002,14 @@
     },
     {
       "bookId": "39305612",
-      "title": "El perro de los Baskerville",
+      "title": "El perro de los Baskerville (Sherlock Holmes, #5)",
       "author": "Arthur Conan Doyle",
       "dateRead": "2023-05-30",
       "rating": 3,
       "reviewUrl": "https://www.goodreads.com/review/show/5567424187?utm_medium=api&utm_source=rss",
       "hasReview": false,
-      "reviewLikes": 0,
-      "scrapeStatus": "not_requested",
+      "reviewLikes": 2,
+      "scrapeStatus": "ok",
       "drzrating": -1,
       "bookDetails": 0,
       "dcc_classes": {
@@ -8430,7 +9022,13 @@
         "reasoning": "Insigne obra narrativa de suspenso y misterio que pertenece a la literatura británica, por el autor escocés Arthur Conan Doyle.",
         "confidence": 0.0
       },
-      "matched": false
+      "matched": false,
+      "reviewLocalUrl": "./reviews/5567424187.html",
+      "reviewLocalCoverUrl": "./reviews/covers/5567424187.jpg",
+      "reviewDate": "2023-05-30",
+      "reviewLocalStatus": "ok",
+      "reviewLocalGeneratedAt": "2026-05-10T15:22:51.555977+00:00",
+      "reviewCount": 11
     },
     {
       "bookId": "125064740",
@@ -8604,7 +9202,7 @@
     },
     {
       "bookId": "30974922",
-      "title": "Los herederos de la tierra",
+      "title": "Los herederos de la tierra (La catedral del mar, #2)",
       "author": "Ildefonso Falcones",
       "dateRead": "2023-04-12",
       "rating": 5,
@@ -8636,7 +9234,7 @@
     },
     {
       "bookId": "62240988",
-      "title": "Una historia con aguijón: Mis aventuras con los abejorros",
+      "title": "Una historia con aguijón: Mis aventuras con los abejorros (Ensayo) (Spanish Edition)",
       "author": "Dave Goulson",
       "dateRead": "2023-04-09",
       "rating": 4,
@@ -8882,7 +9480,7 @@
       "scrapeStatus": "ok",
       "reviewLocalUrl": "./reviews/5395713632.html",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-05-06T00:22:23.673877+00:00",
+      "reviewLocalGeneratedAt": "2026-05-10T15:16:34.534116+00:00",
       "reviewLocalCoverUrl": "./reviews/covers/5395713632.jpg",
       "reviewDate": "2026-04-25",
       "reviewLocalLikes": 0,
@@ -8913,8 +9511,8 @@
       "rating": 5,
       "reviewUrl": "https://www.goodreads.com/review/show/5408075907?utm_medium=api&utm_source=rss",
       "hasReview": false,
-      "reviewLikes": 0,
-      "scrapeStatus": "not_requested",
+      "reviewLikes": 1,
+      "scrapeStatus": "ok",
       "drzrating": -1,
       "bookDetails": 1,
       "dcc_classes": {
@@ -8932,7 +9530,13 @@
       },
       "isbn": "9788449340000",
       "dateAdded": "2023-02-26",
-      "matched": true
+      "matched": true,
+      "reviewLocalUrl": "./reviews/5408075907.html",
+      "reviewLocalCoverUrl": "./reviews/covers/5408075907.jpg",
+      "reviewDate": "2023-03-12",
+      "reviewLocalStatus": "ok",
+      "reviewLocalGeneratedAt": "2026-05-10T15:22:58.831009+00:00",
+      "reviewCount": 11
     },
     {
       "bookId": "33280679",
@@ -9105,7 +9709,7 @@
     },
     {
       "bookId": "27763861",
-      "title": "Philosophy of Science for Scientists",
+      "title": "Philosophy of Science for Scientists (Springer Undergraduate Texts in Philosophy)",
       "author": "Lars-Goran Johansson",
       "dateRead": "2023-02-19",
       "rating": 5,
@@ -9176,8 +9780,8 @@
       "rating": 3,
       "reviewUrl": "https://www.goodreads.com/review/show/5193786539?utm_medium=api&utm_source=rss",
       "hasReview": false,
-      "reviewLikes": 0,
-      "scrapeStatus": "not_requested",
+      "reviewLikes": 1,
+      "scrapeStatus": "ok",
       "drzrating": -1,
       "bookDetails": 0,
       "dcc_classes": {
@@ -9190,7 +9794,13 @@
         "reasoning": "Libros finales de la inmensa crónica universal en los que se reseñan extensamente los sucesos en la península helénica y el auge militar entre persas y espartanos.",
         "confidence": 0.0
       },
-      "matched": false
+      "matched": false,
+      "reviewLocalUrl": "./reviews/5193786539.html",
+      "reviewLocalCoverUrl": "./reviews/covers/5193786539.jpg",
+      "reviewDate": "2025-01-11",
+      "reviewLocalStatus": "ok",
+      "reviewLocalGeneratedAt": "2026-05-10T15:23:02.306421+00:00",
+      "reviewCount": 11
     },
     {
       "bookId": "18754769",
@@ -9200,8 +9810,8 @@
       "rating": 5,
       "reviewUrl": "https://www.goodreads.com/review/show/5287245618?utm_medium=api&utm_source=rss",
       "hasReview": false,
-      "reviewLikes": 0,
-      "scrapeStatus": "not_requested",
+      "reviewLikes": 4,
+      "scrapeStatus": "ok",
       "drzrating": -1,
       "bookDetails": 0,
       "dcc_classes": {
@@ -9214,7 +9824,13 @@
         "reasoning": "Disertación analítica, política y filosófica sobre el rumbo actual de la educación y el detrimento de abolir las artes de la formación académica.",
         "confidence": 0.0
       },
-      "matched": false
+      "matched": false,
+      "reviewLocalUrl": "./reviews/5287245618.html",
+      "reviewLocalCoverUrl": "./reviews/covers/5287245618.jpg",
+      "reviewDate": "2023-01-30",
+      "reviewLocalStatus": "ok",
+      "reviewLocalGeneratedAt": "2026-05-10T15:23:09.376759+00:00",
+      "reviewCount": 11
     },
     {
       "bookId": "41828106",
@@ -9224,8 +9840,8 @@
       "rating": 4,
       "reviewUrl": "https://www.goodreads.com/review/show/5193790948?utm_medium=api&utm_source=rss",
       "hasReview": false,
-      "reviewLikes": 0,
-      "scrapeStatus": "not_requested",
+      "reviewLikes": 1,
+      "scrapeStatus": "ok",
       "drzrating": -1,
       "bookDetails": 0,
       "dcc_classes": {
@@ -9238,7 +9854,13 @@
         "reasoning": "Componente capital de la compilación de crónicas antiguas dedicada en gran parte a detallar los eventos de las pugnas helénicas.",
         "confidence": 0.0
       },
-      "matched": false
+      "matched": false,
+      "reviewLocalUrl": "./reviews/5193790948.html",
+      "reviewLocalCoverUrl": "./reviews/covers/5193790948.jpg",
+      "reviewDate": "2023-01-28",
+      "reviewLocalStatus": "ok",
+      "reviewLocalGeneratedAt": "2026-05-10T15:23:15.590278+00:00",
+      "reviewCount": 11
     },
     {
       "bookId": "60761335",
@@ -9279,7 +9901,7 @@
     },
     {
       "bookId": "7514539",
-      "title": "Herodotus: Libro VI",
+      "title": "Herodotus 6",
       "author": "Herodotus",
       "dateRead": "2023-01-21",
       "rating": 3,
@@ -9444,14 +10066,14 @@
     },
     {
       "bookId": "60630995",
-      "title": "Inmune: un viaje al misterioso sistema que te mantiene vivo",
+      "title": "Inmune: un viaje al misterioso sistema que te mantiene vivo (Deusto) (Spanish Edition)",
       "author": "Philipp Dettmer",
       "dateRead": "2023-01-08",
       "rating": 5,
       "reviewUrl": "https://www.goodreads.com/review/show/5232218668?utm_medium=api&utm_source=rss",
       "hasReview": false,
-      "reviewLikes": 0,
-      "scrapeStatus": "not_requested",
+      "reviewLikes": 4,
+      "scrapeStatus": "ok",
       "drzrating": -1,
       "bookDetails": 0,
       "dcc_classes": {
@@ -9465,7 +10087,13 @@
         "reasoning": "Guía que presenta a un público no académico la compleja red biológica de la inmunología general desde la fisiología ante virus y bacterias.",
         "confidence": 0.0
       },
-      "matched": false
+      "matched": false,
+      "reviewLocalUrl": "./reviews/5232218668.html",
+      "reviewLocalCoverUrl": "./reviews/covers/5232218668.jpg",
+      "reviewDate": "2023-01-08",
+      "reviewLocalStatus": "ok",
+      "reviewLocalGeneratedAt": "2026-05-10T15:23:21.489789+00:00",
+      "reviewCount": 11
     },
     {
       "bookId": "55359307",
@@ -9609,7 +10237,7 @@
     },
     {
       "bookId": "61226102",
-      "title": "Una (Muy) breve historia de la vida en la Tierra",
+      "title": "Una (Muy) breve historia de la vida en la Tierra (Spanish Edition)",
       "author": "Henry Gee",
       "dateRead": "2022-12-27",
       "rating": 5,
@@ -9650,7 +10278,7 @@
       "reviewUrl": "https://www.goodreads.com/review/show/5074782519?utm_medium=api&utm_source=rss",
       "hasReview": false,
       "reviewLikes": 0,
-      "scrapeStatus": "not_requested",
+      "scrapeStatus": "ok",
       "drzrating": -1,
       "bookDetails": 1,
       "dateAdded": "2022-06-02",
@@ -9666,7 +10294,13 @@
         "confidence": 1.0
       },
       "isbn": "9788420456300",
-      "matched": true
+      "matched": true,
+      "reviewLocalUrl": "./reviews/5074782519.html",
+      "reviewLocalCoverUrl": "./reviews/covers/5074782519.jpg",
+      "reviewDate": "2022-12-26",
+      "reviewLocalStatus": "ok",
+      "reviewLocalGeneratedAt": "2026-05-10T15:23:27.429296+00:00",
+      "reviewCount": 11
     },
     {
       "bookId": "50391711",
@@ -9707,14 +10341,14 @@
     },
     {
       "bookId": "59884113",
-      "title": "Bartleby, el escribiente",
+      "title": "Bartleby, el escribiente - Una historia de Wall Street",
       "author": "Herman Melville",
       "dateRead": "2022-12-22",
       "rating": 5,
       "reviewUrl": "https://www.goodreads.com/review/show/5180747441?utm_medium=api&utm_source=rss",
       "hasReview": false,
-      "reviewLikes": 0,
-      "scrapeStatus": "not_requested",
+      "reviewLikes": 3,
+      "scrapeStatus": "ok",
       "drzrating": -1,
       "bookDetails": 0,
       "dateAdded": "2022-12-21",
@@ -9730,11 +10364,17 @@
         "confidence": 1.0
       },
       "isbn": "9788491053859",
-      "matched": false
+      "matched": false,
+      "reviewLocalUrl": "./reviews/5180747441.html",
+      "reviewLocalCoverUrl": "./reviews/covers/5180747441.jpg",
+      "reviewDate": "2023-06-26",
+      "reviewLocalStatus": "ok",
+      "reviewLocalGeneratedAt": "2026-05-10T15:23:32.389050+00:00",
+      "reviewCount": 11
     },
     {
       "bookId": "74763270",
-      "title": "Punto en boca: (esto no es un manual de lenguaje inclusivo)",
+      "title": "Punto en boca: (esto no es un manual de lenguaje inclusivo) (Spanish Edition)",
       "author": "María Martín Barranco",
       "dateRead": "2022-12-21",
       "rating": 5,
@@ -9766,7 +10406,7 @@
     },
     {
       "bookId": "16050287",
-      "title": "El giro : de cómo un manuscrito olvidado contribuyó a crear el mundo moderno",
+      "title": "El giro",
       "author": "Stephen Greenblatt",
       "dateRead": "2022-12-19",
       "rating": 5,
@@ -9984,8 +10624,8 @@
       "rating": 4,
       "reviewUrl": "https://www.goodreads.com/review/show/5116977591?utm_medium=api&utm_source=rss",
       "hasReview": false,
-      "reviewLikes": 0,
-      "scrapeStatus": "not_requested",
+      "reviewLikes": 1,
+      "scrapeStatus": "ok",
       "drzrating": -1,
       "bookDetails": 0,
       "dcc_classes": {
@@ -9998,7 +10638,13 @@
         "reasoning": "Trabajo minucioso en divulgación que investiga cómo innovaciones, sistemas sociopolíticos y conductas habituales vieron la luz inicialmente en las riberas del Nilo.",
         "confidence": 0.0
       },
-      "matched": false
+      "matched": false,
+      "reviewLocalUrl": "./reviews/5116977591.html",
+      "reviewLocalCoverUrl": "./reviews/covers/5116977591.jpg",
+      "reviewDate": "2022-12-06",
+      "reviewLocalStatus": "ok",
+      "reviewLocalGeneratedAt": "2026-05-10T15:23:40.471908+00:00",
+      "reviewCount": 11
     },
     {
       "bookId": "63254628",
@@ -10074,7 +10720,7 @@
     },
     {
       "bookId": "99489",
-      "title": "Los venenos de la corona",
+      "title": "Los venenos de la corona (Los reyes malditos, #3)",
       "author": "Maurice Druon",
       "dateRead": "2022-11-25",
       "rating": 4,
@@ -10215,8 +10861,8 @@
       "rating": 4,
       "reviewUrl": "https://www.goodreads.com/review/show/5077848751?utm_medium=api&utm_source=rss",
       "hasReview": false,
-      "reviewLikes": 0,
-      "scrapeStatus": "not_requested",
+      "reviewLikes": 3,
+      "scrapeStatus": "ok",
       "drzrating": -1,
       "bookDetails": 1,
       "dcc_classes": {
@@ -10233,7 +10879,13 @@
       },
       "isbn": "9788491994510",
       "dateAdded": "2022-09-30",
-      "matched": true
+      "matched": true,
+      "reviewLocalUrl": "./reviews/5077848751.html",
+      "reviewLocalCoverUrl": "./reviews/covers/5077848751.jpg",
+      "reviewDate": "2023-01-07",
+      "reviewLocalStatus": "ok",
+      "reviewLocalGeneratedAt": "2026-05-10T15:23:48.397893+00:00",
+      "reviewCount": 11
     },
     {
       "bookId": "32853189",
@@ -10270,7 +10922,7 @@
     },
     {
       "bookId": "1044175",
-      "title": "La reina estrangulada",
+      "title": "La reina estrangulada (Los reyes malditos, #2)",
       "author": "Maurice Druon",
       "dateRead": "2022-10-30",
       "rating": 5,
@@ -10309,7 +10961,7 @@
       "reviewUrl": "https://www.goodreads.com/review/show/5054173875?utm_medium=api&utm_source=rss",
       "hasReview": false,
       "reviewLikes": 0,
-      "scrapeStatus": "not_requested",
+      "scrapeStatus": "ok",
       "drzrating": -1,
       "bookDetails": 1,
       "dateAdded": "2022-10-17",
@@ -10327,7 +10979,13 @@
         "confidence": 0.98
       },
       "isbn": "9788432210365",
-      "matched": true
+      "matched": true,
+      "reviewLocalUrl": "./reviews/5054173875.html",
+      "reviewLocalCoverUrl": "./reviews/covers/5054173875.jpg",
+      "reviewDate": "2022-10-30",
+      "reviewLocalStatus": "ok",
+      "reviewLocalGeneratedAt": "2026-05-10T15:23:57.233035+00:00",
+      "reviewCount": 11
     },
     {
       "bookId": "25673675",
@@ -10434,7 +11092,7 @@
     },
     {
       "bookId": "35618912",
-      "title": "El rey de hierro",
+      "title": "El rey de hierro (Los reyes malditos, #1)",
       "author": "Maurice Druon",
       "dateRead": "2022-10-11",
       "rating": 5,
@@ -10535,14 +11193,14 @@
     },
     {
       "bookId": "60205484",
-      "title": "Novaceno: La próxima era de la hiperinteligencia",
+      "title": "Novaceno: La próxima era de la hiperinteligencia (Contextos) (Spanish Edition)",
       "author": "James E. Lovelock",
       "dateRead": "2022-09-04",
       "rating": 4,
       "reviewUrl": "https://www.goodreads.com/review/show/4965511987?utm_medium=api&utm_source=rss",
       "hasReview": false,
       "reviewLikes": 0,
-      "scrapeStatus": "not_requested",
+      "scrapeStatus": "ok",
       "drzrating": -1,
       "bookDetails": 1,
       "dcc_classes": {
@@ -10561,7 +11219,13 @@
       },
       "isbn": "9788449338670",
       "dateAdded": "2022-08-28",
-      "matched": true
+      "matched": true,
+      "reviewLocalUrl": "./reviews/4965511987.html",
+      "reviewLocalCoverUrl": "./reviews/covers/4965511987.jpg",
+      "reviewDate": "2022-09-04",
+      "reviewLocalStatus": "ok",
+      "reviewLocalGeneratedAt": "2026-05-10T15:24:04.646216+00:00",
+      "reviewCount": 11
     },
     {
       "bookId": "55457446",
@@ -10599,14 +11263,14 @@
     },
     {
       "bookId": "60788950",
-      "title": "Horizontes: Una historia global de la ciencia",
+      "title": "Horizontes: Una historia global de la ciencia (Serie Mayor) (Spanish Edition)",
       "author": "James Poskett",
       "dateRead": "2022-08-24",
       "rating": 5,
       "reviewUrl": "https://www.goodreads.com/review/show/4920436521?utm_medium=api&utm_source=rss",
       "hasReview": false,
-      "reviewLikes": 0,
-      "scrapeStatus": "not_requested",
+      "reviewLikes": 3,
+      "scrapeStatus": "ok",
       "drzrating": -1,
       "bookDetails": 1,
       "dcc_classes": {
@@ -10623,7 +11287,13 @@
       },
       "isbn": "9788491994343",
       "dateAdded": "2022-08-12",
-      "matched": true
+      "matched": true,
+      "reviewLocalUrl": "./reviews/4920436521.html",
+      "reviewLocalCoverUrl": "./reviews/covers/4920436521.jpg",
+      "reviewDate": "2022-08-24",
+      "reviewLocalStatus": "ok",
+      "reviewLocalGeneratedAt": "2026-05-10T15:24:19.652408+00:00",
+      "reviewCount": 11
     },
     {
       "bookId": "7056969",
@@ -10633,8 +11303,8 @@
       "rating": 5,
       "reviewUrl": "https://www.goodreads.com/review/show/3776344814?utm_medium=api&utm_source=rss",
       "hasReview": false,
-      "reviewLikes": 0,
-      "scrapeStatus": "not_requested",
+      "reviewLikes": 2,
+      "scrapeStatus": "ok",
       "drzrating": -1,
       "bookDetails": 1,
       "dateAdded": "2021-05-17",
@@ -10651,7 +11321,13 @@
         "confidence": 1.0
       },
       "isbn": "9789584238887",
-      "matched": true
+      "matched": true,
+      "reviewLocalUrl": "./reviews/3776344814.html",
+      "reviewLocalCoverUrl": "./reviews/covers/3776344814.jpg",
+      "reviewDate": "2022-08-24",
+      "reviewLocalStatus": "ok",
+      "reviewLocalGeneratedAt": "2026-05-10T15:24:12.782970+00:00",
+      "reviewCount": 11
     },
     {
       "bookId": "18686121",
@@ -10697,8 +11373,8 @@
       "rating": 4,
       "reviewUrl": "https://www.goodreads.com/review/show/4689995125?utm_medium=api&utm_source=rss",
       "hasReview": false,
-      "reviewLikes": 0,
-      "scrapeStatus": "not_requested",
+      "reviewLikes": 1,
+      "scrapeStatus": "ok",
       "drzrating": -1,
       "bookDetails": 1,
       "dateAdded": "2022-06-25",
@@ -10715,7 +11391,13 @@
         "confidence": 1.0
       },
       "isbn": "9788433913920",
-      "matched": true
+      "matched": true,
+      "reviewLocalUrl": "./reviews/4689995125.html",
+      "reviewLocalCoverUrl": "./reviews/covers/4689995125.jpg",
+      "reviewDate": "2022-08-05",
+      "reviewLocalStatus": "ok",
+      "reviewLocalGeneratedAt": "2026-05-10T15:24:26.854914+00:00",
+      "reviewCount": 11
     },
     {
       "bookId": "52300880",
@@ -10758,7 +11440,7 @@
       "reviewUrl": "https://www.goodreads.com/review/show/4853544090?utm_medium=api&utm_source=rss",
       "hasReview": true,
       "reviewLikes": 4,
-      "scrapeStatus": "error: The read operation timed out",
+      "scrapeStatus": "ok",
       "reviewLocalUrl": "./reviews/4853544090.html",
       "reviewLocalStatus": "ok",
       "reviewLocalGeneratedAt": "2026-04-25T19:08:32.913629+00:00",
@@ -10993,7 +11675,7 @@
       "reviewUrl": "https://www.goodreads.com/review/show/4806236283?utm_medium=api&utm_source=rss",
       "hasReview": true,
       "reviewLikes": 3,
-      "scrapeStatus": "ok",
+      "scrapeStatus": "error: The read operation timed out",
       "reviewLocalUrl": "./reviews/4806236283.html",
       "reviewLocalStatus": "ok",
       "reviewLocalGeneratedAt": "2026-04-25T19:09:29.101143+00:00",
@@ -11022,7 +11704,7 @@
     },
     {
       "bookId": "30345355",
-      "title": "¿Tenemos suficiente inteligencia para entender la inteligencia de los animales?",
+      "title": "¿Tenemos suficiente inteligencia para entender la inteligencia de los animales? (Metatemas) (Spanish Edition)",
       "author": "Frans de Waal",
       "dateRead": "2022-06-25",
       "rating": 5,
@@ -11303,8 +11985,8 @@
       "rating": 4,
       "reviewUrl": "https://www.goodreads.com/review/show/4713337847?utm_medium=api&utm_source=rss",
       "hasReview": false,
-      "reviewLikes": 0,
-      "scrapeStatus": "not_requested",
+      "reviewLikes": 1,
+      "scrapeStatus": "ok",
       "drzrating": -1,
       "bookDetails": 1,
       "dateAdded": "2022-05-08",
@@ -11322,7 +12004,13 @@
         "confidence": 1.0
       },
       "isbn": "9788417067892",
-      "matched": true
+      "matched": true,
+      "reviewLocalUrl": "./reviews/4713337847.html",
+      "reviewLocalCoverUrl": "./reviews/covers/4713337847.jpg",
+      "reviewDate": "2022-05-08",
+      "reviewLocalStatus": "ok",
+      "reviewLocalGeneratedAt": "2026-05-10T15:24:33.856330+00:00",
+      "reviewCount": 11
     },
     {
       "bookId": "40783641",
@@ -11403,8 +12091,8 @@
       "rating": 5,
       "reviewUrl": "https://www.goodreads.com/review/show/4360306733?utm_medium=api&utm_source=rss",
       "hasReview": false,
-      "reviewLikes": 0,
-      "scrapeStatus": "not_requested",
+      "reviewLikes": 3,
+      "scrapeStatus": "ok",
       "drzrating": -1,
       "bookDetails": 0,
       "dcc_classes": {
@@ -11417,7 +12105,13 @@
         "reasoning": "Recolección matemática de estadísticas globales sobre las cuales nos apoyamos para justificar cuantitativamente cómo opera el planeta a nivel sistémico.",
         "confidence": 0.0
       },
-      "matched": false
+      "matched": false,
+      "reviewLocalUrl": "./reviews/4360306733.html",
+      "reviewLocalCoverUrl": "./reviews/covers/4360306733.jpg",
+      "reviewDate": "2022-04-25",
+      "reviewLocalStatus": "ok",
+      "reviewLocalGeneratedAt": "2026-05-10T15:24:40.991651+00:00",
+      "reviewCount": 11
     },
     {
       "bookId": "60622051",
@@ -11454,7 +12148,7 @@
     },
     {
       "bookId": "31288000",
-      "title": "El arte de pensar: 52 errores de lógica que es mejor dejar que cometan otros",
+      "title": "El arte de pensar: 52 errores de lógica que es mejor dejar que cometan otros (Spanish Edition)",
       "author": "Rolf Dobelli",
       "dateRead": "2022-04-16",
       "rating": 5,
@@ -11626,7 +12320,7 @@
     },
     {
       "bookId": "59925654",
-      "title": "La llama de Mileto: El nacimiento de la ciencia en la Antigua Grecia",
+      "title": "La llama de Mileto: El nacimiento de la ciencia en la Antigua Grecia (Alianza Ensayo nº 813) (Spanish Edition)",
       "author": "John Freely",
       "dateRead": "2022-03-21",
       "rating": 4,
@@ -11762,14 +12456,14 @@
     },
     {
       "bookId": "39027951",
-      "title": "Essential Rainwater Harvesting: A Guide to Home-Scale System Design",
+      "title": "Essential Rainwater Harvesting: A Guide to Home-Scale System Design (Sustainable Building Essentials Series, 11)",
       "author": "Rob Avis",
       "dateRead": "2022-02-27",
       "rating": 5,
       "reviewUrl": "https://www.goodreads.com/review/show/4577849161?utm_medium=api&utm_source=rss",
       "hasReview": false,
       "reviewLikes": 0,
-      "scrapeStatus": "not_requested",
+      "scrapeStatus": "ok",
       "drzrating": -1,
       "bookDetails": 0,
       "dcc_classes": {
@@ -11782,18 +12476,24 @@
         "reasoning": "Un libro técnico y práctico sobre la recolección de agua pluvial y su ingeniería sustentable.",
         "confidence": 0.0
       },
-      "matched": false
+      "matched": false,
+      "reviewLocalUrl": "./reviews/4577849161.html",
+      "reviewLocalCoverUrl": "./reviews/covers/4577849161.jpg",
+      "reviewDate": "2022-02-27",
+      "reviewLocalStatus": "ok",
+      "reviewLocalGeneratedAt": "2026-05-10T15:24:50.569235+00:00",
+      "reviewCount": 11
     },
     {
       "bookId": "58875334",
-      "title": "Dopamina: Cómo una molécula condiciona de quién nos enamoramos, con quién nos acostamos, a quién votamos y qué nos depara el futuro",
+      "title": "Dopamina: Cómo una molécula condiciona de quién nos enamoramos, con quién nos acostamos, a quién votamos y qué nos depara el futuro (DIVULGACIÓN) (Spanish Edition)",
       "author": "Daniel Z. Lieberman",
       "dateRead": "2022-02-26",
       "rating": 5,
       "reviewUrl": "https://www.goodreads.com/review/show/4561253637?utm_medium=api&utm_source=rss",
       "hasReview": false,
-      "reviewLikes": 0,
-      "scrapeStatus": "not_requested",
+      "reviewLikes": 2,
+      "scrapeStatus": "ok",
       "drzrating": -1,
       "bookDetails": 0,
       "dcc_classes": {
@@ -11807,7 +12507,13 @@
         "reasoning": "Aborda la fisiología del cerebro, la neuroquímica y cómo los neurotransmisores impactan la conducta y la psicología humana.",
         "confidence": 0.0
       },
-      "matched": false
+      "matched": false,
+      "reviewLocalUrl": "./reviews/4561253637.html",
+      "reviewLocalCoverUrl": "./reviews/covers/4561253637.jpg",
+      "reviewDate": "2022-02-26",
+      "reviewLocalStatus": "ok",
+      "reviewLocalGeneratedAt": "2026-05-10T15:24:59.548981+00:00",
+      "reviewCount": 11
     },
     {
       "bookId": "27187428",
@@ -11846,14 +12552,14 @@
     },
     {
       "bookId": "4443937",
-      "title": "Claudio el dios y su esposa Mesalina",
+      "title": "Claudio el dios y su esposa Mesalina (Claudio, #2)",
       "author": "Robert Graves",
       "dateRead": "2022-02-16",
       "rating": 4,
       "reviewUrl": "https://www.goodreads.com/review/show/4515987709?utm_medium=api&utm_source=rss",
       "hasReview": false,
       "reviewLikes": 0,
-      "scrapeStatus": "not_requested",
+      "scrapeStatus": "error: The read operation timed out",
       "drzrating": -1,
       "bookDetails": 1,
       "dateAdded": "2021-10-16",
@@ -11871,7 +12577,13 @@
         "confidence": 1.0
       },
       "isbn": "9788420635132",
-      "matched": true
+      "matched": true,
+      "reviewLocalUrl": "./reviews/4515987709.html",
+      "reviewLocalCoverUrl": "./reviews/covers/4515987709.jpg",
+      "reviewDate": "2022-02-16",
+      "reviewLocalStatus": "ok",
+      "reviewLocalGeneratedAt": "2026-05-10T15:25:07.681444+00:00",
+      "reviewCount": 11
     },
     {
       "bookId": "19063630",
@@ -11881,8 +12593,8 @@
       "rating": 4,
       "reviewUrl": "https://www.goodreads.com/review/show/4476086879?utm_medium=api&utm_source=rss",
       "hasReview": false,
-      "reviewLikes": 0,
-      "scrapeStatus": "not_requested",
+      "reviewLikes": 1,
+      "scrapeStatus": "ok",
       "drzrating": -1,
       "bookDetails": 0,
       "dcc_classes": {
@@ -11895,7 +12607,13 @@
         "reasoning": "Es un relato histórico que se concentra en narrar la biografía de la reina Isabel de Castilla.",
         "confidence": 0.0
       },
-      "matched": false
+      "matched": false,
+      "reviewLocalUrl": "./reviews/4476086879.html",
+      "reviewLocalCoverUrl": "./reviews/covers/4476086879.jpg",
+      "reviewDate": "2022-01-31",
+      "reviewLocalStatus": "ok",
+      "reviewLocalGeneratedAt": "2026-05-10T15:25:15.519801+00:00",
+      "reviewCount": 11
     },
     {
       "bookId": "43906748",
@@ -11906,7 +12624,7 @@
       "reviewUrl": "https://www.goodreads.com/review/show/4496899169?utm_medium=api&utm_source=rss",
       "hasReview": true,
       "reviewLikes": 14,
-      "scrapeStatus": "ok",
+      "scrapeStatus": "error: The read operation timed out",
       "reviewLocalUrl": "./reviews/4496899169.html",
       "reviewLocalStatus": "ok",
       "reviewLocalGeneratedAt": "2026-04-25T19:08:10.212159+00:00",
@@ -11939,8 +12657,8 @@
       "rating": 5,
       "reviewUrl": "https://www.goodreads.com/review/show/2780950363?utm_medium=api&utm_source=rss",
       "hasReview": false,
-      "reviewLikes": 0,
-      "scrapeStatus": "not_requested",
+      "reviewLikes": 2,
+      "scrapeStatus": "ok",
       "drzrating": -1,
       "bookDetails": 1,
       "dateAdded": "2021-10-16",
@@ -11955,7 +12673,13 @@
         "confidence": 0.98
       },
       "isbn": "9788420689852",
-      "matched": true
+      "matched": true,
+      "reviewLocalUrl": "./reviews/2780950363.html",
+      "reviewLocalCoverUrl": "./reviews/covers/2780950363.jpg",
+      "reviewDate": "2022-01-29",
+      "reviewLocalStatus": "ok",
+      "reviewLocalGeneratedAt": "2026-05-10T15:25:23.846137+00:00",
+      "reviewCount": 11
     },
     {
       "bookId": "36242663",
@@ -11993,7 +12717,7 @@
     },
     {
       "bookId": "134620",
-      "title": "La Batalla de Tebas",
+      "title": "La Batalla de Tebas (Spanish Edition)",
       "author": "Naguib Mahfouz",
       "dateRead": "2022-01-10",
       "rating": 5,
@@ -12207,7 +12931,7 @@
       "reviewUrl": "https://www.goodreads.com/review/show/4398485978?utm_medium=api&utm_source=rss",
       "hasReview": false,
       "reviewLikes": 0,
-      "scrapeStatus": "not_requested",
+      "scrapeStatus": "ok",
       "drzrating": -1,
       "bookDetails": 1,
       "dateAdded": "2021-12-11",
@@ -12224,7 +12948,13 @@
         "confidence": 0.95
       },
       "isbn": "9788418550546",
-      "matched": true
+      "matched": true,
+      "reviewLocalUrl": "./reviews/4398485978.html",
+      "reviewLocalCoverUrl": "./reviews/covers/4398485978.jpg",
+      "reviewDate": "2021-12-28",
+      "reviewLocalStatus": "ok",
+      "reviewLocalGeneratedAt": "2026-05-10T15:25:33.470133+00:00",
+      "reviewCount": 11
     },
     {
       "bookId": "41576706",
@@ -12340,7 +13070,7 @@
       "reviewUrl": "https://www.goodreads.com/review/show/4387505341?utm_medium=api&utm_source=rss",
       "hasReview": true,
       "reviewLikes": 4,
-      "scrapeStatus": "ok",
+      "scrapeStatus": "error: The read operation timed out",
       "reviewLocalUrl": "./reviews/4387505341.html",
       "reviewLocalStatus": "ok",
       "reviewLocalGeneratedAt": "2026-04-25T19:12:17.170153+00:00",
@@ -12680,7 +13410,7 @@
     },
     {
       "bookId": "33511979",
-      "title": "El dilema del omnivoro : en busca de la comida perfecta",
+      "title": "El dilema del omnivoro: En busca de la comida perfecta",
       "author": "Michael Pollan",
       "dateRead": "2021-10-24",
       "rating": 5,
@@ -12822,7 +13552,7 @@
     },
     {
       "bookId": "59110779",
-      "title": "Una vida, muchas vidas",
+      "title": "Una vida, muchas vidas (Spanish Edition)",
       "author": "Gustavo Petro",
       "dateRead": "2021-10-10",
       "rating": 5,
@@ -13137,7 +13867,7 @@
     },
     {
       "bookId": "58699395",
-      "title": "Magdalena. Historias de Colombia",
+      "title": "Magdalena. Historias de Colombia (Spanish Edition)",
       "author": "Wade Davis",
       "dateRead": "2021-08-28",
       "rating": 5,
@@ -13245,8 +13975,8 @@
       "rating": 3,
       "reviewUrl": "https://www.goodreads.com/review/show/4106837485?utm_medium=api&utm_source=rss",
       "hasReview": false,
-      "reviewLikes": 0,
-      "scrapeStatus": "not_requested",
+      "reviewLikes": 1,
+      "scrapeStatus": "ok",
       "drzrating": -1,
       "bookDetails": 1,
       "dateAdded": "2021-07-31",
@@ -13262,7 +13992,13 @@
         "confidence": 0.98
       },
       "isbn": "9788498926163",
-      "matched": true
+      "matched": true,
+      "reviewLocalUrl": "./reviews/4106837485.html",
+      "reviewLocalCoverUrl": "./reviews/covers/4106837485.jpg",
+      "reviewDate": "2021-07-31",
+      "reviewLocalStatus": "ok",
+      "reviewLocalGeneratedAt": "2026-05-10T15:25:41.298244+00:00",
+      "reviewCount": 11
     },
     {
       "bookId": "9594222",
@@ -13301,7 +14037,7 @@
     },
     {
       "bookId": "57400686",
-      "title": "Tutankhamón. El viaje por el inframundo",
+      "title": "Tutankhamón. El viaje por el inframundo. 40th Ed. (45th Edition) (Spanish Edition)",
       "author": "Sandro Vannini",
       "dateRead": "2021-07-25",
       "rating": 5,
@@ -13400,7 +14136,7 @@
     },
     {
       "bookId": "58467332",
-      "title": "El antiguo Egipto por cinco deben al día",
+      "title": "El Antiguo Egipto por 5 deben al día",
       "author": "Donald P. Ryan",
       "dateRead": "2021-07-01",
       "rating": 5,
@@ -13468,7 +14204,7 @@
     },
     {
       "bookId": "57941146",
-      "title": "Antiguo Egipto: Introducción a su historia y cultura",
+      "title": "Antiguo Egipto: Introducción a su historia y cultura (Nun) (Spanish Edition)",
       "author": "Salima Ikram",
       "dateRead": "2021-06-27",
       "rating": 5,
@@ -13501,7 +14237,7 @@
     },
     {
       "bookId": "53972981",
-      "title": "Las tinieblas y el alba",
+      "title": "Las tinieblas y el alba (Kingsbridge, #0)",
       "author": "Ken Follett",
       "dateRead": "2021-06-24",
       "rating": 5,
@@ -13568,7 +14304,7 @@
     },
     {
       "bookId": "29579029",
-      "title": "Auge y caída del antiguo Egipto",
+      "title": "Auge y caída del antiguo Egipto (Spanish Edition)",
       "author": "Toby Wilkinson",
       "dateRead": "2021-06-18",
       "rating": 5,
@@ -13603,7 +14339,7 @@
     },
     {
       "bookId": "6966227",
-      "title": "La traición de Roma",
+      "title": "La traición de Roma (Publio Cornelio Escipión, #3)",
       "author": "Santiago Posteguillo",
       "dateRead": "2021-06-05",
       "rating": 5,
@@ -13638,7 +14374,7 @@
     },
     {
       "bookId": "450643",
-      "title": "La historia de los judíos",
+      "title": "La historia de los judíos (Spanish Edition)",
       "author": "Paul  Johnson",
       "dateRead": "2021-06-04",
       "rating": 5,
@@ -13707,7 +14443,7 @@
     },
     {
       "bookId": "42610931",
-      "title": "Las legiones malditas",
+      "title": "Las legiones malditas (Publio Cornelio Escipión #2)",
       "author": "Santiago Posteguillo",
       "dateRead": "2021-05-09",
       "rating": 5,
@@ -13813,14 +14549,14 @@
     },
     {
       "bookId": "26399940",
-      "title": "LA MENTE Y EL COSMOS: POR QUE LA CONCEPCION NEO-DARWINISTA MATERIALISTA DE LA NATURALEZA",
+      "title": "LA MENTE Y EL COSMOS: POR QUE LA CONCEPCION NEO-DARWINISTA MATERIALISTA DE LA NATU (FRONTERAS) (Spanish Edition)",
       "author": "Thomas Nagel",
       "dateRead": "2021-04-23",
       "rating": 3,
       "reviewUrl": "https://www.goodreads.com/review/show/3939465652?utm_medium=api&utm_source=rss",
       "hasReview": false,
       "reviewLikes": 0,
-      "scrapeStatus": "not_requested",
+      "scrapeStatus": "ok",
       "drzrating": -1,
       "bookDetails": 0,
       "dcc_classes": {
@@ -13833,7 +14569,13 @@
         "reasoning": "Texto filosófico que argumenta acerca del reduccionismo materialista, las ciencias y la conciencia en el cosmos.",
         "confidence": 0.0
       },
-      "matched": false
+      "matched": false,
+      "reviewLocalUrl": "./reviews/3939465652.html",
+      "reviewLocalCoverUrl": "./reviews/covers/3939465652.jpg",
+      "reviewDate": "2021-04-23",
+      "reviewLocalStatus": "ok",
+      "reviewLocalGeneratedAt": "2026-05-10T15:25:53.085575+00:00",
+      "reviewCount": 11
     },
     {
       "bookId": "24976877",
@@ -13843,8 +14585,8 @@
       "rating": 5,
       "reviewUrl": "https://www.goodreads.com/review/show/6717965134?utm_medium=api&utm_source=rss",
       "hasReview": false,
-      "reviewLikes": 0,
-      "scrapeStatus": "not_requested",
+      "reviewLikes": 5,
+      "scrapeStatus": "ok",
       "drzrating": -1,
       "bookDetails": 1,
       "dateAdded": "2021-01-04",
@@ -13861,7 +14603,13 @@
         "confidence": 1.0
       },
       "isbn": "9780578153933",
-      "matched": true
+      "matched": true,
+      "reviewLocalUrl": "./reviews/6717965134.html",
+      "reviewLocalCoverUrl": "./reviews/covers/6717965134.jpg",
+      "reviewDate": "2024-07-31",
+      "reviewLocalStatus": "ok",
+      "reviewLocalGeneratedAt": "2026-05-10T15:25:57.573621+00:00",
+      "reviewCount": 11
     },
     {
       "bookId": "57092439",
@@ -13907,8 +14655,8 @@
       "rating": 5,
       "reviewUrl": "https://www.goodreads.com/review/show/3926843652?utm_medium=api&utm_source=rss",
       "hasReview": false,
-      "reviewLikes": 0,
-      "scrapeStatus": "not_requested",
+      "reviewLikes": 2,
+      "scrapeStatus": "ok",
       "drzrating": -1,
       "bookDetails": 0,
       "dcc_classes": {
@@ -13921,7 +14669,13 @@
         "reasoning": "Ficción autobiográfica originaria de la literatura húngara, explorando temáticas sobre el Holocausto.",
         "confidence": 0.0
       },
-      "matched": false
+      "matched": false,
+      "reviewLocalUrl": "./reviews/3926843652.html",
+      "reviewLocalCoverUrl": "./reviews/covers/3926843652.jpg",
+      "reviewDate": "2021-04-11",
+      "reviewLocalStatus": "ok",
+      "reviewLocalGeneratedAt": "2026-05-10T15:26:09.245780+00:00",
+      "reviewCount": 11
     },
     {
       "bookId": "43554612",
@@ -14062,7 +14816,7 @@
     },
     {
       "bookId": "55963564",
-      "title": "Los científicos y el mundo: Lo que diez pensadores nos enseñan sobre la autoridad de la ciencia",
+      "title": "Los científicos y el mundo: Lo que diez pensadores nos enseñan sobre la autoridad de la ciencia (Drakontos) (Spanish Edition)",
       "author": "Robert P. Crease",
       "dateRead": "2021-03-29",
       "rating": 5,
@@ -14271,7 +15025,7 @@
     },
     {
       "bookId": "43178331",
-      "title": "El otro Einstein",
+      "title": "El otro Einstein (Spanish Edition)",
       "author": "Marie Benedict",
       "dateRead": "2021-02-21",
       "rating": 5,
@@ -14313,8 +15067,8 @@
       "rating": 5,
       "reviewUrl": "https://www.goodreads.com/review/show/3733824303?utm_medium=api&utm_source=rss",
       "hasReview": false,
-      "reviewLikes": 0,
-      "scrapeStatus": "not_requested",
+      "reviewLikes": 1,
+      "scrapeStatus": "ok",
       "drzrating": -1,
       "bookDetails": 1,
       "dateAdded": "2021-02-02",
@@ -14330,7 +15084,13 @@
         "confidence": 1.0
       },
       "isbn": "9788491044321",
-      "matched": true
+      "matched": true,
+      "reviewLocalUrl": "./reviews/3733824303.html",
+      "reviewLocalCoverUrl": "./reviews/covers/3733824303.jpg",
+      "reviewDate": "2021-02-07",
+      "reviewLocalStatus": "ok",
+      "reviewLocalGeneratedAt": "2026-05-10T15:26:19.228026+00:00",
+      "reviewCount": 11
     },
     {
       "bookId": "26567125",
@@ -14500,7 +15260,7 @@
     },
     {
       "bookId": "27888988",
-      "title": "La legión perdida: El sueño de Trajano",
+      "title": "La legión perdida: El sueño de Trajano (Trajano #3)",
       "author": "Santiago Posteguillo",
       "dateRead": "2021-01-17",
       "rating": 5,
@@ -14540,8 +15300,8 @@
       "rating": 4,
       "reviewUrl": "https://www.goodreads.com/review/show/2669144939?utm_medium=api&utm_source=rss",
       "hasReview": false,
-      "reviewLikes": 0,
-      "scrapeStatus": "not_requested",
+      "reviewLikes": 2,
+      "scrapeStatus": "ok",
       "drzrating": -1,
       "bookDetails": 0,
       "dcc_classes": {
@@ -14554,7 +15314,13 @@
         "reasoning": "Presenta el papel clave que desempeñan las matemáticas en la biología y la comprensión de los sistemas de vida.",
         "confidence": 0.0
       },
-      "matched": false
+      "matched": false,
+      "reviewLocalUrl": "./reviews/2669144939.html",
+      "reviewLocalCoverUrl": "./reviews/covers/2669144939.jpg",
+      "reviewDate": "2021-01-13",
+      "reviewLocalStatus": "ok",
+      "reviewLocalGeneratedAt": "2026-05-10T15:26:28.583106+00:00",
+      "reviewCount": 11
     },
     {
       "bookId": "30288040",
@@ -14564,8 +15330,8 @@
       "rating": 5,
       "reviewUrl": "https://www.goodreads.com/review/show/2681664072?utm_medium=api&utm_source=rss",
       "hasReview": false,
-      "reviewLikes": 0,
-      "scrapeStatus": "not_requested",
+      "reviewLikes": 1,
+      "scrapeStatus": "ok",
       "drzrating": -1,
       "bookDetails": 1,
       "dcc_classes": {
@@ -14580,7 +15346,13 @@
       },
       "isbn": "9788498929799",
       "dateAdded": "2020-12-31",
-      "matched": true
+      "matched": true,
+      "reviewLocalUrl": "./reviews/2681664072.html",
+      "reviewLocalCoverUrl": "./reviews/covers/2681664072.jpg",
+      "reviewDate": "2021-01-09",
+      "reviewLocalStatus": "ok",
+      "reviewLocalGeneratedAt": "2026-05-10T15:26:39.132767+00:00",
+      "reviewCount": 11
     },
     {
       "bookId": "1995",
@@ -14620,14 +15392,14 @@
     },
     {
       "bookId": "4771608",
-      "title": "Es tarde para el hombre",
+      "title": "Es tarde para el hombre (Literatura y ensayo) (Spanish Edition)",
       "author": "William Ospina",
       "dateRead": "2021-01-08",
       "rating": 4,
       "reviewUrl": "https://www.goodreads.com/review/show/3757626877?utm_medium=api&utm_source=rss",
       "hasReview": false,
       "reviewLikes": 0,
-      "scrapeStatus": "not_requested",
+      "scrapeStatus": "ok",
       "drzrating": -1,
       "bookDetails": 1,
       "dateAdded": "2021-01-08",
@@ -14643,7 +15415,13 @@
         "confidence": 0.95
       },
       "isbn": "9789588640457",
-      "matched": true
+      "matched": true,
+      "reviewLocalUrl": "./reviews/3757626877.html",
+      "reviewLocalCoverUrl": "./reviews/covers/3757626877.jpg",
+      "reviewDate": "2021-01-08",
+      "reviewLocalStatus": "ok",
+      "reviewLocalGeneratedAt": "2026-05-10T15:26:47.809442+00:00",
+      "reviewCount": 11
     },
     {
       "bookId": "57624494",
@@ -14792,7 +15570,7 @@
     },
     {
       "bookId": "22888914",
-      "title": "La sangre de los libros : enigmas y libros de la literatura universal",
+      "title": "La sangre de los libros",
       "author": "Santiago Posteguillo",
       "dateRead": "2020-12-11",
       "rating": 5,
@@ -14828,7 +15606,7 @@
     },
     {
       "bookId": "25785264",
-      "title": "En busca de Bolivar",
+      "title": "En busca de Bolivar (Spanish Edition)",
       "author": "William Ospina",
       "dateRead": "2020-12-08",
       "rating": 5,
@@ -14905,8 +15683,8 @@
       "rating": 5,
       "reviewUrl": "https://www.goodreads.com/review/show/3503588457?utm_medium=api&utm_source=rss",
       "hasReview": false,
-      "reviewLikes": 0,
-      "scrapeStatus": "not_requested",
+      "reviewLikes": 1,
+      "scrapeStatus": "ok",
       "drzrating": -1,
       "bookDetails": 1,
       "dateAdded": "2021-01-04",
@@ -14922,7 +15700,9 @@
         "confidence": 0.95
       },
       "isbn": "9788449333378",
-      "matched": true
+      "matched": true,
+      "reviewLocalStatus": "error: The read operation timed out",
+      "reviewCount": 11
     },
     {
       "bookId": "52377465",
@@ -14996,7 +15776,7 @@
     },
     {
       "bookId": "12638953",
-      "title": "Los asesinos del emperador",
+      "title": "Los asesinos del emperador (Trajano, #1)",
       "author": "Santiago Posteguillo",
       "dateRead": "2020-11-18",
       "rating": 5,
@@ -15031,7 +15811,7 @@
     },
     {
       "bookId": "48647367",
-      "title": "Crisis: Cómo reaccionan los países en los momentos decisivos",
+      "title": "Crisis: Cómo reaccionan los países en los momentos decisivos (Spanish Edition)",
       "author": "Jared Diamond",
       "dateRead": "2020-11-16",
       "rating": 5,
@@ -15176,7 +15956,7 @@
     },
     {
       "bookId": "45995574",
-      "title": "Eso lo explica todo",
+      "title": "Eso lo explica todo (Spanish Edition)",
       "author": "Grupo Editorial Planeta",
       "dateRead": "2020-09-25",
       "rating": 5,
@@ -15192,7 +15972,7 @@
       "reviewLocalLikes": 0,
       "reviewLocalLikesUpdatedAt": "2026-05-09T14:00:24.824386+00:00",
       "drzrating": 95,
-      "bookDetails": 1,
+      "bookDetails": 0,
       "reviewCount": 577,
       "dcc_classes": {
         "500": "Ciencias naturales y matematicas (500)"
@@ -15247,14 +16027,14 @@
     },
     {
       "bookId": "9049717",
-      "title": "Venus",
+      "title": "Venus (The Grand Tour #16)",
       "author": "Ben Bova",
       "dateRead": "2020-09-16",
       "rating": 5,
       "reviewUrl": "https://www.goodreads.com/review/show/3543374146?utm_medium=api&utm_source=rss",
       "hasReview": true,
       "reviewLikes": 1,
-      "scrapeStatus": "error: The read operation timed out",
+      "scrapeStatus": "ok",
       "reviewLocalUrl": "./reviews/3543374146.html",
       "reviewLocalStatus": "ok",
       "reviewLocalGeneratedAt": "2026-04-25T19:19:53.614783+00:00",
@@ -15315,7 +16095,7 @@
     },
     {
       "bookId": "50262027",
-      "title": "Y Julia retó a los dioses",
+      "title": "Y Julia retó a los dioses (Julia Domna, #2)",
       "author": "Santiago Posteguillo",
       "dateRead": "2020-08-29",
       "rating": 5,
@@ -15384,14 +16164,14 @@
     },
     {
       "bookId": "54421354",
-      "title": "Occidente conquistó el mundo ... y empezó a perderlo",
+      "title": "Occidente conquistó el mundo ... y empezó a perderlo (Spanish Edition)",
       "author": "Antonio Caballero",
       "dateRead": "2020-08-17",
       "rating": 3,
       "reviewUrl": "https://www.goodreads.com/review/show/3499698951?utm_medium=api&utm_source=rss",
       "hasReview": true,
       "reviewLikes": 10,
-      "scrapeStatus": "error: The read operation timed out",
+      "scrapeStatus": "ok",
       "reviewLocalUrl": "./reviews/3499698951.html",
       "reviewLocalStatus": "ok",
       "reviewLocalGeneratedAt": "2026-04-25T19:20:36.839978+00:00",
@@ -15494,8 +16274,8 @@
       "rating": 5,
       "reviewUrl": "https://www.goodreads.com/review/show/2669145587?utm_medium=api&utm_source=rss",
       "hasReview": false,
-      "reviewLikes": 0,
-      "scrapeStatus": "not_requested",
+      "reviewLikes": 2,
+      "scrapeStatus": "ok",
       "drzrating": -1,
       "bookDetails": 1,
       "dcc_classes": {
@@ -15511,7 +16291,13 @@
       },
       "isbn": "9780199741021",
       "dateAdded": "2021-01-04",
-      "matched": true
+      "matched": true,
+      "reviewLocalUrl": "./reviews/2669145587.html",
+      "reviewLocalCoverUrl": "./reviews/covers/2669145587.jpg",
+      "reviewDate": "2020-08-02",
+      "reviewLocalStatus": "ok",
+      "reviewLocalGeneratedAt": "2026-05-10T15:27:20.685445+00:00",
+      "reviewCount": 11
     },
     {
       "bookId": "33389769",
@@ -15839,7 +16625,7 @@
       "reviewUrl": "https://www.goodreads.com/review/show/3400900834?utm_medium=api&utm_source=rss",
       "hasReview": true,
       "reviewLikes": 26,
-      "scrapeStatus": "error: The read operation timed out",
+      "scrapeStatus": "ok",
       "reviewLocalUrl": "./reviews/3400900834.html",
       "reviewLocalStatus": "ok",
       "reviewLocalGeneratedAt": "2026-04-25T19:22:24.652811+00:00",
@@ -15942,7 +16728,7 @@
       "reviewUrl": "https://www.goodreads.com/review/show/3367788270?utm_medium=api&utm_source=rss",
       "hasReview": false,
       "reviewLikes": 0,
-      "scrapeStatus": "not_requested",
+      "scrapeStatus": "ok",
       "drzrating": -1,
       "bookDetails": 1,
       "dateAdded": "2021-01-01",
@@ -15957,7 +16743,13 @@
         "confidence": 1.0
       },
       "isbn": "9788484321514",
-      "matched": true
+      "matched": true,
+      "reviewLocalUrl": "./reviews/3367788270.html",
+      "reviewLocalCoverUrl": "./reviews/covers/3367788270.jpg",
+      "reviewDate": "2020-06-07",
+      "reviewLocalStatus": "ok",
+      "reviewLocalGeneratedAt": "2026-05-10T15:27:29.824656+00:00",
+      "reviewCount": 11
     },
     {
       "bookId": "17697342",
@@ -16106,7 +16898,7 @@
       "reviewUrl": "https://www.goodreads.com/review/show/2996681131?utm_medium=api&utm_source=rss",
       "hasReview": true,
       "reviewLikes": 4,
-      "scrapeStatus": "error: The read operation timed out",
+      "scrapeStatus": "ok",
       "reviewLocalUrl": "./reviews/2996681131.html",
       "reviewLocalStatus": "ok",
       "reviewLocalGeneratedAt": "2026-04-25T19:22:56.044729+00:00",
@@ -16134,7 +16926,7 @@
     },
     {
       "bookId": "24677483",
-      "title": "El universo cuántico: Y por qué todo lo que puede suceder, sucede",
+      "title": "El universo cuántico: Y por qué todo lo que puede suceder, sucede (Spanish Edition)",
       "author": "Brian Cox",
       "dateRead": "2020-05-01",
       "rating": 4,
@@ -16235,7 +17027,7 @@
     },
     {
       "bookId": "42392875",
-      "title": "Yo, Julia",
+      "title": "Yo, Julia (Julia Domna, #1)",
       "author": "Santiago Posteguillo",
       "dateRead": "2020-04-21",
       "rating": 5,
@@ -16335,7 +17127,7 @@
     },
     {
       "bookId": "46022626",
-      "title": "Vida, la gran historia: Un viaje por el laberinto de la evolución",
+      "title": "Vida, la gran historia: Un viaje por el laberinto de la evolución (Imago Mundi) (Spanish Edition)",
       "author": "Juan Luis Arsuaga",
       "dateRead": "2020-04-04",
       "rating": 5,
@@ -16440,7 +17232,7 @@
     },
     {
       "bookId": "42367245",
-      "title": "La cuchara menguante",
+      "title": "La cuchara menguante (OCIO Y CONOCIMIENTOS - Otros) (Spanish Edition)",
       "author": "Sam Kean",
       "dateRead": "2020-03-15",
       "rating": 5,
@@ -16509,7 +17301,7 @@
     },
     {
       "bookId": "9741967",
-      "title": "Dios no existe : lecturas esenciales para el no creyente",
+      "title": "Dios no existe",
       "author": "Christopher Hitchens",
       "dateRead": "2020-02-02",
       "rating": 4,
@@ -16722,14 +17514,14 @@
     },
     {
       "bookId": "43896094",
-      "title": "El milagro Spinoza",
+      "title": "El milagro Spinoza: Una filosofía para iluminar nuestra vida (Ariel) (Spanish Edition)",
       "author": "Frédéric Lenoir",
       "dateRead": "2019-12-20",
       "rating": 4,
       "reviewUrl": "https://www.goodreads.com/review/show/3090803599?utm_medium=api&utm_source=rss",
       "hasReview": true,
       "reviewLikes": 18,
-      "scrapeStatus": "error: The read operation timed out",
+      "scrapeStatus": "ok",
       "reviewLocalUrl": "./reviews/3090803599.html",
       "reviewLocalStatus": "ok",
       "reviewLocalGeneratedAt": "2026-04-25T19:25:58.126993+00:00",
@@ -16792,7 +17584,7 @@
     },
     {
       "bookId": "9851506",
-      "title": "Historia de Antioquia (Colección Autores antioqueños)",
+      "title": "Historia de Antioquia (Colección Autores antioqueños) (Spanish Edition)",
       "author": "Roberto Cadavid Misas",
       "dateRead": "2019-12-08",
       "rating": 3,
@@ -17129,7 +17921,7 @@
     },
     {
       "bookId": "5050",
-      "title": "Los pilares de la tierra",
+      "title": "Los pilares de la tierra (Kingsbridge, #1)",
       "author": "Ken Follett",
       "dateRead": "2019-10-29",
       "rating": 5,
@@ -17333,7 +18125,7 @@
     },
     {
       "bookId": "45431444",
-      "title": "Historia concisa de Colombia 1810-2017",
+      "title": "Historia concisa de Colombia",
       "author": "Michael J. LaRosa",
       "dateRead": "2019-10-02",
       "rating": 5,
@@ -17438,7 +18230,7 @@
     },
     {
       "bookId": "32827109",
-      "title": "El fin de la muerte",
+      "title": "El fin de la muerte (Trilogía de los tres cuerpos, #3)",
       "author": "Liu Cixin",
       "dateRead": "2019-09-10",
       "rating": 5,
@@ -17545,7 +18337,7 @@
     },
     {
       "bookId": "32827084",
-      "title": "El bosque oscuro",
+      "title": "El bosque oscuro (Trilogía de los tres cuerpos, #2)",
       "author": "Liu Cixin",
       "dateRead": "2019-08-11",
       "rating": 5,
@@ -17580,7 +18372,7 @@
     },
     {
       "bookId": "78911",
-      "title": "El enigma de Colón y los descubrimientos de América",
+      "title": "El enigma de Colón y el descubrimiento de América",
       "author": "Juan Eslava Galán",
       "dateRead": "2019-08-11",
       "rating": 5,
@@ -17616,7 +18408,7 @@
     },
     {
       "bookId": "14735268",
-      "title": "Historia Fontana de la astronomía y la cosmología",
+      "title": "Historia Fontana de la astronomía y la cosmología (Spanish Edition)",
       "author": "John  North",
       "dateRead": "2019-08-09",
       "rating": 5,
@@ -17686,7 +18478,7 @@
     },
     {
       "bookId": "25684043",
-      "title": "En la mente de un gato: Nuevas respuestas de la ciencia sobre cómo piensa tu gato",
+      "title": "En la mente de un gato: Nuevas respuestas de la ciencia sobre cómo piensa tu gato (NO FICCIÓN) (Spanish Edition)",
       "author": "John   Bradshaw",
       "dateRead": "2019-07-29",
       "rating": 5,
@@ -17720,7 +18512,7 @@
     },
     {
       "bookId": "43303157",
-      "title": "Un pequeño paso para [un] hombre: La historia desconocida de la llegada del hombre a la luna",
+      "title": "Un pequeño paso para [un] hombre: La historia desconocida de la llegada del hombre a la luna (Spanish Edition)",
       "author": "Rafael Clemente",
       "dateRead": "2019-07-15",
       "rating": 5,
@@ -17752,7 +18544,7 @@
     },
     {
       "bookId": "28487182",
-      "title": "El problema de los tres cuerpos",
+      "title": "El problema de los tres cuerpos (Trilogía de los tres cuerpos, #1)",
       "author": "Liu Cixin",
       "dateRead": "2019-07-07",
       "rating": 5,
@@ -17894,7 +18686,7 @@
     },
     {
       "bookId": "27778352",
-      "title": "Voces de Chernóbil: Crónica del futuro",
+      "title": "Voces de Chernóbil: Crónica del futuro (Voces de utopía, #4)",
       "author": "Svetlana Alexievich",
       "dateRead": "2019-06-13",
       "rating": 5,
@@ -17928,7 +18720,7 @@
     },
     {
       "bookId": "42606402",
-      "title": "En defensa de la Ilustración : por la razón, la ciencia, el humanismo y el progreso",
+      "title": "En defensa de la Ilustración: Por la razón, la ciencia, el humanismo y el progreso",
       "author": "Steven Pinker",
       "dateRead": "2019-06-10",
       "rating": 5,
@@ -17965,7 +18757,7 @@
     },
     {
       "bookId": "34213339",
-      "title": "El infinito se acaba pronto",
+      "title": "El infinito se acaba pronto (Cruz del sur - Emecé) (Spanish Edition)",
       "author": "Joseph Avski",
       "dateRead": "2019-05-31",
       "rating": 5,
@@ -18071,7 +18863,7 @@
     },
     {
       "bookId": "22050848",
-      "title": "Las 101 embarradas del español",
+      "title": "Las 101 cagadas del español",
       "author": "María Irazusta Lara",
       "dateRead": "2019-05-06",
       "rating": 5,
@@ -18246,7 +19038,7 @@
       "reviewUrl": "https://www.goodreads.com/review/show/2791825090?utm_medium=api&utm_source=rss",
       "hasReview": true,
       "reviewLikes": 10,
-      "scrapeStatus": "error: The read operation timed out",
+      "scrapeStatus": "ok",
       "reviewLocalUrl": "./reviews/2791825090.html",
       "reviewLocalStatus": "ok",
       "reviewLocalGeneratedAt": "2026-04-25T19:22:16.952282+00:00",
@@ -18311,7 +19103,7 @@
     },
     {
       "bookId": "23382193",
-      "title": "La Hermandad",
+      "title": "La Hermandad (El asesinato de Pitágoras #2)",
       "author": "Marcos Chicot",
       "dateRead": "2019-04-01",
       "rating": 4,
@@ -18353,7 +19145,7 @@
       "reviewUrl": "https://www.goodreads.com/review/show/2743194334?utm_medium=api&utm_source=rss",
       "hasReview": true,
       "reviewLikes": 2,
-      "scrapeStatus": "ok",
+      "scrapeStatus": "error: The read operation timed out",
       "reviewLocalUrl": "./reviews/2743194334.html",
       "reviewLocalStatus": "ok",
       "reviewLocalGeneratedAt": "2026-04-25T19:32:10.808698+00:00",
@@ -18452,7 +19244,7 @@
       "rating": 5,
       "reviewUrl": "https://www.goodreads.com/review/show/2668284196?utm_medium=api&utm_source=rss",
       "hasReview": true,
-      "reviewLikes": 3,
+      "reviewLikes": 6,
       "scrapeStatus": "ok",
       "reviewLocalUrl": "./reviews/2668284196.html",
       "reviewLocalStatus": "ok",
@@ -18723,7 +19515,7 @@
     },
     {
       "bookId": "8542774",
-      "title": "Los Simpson y la filosofía",
+      "title": "Los Simpson y la filosofía (Cultura popular y filosofía, #2)",
       "author": "William Irwin",
       "dateRead": "2019-01-13",
       "rating": 4,
@@ -18759,7 +19551,7 @@
     },
     {
       "bookId": "1144810",
-      "title": "Mitología Para Dummies",
+      "title": "Mitología Para Dummies (Serie Para Dummies)",
       "author": "Christopher W. Blackwell",
       "dateRead": "2019-01-11",
       "rating": 3,
@@ -18830,7 +19622,7 @@
     },
     {
       "bookId": "24079375",
-      "title": "Da Vinci Enamorado",
+      "title": "DA VINCI ENAMORADO: La interminable historia de amor de Da Vinci y Mona Lisa. (Spanish Edition)",
       "author": "Lazaro Droznes",
       "dateRead": "2019-01-03",
       "rating": 5,
