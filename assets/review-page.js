@@ -59,6 +59,7 @@ function uiText() {
       likeAria: "Like. Total",
       share: "Share",
       copied: "Copied",
+      copiedToast: "Link copied to clipboard",
       localLikesAria: "Local likes:",
       localLikesSuffix: "(local likes)",
     };
@@ -69,6 +70,7 @@ function uiText() {
     likeAria: "Me gusta. Total",
     share: "Compartir",
     copied: "Copiado",
+    copiedToast: "Enlace copiado a portapapeles",
     localLikesAria: "Me gusta locales:",
     localLikesSuffix: "(me gusta locales)",
   };
@@ -76,8 +78,20 @@ function uiText() {
 
 function shareUrlFromMeta() {
   const meta = document.querySelector('meta[name="share-url"]');
-  const value = meta ? String(meta.getAttribute("content") || "").trim() : "";
-  return value;
+  const direct = meta ? String(meta.getAttribute("content") || "").trim() : "";
+  if (direct) return direct;
+  // Fallbacks so the share UI always shows, even if no shortlink was generated yet.
+  const og = document.querySelector('meta[property="og:url"]');
+  const ogValue = og ? String(og.getAttribute("content") || "").trim() : "";
+  if (ogValue) return ogValue;
+  try {
+    const url = new URL(location.href);
+    url.search = "";
+    url.hash = "";
+    return url.toString();
+  } catch {
+    return "";
+  }
 }
 
 async function copyToClipboard(text) {
@@ -105,6 +119,41 @@ async function copyToClipboard(text) {
   } catch {
     return false;
   }
+}
+
+function showToast(message) {
+  const msg = String(message || "").trim();
+  if (!msg) return;
+  const existing = document.getElementById("share-toast");
+  const el = existing || document.createElement("div");
+  el.id = "share-toast";
+  el.textContent = msg;
+  el.setAttribute("role", "status");
+  el.setAttribute("aria-live", "polite");
+  el.style.position = "fixed";
+  el.style.left = "50%";
+  el.style.top = "1rem";
+  el.style.transform = "translateX(-50%)";
+  el.style.zIndex = "9999";
+  el.style.padding = "0.6rem 0.85rem";
+  el.style.borderRadius = "999px";
+  el.style.background = "rgba(0, 0, 0, 0.85)";
+  el.style.color = "#fff";
+  el.style.fontSize = "0.95rem";
+  el.style.boxShadow = "0 10px 25px rgba(0,0,0,0.25)";
+  el.style.maxWidth = "92vw";
+  el.style.textAlign = "center";
+  el.style.opacity = "0";
+  el.style.transition = "opacity 160ms ease";
+  if (!existing) document.body.appendChild(el);
+
+  clearTimeout(el.__toastTimer);
+  requestAnimationFrame(() => {
+    el.style.opacity = "1";
+  });
+  el.__toastTimer = setTimeout(() => {
+    el.style.opacity = "0";
+  }, 1400);
 }
 
 function updateLikesInPage(likesValue) {
@@ -218,6 +267,7 @@ function upsertLikeButtonUI(reviewId, initialCount = 0) {
           label.textContent = prev;
         }, 1200);
       }
+      if (ok) showToast(text.copiedToast);
     });
     wrap.appendChild(shareBtn);
   }
@@ -305,7 +355,8 @@ wireReviewLikeButton();
     btn.__shareBound = true;
     btn.addEventListener("click", async (ev) => {
       ev.preventDefault();
-      await copyToClipboard(shareUrl);
+      const ok = await copyToClipboard(shareUrl);
+      if (ok) showToast(text.copiedToast);
       // No UI feedback here: it’s just an icon.
     });
     btn.setAttribute("aria-label", text.share);

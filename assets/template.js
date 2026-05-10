@@ -12,6 +12,14 @@ const overlay = document.querySelector(".overlay");
 const sections = document.querySelectorAll("section");
 const scrollToTopLink = document.querySelector(".scroll-to-top-link");
 
+// Normalize the "back to library" label on review pages.
+(() => {
+  const back = document.querySelector("a.photos-back");
+  if (!back) return;
+  // Keep the arrow; shorten the label for mobile readability.
+  back.textContent = "← Biblioteca Jorge Zuluaga";
+})();
+
 if (
   imageHeader &&
   mainSection &&

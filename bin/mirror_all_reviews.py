@@ -10,6 +10,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import re
 from collections import Counter
 from datetime import datetime, timezone
 from pathlib import Path
@@ -17,6 +18,7 @@ from urllib.parse import urlparse
 
 from mirror_first_review import (
     DEFAULT_SITE_BASE_URL,
+    SHARE_BUTTON_HTML,
     build_local_page,
     extract_page_title,
     extract_review_data_from_rss,
@@ -25,10 +27,12 @@ from mirror_first_review import (
     get_bytes,
     get_url,
     is_signin_page,
+    shorten_url_isgd,
 )
 from review_word_count import apply_review_counts_to_books
 
 DEFAULT_REFRESH_LATEST = 10
+CACHE_PATH_DEFAULT = Path("update/share-url-cache.json")
 
 
 def has_review_url(book: dict) -> bool:
@@ -103,6 +107,38 @@ def sort_books_latest_first(books: list[dict]) -> list[dict]:
     return sorted(books, key=key, reverse=True)
 
 
+def _patch_review_html_share(html_text: str, share_url: str) -> str:
+    """Inject meta share-url + share button into an existing reviews/*.html.
+
+    Designed to be idempotent and not touch the review body.
+    """
+    updated = html_text
+    if 'meta name="share-url"' not in updated and share_url:
+        meta_line = f'  <meta name="share-url" content="{share_url}" />\n'
+        # Insert right after the color-scheme meta (present on all generated review pages).
+        updated2, n = re.subn(
+            r'(\n  <meta name="color-scheme"[^>]*>\n)',
+            r"\1" + meta_line,
+            updated,
+            count=1,
+            flags=re.IGNORECASE,
+        )
+        updated = updated2 if n else (meta_line + updated)
+
+    if "data-share-copy" not in updated:
+        updated = re.sub(
+            r'<p class="review-by">\s*Reseña por Jorge I\. Zuluaga\s*</p>',
+            '<p class="review-by">\n'
+            '          Reseña por Jorge I. Zuluaga\n'
+            f"          {SHARE_BUTTON_HTML}\n"
+            "        </p>",
+            updated,
+            count=1,
+            flags=re.IGNORECASE,
+        )
+    return updated
+
+
 def main() -> int:
     parser = argparse.ArgumentParser(
         description="Genera mirror local para TODAS las reseñas en info/library.json."
@@ -147,6 +183,19 @@ def main() -> int:
         default=DEFAULT_SITE_BASE_URL,
         help="Base URL pública del sitio para metadatos de compartir (Open Graph).",
     )
+    parser.add_argument(
+        "--patch-share-only",
+        action="store_true",
+        help=(
+            "NO descarga Goodreads. Solo parchea reviews/*.html existentes "
+            "para inyectar share-url (is.gd) y el botón Compartir si faltan."
+        ),
+    )
+    parser.add_argument(
+        "--share-cache",
+        default=str(CACHE_PATH_DEFAULT),
+        help="Ruta JSON para cachear share-url (default: update/share-url-cache.json).",
+    )
     args = parser.parse_args()
 
     library_path = Path(args.library_json)
@@ -176,10 +225,22 @@ def main() -> int:
     print(f"[INFO] Reseñas candidatas: {total}")
     print(f"[INFO] Modo force: {'sí' if args.force else 'no'}")
     print(f"[INFO] Reseñas recientes a refrescar: {refresh_latest}")
+    print(f"[INFO] Patch share only: {'sí' if args.patch_share_only else 'no'}")
 
     mirrored = 0
     skipped = 0
     errors = 0
+
+    # Cache share URLs (avoid calling is.gd repeatedly).
+    share_cache_path = Path(args.share_cache)
+    share_cache: dict[str, str] = {}
+    try:
+        if share_cache_path.exists():
+            share_cache = json.loads(share_cache_path.read_text(encoding="utf-8")) or {}
+            if not isinstance(share_cache, dict):
+                share_cache = {}
+    except Exception:
+        share_cache = {}
 
     for idx, book in enumerate(candidates, start=1):
         title = str(book.get("title") or "(sin título)")
@@ -189,6 +250,34 @@ def main() -> int:
         existing_local = local_html_path_from_book(book, reviews_dir)
         already_mirrored = existing_local.exists() and bool(book.get("reviewLocalStatus") == "ok")
 
+        review_page_url = f"{site_base_url}/reviews/{review_id}.html"
+        share_url = (share_cache.get(review_page_url) or "").strip()
+        if not share_url:
+            share_url = shorten_url_isgd(review_page_url)
+            if share_url:
+                share_cache[review_page_url] = share_url
+
+        if args.patch_share_only:
+            target_file = out_file if out_file.exists() else existing_local
+            if not target_file.exists():
+                skipped += 1
+                print(f"[{idx}/{total}] SKIP | {title} | (sin HTML local)", flush=True)
+                continue
+            try:
+                original = target_file.read_text(encoding="utf-8")
+                patched = _patch_review_html_share(original, share_url=share_url)
+                if patched != original:
+                    target_file.write_text(patched, encoding="utf-8")
+                    mirrored += 1
+                    print(f"[{idx}/{total}] PATCH| {title}", flush=True)
+                else:
+                    skipped += 1
+                    print(f"[{idx}/{total}] OK   | {title} | (ya tenía compartir)", flush=True)
+            except Exception as err:
+                errors += 1
+                print(f"[{idx}/{total}] ERROR| {title} | {err}", flush=True)
+            continue
+
         is_latest_window = idx <= refresh_latest
         if already_mirrored and not args.force and not is_latest_window:
             if out_file.exists():
@@ -197,7 +286,7 @@ def main() -> int:
                     f"./{reviews_dir.as_posix()}/{out_file.name}",
                 )
             skipped += 1
-            print(f"[{idx}/{total}] SKIP | {title}")
+            print(f"[{idx}/{total}] SKIP | {title}", flush=True)
             continue
 
         try:
@@ -238,7 +327,6 @@ def main() -> int:
                 local_cover_url = f"./{covers_dir.as_posix()}/{cover_path.name}"
                 local_cover_src = f"./covers/{cover_path.name}"
 
-            review_page_url = f"{site_base_url}/reviews/{review_id}.html"
             og_image_url = f"{site_base_url}/assets/profile.jpg"
             if local_cover_src:
                 og_image_url = f"{site_base_url}/reviews/{local_cover_src[2:]}"
@@ -252,6 +340,7 @@ def main() -> int:
                 review_page_url=review_page_url,
                 og_image_url=og_image_url,
                 page_title=page_title,
+                share_url=share_url,
             )
             out_file.write_text(local_page, encoding="utf-8")
 
@@ -264,28 +353,39 @@ def main() -> int:
             book["reviewLocalGeneratedAt"] = datetime.now(timezone.utc).isoformat()
 
             mirrored += 1
-            print(f"[{idx}/{total}] OK   | {title}")
+            print(f"[{idx}/{total}] OK   | {title}", flush=True)
         except Exception as err:
             errors += 1
             book["reviewLocalStatus"] = f"error: {err}"
-            print(f"[{idx}/{total}] ERROR| {title} | {err}")
+            print(f"[{idx}/{total}] ERROR| {title} | {err}", flush=True)
 
     repo_root = library_path.resolve().parent.parent
-    apply_review_counts_to_books(
-        books,
-        repo_root=repo_root,
-        reviews_dir_name=reviews_dir.as_posix(),
-    )
+    if not args.patch_share_only:
+        apply_review_counts_to_books(
+            books,
+            repo_root=repo_root,
+            reviews_dir_name=reviews_dir.as_posix(),
+        )
 
-    with library_path.open("w", encoding="utf-8") as f:
-        json.dump(library, f, ensure_ascii=False, indent=2)
-        f.write("\n")
+        with library_path.open("w", encoding="utf-8") as f:
+            json.dump(library, f, ensure_ascii=False, indent=2)
+            f.write("\n")
+
+    # Persist share cache (even in patch-only mode).
+    try:
+        share_cache_path.parent.mkdir(parents=True, exist_ok=True)
+        share_cache_path.write_text(
+            json.dumps(share_cache, ensure_ascii=False, indent=2) + "\n",
+            encoding="utf-8",
+        )
+    except Exception:
+        pass
 
     # Preserve custom book series if the file already exists.
     # Only create an example file on first run.
     series_path = library_path.parent / "book_series.json"
     series_created = False
-    if not series_path.exists():
+    if not args.patch_share_only and not series_path.exists():
         series_data = build_example_series_from_repeated_author(books)
         with series_path.open("w", encoding="utf-8") as f:
             json.dump(series_data, f, ensure_ascii=False, indent=2)
@@ -297,11 +397,12 @@ def main() -> int:
     print(f"- Mirror nuevos/regenerados: {mirrored}")
     print(f"- Skipped: {skipped}")
     print(f"- Errores: {errors}")
-    print(f"- Archivo actualizado: {library_path}")
-    if series_created:
-        print(f"- Series de ejemplo creadas: {series_path}")
-    else:
-        print(f"- Series preservadas (no sobreescritas): {series_path}")
+    if not args.patch_share_only:
+        print(f"- Archivo actualizado: {library_path}")
+        if series_created:
+            print(f"- Series de ejemplo creadas: {series_path}")
+        else:
+            print(f"- Series preservadas (no sobreescritas): {series_path}")
     return 0
 
 

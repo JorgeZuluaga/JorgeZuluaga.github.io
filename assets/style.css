@@ -50,6 +50,7 @@ body {
   font-family: "Poppins", sans-serif;
   letter-spacing: 0.02em;
   background: var(--body);
+  color: var(--black);
 }
 
 html,

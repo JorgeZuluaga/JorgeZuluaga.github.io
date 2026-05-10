@@ -7,9 +7,10 @@ import argparse
 import html
 import json
 import re
+import subprocess
 from datetime import datetime, timezone
 from pathlib import Path
-from urllib.parse import parse_qsl, urlencode, urlparse, urlunparse
+from urllib.parse import parse_qsl, quote, urlencode, urlparse, urlunparse
 from urllib.request import Request, urlopen
 import xml.etree.ElementTree as ET
 
@@ -21,6 +22,15 @@ USER_AGENT = (
     "AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0 Safari/537.36"
 )
 DEFAULT_SITE_BASE_URL = "https://jorgezuluaga.github.io"
+
+# Inline share button: copies meta[name="share-url"] via assets/review-page.js.
+SHARE_BUTTON_HTML = """<button type="button" class="link" data-share-copy="1" aria-label="Compartir reseña" style="padding: 0; border: 0; background: transparent; cursor: pointer;">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" focusable="false" style="vertical-align: -3px; margin-left: 0.35rem;">
+              <path d="M8 12v7a2 2 0 0 0 2 2h4a2 2 0 0 0 2-2v-7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+              <path d="M12 16V3" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+              <path d="M8.5 6.5 12 3l3.5 3.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+            </svg>
+          </button>"""
 
 # Same sections as biblioteca.html (paths relative to reviews/*.html).
 REVIEW_PAGE_LIBRARY_SUBNAV_HTML = """      <nav class="photos-header__subnav" id="library-section-nav" aria-label="">
@@ -132,6 +142,35 @@ def canonical_review_url(value: str) -> str:
     return value.split("?", 1)[0].strip()
 
 
+def shorten_url_isgd(long_url: str, timeout: int = 20) -> str:
+    """Create is.gd short URL for a public URL.
+
+    is.gd may return 403 for python urllib; curl with a browser UA is reliable.
+    Falls back to the original URL if shortening fails.
+    """
+    url = (long_url or "").strip()
+    if not url:
+        return url
+    if url.startswith("https://is.gd/") or url.startswith("http://is.gd/"):
+        return url
+
+    api_url = f"https://is.gd/create.php?format=simple&url={quote(url, safe='')}"
+    try:
+        proc = subprocess.run(
+            ["curl", "-A", USER_AGENT, "-fsS", api_url],
+            check=True,
+            capture_output=True,
+            text=True,
+            timeout=timeout,
+        )
+        short = (proc.stdout or "").strip()
+        if short.startswith("http://") or short.startswith("https://"):
+            return short
+        return url
+    except Exception:
+        return url
+
+
 def extract_review_text_from_description(description_html: str) -> str:
     """Si ``user_review`` va vacío, el RSS a veces repite el texto en ``description`` tras ``review:``."""
     raw = (description_html or "").strip()
@@ -200,6 +239,7 @@ def build_local_page(
     review_page_url: str,
     og_image_url: str,
     page_title: str,
+    share_url: str = "",
 ) -> str:
     safe_book = html.escape(str(book.get("title") or "Libro"))
     safe_author = html.escape(str(book.get("author") or ""))
@@ -232,13 +272,17 @@ def build_local_page(
     safe_og_image_url = html.escape(og_image_url)
     og_description = f"Reseña de {safe_book} por Jorge I. Zuluaga"
 
+    share_url = (share_url or "").strip() or shorten_url_isgd(review_page_url)
+    safe_share_url = html.escape(share_url) if share_url else ""
+    share_meta = f'  <meta name="share-url" content="{safe_share_url}" />\n' if safe_share_url else ""
+
     return f"""<!doctype html>
 <html lang="es">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="color-scheme" content="light dark" />
-  <script>
+{share_meta}  <script>
     document.documentElement.lang =
       new URLSearchParams(location.search).get("lang") === "en" ? "en" : "es";
   </script>
@@ -303,7 +347,7 @@ def build_local_page(
     <a class="skip-link" href="#review-main">Saltar al contenido</a>
     <header id="header" class="photos-header">
       <div class="photos-header__bar">
-        <a class="link photos-back" href="../biblioteca.html">← Volver a la Biblioteca de Jorge Zuluaga</a>
+        <a class="link photos-back" href="../biblioteca.html">← Biblioteca Jorge Zuluaga</a>
         <button class="theme-button photos-theme" type="button" aria-label="Modo de visualización: Claro/Oscuro">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="moon-icon" aria-hidden="true">
             <path d="M11.3807 2.01886C9.91573 3.38768 9 5.3369 9 7.49999C9 11.6421 12.3579 15 16.5 15C18.6631 15 20.6123 14.0843 21.9811 12.6193C21.6613 17.8537 17.3149 22 12 22C6.47715 22 2 17.5228 2 12C2 6.68514 6.14629 2.33869 11.3807 2.01886Z"></path>
@@ -319,7 +363,10 @@ def build_local_page(
       <div class="container">
         <h1 class="title-section">{safe_book}</h1>
         <p class="author">{safe_author or "—"}</p>
-        <p class="review-by">Reseña por Jorge I. Zuluaga</p>
+        <p class="review-by">
+          Reseña por Jorge I. Zuluaga
+          {SHARE_BUTTON_HTML}
+        </p>
         {cover_markup}
         <p class="meta">Fecha de reseña: {safe_review_date}</p>
         <div class="rating-row">
