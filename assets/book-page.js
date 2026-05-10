@@ -1,4 +1,5 @@
 import { getPageLang, t, withLangQuery } from "./i18n.js";
+import { applyLibrarySectionNav } from "./library-nav.js";
 import { trackPageView } from "./visitor-tracker.js";
 
 const LIBRARY_JSON = "./info/library.json";
@@ -475,6 +476,7 @@ function applyChrome(lang, fromReadLibrary) {
   document.querySelectorAll(".theme-button").forEach((btn) => {
     btn.setAttribute("aria-label", lang === "en" ? "Display mode: Light/Dark" : "Modo de visualización: Claro/Oscuro");
   });
+  applyLibrarySectionNav(lang, null);
 }
 
 function renderReviewLinks(lang, libraryBook) {

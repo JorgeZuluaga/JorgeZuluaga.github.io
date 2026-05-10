@@ -22,6 +22,19 @@ USER_AGENT = (
 )
 DEFAULT_SITE_BASE_URL = "https://jorgezuluaga.github.io"
 
+# Same sections as biblioteca.html (paths relative to reviews/*.html).
+REVIEW_PAGE_LIBRARY_SUBNAV_HTML = """      <nav class="photos-header__subnav" id="library-section-nav" aria-label="">
+        <p class="photos-header__subnav-inner">
+          <a id="nav-lib-read" class="photos-header__subnav-link" href="../biblioteca-leidos.html">libros leídos</a>
+          <span class="photos-header__subnav-sep" aria-hidden="true"> · </span>
+          <a id="nav-lib-anti" class="photos-header__subnav-link" href="../biblioteca-noleidos.html">antibiblioteca</a>
+          <span class="photos-header__subnav-sep" aria-hidden="true"> · </span>
+          <a id="nav-lib-series" class="photos-header__subnav-link" href="../biblioteca-series.html">series y colecciones</a>
+          <span class="photos-header__subnav-sep" aria-hidden="true"> · </span>
+          <a id="nav-lib-todos" class="photos-header__subnav-link" href="../biblioteca-todos.html">biblioteca completa</a>
+        </p>
+      </nav>"""
+
 
 def get_url(url: str, cookie: str = "", timeout: int = 20) -> str:
     headers = {"User-Agent": USER_AGENT}
@@ -201,6 +214,10 @@ def build_local_page(
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="color-scheme" content="light dark" />
+  <script>
+    document.documentElement.lang =
+      new URLSearchParams(location.search).get("lang") === "en" ? "en" : "es";
+  </script>
   <meta name="visitor-log-endpoint" content="https://visitor-log-worker.jorgezuluaga.workers.dev/log" />
   <meta property="og:type" content="article" />
   <meta property="og:title" content="{safe_book}" />
@@ -260,7 +277,7 @@ def build_local_page(
 <body class="photos-page review-page-custom">
   <div class="wrapper">
     <a class="skip-link" href="#review-main">Saltar al contenido</a>
-    <header class="photos-header">
+    <header id="header" class="photos-header">
       <div class="photos-header__bar">
         <a class="link photos-back" href="../biblioteca.html">← Volver a la Biblioteca de Jorge Zuluaga</a>
         <button class="theme-button photos-theme" type="button" aria-label="Modo de visualización: Claro/Oscuro">
@@ -272,6 +289,7 @@ def build_local_page(
           </svg>
         </button>
       </div>
+{REVIEW_PAGE_LIBRARY_SUBNAV_HTML}
     </header>
     <main id="review-main" class="photos-main">
       <div class="container">

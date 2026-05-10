@@ -11,6 +11,10 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="./assets/style.css?v=2" />
+  <script>
+    document.documentElement.lang =
+      new URLSearchParams(location.search).get("lang") === "en" ? "en" : "es";
+  </script>
   <script src="./assets/template.js" defer></script>
   <style>
     .review-page-custom .meta { color: var(--black); opacity: 0.8; font-size: 0.95rem; }
@@ -59,6 +63,17 @@
           </svg>
         </button>
       </div>
+      <nav class="photos-header__subnav" id="library-section-nav" aria-label="">
+        <p class="photos-header__subnav-inner">
+          <a id="nav-lib-read" class="photos-header__subnav-link" href="./biblioteca-leidos.html">libros leídos</a>
+          <span class="photos-header__subnav-sep" aria-hidden="true"> · </span>
+          <a id="nav-lib-anti" class="photos-header__subnav-link" href="./biblioteca-noleidos.html">antibiblioteca</a>
+          <span class="photos-header__subnav-sep" aria-hidden="true"> · </span>
+          <a id="nav-lib-series" class="photos-header__subnav-link" href="./biblioteca-series.html">series y colecciones</a>
+          <span class="photos-header__subnav-sep" aria-hidden="true"> · </span>
+          <a id="nav-lib-todos" class="photos-header__subnav-link" href="./biblioteca-todos.html">biblioteca completa</a>
+        </p>
+      </nav>
     </header>
     <main id="book-main" class="photos-main">
       <div class="container">

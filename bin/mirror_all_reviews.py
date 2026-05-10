@@ -1,5 +1,10 @@
 #!/usr/bin/env python3
-"""Mirror all Goodreads reviews listed in info/library.json."""
+"""Mirror all Goodreads reviews listed in info/library.json.
+
+HTML layout (incl. menú de secciones de biblioteca) viene de
+``mirror_first_review.build_local_page`` / ``REVIEW_PAGE_LIBRARY_SUBNAV_HTML``.
+Para insertar solo el menú en mirrors antiguos: ``python3 bin/inject_review_library_nav.py``.
+"""
 
 from __future__ import annotations
 
