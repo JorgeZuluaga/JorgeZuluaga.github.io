@@ -31,11 +31,14 @@
     <header id="header" class="photos-header">
       <div class="photos-header__bar">
         <a class="link photos-back" href="./index.html">← Volver al CV</a>
-        <p class="photos-header__lang">
-          <a id="photos-lang-es" href="./photos.html">Español</a>
-          <span aria-hidden="true"> · </span>
-          <a id="photos-lang-en" href="./photos.html?lang=en">English</a>
-        </p>
+        <div id="header-lang-flags" class="photos-header__lang photos-header__lang--flags" role="navigation" aria-label="Seleccionar idioma">
+          <a id="photos-lang-es" class="home-lang-flag" href="./photos.html" title="Español" aria-label="Versión en español">
+            <img src="https://flagcdn.com/w40/co.png" width="28" height="21" alt="" decoding="async" />
+          </a>
+          <a id="photos-lang-en" class="home-lang-flag" href="./photos.html?lang=en" title="English" aria-label="Versión en inglés">
+            <img src="https://flagcdn.com/w40/gb.png" width="28" height="21" alt="" decoding="async" />
+          </a>
+        </div>
         <button class="theme-button photos-theme" type="button" aria-label="Modo de visualización: Claro/Oscuro">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="moon-icon" aria-hidden="true">
             <path

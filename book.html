@@ -19,6 +19,29 @@
     .review-page-custom .review-by { font-size: 1rem; margin: -0.35rem 0 0.8rem; opacity: 0.88; }
     .review-page-custom .cover { margin: 0.75rem 0 1rem; }
     .review-page-custom .cover img { max-width: 220px; height: auto; border-radius: 8px; border: 1px solid var(--line); }
+    /* Misma tarjeta que las páginas de reseña (reviews/*.html) */
+    .review-page-custom .book-summary-card {
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 1rem;
+      margin-top: 1rem;
+      background: var(--card);
+    }
+    .review-page-custom .book-summary-card .book-summary-heading {
+      font-size: 1.05rem;
+      font-weight: 600;
+      margin: 0 0 0.75rem;
+      color: var(--black) !important;
+    }
+    .review-page-custom .book-summary-card .book-summary-body-p {
+      margin: 0 0 0.85rem;
+      font-size: 0.95rem;
+      line-height: 1.55;
+      color: var(--black) !important;
+    }
+    .review-page-custom .book-summary-card .book-summary-body-p:last-child {
+      margin-bottom: 0;
+    }
   </style>
 </head>
 <body class="photos-page review-page-custom">
@@ -26,7 +49,7 @@
     <a class="skip-link" href="#book-main">Saltar al contenido</a>
     <header id="header" class="photos-header">
       <div class="photos-header__bar">
-        <a class="link photos-back" href="./antibiblioteca.html">← Volver a Antibiblioteca</a>
+        <a class="link photos-back" href="./biblioteca-noleidos.html">← Volver a Antibiblioteca</a>
         <button class="theme-button photos-theme" type="button" aria-label="Modo de visualización: Claro/Oscuro">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="moon-icon" aria-hidden="true">
             <path d="M11.3807 2.01886C9.91573 3.38768 9 5.3369 9 7.49999C9 11.6421 12.3579 15 16.5 15C18.6631 15 20.6123 14.0843 21.9811 12.6193C21.6613 17.8537 17.3149 22 12 22C6.47715 22 2 17.5228 2 12C2 6.68514 6.14629 2.33869 11.3807 2.01886Z"></path>
@@ -46,10 +69,19 @@
           <img id="book-cover-img" alt="" loading="lazy" decoding="async" />
         </p>
         <p id="book-ddc" class="meta" hidden></p>
+        <p id="book-dcc-general" class="meta meta-secondary" hidden></p>
+        <p id="book-dcc-specific" class="meta meta-secondary" hidden></p>
         <p id="book-date-added" class="meta"></p>
         <p id="book-isbn" class="meta meta-secondary"></p>
         <p id="book-purchase-place" class="meta meta-secondary"></p>
         <p id="book-purchase-price" class="meta meta-secondary"></p>
+        <p id="book-review-links" class="meta" hidden></p>
+        <section id="book-summary-section" class="book-summary-section" hidden aria-labelledby="book-summary-heading">
+          <article class="card book-summary-card">
+            <h2 id="book-summary-heading" class="book-summary-heading"></h2>
+            <div id="book-summary-body" class="book-summary-body"></div>
+          </article>
+        </section>
         <p id="book-error" class="photo-card__error" hidden>No se encontró el libro solicitado.</p>
       </div>
     </main>

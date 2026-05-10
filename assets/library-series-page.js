@@ -4,6 +4,7 @@ import {
   withLangQuery,
   applyThemeAriaFromLang,
 } from "./i18n.js";
+import { applyHeaderLangChrome, applyLibrarySectionNav } from "./library-nav.js";
 import { trackPageView } from "./visitor-tracker.js";
 
 function getLibraryData() {
@@ -100,17 +101,12 @@ function renderSeriesList(container, seriesItems, booksById, lang) {
 
 function applySagasTranslations(lang) {
   document.title = t("library_sagas_page_title", lang) + " — " + t("library_title", lang);
-  const esLink = document.getElementById("lib-series-lang-es");
-  const enLink = document.getElementById("lib-series-lang-en");
-  if (esLink && enLink) {
-    if (lang === "en") {
-      esLink.style.fontWeight = "400";
-      enLink.style.fontWeight = "700";
-    } else {
-      esLink.style.fontWeight = "700";
-      enLink.style.fontWeight = "400";
-    }
-  }
+  applyHeaderLangChrome(lang, {
+    esId: "lib-series-lang-es",
+    enId: "lib-series-lang-en",
+    hrefEs: "./biblioteca-series.html",
+    hrefEn: "./biblioteca-series.html?lang=en",
+  });
 
   const titleEl = document.getElementById("library-sagas-page-title");
   if (titleEl) titleEl.textContent = t("library_sagas_page_title", lang);
@@ -129,6 +125,8 @@ function applySagasTranslations(lang) {
     const href = withLangQuery("./index.html");
     footer.innerHTML = `${t("footer_line", lang)} <a class="link" href="${href}">${escapeHtml(t("footer_cv_link", lang))}</a>`;
   }
+
+  applyLibrarySectionNav(lang, "series");
 }
 
 async function initSagasPage() {

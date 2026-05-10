@@ -4,6 +4,7 @@ import {
   t,
   withLangQuery,
 } from "./i18n.js";
+import { applyHeaderLangChrome, applyLibrarySectionNav } from "./library-nav.js";
 import { trackPageView } from "./visitor-tracker.js";
 
 const LIBRARY_JSON = "./info/library.json";
@@ -11,6 +12,12 @@ const LIBRARY_DETAILS_JSON = "./info/library-details.json";
 const LOCAL_STORAGE_KEY_PREFIX = "anti_book_id_";
 const DEFAULT_PAGE_SIZE = 50;
 const DEWEY_GENERAL_CODES = [0, 100, 200, 300, 400, 500, 600, 700, 800, 900];
+
+/** Hidden duplicates (manual cataloguing): keep in JSON / dedupe imports but omit from lists. */
+function isLibraryDuplicateHidden(rowOrBook) {
+  const v = rowOrBook?.libraryDuplicateHidden;
+  return v === true || v === 1 || v === "1";
+}
 
 function deweyAreaName(code, lang) {
   const labelsEs = {
@@ -72,6 +79,56 @@ function extractBookPrimaryDeweyGeneralCode(book) {
   return null;
 }
 
+function getPrimaryDccCodeEntry(book) {
+  const codes = book?.dcc_codes;
+  if (!codes || typeof codes !== "object") {
+    return { code: "", topic: "" };
+  }
+  const primaryGen = extractBookPrimaryDeweyGeneralCode(book);
+  const entries = Object.entries(codes)
+    .map(([k, v]) => ({
+      code: String(k).trim(),
+      topic: String(v ?? "").trim(),
+      gen: parseDeweyGeneralCode(k),
+    }))
+    .filter((e) => e.topic && e.code);
+
+  if (!entries.length) {
+    return { code: "", topic: "" };
+  }
+
+  if (primaryGen !== null) {
+    const match = entries.filter((e) => e.gen === primaryGen);
+    if (match.length) {
+      match.sort((a, b) => Number(a.code) - Number(b.code));
+      return match[0];
+    }
+  }
+  entries.sort((a, b) => Number(a.code) - Number(b.code));
+  return entries[0];
+}
+
+function formatBookAreaMetaHtml(book, lang) {
+  const label = escapeHtml(t("library_area_label", lang));
+  const primaryGen = extractBookPrimaryDeweyGeneralCode(book);
+  if (primaryGen === null) {
+    const fb = escapeHtml(t("library_area_unclassified", lang));
+    return `<strong>${label}</strong> ${fb}`;
+  }
+  const mainClass = escapeHtml(deweyAreaName(primaryGen, lang));
+  const entry = getPrimaryDccCodeEntry(book);
+  if (entry.topic) {
+    return `<strong>${label}</strong> ${mainClass} / ${escapeHtml(entry.topic)}`;
+  }
+  const key = String(primaryGen);
+  const cls = book?.dcc_classes?.[key];
+  if (cls) {
+    const stripped = String(cls).replace(/\s*\(\d+\)\s*$/, "").trim();
+    return `<strong>${label}</strong> ${escapeHtml(stripped)}`;
+  }
+  return `<strong>${label}</strong> ${mainClass}`;
+}
+
 function computeDeweyGeneralCounts(books) {
   const counts = new Map(DEWEY_GENERAL_CODES.map((code) => [code, 0]));
   let unclassifiedCount = 0;
@@ -100,15 +157,72 @@ function computeDeweyGeneralCounts(books) {
   };
 }
 
+/** Dewey 500 (natural sciences / mathematics): first in charts and lists; then descending count. */
+const DEWEY_SCIENCE_AREA_CODE = 500;
+
+function orderDeweyChartRowsFromCounts(areaRows, unclassifiedCount) {
+  const science = areaRows.find((r) => r.code === DEWEY_SCIENCE_AREA_CODE);
+  const rest = areaRows
+    .filter((r) => r.code !== DEWEY_SCIENCE_AREA_CODE)
+    .sort((a, b) => (b.count - a.count) || (a.code - b.code));
+  const head = science ? [science, ...rest] : rest;
+  return [...head, { kind: "unclassified", code: null, count: unclassifiedCount }];
+}
+
+function orderDeweyFilterOptionRows(areaRows) {
+  const withCount = areaRows.filter((r) => r.count > 0);
+  const science = withCount.find((r) => r.code === DEWEY_SCIENCE_AREA_CODE);
+  const rest = withCount
+    .filter((r) => r.code !== DEWEY_SCIENCE_AREA_CODE)
+    .sort((a, b) => (b.count - a.count) || (a.code - b.code));
+  return science ? [science, ...rest] : rest;
+}
+
+function orderDeweyBucketsForListSort(areaRows, unclassifiedCount) {
+  const areaBuckets = areaRows
+    .filter((r) => r.count > 0)
+    .map((r) => ({ kind: "area", code: r.code, count: r.count }));
+  const science = areaBuckets.find((b) => b.code === DEWEY_SCIENCE_AREA_CODE);
+  const rest = areaBuckets
+    .filter((b) => b.code !== DEWEY_SCIENCE_AREA_CODE)
+    .sort((a, b) => (b.count - a.count) || ((a.code ?? -1) - (b.code ?? -1)));
+  const orderedAreas = science ? [science, ...rest] : rest;
+  const tail = unclassifiedCount > 0
+    ? [{ kind: "unclassified", code: null, count: unclassifiedCount }]
+    : [];
+  return [...orderedAreas, ...tail];
+}
+
+/** Science (500) first, then other areas by popularity; then most recent date within each area. */
+function sortBooksByDeweyAreaPopularityThenDate(books, getDateMs) {
+  const { areaRows, unclassifiedCount } = computeDeweyGeneralCounts(books);
+  const buckets = orderDeweyBucketsForListSort(areaRows, unclassifiedCount);
+
+  const rankByBucket = new Map();
+  buckets.forEach((row, idx) => {
+    const key = row.kind === "unclassified" ? "__none__" : String(row.code);
+    rankByBucket.set(key, idx);
+  });
+
+  function bucketRank(book) {
+    const p = extractBookPrimaryDeweyGeneralCode(book);
+    const key = p === null ? "__none__" : String(p);
+    return rankByBucket.get(key) ?? 99999;
+  }
+
+  return [...books].sort((a, b) => {
+    const ra = bucketRank(a);
+    const rb = bucketRank(b);
+    if (ra !== rb) return ra - rb;
+    return getDateMs(b) - getDateMs(a);
+  });
+}
+
 function renderDeweyChart(chartEl, books, lang) {
   if (!chartEl) return;
 
-  const { areaRows, totalAreasCount, unclassifiedCount } = computeDeweyGeneralCounts(books);
-  const sortedAreas = [...areaRows].sort((a, b) => (b.count - a.count) || (a.code - b.code));
-  const rows = [
-    ...sortedAreas,
-    { kind: "unclassified", code: null, count: unclassifiedCount },
-  ];
+  const { areaRows, unclassifiedCount } = computeDeweyGeneralCounts(books);
+  const rows = orderDeweyChartRowsFromCounts(areaRows, unclassifiedCount);
 
   const maxCount = Math.max(...rows.map((r) => r.count), 1);
   const frag = document.createDocumentFragment();
@@ -172,9 +286,7 @@ function renderDeweyFilter(selectEl, books, lang, onFilterChange) {
   if (!selectEl) return;
   const { areaRows, unclassifiedCount } = computeDeweyGeneralCounts(books);
   const activeFilter = getActiveClassFilter();
-  const sortedAreas = [...areaRows]
-    .filter((r) => r.count > 0)
-    .sort((a, b) => (b.count - a.count) || (a.code - b.code));
+  const sortedAreas = orderDeweyFilterOptionRows(areaRows);
 
   const allLabel = lang === "en" ? "All areas" : "Todas las áreas";
   const unclassifiedLabel = lang === "en" ? "Unclassified" : "No clasificados";
@@ -495,16 +607,12 @@ function applyChrome(lang) {
     back.setAttribute("href", withLangQuery("./biblioteca.html"));
   }
 
-  const es = document.getElementById("anti-lib-lang-es");
-  const en = document.getElementById("anti-lib-lang-en");
-  if (es) {
-    es.href = "./antibiblioteca.html";
-    es.textContent = t("lang_es", lang);
-  }
-  if (en) {
-    en.href = "./antibiblioteca.html?lang=en";
-    en.textContent = t("lang_en", lang);
-  }
+  applyHeaderLangChrome(lang, {
+    esId: "anti-lib-lang-es",
+    enId: "anti-lib-lang-en",
+    hrefEs: "./libros-noleidos.html",
+    hrefEn: "./libros-noleidos.html?lang=en",
+  });
 
   const skip = document.querySelector(".skip-link");
   if (skip) skip.textContent = t("skip", lang);
@@ -544,6 +652,8 @@ function applyChrome(lang) {
       lang === "en" ? "Books by Dewey classes" : "Libros por clases Dewey",
     );
   }
+
+  applyLibrarySectionNav(lang, "anti");
 }
 
 function renderBooks(container, books, lang) {
@@ -574,19 +684,19 @@ function renderBooks(container, books, lang) {
     const added = item._dateAdded
       ? `${item._dateAdded.getFullYear()}/${String(item._dateAdded.getMonth() + 1).padStart(2, "0")}`
       : String(item.dateAdded || "").trim();
-    const hasDetails = Number(item.bookDetails) === 1;
-    const detailLabel = hasDetails
-      ? t("library_details_present", lang)
-      : t("library_details_missing", lang);
-    const detailClass = hasDetails
-      ? "library-details-status library-details-status--present"
-      : "library-details-status library-details-status--missing";
-    meta2.innerHTML = `<strong>${escapeHtml(t("library_date_added", lang))}</strong> ${escapeHtml(added || "—")} (<span class="${detailClass}">${escapeHtml(detailLabel)}</span>)`;
+    meta2.innerHTML = `<strong>${escapeHtml(t("library_date_added", lang))}</strong> ${escapeHtml(added || "—")}`;
+
+    const metaArea = document.createElement("p");
+    metaArea.className = "library-book-item__meta";
+    metaArea.innerHTML = formatBookAreaMetaHtml(item, lang);
 
     const actions = document.createElement("p");
     actions.className = "library-book-item__actions";
     const id = antiBookId(item);
-    actions.innerHTML = `<a class="link" href="${withLangQuery(`./book.html?bookid=${encodeURIComponent(id)}`)}">Ver registro</a>`;
+    const descHref = withLangQuery(`./book.html?bookid=${encodeURIComponent(id)}`);
+    actions.innerHTML =
+      `<a class="link" href="${escapeHtml(descHref)}">${escapeHtml(t("library_view_description_complete", lang))}</a>` +
+      ` · <i class="library-book-item__antilibrary-note">${escapeHtml(t("antilibrary_review_unavailable", lang))}</i>`;
     try {
       localStorage.setItem(`${LOCAL_STORAGE_KEY_PREFIX}${id}`, JSON.stringify({
         title: item?.title || "",
@@ -600,6 +710,7 @@ function renderBooks(container, books, lang) {
     contentDiv.appendChild(title);
     contentDiv.appendChild(meta1);
     contentDiv.appendChild(meta2);
+    contentDiv.appendChild(metaArea);
     contentDiv.appendChild(actions);
 
     const coverWrapper = document.createElement("div");
@@ -672,6 +783,7 @@ async function main() {
   if (!listEl) return;
 
   const books = normalizeBooks(data.books);
+
   const readIdentity = new Set(
     books.filter((b) => isReadBook(b)).map((b) => bookIdentityKey(b)).filter(Boolean),
   );
@@ -694,27 +806,35 @@ async function main() {
   let read;
 
   if (detailsRows.length > 0) {
-    antiBooks = detailsRows
-      .filter((row) => row && typeof row === "object")
-      .filter((row) => statusIsUnreadRow(row))
-      .filter((row) => !isDetailsRowCountedAsReadOnGoodreads(row, libraryByBookId, readIdentity))
-      .map((row) => detailsRowToAntiBook(row))
-      .filter((b) => b.title)
-      .sort((a, b) => (b._dateAdded?.getTime() ?? 0) - (a._dateAdded?.getTime() ?? 0));
+    antiBooks = sortBooksByDeweyAreaPopularityThenDate(
+      detailsRows
+        .filter((row) => row && typeof row === "object")
+        .filter((row) => !isLibraryDuplicateHidden(row))
+        .filter((row) => statusIsUnreadRow(row))
+        .filter((row) => !isDetailsRowCountedAsReadOnGoodreads(row, libraryByBookId, readIdentity))
+        .map((row) => detailsRowToAntiBook(row))
+        .filter((b) => b.title),
+      (b) => b._dateAdded?.getTime() ?? 0,
+    );
 
     // Keep summary cards consistent with the list/pagination universe.
     // - unread: exactly the same antiBooks collection used for rendering and paging.
     // - read: all Goodreads books from library.json.
     // - total: read + unread.
     unread = antiBooks.length;
-    read = books.length;
+    read = books.filter((b) => !isLibraryDuplicateHidden(b)).length;
     total = unread + read;
   } else {
-    antiBooks = books
-      .filter((b) => !isReadBook(b))
-      .filter((b) => !readIdentity.has(bookIdentityKey(b)))
-      .sort((a, b) => (b._dateAdded?.getTime() ?? 0) - (a._dateAdded?.getTime() ?? 0));
-    const readBooks = books.filter((b) => isReadBook(b));
+    antiBooks = sortBooksByDeweyAreaPopularityThenDate(
+      books
+        .filter((b) => !isLibraryDuplicateHidden(b))
+        .filter((b) => !isReadBook(b))
+        .filter((b) => !readIdentity.has(bookIdentityKey(b))),
+      (b) => b._dateAdded?.getTime() ?? 0,
+    );
+    const readBooks = books
+      .filter((b) => isReadBook(b))
+      .filter((b) => !isLibraryDuplicateHidden(b));
     total = readBooks.length + antiBooks.length;
     unread = antiBooks.length;
     read = readBooks.length;

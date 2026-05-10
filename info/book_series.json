@@ -26,7 +26,7 @@
       "books": [
         {
           "libraryBookId": "39305612",
-          "title": "El perro de los Baskerville (Sherlock Holmes, #5)"
+          "title": "El perro de los Baskerville"
         },
         {
           "libraryBookId": "20740274",
@@ -72,11 +72,11 @@
         },
         {
           "libraryBookId": "193575492",
-          "title": "Maldita Roma: La conquista del poder de Julio César (Julio César, #2)"
+          "title": "Maldita Roma: La conquista del poder de Julio César"
         },
         {
           "libraryBookId": "236033220",
-          "title": "Los tres mundos (Julio César, #3)"
+          "title": "Los tres mundos"
         }
       ]
     },
@@ -87,23 +87,23 @@
       "books": [
         {
           "libraryBookId": "35618912",
-          "title": "El rey de hierro (Los reyes malditos, #1)"
+          "title": "El rey de hierro"
         },
         {
           "libraryBookId": "1044175",
-          "title": "La reina estrangulada (Los reyes malditos, #2)"
+          "title": "La reina estrangulada"
         },
         {
           "libraryBookId": "99489",
-          "title": "Los venenos de la corona (Los reyes malditos, #3)"
+          "title": "Los venenos de la corona"
         },
         {
           "libraryBookId": "99500",
-          "title": "La ley de los varones (Los Reyes Malditos, #4)"
+          "title": "La ley de los varones"
         },
         {
           "libraryBookId": "99499",
-          "title": "La loba de Francia (Los Reyes Malditos, #5)"
+          "title": "La loba de Francia"
         },
         {
           "libraryBookId": "7663502",
@@ -130,19 +130,19 @@
         },
         {
           "libraryBookId": "6916879",
-          "title": "Los cazadores de mamuts (Los hijos de la tierra, #3)"
+          "title": "Los cazadores de mamuts"
         },
         {
           "libraryBookId": "2631671",
-          "title": "Las llanuras del tránsito (Los hijos de la tierra, #4)"
+          "title": "Las llanuras del tránsito"
         },
         {
           "libraryBookId": "947938",
-          "title": "Los refugios de piedra (Los hijos de la tierra, #5)"
+          "title": "Los refugios de piedra"
         },
         {
           "libraryBookId": "10979076",
-          "title": "La Tierra de las Cuevas Pintadas (Los Hijos de la Tierra, #6)"
+          "title": "La Tierra de las Cuevas Pintadas"
         }
       ]
     },
@@ -153,11 +153,11 @@
       "books": [
         {
           "libraryBookId": "53972981",
-          "title": "Las tinieblas y el alba (Kingsbridge, #0)"
+          "title": "Las tinieblas y el alba"
         },
         {
           "libraryBookId": "5050",
-          "title": "Los pilares de la tierra (Kingsbridge, #1)"
+          "title": "Los pilares de la tierra"
         },
         {
           "libraryBookId": "8098446",
@@ -169,7 +169,7 @@
         },
         {
           "libraryBookId": "157620810",
-          "title": "La armadura de la luz (Los pilares de la tierra #4)"
+          "title": "La armadura de la luz"
         }
       ]
     },
@@ -203,11 +203,11 @@
         },
         {
           "libraryBookId": "42610931",
-          "title": "Las legiones malditas (Publio Cornelio Escipión #2)"
+          "title": "Las legiones malditas"
         },
         {
           "libraryBookId": "6966227",
-          "title": "La traición de Roma (Publio Cornelio Escipión, #3)"
+          "title": "La traición de Roma"
         }
       ]
     },
@@ -218,7 +218,7 @@
       "books": [
         {
           "libraryBookId": "12638953",
-          "title": "Los asesinos del emperador (Trajano, #1)"
+          "title": "Los asesinos del emperador"
         },
         {
           "libraryBookId": "18165452",
@@ -226,7 +226,7 @@
         },
         {
           "libraryBookId": "27888988",
-          "title": "La legión perdida: El sueño de Trajano (Trajano #3)"
+          "title": "La legión perdida: El sueño de Trajano"
         }
       ]
     },
@@ -237,11 +237,11 @@
       "books": [
         {
           "libraryBookId": "42392875",
-          "title": "Yo, Julia (Julia Domna, #1)"
+          "title": "Yo, Julia"
         },
         {
           "libraryBookId": "50262027",
-          "title": "Y Julia retó a los dioses (Julia Domna, #2)"
+          "title": "Y Julia retó a los dioses"
         }
       ]
     },
@@ -252,15 +252,15 @@
       "books": [
         {
           "libraryBookId": "28487182",
-          "title": "El problema de los tres cuerpos (Trilogía de los tres cuerpos, #1)"
+          "title": "El problema de los tres cuerpos"
         },
         {
           "libraryBookId": "32827084",
-          "title": "El bosque oscuro (Trilogía de los tres cuerpos, #2)"
+          "title": "El bosque oscuro"
         },
         {
           "libraryBookId": "32827109",
-          "title": "El fin de la muerte (Trilogía de los tres cuerpos, #3)"
+          "title": "El fin de la muerte"
         }
       ]
     },
@@ -317,7 +317,7 @@
         },
         {
           "libraryBookId": "64995169",
-          "title": "Vida contemplativa: Elogio de la inactividad"
+          "title": "Vida Contemplativa: Elogio de la Inactividad"
         },
         {
           "libraryBookId": "60774041",
@@ -348,7 +348,7 @@
         },
         {
           "libraryBookId": "128747007",
-          "title": "Emperor of Rome: Ruling the Ancient Roman World"
+          "title": "Emperador de Roma"
         },
         {
           "libraryBookId": "241162726",
@@ -367,7 +367,7 @@
         },
         {
           "libraryBookId": "217382766",
-          "title": "Frutologías: Historia política y cultural de las frutas (Spanish Edition)"
+          "title": "Frutologías: Historia política y cultural de las frutas"
         }
       ]
     },
@@ -393,7 +393,7 @@
         },
         {
           "libraryBookId": "122941880",
-          "title": "La armonía de las células: Una exploración de la medicina y del nuevo ser humano / The Song of the Cell: An Exploration of Medicine and the New Human (Spanish Edition)"
+          "title": "La armonía de las células: Una exploración de la medicina y del nuevo ser humano"
         }
       ]
     },
@@ -431,7 +431,7 @@
         },
         {
           "libraryBookId": "23382193",
-          "title": "La Hermandad (El asesinato de Pitágoras #2)"
+          "title": "La Hermandad"
         },
         {
           "libraryBookId": "55022795",
@@ -636,7 +636,7 @@
         },
         {
           "libraryBookId": "24079375",
-          "title": "DA VINCI ENAMORADO: La interminable historia de amor de Da Vinci y Mona Lisa. (Spanish Edition)"
+          "title": "Da Vinci Enamorado"
         },
         {
           "libraryBookId": "44772198",
@@ -644,11 +644,11 @@
         },
         {
           "libraryBookId": "43178331",
-          "title": "El otro Einstein (Spanish Edition)"
+          "title": "El otro Einstein"
         },
         {
           "libraryBookId": "213133138",
-          "title": "Marco Aurelio y los límites del imperio (Spanish Edition)"
+          "title": "Marco Aurelio y los límites del imperio"
         },
         {
           "libraryBookId": "58212185",

@@ -6,8 +6,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="color-scheme" content="light dark" />
   <meta name="visitor-log-endpoint" content="https://visitor-log-worker.jorgezuluaga.workers.dev/log" />
-  <title>Todos los libros — Biblioteca personal</title>
-  <meta name="description" content="Listado completo de libros leídos por Jorge I. Zuluaga." />
+  <title>Biblioteca completa — Jorge I. Zuluaga</title>
+  <meta name="description" content="Todos los libros leídos y no leídos de la biblioteca personal de Jorge I. Zuluaga." />
   <script>
     document.documentElement.lang =
       new URLSearchParams(location.search).get("lang") === "en" ? "en" : "es";
@@ -26,16 +26,19 @@
 
 <body class="photos-page library-page">
   <div class="wrapper">
-    <a class="skip-link" href="#all-books-main">Saltar al contenido</a>
+    <a class="skip-link" href="#lib-todos-main">Saltar al contenido</a>
 
     <header id="header" class="photos-header">
       <div class="photos-header__bar">
         <a class="link photos-back" href="./biblioteca.html">← Volver a Biblioteca</a>
-        <p class="photos-header__lang">
-          <a id="lib-all-lang-es" href="./biblioteca-todos.html">Español</a>
-          <span aria-hidden="true"> · </span>
-          <a id="lib-all-lang-en" href="./biblioteca-todos.html?lang=en">English</a>
-        </p>
+        <div id="header-lang-flags" class="photos-header__lang photos-header__lang--flags" role="navigation" aria-label="Seleccionar idioma">
+          <a id="lib-todos-lang-es" class="home-lang-flag" href="./biblioteca-todos.html" title="Español" aria-label="Versión en español">
+            <img src="https://flagcdn.com/w40/co.png" width="28" height="21" alt="" decoding="async" />
+          </a>
+          <a id="lib-todos-lang-en" class="home-lang-flag" href="./biblioteca-todos.html?lang=en" title="English" aria-label="Versión en inglés">
+            <img src="https://flagcdn.com/w40/gb.png" width="28" height="21" alt="" decoding="async" />
+          </a>
+        </div>
         <button class="theme-button photos-theme" type="button" aria-label="Modo de visualización: Claro/Oscuro">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="moon-icon" aria-hidden="true">
             <path d="M11.3807 2.01886C9.91573 3.38768 9 5.3369 9 7.49999C9 11.6421 12.3579 15 16.5 15C18.6631 15 20.6123 14.0843 21.9811 12.6193C21.6613 17.8537 17.3149 22 12 22C6.47715 22 2 17.5228 2 12C2 6.68514 6.14629 2.33869 11.3807 2.01886Z"></path>
@@ -45,29 +48,72 @@
           </svg>
         </button>
       </div>
+      <nav class="photos-header__subnav" id="library-section-nav" aria-label="Secciones de la biblioteca">
+        <p class="photos-header__subnav-inner">
+          <a id="nav-lib-read" class="photos-header__subnav-link" href="./biblioteca-leidos.html">libros leídos</a>
+          <span class="photos-header__subnav-sep" aria-hidden="true"> · </span>
+          <a id="nav-lib-anti" class="photos-header__subnav-link" href="./biblioteca-noleidos.html">antibiblioteca</a>
+          <span class="photos-header__subnav-sep" aria-hidden="true"> · </span>
+          <a id="nav-lib-series" class="photos-header__subnav-link" href="./biblioteca-series.html">series y colecciones</a>
+          <span class="photos-header__subnav-sep" aria-hidden="true"> · </span>
+          <a id="nav-lib-todos" class="photos-header__subnav-link" href="./biblioteca-todos.html">biblioteca completa</a>
+        </p>
+      </nav>
     </header>
 
-    <main id="all-books-main" class="photos-main">
+    <main id="lib-todos-main" class="photos-main">
       <div class="container">
         <section class="library-identity" aria-label="Biblioteca personal de Jorge Zuluaga">
           <div class="library-identity__avatar">
             <img src="./assets/profile-library.jpg" alt="Jorge Zuluaga" loading="lazy" decoding="async" />
           </div>
         </section>
-        <h1 class="title-section">Todos los libros leídos</h1>
-        <p class="photos-intro">Listado completo ordenado del más reciente al más antiguo.</p>
-        <div class="library-all-link-wrap" style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; margin-bottom: 1rem;">
-          <a class="link library-all-link" id="btn-all-anti-library" href="./antibiblioteca.html">Ver antibiblioteca</a>
-        </div>
-        <div id="lib-all-dewey-filter-wrap" class="library-filter-wrap">
-          <label for="lib-all-dewey-filter" id="lib-all-dewey-filter-label">Filtrar por área:</label>
-          <select id="lib-all-dewey-filter" class="library-filter-select"></select>
-        </div>
-        <div id="all-books-list" class="library-book-list" aria-live="polite"></div>
+        <h1 id="lib-todos-h1" class="title-section library-todos-h1">La biblioteca completa</h1>
+        <p id="lib-todos-intro" class="photos-intro"></p>
 
-        <section id="lib-all-dewey-chart-section" class="library-chart" aria-label="Libros por clases Dewey" style="margin-top: 2.5rem;">
-          <h2 id="lib-all-h2-dewey" class="title-section title-section--small">Libros por áreas</h2>
-          <div id="lib-all-dewey-chart" class="library-chart__list anti-dewey-chart" aria-live="polite"></div>
+        <section class="library-todos-stats-wrap" id="lib-todos-stats-root" aria-label="">
+          <div class="library-report library-todos-stats-wrap__row" role="group" aria-label="">
+            <article class="library-report__card">
+              <p class="library-report__label" id="lib-todos-catalog-total-label"></p>
+              <p class="library-report__value" id="lib-todos-catalog-total">0</p>
+            </article>
+            <article class="library-report__card">
+              <p class="library-report__label" id="lib-todos-catalog-unread-label"></p>
+              <p class="library-report__value" id="lib-todos-catalog-unread">0 (0.0%)</p>
+            </article>
+            <article class="library-report__card">
+              <p class="library-report__label" id="lib-todos-catalog-read-label"></p>
+              <p class="library-report__value" id="lib-todos-catalog-read">0 (0.0%)</p>
+            </article>
+          </div>
+
+          <section class="library-goodreads-stats" id="lib-todos-goodreads-stats-section" aria-label="">
+            <div class="library-report library-report--goodreads-stats">
+              <article class="library-report__card">
+                <p class="library-report__label" id="lib-todos-gr-label-reviewed"></p>
+                <p class="library-report__value" id="lib-todos-gr-val-reviewed">0 (0.0%)</p>
+              </article>
+              <article class="library-report__card">
+                <p class="library-report__label" id="lib-todos-gr-label-likes-gr"></p>
+                <p class="library-report__value" id="lib-todos-gr-val-likes-gr">0</p>
+              </article>
+              <article class="library-report__card">
+                <p class="library-report__label" id="lib-todos-gr-label-likes-local"></p>
+                <p class="library-report__value" id="lib-todos-gr-val-likes-local">0</p>
+              </article>
+            </div>
+          </section>
+        </section>
+
+        <div id="lib-todos-dewey-filter-wrap" class="library-filter-wrap">
+          <label for="lib-todos-dewey-filter" id="lib-todos-dewey-filter-label"></label>
+          <select id="lib-todos-dewey-filter" class="library-filter-select"></select>
+        </div>
+        <div id="lib-todos-books-list" class="library-book-list" aria-live="polite"></div>
+
+        <section id="lib-todos-dewey-chart-section" class="library-chart" aria-label="" style="margin-top: 2.5rem;">
+          <h2 id="lib-todos-h2-dewey" class="title-section title-section--small"></h2>
+          <div id="lib-todos-dewey-chart" class="library-chart__list anti-dewey-chart" aria-live="polite"></div>
         </section>
       </div>
     </main>
@@ -77,7 +123,7 @@
     </footer>
   </div>
 
-  <script src="./assets/library-all-page.js" type="module"></script>
+  <script src="./assets/library-todos-page.js" type="module"></script>
 </body>
 
 </html>

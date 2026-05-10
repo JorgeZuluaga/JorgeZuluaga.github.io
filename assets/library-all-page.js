@@ -4,12 +4,19 @@ import {
   t,
   withLangQuery,
 } from "./i18n.js";
+import { applyHeaderLangChrome, applyLibrarySectionNav } from "./library-nav.js";
 import { trackPageView } from "./visitor-tracker.js";
 
 const LIBRARY_JSON = "./info/library.json";
 const LOCAL_LIKES_CACHE_PREFIX = "review_local_likes_count_";
 const DEFAULT_PAGE_SIZE = 50;
 const DEWEY_GENERAL_CODES = [0, 100, 200, 300, 400, 500, 600, 700, 800, 900];
+
+/** Hidden duplicates (manual cataloguing): keep in JSON / dedupe imports but omit from lists. */
+function isLibraryDuplicateHidden(item) {
+  const v = item?.libraryDuplicateHidden;
+  return v === true || v === 1 || v === "1";
+}
 
 function deweyAreaName(code, lang) {
   const labelsEs = {
@@ -71,6 +78,57 @@ function extractBookPrimaryDeweyGeneralCode(book) {
   return null;
 }
 
+/** Specific Dewey caption paired with {@link extractBookPrimaryDeweyGeneralCode} when possible. */
+function getPrimaryDccCodeEntry(book) {
+  const codes = book?.dcc_codes;
+  if (!codes || typeof codes !== "object") {
+    return { code: "", topic: "" };
+  }
+  const primaryGen = extractBookPrimaryDeweyGeneralCode(book);
+  const entries = Object.entries(codes)
+    .map(([k, v]) => ({
+      code: String(k).trim(),
+      topic: String(v ?? "").trim(),
+      gen: parseDeweyGeneralCode(k),
+    }))
+    .filter((e) => e.topic && e.code);
+
+  if (!entries.length) {
+    return { code: "", topic: "" };
+  }
+
+  if (primaryGen !== null) {
+    const match = entries.filter((e) => e.gen === primaryGen);
+    if (match.length) {
+      match.sort((a, b) => Number(a.code) - Number(b.code));
+      return match[0];
+    }
+  }
+  entries.sort((a, b) => Number(a.code) - Number(b.code));
+  return entries[0];
+}
+
+function formatBookAreaMetaHtml(book, lang) {
+  const label = escapeLibrary(t("library_area_label", lang));
+  const primaryGen = extractBookPrimaryDeweyGeneralCode(book);
+  if (primaryGen === null) {
+    const fb = escapeLibrary(t("library_area_unclassified", lang));
+    return `<strong>${label}</strong> ${fb}`;
+  }
+  const mainClass = escapeLibrary(deweyAreaName(primaryGen, lang));
+  const entry = getPrimaryDccCodeEntry(book);
+  if (entry.topic) {
+    return `<strong>${label}</strong> ${mainClass} / ${escapeLibrary(entry.topic)}`;
+  }
+  const key = String(primaryGen);
+  const cls = book?.dcc_classes?.[key];
+  if (cls) {
+    const stripped = String(cls).replace(/\s*\(\d+\)\s*$/, "").trim();
+    return `<strong>${label}</strong> ${escapeLibrary(stripped)}`;
+  }
+  return `<strong>${label}</strong> ${mainClass}`;
+}
+
 function computeDeweyGeneralCounts(books) {
   const counts = new Map(DEWEY_GENERAL_CODES.map((code) => [code, 0]));
   let unclassifiedCount = 0;
@@ -95,15 +153,72 @@ function computeDeweyGeneralCounts(books) {
   return { areaRows, totalAreasCount, unclassifiedCount };
 }
 
+/** Dewey 500 (natural sciences / mathematics): first in charts and lists; then descending count. */
+const DEWEY_SCIENCE_AREA_CODE = 500;
+
+function orderDeweyChartRowsFromCounts(areaRows, unclassifiedCount) {
+  const science = areaRows.find((r) => r.code === DEWEY_SCIENCE_AREA_CODE);
+  const rest = areaRows
+    .filter((r) => r.code !== DEWEY_SCIENCE_AREA_CODE)
+    .sort((a, b) => (b.count - a.count) || (a.code - b.code));
+  const head = science ? [science, ...rest] : rest;
+  return [...head, { kind: "unclassified", code: null, count: unclassifiedCount }];
+}
+
+function orderDeweyFilterOptionRows(areaRows) {
+  const withCount = areaRows.filter((r) => r.count > 0);
+  const science = withCount.find((r) => r.code === DEWEY_SCIENCE_AREA_CODE);
+  const rest = withCount
+    .filter((r) => r.code !== DEWEY_SCIENCE_AREA_CODE)
+    .sort((a, b) => (b.count - a.count) || (a.code - b.code));
+  return science ? [science, ...rest] : rest;
+}
+
+function orderDeweyBucketsForListSort(areaRows, unclassifiedCount) {
+  const areaBuckets = areaRows
+    .filter((r) => r.count > 0)
+    .map((r) => ({ kind: "area", code: r.code, count: r.count }));
+  const science = areaBuckets.find((b) => b.code === DEWEY_SCIENCE_AREA_CODE);
+  const rest = areaBuckets
+    .filter((b) => b.code !== DEWEY_SCIENCE_AREA_CODE)
+    .sort((a, b) => (b.count - a.count) || ((a.code ?? -1) - (b.code ?? -1)));
+  const orderedAreas = science ? [science, ...rest] : rest;
+  const tail = unclassifiedCount > 0
+    ? [{ kind: "unclassified", code: null, count: unclassifiedCount }]
+    : [];
+  return [...orderedAreas, ...tail];
+}
+
+/** Science (500) first, then other areas by popularity; then most recent date within each area. */
+function sortBooksByDeweyAreaPopularityThenDate(books, getDateMs) {
+  const { areaRows, unclassifiedCount } = computeDeweyGeneralCounts(books);
+  const buckets = orderDeweyBucketsForListSort(areaRows, unclassifiedCount);
+
+  const rankByBucket = new Map();
+  buckets.forEach((row, idx) => {
+    const key = row.kind === "unclassified" ? "__none__" : String(row.code);
+    rankByBucket.set(key, idx);
+  });
+
+  function bucketRank(book) {
+    const p = extractBookPrimaryDeweyGeneralCode(book);
+    const key = p === null ? "__none__" : String(p);
+    return rankByBucket.get(key) ?? 99999;
+  }
+
+  return [...books].sort((a, b) => {
+    const ra = bucketRank(a);
+    const rb = bucketRank(b);
+    if (ra !== rb) return ra - rb;
+    return getDateMs(b) - getDateMs(a);
+  });
+}
+
 function renderDeweyChart(chartEl, books, lang) {
   if (!chartEl) return;
 
   const { areaRows, unclassifiedCount } = computeDeweyGeneralCounts(books);
-  const sortedAreas = [...areaRows].sort((a, b) => (b.count - a.count) || (a.code - b.code));
-  const rows = [
-    ...sortedAreas,
-    { kind: "unclassified", code: null, count: unclassifiedCount },
-  ];
+  const rows = orderDeweyChartRowsFromCounts(areaRows, unclassifiedCount);
 
   const maxCount = Math.max(...rows.map((r) => r.count), 1);
   const frag = document.createDocumentFragment();
@@ -167,9 +282,7 @@ function renderDeweyFilter(selectEl, books, lang, onFilterChange) {
   if (!selectEl) return;
   const { areaRows, unclassifiedCount } = computeDeweyGeneralCounts(books);
   const activeFilter = getActiveClassFilter();
-  const sortedAreas = [...areaRows]
-    .filter((r) => r.count > 0)
-    .sort((a, b) => (b.count - a.count) || (a.code - b.code));
+  const sortedAreas = orderDeweyFilterOptionRows(areaRows);
 
   const allLabel = lang === "en" ? "All areas" : "Todas las áreas";
   const unclassifiedLabel = lang === "en" ? "Unclassified" : "No clasificados";
@@ -211,6 +324,31 @@ function renderDeweyFilter(selectEl, books, lang, onFilterChange) {
     history.replaceState(null, "", `${location.pathname}${newSearch}${location.hash}`);
     onFilterChange();
   });
+}
+
+/** Goodreads bookIds present in library-details.json (any row with matching bookId). */
+function buildDetailsBookIdSet(detailsBooks) {
+  const set = new Set();
+  for (const row of detailsBooks || []) {
+    const bid = String(row?.bookId || "").trim();
+    if (bid) set.add(bid);
+  }
+  return set;
+}
+
+function buildDescriptionLinkHtml(item, lang, detailsBookIdSet) {
+  const grBookId = String(item.bookId || "").trim();
+  if (!grBookId) return "";
+  const descHref = escapeLibrary(
+    withLangQuery(`./book.html?bookid=${encodeURIComponent(grBookId)}`),
+  );
+  if (detailsBookIdSet?.has(grBookId)) {
+    return `<a class="link" href="${descHref}">${escapeLibrary(t("library_view_description_complete", lang))}</a>`;
+  }
+  const before = escapeLibrary(t("library_view_description_incomplete_before", lang));
+  const em = escapeLibrary(t("library_view_description_incomplete_em", lang));
+  const after = escapeLibrary(t("library_view_description_incomplete_after", lang));
+  return `<a class="link" href="${descHref}">${before}<u>${em}</u>${after}</a>`;
 }
 
 function parseDate(dateText) {
@@ -375,6 +513,64 @@ async function hydrateLocalLikes(container, items, lang) {
   renderLocalLikesInContainer(container, counts, lang);
 }
 
+async function hydrateGoodreadsStatsLocalTotal(totalEl, reviewedItems) {
+  if (!totalEl || !Array.isArray(reviewedItems)) return;
+  const base = workerBaseFromLogEndpoint();
+  const reviewIds = [...new Set(reviewedItems.map((x) => parseReviewIdFromUrl(x?.reviewUrl)).filter(Boolean))];
+  if (reviewIds.length === 0) {
+    totalEl.textContent = "0";
+    return;
+  }
+  if (!base) {
+    let snap = 0;
+    for (const b of reviewedItems) {
+      const v = readSnapshotLocalLikes(b);
+      if (v !== null) snap += v;
+    }
+    totalEl.textContent = String(snap);
+    return;
+  }
+  let total = 0;
+  await mapWithConcurrency(reviewIds, async (reviewId) => {
+    const item = reviewedItems.find((x) => parseReviewIdFromUrl(x?.reviewUrl) === reviewId);
+    let count = await fetchLocalLikeCount(base, reviewId);
+    if (count !== null) {
+      writeCachedLocalLikes(reviewId, count);
+    } else {
+      const fromSnapshot = readSnapshotLocalLikes(item);
+      const fromCache = readCachedLocalLikes(reviewId);
+      count = pickBestKnownLocalLikes(fromSnapshot, fromCache);
+    }
+    if (count !== null) total += count;
+  }, 8);
+  totalEl.textContent = String(total);
+}
+
+function hasGoodreadsReviewUrl(item) {
+  return String(item?.reviewUrl ?? "").includes("/review/show/");
+}
+
+function populateLibraryAllGoodreadsStats(booksRead) {
+  const reviewed = booksRead.filter((b) => hasGoodreadsReviewUrl(b));
+  const totalRead = booksRead.length;
+  const totalReviewed = reviewed.length;
+  const reviewedPct = totalRead ? (totalReviewed / totalRead) * 100 : 0;
+  const totalLikes = reviewed.reduce(
+    (acc, b) => acc + (Number.isFinite(Number(b.reviewLikes)) ? Number(b.reviewLikes) : 0),
+    0,
+  );
+
+  const elRead = document.getElementById("lib-all-gr-val-read");
+  const elRev = document.getElementById("lib-all-gr-val-reviewed");
+  const elLikes = document.getElementById("lib-all-gr-val-likes-gr");
+  const elLocal = document.getElementById("lib-all-gr-val-likes-local");
+  if (elRead) elRead.textContent = String(totalRead);
+  if (elRev) elRev.textContent = `${totalReviewed} (${reviewedPct.toFixed(1)}%)`;
+  if (elLikes) elLikes.textContent = String(totalLikes);
+  if (elLocal) elLocal.textContent = "0";
+  hydrateGoodreadsStatsLocalTotal(elLocal, reviewed).catch(() => {});
+}
+
 function escapeLibrary(s) {
   return (s ?? "")
     .toString()
@@ -504,7 +700,7 @@ function applyPagination(items, pagerState) {
   return items.slice(start, start + size);
 }
 
-function renderBookList(container, items, lang, seriesMap = new Map()) {
+function renderBookList(container, items, lang, seriesMap = new Map(), detailsBookIdSet = null) {
   if (!container) return;
   if (!Array.isArray(items) || items.length === 0) {
     container.innerHTML = `<p class="photo-card__error">${escapeLibrary(t("library_no_data", lang))}</p>`;
@@ -546,15 +742,12 @@ function renderBookList(container, items, lang, seriesMap = new Map()) {
     metaDate.className = "library-book-item__meta";
     const datePart = item.dateRead || item.dateAdded || "";
     if (datePart && datePart !== "—") {
-      const hasDetails = Number(item.bookDetails) === 1;
-      const detailLabel = hasDetails
-        ? t("library_details_present", lang)
-        : t("library_details_missing", lang);
-      const detailClass = hasDetails
-        ? "library-details-status library-details-status--present"
-        : "library-details-status library-details-status--missing";
-      metaDate.innerHTML = `<strong>${escapeLibrary(t("library_date_read", lang))}</strong> ${escapeLibrary(datePart)} (<span class="${detailClass}">${escapeLibrary(detailLabel)}</span>)`;
+      metaDate.innerHTML = `<strong>${escapeLibrary(t("library_date_read", lang))}</strong> ${escapeLibrary(datePart)}`;
     }
+
+    const metaArea = document.createElement("p");
+    metaArea.className = "library-book-item__meta";
+    metaArea.innerHTML = formatBookAreaMetaHtml(item, lang);
 
     const meta3 = document.createElement("p");
     meta3.className = "library-book-item__meta";
@@ -570,37 +763,55 @@ function renderBookList(container, items, lang, seriesMap = new Map()) {
 
     meta3.innerHTML = meta3Parts.join(" · ");
 
-    const actions = document.createElement("p");
-    actions.className = "library-book-item__actions";
-    
     const reviewUrl = String(item.reviewUrl || "");
     const localReviewUrl = String(item.reviewLocalUrl || "");
     const hasReviewUrl = reviewUrl.includes("/review/show/");
     const hasLocalReview = localReviewUrl.endsWith(".html");
     const reviewId = parseReviewIdFromUrl(item.reviewUrl);
-    
-    let actionsHtml = "";
 
-    if (hasLocalReview) {
-      actionsHtml += `<a class="link" href="${escapeLibrary(localReviewUrl)}">${escapeLibrary(reviewActionLabel(item, lang))}</a>`;
-    } else if (hasReviewUrl) {
-      actionsHtml += `<a class="link" href="${escapeLibrary(reviewUrl)}" target="_blank" rel="noopener noreferrer">${escapeLibrary(reviewActionLabel(item, lang))}</a>`;
+    const grBookId = String(item.bookId || "").trim();
+    const hasReview = hasLocalReview || hasReviewUrl;
+
+    const actionsDesc = document.createElement("p");
+    actionsDesc.className = "library-book-item__actions";
+    let descHtml = "";
+    if (grBookId) {
+      descHtml = buildDescriptionLinkHtml(item, lang, detailsBookIdSet);
     }
-    
-    if (actionsHtml) {
+    if (descHtml) {
+      actionsDesc.innerHTML = descHtml;
+      actionsDesc.setAttribute("aria-label", t("library_view_description", lang));
+    }
+
+    let reviewHtml = "";
+    if (hasLocalReview) {
+      reviewHtml += `<a class="link" href="${escapeLibrary(localReviewUrl)}">${escapeLibrary(reviewActionLabel(item, lang))}</a>`;
+    } else if (hasReviewUrl) {
+      reviewHtml += `<a class="link" href="${escapeLibrary(reviewUrl)}" target="_blank" rel="noopener noreferrer">${escapeLibrary(reviewActionLabel(item, lang))}</a>`;
+    }
+    if (hasReview) {
       const reactionsText = lang === "en" ? "Reactions" : "Reacciones a la reseña";
       const likesCount = Number.isFinite(Number(item.reviewLikes)) ? item.reviewLikes : 0;
-      actionsHtml += ` · ${reactionsText} <span class="library-tooltip" data-title="${escapeLibrary(t("library_likes_gr_hover", lang))}">👍 ${likesCount}</span>${localLikesSuffixHtml(reviewId, lang)}`;
-      actions.innerHTML = actionsHtml;
-      actions.setAttribute("aria-label", t("library_review_links", lang));
+      const reactionsPart = `${reactionsText} <span class="library-tooltip" data-title="${escapeLibrary(t("library_likes_gr_hover", lang))}">👍 ${likesCount}</span>${localLikesSuffixHtml(reviewId, lang)}`;
+      if (reviewHtml) reviewHtml += ` · ${reactionsPart}`;
+      else reviewHtml = reactionsPart;
+    }
+
+    const actionsReview = document.createElement("p");
+    actionsReview.className = "library-book-item__actions";
+    if (reviewHtml) {
+      actionsReview.innerHTML = reviewHtml;
+      actionsReview.setAttribute("aria-label", t("library_review_links", lang));
     }
 
     contentDiv.appendChild(title);
     contentDiv.appendChild(meta1);
     if (meta2Parts.length > 0) contentDiv.appendChild(meta2);
     if (datePart && datePart !== "—") contentDiv.appendChild(metaDate);
+    contentDiv.appendChild(metaArea);
+    if (descHtml) contentDiv.appendChild(actionsDesc);
     contentDiv.appendChild(meta3);
-    if (actionsHtml) contentDiv.appendChild(actions);
+    if (reviewHtml) contentDiv.appendChild(actionsReview);
 
     const coverWrapper = document.createElement("div");
     coverWrapper.className = "library-book-item__cover";
@@ -651,8 +862,7 @@ function renderBookList(container, items, lang, seriesMap = new Map()) {
 
 function applyLibraryAllChrome(lang) {
   document.documentElement.lang = lang === "en" ? "en" : "es";
-  document.title =
-    lang === "en" ? "All books — Personal library" : "Todos los libros — Biblioteca personal";
+  document.title = t("library_leidos_page_title", lang);
 
   const back = document.querySelector(".photos-back");
   if (back) {
@@ -660,16 +870,12 @@ function applyLibraryAllChrome(lang) {
     back.setAttribute("href", withLangQuery("./biblioteca.html"));
   }
 
-  const libEs = document.getElementById("lib-all-lang-es");
-  const libEn = document.getElementById("lib-all-lang-en");
-  if (libEs) {
-    libEs.href = "./biblioteca-todos.html";
-    libEs.textContent = t("lang_es", lang);
-  }
-  if (libEn) {
-    libEn.href = "./biblioteca-todos.html?lang=en";
-    libEn.textContent = t("lang_en", lang);
-  }
+  applyHeaderLangChrome(lang, {
+    esId: "lib-all-lang-es",
+    enId: "lib-all-lang-en",
+    hrefEs: "./biblioteca-leidos.html",
+    hrefEn: "./biblioteca-leidos.html?lang=en",
+  });
 
   const skip = document.querySelector(".skip-link");
   if (skip) skip.textContent = t("skip", lang);
@@ -683,17 +889,30 @@ function applyLibraryAllChrome(lang) {
   if (h1) h1.textContent = t("library_all_title", lang);
   const intro = document.querySelector("#all-books-main .photos-intro");
   if (intro) intro.textContent = t("library_all_intro", lang);
-  const antiLink = document.getElementById("btn-all-anti-library");
-  if (antiLink) {
-    antiLink.textContent = t("library_show_antilibrary", lang);
-    antiLink.setAttribute("href", withLangQuery("./antibiblioteca.html"));
+
+  const grStatsSection = document.getElementById("lib-all-goodreads-stats-section");
+  if (grStatsSection) {
+    grStatsSection.setAttribute(
+      "aria-label",
+      lang === "en" ? "Goodreads reading statistics" : "Estadísticas de lectura en Goodreads",
+    );
   }
+  const grLabelRead = document.getElementById("lib-all-gr-label-read");
+  if (grLabelRead) grLabelRead.textContent = t("library_read", lang);
+  const grLabelRev = document.getElementById("lib-all-gr-label-reviewed");
+  if (grLabelRev) grLabelRev.textContent = t("library_reviewed", lang);
+  const grLabelLikes = document.getElementById("lib-all-gr-label-likes-gr");
+  if (grLabelLikes) grLabelLikes.textContent = t("library_likes", lang);
+  const grLabelLocal = document.getElementById("lib-all-gr-label-likes-local");
+  if (grLabelLocal) grLabelLocal.textContent = t("library_likes_local_total", lang);
 
   const footer = document.querySelector("footer.print-mode-target p");
   if (footer) {
     const href = withLangQuery("./index.html");
     footer.innerHTML = `${t("footer_line", lang)} <a class="link" href="${href}">${escapeLibrary(t("footer_cv_link", lang))}</a>`;
   }
+
+  applyLibrarySectionNav(lang, "read");
 }
 
 async function main() {
@@ -711,6 +930,11 @@ async function main() {
     .then((r) => (r.ok ? r.json() : { series: [] }))
     .catch(() => ({ series: [] }));
 
+  const detailsData = await fetch("./info/library-details.json", { cache: "no-store" })
+    .then((r) => (r.ok ? r.json() : { books: [] }))
+    .catch(() => ({ books: [] }));
+  const detailsBookIdSet = buildDetailsBookIdSet(detailsData.books ?? []);
+
   const seriesMap = new Map();
   for (const series of seriesData.series || []) {
     for (const b of series.books || []) {
@@ -720,11 +944,13 @@ async function main() {
     }
   }
 
-  const books = [...(data.books ?? [])]
+  const booksRead = [...(data.books ?? [])]
     .filter((b) => b && b.title)
+    .filter((b) => !isLibraryDuplicateHidden(b))
     .map((b) => ({ ...b, _date: parseDate(b.dateRead) }))
-    .filter((b) => b._date)
-    .sort((a, b) => (b._date?.getTime() ?? 0) - (a._date?.getTime() ?? 0));
+    .filter((b) => b._date);
+  populateLibraryAllGoodreadsStats(booksRead);
+  const books = sortBooksByDeweyAreaPopularityThenDate(booksRead, (b) => b._date?.getTime() ?? 0);
 
   const deweyChartEl = document.getElementById("lib-all-dewey-chart");
   renderDeweyChart(deweyChartEl, books, lang);
@@ -756,7 +982,7 @@ async function main() {
     pagerTop?.renderState(pagerState, filtered.length);
     pagerBottom?.renderState(pagerState, filtered.length);
     const visibleBooks = applyPagination(filtered, pagerState);
-    renderBookList(listEl, visibleBooks, lang, seriesMap);
+    renderBookList(listEl, visibleBooks, lang, seriesMap, detailsBookIdSet);
     hydrateLocalLikes(listEl, visibleBooks, lang).catch(() => {});
   };
   const filterEl = document.getElementById("lib-all-dewey-filter");

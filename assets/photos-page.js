@@ -5,6 +5,7 @@ import {
   t,
   withLangQuery,
 } from "./i18n.js";
+import { applyHeaderLangChrome } from "./library-nav.js";
 import { trackEvent, trackPageView } from "./visitor-tracker.js";
 
 const PHOTOS_JSON = "./info/photos/photos.json";
@@ -82,16 +83,12 @@ function applyPhotosChrome(lang) {
     back.href = withLangQuery("./index.html");
   }
 
-  const es = document.getElementById("photos-lang-es");
-  const en = document.getElementById("photos-lang-en");
-  if (es) {
-    es.href = "./photos.html";
-    es.textContent = t("lang_es", lang);
-  }
-  if (en) {
-    en.href = "./photos.html?lang=en";
-    en.textContent = t("lang_en", lang);
-  }
+  applyHeaderLangChrome(lang, {
+    esId: "photos-lang-es",
+    enId: "photos-lang-en",
+    hrefEs: "./photos.html",
+    hrefEn: "./photos.html?lang=en",
+  });
 
   document.querySelectorAll(".theme-button").forEach((btn) => {
     btn.setAttribute("aria-label", t("theme_toggle", lang));

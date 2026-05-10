@@ -31,11 +31,14 @@
     <header id="header" class="photos-header">
       <div class="photos-header__bar">
         <a class="link photos-back" href="./index.html">← Volver al CV</a>
-        <p class="photos-header__lang">
-          <a id="lib-lang-es" href="./biblioteca.html">Español</a>
-          <span aria-hidden="true"> · </span>
-          <a id="lib-lang-en" href="./biblioteca.html?lang=en">English</a>
-        </p>
+        <div id="header-lang-flags" class="photos-header__lang photos-header__lang--flags" role="navigation" aria-label="Seleccionar idioma">
+          <a id="lib-lang-es" class="home-lang-flag" href="./biblioteca.html" title="Español" aria-label="Versión en español">
+            <img src="https://flagcdn.com/w40/co.png" width="28" height="21" alt="" decoding="async" />
+          </a>
+          <a id="lib-lang-en" class="home-lang-flag" href="./biblioteca.html?lang=en" title="English" aria-label="Versión en inglés">
+            <img src="https://flagcdn.com/w40/gb.png" width="28" height="21" alt="" decoding="async" />
+          </a>
+        </div>
         <button class="theme-button photos-theme" type="button" aria-label="Modo de visualización: Claro/Oscuro">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="moon-icon" aria-hidden="true">
             <path d="M11.3807 2.01886C9.91573 3.38768 9 5.3369 9 7.49999C9 11.6421 12.3579 15 16.5 15C18.6631 15 20.6123 14.0843 21.9811 12.6193C21.6613 17.8537 17.3149 22 12 22C6.47715 22 2 17.5228 2 12C2 6.68514 6.14629 2.33869 11.3807 2.01886Z"></path>
@@ -45,6 +48,17 @@
           </svg>
         </button>
       </div>
+      <nav class="photos-header__subnav" id="library-section-nav" aria-label="Secciones de la biblioteca">
+        <p class="photos-header__subnav-inner">
+          <a id="nav-lib-read" class="photos-header__subnav-link" href="./biblioteca-leidos.html">libros leídos</a>
+          <span class="photos-header__subnav-sep" aria-hidden="true"> · </span>
+          <a id="nav-lib-anti" class="photos-header__subnav-link" href="./biblioteca-noleidos.html">antibiblioteca</a>
+          <span class="photos-header__subnav-sep" aria-hidden="true"> · </span>
+          <a id="nav-lib-series" class="photos-header__subnav-link" href="./biblioteca-series.html">series y colecciones</a>
+          <span class="photos-header__subnav-sep" aria-hidden="true"> · </span>
+          <a id="nav-lib-todos" class="photos-header__subnav-link" href="./biblioteca-todos.html">biblioteca completa</a>
+        </p>
+      </nav>
     </header>
 
     <main id="library-main" class="photos-main">
@@ -64,23 +78,38 @@
         </p>
         <p class="library-source" id="library-source-note"></p>
 
-        <section class="library-report" aria-label="Reporte general de lectura">
-          <article class="library-report__card">
-            <p class="library-report__label">Libros leídos</p>
-            <p class="library-report__value" id="library-report-total-read">0</p>
-          </article>
-          <article class="library-report__card">
-            <p class="library-report__label">Libros reseñados</p>
-            <p class="library-report__value" id="library-report-reviewed">0 (0.0%)</p>
-          </article>
-          <article class="library-report__card">
-            <p class="library-report__label">Likes totales en Goodreads</p>
-            <p class="library-report__value" id="library-report-likes">0</p>
-          </article>
-          <article class="library-report__card">
-            <p class="library-report__label">Me gusta locales</p>
-            <p class="library-report__value" id="library-report-likes-local">0</p>
-          </article>
+        <section class="library-todos-stats-wrap" id="library-stats-root" aria-label="">
+          <div class="library-report library-todos-stats-wrap__row" role="group" aria-label="">
+            <article class="library-report__card">
+              <p class="library-report__label" id="library-catalog-total-label"></p>
+              <p class="library-report__value" id="library-catalog-total">0</p>
+            </article>
+            <article class="library-report__card">
+              <p class="library-report__label" id="library-catalog-unread-label"></p>
+              <p class="library-report__value" id="library-catalog-unread">0 (0.0%)</p>
+            </article>
+            <article class="library-report__card">
+              <p class="library-report__label" id="library-catalog-read-label"></p>
+              <p class="library-report__value" id="library-catalog-read">0 (0.0%)</p>
+            </article>
+          </div>
+
+          <section class="library-goodreads-stats" id="library-goodreads-stats-section" aria-label="">
+            <div class="library-report library-report--goodreads-stats">
+              <article class="library-report__card">
+                <p class="library-report__label" id="library-gr-label-reviewed"></p>
+                <p class="library-report__value" id="library-gr-val-reviewed">0 (0.0%)</p>
+              </article>
+              <article class="library-report__card">
+                <p class="library-report__label" id="library-gr-label-likes-gr"></p>
+                <p class="library-report__value" id="library-gr-val-likes-gr">0</p>
+              </article>
+              <article class="library-report__card">
+                <p class="library-report__label" id="library-gr-label-likes-local"></p>
+                <p class="library-report__value" id="library-gr-val-likes-local">0</p>
+              </article>
+            </div>
+          </section>
         </section>
 
         <section class="library-lists" aria-label="Listas de lectura y reseñas">
@@ -111,9 +140,9 @@
         </section>
 
         <div class="library-all-link-wrap" style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
-          <a class="link library-all-link" id="btn-all-books" href="./biblioteca-todos.html">Ver todos los libros</a>
-          <a class="link library-all-link" id="btn-anti-library" href="./antibiblioteca.html">Ver antibiblioteca</a>
-          <a class="link library-all-link" id="btn-all-sagas" href="./biblioteca-series.html">Ver sagas y colecciones</a>
+          <a class="link library-all-link" id="btn-all-books" href="./biblioteca-leidos.html">Libros leídos</a>
+          <a class="link library-all-link" id="btn-anti-library" href="./biblioteca-noleidos.html">Libros no leídos</a>
+          <a class="link library-all-link" id="btn-all-sagas" href="./biblioteca-series.html">Sagas y Colecciones</a>
         </div>
       </div>
     </main>

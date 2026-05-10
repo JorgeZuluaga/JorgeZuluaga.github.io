@@ -243,7 +243,7 @@ Y el archivo derivado para otros usos es:
 #### 0) Nota para mi yo del futuro: snapshot de likes locales (respaldo)
 
 Problema que resolvimos:
-- Si el worker falla/no responde, `biblioteca.html`, `biblioteca-todos.html` y `reviews/*.html` no deberían perder los “me gusta locales”.
+- Si el worker falla/no responde, `biblioteca.html`, `biblioteca-leidos.html` y `reviews/*.html` no deberían perder los “me gusta locales”.
 - Se agregó respaldo persistente dentro de `info/library.json`.
 
 Qué se implementó:

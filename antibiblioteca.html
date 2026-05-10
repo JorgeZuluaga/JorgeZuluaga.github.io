@@ -1,122 +1,19 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="color-scheme" content="light dark" />
-  <meta name="visitor-log-endpoint" content="https://visitor-log-worker.jorgezuluaga.workers.dev/log" />
-  <title>Antibiblioteca personal — Jorge I. Zuluaga</title>
-  <meta name="description" content="Listado de libros no leídos o no registrados en Goodreads." />
-  
-  <!-- Open Graph / WhatsApp / Facebook -->
-  <meta property="og:title" content="Antibiblioteca personal — Jorge I. Zuluaga" />
-  <meta property="og:description" content="Listado de libros no leídos o no registrados en Goodreads." />
-  <meta property="og:image" content="https://jorgezuluaga.github.io/assets/images/AntibibliotecaUmbertoEcco_meta.jpg" />
-  <meta property="og:url" content="https://jorgezuluaga.github.io/antibiblioteca.html" />
-  <meta property="og:type" content="website" />
-
-  <!-- Twitter Card -->
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Antibiblioteca personal — Jorge I. Zuluaga" />
-  <meta name="twitter:description" content="Listado de libros no leídos o no registrados en Goodreads." />
-  <meta name="twitter:image" content="https://jorgezuluaga.github.io/assets/images/AntibibliotecaUmbertoEcco_meta.jpg" />
+  <title>Redirección…</title>
+  <link rel="canonical" href="./libros-noleidos.html" />
   <script>
-    document.documentElement.lang =
-      new URLSearchParams(location.search).get("lang") === "en" ? "en" : "es";
+    (function () {
+      var q = location.search || "";
+      location.replace("./libros-noleidos.html" + q);
+    })();
   </script>
-
-  <link rel="icon" type="image/png" sizes="48x48" href="./assets/favicon.png" />
-  <link rel="apple-touch-icon" sizes="180x180" href="./assets/apple-touch-icon.png" />
-
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
-
-  <link rel="stylesheet" href="./assets/style.css?v=2" />
-  <script src="./assets/template.js" defer></script>
+  <meta http-equiv="refresh" content="0; url=./libros-noleidos.html" />
 </head>
-
-<body class="photos-page library-page">
-  <div class="wrapper">
-    <a class="skip-link" href="#anti-library-main">Saltar al contenido</a>
-
-    <header id="header" class="photos-header">
-      <div class="photos-header__bar">
-        <a class="link photos-back" href="./biblioteca.html">← Volver a Biblioteca</a>
-        <p class="photos-header__lang">
-          <a id="anti-lib-lang-es" href="./antibiblioteca.html">Español</a>
-          <span aria-hidden="true"> · </span>
-          <a id="anti-lib-lang-en" href="./antibiblioteca.html?lang=en">English</a>
-        </p>
-        <button class="theme-button photos-theme" type="button" aria-label="Modo de visualización: Claro/Oscuro">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="moon-icon" aria-hidden="true">
-            <path d="M11.3807 2.01886C9.91573 3.38768 9 5.3369 9 7.49999C9 11.6421 12.3579 15 16.5 15C18.6631 15 20.6123 14.0843 21.9811 12.6193C21.6613 17.8537 17.3149 22 12 22C6.47715 22 2 17.5228 2 12C2 6.68514 6.14629 2.33869 11.3807 2.01886Z"></path>
-          </svg>
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="sun-icon" aria-hidden="true">
-            <path d="M12 18C8.68629 18 6 15.3137 6 12C6 8.68629 8.68629 6 12 6C15.3137 6 18 8.68629 18 12C18 15.3137 15.3137 18 12 18ZM11 1H13V4H11V1ZM11 20H13V23H11V20ZM3.51472 4.92893L4.92893 3.51472L7.05025 5.63604L5.63604 7.05025L3.51472 4.92893ZM16.9497 18.364L18.364 16.9497L20.4853 19.0711L19.0711 20.4853L16.9497 18.364ZM19.0711 3.51472L20.4853 4.92893L18.364 7.05025L16.9497 5.63604L19.0711 3.51472ZM5.63604 16.9497L7.05025 18.364L4.92893 20.4853L3.51472 19.0711L5.63604 16.9497ZM23 11V13H20V11H23ZM4 11V13H1V11H4Z"></path>
-          </svg>
-        </button>
-      </div>
-    </header>
-
-    <main id="anti-library-main" class="photos-main">
-      <div class="container">
-        <section class="library-identity" aria-label="Antibiblioteca de Jorge Zuluaga">
-          <div class="library-identity__avatar">
-            <img src="./assets/profile-library.jpg" alt="Jorge Zuluaga" loading="lazy" decoding="async" />
-          </div>
-        </section>
-        <h1 id="anti-library-title" class="title-section">Antibiblioteca personal</h1>
-        <p id="anti-library-intro" class="photos-intro">Listado de libros no leídos ordenado del más reciente al más antiguo.</p>
-        <section class="library-list-card" aria-label="Cita sobre la antibiblioteca">
-          <blockquote id="anti-library-quote" class="photos-intro" style="font-style: italic; margin-bottom: 0.8rem;"></blockquote>
-          
-          <figure style="margin: 1.5rem 0; text-align: center;">
-            <img src="./assets/images/AntibibliotecaUmbertoEcco.webp" alt="Antibiblioteca de Umberto Eco" style="width: 60%; min-width: 250px; max-width: 100%; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.1);" />
-            <figcaption style="margin-top: 0.5rem; font-size: 0.85em; color: var(--text-color);">
-              <strong id="anti-library-image-caption-label">Adaptada de:</strong>
-              <a class="link" href="https://universoabierto.org/2025/01/02/la-antibiblioteca-de-umberto-eco-el-valor-de-los-libros-no-leidos/" target="_blank" rel="noopener noreferrer">Universo Abierto (2025)</a>
-            </figcaption>
-          </figure>
-
-          <p class="library-book-item__meta" style="margin-bottom: 0.4rem;">
-            <strong id="anti-library-source-original-label">Fuente original:</strong>
-            <a class="link" href="https://www.themarginalian.org/2015/03/24/umberto-eco-antilibrary/" target="_blank" rel="noopener noreferrer">The Marginalian (2015)</a>
-          </p>
-        </section>
-        <section class="library-report" aria-label="Resumen de antibiblioteca" style="margin-top: 1.25rem;">
-          <article class="library-report__card">
-            <p class="library-report__label" id="anti-report-total-label">Total de libros</p>
-            <p class="library-report__value" id="anti-report-total">0</p>
-          </article>
-          <article class="library-report__card">
-            <p class="library-report__label" id="anti-report-unread-label">Libros no leídos</p>
-            <p class="library-report__value" id="anti-report-unread">0 (0.0%)</p>
-          </article>
-          <article class="library-report__card">
-            <p class="library-report__label" id="anti-report-read-label">Libros leídos</p>
-            <p class="library-report__value" id="anti-report-read">0 (0.0%)</p>
-          </article>
-        </section>
-        <div id="anti-dewey-filter-wrap" class="library-filter-wrap">
-          <label for="anti-dewey-filter" id="anti-dewey-filter-label">Filtrar por área:</label>
-          <select id="anti-dewey-filter" class="library-filter-select"></select>
-        </div>
-        <div id="anti-library-list" class="library-book-list" aria-live="polite"></div>
-        <section id="anti-dewey-chart-section" class="library-chart" aria-label="Libros por clases Dewey">
-          <h2 id="anti-h2-dewey" class="title-section title-section--small">Libros por areas</h2>
-          <div id="anti-dewey-chart" class="library-chart__list" aria-live="polite"></div>
-        </section>
-      </div>
-    </main>
-
-    <footer class="print-mode-target">
-      <p>Jorge I. Zuluaga — <a class="link" href="./index.html">Currículum en línea</a></p>
-    </footer>
-  </div>
-
-  <script src="./assets/anti-library-page.js" type="module"></script>
+<body>
+  <p><a class="link" href="./libros-noleidos.html">Continuar</a></p>
 </body>
-
 </html>

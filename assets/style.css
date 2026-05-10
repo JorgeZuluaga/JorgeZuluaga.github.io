@@ -1192,6 +1192,54 @@ screen {
   text-decoration: underline;
 }
 
+.photos-header__lang--flags {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+}
+
+.photos-header__lang--flags .home-lang-flag:not([aria-current="true"]) {
+  opacity: 0.72;
+}
+
+.photos-header__lang--flags .home-lang-flag img {
+  width: 28px;
+  height: auto;
+}
+
+.library-book-item__antilibrary-note {
+  font-style: italic;
+  font-weight: 400;
+  opacity: 0.88;
+}
+
+.photos-header__subnav {
+  border-top: 1px solid var(--line);
+  padding: 0.65rem 1.25rem 0.75rem;
+  text-align: center;
+  background-color: var(--header);
+}
+
+.photos-header__subnav-inner {
+  margin: 0;
+  font-size: 0.9rem;
+  max-width: 75rem;
+  margin-inline: auto;
+}
+
+.photos-header__subnav-link {
+  color: inherit;
+  text-decoration: none;
+}
+
+.photos-header__subnav-link:hover {
+  text-decoration: underline;
+}
+
+.photos-header__subnav-link[aria-current="page"] {
+  font-weight: 700;
+}
+
 .nav-lang-links {
   margin: 0.35rem 0 0;
   padding: 0 0.5rem;
@@ -1525,6 +1573,25 @@ body.photos-page .photos-intro {
   opacity: 0.78;
 }
 
+.library-goodreads-stats {
+  margin: 0 0 1.35rem;
+}
+
+.library-goodreads-stats__title {
+  color: var(--accent);
+  margin-bottom: 0.65rem;
+}
+
+.library-report--goodreads-stats {
+  margin-bottom: 0;
+}
+
+.library-todos-h1 {
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  font-weight: 700;
+}
+
 .library-report {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr));
@@ -1618,7 +1685,8 @@ body.photos-page .photos-intro {
 }
 
 #anti-dewey-chart-section .library-chart__row,
-#lib-all-dewey-chart-section .library-chart__row {
+#lib-all-dewey-chart-section .library-chart__row,
+#lib-todos-dewey-chart-section .library-chart__row {
   display: flex;
   flex-direction: column;
   align-items: stretch;
@@ -1626,13 +1694,19 @@ body.photos-page .photos-intro {
 }
 
 #anti-dewey-chart-section .anti-dewey-chart__area,
-#lib-all-dewey-chart-section .anti-dewey-chart__area {
+#lib-all-dewey-chart-section .anti-dewey-chart__area,
+#lib-todos-dewey-chart-section .anti-dewey-chart__area {
   font-weight: 600;
 }
 
 #anti-dewey-chart-section .anti-dewey-chart__bar-wrap,
-#lib-all-dewey-chart-section .anti-dewey-chart__bar-wrap {
+#lib-all-dewey-chart-section .anti-dewey-chart__bar-wrap,
+#lib-todos-dewey-chart-section .anti-dewey-chart__bar-wrap {
   width: 100%;
+}
+
+.library-todos-stats-wrap .library-goodreads-stats {
+  margin-top: 1.15rem;
 }
 
 .library-filter-wrap {

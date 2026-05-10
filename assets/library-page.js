@@ -4,15 +4,46 @@ import {
   t,
   withLangQuery,
 } from "./i18n.js";
+import { applyHeaderLangChrome, applyLibrarySectionNav } from "./library-nav.js";
 import { trackPageView } from "./visitor-tracker.js";
 
 const LIBRARY_JSON = "./info/library.json";
+const LIBRARY_DETAILS_JSON = "./info/library-details.json";
 const BOOK_SERIES_JSON = "./info/book_series.json";
 const LOCAL_LIKES_CACHE_PREFIX = "review_local_likes_count_";
+
+function buildDetailsBookIdSet(detailsBooks) {
+  const set = new Set();
+  for (const row of detailsBooks || []) {
+    const bid = String(row?.bookId || "").trim();
+    if (bid) set.add(bid);
+  }
+  return set;
+}
+
+/** Hidden duplicates (manual cataloguing): keep in JSON but omit from lists and aggregate stats. */
+function isLibraryDuplicateHidden(item) {
+  const v = item?.libraryDuplicateHidden;
+  return v === true || v === 1 || v === "1";
+}
 
 function parseDate(dateText) {
   const raw = String(dateText ?? "").trim();
   if (!raw) return null;
+  const dt = new Date(raw);
+  return Number.isNaN(dt.getTime()) ? null : dt;
+}
+
+/** BookBuddy / CSV-style dates (aligned with antibiblioteca catalog totals). */
+function parseBookBuddyDate(value) {
+  const raw = String(value ?? "").trim();
+  if (!raw) return null;
+  const iso = raw.match(/^(\d{4})-(\d{2})-(\d{2})$/);
+  if (iso) return new Date(`${iso[1]}-${iso[2]}-${iso[3]}T00:00:00`);
+  const ymd = raw.match(/^(\d{4})\/(\d{2})\/(\d{2})/);
+  if (ymd) return new Date(`${ymd[1]}-${ymd[2]}-${ymd[3]}T00:00:00`);
+  const ym = raw.match(/^(\d{4})\/(\d{2})$/);
+  if (ym) return new Date(`${ym[1]}-${ym[2]}-01T00:00:00`);
   const dt = new Date(raw);
   return Number.isNaN(dt.getTime()) ? null : dt;
 }
@@ -26,11 +57,136 @@ function normalizeBooks(rawBooks) {
     .filter((b) => b && b.title)
     .map((b) => ({
       ...b,
-      _date: parseDate(b.dateRead),
+      _date: parseBookBuddyDate(b.dateRead) ?? parseDate(b.dateRead),
+      _dateRead: parseBookBuddyDate(b.dateRead),
+      _dateAdded: parseBookBuddyDate(b.dateAdded),
       _reviewDate: parseDate(b.reviewDate),
       rating: Number.isFinite(Number(b.rating)) ? Number(b.rating) : 0,
       reviewLikes: Number.isFinite(Number(b.reviewLikes)) ? Number(b.reviewLikes) : 0,
     }));
+}
+
+function normalizeText(value) {
+  return String(value ?? "")
+    .trim()
+    .toLowerCase()
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "");
+}
+
+function titleCore(value) {
+  const raw = String(value ?? "").trim();
+  if (!raw) return "";
+  const beforeColon = raw.split(":")[0] || raw;
+  return normalizeText(beforeColon).replace(/[^a-z0-9]+/g, " ").trim();
+}
+
+function authorCore(value) {
+  return normalizeText(value).replace(/[^a-z0-9]+/g, " ").trim();
+}
+
+function bookIdentityKey(book) {
+  return `${titleCore(book?.title)}|${authorCore(book?.author)}`;
+}
+
+function isReadBook(book) {
+  if (book?._dateRead) return true;
+  if (String(book?.reviewUrl || "").trim()) return true;
+  if (book?.hasReview === true) return true;
+  if (String(book?.reviewLocalUrl || "").trim()) return true;
+  return false;
+}
+
+function buildLibraryBookIdMap(books) {
+  const m = new Map();
+  for (const b of books) {
+    const id = String(b?.bookId || "").trim();
+    if (id) m.set(id, b);
+  }
+  return m;
+}
+
+function statusIsUnreadRow(row) {
+  const s = String(row?.Status ?? row?.status ?? "").trim().toLowerCase();
+  return s === "unread";
+}
+
+function isDetailsRowCountedAsReadOnGoodreads(row, libraryByBookId, readIdentity) {
+  const bid = String(row?.bookId ?? "").trim();
+  if (bid) {
+    const lb = libraryByBookId.get(bid);
+    if (lb && isReadBook(lb)) return true;
+  }
+  const key = bookIdentityKey({
+    title: row?.Title ?? row?.title,
+    author: row?.Author ?? row?.author,
+  });
+  return Boolean(key && readIdentity.has(key));
+}
+
+function detailsRowToAntiBook(row) {
+  const title = String(row?.Title ?? row?.title ?? "").trim();
+  const author = String(row?.Author ?? row?.author ?? "").trim();
+  const dateAdded = String(row?.["Date Added"] ?? row?.dateAdded ?? "").trim();
+  const isbn = String(row?.ISBN ?? row?.isbn ?? "").trim();
+  const bookId = String(row?.bookId ?? "").trim();
+  const uploadedImageUrl = String(row?.["Uploaded Image URL"] ?? "").trim();
+  const ddc = String(row?.DDC ?? row?.ddc ?? "").trim();
+  const dcc_classes = row?.dcc_classes && typeof row.dcc_classes === "object"
+    ? row.dcc_classes
+    : {};
+  const dcc_codes = row?.dcc_codes && typeof row.dcc_codes === "object"
+    ? row.dcc_codes
+    : {};
+  return {
+    title,
+    author,
+    dateAdded,
+    isbn,
+    ISBN: isbn,
+    bookId,
+    uploadedImageUrl,
+    ddc,
+    dcc_classes,
+    dcc_codes,
+    rating: 0,
+    bookDetails: 1,
+    _dateAdded: parseBookBuddyDate(dateAdded),
+  };
+}
+
+function computeCatalogSummary(booksNormalized, detailsRows) {
+  const readIdentity = new Set(
+    booksNormalized.filter((b) => isReadBook(b)).map((b) => bookIdentityKey(b)).filter(Boolean),
+  );
+  const libraryByBookId = buildLibraryBookIdMap(booksNormalized);
+
+  if (detailsRows.length > 0) {
+    const antiBooks = detailsRows
+      .filter((row) => row && typeof row === "object")
+      .filter((row) => !isLibraryDuplicateHidden(row))
+      .filter((row) => statusIsUnreadRow(row))
+      .filter((row) => !isDetailsRowCountedAsReadOnGoodreads(row, libraryByBookId, readIdentity))
+      .map((row) => detailsRowToAntiBook(row))
+      .filter((b) => b.title);
+    const catalogUnread = antiBooks.length;
+    const catalogReadCount = booksNormalized.filter((b) => !isLibraryDuplicateHidden(b)).length;
+    const catalogTotal = catalogUnread + catalogReadCount;
+    return { catalogTotal, catalogUnread, catalogReadCount };
+  }
+
+  const antiBooksLen = booksNormalized
+    .filter((b) => !isLibraryDuplicateHidden(b))
+    .filter((b) => !isReadBook(b))
+    .filter((b) => !readIdentity.has(bookIdentityKey(b))).length;
+  const readBooksLen = booksNormalized
+    .filter((b) => isReadBook(b))
+    .filter((b) => !isLibraryDuplicateHidden(b)).length;
+  return {
+    catalogTotal: readBooksLen + antiBooksLen,
+    catalogUnread: antiBooksLen,
+    catalogReadCount: readBooksLen,
+  };
 }
 
 function computeYearlyReads(books) {
@@ -229,6 +385,7 @@ function renderBookList(container, items, lang, seriesMap = new Map(), options =
   const dateValueSelector = typeof options.dateValueSelector === "function"
     ? options.dateValueSelector
     : ((item) => item.dateRead || item.dateAdded || "");
+  const detailsBookIdSet = options.detailsBookIdSet instanceof Set ? options.detailsBookIdSet : null;
   if (!container) return;
   if (!Array.isArray(items) || items.length === 0) {
     container.innerHTML = `<p class="photo-card__error">${escapeLibrary(t("library_no_data", lang))}</p>`;
@@ -295,19 +452,39 @@ function renderBookList(container, items, lang, seriesMap = new Map(), options =
     const reviewId = parseReviewIdFromUrl(item.reviewUrl);
     
     let actionsHtml = "";
+    const grBookId = String(item.bookId || "").trim();
+    const hasReview = hasLocalReview || hasReviewUrl;
+
+    if (grBookId) {
+      const descHref = withLangQuery(
+        `./book.html?bookid=${encodeURIComponent(grBookId)}`,
+      );
+      if (detailsBookIdSet?.has(grBookId)) {
+        actionsHtml += `<a class="link" href="${escapeLibrary(descHref)}">${escapeLibrary(t("library_view_description_complete", lang))}</a>`;
+      } else {
+        const before = escapeLibrary(t("library_view_description_incomplete_before", lang));
+        const em = escapeLibrary(t("library_view_description_incomplete_em", lang));
+        const after = escapeLibrary(t("library_view_description_incomplete_after", lang));
+        actionsHtml += `<a class="link" href="${escapeLibrary(descHref)}">${before}<u>${em}</u>${after}</a>`;
+      }
+    }
 
     if (hasLocalReview) {
+      if (actionsHtml) actionsHtml += " · ";
       actionsHtml += `<a class="link" href="${escapeLibrary(localReviewUrl)}">${escapeLibrary(reviewActionLabel(item, lang))}</a>`;
     } else if (hasReviewUrl) {
+      if (actionsHtml) actionsHtml += " · ";
       actionsHtml += `<a class="link" href="${escapeLibrary(reviewUrl)}" target="_blank" rel="noopener noreferrer">${escapeLibrary(reviewActionLabel(item, lang))}</a>`;
     }
-    
+
     if (actionsHtml) {
-      const reactionsText = lang === "en" ? "Reactions" : "Reacciones a la reseña";
-      const likesCount = Number.isFinite(Number(item.reviewLikes)) ? item.reviewLikes : 0;
-      actionsHtml += ` · ${reactionsText} <span class="library-tooltip" data-title="${escapeLibrary(t("library_likes_gr_hover", lang))}">👍 ${likesCount}</span>${localLikesSuffixHtml(reviewId, lang)}`;
+      if (hasReview) {
+        const reactionsText = lang === "en" ? "Reactions" : "Reacciones a la reseña";
+        const likesCount = Number.isFinite(Number(item.reviewLikes)) ? item.reviewLikes : 0;
+        actionsHtml += ` · ${reactionsText} <span class="library-tooltip" data-title="${escapeLibrary(t("library_likes_gr_hover", lang))}">👍 ${likesCount}</span>${localLikesSuffixHtml(reviewId, lang)}`;
+      }
       actions.innerHTML = actionsHtml;
-      actions.setAttribute("aria-label", t("library_review_links", lang));
+      actions.setAttribute("aria-label", t("library_book_links", lang));
     }
 
     contentDiv.appendChild(title);
@@ -415,7 +592,7 @@ function addListToggleControls(
   if (includeAllBooksLink) {
     const allBooksLink = document.createElement("a");
     allBooksLink.className = "link library-all-link";
-    allBooksLink.href = withLangQuery("./biblioteca-todos.html");
+    allBooksLink.href = withLangQuery("./biblioteca-leidos.html");
     allBooksLink.textContent = t("library_view_all_books", lang);
     toggleContainer.appendChild(allBooksLink);
   }
@@ -444,16 +621,12 @@ function applyLibraryChrome(lang) {
     back.setAttribute("href", withLangQuery("./index.html"));
   }
 
-  const libEs = document.getElementById("lib-lang-es");
-  const libEn = document.getElementById("lib-lang-en");
-  if (libEs) {
-    libEs.href = "./biblioteca.html";
-    libEs.textContent = t("lang_es", lang);
-  }
-  if (libEn) {
-    libEn.href = "./biblioteca.html?lang=en";
-    libEn.textContent = t("lang_en", lang);
-  }
+  applyHeaderLangChrome(lang, {
+    esId: "lib-lang-es",
+    enId: "lib-lang-en",
+    hrefEs: "./biblioteca.html",
+    hrefEn: "./biblioteca.html?lang=en",
+  });
 
   const skip = document.querySelector(".skip-link");
   if (skip) skip.textContent = t("skip", lang);
@@ -462,6 +635,30 @@ function applyLibraryChrome(lang) {
     btn.setAttribute("aria-label", t("theme_toggle", lang));
   });
   applyThemeAriaFromLang(lang);
+
+  const statsRoot = document.getElementById("library-stats-root");
+  if (statsRoot) {
+    statsRoot.setAttribute("aria-label", t("library_home_stats_root_aria", lang));
+  }
+  const grStatsSec = document.getElementById("library-goodreads-stats-section");
+  if (grStatsSec) {
+    grStatsSec.setAttribute(
+      "aria-label",
+      lang === "en" ? "Goodreads reading statistics" : "Estadísticas de lectura en Goodreads",
+    );
+  }
+  const catTotalLab = document.getElementById("library-catalog-total-label");
+  if (catTotalLab) catTotalLab.textContent = t("antilibrary_stats_total", lang);
+  const catUnreadLab = document.getElementById("library-catalog-unread-label");
+  if (catUnreadLab) catUnreadLab.textContent = t("antilibrary_stats_unread", lang);
+  const catReadLab = document.getElementById("library-catalog-read-label");
+  if (catReadLab) catReadLab.textContent = t("antilibrary_stats_read", lang);
+  const grRevLab = document.getElementById("library-gr-label-reviewed");
+  if (grRevLab) grRevLab.textContent = t("library_reviewed", lang);
+  const grLikesLab = document.getElementById("library-gr-label-likes-gr");
+  if (grLikesLab) grLikesLab.textContent = t("library_likes", lang);
+  const grLocalLab = document.getElementById("library-gr-label-likes-local");
+  if (grLocalLab) grLocalLab.textContent = t("library_likes_local_total", lang);
 
   const hYear = document.getElementById("library-h2-year");
   if (hYear) hYear.textContent = t("library_by_year", lang);
@@ -477,13 +674,13 @@ function applyLibraryChrome(lang) {
   const allLink = document.getElementById("btn-all-books");
   if (allLink) {
     allLink.textContent = t("library_show_all", lang);
-    allLink.setAttribute("href", withLangQuery("./biblioteca-todos.html"));
+    allLink.setAttribute("href", withLangQuery("./biblioteca-leidos.html"));
   }
 
   const antiLink = document.getElementById("btn-anti-library");
   if (antiLink) {
     antiLink.textContent = t("library_show_antilibrary", lang);
-    antiLink.setAttribute("href", withLangQuery("./antibiblioteca.html"));
+    antiLink.setAttribute("href", withLangQuery("./biblioteca-noleidos.html"));
   }
 
   const sagasLink = document.getElementById("btn-all-sagas");
@@ -497,6 +694,8 @@ function applyLibraryChrome(lang) {
     const href = withLangQuery("./index.html");
     footer.innerHTML = `${t("footer_line", lang)} <a class="link" href="${href}">${escapeLibrary(t("footer_cv_link", lang))}</a>`;
   }
+
+  applyLibrarySectionNav(lang, null);
 }
 
 async function main() {
@@ -507,19 +706,28 @@ async function main() {
   const res = await fetch(LIBRARY_JSON, { cache: "no-store" });
   if (!res.ok) throw new Error(`No se pudo cargar ${LIBRARY_JSON} (${res.status})`);
   const data = await res.json();
-  const seriesData = await fetch(BOOK_SERIES_JSON, { cache: "no-store" })
-    .then((r) => (r.ok ? r.json() : { series: [] }))
-    .catch(() => ({ series: [] }));
+  const [seriesData, detailsData] = await Promise.all([
+    fetch(BOOK_SERIES_JSON, { cache: "no-store" })
+      .then((r) => (r.ok ? r.json() : { series: [] }))
+      .catch(() => ({ series: [] })),
+    fetch(LIBRARY_DETAILS_JSON, { cache: "no-store" })
+      .then((r) => (r.ok ? r.json() : { books: [] }))
+      .catch(() => ({ books: [] })),
+  ]);
+  const detailsBookIdSet = buildDetailsBookIdSet(detailsData.books ?? []);
+  const listRenderOpts = { detailsBookIdSet };
 
   const titleEl = document.getElementById("library-page-title");
   const introEl = document.getElementById("library-page-intro");
   const goodreadsNoteEl = document.getElementById("library-goodreads-note");
   const profileEl = document.getElementById("goodreads-profile-link");
   const sourceEl = document.getElementById("library-source-note");
-  const totalReadEl = document.getElementById("library-report-total-read");
-  const totalReviewedEl = document.getElementById("library-report-reviewed");
-  const totalLikesEl = document.getElementById("library-report-likes");
-  const totalLocalLikesEl = document.getElementById("library-report-likes-local");
+  const catalogTotalEl = document.getElementById("library-catalog-total");
+  const catalogUnreadEl = document.getElementById("library-catalog-unread");
+  const catalogReadEl = document.getElementById("library-catalog-read");
+  const grReviewedEl = document.getElementById("library-gr-val-reviewed");
+  const totalLikesEl = document.getElementById("library-gr-val-likes-gr");
+  const totalLocalLikesEl = document.getElementById("library-gr-val-likes-local");
   const chartEl = document.getElementById("library-yearly-chart");
   const latestReadEl = document.getElementById("library-latest-read");
   const topReviewedEl = document.getElementById("library-top-reviewed");
@@ -531,8 +739,10 @@ async function main() {
     !goodreadsNoteEl ||
     !profileEl ||
     !sourceEl ||
-    !totalReadEl ||
-    !totalReviewedEl ||
+    !catalogTotalEl ||
+    !catalogUnreadEl ||
+    !catalogReadEl ||
+    !grReviewedEl ||
     !totalLikesEl ||
     !totalLocalLikesEl ||
     !chartEl ||
@@ -544,8 +754,20 @@ async function main() {
     return;
   }
 
-  const books = normalizeBooks(data.books);
+  const booksAll = normalizeBooks(data.books);
+  const detailsRows = Array.isArray(detailsData?.books) ? detailsData.books : [];
+  const { catalogTotal, catalogUnread, catalogReadCount } = computeCatalogSummary(booksAll, detailsRows);
+
+  const books = booksAll.filter((b) => !isLibraryDuplicateHidden(b));
   const readBooks = books.filter((b) => b._date);
+
+  const booksReadForGrStats = [...(data.books ?? [])]
+    .filter((b) => b && b.title)
+    .filter((b) => !isLibraryDuplicateHidden(b))
+    .map((b) => ({ ...b, _date: parseDate(b.dateRead) }))
+    .filter((b) => b._date);
+  const reviewedGr = booksReadForGrStats.filter((b) => hasReview(b));
+
   const rows = computeYearlyReads(readBooks);
   const latestRead = [...readBooks]
     .filter((b) => b._date)
@@ -571,10 +793,15 @@ async function main() {
     })
     .slice(0, 20);
 
-  const totalRead = readBooks.length;
-  const totalReviewed = reviewed.length;
-  const reviewedPct = totalRead ? (totalReviewed / totalRead) * 100 : 0;
-  const totalLikes = reviewed.reduce((acc, b) => acc + (b.reviewLikes || 0), 0);
+  const totalReviewedGr = reviewedGr.length;
+  const reviewedPctOfCatalog = catalogTotal ? (totalReviewedGr / catalogTotal) * 100 : 0;
+  const totalLikesGr = reviewedGr.reduce(
+    (acc, b) => acc + (Number.isFinite(Number(b.reviewLikes)) ? Number(b.reviewLikes) : 0),
+    0,
+  );
+
+  const unreadPctStr = catalogTotal > 0 ? ((catalogUnread / catalogTotal) * 100).toFixed(1) : "0.0";
+  const readPctStr = catalogTotal > 0 ? ((catalogReadCount / catalogTotal) * 100).toFixed(1) : "0.0";
 
   titleEl.textContent = t("library_title", lang);
   introEl.textContent = t("library_intro", lang);
@@ -582,27 +809,12 @@ async function main() {
   profileEl.href = "https://www.goodreads.com/user/show/91991657";
   profileEl.textContent = t("library_profile", lang);
   sourceEl.textContent = "";
-  totalReadEl.textContent = `${totalRead}`;
-  totalReviewedEl.textContent = `${totalReviewed} (${reviewedPct.toFixed(1)}%)`;
-  totalLikesEl.textContent = `${totalLikes}`;
+  catalogTotalEl.textContent = String(catalogTotal);
+  catalogUnreadEl.textContent = `${catalogUnread} (${unreadPctStr}%)`;
+  catalogReadEl.textContent = `${catalogReadCount} (${readPctStr}%)`;
+  grReviewedEl.textContent = `${totalReviewedGr} (${reviewedPctOfCatalog.toFixed(1)}%)`;
+  totalLikesEl.textContent = `${totalLikesGr}`;
   totalLocalLikesEl.textContent = "0";
-
-  const label1 = document.querySelector(
-    ".library-report__card:nth-of-type(1) .library-report__label",
-  );
-  if (label1) label1.textContent = t("library_read", lang);
-  const label2 = document.querySelector(
-    ".library-report__card:nth-of-type(2) .library-report__label",
-  );
-  if (label2) label2.textContent = t("library_reviewed", lang);
-  const label3 = document.querySelector(
-    ".library-report__card:nth-of-type(3) .library-report__label",
-  );
-  if (label3) label3.textContent = t("library_likes", lang);
-  const label4 = document.querySelector(
-    ".library-report__card:nth-of-type(4) .library-report__label",
-  );
-  if (label4) label4.textContent = t("library_likes_local_total", lang);
 
   document.querySelector(".library-chart")?.setAttribute("aria-label", t("library_by_year", lang));
 
@@ -650,12 +862,14 @@ async function main() {
     showMoreKey: "library_show_latest_20",
     showLessKey: "library_show_latest_5",
     includeAllBooksLink: true,
+    renderOptions: listRenderOpts,
   });
   addListToggleControls(topReviewedEl, topReviewedByLikes, lang, seriesMap, {
     initialCount: 5,
     showMoreKey: "library_show_top_20",
     showLessKey: "library_show_latest_5",
     includeAllBooksLink: true,
+    renderOptions: listRenderOpts,
   });
   addListToggleControls(latestReviewedEl, latestReviewsWritten, lang, seriesMap, {
     initialCount: 5,
@@ -664,6 +878,7 @@ async function main() {
     showLessKey: "library_show_latest_5",
     includeAllBooksLink: true,
     renderOptions: {
+      ...listRenderOpts,
       dateLabelKey: "library_review_date",
       dateValueSelector: (item) => item.reviewDate || "",
     },
@@ -673,8 +888,9 @@ async function main() {
     showMoreKey: "library_show_top_20",
     showLessKey: "library_show_latest_5",
     includeAllBooksLink: true,
+    renderOptions: listRenderOpts,
   });
-  hydrateTotalLocalLikes(totalLocalLikesEl, reviewed).catch(() => {});
+  hydrateTotalLocalLikes(totalLocalLikesEl, reviewedGr).catch(() => {});
 }
 
 main().catch((err) => {
