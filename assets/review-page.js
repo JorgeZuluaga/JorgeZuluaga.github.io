@@ -2,7 +2,7 @@ import { getPageLang } from "./i18n.js";
 import { applyLibrarySectionNav } from "./library-nav.js";
 import { trackEvent, trackPageView } from "./visitor-tracker.js";
 
-applyLibrarySectionNav(getPageLang(), null);
+applyLibrarySectionNav(getPageLang(), null, "../");
 
 function trackReviewVisit() {
   trackPageView("review_page");

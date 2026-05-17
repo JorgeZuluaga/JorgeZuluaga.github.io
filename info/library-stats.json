@@ -7,7 +7,7 @@
   "yearlyReads": [
     {
       "year": 2026,
-      "count": 35
+      "count": 37
     },
     {
       "year": 2025,
@@ -48,6 +48,42 @@
   ],
   "latestRead": [
     {
+      "bookId": "239940189",
+      "title": "Otra historia de la música (El Barroquista): ¿Qué pensaría Bach de la música actual?",
+      "author": "Miguel Ángel Cajigal Vera",
+      "dateRead": "2026-05-16",
+      "rating": 5,
+      "reviewUrl": "https://www.goodreads.com/review/show/8604906707?utm_medium=api&utm_source=rss",
+      "reviewLikes": 0,
+      "drzrating": -1,
+      "bookDetails": 0,
+      "matched": false,
+      "reviewLocalUrl": "./reviews/8604906707.html",
+      "reviewLocalCoverUrl": "./reviews/covers/8604906707.jpg",
+      "reviewDate": "2026-05-17",
+      "reviewLocalStatus": "ok",
+      "reviewLocalGeneratedAt": "2026-05-17T17:05:32.184675+00:00",
+      "reviewCount": 804
+    },
+    {
+      "bookId": "14735289",
+      "title": "La química y la cocina",
+      "author": "José Luis Córdova Frunz",
+      "dateRead": "2026-05-15",
+      "rating": 4,
+      "reviewUrl": "https://www.goodreads.com/review/show/8581336028?utm_medium=api&utm_source=rss",
+      "reviewLikes": 0,
+      "drzrating": -1,
+      "bookDetails": 0,
+      "matched": false,
+      "reviewLocalUrl": "./reviews/8581336028.html",
+      "reviewLocalCoverUrl": "./reviews/covers/8581336028.jpg",
+      "reviewDate": "2026-05-17",
+      "reviewLocalStatus": "ok",
+      "reviewLocalGeneratedAt": "2026-05-17T17:05:34.527443+00:00",
+      "reviewCount": 907
+    },
+    {
       "bookId": "232453948",
       "title": "El último secreto (Robert Langdon, #6)",
       "author": "Dan    Brown",
@@ -71,10 +107,10 @@
       },
       "reviewLocalUrl": "./reviews/8200697347.html",
       "reviewLocalCoverUrl": "./reviews/covers/8200697347.jpg",
-      "reviewDate": "2026-05-09",
+      "reviewDate": "2026-05-17",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-05-10T19:26:29.505070+00:00",
-      "reviewCount": 11
+      "reviewLocalGeneratedAt": "2026-05-17T17:06:00.739822+00:00",
+      "reviewCount": 757
     },
     {
       "bookId": "237811588",
@@ -102,7 +138,7 @@
       "reviewLocalUrl": "./reviews/8554509688.html",
       "reviewLocalCoverUrl": "./reviews/covers/8554509688.jpg",
       "reviewDate": "2026-05-10",
-      "reviewLocalStatus": "ok",
+      "reviewLocalStatus": "error: The read operation timed out",
       "reviewLocalGeneratedAt": "2026-05-10T19:26:27.336896+00:00",
       "reviewCount": 932
     },
@@ -113,8 +149,8 @@
       "dateRead": "2026-05-03",
       "rating": 5,
       "reviewUrl": "https://www.goodreads.com/review/show/8534922230?utm_medium=api&utm_source=rss",
-      "reviewLikes": 4,
-      "drzrating": -1,
+      "reviewLikes": 10,
+      "drzrating": 100,
       "bookDetails": 0,
       "dcc_classes": {
         "800": "Literatura (800)"
@@ -131,57 +167,8 @@
       "reviewLocalCoverUrl": "./reviews/covers/8534922230.jpg",
       "reviewDate": "2026-05-10",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-05-10T19:26:31.568629+00:00",
+      "reviewLocalGeneratedAt": "2026-05-17T17:05:36.569327+00:00",
       "reviewCount": 602
-    },
-    {
-      "bookId": "36006321",
-      "title": "Artemisa",
-      "author": "Andy Weir",
-      "dateRead": "2026-05-02",
-      "rating": 5,
-      "reviewUrl": "https://www.goodreads.com/review/show/4419508543?utm_medium=api&utm_source=rss",
-      "reviewLikes": 4,
-      "drzrating": 88,
-      "bookDetails": 1,
-      "reviewLocalLikes": 3,
-      "reviewLocalLikesUpdatedAt": "2026-05-09T14:00:24.824386+00:00",
-      "reviewLocalUrl": "./reviews/4419508543.html",
-      "reviewLocalCoverUrl": "./reviews/covers/4419508543.jpg",
-      "reviewDate": "2026-05-02",
-      "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-05-10T19:26:35.685866+00:00",
-      "reviewCount": 1465,
-      "dcc_classes": {
-        "800": "Literatura (800)"
-      },
-      "dcc_codes": {
-        "813": "Ficción americana en inglés."
-      },
-      "dcc_notes": {
-        "reasoning": "Es una novela de ciencia ficción escrita por el autor estadounidense Andy Weir (autor de 'El Marciano').",
-        "confidence": 0.98
-      },
-      "matched": true,
-      "dateAdded": "2026-05-05"
-    },
-    {
-      "bookId": "251441851",
-      "title": "Iván Cepeda, una vida contra el olvido (Spanish Edition)",
-      "author": "León Valencia Agudelo",
-      "dateRead": "2026-04-25",
-      "rating": 5,
-      "reviewUrl": "https://www.goodreads.com/review/show/8590116363?utm_medium=api&utm_source=rss",
-      "reviewLikes": 1,
-      "drzrating": -1,
-      "bookDetails": 0,
-      "matched": false,
-      "reviewLocalUrl": "./reviews/8590116363.html",
-      "reviewLocalCoverUrl": "./reviews/covers/8590116363.jpg",
-      "reviewDate": "2026-05-10",
-      "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-05-10T19:26:25.321111+00:00",
-      "reviewCount": 350
     }
   ],
   "topReviewedByLikes": [
@@ -517,6 +504,42 @@
   ],
   "latestReviewed": [
     {
+      "bookId": "239940189",
+      "title": "Otra historia de la música (El Barroquista): ¿Qué pensaría Bach de la música actual?",
+      "author": "Miguel Ángel Cajigal Vera",
+      "dateRead": "2026-05-16",
+      "rating": 5,
+      "reviewUrl": "https://www.goodreads.com/review/show/8604906707?utm_medium=api&utm_source=rss",
+      "reviewLikes": 0,
+      "drzrating": -1,
+      "bookDetails": 0,
+      "matched": false,
+      "reviewLocalUrl": "./reviews/8604906707.html",
+      "reviewLocalCoverUrl": "./reviews/covers/8604906707.jpg",
+      "reviewDate": "2026-05-17",
+      "reviewLocalStatus": "ok",
+      "reviewLocalGeneratedAt": "2026-05-17T17:05:32.184675+00:00",
+      "reviewCount": 804
+    },
+    {
+      "bookId": "14735289",
+      "title": "La química y la cocina",
+      "author": "José Luis Córdova Frunz",
+      "dateRead": "2026-05-15",
+      "rating": 4,
+      "reviewUrl": "https://www.goodreads.com/review/show/8581336028?utm_medium=api&utm_source=rss",
+      "reviewLikes": 0,
+      "drzrating": -1,
+      "bookDetails": 0,
+      "matched": false,
+      "reviewLocalUrl": "./reviews/8581336028.html",
+      "reviewLocalCoverUrl": "./reviews/covers/8581336028.jpg",
+      "reviewDate": "2026-05-17",
+      "reviewLocalStatus": "ok",
+      "reviewLocalGeneratedAt": "2026-05-17T17:05:34.527443+00:00",
+      "reviewCount": 907
+    },
+    {
       "bookId": "232453948",
       "title": "El último secreto (Robert Langdon, #6)",
       "author": "Dan    Brown",
@@ -540,10 +563,10 @@
       },
       "reviewLocalUrl": "./reviews/8200697347.html",
       "reviewLocalCoverUrl": "./reviews/covers/8200697347.jpg",
-      "reviewDate": "2026-05-09",
+      "reviewDate": "2026-05-17",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-05-10T19:26:29.505070+00:00",
-      "reviewCount": 11
+      "reviewLocalGeneratedAt": "2026-05-17T17:06:00.739822+00:00",
+      "reviewCount": 757
     },
     {
       "bookId": "237811588",
@@ -571,7 +594,7 @@
       "reviewLocalUrl": "./reviews/8554509688.html",
       "reviewLocalCoverUrl": "./reviews/covers/8554509688.jpg",
       "reviewDate": "2026-05-10",
-      "reviewLocalStatus": "ok",
+      "reviewLocalStatus": "error: The read operation timed out",
       "reviewLocalGeneratedAt": "2026-05-10T19:26:27.336896+00:00",
       "reviewCount": 932
     },
@@ -582,8 +605,8 @@
       "dateRead": "2026-05-03",
       "rating": 5,
       "reviewUrl": "https://www.goodreads.com/review/show/8534922230?utm_medium=api&utm_source=rss",
-      "reviewLikes": 4,
-      "drzrating": -1,
+      "reviewLikes": 10,
+      "drzrating": 100,
       "bookDetails": 0,
       "dcc_classes": {
         "800": "Literatura (800)"
@@ -600,62 +623,13 @@
       "reviewLocalCoverUrl": "./reviews/covers/8534922230.jpg",
       "reviewDate": "2026-05-10",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-05-10T19:26:31.568629+00:00",
+      "reviewLocalGeneratedAt": "2026-05-17T17:05:36.569327+00:00",
       "reviewCount": 602
-    },
-    {
-      "bookId": "36006321",
-      "title": "Artemisa",
-      "author": "Andy Weir",
-      "dateRead": "2026-05-02",
-      "rating": 5,
-      "reviewUrl": "https://www.goodreads.com/review/show/4419508543?utm_medium=api&utm_source=rss",
-      "reviewLikes": 4,
-      "drzrating": 88,
-      "bookDetails": 1,
-      "reviewLocalLikes": 3,
-      "reviewLocalLikesUpdatedAt": "2026-05-09T14:00:24.824386+00:00",
-      "reviewLocalUrl": "./reviews/4419508543.html",
-      "reviewLocalCoverUrl": "./reviews/covers/4419508543.jpg",
-      "reviewDate": "2026-05-02",
-      "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-05-10T19:26:35.685866+00:00",
-      "reviewCount": 1465,
-      "dcc_classes": {
-        "800": "Literatura (800)"
-      },
-      "dcc_codes": {
-        "813": "Ficción americana en inglés."
-      },
-      "dcc_notes": {
-        "reasoning": "Es una novela de ciencia ficción escrita por el autor estadounidense Andy Weir (autor de 'El Marciano').",
-        "confidence": 0.98
-      },
-      "matched": true,
-      "dateAdded": "2026-05-05"
-    },
-    {
-      "bookId": "251441851",
-      "title": "Iván Cepeda, una vida contra el olvido (Spanish Edition)",
-      "author": "León Valencia Agudelo",
-      "dateRead": "2026-04-25",
-      "rating": 5,
-      "reviewUrl": "https://www.goodreads.com/review/show/8590116363?utm_medium=api&utm_source=rss",
-      "reviewLikes": 1,
-      "drzrating": -1,
-      "bookDetails": 0,
-      "matched": false,
-      "reviewLocalUrl": "./reviews/8590116363.html",
-      "reviewLocalCoverUrl": "./reviews/covers/8590116363.jpg",
-      "reviewDate": "2026-05-10",
-      "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-05-10T19:26:25.321111+00:00",
-      "reviewCount": 350
     }
   ],
   "totals": {
-    "booksRead": 586,
-    "booksReviewed": 586,
-    "totalReviewLikes": 3221
+    "booksRead": 588,
+    "booksReviewed": 588,
+    "totalReviewLikes": 3231
   }
 }

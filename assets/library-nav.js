@@ -33,14 +33,30 @@ export function applyHeaderLangChrome(
   }
 }
 
+/** Prefijo para biblioteca-*.html: `./` en raíz del sitio, `../` en reviews/*.html */
+export function resolveLibraryLinkBase(explicit = null) {
+  if (explicit != null && explicit !== "") {
+    return explicit.endsWith("/") ? explicit : `${explicit}/`;
+  }
+  const path = window.location.pathname || "";
+  if (path.includes("/reviews/")) return "../";
+  return "./";
+}
+
+function librarySectionHref(fileName, base) {
+  return withLangQuery(`${base}${fileName}`);
+}
+
 /**
  * @param {"read" | "anti" | "series" | "todos" | null} current - página activa en la subnavegación (opcional).
+ * @param {string | null} [linkBase] - `./` o `../`; si se omite, se infiere desde la URL (reviews/ → ../).
  */
-export function applyLibrarySectionNav(lang, current = null) {
+export function applyLibrarySectionNav(lang, current = null, linkBase = null) {
   const nav = document.getElementById("library-section-nav");
   if (!nav) return;
   nav.setAttribute("aria-label", t("library_nav_aria", lang));
 
+  const base = resolveLibraryLinkBase(linkBase);
   const read = document.getElementById("nav-lib-read");
   const anti = document.getElementById("nav-lib-anti");
   const series = document.getElementById("nav-lib-series");
@@ -48,25 +64,25 @@ export function applyLibrarySectionNav(lang, current = null) {
 
   if (read) {
     read.textContent = t("library_nav_read", lang);
-    read.href = withLangQuery("./biblioteca-leidos.html");
+    read.href = librarySectionHref("biblioteca-leidos.html", base);
     read.removeAttribute("aria-current");
     if (current === "read") read.setAttribute("aria-current", "page");
   }
   if (anti) {
     anti.textContent = t("library_nav_antilibrary", lang);
-    anti.href = withLangQuery("./biblioteca-noleidos.html");
+    anti.href = librarySectionHref("biblioteca-noleidos.html", base);
     anti.removeAttribute("aria-current");
     if (current === "anti") anti.setAttribute("aria-current", "page");
   }
   if (series) {
     series.textContent = t("library_nav_series", lang);
-    series.href = withLangQuery("./biblioteca-series.html");
+    series.href = librarySectionHref("biblioteca-series.html", base);
     series.removeAttribute("aria-current");
     if (current === "series") series.setAttribute("aria-current", "page");
   }
   if (todos) {
     todos.textContent = t("library_nav_todos", lang);
-    todos.href = withLangQuery("./biblioteca-todos.html");
+    todos.href = librarySectionHref("biblioteca-todos.html", base);
     todos.removeAttribute("aria-current");
     if (current === "todos") todos.setAttribute("aria-current", "page");
   }

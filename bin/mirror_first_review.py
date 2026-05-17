@@ -32,7 +32,8 @@ SHARE_BUTTON_HTML = """<button type="button" class="link" data-share-copy="1" ar
             </svg>
           </button>"""
 
-# Same sections as biblioteca.html (paths relative to reviews/*.html).
+# Same sections as biblioteca.html. Paths MUST use ../ (reviews/*.html live one level down).
+# review-page.js also passes linkBase="../" via applyLibrarySectionNav; keep both in sync.
 REVIEW_PAGE_LIBRARY_SUBNAV_HTML = """      <nav class="photos-header__subnav" id="library-section-nav" aria-label="">
         <p class="photos-header__subnav-inner">
           <a id="nav-lib-read" class="photos-header__subnav-link" href="../biblioteca-leidos.html">libros leídos</a>

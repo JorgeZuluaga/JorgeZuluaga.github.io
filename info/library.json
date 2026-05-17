@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-05-10T19:26:23.193388+00:00",
+  "generatedAt": "2026-05-17T17:05:29.350229+00:00",
   "source": {
     "rssUrl": "https://www.goodreads.com/review/list_rss/91991657?key=kpN1wAHi2GZUUO7BHv1v3ZCOGhOk_QjljXSDnXSc3kA-lzU7&shelf=%23ALL%23",
     "scrapeLikes": true,
@@ -7,16 +7,56 @@
   },
   "books": [
     {
+      "bookId": "239940189",
+      "title": "Otra historia de la música (El Barroquista): ¿Qué pensaría Bach de la música actual?",
+      "author": "Miguel Ángel Cajigal Vera",
+      "dateRead": "2026-05-16",
+      "rating": 5,
+      "reviewUrl": "https://www.goodreads.com/review/show/8604906707?utm_medium=api&utm_source=rss",
+      "hasReview": true,
+      "reviewLikes": 0,
+      "scrapeStatus": "ok",
+      "drzrating": 100,
+      "bookDetails": 0,
+      "matched": false,
+      "reviewLocalUrl": "./reviews/8604906707.html",
+      "reviewLocalCoverUrl": "./reviews/covers/8604906707.jpg",
+      "reviewDate": "2026-05-17",
+      "reviewLocalStatus": "ok",
+      "reviewLocalGeneratedAt": "2026-05-17T17:05:32.184675+00:00",
+      "reviewCount": 804
+    },
+    {
+      "bookId": "14735289",
+      "title": "La química y la cocina",
+      "author": "José Luis Córdova Frunz",
+      "dateRead": "2026-05-15",
+      "rating": 4,
+      "reviewUrl": "https://www.goodreads.com/review/show/8581336028?utm_medium=api&utm_source=rss",
+      "hasReview": true,
+      "reviewLikes": 0,
+      "scrapeStatus": "ok",
+      "drzrating": 95,
+      "bookDetails": 0,
+      "matched": false,
+      "reviewLocalUrl": "./reviews/8581336028.html",
+      "reviewLocalCoverUrl": "./reviews/covers/8581336028.jpg",
+      "reviewDate": "2026-05-17",
+      "reviewLocalStatus": "ok",
+      "reviewLocalGeneratedAt": "2026-05-17T17:05:34.527443+00:00",
+      "reviewCount": 907
+    },
+    {
       "bookId": "232453948",
       "title": "El último secreto (Robert Langdon, #6)",
       "author": "Dan    Brown",
       "dateRead": "2026-05-09",
       "rating": 4,
       "reviewUrl": "https://www.goodreads.com/review/show/8200697347?utm_medium=api&utm_source=rss",
-      "hasReview": false,
+      "hasReview": true,
       "reviewLikes": 0,
       "scrapeStatus": "ok",
-      "drzrating": -1,
+      "drzrating": 100,
       "bookDetails": 1,
       "matched": true,
       "dateAdded": "2026-05-03",
@@ -32,10 +72,10 @@
       },
       "reviewLocalUrl": "./reviews/8200697347.html",
       "reviewLocalCoverUrl": "./reviews/covers/8200697347.jpg",
-      "reviewDate": "2026-05-09",
+      "reviewDate": "2026-05-17",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-05-10T19:26:29.505070+00:00",
-      "reviewCount": 11
+      "reviewLocalGeneratedAt": "2026-05-17T17:06:00.739822+00:00",
+      "reviewCount": 757
     },
     {
       "bookId": "237811588",
@@ -65,7 +105,7 @@
       "reviewLocalUrl": "./reviews/8554509688.html",
       "reviewLocalCoverUrl": "./reviews/covers/8554509688.jpg",
       "reviewDate": "2026-05-10",
-      "reviewLocalStatus": "ok",
+      "reviewLocalStatus": "error: The read operation timed out",
       "reviewLocalGeneratedAt": "2026-05-10T19:26:27.336896+00:00",
       "reviewCount": 932
     },
@@ -77,7 +117,7 @@
       "rating": 5,
       "reviewUrl": "https://www.goodreads.com/review/show/8534922230?utm_medium=api&utm_source=rss",
       "hasReview": true,
-      "reviewLikes": 4,
+      "reviewLikes": 10,
       "scrapeStatus": "ok",
       "drzrating": 100,
       "bookDetails": 0,
@@ -96,7 +136,7 @@
       "reviewLocalCoverUrl": "./reviews/covers/8534922230.jpg",
       "reviewDate": "2026-05-10",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-05-10T19:26:31.568629+00:00",
+      "reviewLocalGeneratedAt": "2026-05-17T17:05:36.569327+00:00",
       "reviewCount": 602
     },
     {
@@ -107,7 +147,7 @@
       "rating": 5,
       "reviewUrl": "https://www.goodreads.com/review/show/4419508543?utm_medium=api&utm_source=rss",
       "hasReview": true,
-      "reviewLikes": 4,
+      "reviewLikes": 5,
       "scrapeStatus": "ok",
       "drzrating": 88,
       "bookDetails": 1,
@@ -117,7 +157,7 @@
       "reviewLocalCoverUrl": "./reviews/covers/4419508543.jpg",
       "reviewDate": "2026-05-02",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-05-10T19:26:35.685866+00:00",
+      "reviewLocalGeneratedAt": "2026-05-17T17:06:05.143392+00:00",
       "reviewCount": 1465,
       "dcc_classes": {
         "800": "Literatura (800)"
@@ -140,7 +180,7 @@
       "rating": 5,
       "reviewUrl": "https://www.goodreads.com/review/show/8590116363?utm_medium=api&utm_source=rss",
       "hasReview": true,
-      "reviewLikes": 1,
+      "reviewLikes": 2,
       "scrapeStatus": "ok",
       "drzrating": 100,
       "bookDetails": 0,
@@ -149,7 +189,7 @@
       "reviewLocalCoverUrl": "./reviews/covers/8590116363.jpg",
       "reviewDate": "2026-05-10",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-05-10T19:26:25.321111+00:00",
+      "reviewLocalGeneratedAt": "2026-05-17T17:05:38.568358+00:00",
       "reviewCount": 350
     },
     {
@@ -307,7 +347,7 @@
       "reviewLocalCoverUrl": "./reviews/covers/8475668956.jpg",
       "reviewDate": "2026-05-01",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-05-10T19:26:37.633519+00:00",
+      "reviewLocalGeneratedAt": "2026-05-17T17:06:07.211829+00:00",
       "reviewCount": 667,
       "dcc_classes": {
         "100": "Filosofia y psicologia (100)",
@@ -678,7 +718,7 @@
       "reviewUrl": "https://www.goodreads.com/review/show/8378117757?utm_medium=api&utm_source=rss",
       "hasReview": false,
       "reviewLikes": 1,
-      "scrapeStatus": "ok",
+      "scrapeStatus": "error: The read operation timed out",
       "drzrating": -1,
       "bookDetails": 0,
       "dcc_classes": {
@@ -881,7 +921,7 @@
       "reviewLocalCoverUrl": "./reviews/covers/8246699782.jpg",
       "reviewDate": "2026-05-02",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-05-10T19:26:33.563627+00:00",
+      "reviewLocalGeneratedAt": "2026-05-17T17:06:02.957576+00:00",
       "reviewCount": 1255,
       "dcc_classes": {
         "900": "Historia y geografia (900)"
@@ -1079,7 +1119,7 @@
       "rating": 3,
       "reviewUrl": "https://www.goodreads.com/review/show/8233735772?utm_medium=api&utm_source=rss",
       "hasReview": false,
-      "reviewLikes": 1,
+      "reviewLikes": 2,
       "scrapeStatus": "ok",
       "drzrating": -1,
       "bookDetails": 0,
@@ -1142,7 +1182,7 @@
       "reviewUrl": "https://www.goodreads.com/review/show/3434036910?utm_medium=api&utm_source=rss",
       "hasReview": true,
       "reviewLikes": 4,
-      "scrapeStatus": "ok",
+      "scrapeStatus": "error: The read operation timed out",
       "reviewLocalUrl": "./reviews/3434036910.html",
       "reviewLocalCoverUrl": "./reviews/covers/3434036910.jpg",
       "reviewDate": "2026-01-01",
@@ -1351,7 +1391,7 @@
       "reviewUrl": "https://www.goodreads.com/review/show/8166067187?utm_medium=api&utm_source=rss",
       "hasReview": true,
       "reviewLikes": 1,
-      "scrapeStatus": "ok",
+      "scrapeStatus": "error: The read operation timed out",
       "reviewLocalUrl": "./reviews/8166067187.html",
       "reviewLocalCoverUrl": "./reviews/covers/8166067187.jpg",
       "reviewDate": "2026-01-11",
@@ -2476,7 +2516,7 @@
       "reviewUrl": "https://www.goodreads.com/review/show/5161184371?utm_medium=api&utm_source=rss",
       "hasReview": false,
       "reviewLikes": 1,
-      "scrapeStatus": "error: The read operation timed out",
+      "scrapeStatus": "ok",
       "drzrating": -1,
       "bookDetails": 1,
       "dcc_classes": {
@@ -3277,7 +3317,7 @@
       "rating": 5,
       "reviewUrl": "https://www.goodreads.com/review/show/7533853898?utm_medium=api&utm_source=rss",
       "hasReview": true,
-      "reviewLikes": 9,
+      "reviewLikes": 10,
       "scrapeStatus": "ok",
       "reviewLocalUrl": "./reviews/7533853898.html",
       "reviewLocalCoverUrl": "./reviews/covers/7533853898.jpg",
@@ -4698,7 +4738,7 @@
       "reviewUrl": "https://www.goodreads.com/review/show/7011785072?utm_medium=api&utm_source=rss",
       "hasReview": true,
       "reviewLikes": 1,
-      "scrapeStatus": "ok",
+      "scrapeStatus": "error: The read operation timed out",
       "reviewLocalUrl": "./reviews/7011785072.html",
       "reviewLocalCoverUrl": "./reviews/covers/7011785072.jpg",
       "reviewDate": "2024-12-18",
@@ -5004,7 +5044,7 @@
       "drzrating": 97,
       "bookDetails": 1,
       "dateAdded": "2024-01-05",
-      "reviewCount": 65,
+      "reviewCount": 60,
       "dcc_classes": {
         "800": "Literatura (800)"
       },
@@ -5092,7 +5132,7 @@
       "reviewUrl": "https://www.goodreads.com/review/show/6964428273?utm_medium=api&utm_source=rss",
       "hasReview": true,
       "reviewLikes": 6,
-      "scrapeStatus": "ok",
+      "scrapeStatus": "error: The read operation timed out",
       "reviewLocalUrl": "./reviews/6964428273.html",
       "reviewLocalCoverUrl": "./reviews/covers/6964428273.jpg",
       "reviewDate": "2024-10-29",
@@ -5420,7 +5460,7 @@
       "reviewUrl": "https://www.goodreads.com/review/show/6867656586?utm_medium=api&utm_source=rss",
       "hasReview": false,
       "reviewLikes": 5,
-      "scrapeStatus": "ok",
+      "scrapeStatus": "error: The read operation timed out",
       "drzrating": -1,
       "bookDetails": 1,
       "dcc_classes": {
@@ -6085,7 +6125,7 @@
       "drzrating": 95,
       "bookDetails": 1,
       "dateAdded": "2022-08-12",
-      "reviewCount": 54,
+      "reviewCount": 49,
       "dcc_classes": {
         "100": "Filosofia y psicologia (100)"
       },
@@ -6120,7 +6160,7 @@
       "reviewLocalLikesUpdatedAt": "2026-05-09T14:00:24.824386+00:00",
       "drzrating": 95,
       "bookDetails": 0,
-      "reviewCount": 126,
+      "reviewCount": 121,
       "dcc_classes": {
         "500": "Ciencias naturales y matematicas (500)"
       },
@@ -6152,7 +6192,7 @@
       "reviewLocalLikesUpdatedAt": "2026-05-09T14:00:24.824386+00:00",
       "drzrating": 94,
       "bookDetails": 0,
-      "reviewCount": 169,
+      "reviewCount": 164,
       "dcc_classes": {
         "500": "Ciencias naturales y matematicas (500)"
       },
@@ -6252,7 +6292,7 @@
       "drzrating": 92,
       "bookDetails": 1,
       "dateAdded": "2023-11-10",
-      "reviewCount": 129,
+      "reviewCount": 124,
       "dcc_classes": {
         "500": "Ciencias naturales y matematicas (500)"
       },
@@ -6286,7 +6326,7 @@
       "drzrating": 97,
       "bookDetails": 1,
       "dateAdded": "2024-06-10",
-      "reviewCount": 156,
+      "reviewCount": 151,
       "dcc_classes": {
         "500": "Ciencias naturales y matematicas (500)"
       },
@@ -7961,7 +8001,7 @@
       "drzrating": 98,
       "bookDetails": 1,
       "dateAdded": "2023-11-06",
-      "reviewCount": 111,
+      "reviewCount": 106,
       "dcc_classes": {
         "100": "Filosofia y psicologia (100)",
         "900": "Historia y geografia (900)"
@@ -8030,7 +8070,7 @@
       "drzrating": 95,
       "bookDetails": 1,
       "dateAdded": "2021-01-01",
-      "reviewCount": 72,
+      "reviewCount": 67,
       "dcc_classes": {
         "800": "Literatura (800)"
       },
@@ -8064,7 +8104,7 @@
       "reviewLocalLikesUpdatedAt": "2026-05-09T14:00:24.824386+00:00",
       "drzrating": 87,
       "bookDetails": 0,
-      "reviewCount": 76,
+      "reviewCount": 71,
       "dcc_classes": {
         "900": "Historia y geografia (900)"
       },
@@ -8097,7 +8137,7 @@
       "drzrating": 99,
       "bookDetails": 1,
       "dateAdded": "2023-05-20",
-      "reviewCount": 116,
+      "reviewCount": 111,
       "dcc_classes": {
         "800": "Literatura (800)"
       },
@@ -8132,7 +8172,7 @@
       "drzrating": 98,
       "bookDetails": 1,
       "dateAdded": "2023-08-26",
-      "reviewCount": 69,
+      "reviewCount": 64,
       "dcc_classes": {
         "500": "Ciencias naturales y matematicas (500)"
       },
@@ -8439,7 +8479,7 @@
       "drzrating": 96,
       "bookDetails": 1,
       "dateAdded": "2023-08-18",
-      "reviewCount": 43,
+      "reviewCount": 38,
       "dcc_classes": {
         "800": "Literatura (800)"
       },
@@ -9484,7 +9524,7 @@
       "scrapeStatus": "ok",
       "reviewLocalUrl": "./reviews/5395713632.html",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-05-10T19:26:39.851361+00:00",
+      "reviewLocalGeneratedAt": "2026-05-17T17:06:09.395546+00:00",
       "reviewLocalCoverUrl": "./reviews/covers/5395713632.jpg",
       "reviewDate": "2026-04-25",
       "reviewLocalLikes": 0,
@@ -9683,7 +9723,7 @@
       "reviewUrl": "https://www.goodreads.com/review/show/5232198427?utm_medium=api&utm_source=rss",
       "hasReview": true,
       "reviewLikes": 3,
-      "scrapeStatus": "error: The read operation timed out",
+      "scrapeStatus": "ok",
       "reviewLocalUrl": "./reviews/5232198427.html",
       "reviewLocalStatus": "ok",
       "reviewLocalGeneratedAt": "2026-04-25T19:05:09.277519+00:00",
@@ -10259,7 +10299,7 @@
       "drzrating": 95,
       "bookDetails": 1,
       "dateAdded": "2022-12-15",
-      "reviewCount": 56,
+      "reviewCount": 51,
       "dcc_classes": {
         "500": "Ciencias naturales y matematicas (500)"
       },
@@ -10326,7 +10366,7 @@
       "drzrating": 94,
       "bookDetails": 1,
       "dateAdded": "2022-10-21",
-      "reviewCount": 98,
+      "reviewCount": 93,
       "dcc_classes": {
         "800": "Literatura (800)",
         "700": "Artes y recreacion (700)"
@@ -10427,7 +10467,7 @@
       "reviewLocalLikesUpdatedAt": "2026-05-09T14:00:24.824386+00:00",
       "drzrating": 98,
       "bookDetails": 1,
-      "reviewCount": 88,
+      "reviewCount": 83,
       "dcc_classes": {
         "900": "Historia y geografia (900)"
       },
@@ -10464,7 +10504,7 @@
       "drzrating": 96,
       "bookDetails": 1,
       "dateAdded": "2022-12-28",
-      "reviewCount": 40,
+      "reviewCount": 35,
       "dcc_classes": {
         "800": "Literatura (800)"
       },
@@ -10499,7 +10539,7 @@
       "drzrating": 87,
       "bookDetails": 1,
       "dateAdded": "2022-03-08",
-      "reviewCount": 50,
+      "reviewCount": 45,
       "dcc_classes": {
         "800": "Literatura (800)"
       },
@@ -10773,7 +10813,7 @@
       "reviewLocalLikesUpdatedAt": "2026-05-09T14:00:24.824386+00:00",
       "drzrating": 94,
       "bookDetails": 0,
-      "reviewCount": 104,
+      "reviewCount": 99,
       "dcc_classes": {
         "300": "Ciencias sociales (300)"
       },
@@ -11179,7 +11219,7 @@
       "reviewLocalLikesUpdatedAt": "2026-05-09T14:00:24.824386+00:00",
       "drzrating": 96,
       "bookDetails": 1,
-      "reviewCount": 173,
+      "reviewCount": 168,
       "dcc_classes": {
         "500": "Ciencias naturales y matematicas (500)"
       },
@@ -11930,7 +11970,7 @@
       "reviewLocalLikesUpdatedAt": "2026-05-09T14:00:24.824386+00:00",
       "drzrating": 96,
       "bookDetails": 1,
-      "reviewCount": 39,
+      "reviewCount": 34,
       "dcc_classes": {
         "500": "Ciencias naturales y matematicas (500)"
       },
@@ -12796,7 +12836,7 @@
       "reviewUrl": "https://www.goodreads.com/review/show/4438097663?utm_medium=api&utm_source=rss",
       "hasReview": true,
       "reviewLikes": 1,
-      "scrapeStatus": "error: The read operation timed out",
+      "scrapeStatus": "ok",
       "reviewLocalUrl": "./reviews/4438097663.html",
       "reviewLocalCoverUrl": "./reviews/covers/4438097663.jpg",
       "reviewDate": "2024-08-22",
@@ -12911,7 +12951,7 @@
       "drzrating": 95,
       "bookDetails": 1,
       "dateAdded": "2021-12-18",
-      "reviewCount": 115,
+      "reviewCount": 110,
       "dcc_classes": {
         "800": "Literatura (800)"
       },
@@ -13074,7 +13114,7 @@
       "reviewUrl": "https://www.goodreads.com/review/show/4387505341?utm_medium=api&utm_source=rss",
       "hasReview": true,
       "reviewLikes": 4,
-      "scrapeStatus": "ok",
+      "scrapeStatus": "error: The read operation timed out",
       "reviewLocalUrl": "./reviews/4387505341.html",
       "reviewLocalStatus": "ok",
       "reviewLocalGeneratedAt": "2026-04-25T19:12:17.170153+00:00",
@@ -13280,7 +13320,7 @@
       "reviewUrl": "https://www.goodreads.com/review/show/4348577041?utm_medium=api&utm_source=rss",
       "hasReview": true,
       "reviewLikes": 9,
-      "scrapeStatus": "ok",
+      "scrapeStatus": "error: The read operation timed out",
       "reviewLocalUrl": "./reviews/4348577041.html",
       "reviewLocalStatus": "ok",
       "reviewLocalGeneratedAt": "2026-04-25T19:11:12.952456+00:00",
@@ -13352,7 +13392,7 @@
       "reviewUrl": "https://www.goodreads.com/review/show/4225171146?utm_medium=api&utm_source=rss",
       "hasReview": true,
       "reviewLikes": 5,
-      "scrapeStatus": "error: The read operation timed out",
+      "scrapeStatus": "ok",
       "reviewLocalUrl": "./reviews/4225171146.html",
       "reviewLocalStatus": "ok",
       "reviewLocalGeneratedAt": "2026-04-25T19:13:01.919251+00:00",
@@ -14215,7 +14255,7 @@
       "reviewUrl": "https://www.goodreads.com/review/show/4065542288?utm_medium=api&utm_source=rss",
       "hasReview": true,
       "reviewLikes": 9,
-      "scrapeStatus": "error: The read operation timed out",
+      "scrapeStatus": "ok",
       "reviewLocalUrl": "./reviews/4065542288.html",
       "reviewLocalCoverUrl": "./reviews/covers/4065542288.jpg",
       "reviewDate": "2021-06-28",
@@ -14624,7 +14664,7 @@
       "reviewUrl": "https://www.goodreads.com/review/show/3950584801?utm_medium=api&utm_source=rss",
       "hasReview": true,
       "reviewLikes": 15,
-      "scrapeStatus": "ok",
+      "scrapeStatus": "error: The read operation timed out",
       "reviewLocalUrl": "./reviews/3950584801.html",
       "reviewLocalStatus": "ok",
       "reviewLocalGeneratedAt": "2026-04-25T19:16:36.533298+00:00",
@@ -15036,7 +15076,7 @@
       "reviewUrl": "https://www.goodreads.com/review/show/3782410802?utm_medium=api&utm_source=rss",
       "hasReview": true,
       "reviewLikes": 24,
-      "scrapeStatus": "ok",
+      "scrapeStatus": "error: The read operation timed out",
       "reviewLocalUrl": "./reviews/3782410802.html",
       "reviewLocalStatus": "ok",
       "reviewLocalGeneratedAt": "2026-04-25T19:01:43.924276+00:00",
@@ -15471,7 +15511,7 @@
       "reviewUrl": "https://www.goodreads.com/review/show/3655137654?utm_medium=api&utm_source=rss",
       "hasReview": true,
       "reviewLikes": 6,
-      "scrapeStatus": "error: The read operation timed out",
+      "scrapeStatus": "ok",
       "reviewLocalUrl": "./reviews/3655137654.html",
       "reviewLocalStatus": "ok",
       "reviewLocalGeneratedAt": "2026-04-25T19:18:26.110357+00:00",
@@ -17529,7 +17569,7 @@
       "reviewUrl": "https://www.goodreads.com/review/show/3090803599?utm_medium=api&utm_source=rss",
       "hasReview": true,
       "reviewLikes": 18,
-      "scrapeStatus": "ok",
+      "scrapeStatus": "error: The read operation timed out",
       "reviewLocalUrl": "./reviews/3090803599.html",
       "reviewLocalStatus": "ok",
       "reviewLocalGeneratedAt": "2026-04-25T19:25:58.126993+00:00",
@@ -18039,7 +18079,7 @@
       "reviewUrl": "https://www.goodreads.com/review/show/3011377565?utm_medium=api&utm_source=rss",
       "hasReview": true,
       "reviewLikes": 1,
-      "scrapeStatus": "ok",
+      "scrapeStatus": "error: The read operation timed out",
       "reviewLocalUrl": "./reviews/3011377565.html",
       "reviewLocalStatus": "ok",
       "reviewLocalGeneratedAt": "2026-04-25T19:29:03.580804+00:00",
