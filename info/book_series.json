@@ -147,6 +147,36 @@
       ]
     },
     {
+      "name": "Robert Langdon",
+      "author": "Dan Brown",
+      "latestDateRead": "2026-05-09",
+      "books": [
+        {
+          "libraryBookId": "232453948",
+          "title": "El último secreto (Robert Langdon, #6)"
+        }
+      ]
+    },
+    {
+      "name": "Ursúa",
+      "author": "William Ospina",
+      "latestDateRead": "2020-11-01",
+      "books": [
+        {
+          "libraryBookId": "24377137",
+          "title": "Ursúa"
+        },
+        {
+          "libraryBookId": "6150922",
+          "title": "El país de la canela"
+        },
+        {
+          "libraryBookId": "17230085",
+          "title": "La serpiente sin ojos"
+        }
+      ]
+    },
+    {
       "name": "Kingsbridge",
       "author": "Ken Follett",
       "latestDateRead": "2024-01-09",
@@ -383,6 +413,33 @@
       ]
     },
     {
+      "name": "Ensayos de William Ospina",
+      "author": "William Ospina",
+      "latestDateRead": "2025-12-18",
+      "books": [
+        {
+          "libraryBookId": "25377233",
+          "title": "La escuela de la noche (Spanish Edition)"
+        },
+        {
+          "libraryBookId": "18333591",
+          "title": "La lámpara maravillosa"
+        },
+        {
+          "libraryBookId": "213130133",
+          "title": "Donde crece el peligro"
+        },
+        {
+          "libraryBookId": "4771608",
+          "title": "Es tarde para el hombre (Literatura y ensayo) (Spanish Edition)"
+        },
+        {
+          "libraryBookId": "25785264",
+          "title": "En busca de Bolivar (Spanish Edition)"
+        }
+      ]
+    },
+    {
       "name": "Divulgación médica de Siddhartha Mukherjee",
       "author": "Siddhartha Mukherjee",
       "latestDateRead": "2026-01-08",
@@ -394,6 +451,21 @@
         {
           "libraryBookId": "122941880",
           "title": "La armonía de las células: Una exploración de la medicina y del nuevo ser humano"
+        }
+      ]
+    },
+    {
+      "name": "Libros de Dava Sobel",
+      "author": "Dava Sobel",
+      "latestDateRead": "2025-04-15",
+      "books": [
+        {
+          "libraryBookId": "9859056",
+          "title": "Longitud: la verdadera historia de un genio solitario que resolvió el mayor problema científico de su tiempo"
+        },
+        {
+          "libraryBookId": "33280679",
+          "title": "The Glass Universe: The Hidden History of the Women Who Took the Measure of the Stars"
         }
       ]
     },

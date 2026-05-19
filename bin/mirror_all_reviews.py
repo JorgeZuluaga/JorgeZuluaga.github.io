@@ -9,6 +9,7 @@ Para insertar solo el menú en mirrors antiguos: ``python3 update/deprecated-bin
 from __future__ import annotations
 
 import argparse
+import html
 import json
 import re
 from collections import Counter
@@ -26,8 +27,10 @@ from mirror_first_review import (
     extract_review_id,
     get_bytes,
     get_url,
+    is_disallowed_share_url,
+    is_shortened_share_url,
     is_signin_page,
-    shorten_url_isgd,
+    resolve_share_url,
 )
 from review_word_count import apply_review_counts_to_books
 
@@ -107,14 +110,38 @@ def sort_books_latest_first(books: list[dict]) -> list[dict]:
     return sorted(books, key=key, reverse=True)
 
 
+def _extract_share_url_meta(html_text: str) -> str:
+    match = re.search(
+        r'<meta\s+name="share-url"\s+content="([^"]*)"',
+        html_text,
+        flags=re.IGNORECASE,
+    )
+    return match.group(1).strip() if match else ""
+
+
 def _patch_review_html_share(html_text: str, share_url: str) -> str:
     """Inject meta share-url + share button into an existing reviews/*.html.
 
     Designed to be idempotent and not touch the review body.
     """
+    share_url = (share_url or "").strip()
+    if not share_url.startswith(("http://", "https://")):
+        return html_text
+
+    safe_share = html.escape(share_url, quote=True)
     updated = html_text
-    if 'meta name="share-url"' not in updated and share_url:
-        meta_line = f'  <meta name="share-url" content="{share_url}" />\n'
+    if 'meta name="share-url"' in updated:
+        updated2, n = re.subn(
+            r'<meta\s+name="share-url"\s+content="[^"]*"\s*/>',
+            f'<meta name="share-url" content="{safe_share}" />',
+            updated,
+            count=1,
+            flags=re.IGNORECASE,
+        )
+        if n:
+            updated = updated2
+    else:
+        meta_line = f'  <meta name="share-url" content="{safe_share}" />\n'
         # Insert right after the color-scheme meta (present on all generated review pages).
         updated2, n = re.subn(
             r'(\n  <meta name="color-scheme"[^>]*>\n)',
@@ -251,11 +278,16 @@ def main() -> int:
         already_mirrored = existing_local.exists() and bool(book.get("reviewLocalStatus") == "ok")
 
         review_page_url = f"{site_base_url}/reviews/{review_id}.html"
-        share_url = (share_cache.get(review_page_url) or "").strip()
-        if not share_url:
-            share_url = shorten_url_isgd(review_page_url)
-            if share_url:
-                share_cache[review_page_url] = share_url
+        cached_share = (share_cache.get(review_page_url) or "").strip()
+        if is_disallowed_share_url(cached_share):
+            cached_share = ""
+        share_url = resolve_share_url(review_page_url, cached_share)
+        if is_shortened_share_url(share_url):
+            share_cache[review_page_url] = share_url
+        elif review_page_url in share_cache and is_disallowed_share_url(
+            share_cache.get(review_page_url, "")
+        ):
+            del share_cache[review_page_url]
 
         if args.patch_share_only:
             target_file = out_file if out_file.exists() else existing_local
@@ -265,7 +297,23 @@ def main() -> int:
                 continue
             try:
                 original = target_file.read_text(encoding="utf-8")
-                patched = _patch_review_html_share(original, share_url=share_url)
+                existing_meta = _extract_share_url_meta(original)
+                patch_share_url = share_url
+                if not is_shortened_share_url(patch_share_url) and is_disallowed_share_url(
+                    existing_meta
+                ):
+                    patch_share_url = review_page_url
+                if (
+                    not is_shortened_share_url(patch_share_url)
+                    and patch_share_url == existing_meta
+                ):
+                    skipped += 1
+                    print(
+                        f"[{idx}/{total}] OK   | {title} | (sin enlace corto is.gd/v.gd)",
+                        flush=True,
+                    )
+                    continue
+                patched = _patch_review_html_share(original, share_url=patch_share_url)
                 if patched != original:
                     target_file.write_text(patched, encoding="utf-8")
                     mirrored += 1

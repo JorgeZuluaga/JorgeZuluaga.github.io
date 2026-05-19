@@ -11,7 +11,7 @@
 	reviews-first reviews-all reviews-force reviews-refresh reviews-fix reviews-enrich reviews-enrich-dry \
 	library-review-counts \
 	library-details-import library-details-match library-details-sync \
-	library-bookbuddy-update library-bookbuddy-covers library-stub-dcc-details library-cross-ref-report \
+	library-bookbuddy-update library-bookbuddy-covers bookbuddy-missing library-stub-dcc-details library-cross-ref-report \
 	library-ddc-update library-ddc-generate-pending library-ddc-apply-gemini \
 	sync-dcc-library-details \
 	update-all-books \
@@ -23,6 +23,9 @@ LIBRARY_JSON ?= info/library.json
 LIBRARY_STATS_JSON ?= info/library-stats.json
 LIBRARY_DETAILS_JSON ?= info/library-details.json
 BOOKBUDDY_CSV ?= info/bookbuddy.csv
+BOOKBUDDY_MISSING_MD ?= update/library-not-in-bookbuddy.md
+BOOKBUDDY_MISSING_PDF ?= update/library-not-in-bookbuddy.pdf
+BOOKBUDDY_MISSING_PDF_MARGIN ?= 0.35in
 # Por defecto: una línea en cada archivo (sin commit; .secrets/ está en .gitignore).
 RSS_URL ?= $(shell cat .secrets/rss 2>/dev/null | tr -d '\r\n')
 COOKIE ?= $(shell cat .secrets/cookie 2>/dev/null | tr -d '\r\n')
@@ -45,6 +48,7 @@ help:
 	@echo "  make library-daily-goodreads      - Script diario: likes + últimas reseñas + stats"
 	@echo "  make library-bookbuddy-update     - Import CSV + stub dcc_classes + match bookIds"
 	@echo "  make library-bookbuddy-covers     - Portadas desde info/bookbuddy.htm (fallback: update/bookbuddy.htm)"
+	@echo "  make bookbuddy-missing             - Lista Goodreads sin BookBuddy → $(BOOKBUDDY_MISSING_MD) + PDF"
 	@echo "  make library-drzrating-gemini-export - Exporta pendientes+contexto DrZ para Gemini"
 	@echo "  make library-drzrating-gemini-apply  - Aplica DrZRating desde JSON de Gemini"
 	@echo "  make library-cross-ref-report     - Informe cruces → update/cross-reference-report.md"
@@ -348,6 +352,18 @@ library-stub-dcc-details:
 library-bookbuddy-covers:
 	@python3 bin/extract_bookbuddy_embedded_covers.py \
 		--output-dir "$${OUTPUT_DIR:-antilibrary/covers}"
+
+# Libros en library.json cuyo bookId no está en library-details (para añadir en BookBuddy a mano).
+bookbuddy-missing:
+	@echo ">>> bookbuddy-missing → $(BOOKBUDDY_MISSING_MD) + $(BOOKBUDDY_MISSING_PDF)"
+	@python3 bin/list_library_not_in_bookbuddy.py \
+		--library-json "$(LIBRARY_JSON)" \
+		--library-details-json "$(LIBRARY_DETAILS_JSON)" \
+		--output "$(BOOKBUDDY_MISSING_MD)"
+	@command -v pandoc >/dev/null 2>&1 || { echo "Error: pandoc no está instalado (necesario para el PDF)."; exit 1; }
+	@pandoc "$(BOOKBUDDY_MISSING_MD)" -o "$(BOOKBUDDY_MISSING_PDF)" \
+		-V geometry:"margin=$(BOOKBUDDY_MISSING_PDF_MARGIN)" \
+		-V fontsize=9pt
 
 # E: Informe markdown para revisar cruces antes/después de match_library_details_bookids.
 library-cross-ref-report:

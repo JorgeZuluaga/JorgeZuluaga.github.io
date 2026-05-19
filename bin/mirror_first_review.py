@@ -12,6 +12,8 @@ from datetime import datetime, timezone
 from pathlib import Path
 from urllib.parse import parse_qsl, quote, urlencode, urlparse, urlunparse
 from urllib.request import Request, urlopen
+
+SHORTENER_HOSTS = frozenset({"is.gd", "v.gd"})
 import xml.etree.ElementTree as ET
 
 from review_word_count import count_words_in_review_html_file
@@ -143,33 +145,100 @@ def canonical_review_url(value: str) -> str:
     return value.split("?", 1)[0].strip()
 
 
-def shorten_url_isgd(long_url: str, timeout: int = 20) -> str:
-    """Create is.gd short URL for a public URL.
+def is_shortened_share_url(url: str) -> bool:
+    """True if ``url`` is an is.gd / v.gd short link."""
+    value = (url or "").strip()
+    if not value.startswith(("http://", "https://")):
+        return False
+    host = (urlparse(value).netloc or "").lower()
+    return host in SHORTENER_HOSTS
 
-    is.gd may return 403 for python urllib; curl with a browser UA is reliable.
-    Falls back to the original URL if shortening fails.
-    """
-    url = (long_url or "").strip()
-    if not url:
-        return url
-    if url.startswith("https://is.gd/") or url.startswith("http://is.gd/"):
-        return url
 
-    api_url = f"https://is.gd/create.php?format=simple&url={quote(url, safe='')}"
+def is_disallowed_share_url(url: str) -> bool:
+    """Enlaces de acortadores que ya no usamos (p. ej. tinyurl de una corrida anterior)."""
+    host = (urlparse((url or "").strip()).netloc or "").lower()
+    return "tinyurl" in host or "cleanuri" in host
+
+
+def _http_get_text(url: str, timeout: int = 20) -> str:
     try:
         proc = subprocess.run(
-            ["curl", "-A", USER_AGENT, "-fsS", api_url],
+            ["curl", "-A", USER_AGENT, "-fsS", url],
             check=True,
             capture_output=True,
             text=True,
             timeout=timeout,
         )
-        short = (proc.stdout or "").strip()
-        if short.startswith("http://") or short.startswith("https://"):
-            return short
-        return url
+        return (proc.stdout or "").strip()
     except Exception:
+        pass
+    try:
+        req = Request(url, headers={"User-Agent": USER_AGENT})
+        with urlopen(req, timeout=timeout) as resp:
+            return resp.read().decode("utf-8", errors="replace").strip()
+    except Exception:
+        return ""
+
+
+def _parse_http_short_url(body: str) -> str:
+    text = (body or "").strip()
+    if not text or text.lower().startswith("error"):
+        return ""
+    if text.startswith("http://") or text.startswith("https://"):
+        candidate = text.splitlines()[0].strip()
+        return candidate if is_shortened_share_url(candidate) else ""
+    try:
+        data = json.loads(text)
+    except json.JSONDecodeError:
+        return ""
+    if isinstance(data, dict):
+        for key in ("shorturl", "short_url", "result_url", "url"):
+            value = str(data.get(key) or "").strip()
+            if is_shortened_share_url(value):
+                return value
+    return ""
+
+
+def _shorten_via_gd(host: str, long_url: str, timeout: int = 20) -> str:
+    api_url = f"https://{host}/create.php?format=simple&url={quote(long_url, safe='')}"
+    return _parse_http_short_url(_http_get_text(api_url, timeout=timeout))
+
+
+def _shorten_via_isgd(long_url: str, timeout: int = 20) -> str:
+    return _shorten_via_gd("is.gd", long_url, timeout=timeout)
+
+
+def _shorten_via_vgd(long_url: str, timeout: int = 20) -> str:
+    return _shorten_via_gd("v.gd", long_url, timeout=timeout)
+
+
+def shorten_share_url(long_url: str, timeout: int = 20) -> str:
+    """Acorta la URL pública de una reseña (is.gd, con respaldo en v.gd)."""
+    url = (long_url or "").strip()
+    if not url or is_shortened_share_url(url):
         return url
+    for shorten in (_shorten_via_isgd, _shorten_via_vgd):
+        short = shorten(url, timeout=timeout)
+        if short:
+            return short
+    return url
+
+
+def shorten_url_isgd(long_url: str, timeout: int = 20) -> str:
+    """Alias histórico: is.gd con respaldo en v.gd."""
+    return shorten_share_url(long_url, timeout=timeout)
+
+
+def resolve_share_url(review_page_url: str, share_url: str = "") -> str:
+    """Devuelve un enlace corto para compartir; no devuelve la URL larga si puede acortar."""
+    page = (review_page_url or "").strip()
+    cached = (share_url or "").strip()
+    if is_shortened_share_url(cached):
+        return cached
+    if not page:
+        return cached
+    shortened = shorten_share_url(page)
+    return shortened if is_shortened_share_url(shortened) else page
 
 
 def extract_review_text_from_description(description_html: str) -> str:
@@ -273,7 +342,7 @@ def build_local_page(
     safe_og_image_url = html.escape(og_image_url)
     og_description = f"Reseña de {safe_book} por Jorge I. Zuluaga"
 
-    share_url = (share_url or "").strip() or shorten_url_isgd(review_page_url)
+    share_url = resolve_share_url(review_page_url, share_url)
     safe_share_url = html.escape(share_url) if share_url else ""
     share_meta = f'  <meta name="share-url" content="{safe_share_url}" />\n' if safe_share_url else ""
 

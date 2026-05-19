@@ -797,8 +797,8 @@ async function main() {
   const reviewedGr = booksReadForGrStats.filter((b) => hasReview(b));
 
   const rows = computeYearlyReads(readBooks);
-  const latestRead = [...readBooks]
-    .filter((b) => b._date)
+  const latestReadNoReview = [...readBooks]
+    .filter((b) => b._date && !hasReview(b))
     .sort((a, b) => b._date - a._date)
     .slice(0, 20);
   const reviewed = readBooks.filter((b) => hasReview(b));
@@ -885,7 +885,19 @@ async function main() {
   }
 
   chartEl.replaceChildren(frag);
-  addListToggleControls(latestReadEl, latestRead, lang, seriesMap, {
+  addListToggleControls(latestReviewedEl, latestReviewsWritten, lang, seriesMap, {
+    initialCount: 5,
+    expandedCount: 20,
+    showMoreKey: "library_show_latest_20",
+    showLessKey: "library_show_latest_5",
+    includeAllBooksLink: true,
+    renderOptions: {
+      ...listRenderOpts,
+      dateLabelKey: "library_review_date",
+      dateValueSelector: (item) => item.reviewDate || "",
+    },
+  });
+  addListToggleControls(latestReadEl, latestReadNoReview, lang, seriesMap, {
     initialCount: 5,
     showMoreKey: "library_show_latest_20",
     showLessKey: "library_show_latest_5",
@@ -898,18 +910,6 @@ async function main() {
     showLessKey: "library_show_latest_5",
     includeAllBooksLink: true,
     renderOptions: listRenderOpts,
-  });
-  addListToggleControls(latestReviewedEl, latestReviewsWritten, lang, seriesMap, {
-    initialCount: 5,
-    expandedCount: 20,
-    showMoreKey: "library_show_latest_20",
-    showLessKey: "library_show_latest_5",
-    includeAllBooksLink: true,
-    renderOptions: {
-      ...listRenderOpts,
-      dateLabelKey: "library_review_date",
-      dateValueSelector: (item) => item.reviewDate || "",
-    },
   });
   addListToggleControls(top50El, topFavorite, lang, seriesMap, {
     initialCount: 5,
