@@ -1,11 +1,11 @@
 .PHONY: \
-	help start dev stop \
+	help status start dev stop \
 	classroom \
 	library-build \
 	library-goodreads-likes library-goodreads-books-only library-goodreads-reviews-latest \
 	library-daily-goodreads \
 	library-update library-stats library-refresh library-local-likes-sync visitor-logs-sync library-antibiblioteca-sync \
-	notebooklm-reviews-export \
+	notebooklm-reviews-export reviews-todas \
 	antilibrary-covers-fetch \
 	antilibrary-covers-extract-html \
 	reviews-first reviews-all reviews-force reviews-refresh reviews-fix reviews-enrich reviews-enrich-dry \
@@ -34,6 +34,7 @@ RSS_PAGES ?= 100
 REVIEW_RSS_PAGES ?= 100
 FORCE ?= 0
 SITE_BASE_URL ?= https://jorgezuluaga.github.io
+REVIEWS_TODAS_MD ?= reviews/todas.md
 VISITOR_WORKER_BASE ?= https://visitor-log-worker.jorgezuluaga.workers.dev
 BATCH_SIZE ?= 50
 GEMINI_CLASSIFICATION_FILES ?= update/books-to-classify/gemini-code-*.json
@@ -46,6 +47,7 @@ help:
 	@echo "  make library-goodreads-books-only - Solo libros nuevos desde RSS (sin likes; preserva titles)"
 	@echo "  make library-goodreads-reviews-latest - Últimas ~10 reseñas en reviews/"
 	@echo "  make library-daily-goodreads      - Script diario: likes + últimas reseñas + stats"
+	@echo "  make status                       - Últimas corridas del sync automático (launchd)"
 	@echo "  make library-bookbuddy-update     - Import CSV + stub dcc_classes + match bookIds"
 	@echo "  make library-bookbuddy-covers     - Portadas desde info/bookbuddy.htm (fallback: update/bookbuddy.htm)"
 	@echo "  make bookbuddy-missing             - Lista Goodreads sin BookBuddy → $(BOOKBUDDY_MISSING_MD) + PDF"
@@ -61,7 +63,7 @@ help:
 	@echo "Servidor / otros:"
 	@echo "  make start | dev | stop | classroom | worker-deploy"
 	@echo "  make visitor-logs-sync (LOG_READ_TOKEN) | library-local-likes-sync"
-	@echo "  make reviews-all | reviews-force | notebooklm-reviews-export | ..."
+	@echo "  make reviews-all | reviews-force | notebooklm-reviews-export | reviews-todas | ..."
 
 start:
 	@echo "Starting server on http://$(HOST):$(PORT)"
@@ -158,7 +160,11 @@ library-goodreads-reviews-latest:
 
 # A+B+C en un script (usa RSS_URL de library.json si no se exporta).
 library-daily-goodreads:
-	@bash bin/run_daily_goodreads_sync.sh
+	@SYNC_SOURCE=manual bash bin/run_daily_goodreads_sync.sh
+
+# Estado del job launchd, último sync exitoso, library.json y cambios sin publicar.
+status:
+	@python3 bin/report_sync_status.py
 
 # Incremental update:
 # FORCE=0 -> no likes scrape; only new books are added to library, existing metadata is preserved.
@@ -247,6 +253,14 @@ notebooklm-reviews-export:
 		--library-json "$(LIBRARY_JSON)" \
 		--output-dir "update/reviews" \
 		--chunk-size "$${CHUNK_SIZE:-5}"
+
+# Índice de enlaces a reseñas (NotebookLM / Gemini) → reviews/todas.md
+reviews-todas:
+	@echo ">>> reviews-todas → $(REVIEWS_TODAS_MD)"
+	@python3 bin/export_reviews_todas_md.py \
+		--library-json "$(LIBRARY_JSON)" \
+		--output "$(REVIEWS_TODAS_MD)" \
+		--site-base-url "$(SITE_BASE_URL)"
 
 antilibrary-covers-fetch:
 	@python3 bin/fetch_antilibrary_covers.py \

@@ -6,7 +6,9 @@ from __future__ import annotations
 import argparse
 import json
 import re
+import socket
 import sys
+import time
 from datetime import datetime, timezone
 from pathlib import Path
 from urllib.parse import parse_qsl, urlencode, urlparse, urlunparse
@@ -35,13 +37,42 @@ def progress_verbose(msg: str, *, verbose: bool = False) -> None:
     print(msg, flush=True)
 
 
-def get_url(url: str, cookie: str = "", timeout: int = 20) -> str:
+def get_url(
+    url: str,
+    cookie: str = "",
+    timeout: int = 30,
+    retries: int = 3,
+    retry_delay: float = 2.0,
+) -> str:
     headers = {"User-Agent": USER_AGENT}
     if cookie:
         headers["Cookie"] = cookie
     req = Request(url, headers=headers)
-    with urlopen(req, timeout=timeout) as resp:
-        return resp.read().decode("utf-8", errors="replace")
+    last_err: Exception | None = None
+    for attempt in range(1, max(1, retries) + 1):
+        try:
+            with urlopen(req, timeout=timeout) as resp:
+                return resp.read().decode("utf-8", errors="replace")
+        except (HTTPError, URLError, TimeoutError, socket.timeout) as err:
+            last_err = err
+            if attempt >= retries:
+                break
+            time.sleep(retry_delay * attempt)
+    assert last_err is not None
+    raise last_err
+
+
+def scrape_status_is_error(status: str) -> bool:
+    return str(status or "").startswith("error")
+
+
+def scrape_review_likes(entry: dict, *, cookie: str, quiet: bool) -> None:
+    try:
+        review_html = get_url(str(entry.get("reviewUrl") or ""), cookie=cookie)
+        entry["reviewLikes"] = extract_like_count(review_html)
+        entry["scrapeStatus"] = "ok"
+    except (HTTPError, URLError, TimeoutError, socket.timeout) as err:
+        entry["scrapeStatus"] = f"error: {err}"
 
 
 def parse_rss(rss_text: str) -> ET.Element:
@@ -327,21 +358,43 @@ def build_library_data(
         progress(f"[SCRAPE] Descargando {total} página(s) de reseña ({cookie_hint})…", quiet=quiet)
         for idx, entry in enumerate(scrape_queue, start=1):
             title_short = (entry.get("title") or "")[:72]
-            try:
-                review_html = get_url(entry["reviewUrl"], cookie=cookie)
-                entry["reviewLikes"] = extract_like_count(review_html)
-                entry["scrapeStatus"] = "ok"
-            except (HTTPError, URLError, TimeoutError) as err:
-                entry["scrapeStatus"] = f"error: {err}"
+            scrape_review_likes(entry, cookie=cookie, quiet=quiet)
             remaining = total - idx
             progress(
-                f"[SCRAPE] {idx}/{total} likes={entry['reviewLikes']} "
-                f"restan={remaining} | {title_short}",
+                f"[SCRAPE] {idx}/{total} likes={entry.get('reviewLikes', 0)} "
+                f"status={entry.get('scrapeStatus', '')} restan={remaining} | {title_short}",
                 quiet=quiet,
             )
             progress_verbose(
                 f"[SCRAPE] URL {entry.get('reviewUrl', '')[:100]}",
                 verbose=verbose,
+            )
+
+        failed = [e for e in scrape_queue if scrape_status_is_error(str(e.get("scrapeStatus") or ""))]
+        retry_round = 0
+        while failed and retry_round < 2:
+            retry_round += 1
+            progress(
+                f"[SCRAPE] Reintento {retry_round}/2 para {len(failed)} reseña(s) con error…",
+                quiet=quiet,
+            )
+            still_failed: list[dict] = []
+            for entry in failed:
+                scrape_review_likes(entry, cookie=cookie, quiet=quiet)
+                title_short = (entry.get("title") or "")[:72]
+                progress(
+                    f"[SCRAPE] retry{retry_round} likes={entry.get('reviewLikes', 0)} "
+                    f"status={entry.get('scrapeStatus', '')} | {title_short}",
+                    quiet=quiet,
+                )
+                if scrape_status_is_error(str(entry.get("scrapeStatus") or "")):
+                    still_failed.append(entry)
+            failed = still_failed
+
+        if failed:
+            progress(
+                f"[SCRAPE] Aviso: {len(failed)} reseña(s) siguen con error tras reintentos.",
+                quiet=quiet,
             )
     elif scrape_likes_mode != "none":
         progress("[SCRAPE] Sin reseñas que requieran scrape de likes.", quiet=quiet)

@@ -23,7 +23,7 @@
   </dict>
 
   <key>RunAtLoad</key>
-  <true/>
+  <false/>
 
   <key>StandardOutPath</key>
   <string>/Users/jzuluaga/dev/jorgezuluaga/.secrets/cv-data-sync.out.log</string>

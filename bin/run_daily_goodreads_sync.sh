@@ -26,24 +26,87 @@ fi
 export RSS_URL COOKIE
 RSS_PAGES="${RSS_PAGES:-100}"
 REVIEW_RSS_PAGES="${REVIEW_RSS_PAGES:-100}"
+SYNC_MAX_ATTEMPTS="${SYNC_MAX_ATTEMPTS:-3}"
+SYNC_RETRY_WAIT_SEC="${SYNC_RETRY_WAIT_SEC:-300}"
+SYNC_SOURCE="${SYNC_SOURCE:-manual}"
 
-echo "[daily-goodreads] RSS_URL cargado (${#RSS_URL} chars); cookie $([ -n "${COOKIE:-}" ] && echo sí || echo no)"
+utc_now() { date -u +"%Y-%m-%dT%H:%M:%SZ"; }
 
-echo ""
-echo "=== [1/4] library-goodreads-likes (RSS + scrape likes) ==="
-make library-goodreads-likes RSS_URL="$RSS_URL" RSS_PAGES="$RSS_PAGES" COOKIE="${COOKIE:-}"
+record_state() {
+  python3 bin/sync_state.py set "$@"
+}
 
-echo ""
-echo "=== [2/4] library-goodreads-reviews-latest (mirror ~10 reseñas) ==="
-make library-goodreads-reviews-latest COOKIE="${COOKIE:-}" REVIEW_RSS_PAGES="$REVIEW_RSS_PAGES"
+run_daily_once() {
+  echo "[daily-goodreads] RSS_URL cargado (${#RSS_URL} chars); cookie $([ -n "${COOKIE:-}" ] && echo sí || echo no)"
 
-echo ""
-echo "=== [3/4] library-stats ==="
-make library-stats
+  echo ""
+  echo "=== [1/4] library-goodreads-likes (RSS + scrape likes) ==="
+  make library-goodreads-likes RSS_URL="$RSS_URL" RSS_PAGES="$RSS_PAGES" COOKIE="${COOKIE:-}"
 
-echo ""
-echo "=== [4/4] library-drzrating-update ==="
-make library-drzrating-update
+  echo ""
+  echo "=== [2/4] library-goodreads-reviews-latest (mirror ~10 reseñas) ==="
+  make library-goodreads-reviews-latest COOKIE="${COOKIE:-}" REVIEW_RSS_PAGES="$REVIEW_RSS_PAGES"
 
-echo ""
-echo "[daily-goodreads] Completado."
+  echo ""
+  echo "=== [3/4] library-stats ==="
+  make library-stats
+
+  echo ""
+  echo "=== [4/4] library-drzrating-update ==="
+  make library-drzrating-update
+
+  echo ""
+  echo "[daily-goodreads] Completado."
+}
+
+FAIL_REASON=""
+FAIL_STEP=""
+
+on_fail() {
+  local step="$1"
+  local code="$2"
+  FAIL_STEP="$step"
+  FAIL_REASON="exit ${code} en ${step}"
+}
+
+attempt=1
+while [[ "$attempt" -le "$SYNC_MAX_ATTEMPTS" ]]; do
+  TS="$(utc_now)"
+  record_state \
+    "lastAttemptAt=${TS}" \
+    "lastAttemptSource=${SYNC_SOURCE}" \
+    "lastAttemptNumber=${attempt}" \
+    "lastAttemptMax=${SYNC_MAX_ATTEMPTS}"
+
+  echo ""
+  echo "[daily-goodreads] Intento ${attempt}/${SYNC_MAX_ATTEMPTS} (${SYNC_SOURCE}) — ${TS}"
+
+  if run_daily_once; then
+    record_state \
+      "lastDailyGoodreadsSuccessAt=${TS}" \
+      "lastFailureAt=" \
+      "lastFailureReason=" \
+      "lastFailureStep=" \
+      "consecutiveFailures=0"
+    exit 0
+  fi
+
+  code=$?
+  on_fail "daily-goodreads" "$code"
+  record_state \
+    "lastFailureAt=${TS}" \
+    "lastFailureReason=${FAIL_REASON}" \
+    "lastFailureStep=${FAIL_STEP}"
+
+  if [[ "$attempt" -ge "$SYNC_MAX_ATTEMPTS" ]]; then
+    prev_fail="$(python3 bin/sync_state.py get --key consecutiveFailures 2>/dev/null || echo 0)"
+    if [[ -z "$prev_fail" || ! "$prev_fail" =~ ^[0-9]+$ ]]; then prev_fail=0; fi
+    record_state "consecutiveFailures=$((prev_fail + 1))"
+    echo "[daily-goodreads] Falló tras ${SYNC_MAX_ATTEMPTS} intento(s)." >&2
+    exit "$code"
+  fi
+
+  echo "[daily-goodreads] Reintento en ${SYNC_RETRY_WAIT_SEC}s…" >&2
+  sleep "$SYNC_RETRY_WAIT_SEC"
+  attempt=$((attempt + 1))
+done
