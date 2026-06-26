@@ -1,11 +1,31 @@
 {
-  "generatedAt": "2026-06-25T16:43:41.640732+00:00",
+  "generatedAt": "2026-06-26T02:32:14.449025+00:00",
   "source": {
     "rssUrl": "https://www.goodreads.com/review/list_rss/91991657?key=kpN1wAHi2GZUUO7BHv1v3ZCOGhOk_QjljXSDnXSc3kA-lzU7&shelf=%23ALL%23",
     "scrapeLikes": true,
     "scrapeLikesMode": "all"
   },
   "books": [
+    {
+      "bookId": "35658293",
+      "title": "La guerra de Calibán (The Expanse, #2)",
+      "author": "James S.A. Corey",
+      "dateRead": "2026-06-25",
+      "rating": 5,
+      "reviewUrl": "https://www.goodreads.com/review/show/8709769014?utm_medium=api&utm_source=rss",
+      "hasReview": true,
+      "reviewLikes": 0,
+      "scrapeStatus": "ok",
+      "drzrating": 100,
+      "bookDetails": 0,
+      "matched": false,
+      "reviewLocalUrl": "./reviews/8709769014.html",
+      "reviewLocalCoverUrl": "./reviews/covers/8709769014.jpg",
+      "reviewDate": "2026-06-25",
+      "reviewLocalStatus": "ok",
+      "reviewLocalGeneratedAt": "2026-06-26T02:32:21.206482+00:00",
+      "reviewCount": 1798
+    },
     {
       "bookId": "30320792",
       "title": "El mundo clásico: Una breve introducción",
@@ -14,7 +34,7 @@
       "rating": 4,
       "reviewUrl": "https://www.goodreads.com/review/show/8708090412?utm_medium=api&utm_source=rss",
       "hasReview": true,
-      "reviewLikes": 0,
+      "reviewLikes": 3,
       "scrapeStatus": "ok",
       "drzrating": 100,
       "bookDetails": 0,
@@ -23,7 +43,7 @@
       "reviewLocalCoverUrl": "./reviews/covers/8708090412.jpg",
       "reviewDate": "2026-06-25",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-06-25T16:46:52.697164+00:00",
+      "reviewLocalGeneratedAt": "2026-06-26T02:32:28.832932+00:00",
       "reviewCount": 674,
       "reviewLocalLikes": 0,
       "reviewLocalLikesUpdatedAt": "2026-06-25T16:43:41.857084+00:00"
@@ -45,7 +65,7 @@
       "reviewLocalCoverUrl": "./reviews/covers/8705724576.jpg",
       "reviewDate": "2026-06-22",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-06-25T16:47:17.513267+00:00",
+      "reviewLocalGeneratedAt": "2026-06-26T02:32:38.342368+00:00",
       "reviewCount": 11,
       "reviewLocalLikes": 0,
       "reviewLocalLikesUpdatedAt": "2026-06-25T16:43:41.857084+00:00"
@@ -67,7 +87,7 @@
       "reviewLocalCoverUrl": "./reviews/covers/8681953506.jpg",
       "reviewDate": "2026-06-20",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-06-25T16:47:19.816407+00:00",
+      "reviewLocalGeneratedAt": "2026-06-26T02:32:40.817257+00:00",
       "reviewCount": 11,
       "reviewLocalLikes": 0,
       "reviewLocalLikesUpdatedAt": "2026-06-25T16:43:41.857084+00:00"
@@ -80,7 +100,7 @@
       "rating": 5,
       "reviewUrl": "https://www.goodreads.com/review/show/8628849214?utm_medium=api&utm_source=rss",
       "hasReview": true,
-      "reviewLikes": 3,
+      "reviewLikes": 4,
       "scrapeStatus": "ok",
       "drzrating": 100,
       "bookDetails": 0,
@@ -88,8 +108,8 @@
       "reviewLocalUrl": "./reviews/8628849214.html",
       "reviewLocalCoverUrl": "./reviews/covers/8628849214.jpg",
       "reviewDate": "2026-06-24",
-      "reviewLocalStatus": "error: The read operation timed out",
-      "reviewLocalGeneratedAt": "2026-06-25T16:24:44.354912+00:00",
+      "reviewLocalStatus": "ok",
+      "reviewLocalGeneratedAt": "2026-06-26T02:32:35.131646+00:00",
       "reviewCount": 471,
       "reviewLocalLikes": 0,
       "reviewLocalLikesUpdatedAt": "2026-06-25T16:43:41.857084+00:00"
@@ -111,7 +131,7 @@
       "reviewLocalCoverUrl": "./reviews/covers/8662109207.jpg",
       "reviewDate": "2026-06-24",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-06-25T16:46:54.963166+00:00",
+      "reviewLocalGeneratedAt": "2026-06-26T02:32:32.022427+00:00",
       "reviewCount": 402,
       "reviewLocalLikes": 0,
       "reviewLocalLikesUpdatedAt": "2026-06-25T16:43:41.857084+00:00"
@@ -133,7 +153,7 @@
       "reviewLocalCoverUrl": "./reviews/covers/2806126222.jpg",
       "reviewDate": "2026-06-25",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-06-25T16:46:50.687611+00:00",
+      "reviewLocalGeneratedAt": "2026-06-26T02:32:17.339431+00:00",
       "reviewCount": 992,
       "dateAdded": "2020-12-31",
       "reviewLocalLikes": 0,
@@ -156,7 +176,7 @@
       "reviewLocalCoverUrl": "./reviews/covers/8666574131.jpg",
       "reviewDate": "2026-06-08",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-06-25T16:47:22.760433+00:00",
+      "reviewLocalGeneratedAt": "2026-06-26T02:32:44.282589+00:00",
       "reviewCount": 11,
       "reviewLocalLikes": 0,
       "reviewLocalLikesUpdatedAt": "2026-06-25T16:43:41.857084+00:00"
@@ -178,7 +198,7 @@
       "reviewLocalCoverUrl": "./reviews/covers/8640936306.jpg",
       "reviewDate": "2026-06-04",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-06-25T16:47:25.029265+00:00",
+      "reviewLocalGeneratedAt": "2026-06-26T02:32:47.832915+00:00",
       "reviewCount": 160,
       "dateAdded": "2026-05-28",
       "reviewLocalLikes": 0,
@@ -201,7 +221,7 @@
       "reviewLocalCoverUrl": "./reviews/covers/8640936969.jpg",
       "reviewDate": "2026-06-01",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-06-25T16:47:28.185348+00:00",
+      "reviewLocalGeneratedAt": "2026-06-26T02:08:08.012996+00:00",
       "reviewCount": 11,
       "reviewLocalLikes": 0,
       "reviewLocalLikesUpdatedAt": "2026-06-25T16:43:41.857084+00:00"
@@ -221,10 +241,10 @@
       "matched": false,
       "reviewLocalUrl": "./reviews/8611043258.html",
       "reviewLocalCoverUrl": "./reviews/covers/8611043258.jpg",
-      "reviewDate": "2026-05-27",
+      "reviewDate": "2026-06-25",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-06-25T16:47:30.361662+00:00",
-      "reviewCount": 46,
+      "reviewLocalGeneratedAt": "2026-06-26T02:32:24.922413+00:00",
+      "reviewCount": 1798,
       "reviewLocalLikes": 0,
       "reviewLocalLikesUpdatedAt": "2026-06-25T16:43:41.857084+00:00"
     },
@@ -20407,14 +20427,5 @@
       "dateAdded": "2020-12-31",
       "matched": true
     }
-  ],
-  "localLikesSnapshot": {
-    "generatedAt": "2026-06-25T16:43:41.857084+00:00",
-    "workerBase": "https://visitor-log-worker.jorgezuluaga.workers.dev",
-    "reviewedBooks": 600,
-    "updatedBooks": 0,
-    "failedBooks": 0,
-    "failureReasons": {},
-    "mode": "exact"
-  }
+  ]
 }

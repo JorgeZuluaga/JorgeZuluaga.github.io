@@ -7,7 +7,7 @@
   "yearlyReads": [
     {
       "year": 2026,
-      "count": 49
+      "count": 50
     },
     {
       "year": 2025,
@@ -48,13 +48,31 @@
   ],
   "latestRead": [
     {
+      "bookId": "35658293",
+      "title": "La guerra de Calibán (The Expanse, #2)",
+      "author": "James S.A. Corey",
+      "dateRead": "2026-06-25",
+      "rating": 5,
+      "reviewUrl": "https://www.goodreads.com/review/show/8709769014?utm_medium=api&utm_source=rss",
+      "reviewLikes": 0,
+      "drzrating": -1,
+      "bookDetails": 0,
+      "matched": false,
+      "reviewLocalUrl": "./reviews/8709769014.html",
+      "reviewLocalCoverUrl": "./reviews/covers/8709769014.jpg",
+      "reviewDate": "2026-06-25",
+      "reviewLocalStatus": "ok",
+      "reviewLocalGeneratedAt": "2026-06-26T02:32:21.206482+00:00",
+      "reviewCount": 1798
+    },
+    {
       "bookId": "30320792",
       "title": "El mundo clásico: Una breve introducción",
       "author": "Mary Beard",
       "dateRead": "2026-06-23",
       "rating": 4,
       "reviewUrl": "https://www.goodreads.com/review/show/8708090412?utm_medium=api&utm_source=rss",
-      "reviewLikes": 0,
+      "reviewLikes": 3,
       "drzrating": 100,
       "bookDetails": 0,
       "matched": false,
@@ -62,8 +80,10 @@
       "reviewLocalCoverUrl": "./reviews/covers/8708090412.jpg",
       "reviewDate": "2026-06-25",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-06-25T16:24:39.512984+00:00",
-      "reviewCount": 674
+      "reviewLocalGeneratedAt": "2026-06-26T02:32:28.832932+00:00",
+      "reviewCount": 674,
+      "reviewLocalLikes": 0,
+      "reviewLocalLikesUpdatedAt": "2026-06-25T16:43:41.857084+00:00"
     },
     {
       "bookId": "242901061",
@@ -80,8 +100,10 @@
       "reviewLocalCoverUrl": "./reviews/covers/8705724576.jpg",
       "reviewDate": "2026-06-22",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-06-25T16:24:46.304828+00:00",
-      "reviewCount": 11
+      "reviewLocalGeneratedAt": "2026-06-26T02:32:38.342368+00:00",
+      "reviewCount": 11,
+      "reviewLocalLikes": 0,
+      "reviewLocalLikesUpdatedAt": "2026-06-25T16:43:41.857084+00:00"
     },
     {
       "bookId": "40542612",
@@ -98,8 +120,10 @@
       "reviewLocalCoverUrl": "./reviews/covers/8681953506.jpg",
       "reviewDate": "2026-06-20",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-06-25T16:24:49.022480+00:00",
-      "reviewCount": 11
+      "reviewLocalGeneratedAt": "2026-06-26T02:32:40.817257+00:00",
+      "reviewCount": 11,
+      "reviewLocalLikes": 0,
+      "reviewLocalLikesUpdatedAt": "2026-06-25T16:43:41.857084+00:00"
     },
     {
       "bookId": "249891440",
@@ -108,7 +132,7 @@
       "dateRead": "2026-06-17",
       "rating": 5,
       "reviewUrl": "https://www.goodreads.com/review/show/8628849214?utm_medium=api&utm_source=rss",
-      "reviewLikes": 3,
+      "reviewLikes": 4,
       "drzrating": 100,
       "bookDetails": 0,
       "matched": false,
@@ -116,26 +140,10 @@
       "reviewLocalCoverUrl": "./reviews/covers/8628849214.jpg",
       "reviewDate": "2026-06-24",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-06-25T16:24:44.354912+00:00",
-      "reviewCount": 471
-    },
-    {
-      "bookId": "25857483",
-      "title": "El castillo blanco",
-      "author": "Orhan Pamuk",
-      "dateRead": "2026-06-14",
-      "rating": 3,
-      "reviewUrl": "https://www.goodreads.com/review/show/8662109207?utm_medium=api&utm_source=rss",
-      "reviewLikes": 0,
-      "drzrating": 75,
-      "bookDetails": 0,
-      "matched": false,
-      "reviewLocalUrl": "./reviews/8662109207.html",
-      "reviewLocalCoverUrl": "./reviews/covers/8662109207.jpg",
-      "reviewDate": "2026-06-24",
-      "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-06-25T16:24:41.605227+00:00",
-      "reviewCount": 402
+      "reviewLocalGeneratedAt": "2026-06-26T02:32:35.131646+00:00",
+      "reviewCount": 471,
+      "reviewLocalLikes": 0,
+      "reviewLocalLikesUpdatedAt": "2026-06-25T16:43:41.857084+00:00"
     }
   ],
   "topReviewedByLikes": [
@@ -153,7 +161,7 @@
       "reviewLocalStatus": "ok",
       "reviewLocalGeneratedAt": "2026-04-25T18:55:49.231144+00:00",
       "reviewLocalLikes": 0,
-      "reviewLocalLikesUpdatedAt": "2026-05-09T14:00:24.824386+00:00",
+      "reviewLocalLikesUpdatedAt": "2026-06-25T16:43:41.857084+00:00",
       "drzrating": 87,
       "bookDetails": 1,
       "reviewCount": 91,
@@ -185,7 +193,7 @@
       "reviewLocalCoverUrl": "./reviews/covers/4232235817.jpg",
       "reviewDate": "2021-09-14",
       "reviewLocalLikes": 0,
-      "reviewLocalLikesUpdatedAt": "2026-05-09T14:00:24.824386+00:00",
+      "reviewLocalLikesUpdatedAt": "2026-06-25T16:43:41.857084+00:00",
       "drzrating": 100,
       "bookDetails": 1,
       "reviewCount": 1019,
@@ -219,8 +227,8 @@
       "reviewLocalGeneratedAt": "2026-04-25T18:58:02.986509+00:00",
       "reviewLocalCoverUrl": "./reviews/covers/6667355680.jpg",
       "reviewDate": "2024-07-20",
-      "reviewLocalLikes": 0,
-      "reviewLocalLikesUpdatedAt": "2026-05-09T14:00:24.824386+00:00",
+      "reviewLocalLikes": 1,
+      "reviewLocalLikesUpdatedAt": "2026-06-25T16:43:41.857084+00:00",
       "drzrating": 96,
       "bookDetails": 1,
       "dateAdded": "2023-07-07",
@@ -253,7 +261,7 @@
       "reviewLocalCoverUrl": "./reviews/covers/3063403087.jpg",
       "reviewDate": "2023-02-26",
       "reviewLocalLikes": 0,
-      "reviewLocalLikesUpdatedAt": "2026-05-09T14:00:24.824386+00:00",
+      "reviewLocalLikesUpdatedAt": "2026-06-25T16:43:41.857084+00:00",
       "drzrating": 100,
       "bookDetails": 1,
       "reviewCount": 526,
@@ -285,7 +293,7 @@
       "reviewLocalCoverUrl": "./reviews/covers/4664229801.jpg",
       "reviewDate": "2022-04-15",
       "reviewLocalLikes": 0,
-      "reviewLocalLikesUpdatedAt": "2026-05-09T14:00:24.824386+00:00",
+      "reviewLocalLikesUpdatedAt": "2026-06-25T16:43:41.857084+00:00",
       "drzrating": 98,
       "bookDetails": 1,
       "reviewCount": 955,
@@ -319,7 +327,7 @@
       "reviewLocalCoverUrl": "./reviews/covers/4278716233.jpg",
       "reviewDate": "2021-10-12",
       "reviewLocalLikes": 0,
-      "reviewLocalLikesUpdatedAt": "2026-05-09T14:00:24.824386+00:00",
+      "reviewLocalLikesUpdatedAt": "2026-06-25T16:43:41.857084+00:00",
       "drzrating": 99,
       "bookDetails": 1,
       "dateAdded": "2021-10-12",
@@ -351,7 +359,7 @@
       "reviewLocalCoverUrl": "./reviews/covers/3344914655.jpg",
       "reviewDate": "2020-07-03",
       "reviewLocalLikes": 0,
-      "reviewLocalLikesUpdatedAt": "2026-05-09T14:00:24.824386+00:00",
+      "reviewLocalLikesUpdatedAt": "2026-06-25T16:43:41.857084+00:00",
       "drzrating": 100,
       "bookDetails": 1,
       "dateAdded": "2020-12-31",
@@ -384,7 +392,7 @@
       "reviewLocalCoverUrl": "./reviews/covers/5469066244.jpg",
       "reviewDate": "2023-05-28",
       "reviewLocalLikes": 0,
-      "reviewLocalLikesUpdatedAt": "2026-05-09T14:00:24.824386+00:00",
+      "reviewLocalLikesUpdatedAt": "2026-06-25T16:43:41.857084+00:00",
       "drzrating": 100,
       "bookDetails": 0,
       "reviewCount": 1286,
@@ -414,7 +422,7 @@
       "reviewLocalCoverUrl": "./reviews/covers/3758441020.jpg",
       "reviewDate": "2023-06-21",
       "reviewLocalLikes": 0,
-      "reviewLocalLikesUpdatedAt": "2026-05-09T14:00:24.824386+00:00",
+      "reviewLocalLikesUpdatedAt": "2026-06-25T16:43:41.857084+00:00",
       "drzrating": 100,
       "bookDetails": 1,
       "dateAdded": "2021-01-04",
@@ -448,7 +456,7 @@
       "reviewLocalCoverUrl": "./reviews/covers/3742582688.jpg",
       "reviewDate": "2024-06-10",
       "reviewLocalLikes": 0,
-      "reviewLocalLikesUpdatedAt": "2026-05-09T14:00:24.824386+00:00",
+      "reviewLocalLikesUpdatedAt": "2026-06-25T16:43:41.857084+00:00",
       "drzrating": 100,
       "bookDetails": 1,
       "dateAdded": "2021-02-03",
@@ -471,13 +479,31 @@
   ],
   "latestReviewed": [
     {
+      "bookId": "35658293",
+      "title": "La guerra de Calibán (The Expanse, #2)",
+      "author": "James S.A. Corey",
+      "dateRead": "2026-06-25",
+      "rating": 5,
+      "reviewUrl": "https://www.goodreads.com/review/show/8709769014?utm_medium=api&utm_source=rss",
+      "reviewLikes": 0,
+      "drzrating": -1,
+      "bookDetails": 0,
+      "matched": false,
+      "reviewLocalUrl": "./reviews/8709769014.html",
+      "reviewLocalCoverUrl": "./reviews/covers/8709769014.jpg",
+      "reviewDate": "2026-06-25",
+      "reviewLocalStatus": "ok",
+      "reviewLocalGeneratedAt": "2026-06-26T02:32:21.206482+00:00",
+      "reviewCount": 1798
+    },
+    {
       "bookId": "30320792",
       "title": "El mundo clásico: Una breve introducción",
       "author": "Mary Beard",
       "dateRead": "2026-06-23",
       "rating": 4,
       "reviewUrl": "https://www.goodreads.com/review/show/8708090412?utm_medium=api&utm_source=rss",
-      "reviewLikes": 0,
+      "reviewLikes": 3,
       "drzrating": 100,
       "bookDetails": 0,
       "matched": false,
@@ -485,8 +511,10 @@
       "reviewLocalCoverUrl": "./reviews/covers/8708090412.jpg",
       "reviewDate": "2026-06-25",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-06-25T16:24:39.512984+00:00",
-      "reviewCount": 674
+      "reviewLocalGeneratedAt": "2026-06-26T02:32:28.832932+00:00",
+      "reviewCount": 674,
+      "reviewLocalLikes": 0,
+      "reviewLocalLikesUpdatedAt": "2026-06-25T16:43:41.857084+00:00"
     },
     {
       "bookId": "242901061",
@@ -503,8 +531,10 @@
       "reviewLocalCoverUrl": "./reviews/covers/8705724576.jpg",
       "reviewDate": "2026-06-22",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-06-25T16:24:46.304828+00:00",
-      "reviewCount": 11
+      "reviewLocalGeneratedAt": "2026-06-26T02:32:38.342368+00:00",
+      "reviewCount": 11,
+      "reviewLocalLikes": 0,
+      "reviewLocalLikesUpdatedAt": "2026-06-25T16:43:41.857084+00:00"
     },
     {
       "bookId": "40542612",
@@ -521,8 +551,10 @@
       "reviewLocalCoverUrl": "./reviews/covers/8681953506.jpg",
       "reviewDate": "2026-06-20",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-06-25T16:24:49.022480+00:00",
-      "reviewCount": 11
+      "reviewLocalGeneratedAt": "2026-06-26T02:32:40.817257+00:00",
+      "reviewCount": 11,
+      "reviewLocalLikes": 0,
+      "reviewLocalLikesUpdatedAt": "2026-06-25T16:43:41.857084+00:00"
     },
     {
       "bookId": "249891440",
@@ -531,7 +563,7 @@
       "dateRead": "2026-06-17",
       "rating": 5,
       "reviewUrl": "https://www.goodreads.com/review/show/8628849214?utm_medium=api&utm_source=rss",
-      "reviewLikes": 3,
+      "reviewLikes": 4,
       "drzrating": 100,
       "bookDetails": 0,
       "matched": false,
@@ -539,31 +571,15 @@
       "reviewLocalCoverUrl": "./reviews/covers/8628849214.jpg",
       "reviewDate": "2026-06-24",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-06-25T16:24:44.354912+00:00",
-      "reviewCount": 471
-    },
-    {
-      "bookId": "25857483",
-      "title": "El castillo blanco",
-      "author": "Orhan Pamuk",
-      "dateRead": "2026-06-14",
-      "rating": 3,
-      "reviewUrl": "https://www.goodreads.com/review/show/8662109207?utm_medium=api&utm_source=rss",
-      "reviewLikes": 0,
-      "drzrating": 75,
-      "bookDetails": 0,
-      "matched": false,
-      "reviewLocalUrl": "./reviews/8662109207.html",
-      "reviewLocalCoverUrl": "./reviews/covers/8662109207.jpg",
-      "reviewDate": "2026-06-24",
-      "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-06-25T16:24:41.605227+00:00",
-      "reviewCount": 402
+      "reviewLocalGeneratedAt": "2026-06-26T02:32:35.131646+00:00",
+      "reviewCount": 471,
+      "reviewLocalLikes": 0,
+      "reviewLocalLikesUpdatedAt": "2026-06-25T16:43:41.857084+00:00"
     }
   ],
   "totals": {
-    "booksRead": 600,
-    "booksReviewed": 600,
-    "totalReviewLikes": 3261
+    "booksRead": 601,
+    "booksReviewed": 601,
+    "totalReviewLikes": 3265
   }
 }
