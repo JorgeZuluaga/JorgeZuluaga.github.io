@@ -55,15 +55,15 @@
       "rating": 5,
       "reviewUrl": "https://www.goodreads.com/review/show/8709769014?utm_medium=api&utm_source=rss",
       "reviewLikes": 0,
-      "drzrating": -1,
+      "drzrating": 100,
       "bookDetails": 0,
       "matched": false,
       "reviewLocalUrl": "./reviews/8709769014.html",
       "reviewLocalCoverUrl": "./reviews/covers/8709769014.jpg",
       "reviewDate": "2026-06-25",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-06-26T02:32:21.206482+00:00",
-      "reviewCount": 1798
+      "reviewLocalGeneratedAt": "2026-06-26T14:16:45.508768+00:00",
+      "reviewCount": 1817
     },
     {
       "bookId": "30320792",
@@ -80,7 +80,7 @@
       "reviewLocalCoverUrl": "./reviews/covers/8708090412.jpg",
       "reviewDate": "2026-06-25",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-06-26T02:32:28.832932+00:00",
+      "reviewLocalGeneratedAt": "2026-06-26T14:16:49.926813+00:00",
       "reviewCount": 674,
       "reviewLocalLikes": 0,
       "reviewLocalLikesUpdatedAt": "2026-06-25T16:43:41.857084+00:00"
@@ -100,7 +100,7 @@
       "reviewLocalCoverUrl": "./reviews/covers/8705724576.jpg",
       "reviewDate": "2026-06-22",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-06-26T02:32:38.342368+00:00",
+      "reviewLocalGeneratedAt": "2026-06-26T14:16:55.656816+00:00",
       "reviewCount": 11,
       "reviewLocalLikes": 0,
       "reviewLocalLikesUpdatedAt": "2026-06-25T16:43:41.857084+00:00"
@@ -120,7 +120,7 @@
       "reviewLocalCoverUrl": "./reviews/covers/8681953506.jpg",
       "reviewDate": "2026-06-20",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-06-26T02:32:40.817257+00:00",
+      "reviewLocalGeneratedAt": "2026-06-26T14:16:57.826605+00:00",
       "reviewCount": 11,
       "reviewLocalLikes": 0,
       "reviewLocalLikesUpdatedAt": "2026-06-25T16:43:41.857084+00:00"
@@ -140,7 +140,7 @@
       "reviewLocalCoverUrl": "./reviews/covers/8628849214.jpg",
       "reviewDate": "2026-06-24",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-06-26T02:32:35.131646+00:00",
+      "reviewLocalGeneratedAt": "2026-06-26T14:16:53.718253+00:00",
       "reviewCount": 471,
       "reviewLocalLikes": 0,
       "reviewLocalLikesUpdatedAt": "2026-06-25T16:43:41.857084+00:00"
@@ -486,15 +486,15 @@
       "rating": 5,
       "reviewUrl": "https://www.goodreads.com/review/show/8709769014?utm_medium=api&utm_source=rss",
       "reviewLikes": 0,
-      "drzrating": -1,
+      "drzrating": 100,
       "bookDetails": 0,
       "matched": false,
       "reviewLocalUrl": "./reviews/8709769014.html",
       "reviewLocalCoverUrl": "./reviews/covers/8709769014.jpg",
       "reviewDate": "2026-06-25",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-06-26T02:32:21.206482+00:00",
-      "reviewCount": 1798
+      "reviewLocalGeneratedAt": "2026-06-26T14:16:45.508768+00:00",
+      "reviewCount": 1817
     },
     {
       "bookId": "30320792",
@@ -511,7 +511,7 @@
       "reviewLocalCoverUrl": "./reviews/covers/8708090412.jpg",
       "reviewDate": "2026-06-25",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-06-26T02:32:28.832932+00:00",
+      "reviewLocalGeneratedAt": "2026-06-26T14:16:49.926813+00:00",
       "reviewCount": 674,
       "reviewLocalLikes": 0,
       "reviewLocalLikesUpdatedAt": "2026-06-25T16:43:41.857084+00:00"
@@ -531,7 +531,7 @@
       "reviewLocalCoverUrl": "./reviews/covers/8705724576.jpg",
       "reviewDate": "2026-06-22",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-06-26T02:32:38.342368+00:00",
+      "reviewLocalGeneratedAt": "2026-06-26T14:16:55.656816+00:00",
       "reviewCount": 11,
       "reviewLocalLikes": 0,
       "reviewLocalLikesUpdatedAt": "2026-06-25T16:43:41.857084+00:00"
@@ -551,7 +551,7 @@
       "reviewLocalCoverUrl": "./reviews/covers/8681953506.jpg",
       "reviewDate": "2026-06-20",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-06-26T02:32:40.817257+00:00",
+      "reviewLocalGeneratedAt": "2026-06-26T14:16:57.826605+00:00",
       "reviewCount": 11,
       "reviewLocalLikes": 0,
       "reviewLocalLikesUpdatedAt": "2026-06-25T16:43:41.857084+00:00"
@@ -571,7 +571,7 @@
       "reviewLocalCoverUrl": "./reviews/covers/8628849214.jpg",
       "reviewDate": "2026-06-24",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-06-26T02:32:35.131646+00:00",
+      "reviewLocalGeneratedAt": "2026-06-26T14:16:53.718253+00:00",
       "reviewCount": 471,
       "reviewLocalLikes": 0,
       "reviewLocalLikesUpdatedAt": "2026-06-25T16:43:41.857084+00:00"
@@ -580,6 +580,6 @@
   "totals": {
     "booksRead": 601,
     "booksReviewed": 601,
-    "totalReviewLikes": 3265
+    "totalReviewLikes": 3266
   }
 }
