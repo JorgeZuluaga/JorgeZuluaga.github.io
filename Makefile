@@ -15,7 +15,7 @@
 	library-ddc-update library-ddc-generate-pending library-ddc-apply-gemini \
 	sync-dcc-library-details \
 	update-all-books \
-	worker-deploy
+	worker-deploy review-notify-deploy review-notify-seed-test review-notify-test-send
 
 PORT ?= 8000
 HOST ?= 127.0.0.1
@@ -35,7 +35,7 @@ REVIEW_RSS_PAGES ?= 100
 FORCE ?= 0
 SITE_BASE_URL ?= https://jorgezuluaga.github.io
 REVIEWS_TODAS_MD ?= reviews/todas.md
-VISITOR_WORKER_BASE ?= https://visitor-log-worker.jorgezuluaga.workers.dev
+REVIEW_NOTIFY_WORKER ?= https://review-notify-worker.jorgezuluaga.workers.dev
 BATCH_SIZE ?= 50
 GEMINI_CLASSIFICATION_FILES ?= update/books-to-classify/gemini-code-*.json
 
@@ -48,6 +48,10 @@ help:
 	@echo "  make library-goodreads-reviews-latest - Últimas ~10 reseñas en reviews/"
 	@echo "  make library-daily-goodreads      - Script diario: likes + últimas reseñas + stats"
 	@echo "  make status                       - Últimas corridas del sync automático (launchd)"
+	@echo "  make review-notify-deploy         - Desplegar worker de suscripción a reseñas"
+	@echo "  make review-notify-setup          - Crear .secrets/ (token + Gmail)"
+	@echo "  make review-notify-seed-test      - Alta de correos de prueba en el worker"
+	@echo "  make review-notify-test-send      - Enviar correo de prueba a suscriptores"
 	@echo "  make library-bookbuddy-update     - Import CSV + stub dcc_classes + match bookIds"
 	@echo "  make library-bookbuddy-covers     - Portadas desde info/bookbuddy.htm (fallback: update/bookbuddy.htm)"
 	@echo "  make bookbuddy-missing             - Lista Goodreads sin BookBuddy → $(BOOKBUDDY_MISSING_MD) + PDF"
@@ -441,3 +445,18 @@ update-all-books:
 # Deploy Cloudflare Worker defined in wrangler.toml.
 worker-deploy:
 	@npx wrangler deploy
+
+review-notify-deploy:
+	@npx wrangler deploy --config wrangler-review-notify.toml
+
+review-notify-setup:
+	@bash bin/setup_review_notify_secrets.sh
+
+review-notify-seed-test:
+	@python3 bin/review_notify_client.py seed \
+		puntobernal@gmail.com \
+		sofia.zuluaga.penagos@gmail.com \
+		penagosolga@gmail.com
+
+review-notify-test-send:
+	@python3 bin/notify_new_reviews.py --test-send

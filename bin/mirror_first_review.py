@@ -34,6 +34,15 @@ SHARE_BUTTON_HTML = """<button type="button" class="link" data-share-copy="1" ar
             </svg>
           </button>"""
 
+REVIEW_SUBSCRIBE_META = '  <meta name="review-subscribe-cta" content="1" />\n'
+
+SUBSCRIBE_HEADER_BUTTON_HTML = """<button type="button" class="link" id="review-subscribe-header-btn" data-subscribe-header="1" aria-label="Suscribirse a nuevas reseñas por correo" style="padding: 0; border: 0; background: transparent; cursor: pointer;">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" focusable="false" style="vertical-align: -3px; margin-left: 0.35rem;">
+              <rect x="2" y="4" width="20" height="16" rx="2" fill="none" stroke="currentColor" stroke-width="2"></rect>
+              <path d="m2 7 10 7 10-7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+            </svg>
+          </button>"""
+
 # Same sections as biblioteca.html. Paths MUST use ../ (reviews/*.html live one level down).
 # review-page.js also passes linkBase="../" via applyLibrarySectionNav; keep both in sync.
 REVIEW_PAGE_LIBRARY_SUBNAV_HTML = """      <nav class="photos-header__subnav" id="library-section-nav" aria-label="">
@@ -300,6 +309,51 @@ def extract_review_data_from_rss(
     return {"review_text": "", "review_date": "", "cover_url": ""}
 
 
+def patch_review_html_subscribe(html_text: str) -> str:
+    """Insert subscribe meta + header mail icon into existing reviews/*.html (idempotent)."""
+    updated = html_text
+    if 'name="review-subscribe-cta"' not in updated:
+        inserted = False
+        updated2, n = re.subn(
+            r'(\n  <meta name="share-url"[^>]*>\n)',
+            r"\1" + REVIEW_SUBSCRIBE_META,
+            updated,
+            count=1,
+            flags=re.IGNORECASE,
+        )
+        if n:
+            updated = updated2
+            inserted = True
+        if not inserted:
+            updated2, n = re.subn(
+                r'(\n  <meta name="color-scheme"[^>]*>\n)',
+                r"\1" + REVIEW_SUBSCRIBE_META,
+                updated,
+                count=1,
+                flags=re.IGNORECASE,
+            )
+            if n:
+                updated = updated2
+
+    if "review-subscribe-header-btn" not in updated:
+        share_snippet = SHARE_BUTTON_HTML.strip()
+        if share_snippet in updated:
+            updated = updated.replace(
+                share_snippet,
+                share_snippet + "\n          " + SUBSCRIBE_HEADER_BUTTON_HTML.strip(),
+                1,
+            )
+        else:
+            updated = re.sub(
+                r'(<p class="review-by">\s*Reseña por Jorge I\. Zuluaga\s*)',
+                r"\1\n          " + SUBSCRIBE_HEADER_BUTTON_HTML + "\n",
+                updated,
+                count=1,
+                flags=re.IGNORECASE,
+            )
+    return updated
+
+
 def build_local_page(
     book: dict,
     review_url: str,
@@ -352,7 +406,7 @@ def build_local_page(
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="color-scheme" content="light dark" />
-{share_meta}  <script>
+{share_meta}{REVIEW_SUBSCRIBE_META}  <script>
     document.documentElement.lang =
       new URLSearchParams(location.search).get("lang") === "en" ? "en" : "es";
   </script>
@@ -436,6 +490,7 @@ def build_local_page(
         <p class="review-by">
           Reseña por Jorge I. Zuluaga
           {SHARE_BUTTON_HTML}
+          {SUBSCRIBE_HEADER_BUTTON_HTML}
         </p>
         {cover_markup}
         <p class="meta">Fecha de reseña: {safe_review_date}</p>

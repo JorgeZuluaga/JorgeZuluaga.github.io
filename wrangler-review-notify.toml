@@ -1,0 +1,14 @@
+name = "review-notify-worker"
+main = "review-notify-worker.js"
+compatibility_date = "2026-04-22"
+
+# Crear namespace: npx wrangler kv namespace create REVIEW_NOTIFY --config wrangler-review-notify.toml
+# Pegar el id devuelto abajo.
+[[kv_namespaces]]
+binding = "REVIEW_NOTIFY"
+id = "353b9e302e634ae2b6b112236ca3781a"
+
+[vars]
+SITE_BASE_URL = "https://jorgezuluaga.github.io"
+
+# Secreto (no commitear): npx wrangler secret put NOTIFY_TOKEN --config wrangler-review-notify.toml

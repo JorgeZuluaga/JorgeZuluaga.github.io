@@ -20,6 +20,7 @@ from urllib.parse import urlparse
 from mirror_first_review import (
     DEFAULT_SITE_BASE_URL,
     SHARE_BUTTON_HTML,
+    SUBSCRIBE_HEADER_BUTTON_HTML,
     build_local_page,
     extract_page_title,
     extract_review_data_from_rss,
@@ -30,6 +31,7 @@ from mirror_first_review import (
     is_disallowed_share_url,
     is_shortened_share_url,
     is_signin_page,
+    patch_review_html_subscribe,
     resolve_share_url,
 )
 from review_word_count import apply_review_counts_to_books
@@ -126,7 +128,7 @@ def _patch_review_html_share(html_text: str, share_url: str) -> str:
     """
     share_url = (share_url or "").strip()
     if not share_url.startswith(("http://", "https://")):
-        return html_text
+        return patch_review_html_subscribe(html_text)
 
     safe_share = html.escape(share_url, quote=True)
     updated = html_text
@@ -158,12 +160,13 @@ def _patch_review_html_share(html_text: str, share_url: str) -> str:
             '<p class="review-by">\n'
             '          Reseña por Jorge I. Zuluaga\n'
             f"          {SHARE_BUTTON_HTML}\n"
+            f"          {SUBSCRIBE_HEADER_BUTTON_HTML}\n"
             "        </p>",
             updated,
             count=1,
             flags=re.IGNORECASE,
         )
-    return updated
+    return patch_review_html_subscribe(updated)
 
 
 def main() -> int:

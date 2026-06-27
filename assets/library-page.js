@@ -836,6 +836,18 @@ async function main() {
   goodreadsNoteEl.textContent = t("library_goodreads_note", lang);
   profileEl.href = "https://www.goodreads.com/user/show/91991657";
   profileEl.textContent = t("library_profile", lang);
+  const subTitle = document.getElementById("review-subscribe-title");
+  if (subTitle) subTitle.textContent = t("library_subscribe_title", lang);
+  const subIntro = document.getElementById("review-subscribe-intro");
+  if (subIntro) subIntro.textContent = t("library_subscribe_intro", lang);
+  const subLabel = document.querySelector('label[for="review-subscribe-email"]');
+  if (subLabel) subLabel.textContent = t("library_subscribe_email_label", lang);
+  const subSubmit = document.getElementById("review-subscribe-submit");
+  if (subSubmit) subSubmit.textContent = t("library_subscribe_submit", lang);
+  const subCancel = document.getElementById("review-subscribe-cancel");
+  if (subCancel) subCancel.textContent = t("library_subscribe_cancel", lang);
+  const subClose = document.getElementById("review-subscribe-close");
+  if (subClose) subClose.setAttribute("aria-label", lang === "en" ? "Close" : "Cerrar");
   sourceEl.textContent = "";
   catalogTotalEl.textContent = String(catalogTotal);
   catalogUnreadEl.textContent = `${catalogUnread} (${unreadPctStr}%)`;

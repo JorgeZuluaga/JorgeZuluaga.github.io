@@ -1,0 +1,266 @@
+/**
+ * Cloudflare Worker: suscripción por correo a nuevas reseñas.
+ *
+ * POST /subscribe          { email, lang? }
+ * GET  /unsubscribe?token=
+ * POST /notify             Authorization: Bearer NOTIFY_TOKEN — { reviews: [...] }
+ * GET  /subscriber-count  — { count } (público, sin emails)
+ * POST /admin/seed         Authorization: Bearer NOTIFY_TOKEN — { emails: [...] }
+ * GET  /admin/subscribers  Authorization: Bearer NOTIFY_TOKEN
+ */
+
+const CORS = {
+  "access-control-allow-origin": "*",
+  "access-control-allow-methods": "GET, POST, OPTIONS",
+  "access-control-allow-headers": "content-type, authorization",
+};
+
+function json(data, status = 200) {
+  return new Response(JSON.stringify(data), {
+    status,
+    headers: { "content-type": "application/json; charset=utf-8", ...CORS },
+  });
+}
+
+function html(body, status = 200) {
+  return new Response(body, {
+    status,
+    headers: { "content-type": "text/html; charset=utf-8", ...CORS },
+  });
+}
+
+function normalizeEmail(raw) {
+  return String(raw || "")
+    .trim()
+    .toLowerCase();
+}
+
+function isValidEmail(email) {
+  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+}
+
+async function emailHash(email) {
+  const data = new TextEncoder().encode(normalizeEmail(email));
+  const digest = await crypto.subtle.digest("SHA-256", data);
+  return [...new Uint8Array(digest)]
+    .map((b) => b.toString(16).padStart(2, "0"))
+    .join("")
+    .slice(0, 32);
+}
+
+function randomToken() {
+  const bytes = crypto.getRandomValues(new Uint8Array(24));
+  return [...bytes].map((b) => b.toString(16).padStart(2, "0")).join("");
+}
+
+function bearerToken(request) {
+  const auth = request.headers.get("authorization") || "";
+  const m = auth.match(/^Bearer\s+(.+)$/i);
+  return m ? m[1].trim() : "";
+}
+
+function requireNotifyToken(request, env) {
+  const expected = String(env.NOTIFY_TOKEN || "").trim();
+  if (!expected) return { ok: false, response: json({ ok: false, error: "notify_token_not_configured" }, 503) };
+  const got = bearerToken(request);
+  if (!got || got !== expected) {
+    return { ok: false, response: json({ ok: false, error: "unauthorized" }, 401) };
+  }
+  return { ok: true };
+}
+
+async function getSubscriber(kv, email) {
+  const key = `sub:${await emailHash(email)}`;
+  const raw = await kv.get(key);
+  if (!raw) return null;
+  try {
+    return JSON.parse(raw);
+  } catch {
+    return null;
+  }
+}
+
+async function saveSubscriber(kv, record) {
+  const key = `sub:${await emailHash(record.email)}`;
+  await kv.put(key, JSON.stringify(record));
+}
+
+async function listConfirmedSubscribers(kv) {
+  const keys = [];
+  let cursor;
+  do {
+    const page = await kv.list({ prefix: "sub:", cursor, limit: 1000 });
+    keys.push(...page.keys);
+    cursor = page.list_complete ? undefined : page.cursor;
+  } while (cursor);
+
+  const out = [];
+  for (const k of keys) {
+    const raw = await kv.get(k.name);
+    if (!raw) continue;
+    try {
+      const rec = JSON.parse(raw);
+      if (rec && rec.status === "confirmed" && rec.email) out.push(rec);
+    } catch {
+      /* skip */
+    }
+  }
+  return out;
+}
+
+async function upsertConfirmed(kv, email, source = "form") {
+  const normalized = normalizeEmail(email);
+  if (!isValidEmail(normalized)) {
+    return { ok: false, error: "invalid_email" };
+  }
+  const existing = await getSubscriber(kv, normalized);
+  if (existing && existing.status === "confirmed") {
+    return { ok: true, status: "already_subscribed", email: normalized };
+  }
+  const record = {
+    email: normalized,
+    status: "confirmed",
+    source,
+    subscribedAt: new Date().toISOString(),
+    unsubscribeToken: existing?.unsubscribeToken || randomToken(),
+  };
+  await saveSubscriber(kv, record);
+  return { ok: true, status: "subscribed", email: normalized };
+}
+
+function siteBase(env) {
+  return String(env.SITE_BASE_URL || "https://jorgezuluaga.github.io").replace(/\/$/, "");
+}
+
+function redirectToLibrary(env, params = "") {
+  const base = siteBase(env);
+  const q = params ? (params.startsWith("?") ? params : `?${params}`) : "";
+  return Response.redirect(`${base}/biblioteca.html${q}`, 302);
+}
+
+async function handleSubscribe(request, env) {
+  let body;
+  try {
+    body = await request.json();
+  } catch {
+    return json({ ok: false, error: "invalid_json" }, 400);
+  }
+  const email = normalizeEmail(body.email);
+  const result = await upsertConfirmed(env.REVIEW_NOTIFY, email, "form");
+  if (!result.ok) return json(result, 400);
+  return json({ ok: true, status: result.status, email: result.email });
+}
+
+async function handleUnsubscribe(url, env) {
+  const token = String(url.searchParams.get("token") || "").trim();
+  if (!token) return html("<p>Token inválido.</p>", 400);
+
+  const keys = await listConfirmedSubscribers(env.REVIEW_NOTIFY);
+  const match = keys.find((r) => r.unsubscribeToken === token);
+  if (!match) return html("<p>Suscripción no encontrada.</p>", 404);
+
+  await env.REVIEW_NOTIFY.delete(`sub:${await emailHash(match.email)}`);
+  return redirectToLibrary(env, "subscribe=unsubscribed");
+}
+
+async function handleSeed(request, env) {
+  const auth = requireNotifyToken(request, env);
+  if (!auth.ok) return auth.response;
+
+  let body;
+  try {
+    body = await request.json();
+  } catch {
+    return json({ ok: false, error: "invalid_json" }, 400);
+  }
+  const emails = Array.isArray(body.emails) ? body.emails : [];
+  const results = [];
+  for (const raw of emails) {
+    results.push(await upsertConfirmed(env.REVIEW_NOTIFY, raw, "admin_seed"));
+  }
+  return json({ ok: true, results });
+}
+
+async function handleSubscriberCount(env) {
+  const subs = await listConfirmedSubscribers(env.REVIEW_NOTIFY);
+  return json({ ok: true, count: subs.length });
+}
+
+async function handleListSubscribers(request, env) {
+  const auth = requireNotifyToken(request, env);
+  if (!auth.ok) return auth.response;
+  const subs = await listConfirmedSubscribers(env.REVIEW_NOTIFY);
+  return json({
+    ok: true,
+    count: subs.length,
+    emails: subs.map((s) => s.email),
+    subscribers: subs.map((s) => ({
+      email: s.email,
+      unsubscribeToken: s.unsubscribeToken,
+    })),
+  });
+}
+
+async function handleNotify(request, env) {
+  const auth = requireNotifyToken(request, env);
+  if (!auth.ok) return auth.response;
+
+  let body;
+  try {
+    body = await request.json();
+  } catch {
+    return json({ ok: false, error: "invalid_json" }, 400);
+  }
+  const reviews = Array.isArray(body.reviews) ? body.reviews : [];
+  if (!reviews.length) return json({ ok: true, sent: 0, message: "no_reviews" });
+
+  const subs = await listConfirmedSubscribers(env.REVIEW_NOTIFY);
+  if (!subs.length) return json({ ok: true, sent: 0, message: "no_subscribers" });
+
+  return json({
+    ok: true,
+    queued: true,
+    subscriberCount: subs.length,
+    reviewCount: reviews.length,
+    message: "use_local_gmail_sender",
+    subscribers: subs.map((s) => s.email),
+    reviews,
+  });
+}
+
+export default {
+  async fetch(request, env) {
+    if (request.method === "OPTIONS") {
+      return new Response(null, { status: 204, headers: CORS });
+    }
+
+    const url = new URL(request.url);
+    try {
+      if (request.method === "POST" && url.pathname === "/subscribe") {
+        return handleSubscribe(request, env);
+      }
+      if (request.method === "GET" && url.pathname === "/unsubscribe") {
+        return handleUnsubscribe(url, env);
+      }
+      if (request.method === "POST" && url.pathname === "/admin/seed") {
+        return handleSeed(request, env);
+      }
+      if (request.method === "GET" && url.pathname === "/subscriber-count") {
+        return handleSubscriberCount(env);
+      }
+      if (request.method === "GET" && url.pathname === "/admin/subscribers") {
+        return handleListSubscribers(request, env);
+      }
+      if (request.method === "POST" && url.pathname === "/notify") {
+        return handleNotify(request, env);
+      }
+      if (request.method === "GET" && url.pathname === "/health") {
+        return json({ ok: true, service: "review-notify-worker" });
+      }
+      return json({ ok: false, error: "not_found" }, 404);
+    } catch (err) {
+      const message = err instanceof Error ? err.message : "worker_exception";
+      return json({ ok: false, error: "worker_exception", message }, 500);
+    }
+  },
+};

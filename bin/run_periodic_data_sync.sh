@@ -136,4 +136,12 @@ fi
 FINISHED="$(utc_now)"
 record_state "lastPeriodicSyncSuccessAt=${FINISHED}"
 record_auto_run "$RUN_STARTED" "$FINISHED" true "completo"
+
+echo "[$(utc_now)] Notificación de reseñas nuevas (si hay suscriptores)..."
+if python3 "$REPO_DIR/bin/notify_new_reviews.py" 2>/dev/null; then
+  echo "[$(utc_now)] notify_new_reviews completado."
+else
+  echo "[$(utc_now)] notify_new_reviews omitido o falló (revise .secrets/gmail-* y review-notify-token)." >&2
+fi
+
 echo "[${FINISHED}] Periodic data sync completed."

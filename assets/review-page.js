@@ -60,6 +60,8 @@ function uiText() {
       share: "Share",
       copied: "Copied",
       copiedToast: "Link copied to clipboard",
+      subscribe: "Subscribe",
+      subscribeAria: "Subscribe to new review email alerts",
       localLikesAria: "Local likes:",
       localLikesSuffix: "(local likes)",
     };
@@ -71,6 +73,8 @@ function uiText() {
     share: "Compartir",
     copied: "Copiado",
     copiedToast: "Enlace copiado a portapapeles",
+    subscribe: "Suscribirse",
+    subscribeAria: "Suscribirse a nuevas reseñas por correo",
     localLikesAria: "Me gusta locales:",
     localLikesSuffix: "(me gusta locales)",
   };
@@ -210,6 +214,116 @@ async function hydrateReviewLikesFromLibrary() {
   }
 }
 
+function reviewSubscribeCtaEnabled() {
+  const meta = document.querySelector('meta[name="review-subscribe-cta"]');
+  if (!meta) return false;
+  const value = String(meta.getAttribute("content") || "").trim().toLowerCase();
+  return value !== "0" && value !== "false" && value !== "no";
+}
+
+function bibliotecaSubscribeHref() {
+  const params = new URLSearchParams();
+  params.set("subscribe", "open");
+  if (isEnglishPage()) params.set("lang", "en");
+  return `../biblioteca.html?${params.toString()}`;
+}
+
+const REVIEW_HEADER_ICON_STYLE = "padding: 0; border: 0; background: transparent; cursor: pointer;";
+const REVIEW_HEADER_SVG_STYLE = "vertical-align: -3px; margin-left: 0.35rem;";
+
+const REVIEW_SUBSCRIBE_HEADER_MAIL_ICON = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" focusable="false" style="${REVIEW_HEADER_SVG_STYLE}">
+  <rect x="2" y="4" width="20" height="16" rx="2" fill="none" stroke="currentColor" stroke-width="2"></rect>
+  <path d="m2 7 10 7 10-7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>`;
+
+function wireHeaderSubscribeIcon() {
+  const text = uiText();
+  const existing = document.getElementById("review-subscribe-header-btn");
+  if (existing) {
+    if (!existing.__subscribeBound) {
+      existing.__subscribeBound = true;
+      existing.setAttribute("aria-label", text.subscribeAria);
+      existing.addEventListener("click", () => {
+        window.location.href = bibliotecaSubscribeHref();
+      });
+    }
+    return;
+  }
+  if (!reviewSubscribeCtaEnabled()) return;
+
+  const reviewBy = document.querySelector(".review-by");
+  if (!reviewBy) return;
+
+  const btn = document.createElement("button");
+  btn.type = "button";
+  btn.id = "review-subscribe-header-btn";
+  btn.className = "link";
+  btn.setAttribute("style", REVIEW_HEADER_ICON_STYLE);
+  btn.setAttribute("aria-label", text.subscribeAria);
+  btn.innerHTML = REVIEW_SUBSCRIBE_HEADER_MAIL_ICON;
+  btn.addEventListener("click", () => {
+    window.location.href = bibliotecaSubscribeHref();
+  });
+
+  const shareBtn = reviewBy.querySelector('[data-share-copy="1"]');
+  if (shareBtn) {
+    shareBtn.insertAdjacentElement("afterend", btn);
+  } else {
+    reviewBy.appendChild(btn);
+  }
+}
+
+const REVIEW_SUBSCRIBE_MAIL_ICON = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" focusable="false">
+  <rect x="2" y="4" width="20" height="16" rx="2" fill="none" stroke="currentColor" stroke-width="2"></rect>
+  <path d="m2 7 10 7 10-7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>`;
+
+function styleSecondaryReviewActionButton(el) {
+  el.style.display = "inline-flex";
+  el.style.alignItems = "center";
+  el.style.gap = "0.35rem";
+  el.style.marginLeft = "0.5rem";
+  el.style.padding = "0.45rem 0.75rem";
+  el.style.fontSize = "0.9rem";
+}
+
+function appendSubscribeCta(wrap) {
+  if (!wrap || !reviewSubscribeCtaEnabled()) return;
+  if (document.getElementById("review-subscribe-cta")) return;
+
+  const text = uiText();
+  const subscribeBtn = document.createElement("button");
+  subscribeBtn.id = "review-subscribe-cta";
+  subscribeBtn.type = "button";
+  subscribeBtn.className = "logs-refresh";
+  styleSecondaryReviewActionButton(subscribeBtn);
+  subscribeBtn.setAttribute("aria-label", text.subscribeAria);
+  subscribeBtn.innerHTML = `<span>${text.subscribe}</span>${REVIEW_SUBSCRIBE_MAIL_ICON}`;
+  subscribeBtn.addEventListener("click", () => {
+    window.location.href = bibliotecaSubscribeHref();
+  });
+  wrap.appendChild(subscribeBtn);
+}
+
+function createReviewActionsWrap() {
+  const host = document.getElementById("review-like-actions") || document.querySelector("article.card");
+  if (!host) return null;
+  const wrap = document.createElement("p");
+  wrap.className = "likes likes-local";
+  wrap.style.marginTop = "1rem";
+  host.appendChild(wrap);
+  return wrap;
+}
+
+function ensureSubscribeCta() {
+  if (!reviewSubscribeCtaEnabled() || document.getElementById("review-subscribe-cta")) return;
+  const wrap =
+    document.getElementById("review-like-btn")?.parentElement ||
+    document.querySelector("#review-like-actions .likes-local") ||
+    createReviewActionsWrap();
+  appendSubscribeCta(wrap);
+}
+
 function upsertLikeButtonUI(reviewId, initialCount = 0) {
   const text = uiText();
   const fixedHost = document.getElementById("review-like-actions");
@@ -241,15 +355,9 @@ function upsertLikeButtonUI(reviewId, initialCount = 0) {
   const shareUrl = shareUrlFromMeta();
   if (shareUrl) {
     const shareBtn = document.createElement("button");
-    // Style like the "Me gusta" button (boxed).
     shareBtn.type = "button";
     shareBtn.className = "logs-refresh";
-    shareBtn.style.display = "inline-flex";
-    shareBtn.style.alignItems = "center";
-    shareBtn.style.gap = "0.35rem";
-    shareBtn.style.marginLeft = "0.5rem";
-    shareBtn.style.padding = "0.45rem 0.75rem";
-    shareBtn.style.fontSize = "0.9rem";
+    styleSecondaryReviewActionButton(shareBtn);
     shareBtn.setAttribute("aria-label", text.share);
     shareBtn.innerHTML = `<span data-share-label>${text.share}</span>
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" focusable="false">
@@ -271,6 +379,7 @@ function upsertLikeButtonUI(reviewId, initialCount = 0) {
     });
     wrap.appendChild(shareBtn);
   }
+  appendSubscribeCta(wrap);
   host.appendChild(wrap);
 }
 
@@ -297,8 +406,12 @@ async function fetchLikeCount(base, reviewId) {
 
 async function wireReviewLikeButton() {
   const reviewId = getCurrentReviewId();
+  if (!reviewId) return;
   const base = workerBaseFromLogEndpoint();
-  if (!reviewId || !base) return;
+  if (!base) {
+    ensureSubscribeCta();
+    return;
+  }
 
   const fromLibrary = await hydrateReviewLikesFromLibrary();
   let initialCount = await fetchLikeCount(base, reviewId);
@@ -340,6 +453,7 @@ async function wireReviewLikeButton() {
       btn.disabled = false;
     }
   });
+  ensureSubscribeCta();
 }
 
 trackReviewVisit();
@@ -362,4 +476,6 @@ wireReviewLikeButton();
     btn.setAttribute("aria-label", text.share);
   }
 })();
+
+wireHeaderSubscribeIcon();
 
