@@ -45,6 +45,28 @@ def _rating_stars(rating: object) -> str:
     return "★" * value + "☆" * (5 - value)
 
 
+def _recent_without_featured(
+    featured: dict,
+    recent: list[dict] | None,
+    *,
+    limit: int = 5,
+) -> list[dict]:
+    featured_id = str(featured.get("id") or "").strip()
+    featured_url = str(featured.get("url") or "").strip()
+    filtered: list[dict] = []
+    for item in recent or []:
+        item_id = str(item.get("id") or "").strip()
+        item_url = str(item.get("url") or "").strip()
+        if featured_id and item_id == featured_id:
+            continue
+        if featured_url and item_url == featured_url:
+            continue
+        filtered.append(item)
+        if len(filtered) >= limit:
+            break
+    return filtered
+
+
 def build_review_email(
     *,
     featured: dict,
@@ -60,7 +82,7 @@ def build_review_email(
     cover_url = str(featured.get("cover_url") or "")
     excerpt = str(featured.get("excerpt") or "").strip()
     rating = _rating_stars(featured.get("rating"))
-    recent = recent or [featured]
+    recent = _recent_without_featured(featured, recent, limit=5)
 
     if lang == "en":
         subject = f"A new review by Jorge Zuluaga: {title}"
@@ -82,8 +104,8 @@ def build_review_email(
         intro_paragraphs = [
             "Hola,",
             (
-                "Gracias por suscribirte a esta notificación automática de mis reseñas de Libros. "
-                "Te cuento que publiqué una nueva reseña en mi biblioteca personal. "
+                "Gracias por suscribirte a esta notificación automática de mis reseñas de libros. "
+                "Te cuento que publiqué nueva(s) reseña(s) en mi biblioteca personal. "
                 "Déjame tu reacción y compártela, si la consideras chévere, "
                 "con otras personas apasionadas por los libros."
             ),
@@ -101,15 +123,17 @@ def build_review_email(
         text_lines.append(by_line + stars_line)
     if excerpt:
         text_lines.extend(["", excerpt])
-    text_lines.extend(["", url, "", recent_heading + ":", ""])
-    for item in recent:
-        item_title = str(item.get("title") or "Reseña")
-        item_author = str(item.get("author") or "")
-        item_url = str(item.get("url") or "")
-        suffix = f" — {item_author}" if item_author else ""
-        text_lines.append(f"- {item_title}{suffix}")
-        if item_url:
-            text_lines.append(f"  {item_url}")
+    text_lines.extend(["", url])
+    if recent:
+        text_lines.extend(["", recent_heading + ":", ""])
+        for item in recent:
+            item_title = str(item.get("title") or "Reseña")
+            item_author = str(item.get("author") or "")
+            item_url = str(item.get("url") or "")
+            suffix = f" — {item_author}" if item_author else ""
+            text_lines.append(f"- {item_title}{suffix}")
+            if item_url:
+                text_lines.append(f"  {item_url}")
     text_lines.extend(["", "-- Jorge Zuluaga"])
     if unsubscribe_url:
         text_lines.extend(["", f"{unsubscribe_label}: {unsubscribe_url}"])
@@ -172,6 +196,13 @@ def build_review_email(
         for idx, para in enumerate(intro_paragraphs)
     )
 
+    recent_section_html = ""
+    if recent:
+        recent_section_html = (
+            f'<h3 style="margin:1.5rem 0 0.5rem;font-size:1rem;">{html.escape(recent_heading)}</h3>'
+            f'<ul style="margin:0;padding-left:1.2rem;">{"".join(recent_items_html)}</ul>'
+        )
+
     html_body = f"""\
 <div style="font-family:'Poppins',Arial,sans-serif;color:#222;line-height:1.5;max-width:640px;">
   {intro_html}
@@ -190,8 +221,7 @@ def build_review_email(
       </td>
     </tr>
   </table>
-  <h3 style="margin:1.5rem 0 0.5rem;font-size:1rem;">{html.escape(recent_heading)}</h3>
-  <ul style="margin:0;padding-left:1.2rem;">{''.join(recent_items_html)}</ul>
+  {recent_section_html}
   {footer}
 </div>"""
     return subject, text, html_body

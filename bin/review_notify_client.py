@@ -54,6 +54,14 @@ def api_request(
             raw = resp.read().decode("utf-8")
     except urllib.error.HTTPError as err:
         raw = err.read().decode("utf-8", errors="replace")
+        try:
+            payload = json.loads(raw)
+            if isinstance(payload, dict):
+                payload.setdefault("ok", False)
+                payload["_http_status"] = err.code
+                return payload
+        except json.JSONDecodeError:
+            pass
         raise RuntimeError(f"HTTP {err.code}: {raw}") from err
     except urllib.error.URLError as err:
         raise RuntimeError(f"Error de red: {err}") from err
@@ -73,13 +81,37 @@ def list_subscribers() -> dict:
     return api_request("GET", "/admin/subscribers", token=token)
 
 
+def list_subscriber_emails() -> list[str]:
+    result = list_subscribers()
+    if not result.get("ok"):
+        raise RuntimeError(json.dumps(result, ensure_ascii=False))
+    emails = result.get("emails")
+    if isinstance(emails, list):
+        return [str(e) for e in emails if e]
+    return [
+        str(s.get("email"))
+        for s in result.get("subscribers", [])
+        if isinstance(s, dict) and s.get("email")
+    ]
+
+
+def dedupe_subscribers() -> dict:
+    token = load_token()
+    return api_request("POST", "/admin/dedupe", body={}, token=token)
+
+
+def unsubscribe_subscriber(email: str) -> dict:
+    token = load_token()
+    return api_request("POST", "/admin/unsubscribe", body={"email": email}, token=token)
+
+
 def subscribe_email(email: str) -> dict:
     return api_request("POST", "/subscribe", body={"email": email})
 
 
 def main() -> int:
     if len(sys.argv) < 2:
-        print("Uso: review_notify_client.py seed|list|subscribe EMAIL", file=sys.stderr)
+        print("Uso: review_notify_client.py seed|list|list-emails|subscribe|unsubscribe|dedupe EMAIL", file=sys.stderr)
         return 1
     cmd = sys.argv[1]
     if cmd == "seed":
@@ -92,6 +124,20 @@ def main() -> int:
     if cmd == "list":
         print(json.dumps(list_subscribers(), indent=2, ensure_ascii=False))
         return 0
+    if cmd == "list-emails":
+        for email in list_subscriber_emails():
+            print(email)
+        return 0
+    if cmd == "dedupe":
+        print(json.dumps(dedupe_subscribers(), indent=2, ensure_ascii=False))
+        return 0
+    if cmd == "unsubscribe":
+        if len(sys.argv) < 3:
+            print("Indique email.", file=sys.stderr)
+            return 1
+        result = unsubscribe_subscriber(sys.argv[2])
+        print(json.dumps(result, indent=2, ensure_ascii=False))
+        return 0 if result.get("ok") else 1
     if cmd == "subscribe":
         if len(sys.argv) < 3:
             print("Indique email.", file=sys.stderr)

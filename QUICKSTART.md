@@ -60,7 +60,7 @@ Opcional: `COOKIE='...'` si hace falta para contenido autenticado.
 
 ---
 
-## Automatización diaria (A + C + estadísticas)
+## Automatización diaria (A + C + estadísticas + correo a suscriptores)
 
 El script `bin/run_daily_goodreads_sync.sh` encadena likes + últimas reseñas + `library-stats` + `library-drzrating-update`. Equivale a:
 
@@ -68,13 +68,34 @@ El script `bin/run_daily_goodreads_sync.sh` encadena likes + últimas reseñas +
 make library-daily-goodreads
 ```
 
-**launchd:** `launchd/com.jorgezuluaga.cv-data-sync.plist` ejecuta `bin/run_periodic_data_sync.sh`, que ahora:
+Eso **no** envía correos a suscriptores. Para una actualización completa **con** notificación por correo (si hay reseñas nuevas), usa el runner periódico:
+
+```bash
+bash bin/run_periodic_data_sync.sh
+```
+
+**launchd:** `launchd/com.jorgezuluaga.cv-data-sync.plist` ejecuta ese mismo script (`run_periodic_data_sync.sh`) cada día a las 9:00. El flujo es:
 
 1. Corre `run_daily_goodreads_sync.sh` (pasos anteriores).
 2. Si existe `LOG_READ_TOKEN` (o `.secrets/log_read_token`), hace backup de logs de visitantes.
 3. Ejecuta `make library-local-likes-sync`.
 4. Opcionalmente llama a `.secrets/update-likes.sh` si está presente.
 5. Intenta commit/push de los JSON relevantes.
+6. Ejecuta `bin/notify_new_reviews.py`: si hay reseñas nuevas (según `.secrets/last-notified-reviews.json`) y suscriptores confirmados, envía el correo vía Gmail SMTP (requiere `.secrets/gmail-smtp-user`, `gmail-app-password` y `review-notify-token`).
+
+Correo de **prueba** (no actualiza el estado de reseñas ya notificadas):
+
+```bash
+make review-notify-test-send
+```
+
+Dar de baja un suscriptor (admin):
+
+```bash
+make review-notify-unsubscribe EMAIL=correo@ejemplo.com
+```
+
+Listar suscriptores: `make lista-suscritos` (solo correos). Detalle JSON: `python3 bin/review_notify_client.py list`
 
 Copiar o actualizar el plist en `~/Library/LaunchAgents/` y cargar con `launchctl load -w ...` si cambias la ruta del repo.
 

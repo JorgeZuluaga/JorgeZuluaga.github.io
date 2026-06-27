@@ -6,6 +6,8 @@
  * POST /notify             Authorization: Bearer NOTIFY_TOKEN — { reviews: [...] }
  * GET  /subscriber-count  — { count } (público, sin emails)
  * POST /admin/seed         Authorization: Bearer NOTIFY_TOKEN — { emails: [...] }
+ * POST /admin/dedupe       Authorization: Bearer NOTIFY_TOKEN — limpia duplicados en KV
+ * POST /admin/unsubscribe  Authorization: Bearer NOTIFY_TOKEN — { email }
  * GET  /admin/subscribers  Authorization: Bearer NOTIFY_TOKEN
  */
 
@@ -85,7 +87,7 @@ async function saveSubscriber(kv, record) {
   await kv.put(key, JSON.stringify(record));
 }
 
-async function listConfirmedSubscribers(kv) {
+async function listSubscriberKeys(kv) {
   const keys = [];
   let cursor;
   do {
@@ -93,19 +95,115 @@ async function listConfirmedSubscribers(kv) {
     keys.push(...page.keys);
     cursor = page.list_complete ? undefined : page.cursor;
   } while (cursor);
+  return keys;
+}
 
-  const out = [];
+async function parseSubscriberRecord(raw) {
+  if (!raw) return null;
+  try {
+    const rec = JSON.parse(raw);
+    return rec && typeof rec === "object" ? rec : null;
+  } catch {
+    return null;
+  }
+}
+
+function pickPreferredSubscriber(a, b) {
+  const rank = (rec) => {
+    if (rec?.status === "confirmed") return 2;
+    return 1;
+  };
+  const ra = rank(a);
+  const rb = rank(b);
+  if (ra !== rb) return ra > rb ? a : b;
+  const ta = Date.parse(a?.subscribedAt || "") || 0;
+  const tb = Date.parse(b?.subscribedAt || "") || 0;
+  return ta >= tb ? a : b;
+}
+
+function dedupeSubscriberRecords(records) {
+  const byEmail = new Map();
+  for (const item of records) {
+    const email = normalizeEmail(item.rec?.email || "");
+    if (!email || !isValidEmail(email)) continue;
+    const prev = byEmail.get(email);
+    byEmail.set(email, prev ? pickPreferredSubscriber(prev.rec, item.rec) : item.rec);
+  }
+  return byEmail;
+}
+
+async function listConfirmedSubscribers(kv) {
+  const keys = await listSubscriberKeys(kv);
+  const records = [];
   for (const k of keys) {
     const raw = await kv.get(k.name);
-    if (!raw) continue;
-    try {
-      const rec = JSON.parse(raw);
-      if (rec && rec.status === "confirmed" && rec.email) out.push(rec);
-    } catch {
-      /* skip */
+    const rec = await parseSubscriberRecord(raw);
+    if (rec && rec.status === "confirmed" && rec.email) {
+      records.push({ key: k.name, rec });
     }
   }
-  return out;
+  const unique = dedupeSubscriberRecords(records);
+  return [...unique.values()];
+}
+
+async function dedupeSubscribers(kv) {
+  const keys = await listSubscriberKeys(kv);
+  const records = [];
+  for (const k of keys) {
+    const raw = await kv.get(k.name);
+    const rec = await parseSubscriberRecord(raw);
+    records.push({ key: k.name, rec });
+  }
+
+  const byEmail = new Map();
+  const invalidKeys = [];
+  for (const item of records) {
+    const email = normalizeEmail(item.rec?.email || "");
+    if (!item.rec || !email || !isValidEmail(email)) {
+      invalidKeys.push(item.key);
+      continue;
+    }
+    if (!byEmail.has(email)) byEmail.set(email, []);
+    byEmail.get(email).push(item);
+  }
+
+  let removed = 0;
+  let merged = 0;
+  for (const [email, items] of byEmail.entries()) {
+    let keepRec = items[0].rec;
+    for (const item of items.slice(1)) {
+      keepRec = pickPreferredSubscriber(keepRec, item.rec);
+    }
+    const canonicalKey = `sub:${await emailHash(email)}`;
+    const canonicalRecord = {
+      email,
+      status: keepRec?.status === "confirmed" ? "confirmed" : keepRec?.status || "confirmed",
+      source: keepRec?.source || "dedupe",
+      subscribedAt: keepRec?.subscribedAt || new Date().toISOString(),
+      unsubscribeToken: keepRec?.unsubscribeToken || randomToken(),
+    };
+    await kv.put(canonicalKey, JSON.stringify(canonicalRecord));
+    if (!items.some((item) => item.key === canonicalKey)) merged += 1;
+    for (const item of items) {
+      if (item.key === canonicalKey) continue;
+      await kv.delete(item.key);
+      removed += 1;
+    }
+  }
+
+  for (const key of invalidKeys) {
+    await kv.delete(key);
+    removed += 1;
+  }
+
+  const remaining = await listConfirmedSubscribers(kv);
+  return {
+    ok: true,
+    removedKeys: removed,
+    mergedCanonical: merged,
+    uniqueConfirmed: remaining.length,
+    emails: remaining.map((s) => s.email),
+  };
 }
 
 async function upsertConfirmed(kv, email, source = "form") {
@@ -121,7 +219,7 @@ async function upsertConfirmed(kv, email, source = "form") {
     email: normalized,
     status: "confirmed",
     source,
-    subscribedAt: new Date().toISOString(),
+    subscribedAt: existing?.subscribedAt || new Date().toISOString(),
     unsubscribeToken: existing?.unsubscribeToken || randomToken(),
   };
   await saveSubscriber(kv, record);
@@ -186,6 +284,38 @@ async function handleSubscriberCount(env) {
   return json({ ok: true, count: subs.length });
 }
 
+async function handleAdminUnsubscribe(request, env) {
+  const auth = requireNotifyToken(request, env);
+  if (!auth.ok) return auth.response;
+
+  let body;
+  try {
+    body = await request.json();
+  } catch {
+    return json({ ok: false, error: "invalid_json" }, 400);
+  }
+
+  const email = normalizeEmail(body.email);
+  if (!isValidEmail(email)) {
+    return json({ ok: false, error: "invalid_email" }, 400);
+  }
+
+  const existing = await getSubscriber(env.REVIEW_NOTIFY, email);
+  if (!existing) {
+    return json({ ok: false, error: "not_found", email }, 404);
+  }
+
+  await env.REVIEW_NOTIFY.delete(`sub:${await emailHash(email)}`);
+  return json({ ok: true, removed: true, email });
+}
+
+async function handleDedupeSubscribers(request, env) {
+  const auth = requireNotifyToken(request, env);
+  if (!auth.ok) return auth.response;
+  const result = await dedupeSubscribers(env.REVIEW_NOTIFY);
+  return json(result);
+}
+
 async function handleListSubscribers(request, env) {
   const auth = requireNotifyToken(request, env);
   if (!auth.ok) return auth.response;
@@ -247,6 +377,12 @@ export default {
       }
       if (request.method === "GET" && url.pathname === "/subscriber-count") {
         return handleSubscriberCount(env);
+      }
+      if (request.method === "POST" && url.pathname === "/admin/unsubscribe") {
+        return handleAdminUnsubscribe(request, env);
+      }
+      if (request.method === "POST" && url.pathname === "/admin/dedupe") {
+        return handleDedupeSubscribers(request, env);
       }
       if (request.method === "GET" && url.pathname === "/admin/subscribers") {
         return handleListSubscribers(request, env);

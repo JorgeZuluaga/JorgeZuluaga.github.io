@@ -189,10 +189,15 @@ def send_notification(
     wbase = worker_base()
     sent = 0
     recipients = subscribers or [{"email": email} for email in emails]
+    seen_emails: set[str] = set()
     for sub in recipients:
         email = str(sub.get("email") or "").strip()
         if not email:
             continue
+        normalized = email.lower()
+        if normalized in seen_emails:
+            continue
+        seen_emails.add(normalized)
         if test_to and email.lower() != test_to.strip().lower():
             continue
         token = str(sub.get("unsubscribeToken") or "").strip()
@@ -237,7 +242,7 @@ def main() -> int:
     with Path(args.library_json).open("r", encoding="utf-8") as f:
         library = json.load(f)
 
-    recent = list_recent_published_reviews(library, limit=5)
+    recent = list_recent_published_reviews(library, limit=6)
     if not recent:
         print("No hay reseñas publicadas en la biblioteca.", file=sys.stderr)
         return 1

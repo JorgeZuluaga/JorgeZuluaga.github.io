@@ -15,7 +15,8 @@
 	library-ddc-update library-ddc-generate-pending library-ddc-apply-gemini \
 	sync-dcc-library-details \
 	update-all-books \
-	worker-deploy review-notify-deploy review-notify-seed-test review-notify-test-send
+	worker-deploy review-notify-deploy review-notify-seed-test review-notify-test-send \
+	lista-suscritos
 
 PORT ?= 8000
 HOST ?= 127.0.0.1
@@ -52,6 +53,9 @@ help:
 	@echo "  make review-notify-setup          - Crear .secrets/ (token + Gmail)"
 	@echo "  make review-notify-seed-test      - Alta de correos de prueba en el worker"
 	@echo "  make review-notify-test-send      - Enviar correo de prueba a suscriptores"
+	@echo "  make review-notify-dedupe         - Depurar suscriptores duplicados en KV"
+	@echo "  make review-notify-unsubscribe EMAIL=... - Dar de baja un suscriptor"
+	@echo "  make lista-suscritos              - Listar correos suscritos (solo emails)"
 	@echo "  make library-bookbuddy-update     - Import CSV + stub dcc_classes + match bookIds"
 	@echo "  make library-bookbuddy-covers     - Portadas desde info/bookbuddy.htm (fallback: update/bookbuddy.htm)"
 	@echo "  make bookbuddy-missing             - Lista Goodreads sin BookBuddy → $(BOOKBUDDY_MISSING_MD) + PDF"
@@ -460,3 +464,13 @@ review-notify-seed-test:
 
 review-notify-test-send:
 	@python3 bin/notify_new_reviews.py --test-send
+
+review-notify-dedupe:
+	@python3 bin/review_notify_client.py dedupe
+
+review-notify-unsubscribe:
+	@test -n "$(EMAIL)" || (echo "Uso: make review-notify-unsubscribe EMAIL=correo@ejemplo.com" >&2; exit 1)
+	@python3 bin/review_notify_client.py unsubscribe "$(EMAIL)"
+
+lista-suscritos:
+	@python3 bin/review_notify_client.py list-emails

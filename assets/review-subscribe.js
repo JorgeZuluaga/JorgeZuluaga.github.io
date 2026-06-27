@@ -99,6 +99,13 @@ async function handleSubmit(event) {
     if (!res.ok || !data.ok) {
       throw new Error(data.error || "subscribe_failed");
     }
+    if (data.status === "already_subscribed") {
+      if (status) status.textContent = t("library_subscribe_already");
+      showToast(t("library_subscribe_already"));
+      emailInput.value = "";
+      window.setTimeout(closeModal, 1800);
+      return;
+    }
     if (status) status.textContent = t("library_subscribe_success");
     emailInput.value = "";
     showToast(t("library_subscribe_success"));
