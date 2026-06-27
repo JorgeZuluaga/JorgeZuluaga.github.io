@@ -160,10 +160,10 @@ const STRINGS = {
     library_goodreads_note:
       "Estas estadísticas y reseñas las llevo registrando y escribiendo en Goodreads. Pero esta plataforma es relativamente restrictiva y por eso creé esta página. Para quienes tienen cuenta en esa red social, abajo encontrarán el enlace a mi perfil en Goodreads.",
     library_profile: "Mi perfil en Goodreads",
-    library_subscribe_open: "Recibir nuevas reseñas por correo",
-    library_subscribe_open_count_one: "Recibir nuevas reseñas por correo (1 suscrito)",
-    library_subscribe_open_count_many: "Recibir nuevas reseñas por correo (somos {count})",
-    library_subscribe_title: "Recibir nuevas reseñas",
+    library_subscribe_open: "Suscribirse a las reseñas",
+    library_subscribe_open_count_one: "Suscribirse a las reseñas (1 suscrito)",
+    library_subscribe_open_count_many: "Suscribirse a las reseñas (somos {count})",
+    library_subscribe_title: "Suscribirse a las reseñas",
     library_subscribe_intro:
       "Te avisaré por correo cuando publique una reseña nueva en esta biblioteca.",
     library_subscribe_email_label: "Correo electrónico",
@@ -405,10 +405,10 @@ const STRINGS = {
     library_goodreads_note:
       "I have been tracking these statistics and writing these reviews on Goodreads. But that platform is relatively restrictive, so I created this page. For those who have an account on that social network, below you will find the link to my Goodreads profile.",
     library_profile: "My Goodreads profile",
-    library_subscribe_open: "Get new reviews by email",
-    library_subscribe_open_count_one: "Get new reviews by email (1 subscription)",
-    library_subscribe_open_count_many: "Get new reviews by email ({count} subscriptions)",
-    library_subscribe_title: "Email alerts for new reviews",
+    library_subscribe_open: "Subscribe to reviews",
+    library_subscribe_open_count_one: "Subscribe to reviews (1 subscriber)",
+    library_subscribe_open_count_many: "Subscribe to reviews ({count} subscribers)",
+    library_subscribe_title: "Subscribe to reviews",
     library_subscribe_intro:
       "I'll email you when I publish a new review on this library site.",
     library_subscribe_email_label: "Email address",

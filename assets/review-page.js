@@ -282,7 +282,6 @@ function styleSecondaryReviewActionButton(el) {
   el.style.display = "inline-flex";
   el.style.alignItems = "center";
   el.style.gap = "0.35rem";
-  el.style.marginLeft = "0.5rem";
   el.style.padding = "0.45rem 0.75rem";
   el.style.fontSize = "0.9rem";
 }
@@ -309,7 +308,7 @@ function createReviewActionsWrap() {
   const host = document.getElementById("review-like-actions") || document.querySelector("article.card");
   if (!host) return null;
   const wrap = document.createElement("p");
-  wrap.className = "likes likes-local";
+  wrap.className = "likes likes-local review-action-bar";
   wrap.style.marginTop = "1rem";
   host.appendChild(wrap);
   return wrap;
@@ -333,7 +332,7 @@ function upsertLikeButtonUI(reviewId, initialCount = 0) {
   if (document.getElementById("review-like-btn")) return;
 
   const wrap = document.createElement("p");
-  wrap.className = "likes likes-local";
+  wrap.className = "likes likes-local review-action-bar";
   wrap.style.marginTop = "1rem";
 
   const btn = document.createElement("button");

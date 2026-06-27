@@ -1944,6 +1944,11 @@ body.photos-page .photos-intro {
 .review-page-custom .likes-local button.logs-refresh {
   appearance: none;
   -webkit-appearance: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.35rem;
+  margin: 0;
   border: 1px solid color-mix(in srgb, var(--black) 22%, transparent);
   border-radius: 8px;
   background: color-mix(in srgb, var(--black) 4%, var(--white));
@@ -1951,6 +1956,38 @@ body.photos-page .photos-intro {
   font-family: inherit;
   font-weight: 500;
   cursor: pointer;
+}
+
+.review-page-custom .review-action-bar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: stretch;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+
+@media (max-width: 48em) {
+  .review-page-custom .review-action-bar {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.5rem;
+  }
+
+  .review-page-custom .review-action-bar #review-like-btn {
+    grid-column: 1;
+  }
+
+  .review-page-custom .review-action-bar button.logs-refresh:not(#review-like-btn):not(#review-subscribe-cta) {
+    grid-column: 2;
+  }
+
+  .review-page-custom .review-action-bar #review-subscribe-cta {
+    grid-column: 1 / -1;
+  }
+
+  .review-page-custom .review-action-bar button.logs-refresh {
+    width: 100%;
+  }
 }
 
 .review-page-custom .likes-local button.logs-refresh:hover {
