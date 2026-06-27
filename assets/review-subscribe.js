@@ -22,17 +22,50 @@ function updateSubscribeButtonLabel(count) {
   btn.textContent = subscribeButtonLabel(count);
 }
 
+const SUBSCRIBER_COUNT_CACHE_KEY = "review_subscriber_count_cache";
+const SUBSCRIBER_COUNT_CACHE_MS = 15 * 60 * 1000;
+
+function readCachedSubscriberCount() {
+  try {
+    const raw = sessionStorage.getItem(SUBSCRIBER_COUNT_CACHE_KEY);
+    if (!raw) return null;
+    const parsed = JSON.parse(raw);
+    const count = Number(parsed?.count);
+    const ts = Number(parsed?.ts);
+    if (!Number.isFinite(count) || count < 0 || !Number.isFinite(ts)) return null;
+    if (Date.now() - ts > SUBSCRIBER_COUNT_CACHE_MS) return null;
+    return count;
+  } catch {
+    return null;
+  }
+}
+
+function writeCachedSubscriberCount(count) {
+  try {
+    sessionStorage.setItem(
+      SUBSCRIBER_COUNT_CACHE_KEY,
+      JSON.stringify({ count, ts: Date.now() }),
+    );
+  } catch {
+    // ignore quota / private mode
+  }
+}
+
 async function fetchSubscriberCount() {
+  const cached = readCachedSubscriberCount();
+  if (cached !== null) return cached;
   const endpoint = workerEndpoint();
   if (!endpoint) return null;
   try {
     const res = await fetch(`${endpoint}/subscriber-count`, {
       headers: { Accept: "application/json" },
-      cache: "no-store",
+      cache: "default",
     });
     const data = await res.json().catch(() => ({}));
     if (!res.ok || !data.ok || !Number.isFinite(Number(data.count))) return null;
-    return Math.max(0, Number(data.count));
+    const count = Math.max(0, Number(data.count));
+    writeCachedSubscriberCount(count);
+    return count;
   } catch {
     return null;
   }

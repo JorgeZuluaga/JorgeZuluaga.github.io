@@ -364,8 +364,14 @@ async function hydrateLocalLikes(container, items, lang) {
   }
   renderLocalLikesInContainer(container, counts, lang);
 
-  // Always refresh from worker so 👏 matches individual review pages (review-page.js).
-  await mapWithConcurrency(reviewIds, async (reviewId) => {
+  const needsFetch = reviewIds.filter((reviewId) => {
+    const fromSnapshot = readSnapshotLocalLikes(bookByReviewId.get(reviewId));
+    const cached = readCachedLocalLikes(reviewId);
+    return pickBestKnownLocalLikes(fromSnapshot, cached) === null;
+  });
+  if (needsFetch.length === 0) return;
+
+  await mapWithConcurrency(needsFetch, async (reviewId) => {
     const fetched = await fetchLocalLikeCount(base, reviewId);
     if (fetched !== null) {
       counts.set(reviewId, fetched);
@@ -383,26 +389,13 @@ async function hydrateLocalLikes(container, items, lang) {
 
 async function hydrateTotalLocalLikes(totalEl, reviewedItems) {
   if (!totalEl || !Array.isArray(reviewedItems)) return;
-  const base = workerBaseFromLogEndpoint();
-  if (!base) return;
-  const reviewIds = [...new Set(reviewedItems.map((x) => parseReviewIdFromUrl(x?.reviewUrl)).filter(Boolean))];
-  if (reviewIds.length === 0) {
-    totalEl.textContent = "0";
-    return;
-  }
   let total = 0;
-  await mapWithConcurrency(reviewIds, async (reviewId) => {
-    const item = reviewedItems.find((x) => parseReviewIdFromUrl(x?.reviewUrl) === reviewId);
-    let count = await fetchLocalLikeCount(base, reviewId);
-    if (count !== null) {
-      writeCachedLocalLikes(reviewId, count);
-    } else {
-      const fromSnapshot = readSnapshotLocalLikes(item);
-      const fromCache = readCachedLocalLikes(reviewId);
-      count = pickBestKnownLocalLikes(fromSnapshot, fromCache);
-    }
+  for (const item of reviewedItems) {
+    const fromSnapshot = readSnapshotLocalLikes(item);
+    const fromCache = readCachedLocalLikes(parseReviewIdFromUrl(item?.reviewUrl));
+    const count = pickBestKnownLocalLikes(fromSnapshot, fromCache);
     if (count !== null) total += count;
-  }, 8);
+  }
   totalEl.textContent = String(total);
 }
 

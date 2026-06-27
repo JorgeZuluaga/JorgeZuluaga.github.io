@@ -112,6 +112,41 @@ function isEventLogKey(keyName) {
   return true;
 }
 
+function eventLogTimestamp(keyName) {
+  const name = String(keyName || "").trim();
+  const splitAt = name.lastIndexOf("_");
+  if (splitAt <= 0) return "";
+  return name.slice(0, splitAt);
+}
+
+function enumerateUtcDays(fromDay, toDay) {
+  const days = [];
+  const start = new Date(`${fromDay}T00:00:00.000Z`);
+  const end = new Date(`${toDay}T00:00:00.000Z`);
+  if (Number.isNaN(start.getTime()) || Number.isNaN(end.getTime())) return days;
+  for (let cursor = start; cursor <= end; cursor.setUTCDate(cursor.getUTCDate() + 1)) {
+    days.push(cursor.toISOString().slice(0, 10));
+  }
+  return days;
+}
+
+async function listEventLogKeysSince(kv, sinceIso) {
+  const since = String(sinceIso || "").trim();
+  if (!since) return listAllKeys(kv).then((keys) => keys.filter((k) => isEventLogKey(k.name)));
+
+  const sinceDay = since.slice(0, 10);
+  const todayDay = new Date().toISOString().slice(0, 10);
+  const keys = [];
+  for (const day of enumerateUtcDays(sinceDay, todayDay)) {
+    const pageKeys = await listAllByPrefix(kv, `${day}T`);
+    for (const key of pageKeys) {
+      if (!isEventLogKey(key.name)) continue;
+      if (eventLogTimestamp(key.name) >= since) keys.push(key);
+    }
+  }
+  return keys;
+}
+
 async function countReviewLikes(kv, reviewId) {
   const prefix = `review_like:${reviewId}:`;
   const keys = await listAllByPrefix(kv, prefix);
@@ -354,10 +389,52 @@ export default {
         }
 
         const limit = parsePositiveInt(url.searchParams.get("limit"), 250, { min: 1, max: 500 });
+        const sinceParam = String(url.searchParams.get("since") || "").trim();
         const cursorParam = String(url.searchParams.get("cursor") || "").trim();
+
+        if (sinceParam) {
+          const allKeys = await listEventLogKeysSince(env.VISITOR_LOGS, sinceParam);
+          const startIdx = cursorParam ? Math.max(0, Number.parseInt(cursorParam, 10) || 0) : 0;
+          const slice = allKeys.slice(startIdx, startIdx + limit);
+          const values = await Promise.all(
+            slice.map(async (k) => {
+              const raw = await env.VISITOR_LOGS.get(k.name);
+              if (!raw) return null;
+              try {
+                const parsed = JSON.parse(raw);
+                if (!parsed || typeof parsed !== "object" || !("eventType" in parsed)) return null;
+                return { key: k.name, value: parsed };
+              } catch {
+                return null;
+              }
+            }),
+          );
+          const logs = values
+            .filter(Boolean)
+            .map((item) => ({
+              ...item.value,
+              _kvKey: item.key,
+            }))
+            .sort((a, b) => String(a.timestampServer).localeCompare(String(b.timestampServer)));
+          const nextIdx = startIdx + slice.length;
+          return jsonResponse({
+            ok: true,
+            logs,
+            scannedKeys: slice.length,
+            eventKeys: slice.length,
+            exportedLogs: logs.length,
+            nextCursor: nextIdx < allKeys.length ? String(nextIdx) : null,
+            listComplete: nextIdx >= allKeys.length,
+            limit,
+            mode: "since",
+            since: sinceParam,
+          });
+        }
+
+        const cursorParamLegacy = cursorParam || undefined;
         const page = await env.VISITOR_LOGS.list({
           limit,
-          cursor: cursorParam || undefined,
+          cursor: cursorParamLegacy,
         });
 
         const eventKeys = page.keys.filter((k) => isEventLogKey(k.name));

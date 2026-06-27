@@ -17,10 +17,12 @@ const CORS = {
   "access-control-allow-headers": "content-type, authorization",
 };
 
-function json(data, status = 200) {
+const SUBSCRIBER_COUNT_KEY = "meta:subscriber_count";
+
+function json(data, status = 200, extraHeaders = {}) {
   return new Response(JSON.stringify(data), {
     status,
-    headers: { "content-type": "application/json; charset=utf-8", ...CORS },
+    headers: { "content-type": "application/json; charset=utf-8", ...CORS, ...extraHeaders },
   });
 }
 
@@ -146,6 +148,26 @@ async function listConfirmedSubscribers(kv) {
   return [...unique.values()];
 }
 
+async function rebuildSubscriberCount(kv) {
+  const subs = await listConfirmedSubscribers(kv);
+  await kv.put(SUBSCRIBER_COUNT_KEY, String(subs.length));
+  return subs.length;
+}
+
+async function getCachedSubscriberCount(kv) {
+  const raw = await kv.get(SUBSCRIBER_COUNT_KEY);
+  const parsed = Number(raw);
+  if (Number.isFinite(parsed) && parsed >= 0) return parsed;
+  return rebuildSubscriberCount(kv);
+}
+
+async function adjustSubscriberCount(kv, delta) {
+  const current = await getCachedSubscriberCount(kv);
+  const next = Math.max(0, current + delta);
+  await kv.put(SUBSCRIBER_COUNT_KEY, String(next));
+  return next;
+}
+
 async function dedupeSubscribers(kv) {
   const keys = await listSubscriberKeys(kv);
   const records = [];
@@ -197,6 +219,7 @@ async function dedupeSubscribers(kv) {
   }
 
   const remaining = await listConfirmedSubscribers(kv);
+  await kv.put(SUBSCRIBER_COUNT_KEY, String(remaining.length));
   return {
     ok: true,
     removedKeys: removed,
@@ -223,6 +246,7 @@ async function upsertConfirmed(kv, email, source = "form") {
     unsubscribeToken: existing?.unsubscribeToken || randomToken(),
   };
   await saveSubscriber(kv, record);
+  await adjustSubscriberCount(kv, existing && existing.status === "confirmed" ? 0 : 1);
   return { ok: true, status: "subscribed", email: normalized };
 }
 
@@ -258,6 +282,7 @@ async function handleUnsubscribe(url, env) {
   if (!match) return html("<p>Suscripción no encontrada.</p>", 404);
 
   await env.REVIEW_NOTIFY.delete(`sub:${await emailHash(match.email)}`);
+  await adjustSubscriberCount(env.REVIEW_NOTIFY, -1);
   return redirectToLibrary(env, "subscribe=unsubscribed");
 }
 
@@ -276,12 +301,17 @@ async function handleSeed(request, env) {
   for (const raw of emails) {
     results.push(await upsertConfirmed(env.REVIEW_NOTIFY, raw, "admin_seed"));
   }
+  await rebuildSubscriberCount(env.REVIEW_NOTIFY);
   return json({ ok: true, results });
 }
 
 async function handleSubscriberCount(env) {
-  const subs = await listConfirmedSubscribers(env.REVIEW_NOTIFY);
-  return json({ ok: true, count: subs.length });
+  const count = await getCachedSubscriberCount(env.REVIEW_NOTIFY);
+  return json(
+    { ok: true, count },
+    200,
+    { "cache-control": "public, max-age=300" },
+  );
 }
 
 async function handleAdminUnsubscribe(request, env) {
@@ -306,6 +336,7 @@ async function handleAdminUnsubscribe(request, env) {
   }
 
   await env.REVIEW_NOTIFY.delete(`sub:${await emailHash(email)}`);
+  await adjustSubscriberCount(env.REVIEW_NOTIFY, -1);
   return json({ ok: true, removed: true, email });
 }
 

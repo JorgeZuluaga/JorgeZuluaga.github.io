@@ -49,8 +49,11 @@ def fetch_export_page(
     limit: int,
     timeout: float,
     user_agent: str,
+    since: str | None = None,
 ) -> dict:
     query = {"token": token, "limit": str(limit)}
+    if since:
+        query["since"] = since
     if cursor:
         query["cursor"] = cursor
     url = f"{worker_base.rstrip('/')}/logs-export?{urllib.parse.urlencode(query)}"
@@ -137,6 +140,17 @@ def main() -> int:
         except json.JSONDecodeError:
             state = {}
     cursor = str(state.get("nextCursor") or "").strip() or None
+    reached_end_before = bool(state.get("reachedEnd"))
+    since = ""
+    if reached_end_before and snapshot_path.exists():
+        try:
+            snapshot = json.loads(snapshot_path.read_text(encoding="utf-8"))
+            since = str(snapshot.get("lastEventTimestamp") or "").strip()
+        except json.JSONDecodeError:
+            since = ""
+    if since:
+        cursor = "0"
+        print(f"[visitor-logs] Modo incremental desde {since}", flush=True)
 
     existing_ids = load_existing_ids(ndjson_path)
     known_before = len(existing_ids)
@@ -161,6 +175,7 @@ def main() -> int:
                     limit=limit,
                     timeout=args.timeout,
                     user_agent=args.user_agent,
+                    since=since or None,
                 )
             except urllib.error.HTTPError as err:
                 raise SystemExit(f"Error HTTP al consultar /logs-export: {err.code}") from err
@@ -186,14 +201,20 @@ def main() -> int:
 
             next_cursor = payload.get("nextCursor")
             list_complete = bool(payload.get("listComplete"))
-            cursor = str(next_cursor or "").strip() or None
+            if since:
+                cursor = str(next_cursor or "").strip() or None
+                if not cursor:
+                    reached_end = True
+            else:
+                cursor = str(next_cursor or "").strip() or None
+                if list_complete or not cursor:
+                    reached_end = True
             print(
                 f"Página {pages}: fetched={len(logs)} appended={appended} "
                 f"cursor={'end' if not cursor else '...'}",
                 flush=True,
             )
-            if list_complete or not cursor:
-                reached_end = True
+            if reached_end:
                 break
 
     generated_at = now_iso()
