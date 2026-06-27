@@ -53,6 +53,7 @@ help:
 	@echo "  make review-notify-setup          - Crear .secrets/ (token + Gmail)"
 	@echo "  make review-notify-seed-test      - Alta de correos de prueba en el worker"
 	@echo "  make review-notify-test-send      - Enviar correo de prueba a suscriptores"
+	@echo "      REVIEW_IDS=id1,id2,...        - Simular varias reseñas nuevas en la prueba"
 	@echo "  make review-notify-dedupe         - Depurar suscriptores duplicados en KV"
 	@echo "  make review-notify-unsubscribe EMAIL=... - Dar de baja un suscriptor"
 	@echo "  make lista-suscritos              - Listar correos suscritos (solo emails)"
@@ -463,7 +464,7 @@ review-notify-seed-test:
 		penagosolga@gmail.com
 
 review-notify-test-send:
-	@python3 bin/notify_new_reviews.py --test-send
+	@python3 bin/notify_new_reviews.py --test-send $(if $(REVIEW_IDS),--test-review-ids "$(REVIEW_IDS)",)
 
 review-notify-dedupe:
 	@python3 bin/review_notify_client.py dedupe

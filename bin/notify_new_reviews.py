@@ -21,6 +21,7 @@ STATE_PATH = REPO / ".secrets" / "last-notified-reviews.json"
 LIBRARY_JSON = REPO / "info" / "library.json"
 SITE_BASE = "https://jorgezuluaga.github.io"
 EXCERPT_MAX_CHARS = 600
+RECENT_FOOTER_LIMIT = 5
 
 
 def review_id_from_book(book: dict) -> str:
@@ -139,6 +140,36 @@ def list_recent_published_reviews(library: dict, *, limit: int = 5, site_base: s
     return [book_to_review_payload(book, site_base) for book in books[:limit]]
 
 
+def recent_footer_reviews(
+    library: dict,
+    featured_reviews: list[dict],
+    *,
+    limit: int = RECENT_FOOTER_LIMIT,
+    site_base: str = SITE_BASE,
+) -> list[dict]:
+    """Las N reseñas más recientes excluyendo las ya resaltadas en el cuerpo del correo."""
+    exclude_ids = {
+        str(review.get("id") or "").strip()
+        for review in featured_reviews
+        if str(review.get("id") or "").strip()
+    }
+    books = [
+        book
+        for book in (library.get("books") or [])
+        if isinstance(book, dict) and qualifies_for_latest_reviews(book)
+    ]
+    books.sort(key=review_sort_key, reverse=True)
+    footer: list[dict] = []
+    for book in books:
+        review_id = review_id_from_book(book)
+        if review_id in exclude_ids:
+            continue
+        footer.append(book_to_review_payload(book, site_base))
+        if len(footer) >= limit:
+            break
+    return footer
+
+
 def load_state() -> dict:
     if not STATE_PATH.exists():
         return {"notifiedReviewIds": []}
@@ -178,9 +209,35 @@ def find_new_review_books(library: dict, already: set[str]) -> list[dict]:
     return new_books
 
 
+def find_book_by_review_id(library: dict, review_id: str) -> dict | None:
+    target = str(review_id or "").strip()
+    if not target:
+        return None
+    for book in library.get("books") or []:
+        if not isinstance(book, dict):
+            continue
+        if review_id_from_book(book) == target:
+            return book
+    return None
+
+
+def reviews_from_ids(library: dict, review_ids: list[str], *, site_base: str = SITE_BASE) -> list[dict]:
+    reviews: list[dict] = []
+    for review_id in review_ids:
+        book = find_book_by_review_id(library, review_id)
+        if not book:
+            continue
+        if not qualifies_for_latest_reviews(book):
+            print(f"  Aviso: {review_id} no califica como reseña publicada; se omite.", file=sys.stderr)
+            continue
+        reviews.append(book_to_review_payload(book, site_base))
+    return reviews
+
+
 def send_notification(
     *,
     featured: dict,
+    featured_reviews: list[dict] | None = None,
     recent: list[dict],
     subscribers: list[dict],
     emails: list[str],
@@ -204,6 +261,7 @@ def send_notification(
         unsub = f"{wbase}/unsubscribe?token={token}" if token else ""
         subject, text, html_body = build_review_email(
             featured=featured,
+            featured_reviews=featured_reviews,
             recent=recent,
             site_base=SITE_BASE,
             unsubscribe_url=unsub,
@@ -223,6 +281,11 @@ def main() -> int:
     parser = argparse.ArgumentParser(description="Notificar por correo reseñas recién publicadas.")
     parser.add_argument("--dry-run", action="store_true", help="Solo listar reseñas nuevas.")
     parser.add_argument("--test-send", action="store_true", help="Enviar correo de prueba a suscriptores.")
+    parser.add_argument(
+        "--test-review-ids",
+        default="",
+        help="IDs de reseña (coma) para simular reseñas nuevas en --test-send.",
+    )
     parser.add_argument("--test-to", default="", help="En prueba, enviar solo a este correo.")
     parser.add_argument("--library-json", default=str(LIBRARY_JSON))
     args = parser.parse_args()
@@ -242,22 +305,36 @@ def main() -> int:
     with Path(args.library_json).open("r", encoding="utf-8") as f:
         library = json.load(f)
 
-    recent = list_recent_published_reviews(library, limit=6)
-    if not recent:
+    if not list_recent_published_reviews(library, limit=1):
         print("No hay reseñas publicadas en la biblioteca.", file=sys.stderr)
         return 1
 
     if args.test_send:
-        featured = recent[0]
+        if args.test_review_ids.strip():
+            review_ids = [part.strip() for part in args.test_review_ids.split(",") if part.strip()]
+            featured_reviews = reviews_from_ids(library, review_ids)
+            if not featured_reviews:
+                print("No se encontraron reseñas válidas para los IDs indicados.", file=sys.stderr)
+                return 1
+        else:
+            featured_reviews = list_recent_published_reviews(library, limit=1)
+        featured = featured_reviews[0]
+        recent = recent_footer_reviews(library, featured_reviews)
         sent = send_notification(
             featured=featured,
+            featured_reviews=featured_reviews if len(featured_reviews) > 1 else None,
             recent=recent,
             subscribers=subscribers,
             emails=emails,
             test_to=args.test_to,
         )
         print(f"Correo de prueba enviado a {sent} suscriptor(es).")
-        print(f"  Destacada: {featured.get('title')}")
+        if len(featured_reviews) > 1:
+            print(f"  Reseñas simuladas ({len(featured_reviews)}):")
+            for review in featured_reviews:
+                print(f"    - {review.get('title')} → {review.get('url')}")
+        else:
+            print(f"  Destacada: {featured.get('title')}")
         return 0
 
     state = load_state()
@@ -269,17 +346,23 @@ def main() -> int:
 
     featured = book_to_review_payload(new_books[0], SITE_BASE)
     new_reviews = [book_to_review_payload(book, SITE_BASE) for book in new_books]
+    featured_reviews = new_reviews if len(new_reviews) > 1 else None
 
     print(f"Reseñas nuevas ({len(new_reviews)}):")
     for review in new_reviews:
         print(f"  - {review.get('title')} → {review.get('url')}")
-    print(f"Destacada en el correo: {featured.get('title')}")
+    if featured_reviews:
+        print("El correo incluirá el primer párrafo de todas las reseñas nuevas.")
+    else:
+        print(f"Destacada en el correo: {featured.get('title')}")
 
     if args.dry_run:
         return 0
 
+    recent = recent_footer_reviews(library, new_reviews)
     sent = send_notification(
         featured=featured,
+        featured_reviews=featured_reviews,
         recent=recent,
         subscribers=subscribers,
         emails=emails,

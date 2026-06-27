@@ -16,6 +16,7 @@ from pathlib import Path
 REPO = Path(__file__).resolve().parent.parent
 DEFAULT_FROM_NAME = "Jorge Zuluaga - Biblioteca"
 SEND_DELAY_SEC = 3.0
+RECENT_FOOTER_LIMIT = 5
 
 
 def normalize_credential(raw: str, *, strip_spaces: bool = False) -> str:
@@ -46,20 +47,29 @@ def _rating_stars(rating: object) -> str:
 
 
 def _recent_without_featured(
-    featured: dict,
+    featured_reviews: list[dict],
     recent: list[dict] | None,
     *,
-    limit: int = 5,
+    limit: int = RECENT_FOOTER_LIMIT,
 ) -> list[dict]:
-    featured_id = str(featured.get("id") or "").strip()
-    featured_url = str(featured.get("url") or "").strip()
+    """Quita las resaltadas y deja hasta `limit` reseñas para el pie del correo."""
+    featured_ids = {
+        str(item.get("id") or "").strip()
+        for item in featured_reviews
+        if str(item.get("id") or "").strip()
+    }
+    featured_urls = {
+        str(item.get("url") or "").strip()
+        for item in featured_reviews
+        if str(item.get("url") or "").strip()
+    }
     filtered: list[dict] = []
     for item in recent or []:
         item_id = str(item.get("id") or "").strip()
         item_url = str(item.get("url") or "").strip()
-        if featured_id and item_id == featured_id:
+        if item_id and item_id in featured_ids:
             continue
-        if featured_url and item_url == featured_url:
+        if item_url and item_url in featured_urls:
             continue
         filtered.append(item)
         if len(filtered) >= limit:
@@ -67,77 +77,39 @@ def _recent_without_featured(
     return filtered
 
 
-def build_review_email(
-    *,
-    featured: dict,
-    recent: list[dict] | None = None,
-    site_base: str,
-    lang: str = "es",
-    unsubscribe_url: str = "",
-) -> tuple[str, str, str]:
-    base = site_base.rstrip("/")
-    title = str(featured.get("title") or "Nueva reseña")
-    author = str(featured.get("author") or "")
-    url = str(featured.get("url") or "")
-    cover_url = str(featured.get("cover_url") or "")
-    excerpt = str(featured.get("excerpt") or "").strip()
-    rating = _rating_stars(featured.get("rating"))
-    recent = _recent_without_featured(featured, recent, limit=5)
-
+def _featured_subject_title(featured_reviews: list[dict], *, lang: str) -> str:
+    count = len(featured_reviews)
+    if count <= 1:
+        return str(featured_reviews[0].get("title") or "Nueva reseña")
     if lang == "en":
-        subject = f"A new review by Jorge Zuluaga: {title}"
-        intro_paragraphs = [
-            "Hello,",
-            (
-                "Thank you for subscribing to this automatic notification of my book reviews. "
-                "I published a new review in my personal library. "
-                "Leave me your reaction and share it, if you find it worthwhile, "
-                "with other people passionate about books."
-            ),
-        ]
-        read_label = "Read full review"
-        recent_heading = "Latest published reviews"
-        by_prefix = "by"
-        unsubscribe_label = "Unsubscribe"
-    else:
-        subject = f"Una nueva reseña de Jorge Zuluaga: {title}"
-        intro_paragraphs = [
-            "Hola,",
-            (
-                "Gracias por suscribirte a esta notificación automática de mis reseñas de libros. "
-                "Te cuento que publiqué nueva(s) reseña(s) en mi biblioteca personal. "
-                "Déjame tu reacción y compártela, si la consideras chévere, "
-                "con otras personas apasionadas por los libros."
-            ),
-        ]
-        read_label = "Leer reseña completa"
-        recent_heading = "Últimas reseñas publicadas"
-        by_prefix = "de"
-        unsubscribe_label = "No me envíes más notificaciones"
+        return f"{count} new reviews"
+    return f"{count} nuevas reseñas"
+
+
+def _build_featured_block(
+    review: dict,
+    *,
+    read_label: str,
+    by_prefix: str,
+    margin_top: str = "0",
+) -> tuple[str, str]:
+    title = str(review.get("title") or "Nueva reseña")
+    author = str(review.get("author") or "")
+    url = str(review.get("url") or "")
+    cover_url = str(review.get("cover_url") or "")
+    excerpt = str(review.get("excerpt") or "").strip()
+    rating = _rating_stars(review.get("rating"))
 
     by_line = f"{by_prefix} {author}" if author else ""
     stars_line = f" ({rating})" if rating else ""
 
-    text_lines = [*intro_paragraphs, "", f"{title}"]
+    text_lines = [title]
     if by_line:
         text_lines.append(by_line + stars_line)
     if excerpt:
         text_lines.extend(["", excerpt])
     text_lines.extend(["", url])
-    if recent:
-        text_lines.extend(["", recent_heading + ":", ""])
-        for item in recent:
-            item_title = str(item.get("title") or "Reseña")
-            item_author = str(item.get("author") or "")
-            item_url = str(item.get("url") or "")
-            suffix = f" — {item_author}" if item_author else ""
-            text_lines.append(f"- {item_title}{suffix}")
-            if item_url:
-                text_lines.append(f"  {item_url}")
-    text_lines.extend(["", "-- Jorge Zuluaga"])
-    if unsubscribe_url:
-        text_lines.extend(["", f"{unsubscribe_label}: {unsubscribe_url}"])
-    text = "\n".join(text_lines)
+    text_block = "\n".join(text_lines)
 
     cover_html = ""
     if cover_url:
@@ -166,6 +138,118 @@ def build_review_email(
             f"{html.escape(excerpt)}"
             f"</p>"
         )
+
+    html_block = f"""\
+  <table role="presentation" cellpadding="0" cellspacing="0" border="0" style="width:100%;border:1px solid #e6e6e6;border-radius:12px;background:#fafafa;margin-top:{margin_top};">
+    <tr>
+      {cover_html}
+      <td style="vertical-align:top;padding:16px 18px 16px 0;">
+        <h2 style="margin:0;font-size:1.25rem;line-height:1.35;">
+          <a href="{html.escape(url)}" style="color:#111;text-decoration:none;">{html.escape(title)}</a>
+        </h2>
+        <p style="margin:0.35rem 0 0;font-size:0.95rem;color:#555;">{meta_html}</p>
+        {excerpt_html}
+        <p style="margin:1rem 0 0;">
+          <a href="{html.escape(url)}" style="color:#0b5cab;font-weight:600;text-decoration:none;">{read_label} →</a>
+        </p>
+      </td>
+    </tr>
+  </table>"""
+    return text_block, html_block
+
+
+def build_review_email(
+    *,
+    featured: dict,
+    featured_reviews: list[dict] | None = None,
+    recent: list[dict] | None = None,
+    site_base: str,
+    lang: str = "es",
+    unsubscribe_url: str = "",
+) -> tuple[str, str, str]:
+    """`recent`: hasta 5 reseñas recientes para el pie, sin incluir las resaltadas."""
+    base = site_base.rstrip("/")
+    featured_list = featured_reviews if featured_reviews else [featured]
+    recent = _recent_without_featured(featured_list, recent, limit=RECENT_FOOTER_LIMIT)
+    subject_title = _featured_subject_title(featured_list, lang=lang)
+    multiple = len(featured_list) > 1
+
+    if lang == "en":
+        if multiple:
+            subject = f"New reviews by Jorge Zuluaga: {subject_title}"
+            intro_body = (
+                "Thank you for subscribing to this automatic notification of my book reviews. "
+                "I published new reviews in my personal library. "
+                "Leave me your reaction and share them, if you find them worthwhile, "
+                "with other people passionate about books."
+            )
+        else:
+            subject = f"A new review by Jorge Zuluaga: {subject_title}"
+            intro_body = (
+                "Thank you for subscribing to this automatic notification of my book reviews. "
+                "I published a new review in my personal library. "
+                "Leave me your reaction and share it, if you find it worthwhile, "
+                "with other people passionate about books."
+            )
+        intro_paragraphs = ["Hello,", intro_body]
+        read_label = "Read full review"
+        recent_heading = "Latest published reviews"
+        by_prefix = "by"
+        unsubscribe_label = "Unsubscribe"
+    else:
+        if multiple:
+            subject = f"Nuevas reseñas de Jorge Zuluaga: {subject_title}"
+            intro_body = (
+                "Gracias por suscribirte a esta notificación automática de mis reseñas de libros. "
+                "Te cuento que publiqué nuevas reseñas en mi biblioteca personal. "
+                "Déjame tu reacción y compártelas, si las consideras chévere, "
+                "con otras personas apasionadas por los libros."
+            )
+        else:
+            subject = f"Una nueva reseña de Jorge Zuluaga: {subject_title}"
+            intro_body = (
+                "Gracias por suscribirte a esta notificación automática de mis reseñas de libros. "
+                "Te cuento que publiqué una nueva reseña en mi biblioteca personal. "
+                "Déjame tu reacción y compártela, si la consideras chévere, "
+                "con otras personas apasionadas por los libros."
+            )
+        intro_paragraphs = ["Hola,", intro_body]
+        read_label = "Leer reseña completa"
+        recent_heading = "Últimas reseñas publicadas"
+        by_prefix = "de"
+        unsubscribe_label = "No me envíes más notificaciones"
+
+    featured_text_blocks: list[str] = []
+    featured_html_blocks: list[str] = []
+    for idx, review in enumerate(featured_list):
+        text_block, html_block = _build_featured_block(
+            review,
+            read_label=read_label,
+            by_prefix=by_prefix,
+            margin_top="0" if idx == 0 else "1rem",
+        )
+        featured_text_blocks.append(text_block)
+        featured_html_blocks.append(html_block)
+
+    text_lines = [*intro_paragraphs, ""]
+    for idx, block in enumerate(featured_text_blocks):
+        if idx:
+            text_lines.append("")
+        text_lines.append(block)
+    if recent:
+        text_lines.extend(["", recent_heading + ":", ""])
+        for item in recent:
+            item_title = str(item.get("title") or "Reseña")
+            item_author = str(item.get("author") or "")
+            item_url = str(item.get("url") or "")
+            suffix = f" — {item_author}" if item_author else ""
+            text_lines.append(f"- {item_title}{suffix}")
+            if item_url:
+                text_lines.append(f"  {item_url}")
+    text_lines.extend(["", "-- Jorge Zuluaga"])
+    if unsubscribe_url:
+        text_lines.extend(["", f"{unsubscribe_label}: {unsubscribe_url}"])
+    text = "\n".join(text_lines)
 
     recent_items_html = []
     for item in recent:
@@ -206,21 +290,7 @@ def build_review_email(
     html_body = f"""\
 <div style="font-family:'Poppins',Arial,sans-serif;color:#222;line-height:1.5;max-width:640px;">
   {intro_html}
-  <table role="presentation" cellpadding="0" cellspacing="0" border="0" style="width:100%;border:1px solid #e6e6e6;border-radius:12px;background:#fafafa;">
-    <tr>
-      {cover_html}
-      <td style="vertical-align:top;padding:16px 18px 16px 0;">
-        <h2 style="margin:0;font-size:1.25rem;line-height:1.35;">
-          <a href="{html.escape(url)}" style="color:#111;text-decoration:none;">{html.escape(title)}</a>
-        </h2>
-        <p style="margin:0.35rem 0 0;font-size:0.95rem;color:#555;">{meta_html}</p>
-        {excerpt_html}
-        <p style="margin:1rem 0 0;">
-          <a href="{html.escape(url)}" style="color:#0b5cab;font-weight:600;text-decoration:none;">{read_label} →</a>
-        </p>
-      </td>
-    </tr>
-  </table>
+  {"".join(featured_html_blocks)}
   {recent_section_html}
   {footer}
 </div>"""

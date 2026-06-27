@@ -81,12 +81,18 @@ bash bin/run_periodic_data_sync.sh
 3. Ejecuta `make library-local-likes-sync`.
 4. Opcionalmente llama a `.secrets/update-likes.sh` si está presente.
 5. Intenta commit/push de los JSON relevantes.
-6. Ejecuta `bin/notify_new_reviews.py`: si hay reseñas nuevas (según `.secrets/last-notified-reviews.json`) y suscriptores confirmados, envía el correo vía Gmail SMTP (requiere `.secrets/gmail-smtp-user`, `gmail-app-password` y `review-notify-token`).
+6. Ejecuta `bin/notify_new_reviews.py`: si hay reseñas nuevas (según `.secrets/last-notified-reviews.json`) y suscriptores confirmados, envía el correo vía Gmail SMTP (requiere `.secrets/gmail-smtp-user`, `gmail-app-password` y `review-notify-token`). Si hay **más de una** reseña nueva, el correo incluye el primer párrafo de **todas** ellas. Al final siempre van las **5 reseñas más recientes** que no estén resaltadas en el cuerpo.
 
 Correo de **prueba** (no actualiza el estado de reseñas ya notificadas):
 
 ```bash
 make review-notify-test-send
+```
+
+Simular varias reseñas nuevas en la prueba:
+
+```bash
+make review-notify-test-send REVIEW_IDS=8709769014,8708090412,8611043258
 ```
 
 Dar de baja un suscriptor (admin):
