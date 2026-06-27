@@ -1,5 +1,9 @@
 #!/usr/bin/env python3
-"""Calculates drzrating for books that still have drzrating -1 or 0 in info/library.json."""
+"""Calculates provisional drzrating for books still pending (drzrating -1 or 0).
+
+Heuristic scores are clamped to 0–90 so Gemini can assign the full 0–100 range
+(including 91–100 for standout titles) using richer criteria.
+"""
 
 import argparse
 import json
@@ -7,9 +11,14 @@ import os
 from bs4 import BeautifulSoup
 from pathlib import Path
 
+AUTO_DRZ_MIN = 0
+AUTO_DRZ_MAX = 90
+_STARS_TO_AUTO_MAX = AUTO_DRZ_MAX // 5  # 18 points per Goodreads star
+
+
 def calculate_drzrating(book, base_path):
     rating = book.get("rating", 0)
-    base_score = rating * 20
+    base_score = rating * _STARS_TO_AUTO_MAX
     
     if rating == 0:
         return 0
@@ -62,10 +71,10 @@ def calculate_drzrating(book, base_path):
     final_score = base_score + modifier
     final_score = round(final_score)
     
-    if final_score > 100:
-        final_score = 100
-    elif final_score < 1:
-        final_score = 1
+    if final_score > AUTO_DRZ_MAX:
+        final_score = AUTO_DRZ_MAX
+    elif final_score < AUTO_DRZ_MIN:
+        final_score = AUTO_DRZ_MIN
         
     return final_score
 
@@ -99,6 +108,7 @@ def main() -> int:
             new_rating = calculate_drzrating(book, args.base_dir)
             if new_rating != 0:
                 book["drzrating"] = new_rating
+                book["drzratingAuto"] = True
                 changed += 1
                 print(f"[DRZRATING] '{book.get('title', '')[:40]}...' -> {new_rating}")
 

@@ -11,6 +11,7 @@ const LIBRARY_JSON = "./info/library.json";
 const LIBRARY_DETAILS_JSON = "./info/library-details.json";
 const BOOK_SERIES_JSON = "./info/book_series.json";
 const LOCAL_LIKES_CACHE_PREFIX = "review_local_likes_count_";
+const LIBRARY_LIST_EXPANDED_COUNT = 50;
 
 function buildDetailsBookIdSet(detailsBooks) {
   const set = new Set();
@@ -793,7 +794,7 @@ async function main() {
   const latestReadNoReview = [...readBooks]
     .filter((b) => b._date && !hasReview(b))
     .sort((a, b) => b._date - a._date)
-    .slice(0, 20);
+    .slice(0, LIBRARY_LIST_EXPANDED_COUNT);
   const reviewed = readBooks.filter((b) => hasReview(b));
   const topReviewedByLikes = [...reviewed]
     .sort((a, b) => {
@@ -801,7 +802,7 @@ async function main() {
       if (b.rating !== a.rating) return b.rating - a.rating;
       return (b._date?.getTime() ?? 0) - (a._date?.getTime() ?? 0);
     })
-    .slice(0, 20);
+    .slice(0, LIBRARY_LIST_EXPANDED_COUNT);
   const latestReviewsWritten = [...reviewed]
     .filter((b) => b._reviewDate)
     .sort((a, b) => (b._reviewDate?.getTime() ?? 0) - (a._reviewDate?.getTime() ?? 0));
@@ -812,7 +813,7 @@ async function main() {
       if (b.drzrating !== a.drzrating) return b.drzrating - a.drzrating;
       return (b._date?.getTime() ?? 0) - (a._date?.getTime() ?? 0);
     })
-    .slice(0, 20);
+    .slice(0, LIBRARY_LIST_EXPANDED_COUNT);
 
   const totalReviewedGr = reviewedGr.length;
   const reviewedPctOfCatalog = catalogTotal ? (totalReviewedGr / catalogTotal) * 100 : 0;
@@ -892,7 +893,7 @@ async function main() {
   chartEl.replaceChildren(frag);
   addListToggleControls(latestReviewedEl, latestReviewsWritten, lang, seriesMap, {
     initialCount: 5,
-    expandedCount: 20,
+    expandedCount: LIBRARY_LIST_EXPANDED_COUNT,
     showMoreKey: "library_show_latest_20",
     showLessKey: "library_show_latest_5",
     includeAllBooksLink: true,
@@ -904,6 +905,7 @@ async function main() {
   });
   addListToggleControls(latestReadEl, latestReadNoReview, lang, seriesMap, {
     initialCount: 5,
+    expandedCount: LIBRARY_LIST_EXPANDED_COUNT,
     showMoreKey: "library_show_latest_20",
     showLessKey: "library_show_latest_5",
     includeAllBooksLink: true,
@@ -911,6 +913,7 @@ async function main() {
   });
   addListToggleControls(topReviewedEl, topReviewedByLikes, lang, seriesMap, {
     initialCount: 5,
+    expandedCount: LIBRARY_LIST_EXPANDED_COUNT,
     showMoreKey: "library_show_top_20",
     showLessKey: "library_show_latest_5",
     includeAllBooksLink: true,
@@ -918,6 +921,7 @@ async function main() {
   });
   addListToggleControls(top50El, topFavorite, lang, seriesMap, {
     initialCount: 5,
+    expandedCount: LIBRARY_LIST_EXPANDED_COUNT,
     showMoreKey: "library_show_top_20",
     showLessKey: "library_show_latest_5",
     includeAllBooksLink: true,

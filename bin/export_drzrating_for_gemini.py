@@ -2,8 +2,10 @@
 """Export pending DrZ ratings for Gemini scoring.
 
 Creates two files under update/:
-- update/drzrating_pending.json: books that need scoring (drzrating -1 or 0) AND have a review.
-- update/drzrating_context.json: compact context of already-scored books (drzrating > 0) with review excerpts.
+- update/drzrating_pending.json: books that need scoring (drzrating -1 or 0, or auto
+  placeholder with drzratingAuto) AND have a review.
+- update/drzrating_context.json: compact context of finalized scores (drzrating > 0,
+  not auto) with review excerpts.
 
 Review text is extracted from the local mirrored HTML in reviews/*.html when available.
 """
@@ -62,8 +64,9 @@ def build_record(*, repo_root: Path, book: dict[str, Any]) -> dict[str, Any] | N
     drz = book.get("drzrating")
     if not isinstance(drz, int):
         return None
-    # Only export books that are still pending DrZ scoring.
-    if drz not in (-1, 0):
+    auto_provisional = book.get("drzratingAuto") is True
+    # Export unscored books and auto-scored placeholders awaiting Gemini.
+    if drz not in (-1, 0) and not auto_provisional:
         return None
 
     review_text = read_review_text(repo_root=repo_root, book=book)
@@ -71,7 +74,7 @@ def build_record(*, repo_root: Path, book: dict[str, Any]) -> dict[str, Any] | N
         # Only score books with actual review text.
         return None
 
-    return {
+    record = {
         "bookId": str(book.get("bookId") or "").strip(),
         "reviewId": parse_review_id(book),
         "title": str(book.get("title") or "").strip(),
@@ -81,6 +84,9 @@ def build_record(*, repo_root: Path, book: dict[str, Any]) -> dict[str, Any] | N
         "reviewUrl": str(book.get("reviewUrl") or "").strip(),
         "reviewText": review_text,
     }
+    if auto_provisional and drz > 0:
+        record["provisionalDrzRating"] = drz
+    return record
 
 
 def build_context_record(*, repo_root: Path, book: dict[str, Any], excerpt_len: int) -> dict[str, Any] | None:
@@ -90,6 +96,8 @@ def build_context_record(*, repo_root: Path, book: dict[str, Any], excerpt_len: 
         return None
     drz = book.get("drzrating")
     if not isinstance(drz, int) or drz <= 0:
+        return None
+    if book.get("drzratingAuto") is True:
         return None
     review_text = read_review_text(repo_root=repo_root, book=book)
     excerpt = review_text.strip()[:excerpt_len] if review_text else ""

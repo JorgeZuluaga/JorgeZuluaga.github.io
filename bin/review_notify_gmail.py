@@ -91,6 +91,7 @@ def _build_featured_block(
     *,
     read_label: str,
     by_prefix: str,
+    review_byline: str,
     margin_top: str = "0",
 ) -> tuple[str, str]:
     title = str(review.get("title") or "Nueva reseña")
@@ -106,6 +107,8 @@ def _build_featured_block(
     text_lines = [title]
     if by_line:
         text_lines.append(by_line + stars_line)
+    if review_byline:
+        text_lines.append(review_byline)
     if excerpt:
         text_lines.extend(["", excerpt])
     text_lines.extend(["", url])
@@ -114,12 +117,11 @@ def _build_featured_block(
     cover_html = ""
     if cover_url:
         cover_html = (
-            f'<td style="vertical-align:top;padding-right:18px;width:168px;">'
-            f'<a href="{html.escape(url)}">'
+            f'<a href="{html.escape(url)}" style="float:left;margin:0 18px 12px 0;display:block;">'
             f'<img src="{html.escape(cover_url)}" alt="" width="160" '
             f'style="display:block;max-width:160px;height:auto;border-radius:8px;'
             f'border:1px solid #ddd;" />'
-            f"</a></td>"
+            f"</a>"
         )
 
     meta_bits = []
@@ -131,6 +133,14 @@ def _build_featured_block(
         )
     meta_html = " · ".join(meta_bits)
 
+    byline_html = ""
+    if review_byline:
+        byline_html = (
+            f'<p style="margin:0.35rem 0 0;font-size:0.92rem;color:#555;font-style:italic;">'
+            f"<em>{html.escape(review_byline)}</em>"
+            f"</p>"
+        )
+
     excerpt_html = ""
     if excerpt:
         excerpt_html = (
@@ -140,21 +150,18 @@ def _build_featured_block(
         )
 
     html_block = f"""\
-  <table role="presentation" cellpadding="0" cellspacing="0" border="0" style="width:100%;border:1px solid #e6e6e6;border-radius:12px;background:#fafafa;margin-top:{margin_top};">
-    <tr>
-      {cover_html}
-      <td style="vertical-align:top;padding:16px 18px 16px 0;">
-        <h2 style="margin:0;font-size:1.25rem;line-height:1.35;">
-          <a href="{html.escape(url)}" style="color:#111;text-decoration:none;">{html.escape(title)}</a>
-        </h2>
-        <p style="margin:0.35rem 0 0;font-size:0.95rem;color:#555;">{meta_html}</p>
-        {excerpt_html}
-        <p style="margin:1rem 0 0;">
-          <a href="{html.escape(url)}" style="color:#0b5cab;font-weight:600;text-decoration:none;">{read_label} →</a>
-        </p>
-      </td>
-    </tr>
-  </table>"""
+  <div style="width:100%;border:1px solid #e6e6e6;border-radius:12px;background:#fafafa;margin-top:{margin_top};padding:16px 18px;overflow:hidden;">
+    {cover_html}
+    <h2 style="margin:0;font-size:1.25rem;line-height:1.35;">
+      <a href="{html.escape(url)}" style="color:#111;text-decoration:none;">{html.escape(title)}</a>
+    </h2>
+    <p style="margin:0.35rem 0 0;font-size:0.95rem;color:#555;">{meta_html}</p>
+    {byline_html}
+    {excerpt_html}
+    <p style="margin:1rem 0 0;clear:both;">
+      <a href="{html.escape(url)}" style="color:#0b5cab;font-weight:600;text-decoration:none;">{read_label} →</a>
+    </p>
+  </div>"""
     return text_block, html_block
 
 
@@ -195,6 +202,7 @@ def build_review_email(
         read_label = "Read full review"
         recent_heading = "Latest published reviews"
         by_prefix = "by"
+        review_byline = "Review by Jorge I. Zuluaga, Dr. Z"
         unsubscribe_label = "Unsubscribe"
     else:
         if multiple:
@@ -202,7 +210,7 @@ def build_review_email(
             intro_body = (
                 "Gracias por suscribirte a esta notificación automática de mis reseñas de libros. "
                 "Te cuento que publiqué nuevas reseñas en mi biblioteca personal. "
-                "Déjame tu reacción y compártelas, si las consideras chévere, "
+                "Compártelas y déjame tu reacción, si las consideras chévere, "
                 "con otras personas apasionadas por los libros."
             )
         else:
@@ -210,13 +218,14 @@ def build_review_email(
             intro_body = (
                 "Gracias por suscribirte a esta notificación automática de mis reseñas de libros. "
                 "Te cuento que publiqué una nueva reseña en mi biblioteca personal. "
-                "Déjame tu reacción y compártela, si la consideras chévere, "
+                "Compártela y déjame tu reacción, si la consideras chévere, "
                 "con otras personas apasionadas por los libros."
             )
         intro_paragraphs = ["Hola,", intro_body]
         read_label = "Leer reseña completa"
         recent_heading = "Últimas reseñas publicadas"
         by_prefix = "de"
+        review_byline = "Reseña por Jorge I. Zuluaga, Dr. Z"
         unsubscribe_label = "No me envíes más notificaciones"
 
     featured_text_blocks: list[str] = []
@@ -226,6 +235,7 @@ def build_review_email(
             review,
             read_label=read_label,
             by_prefix=by_prefix,
+            review_byline=review_byline,
             margin_top="0" if idx == 0 else "1rem",
         )
         featured_text_blocks.append(text_block)

@@ -77,6 +77,7 @@ def main() -> int:
         if prev != score:
             book["drzrating"] = score
             updated += 1
+        book.pop("drzratingAuto", None)
 
     if not args.dry_run:
         data["books"] = books
