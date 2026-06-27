@@ -7,7 +7,7 @@
   "yearlyReads": [
     {
       "year": 2026,
-      "count": 50
+      "count": 51
     },
     {
       "year": 2025,
@@ -48,6 +48,20 @@
   ],
   "latestRead": [
     {
+      "bookId": "48712224",
+      "title": "Los narcisos: Han tomado el poder",
+      "author": "Marie-France Hirigoyen",
+      "dateRead": "2026-06-27",
+      "rating": 5,
+      "reviewUrl": "https://www.goodreads.com/review/show/8711059499?utm_medium=api&utm_source=rss",
+      "reviewLikes": 0,
+      "drzrating": -1,
+      "bookDetails": 0,
+      "matched": false,
+      "reviewLocalStatus": "error: The read operation timed out",
+      "reviewCount": 0
+    },
+    {
       "bookId": "35658293",
       "title": "La guerra de Calibán (The Expanse, #2)",
       "author": "James S.A. Corey",
@@ -61,8 +75,8 @@
       "reviewLocalUrl": "./reviews/8709769014.html",
       "reviewLocalCoverUrl": "./reviews/covers/8709769014.jpg",
       "reviewDate": "2026-06-25",
-      "reviewLocalStatus": "error: The read operation timed out",
-      "reviewLocalGeneratedAt": "2026-06-26T14:43:29.938572+00:00",
+      "reviewLocalStatus": "ok",
+      "reviewLocalGeneratedAt": "2026-06-27T18:16:46.090388+00:00",
       "reviewCount": 1817,
       "reviewLocalLikes": 0,
       "reviewLocalLikesUpdatedAt": "2026-06-26T14:39:45.438678+00:00"
@@ -74,7 +88,7 @@
       "dateRead": "2026-06-23",
       "rating": 4,
       "reviewUrl": "https://www.goodreads.com/review/show/8708090412?utm_medium=api&utm_source=rss",
-      "reviewLikes": 3,
+      "reviewLikes": 4,
       "drzrating": 100,
       "bookDetails": 0,
       "matched": false,
@@ -82,7 +96,7 @@
       "reviewLocalCoverUrl": "./reviews/covers/8708090412.jpg",
       "reviewDate": "2026-06-25",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-06-27T15:00:41.448145+00:00",
+      "reviewLocalGeneratedAt": "2026-06-27T18:16:50.866488+00:00",
       "reviewCount": 674,
       "reviewLocalLikes": 0,
       "reviewLocalLikesUpdatedAt": "2026-06-26T14:39:45.438678+00:00"
@@ -94,16 +108,16 @@
       "dateRead": "2026-06-22",
       "rating": 3,
       "reviewUrl": "https://www.goodreads.com/review/show/8705724576?utm_medium=api&utm_source=rss",
-      "reviewLikes": 0,
+      "reviewLikes": 1,
       "drzrating": -1,
       "bookDetails": 0,
       "matched": false,
       "reviewLocalUrl": "./reviews/8705724576.html",
       "reviewLocalCoverUrl": "./reviews/covers/8705724576.jpg",
-      "reviewDate": "2026-06-22",
+      "reviewDate": "2026-06-27",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-06-27T15:00:48.323088+00:00",
-      "reviewCount": 11,
+      "reviewLocalGeneratedAt": "2026-06-27T18:16:58.250668+00:00",
+      "reviewCount": 1143,
       "reviewLocalLikes": 0,
       "reviewLocalLikesUpdatedAt": "2026-06-26T14:39:45.438678+00:00"
     },
@@ -121,30 +135,10 @@
       "reviewLocalUrl": "./reviews/8681953506.html",
       "reviewLocalCoverUrl": "./reviews/covers/8681953506.jpg",
       "reviewDate": "2026-06-20",
-      "reviewLocalStatus": "error: [Errno 54] Connection reset by peer",
-      "reviewLocalGeneratedAt": "2026-06-26T14:43:42.903055+00:00",
+      "reviewLocalStatus": "ok",
+      "reviewLocalGeneratedAt": "2026-06-27T18:17:00.494448+00:00",
       "reviewCount": 11,
       "reviewLocalLikes": 0,
-      "reviewLocalLikesUpdatedAt": "2026-06-26T14:39:45.438678+00:00"
-    },
-    {
-      "bookId": "249891440",
-      "title": "El cosmos en el arte: Del sistema solar a los confines del universo",
-      "author": "Inés Pérez Teresa",
-      "dateRead": "2026-06-17",
-      "rating": 5,
-      "reviewUrl": "https://www.goodreads.com/review/show/8628849214?utm_medium=api&utm_source=rss",
-      "reviewLikes": 4,
-      "drzrating": 100,
-      "bookDetails": 0,
-      "matched": false,
-      "reviewLocalUrl": "./reviews/8628849214.html",
-      "reviewLocalCoverUrl": "./reviews/covers/8628849214.jpg",
-      "reviewDate": "2026-06-24",
-      "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-06-27T15:00:46.130045+00:00",
-      "reviewCount": 471,
-      "reviewLocalLikes": 1,
       "reviewLocalLikesUpdatedAt": "2026-06-26T14:39:45.438678+00:00"
     }
   ],
@@ -481,6 +475,20 @@
   ],
   "latestReviewed": [
     {
+      "bookId": "48712224",
+      "title": "Los narcisos: Han tomado el poder",
+      "author": "Marie-France Hirigoyen",
+      "dateRead": "2026-06-27",
+      "rating": 5,
+      "reviewUrl": "https://www.goodreads.com/review/show/8711059499?utm_medium=api&utm_source=rss",
+      "reviewLikes": 0,
+      "drzrating": -1,
+      "bookDetails": 0,
+      "matched": false,
+      "reviewLocalStatus": "error: The read operation timed out",
+      "reviewCount": 0
+    },
+    {
       "bookId": "35658293",
       "title": "La guerra de Calibán (The Expanse, #2)",
       "author": "James S.A. Corey",
@@ -494,8 +502,8 @@
       "reviewLocalUrl": "./reviews/8709769014.html",
       "reviewLocalCoverUrl": "./reviews/covers/8709769014.jpg",
       "reviewDate": "2026-06-25",
-      "reviewLocalStatus": "error: The read operation timed out",
-      "reviewLocalGeneratedAt": "2026-06-26T14:43:29.938572+00:00",
+      "reviewLocalStatus": "ok",
+      "reviewLocalGeneratedAt": "2026-06-27T18:16:46.090388+00:00",
       "reviewCount": 1817,
       "reviewLocalLikes": 0,
       "reviewLocalLikesUpdatedAt": "2026-06-26T14:39:45.438678+00:00"
@@ -507,7 +515,7 @@
       "dateRead": "2026-06-23",
       "rating": 4,
       "reviewUrl": "https://www.goodreads.com/review/show/8708090412?utm_medium=api&utm_source=rss",
-      "reviewLikes": 3,
+      "reviewLikes": 4,
       "drzrating": 100,
       "bookDetails": 0,
       "matched": false,
@@ -515,7 +523,7 @@
       "reviewLocalCoverUrl": "./reviews/covers/8708090412.jpg",
       "reviewDate": "2026-06-25",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-06-27T15:00:41.448145+00:00",
+      "reviewLocalGeneratedAt": "2026-06-27T18:16:50.866488+00:00",
       "reviewCount": 674,
       "reviewLocalLikes": 0,
       "reviewLocalLikesUpdatedAt": "2026-06-26T14:39:45.438678+00:00"
@@ -527,16 +535,16 @@
       "dateRead": "2026-06-22",
       "rating": 3,
       "reviewUrl": "https://www.goodreads.com/review/show/8705724576?utm_medium=api&utm_source=rss",
-      "reviewLikes": 0,
+      "reviewLikes": 1,
       "drzrating": -1,
       "bookDetails": 0,
       "matched": false,
       "reviewLocalUrl": "./reviews/8705724576.html",
       "reviewLocalCoverUrl": "./reviews/covers/8705724576.jpg",
-      "reviewDate": "2026-06-22",
+      "reviewDate": "2026-06-27",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-06-27T15:00:48.323088+00:00",
-      "reviewCount": 11,
+      "reviewLocalGeneratedAt": "2026-06-27T18:16:58.250668+00:00",
+      "reviewCount": 1143,
       "reviewLocalLikes": 0,
       "reviewLocalLikesUpdatedAt": "2026-06-26T14:39:45.438678+00:00"
     },
@@ -554,36 +562,16 @@
       "reviewLocalUrl": "./reviews/8681953506.html",
       "reviewLocalCoverUrl": "./reviews/covers/8681953506.jpg",
       "reviewDate": "2026-06-20",
-      "reviewLocalStatus": "error: [Errno 54] Connection reset by peer",
-      "reviewLocalGeneratedAt": "2026-06-26T14:43:42.903055+00:00",
+      "reviewLocalStatus": "ok",
+      "reviewLocalGeneratedAt": "2026-06-27T18:17:00.494448+00:00",
       "reviewCount": 11,
       "reviewLocalLikes": 0,
-      "reviewLocalLikesUpdatedAt": "2026-06-26T14:39:45.438678+00:00"
-    },
-    {
-      "bookId": "249891440",
-      "title": "El cosmos en el arte: Del sistema solar a los confines del universo",
-      "author": "Inés Pérez Teresa",
-      "dateRead": "2026-06-17",
-      "rating": 5,
-      "reviewUrl": "https://www.goodreads.com/review/show/8628849214?utm_medium=api&utm_source=rss",
-      "reviewLikes": 4,
-      "drzrating": 100,
-      "bookDetails": 0,
-      "matched": false,
-      "reviewLocalUrl": "./reviews/8628849214.html",
-      "reviewLocalCoverUrl": "./reviews/covers/8628849214.jpg",
-      "reviewDate": "2026-06-24",
-      "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-06-27T15:00:46.130045+00:00",
-      "reviewCount": 471,
-      "reviewLocalLikes": 1,
       "reviewLocalLikesUpdatedAt": "2026-06-26T14:39:45.438678+00:00"
     }
   ],
   "totals": {
-    "booksRead": 601,
-    "booksReviewed": 601,
-    "totalReviewLikes": 3266
+    "booksRead": 602,
+    "booksReviewed": 602,
+    "totalReviewLikes": 3269
   }
 }

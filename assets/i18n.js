@@ -161,8 +161,8 @@ const STRINGS = {
       "Estas estadísticas y reseñas las llevo registrando y escribiendo en Goodreads. Pero esta plataforma es relativamente restrictiva y por eso creé esta página. Para quienes tienen cuenta en esa red social, abajo encontrarán el enlace a mi perfil en Goodreads.",
     library_profile: "Mi perfil en Goodreads",
     library_subscribe_open: "Recibir nuevas reseñas por correo",
-    library_subscribe_open_count_one: "Recibir nuevas reseñas por correo (1 suscripción)",
-    library_subscribe_open_count_many: "Recibir nuevas reseñas por correo ({count} suscripciones)",
+    library_subscribe_open_count_one: "Recibir nuevas reseñas por correo (1 suscrito)",
+    library_subscribe_open_count_many: "Recibir nuevas reseñas por correo (somos {count})",
     library_subscribe_title: "Recibir nuevas reseñas",
     library_subscribe_intro:
       "Te avisaré por correo cuando publique una reseña nueva en esta biblioteca.",

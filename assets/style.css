@@ -2021,11 +2021,47 @@ body.photos-page .photos-intro {
   width: min(100%, 28rem);
   max-height: 90vh;
   overflow: auto;
-  background: var(--bg-color, #fff);
-  color: var(--text-color, #111);
+  --subscribe-surface: #ffffff;
+  --subscribe-text: #181818;
+  --subscribe-muted: #4b5563;
+  --subscribe-border: #94a3b8;
+  --subscribe-input-bg: #ffffff;
+  background: var(--subscribe-surface);
+  color: var(--subscribe-text);
+  color-scheme: light;
   border-radius: 0.75rem;
   padding: 1.5rem 1.25rem 1.25rem;
   box-shadow: 0 1rem 2.5rem rgba(0, 0, 0, 0.25);
+}
+
+.dark-theme .review-subscribe-dialog {
+  --subscribe-surface: var(--box);
+  --subscribe-text: #f0f0f0;
+  --subscribe-muted: #cbd5e1;
+  --subscribe-border: rgba(240, 240, 240, 0.35);
+  --subscribe-input-bg: var(--wrapper);
+  color-scheme: dark;
+}
+
+.review-subscribe-dialog .photos-intro,
+.review-subscribe-dialog .review-subscribe-label,
+.review-subscribe-dialog .review-subscribe-status {
+  color: var(--subscribe-muted);
+  opacity: 1;
+}
+
+.review-subscribe-dialog .review-subscribe-label {
+  color: var(--subscribe-text);
+}
+
+.review-subscribe-dialog h2,
+.review-subscribe-dialog .title-section {
+  color: var(--accent);
+  opacity: 1;
+}
+
+.review-subscribe-dialog p {
+  opacity: 1;
 }
 
 .review-subscribe-close {
@@ -2054,11 +2090,16 @@ body.photos-page .photos-intro {
 .review-subscribe-input {
   width: 100%;
   padding: 0.65rem 0.75rem;
-  border: 1px solid var(--border-bottom, #ccc);
+  border: 1px solid var(--subscribe-border, #94a3b8);
   border-radius: 0.4rem;
   font: inherit;
-  background: var(--bg-color, #fff);
-  color: inherit;
+  background: var(--subscribe-input-bg, #fff);
+  color: var(--subscribe-text, #181818);
+}
+
+.review-subscribe-input::placeholder {
+  color: var(--subscribe-muted, #6b7280);
+  opacity: 0.85;
 }
 
 .review-subscribe-actions {
