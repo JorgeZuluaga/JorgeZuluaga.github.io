@@ -58,12 +58,16 @@
       "drzrating": -1,
       "bookDetails": 0,
       "matched": false,
-      "reviewLocalStatus": "error: The read operation timed out",
-      "reviewCount": 0
+      "reviewLocalStatus": "ok",
+      "reviewCount": 11,
+      "reviewLocalUrl": "./reviews/8711059499.html",
+      "reviewLocalCoverUrl": "./reviews/covers/8711059499.jpg",
+      "reviewDate": "2026-06-27",
+      "reviewLocalGeneratedAt": "2026-06-28T14:16:29.011225+00:00"
     },
     {
       "bookId": "35658293",
-      "title": "La guerra de Calibán (The Expanse, #2)",
+      "title": "La guerra de Calibán",
       "author": "James S.A. Corey",
       "dateRead": "2026-06-25",
       "rating": 5,
@@ -76,7 +80,7 @@
       "reviewLocalCoverUrl": "./reviews/covers/8709769014.jpg",
       "reviewDate": "2026-06-25",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-06-27T18:16:46.090388+00:00",
+      "reviewLocalGeneratedAt": "2026-06-28T14:16:35.454238+00:00",
       "reviewCount": 1817,
       "reviewLocalLikes": 0,
       "reviewLocalLikesUpdatedAt": "2026-06-26T14:39:45.438678+00:00"
@@ -96,27 +100,27 @@
       "reviewLocalCoverUrl": "./reviews/covers/8708090412.jpg",
       "reviewDate": "2026-06-25",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-06-27T18:16:50.866488+00:00",
+      "reviewLocalGeneratedAt": "2026-06-28T14:16:39.794137+00:00",
       "reviewCount": 674,
       "reviewLocalLikes": 0,
       "reviewLocalLikesUpdatedAt": "2026-06-26T14:39:45.438678+00:00"
     },
     {
       "bookId": "242901061",
-      "title": "Cómo funciona la comida: la historia y el futuro de la alimentación",
+      "title": "Cómo funciona la comida / How to Feed the World: The History and Future of Food (Spanish Edition)",
       "author": "Vaclav Smil",
       "dateRead": "2026-06-22",
       "rating": 3,
       "reviewUrl": "https://www.goodreads.com/review/show/8705724576?utm_medium=api&utm_source=rss",
       "reviewLikes": 1,
-      "drzrating": -1,
+      "drzrating": 80,
       "bookDetails": 0,
       "matched": false,
       "reviewLocalUrl": "./reviews/8705724576.html",
       "reviewLocalCoverUrl": "./reviews/covers/8705724576.jpg",
       "reviewDate": "2026-06-27",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-06-27T18:16:58.250668+00:00",
+      "reviewLocalGeneratedAt": "2026-06-28T14:16:30.976835+00:00",
       "reviewCount": 1143,
       "reviewLocalLikes": 0,
       "reviewLocalLikesUpdatedAt": "2026-06-26T14:39:45.438678+00:00"
@@ -136,7 +140,7 @@
       "reviewLocalCoverUrl": "./reviews/covers/8681953506.jpg",
       "reviewDate": "2026-06-20",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-06-27T18:17:00.494448+00:00",
+      "reviewLocalGeneratedAt": "2026-06-28T14:16:46.090550+00:00",
       "reviewCount": 11,
       "reviewLocalLikes": 0,
       "reviewLocalLikesUpdatedAt": "2026-06-26T14:39:45.438678+00:00"
@@ -485,12 +489,16 @@
       "drzrating": -1,
       "bookDetails": 0,
       "matched": false,
-      "reviewLocalStatus": "error: The read operation timed out",
-      "reviewCount": 0
+      "reviewLocalStatus": "ok",
+      "reviewCount": 11,
+      "reviewLocalUrl": "./reviews/8711059499.html",
+      "reviewLocalCoverUrl": "./reviews/covers/8711059499.jpg",
+      "reviewDate": "2026-06-27",
+      "reviewLocalGeneratedAt": "2026-06-28T14:16:29.011225+00:00"
     },
     {
       "bookId": "35658293",
-      "title": "La guerra de Calibán (The Expanse, #2)",
+      "title": "La guerra de Calibán",
       "author": "James S.A. Corey",
       "dateRead": "2026-06-25",
       "rating": 5,
@@ -503,7 +511,7 @@
       "reviewLocalCoverUrl": "./reviews/covers/8709769014.jpg",
       "reviewDate": "2026-06-25",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-06-27T18:16:46.090388+00:00",
+      "reviewLocalGeneratedAt": "2026-06-28T14:16:35.454238+00:00",
       "reviewCount": 1817,
       "reviewLocalLikes": 0,
       "reviewLocalLikesUpdatedAt": "2026-06-26T14:39:45.438678+00:00"
@@ -523,27 +531,27 @@
       "reviewLocalCoverUrl": "./reviews/covers/8708090412.jpg",
       "reviewDate": "2026-06-25",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-06-27T18:16:50.866488+00:00",
+      "reviewLocalGeneratedAt": "2026-06-28T14:16:39.794137+00:00",
       "reviewCount": 674,
       "reviewLocalLikes": 0,
       "reviewLocalLikesUpdatedAt": "2026-06-26T14:39:45.438678+00:00"
     },
     {
       "bookId": "242901061",
-      "title": "Cómo funciona la comida: la historia y el futuro de la alimentación",
+      "title": "Cómo funciona la comida / How to Feed the World: The History and Future of Food (Spanish Edition)",
       "author": "Vaclav Smil",
       "dateRead": "2026-06-22",
       "rating": 3,
       "reviewUrl": "https://www.goodreads.com/review/show/8705724576?utm_medium=api&utm_source=rss",
       "reviewLikes": 1,
-      "drzrating": -1,
+      "drzrating": 80,
       "bookDetails": 0,
       "matched": false,
       "reviewLocalUrl": "./reviews/8705724576.html",
       "reviewLocalCoverUrl": "./reviews/covers/8705724576.jpg",
       "reviewDate": "2026-06-27",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-06-27T18:16:58.250668+00:00",
+      "reviewLocalGeneratedAt": "2026-06-28T14:16:30.976835+00:00",
       "reviewCount": 1143,
       "reviewLocalLikes": 0,
       "reviewLocalLikesUpdatedAt": "2026-06-26T14:39:45.438678+00:00"
@@ -563,7 +571,7 @@
       "reviewLocalCoverUrl": "./reviews/covers/8681953506.jpg",
       "reviewDate": "2026-06-20",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-06-27T18:17:00.494448+00:00",
+      "reviewLocalGeneratedAt": "2026-06-28T14:16:46.090550+00:00",
       "reviewCount": 11,
       "reviewLocalLikes": 0,
       "reviewLocalLikesUpdatedAt": "2026-06-26T14:39:45.438678+00:00"
@@ -572,6 +580,6 @@
   "totals": {
     "booksRead": 602,
     "booksReviewed": 602,
-    "totalReviewLikes": 3269
+    "totalReviewLikes": 3270
   }
 }

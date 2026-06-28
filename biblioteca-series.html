@@ -20,7 +20,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
 
-  <link rel="stylesheet" href="./assets/style.css?v=2" />
+  <link rel="stylesheet" href="./assets/style.css?v=16" />
   <script src="./assets/template.js" defer></script>
 </head>
 
@@ -69,8 +69,53 @@
           </div>
         </section>
         <h1 class="title-section" id="library-sagas-page-title">Sagas y colecciones personales</h1>
-        <p class="photos-intro" id="library-sagas-page-intro">Listado completo de todas las sagas agrupadas.</p>
-        <div id="all-series-list" class="library-book-list" aria-live="polite"></div>
+        <p class="photos-intro" id="library-sagas-page-intro">Listado completo de sagas, autores y colecciones agrupados en mi biblioteca.</p>
+
+        <nav class="library-series-jump-nav" id="library-series-jump-nav" aria-label="Ir a sección">
+          <p class="library-series-jump-nav__inner">
+            <a class="link library-series-jump-nav__link" id="library-series-jump-sagas" href="#library-section-sagas">Sagas</a>
+            <span class="library-series-jump-nav__sep" aria-hidden="true"> · </span>
+            <a class="link library-series-jump-nav__link" id="library-series-jump-authors" href="#library-section-authors">Autores y autoras</a>
+            <span class="library-series-jump-nav__sep" aria-hidden="true"> · </span>
+            <a class="link library-series-jump-nav__link" id="library-series-jump-collections" href="#library-section-collections">Colecciones</a>
+          </p>
+          <p class="library-series-jump-nav__inner library-series-jump-nav__inner--featured">
+            <span class="library-series-jump-nav__label" id="library-series-jump-featured-label">Destacados:</span>
+            <a class="link library-series-jump-nav__link" id="library-series-jump-feat-novelas-biograficas" href="#library-series-novelas-biograficas">Novelas biográficas</a>
+            <span class="library-series-jump-nav__sep" aria-hidden="true"> · </span>
+            <a class="link library-series-jump-nav__link" id="library-series-jump-feat-garcia-marquez" href="#library-series-garcia-marquez">García Márquez</a>
+            <span class="library-series-jump-nav__sep" aria-hidden="true"> · </span>
+            <a class="link library-series-jump-nav__link" id="library-series-jump-feat-mary-beard" href="#library-series-mary-beard">Mary Beard</a>
+            <span class="library-series-jump-nav__sep" aria-hidden="true"> · </span>
+            <a class="link library-series-jump-nav__link" id="library-series-jump-feat-jose-saramago" href="#library-series-jose-saramago">José Saramago</a>
+            <span class="library-series-jump-nav__sep" aria-hidden="true"> · </span>
+            <a class="link library-series-jump-nav__link" id="library-series-jump-feat-maria-martin" href="#library-series-maria-martin">María Martín</a>
+            <span class="library-series-jump-nav__sep" aria-hidden="true"> · </span>
+            <a class="link library-series-jump-nav__link" id="library-series-jump-feat-tito-vivas" href="#library-series-tito-vivas">Tito Vivas</a>
+            <span class="library-series-jump-nav__sep" aria-hidden="true"> · </span>
+            <a class="link library-series-jump-nav__link" id="library-series-jump-feat-feminismos" href="#library-series-feminismos">Feminismos</a>
+          </p>
+        </nav>
+
+        <section class="library-lists" id="library-series-sections" aria-label="Sagas, autores y colecciones">
+          <article class="library-list-card" id="library-section-sagas">
+            <h2 id="library-h2-sagas" class="title-section title-section--small">Sagas</h2>
+            <p class="photos-intro library-section-intro" id="library-sagas-section-intro"></p>
+            <div id="sagas-list" class="library-book-list" aria-live="polite"></div>
+          </article>
+
+          <article class="library-list-card" id="library-section-authors">
+            <h2 id="library-h2-authors" class="title-section title-section--small">Autores y autoras</h2>
+            <p class="photos-intro library-section-intro" id="library-authors-section-intro"></p>
+            <div id="authors-list" class="library-book-list" aria-live="polite"></div>
+          </article>
+
+          <article class="library-list-card" id="library-section-collections">
+            <h2 id="library-h2-collections" class="title-section title-section--small">Colecciones</h2>
+            <p class="photos-intro library-section-intro" id="library-collections-section-intro"></p>
+            <div id="collections-list" class="library-book-list" aria-live="polite"></div>
+          </article>
+        </section>
       </div>
     </main>
 

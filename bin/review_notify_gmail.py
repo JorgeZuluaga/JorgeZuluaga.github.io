@@ -208,18 +208,18 @@ def build_review_email(
         if multiple:
             subject = f"Nuevas reseñas de Jorge Zuluaga: {subject_title}"
             intro_body = (
-                "Gracias por suscribirte a esta notificación automática de mis reseñas de libros. "
-                "Te cuento que publiqué nuevas reseñas en mi biblioteca personal. "
-                "Compártelas y déjame tu reacción, si las consideras chévere, "
-                "con otras personas apasionadas por los libros."
+                "Gracias por suscribirte a las notificaciones de mis reseñas de libros. "
+                "Acabo de publicar varias reseñas nuevas en mi biblioteca personal. "
+                "Si alguna te interesa, me encantaría saber qué te parece; "
+                "y, si te animas, compartirlas con otros lectores a los que les pueda gustar."
             )
         else:
             subject = f"Una nueva reseña de Jorge Zuluaga: {subject_title}"
             intro_body = (
-                "Gracias por suscribirte a esta notificación automática de mis reseñas de libros. "
-                "Te cuento que publiqué una nueva reseña en mi biblioteca personal. "
-                "Compártela y déjame tu reacción, si la consideras chévere, "
-                "con otras personas apasionadas por los libros."
+                "Gracias por suscribirte a las notificaciones de mis reseñas de libros. "
+                "Acabo de publicar una reseña nueva en mi biblioteca personal. "
+                "Si te interesa, me encantaría saber qué te parece; "
+                "y, si te animas, compartirla con otros lectores a los que les pueda gustar."
             )
         intro_paragraphs = ["Hola,", intro_body]
         read_label = "Leer reseña completa"

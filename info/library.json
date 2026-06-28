@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-27T18:16:18.976989+00:00",
+  "generatedAt": "2026-06-28T14:16:21.993197+00:00",
   "source": {
     "rssUrl": "https://www.goodreads.com/review/list_rss/91991657?key=kpN1wAHi2GZUUO7BHv1v3ZCOGhOk_QjljXSDnXSc3kA-lzU7&shelf=%23ALL%23",
     "scrapeLikes": true,
@@ -19,12 +19,17 @@
       "drzrating": -1,
       "bookDetails": 0,
       "matched": false,
-      "reviewLocalStatus": "error: The read operation timed out",
-      "reviewCount": 0
+      "reviewLocalStatus": "ok",
+      "reviewCount": 11,
+      "reviewLocalUrl": "./reviews/8711059499.html",
+      "reviewLocalCoverUrl": "./reviews/covers/8711059499.jpg",
+      "reviewDate": "2026-06-27",
+      "reviewLocalGeneratedAt": "2026-06-28T14:16:29.011225+00:00",
+      "drzratingAuto": true
     },
     {
       "bookId": "35658293",
-      "title": "La guerra de Calibán (The Expanse, #2)",
+      "title": "La guerra de Calibán",
       "author": "James S.A. Corey",
       "dateRead": "2026-06-25",
       "rating": 5,
@@ -39,7 +44,7 @@
       "reviewLocalCoverUrl": "./reviews/covers/8709769014.jpg",
       "reviewDate": "2026-06-25",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-06-27T18:16:46.090388+00:00",
+      "reviewLocalGeneratedAt": "2026-06-28T14:16:35.454238+00:00",
       "reviewCount": 1817,
       "reviewLocalLikes": 0,
       "reviewLocalLikesUpdatedAt": "2026-06-26T14:39:45.438678+00:00"
@@ -61,14 +66,14 @@
       "reviewLocalCoverUrl": "./reviews/covers/8708090412.jpg",
       "reviewDate": "2026-06-25",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-06-27T18:16:50.866488+00:00",
+      "reviewLocalGeneratedAt": "2026-06-28T14:16:39.794137+00:00",
       "reviewCount": 674,
       "reviewLocalLikes": 0,
       "reviewLocalLikesUpdatedAt": "2026-06-26T14:39:45.438678+00:00"
     },
     {
       "bookId": "242901061",
-      "title": "Cómo funciona la comida: la historia y el futuro de la alimentación",
+      "title": "Cómo funciona la comida / How to Feed the World: The History and Future of Food (Spanish Edition)",
       "author": "Vaclav Smil",
       "dateRead": "2026-06-22",
       "rating": 3,
@@ -83,7 +88,7 @@
       "reviewLocalCoverUrl": "./reviews/covers/8705724576.jpg",
       "reviewDate": "2026-06-27",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-06-27T18:16:58.250668+00:00",
+      "reviewLocalGeneratedAt": "2026-06-28T14:16:30.976835+00:00",
       "reviewCount": 1143,
       "reviewLocalLikes": 0,
       "reviewLocalLikesUpdatedAt": "2026-06-26T14:39:45.438678+00:00"
@@ -105,10 +110,11 @@
       "reviewLocalCoverUrl": "./reviews/covers/8681953506.jpg",
       "reviewDate": "2026-06-20",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-06-27T18:17:00.494448+00:00",
+      "reviewLocalGeneratedAt": "2026-06-28T14:16:46.090550+00:00",
       "reviewCount": 11,
       "reviewLocalLikes": 0,
-      "reviewLocalLikesUpdatedAt": "2026-06-26T14:39:45.438678+00:00"
+      "reviewLocalLikesUpdatedAt": "2026-06-26T14:39:45.438678+00:00",
+      "drzratingAuto": true
     },
     {
       "bookId": "249891440",
@@ -127,7 +133,7 @@
       "reviewLocalCoverUrl": "./reviews/covers/8628849214.jpg",
       "reviewDate": "2026-06-24",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-06-27T18:16:55.792628+00:00",
+      "reviewLocalGeneratedAt": "2026-06-28T14:16:43.971921+00:00",
       "reviewCount": 471,
       "reviewLocalLikes": 1,
       "reviewLocalLikesUpdatedAt": "2026-06-26T14:39:45.438678+00:00"
@@ -149,7 +155,7 @@
       "reviewLocalCoverUrl": "./reviews/covers/8662109207.jpg",
       "reviewDate": "2026-06-24",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-06-27T18:16:53.316569+00:00",
+      "reviewLocalGeneratedAt": "2026-06-28T14:16:41.871769+00:00",
       "reviewCount": 402,
       "reviewLocalLikes": 0,
       "reviewLocalLikesUpdatedAt": "2026-06-26T14:39:45.438678+00:00"
@@ -162,7 +168,7 @@
       "rating": 4,
       "reviewUrl": "https://www.goodreads.com/review/show/2806126222?utm_medium=api&utm_source=rss",
       "hasReview": true,
-      "reviewLikes": 0,
+      "reviewLikes": 1,
       "scrapeStatus": "ok",
       "drzrating": 95,
       "bookDetails": 1,
@@ -171,7 +177,7 @@
       "reviewLocalCoverUrl": "./reviews/covers/2806126222.jpg",
       "reviewDate": "2026-06-25",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-06-27T18:16:43.322021+00:00",
+      "reviewLocalGeneratedAt": "2026-06-28T14:16:33.050416+00:00",
       "reviewCount": 992,
       "dateAdded": "2020-12-31",
       "reviewLocalLikes": 1,
@@ -194,10 +200,11 @@
       "reviewLocalCoverUrl": "./reviews/covers/8666574131.jpg",
       "reviewDate": "2026-06-08",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-06-27T18:17:02.921993+00:00",
+      "reviewLocalGeneratedAt": "2026-06-28T14:16:48.328279+00:00",
       "reviewCount": 11,
       "reviewLocalLikes": 0,
-      "reviewLocalLikesUpdatedAt": "2026-06-26T14:39:45.438678+00:00"
+      "reviewLocalLikesUpdatedAt": "2026-06-26T14:39:45.438678+00:00",
+      "drzratingAuto": true
     },
     {
       "bookId": "122763633",
@@ -242,7 +249,8 @@
       "reviewLocalGeneratedAt": "2026-06-26T02:08:08.012996+00:00",
       "reviewCount": 11,
       "reviewLocalLikes": 0,
-      "reviewLocalLikesUpdatedAt": "2026-06-26T14:39:45.438678+00:00"
+      "reviewLocalLikesUpdatedAt": "2026-06-26T14:39:45.438678+00:00",
+      "drzratingAuto": true
     },
     {
       "bookId": "32023743",
@@ -261,7 +269,7 @@
       "reviewLocalCoverUrl": "./reviews/covers/8611043258.jpg",
       "reviewDate": "2026-06-25",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-06-27T18:16:48.615917+00:00",
+      "reviewLocalGeneratedAt": "2026-06-28T14:16:37.699460+00:00",
       "reviewCount": 1817,
       "reviewLocalLikes": 0,
       "reviewLocalLikesUpdatedAt": "2026-06-26T14:39:45.438678+00:00"
@@ -286,7 +294,8 @@
       "reviewLocalGeneratedAt": "2026-06-25T15:17:55.218785+00:00",
       "reviewCount": 11,
       "reviewLocalLikes": 0,
-      "reviewLocalLikesUpdatedAt": "2026-06-26T14:39:45.438678+00:00"
+      "reviewLocalLikesUpdatedAt": "2026-06-26T14:39:45.438678+00:00",
+      "drzratingAuto": true
     },
     {
       "bookId": "228680531",
@@ -308,7 +317,8 @@
       "reviewLocalGeneratedAt": "2026-06-25T15:17:57.697177+00:00",
       "reviewCount": 11,
       "reviewLocalLikes": 0,
-      "reviewLocalLikesUpdatedAt": "2026-06-26T14:39:45.438678+00:00"
+      "reviewLocalLikesUpdatedAt": "2026-06-26T14:39:45.438678+00:00",
+      "drzratingAuto": true
     },
     {
       "bookId": "239940189",
@@ -542,7 +552,8 @@
       "reviewLocalGeneratedAt": "2026-05-10T19:26:41.809467+00:00",
       "reviewCount": 11,
       "reviewLocalLikes": 0,
-      "reviewLocalLikesUpdatedAt": "2026-06-26T14:39:45.438678+00:00"
+      "reviewLocalLikesUpdatedAt": "2026-06-26T14:39:45.438678+00:00",
+      "drzratingAuto": true
     },
     {
       "bookId": "59021993",
@@ -715,7 +726,8 @@
       "reviewLocalGeneratedAt": "2026-05-10T15:16:40.341896+00:00",
       "reviewCount": 11,
       "reviewLocalLikes": 0,
-      "reviewLocalLikesUpdatedAt": "2026-06-26T14:39:45.438678+00:00"
+      "reviewLocalLikesUpdatedAt": "2026-06-26T14:39:45.438678+00:00",
+      "drzratingAuto": true
     },
     {
       "bookId": "244149479",
@@ -850,7 +862,8 @@
       "reviewLocalGeneratedAt": "2026-05-10T15:16:44.736731+00:00",
       "reviewCount": 11,
       "reviewLocalLikes": 0,
-      "reviewLocalLikesUpdatedAt": "2026-06-26T14:39:45.438678+00:00"
+      "reviewLocalLikesUpdatedAt": "2026-06-26T14:39:45.438678+00:00",
+      "drzratingAuto": true
     },
     {
       "bookId": "60774041",
@@ -1063,7 +1076,8 @@
       "reviewLocalGeneratedAt": "2026-05-10T15:16:46.691652+00:00",
       "reviewCount": 11,
       "reviewLocalLikes": 0,
-      "reviewLocalLikesUpdatedAt": "2026-06-26T14:39:45.438678+00:00"
+      "reviewLocalLikesUpdatedAt": "2026-06-26T14:39:45.438678+00:00",
+      "drzratingAuto": true
     },
     {
       "bookId": "20740274",
@@ -1160,7 +1174,8 @@
       "reviewLocalGeneratedAt": "2026-05-10T15:16:48.648544+00:00",
       "reviewCount": 11,
       "reviewLocalLikes": 0,
-      "reviewLocalLikesUpdatedAt": "2026-06-26T14:39:45.438678+00:00"
+      "reviewLocalLikesUpdatedAt": "2026-06-26T14:39:45.438678+00:00",
+      "drzratingAuto": true
     },
     {
       "bookId": "54657941",
@@ -1230,7 +1245,8 @@
       "reviewLocalGeneratedAt": "2026-05-10T15:16:50.555863+00:00",
       "reviewCount": 11,
       "reviewLocalLikes": 0,
-      "reviewLocalLikesUpdatedAt": "2026-06-26T14:39:45.438678+00:00"
+      "reviewLocalLikesUpdatedAt": "2026-06-26T14:39:45.438678+00:00",
+      "drzratingAuto": true
     },
     {
       "bookId": "40538196",
@@ -1336,7 +1352,8 @@
       "reviewLocalGeneratedAt": "2026-05-10T15:16:52.465461+00:00",
       "reviewCount": 11,
       "reviewLocalLikes": 0,
-      "reviewLocalLikesUpdatedAt": "2026-06-26T14:39:45.438678+00:00"
+      "reviewLocalLikesUpdatedAt": "2026-06-26T14:39:45.438678+00:00",
+      "drzratingAuto": true
     },
     {
       "bookId": "32904032",
@@ -1371,7 +1388,8 @@
       "reviewLocalGeneratedAt": "2026-05-10T15:16:54.198757+00:00",
       "reviewCount": 11,
       "reviewLocalLikes": 0,
-      "reviewLocalLikesUpdatedAt": "2026-06-26T14:39:45.438678+00:00"
+      "reviewLocalLikesUpdatedAt": "2026-06-26T14:39:45.438678+00:00",
+      "drzratingAuto": true
     },
     {
       "bookId": "6707847",
@@ -1475,7 +1493,8 @@
       "reviewLocalGeneratedAt": "2026-05-10T15:16:56.111834+00:00",
       "reviewCount": 11,
       "reviewLocalLikes": 0,
-      "reviewLocalLikesUpdatedAt": "2026-06-26T14:39:45.438678+00:00"
+      "reviewLocalLikesUpdatedAt": "2026-06-26T14:39:45.438678+00:00",
+      "drzratingAuto": true
     },
     {
       "bookId": "71565",
@@ -1652,7 +1671,8 @@
       "reviewLocalGeneratedAt": "2026-05-10T15:16:58.067567+00:00",
       "reviewCount": 11,
       "reviewLocalLikes": 0,
-      "reviewLocalLikesUpdatedAt": "2026-06-26T14:39:45.438678+00:00"
+      "reviewLocalLikesUpdatedAt": "2026-06-26T14:39:45.438678+00:00",
+      "drzratingAuto": true
     },
     {
       "bookId": "17972675",
@@ -1687,7 +1707,8 @@
       "reviewLocalGeneratedAt": "2026-05-10T15:17:00.050882+00:00",
       "reviewCount": 11,
       "reviewLocalLikes": 0,
-      "reviewLocalLikesUpdatedAt": "2026-06-26T14:39:45.438678+00:00"
+      "reviewLocalLikesUpdatedAt": "2026-06-26T14:39:45.438678+00:00",
+      "drzratingAuto": true
     },
     {
       "bookId": "209668724",
@@ -1722,7 +1743,8 @@
       "reviewLocalGeneratedAt": "2026-05-10T15:17:01.946379+00:00",
       "reviewCount": 11,
       "reviewLocalLikes": 0,
-      "reviewLocalLikesUpdatedAt": "2026-06-26T14:39:45.438678+00:00"
+      "reviewLocalLikesUpdatedAt": "2026-06-26T14:39:45.438678+00:00",
+      "drzratingAuto": true
     },
     {
       "bookId": "8513933",
@@ -1894,7 +1916,8 @@
       "reviewLocalGeneratedAt": "2026-05-10T15:17:03.785458+00:00",
       "reviewCount": 11,
       "reviewLocalLikes": 0,
-      "reviewLocalLikesUpdatedAt": "2026-06-26T14:39:45.438678+00:00"
+      "reviewLocalLikesUpdatedAt": "2026-06-26T14:39:45.438678+00:00",
+      "drzratingAuto": true
     },
     {
       "bookId": "25377233",
@@ -1993,7 +2016,8 @@
       "reviewLocalGeneratedAt": "2026-05-10T15:17:05.675120+00:00",
       "reviewCount": 11,
       "reviewLocalLikes": 0,
-      "reviewLocalLikesUpdatedAt": "2026-06-26T14:39:45.438678+00:00"
+      "reviewLocalLikesUpdatedAt": "2026-06-26T14:39:45.438678+00:00",
+      "drzratingAuto": true
     },
     {
       "bookId": "233875060",
@@ -2201,7 +2225,8 @@
       "reviewLocalGeneratedAt": "2026-05-10T15:17:12.585612+00:00",
       "reviewCount": 11,
       "reviewLocalLikes": 0,
-      "reviewLocalLikesUpdatedAt": "2026-06-26T14:39:45.438678+00:00"
+      "reviewLocalLikesUpdatedAt": "2026-06-26T14:39:45.438678+00:00",
+      "drzratingAuto": true
     },
     {
       "bookId": "242077118",
@@ -2238,7 +2263,8 @@
       "reviewLocalGeneratedAt": "2026-05-10T15:17:08.381664+00:00",
       "reviewCount": 11,
       "reviewLocalLikes": 0,
-      "reviewLocalLikesUpdatedAt": "2026-06-26T14:39:45.438678+00:00"
+      "reviewLocalLikesUpdatedAt": "2026-06-26T14:39:45.438678+00:00",
+      "drzratingAuto": true
     },
     {
       "bookId": "37483810",
@@ -2306,7 +2332,8 @@
       "reviewLocalGeneratedAt": "2026-05-10T15:17:15.605659+00:00",
       "reviewCount": 11,
       "reviewLocalLikes": 0,
-      "reviewLocalLikesUpdatedAt": "2026-06-26T14:39:45.438678+00:00"
+      "reviewLocalLikesUpdatedAt": "2026-06-26T14:39:45.438678+00:00",
+      "drzratingAuto": true
     },
     {
       "bookId": "3362986",
@@ -2408,7 +2435,8 @@
       "reviewLocalGeneratedAt": "2026-05-10T15:17:18.155009+00:00",
       "reviewCount": 11,
       "reviewLocalLikes": 0,
-      "reviewLocalLikesUpdatedAt": "2026-06-26T14:39:45.438678+00:00"
+      "reviewLocalLikesUpdatedAt": "2026-06-26T14:39:45.438678+00:00",
+      "drzratingAuto": true
     },
     {
       "bookId": "19181819",
@@ -2441,7 +2469,8 @@
       "reviewLocalGeneratedAt": "2026-05-10T15:17:20.681242+00:00",
       "reviewCount": 11,
       "reviewLocalLikes": 0,
-      "reviewLocalLikesUpdatedAt": "2026-06-26T14:39:45.438678+00:00"
+      "reviewLocalLikesUpdatedAt": "2026-06-26T14:39:45.438678+00:00",
+      "drzratingAuto": true
     },
     {
       "bookId": "200887395",
@@ -2545,7 +2574,8 @@
       "reviewLocalGeneratedAt": "2026-05-10T15:17:43.567202+00:00",
       "reviewCount": 11,
       "reviewLocalLikes": 0,
-      "reviewLocalLikesUpdatedAt": "2026-06-26T14:39:45.438678+00:00"
+      "reviewLocalLikesUpdatedAt": "2026-06-26T14:39:45.438678+00:00",
+      "drzratingAuto": true
     },
     {
       "bookId": "235679277",
@@ -2577,7 +2607,8 @@
       "reviewDate": "2025-10-12",
       "reviewLocalGeneratedAt": "2026-05-10T19:26:47.561923+00:00",
       "reviewLocalLikes": 0,
-      "reviewLocalLikesUpdatedAt": "2026-06-26T14:39:45.438678+00:00"
+      "reviewLocalLikesUpdatedAt": "2026-06-26T14:39:45.438678+00:00",
+      "drzratingAuto": true
     },
     {
       "bookId": "232494918",
@@ -2647,7 +2678,8 @@
       "reviewLocalGeneratedAt": "2026-05-10T15:17:49.427714+00:00",
       "reviewCount": 11,
       "reviewLocalLikes": 0,
-      "reviewLocalLikesUpdatedAt": "2026-06-26T14:39:45.438678+00:00"
+      "reviewLocalLikesUpdatedAt": "2026-06-26T14:39:45.438678+00:00",
+      "drzratingAuto": true
     },
     {
       "bookId": "59080630",
@@ -2681,7 +2713,8 @@
       "reviewLocalGeneratedAt": "2026-05-10T15:17:46.579284+00:00",
       "reviewCount": 11,
       "reviewLocalLikes": 0,
-      "reviewLocalLikesUpdatedAt": "2026-06-26T14:39:45.438678+00:00"
+      "reviewLocalLikesUpdatedAt": "2026-06-26T14:39:45.438678+00:00",
+      "drzratingAuto": true
     },
     {
       "bookId": "25516857",
@@ -2715,7 +2748,8 @@
       "reviewLocalGeneratedAt": "2026-05-10T15:17:53.544080+00:00",
       "reviewCount": 11,
       "reviewLocalLikes": 0,
-      "reviewLocalLikesUpdatedAt": "2026-06-26T14:39:45.438678+00:00"
+      "reviewLocalLikesUpdatedAt": "2026-06-26T14:39:45.438678+00:00",
+      "drzratingAuto": true
     },
     {
       "bookId": "56920719",
@@ -2748,7 +2782,8 @@
       "reviewLocalGeneratedAt": "2026-05-10T15:17:56.467170+00:00",
       "reviewCount": 11,
       "reviewLocalLikes": 0,
-      "reviewLocalLikesUpdatedAt": "2026-06-26T14:39:45.438678+00:00"
+      "reviewLocalLikesUpdatedAt": "2026-06-26T14:39:45.438678+00:00",
+      "drzratingAuto": true
     },
     {
       "bookId": "17333142",
@@ -2782,7 +2817,8 @@
       "reviewLocalGeneratedAt": "2026-05-10T15:18:01.944596+00:00",
       "reviewCount": 11,
       "reviewLocalLikes": 0,
-      "reviewLocalLikesUpdatedAt": "2026-06-26T14:39:45.438678+00:00"
+      "reviewLocalLikesUpdatedAt": "2026-06-26T14:39:45.438678+00:00",
+      "drzratingAuto": true
     },
     {
       "bookId": "216472768",
@@ -2814,7 +2850,8 @@
       "reviewLocalGeneratedAt": "2026-05-10T15:18:04.615721+00:00",
       "reviewCount": 11,
       "reviewLocalLikes": 0,
-      "reviewLocalLikesUpdatedAt": "2026-06-26T14:39:45.438678+00:00"
+      "reviewLocalLikesUpdatedAt": "2026-06-26T14:39:45.438678+00:00",
+      "drzratingAuto": true
     },
     {
       "bookId": "20768906",
@@ -2846,7 +2883,8 @@
       "reviewLocalGeneratedAt": "2026-05-10T15:18:13.514854+00:00",
       "reviewCount": 11,
       "reviewLocalLikes": 0,
-      "reviewLocalLikesUpdatedAt": "2026-06-26T14:39:45.438678+00:00"
+      "reviewLocalLikesUpdatedAt": "2026-06-26T14:39:45.438678+00:00",
+      "drzratingAuto": true
     },
     {
       "bookId": "24379753",
@@ -2881,7 +2919,8 @@
       "reviewLocalGeneratedAt": "2026-05-10T15:18:10.564158+00:00",
       "reviewCount": 11,
       "reviewLocalLikes": 0,
-      "reviewLocalLikesUpdatedAt": "2026-06-26T14:39:45.438678+00:00"
+      "reviewLocalLikesUpdatedAt": "2026-06-26T14:39:45.438678+00:00",
+      "drzratingAuto": true
     },
     {
       "bookId": "65156334",
@@ -2915,7 +2954,8 @@
       "reviewLocalGeneratedAt": "2026-05-10T15:18:07.650800+00:00",
       "reviewCount": 11,
       "reviewLocalLikes": 0,
-      "reviewLocalLikesUpdatedAt": "2026-06-26T14:39:45.438678+00:00"
+      "reviewLocalLikesUpdatedAt": "2026-06-26T14:39:45.438678+00:00",
+      "drzratingAuto": true
     },
     {
       "bookId": "222815644",
@@ -2949,7 +2989,8 @@
       "reviewLocalGeneratedAt": "2026-05-10T15:18:16.956549+00:00",
       "reviewCount": 11,
       "reviewLocalLikes": 0,
-      "reviewLocalLikesUpdatedAt": "2026-06-26T14:39:45.438678+00:00"
+      "reviewLocalLikesUpdatedAt": "2026-06-26T14:39:45.438678+00:00",
+      "drzratingAuto": true
     },
     {
       "bookId": "235770304",
@@ -2984,7 +3025,8 @@
       "reviewLocalGeneratedAt": "2026-05-10T15:18:19.565303+00:00",
       "reviewCount": 11,
       "reviewLocalLikes": 0,
-      "reviewLocalLikesUpdatedAt": "2026-06-26T14:39:45.438678+00:00"
+      "reviewLocalLikesUpdatedAt": "2026-06-26T14:39:45.438678+00:00",
+      "drzratingAuto": true
     },
     {
       "bookId": "217324498",
@@ -3018,7 +3060,8 @@
       "reviewLocalGeneratedAt": "2026-05-10T15:18:22.548362+00:00",
       "reviewCount": 11,
       "reviewLocalLikes": 0,
-      "reviewLocalLikesUpdatedAt": "2026-06-26T14:39:45.438678+00:00"
+      "reviewLocalLikesUpdatedAt": "2026-06-26T14:39:45.438678+00:00",
+      "drzratingAuto": true
     },
     {
       "bookId": "236941248",
@@ -3053,7 +3096,8 @@
       "reviewLocalGeneratedAt": "2026-05-10T15:18:25.277057+00:00",
       "reviewCount": 11,
       "reviewLocalLikes": 0,
-      "reviewLocalLikesUpdatedAt": "2026-06-26T14:39:45.438678+00:00"
+      "reviewLocalLikesUpdatedAt": "2026-06-26T14:39:45.438678+00:00",
+      "drzratingAuto": true
     },
     {
       "bookId": "51222253",
@@ -3089,7 +3133,8 @@
       "reviewLocalGeneratedAt": "2026-05-10T15:18:28.270979+00:00",
       "reviewCount": 11,
       "reviewLocalLikes": 0,
-      "reviewLocalLikesUpdatedAt": "2026-06-26T14:39:45.438678+00:00"
+      "reviewLocalLikesUpdatedAt": "2026-06-26T14:39:45.438678+00:00",
+      "drzratingAuto": true
     },
     {
       "bookId": "18210750",
@@ -3121,7 +3166,8 @@
       "reviewLocalGeneratedAt": "2026-05-10T15:18:32.425967+00:00",
       "reviewCount": 11,
       "reviewLocalLikes": 0,
-      "reviewLocalLikesUpdatedAt": "2026-06-26T14:39:45.438678+00:00"
+      "reviewLocalLikesUpdatedAt": "2026-06-26T14:39:45.438678+00:00",
+      "drzratingAuto": true
     },
     {
       "bookId": "62105428",
@@ -3158,7 +3204,8 @@
       "reviewLocalGeneratedAt": "2026-05-10T15:18:35.408788+00:00",
       "reviewCount": 11,
       "reviewLocalLikes": 0,
-      "reviewLocalLikesUpdatedAt": "2026-06-26T14:39:45.438678+00:00"
+      "reviewLocalLikesUpdatedAt": "2026-06-26T14:39:45.438678+00:00",
+      "drzratingAuto": true
     },
     {
       "bookId": "61274281",
@@ -3190,7 +3237,8 @@
       "reviewLocalGeneratedAt": "2026-05-10T15:18:38.129080+00:00",
       "reviewCount": 11,
       "reviewLocalLikes": 0,
-      "reviewLocalLikesUpdatedAt": "2026-06-26T14:39:45.438678+00:00"
+      "reviewLocalLikesUpdatedAt": "2026-06-26T14:39:45.438678+00:00",
+      "drzratingAuto": true
     },
     {
       "bookId": "153617796",
@@ -3325,7 +3373,8 @@
       "reviewLocalGeneratedAt": "2026-05-10T15:18:41.009132+00:00",
       "reviewCount": 11,
       "reviewLocalLikes": 0,
-      "reviewLocalLikesUpdatedAt": "2026-06-26T14:39:45.438678+00:00"
+      "reviewLocalLikesUpdatedAt": "2026-06-26T14:39:45.438678+00:00",
+      "drzratingAuto": true
     },
     {
       "bookId": "218139790",
@@ -3872,7 +3921,8 @@
       "reviewLocalGeneratedAt": "2026-05-10T15:18:43.745036+00:00",
       "reviewCount": 11,
       "reviewLocalLikes": 0,
-      "reviewLocalLikesUpdatedAt": "2026-06-26T14:39:45.438678+00:00"
+      "reviewLocalLikesUpdatedAt": "2026-06-26T14:39:45.438678+00:00",
+      "drzratingAuto": true
     },
     {
       "bookId": "9859056",
@@ -3906,7 +3956,8 @@
       "reviewLocalGeneratedAt": "2026-05-10T15:18:46.465975+00:00",
       "reviewCount": 11,
       "reviewLocalLikes": 0,
-      "reviewLocalLikesUpdatedAt": "2026-06-26T14:39:45.438678+00:00"
+      "reviewLocalLikesUpdatedAt": "2026-06-26T14:39:45.438678+00:00",
+      "drzratingAuto": true
     },
     {
       "bookId": "215857232",
@@ -3976,7 +4027,8 @@
       "reviewLocalGeneratedAt": "2026-05-10T15:18:52.115054+00:00",
       "reviewCount": 11,
       "reviewLocalLikes": 0,
-      "reviewLocalLikesUpdatedAt": "2026-06-26T14:39:45.438678+00:00"
+      "reviewLocalLikesUpdatedAt": "2026-06-26T14:39:45.438678+00:00",
+      "drzratingAuto": true
     },
     {
       "bookId": "26196560",
@@ -4008,7 +4060,8 @@
       "reviewLocalGeneratedAt": "2026-05-10T15:18:49.282076+00:00",
       "reviewCount": 11,
       "reviewLocalLikes": 0,
-      "reviewLocalLikesUpdatedAt": "2026-06-26T14:39:45.438678+00:00"
+      "reviewLocalLikesUpdatedAt": "2026-06-26T14:39:45.438678+00:00",
+      "drzratingAuto": true
     },
     {
       "bookId": "35959740",
@@ -4078,7 +4131,8 @@
       "reviewLocalGeneratedAt": "2026-05-10T15:18:55.809924+00:00",
       "reviewCount": 11,
       "reviewLocalLikes": 0,
-      "reviewLocalLikesUpdatedAt": "2026-06-26T14:39:45.438678+00:00"
+      "reviewLocalLikesUpdatedAt": "2026-06-26T14:39:45.438678+00:00",
+      "drzratingAuto": true
     },
     {
       "bookId": "13183688",
@@ -4110,7 +4164,8 @@
       "reviewLocalGeneratedAt": "2026-05-10T15:18:58.567627+00:00",
       "reviewCount": 11,
       "reviewLocalLikes": 0,
-      "reviewLocalLikesUpdatedAt": "2026-06-26T14:39:45.438678+00:00"
+      "reviewLocalLikesUpdatedAt": "2026-06-26T14:39:45.438678+00:00",
+      "drzratingAuto": true
     },
     {
       "bookId": "60674842",
@@ -4313,7 +4368,8 @@
       "reviewLocalGeneratedAt": "2026-05-10T15:19:05.638970+00:00",
       "reviewCount": 11,
       "reviewLocalLikes": 0,
-      "reviewLocalLikesUpdatedAt": "2026-06-26T14:39:45.438678+00:00"
+      "reviewLocalLikesUpdatedAt": "2026-06-26T14:39:45.438678+00:00",
+      "drzratingAuto": true
     },
     {
       "bookId": "62012773",
@@ -4345,7 +4401,8 @@
       "reviewLocalGeneratedAt": "2026-05-10T15:19:01.975191+00:00",
       "reviewCount": 11,
       "reviewLocalLikes": 0,
-      "reviewLocalLikesUpdatedAt": "2026-06-26T14:39:45.438678+00:00"
+      "reviewLocalLikesUpdatedAt": "2026-06-26T14:39:45.438678+00:00",
+      "drzratingAuto": true
     },
     {
       "bookId": "6691227",
@@ -4377,7 +4434,8 @@
       "reviewLocalGeneratedAt": "2026-05-10T15:19:09.341732+00:00",
       "reviewCount": 11,
       "reviewLocalLikes": 0,
-      "reviewLocalLikesUpdatedAt": "2026-06-26T14:39:45.438678+00:00"
+      "reviewLocalLikesUpdatedAt": "2026-06-26T14:39:45.438678+00:00",
+      "drzratingAuto": true
     },
     {
       "bookId": "221527450",
@@ -4412,7 +4470,8 @@
       "reviewLocalGeneratedAt": "2026-05-10T15:19:12.905962+00:00",
       "reviewCount": 11,
       "reviewLocalLikes": 0,
-      "reviewLocalLikesUpdatedAt": "2026-06-26T14:39:45.438678+00:00"
+      "reviewLocalLikesUpdatedAt": "2026-06-26T14:39:45.438678+00:00",
+      "drzratingAuto": true
     },
     {
       "bookId": "10979076",
@@ -4444,7 +4503,8 @@
       "reviewLocalGeneratedAt": "2026-05-10T15:19:16.403842+00:00",
       "reviewCount": 11,
       "reviewLocalLikes": 0,
-      "reviewLocalLikesUpdatedAt": "2026-06-26T14:39:45.438678+00:00"
+      "reviewLocalLikesUpdatedAt": "2026-06-26T14:39:45.438678+00:00",
+      "drzratingAuto": true
     },
     {
       "bookId": "18333591",
@@ -4476,7 +4536,8 @@
       "reviewLocalGeneratedAt": "2026-05-10T15:19:23.601934+00:00",
       "reviewCount": 11,
       "reviewLocalLikes": 0,
-      "reviewLocalLikesUpdatedAt": "2026-06-26T14:39:45.438678+00:00"
+      "reviewLocalLikesUpdatedAt": "2026-06-26T14:39:45.438678+00:00",
+      "drzratingAuto": true
     },
     {
       "bookId": "204453898",
@@ -4510,7 +4571,8 @@
       "reviewLocalGeneratedAt": "2026-05-10T15:19:19.904383+00:00",
       "reviewCount": 11,
       "reviewLocalLikes": 0,
-      "reviewLocalLikesUpdatedAt": "2026-06-26T14:39:45.438678+00:00"
+      "reviewLocalLikesUpdatedAt": "2026-06-26T14:39:45.438678+00:00",
+      "drzratingAuto": true
     },
     {
       "bookId": "202748516",
@@ -4542,7 +4604,8 @@
       "reviewLocalGeneratedAt": "2026-05-10T15:19:27.177963+00:00",
       "reviewCount": 11,
       "reviewLocalLikes": 0,
-      "reviewLocalLikesUpdatedAt": "2026-06-26T14:39:45.438678+00:00"
+      "reviewLocalLikesUpdatedAt": "2026-06-26T14:39:45.438678+00:00",
+      "drzratingAuto": true
     },
     {
       "bookId": "213130133",
@@ -4575,7 +4638,8 @@
       "reviewLocalGeneratedAt": "2026-05-10T15:19:30.836727+00:00",
       "reviewCount": 11,
       "reviewLocalLikes": 0,
-      "reviewLocalLikesUpdatedAt": "2026-06-26T14:39:45.438678+00:00"
+      "reviewLocalLikesUpdatedAt": "2026-06-26T14:39:45.438678+00:00",
+      "drzratingAuto": true
     },
     {
       "bookId": "35078318",
@@ -4611,7 +4675,8 @@
       "reviewLocalGeneratedAt": "2026-05-10T15:19:34.213582+00:00",
       "reviewCount": 11,
       "reviewLocalLikes": 0,
-      "reviewLocalLikesUpdatedAt": "2026-06-26T14:39:45.438678+00:00"
+      "reviewLocalLikesUpdatedAt": "2026-06-26T14:39:45.438678+00:00",
+      "drzratingAuto": true
     },
     {
       "bookId": "219505858",
@@ -4643,7 +4708,8 @@
       "reviewLocalGeneratedAt": "2026-05-10T15:19:37.860280+00:00",
       "reviewCount": 11,
       "reviewLocalLikes": 0,
-      "reviewLocalLikesUpdatedAt": "2026-06-26T14:39:45.438678+00:00"
+      "reviewLocalLikesUpdatedAt": "2026-06-26T14:39:45.438678+00:00",
+      "drzratingAuto": true
     },
     {
       "bookId": "217324285",
@@ -4679,7 +4745,8 @@
       "reviewLocalGeneratedAt": "2026-05-10T15:19:41.351420+00:00",
       "reviewCount": 11,
       "reviewLocalLikes": 0,
-      "reviewLocalLikesUpdatedAt": "2026-06-26T14:39:45.438678+00:00"
+      "reviewLocalLikesUpdatedAt": "2026-06-26T14:39:45.438678+00:00",
+      "drzratingAuto": true
     },
     {
       "bookId": "24997740",
@@ -4711,7 +4778,8 @@
       "reviewLocalGeneratedAt": "2026-05-10T15:19:45.121844+00:00",
       "reviewCount": 11,
       "reviewLocalLikes": 0,
-      "reviewLocalLikesUpdatedAt": "2026-06-26T14:39:45.438678+00:00"
+      "reviewLocalLikesUpdatedAt": "2026-06-26T14:39:45.438678+00:00",
+      "drzratingAuto": true
     },
     {
       "bookId": "216146481",
@@ -4813,7 +4881,8 @@
       "reviewLocalGeneratedAt": "2026-05-10T15:19:48.880696+00:00",
       "reviewCount": 11,
       "reviewLocalLikes": 0,
-      "reviewLocalLikesUpdatedAt": "2026-06-26T14:39:45.438678+00:00"
+      "reviewLocalLikesUpdatedAt": "2026-06-26T14:39:45.438678+00:00",
+      "drzratingAuto": true
     },
     {
       "bookId": "44772198",
@@ -5265,7 +5334,8 @@
       "reviewLocalGeneratedAt": "2026-05-10T15:19:52.498047+00:00",
       "reviewCount": 11,
       "reviewLocalLikes": 0,
-      "reviewLocalLikesUpdatedAt": "2026-06-26T14:39:45.438678+00:00"
+      "reviewLocalLikesUpdatedAt": "2026-06-26T14:39:45.438678+00:00",
+      "drzratingAuto": true
     },
     {
       "bookId": "136978720",
@@ -5330,7 +5400,8 @@
       "reviewLocalGeneratedAt": "2026-05-10T15:20:00.864739+00:00",
       "reviewCount": 11,
       "reviewLocalLikes": 0,
-      "reviewLocalLikesUpdatedAt": "2026-06-26T14:39:45.438678+00:00"
+      "reviewLocalLikesUpdatedAt": "2026-06-26T14:39:45.438678+00:00",
+      "drzratingAuto": true
     },
     {
       "bookId": "42959231",
@@ -5398,7 +5469,8 @@
       "reviewLocalGeneratedAt": "2026-05-10T15:20:04.554229+00:00",
       "reviewCount": 11,
       "reviewLocalLikes": 0,
-      "reviewLocalLikesUpdatedAt": "2026-06-26T14:39:45.438678+00:00"
+      "reviewLocalLikesUpdatedAt": "2026-06-26T14:39:45.438678+00:00",
+      "drzratingAuto": true
     },
     {
       "bookId": "209668687",
@@ -5433,7 +5505,8 @@
       "reviewLocalGeneratedAt": "2026-05-10T15:20:08.302529+00:00",
       "reviewCount": 11,
       "reviewLocalLikes": 0,
-      "reviewLocalLikesUpdatedAt": "2026-06-26T14:39:45.438678+00:00"
+      "reviewLocalLikesUpdatedAt": "2026-06-26T14:39:45.438678+00:00",
+      "drzratingAuto": true
     },
     {
       "bookId": "55616855",
@@ -5470,7 +5543,8 @@
       "reviewLocalGeneratedAt": "2026-05-10T15:20:11.943194+00:00",
       "reviewCount": 11,
       "reviewLocalLikes": 0,
-      "reviewLocalLikesUpdatedAt": "2026-06-26T14:39:45.438678+00:00"
+      "reviewLocalLikesUpdatedAt": "2026-06-26T14:39:45.438678+00:00",
+      "drzratingAuto": true
     },
     {
       "bookId": "6333294",
@@ -5539,7 +5613,8 @@
       "reviewLocalGeneratedAt": "2026-05-10T15:20:16.612503+00:00",
       "reviewCount": 11,
       "reviewLocalLikes": 0,
-      "reviewLocalLikesUpdatedAt": "2026-06-26T14:39:45.438678+00:00"
+      "reviewLocalLikesUpdatedAt": "2026-06-26T14:39:45.438678+00:00",
+      "drzratingAuto": true
     },
     {
       "bookId": "38667",
@@ -5638,7 +5713,8 @@
       "reviewLocalGeneratedAt": "2026-05-10T15:20:20.258328+00:00",
       "reviewCount": 11,
       "reviewLocalLikes": 0,
-      "reviewLocalLikesUpdatedAt": "2026-06-26T14:39:45.438678+00:00"
+      "reviewLocalLikesUpdatedAt": "2026-06-26T14:39:45.438678+00:00",
+      "drzratingAuto": true
     },
     {
       "bookId": "199066748",
@@ -5773,7 +5849,8 @@
       "reviewLocalGeneratedAt": "2026-05-10T15:20:23.847248+00:00",
       "reviewCount": 11,
       "reviewLocalLikes": 0,
-      "reviewLocalLikesUpdatedAt": "2026-06-26T14:39:45.438678+00:00"
+      "reviewLocalLikesUpdatedAt": "2026-06-26T14:39:45.438678+00:00",
+      "drzratingAuto": true
     },
     {
       "bookId": "219351690",
@@ -5905,7 +5982,8 @@
       "reviewLocalGeneratedAt": "2026-05-10T15:20:27.292773+00:00",
       "reviewCount": 11,
       "reviewLocalLikes": 0,
-      "reviewLocalLikesUpdatedAt": "2026-06-26T14:39:45.438678+00:00"
+      "reviewLocalLikesUpdatedAt": "2026-06-26T14:39:45.438678+00:00",
+      "drzratingAuto": true
     },
     {
       "bookId": "204927599",
@@ -5941,7 +6019,8 @@
       "reviewLocalGeneratedAt": "2026-05-10T15:20:30.770904+00:00",
       "reviewCount": 11,
       "reviewLocalLikes": 0,
-      "reviewLocalLikesUpdatedAt": "2026-06-26T14:39:45.438678+00:00"
+      "reviewLocalLikesUpdatedAt": "2026-06-26T14:39:45.438678+00:00",
+      "drzratingAuto": true
     },
     {
       "bookId": "60554656",
@@ -5975,7 +6054,8 @@
       "reviewLocalGeneratedAt": "2026-05-10T15:20:36.287419+00:00",
       "reviewCount": 11,
       "reviewLocalLikes": 0,
-      "reviewLocalLikesUpdatedAt": "2026-06-26T14:39:45.438678+00:00"
+      "reviewLocalLikesUpdatedAt": "2026-06-26T14:39:45.438678+00:00",
+      "drzratingAuto": true
     },
     {
       "bookId": "198240516",
@@ -6114,7 +6194,8 @@
       "reviewLocalGeneratedAt": "2026-05-10T15:20:43.431355+00:00",
       "reviewCount": 11,
       "reviewLocalLikes": 0,
-      "reviewLocalLikesUpdatedAt": "2026-06-26T14:39:45.438678+00:00"
+      "reviewLocalLikesUpdatedAt": "2026-06-26T14:39:45.438678+00:00",
+      "drzratingAuto": true
     },
     {
       "bookId": "35785007",
@@ -6246,7 +6327,8 @@
       "reviewLocalGeneratedAt": "2026-05-10T15:20:50.342910+00:00",
       "reviewCount": 11,
       "reviewLocalLikes": 0,
-      "reviewLocalLikesUpdatedAt": "2026-06-26T14:39:45.438678+00:00"
+      "reviewLocalLikesUpdatedAt": "2026-06-26T14:39:45.438678+00:00",
+      "drzratingAuto": true
     },
     {
       "bookId": "58440113",
@@ -6344,7 +6426,8 @@
       "reviewLocalGeneratedAt": "2026-05-10T15:20:54.803429+00:00",
       "reviewCount": 11,
       "reviewLocalLikes": 0,
-      "reviewLocalLikesUpdatedAt": "2026-06-26T14:39:45.438678+00:00"
+      "reviewLocalLikesUpdatedAt": "2026-06-26T14:39:45.438678+00:00",
+      "drzratingAuto": true
     },
     {
       "bookId": "57028232",
@@ -6376,7 +6459,8 @@
       "reviewLocalGeneratedAt": "2026-05-10T15:20:58.986557+00:00",
       "reviewCount": 11,
       "reviewLocalLikes": 0,
-      "reviewLocalLikesUpdatedAt": "2026-06-26T14:39:45.438678+00:00"
+      "reviewLocalLikesUpdatedAt": "2026-06-26T14:39:45.438678+00:00",
+      "drzratingAuto": true
     },
     {
       "bookId": "209140616",
@@ -6542,7 +6626,8 @@
       "reviewLocalGeneratedAt": "2026-05-10T15:21:03.577421+00:00",
       "reviewCount": 11,
       "reviewLocalLikes": 0,
-      "reviewLocalLikesUpdatedAt": "2026-06-26T14:39:45.438678+00:00"
+      "reviewLocalLikesUpdatedAt": "2026-06-26T14:39:45.438678+00:00",
+      "drzratingAuto": true
     },
     {
       "bookId": "210808890",
@@ -6575,7 +6660,8 @@
       "reviewLocalGeneratedAt": "2026-05-10T15:21:16.779903+00:00",
       "reviewCount": 11,
       "reviewLocalLikes": 0,
-      "reviewLocalLikesUpdatedAt": "2026-06-26T14:39:45.438678+00:00"
+      "reviewLocalLikesUpdatedAt": "2026-06-26T14:39:45.438678+00:00",
+      "drzratingAuto": true
     },
     {
       "bookId": "57386590",
@@ -6712,7 +6798,8 @@
       "reviewLocalGeneratedAt": "2026-05-10T15:21:23.120236+00:00",
       "reviewCount": 11,
       "reviewLocalLikes": 0,
-      "reviewLocalLikesUpdatedAt": "2026-06-26T14:39:45.438678+00:00"
+      "reviewLocalLikesUpdatedAt": "2026-06-26T14:39:45.438678+00:00",
+      "drzratingAuto": true
     },
     {
       "bookId": "6916879",
@@ -6844,7 +6931,8 @@
       "reviewLocalGeneratedAt": "2026-05-10T15:21:28.959260+00:00",
       "reviewCount": 11,
       "reviewLocalLikes": 0,
-      "reviewLocalLikesUpdatedAt": "2026-06-26T14:39:45.438678+00:00"
+      "reviewLocalLikesUpdatedAt": "2026-06-26T14:39:45.438678+00:00",
+      "drzratingAuto": true
     },
     {
       "bookId": "53247016",
@@ -6914,7 +7002,8 @@
       "reviewLocalGeneratedAt": "2026-05-10T15:21:33.331923+00:00",
       "reviewCount": 11,
       "reviewLocalLikes": 0,
-      "reviewLocalLikesUpdatedAt": "2026-06-26T14:39:45.438678+00:00"
+      "reviewLocalLikesUpdatedAt": "2026-06-26T14:39:45.438678+00:00",
+      "drzratingAuto": true
     },
     {
       "bookId": "98095162",
@@ -7085,7 +7174,8 @@
       "reviewLocalGeneratedAt": "2026-05-10T15:21:39.002501+00:00",
       "reviewCount": 11,
       "reviewLocalLikes": 0,
-      "reviewLocalLikesUpdatedAt": "2026-06-26T14:39:45.438678+00:00"
+      "reviewLocalLikesUpdatedAt": "2026-06-26T14:39:45.438678+00:00",
+      "drzratingAuto": true
     },
     {
       "bookId": "99499",
@@ -7150,7 +7240,8 @@
       "reviewLocalGeneratedAt": "2026-05-10T15:21:43.543090+00:00",
       "reviewCount": 11,
       "reviewLocalLikes": 0,
-      "reviewLocalLikesUpdatedAt": "2026-06-26T14:39:45.438678+00:00"
+      "reviewLocalLikesUpdatedAt": "2026-06-26T14:39:45.438678+00:00",
+      "drzratingAuto": true
     },
     {
       "bookId": "18754940",
@@ -7285,7 +7376,8 @@
       "reviewLocalGeneratedAt": "2026-05-10T15:21:49.090449+00:00",
       "reviewCount": 11,
       "reviewLocalLikes": 0,
-      "reviewLocalLikesUpdatedAt": "2026-06-26T14:39:45.438678+00:00"
+      "reviewLocalLikesUpdatedAt": "2026-06-26T14:39:45.438678+00:00",
+      "drzratingAuto": true
     },
     {
       "bookId": "31178359",
@@ -7388,7 +7480,8 @@
       "reviewLocalGeneratedAt": "2026-05-10T15:21:55.184638+00:00",
       "reviewCount": 11,
       "reviewLocalLikes": 0,
-      "reviewLocalLikesUpdatedAt": "2026-06-26T14:39:45.438678+00:00"
+      "reviewLocalLikesUpdatedAt": "2026-06-26T14:39:45.438678+00:00",
+      "drzratingAuto": true
     },
     {
       "bookId": "200142395",
@@ -7420,7 +7513,8 @@
       "reviewLocalGeneratedAt": "2026-05-10T15:22:04.050872+00:00",
       "reviewCount": 11,
       "reviewLocalLikes": 0,
-      "reviewLocalLikesUpdatedAt": "2026-06-26T14:39:45.438678+00:00"
+      "reviewLocalLikesUpdatedAt": "2026-06-26T14:39:45.438678+00:00",
+      "drzratingAuto": true
     },
     {
       "bookId": "200659844",
@@ -7454,7 +7548,8 @@
       "reviewLocalGeneratedAt": "2026-05-10T15:21:59.847711+00:00",
       "reviewCount": 11,
       "reviewLocalLikes": 0,
-      "reviewLocalLikesUpdatedAt": "2026-06-26T14:39:45.438678+00:00"
+      "reviewLocalLikesUpdatedAt": "2026-06-26T14:39:45.438678+00:00",
+      "drzratingAuto": true
     },
     {
       "bookId": "36913879",
@@ -7486,7 +7581,8 @@
       "reviewLocalGeneratedAt": "2026-05-10T15:22:08.171801+00:00",
       "reviewCount": 11,
       "reviewLocalLikes": 0,
-      "reviewLocalLikesUpdatedAt": "2026-06-26T14:39:45.438678+00:00"
+      "reviewLocalLikesUpdatedAt": "2026-06-26T14:39:45.438678+00:00",
+      "drzratingAuto": true
     },
     {
       "bookId": "55050608",
@@ -7589,7 +7685,8 @@
       "reviewLocalGeneratedAt": "2026-05-10T15:22:14.528595+00:00",
       "reviewCount": 11,
       "reviewLocalLikes": 0,
-      "reviewLocalLikesUpdatedAt": "2026-06-26T14:39:45.438678+00:00"
+      "reviewLocalLikesUpdatedAt": "2026-06-26T14:39:45.438678+00:00",
+      "drzratingAuto": true
     },
     {
       "bookId": "61815471",
@@ -7957,7 +8054,8 @@
       "reviewLocalGeneratedAt": "2026-05-10T15:22:18.978935+00:00",
       "reviewCount": 11,
       "reviewLocalLikes": 0,
-      "reviewLocalLikesUpdatedAt": "2026-06-26T14:39:45.438678+00:00"
+      "reviewLocalLikesUpdatedAt": "2026-06-26T14:39:45.438678+00:00",
+      "drzratingAuto": true
     },
     {
       "bookId": "56845375",
@@ -8306,7 +8404,8 @@
       "reviewLocalGeneratedAt": "2026-05-10T15:22:27.667089+00:00",
       "reviewCount": 11,
       "reviewLocalLikes": 0,
-      "reviewLocalLikesUpdatedAt": "2026-06-26T14:39:45.438678+00:00"
+      "reviewLocalLikesUpdatedAt": "2026-06-26T14:39:45.438678+00:00",
+      "drzratingAuto": true
     },
     {
       "bookId": "157390676",
@@ -8548,7 +8647,8 @@
       "reviewLocalGeneratedAt": "2026-05-10T15:22:32.990725+00:00",
       "reviewCount": 11,
       "reviewLocalLikes": 0,
-      "reviewLocalLikesUpdatedAt": "2026-06-26T14:39:45.438678+00:00"
+      "reviewLocalLikesUpdatedAt": "2026-06-26T14:39:45.438678+00:00",
+      "drzratingAuto": true
     },
     {
       "bookId": "32202588",
@@ -8718,7 +8818,8 @@
       "reviewLocalGeneratedAt": "2026-05-10T15:22:40.384259+00:00",
       "reviewCount": 11,
       "reviewLocalLikes": 0,
-      "reviewLocalLikesUpdatedAt": "2026-06-26T14:39:45.438678+00:00"
+      "reviewLocalLikesUpdatedAt": "2026-06-26T14:39:45.438678+00:00",
+      "drzratingAuto": true
     },
     {
       "bookId": "175083285",
@@ -8961,7 +9062,8 @@
       "reviewLocalGeneratedAt": "2026-05-10T15:22:45.818793+00:00",
       "reviewCount": 11,
       "reviewLocalLikes": 0,
-      "reviewLocalLikesUpdatedAt": "2026-06-26T14:39:45.438678+00:00"
+      "reviewLocalLikesUpdatedAt": "2026-06-26T14:39:45.438678+00:00",
+      "drzratingAuto": true
     },
     {
       "bookId": "35168542",
@@ -9578,7 +9680,8 @@
       "reviewLocalGeneratedAt": "2026-05-10T15:22:51.555977+00:00",
       "reviewCount": 11,
       "reviewLocalLikes": 0,
-      "reviewLocalLikesUpdatedAt": "2026-06-26T14:39:45.438678+00:00"
+      "reviewLocalLikesUpdatedAt": "2026-06-26T14:39:45.438678+00:00",
+      "drzratingAuto": true
     },
     {
       "bookId": "125064740",
@@ -10088,7 +10191,8 @@
       "reviewLocalGeneratedAt": "2026-05-10T15:22:58.831009+00:00",
       "reviewCount": 11,
       "reviewLocalLikes": 0,
-      "reviewLocalLikesUpdatedAt": "2026-06-26T14:39:45.438678+00:00"
+      "reviewLocalLikesUpdatedAt": "2026-06-26T14:39:45.438678+00:00",
+      "drzratingAuto": true
     },
     {
       "bookId": "33280679",
@@ -10354,7 +10458,8 @@
       "reviewLocalGeneratedAt": "2026-05-10T15:23:02.306421+00:00",
       "reviewCount": 11,
       "reviewLocalLikes": 0,
-      "reviewLocalLikesUpdatedAt": "2026-06-26T14:39:45.438678+00:00"
+      "reviewLocalLikesUpdatedAt": "2026-06-26T14:39:45.438678+00:00",
+      "drzratingAuto": true
     },
     {
       "bookId": "18754769",
@@ -10386,7 +10491,8 @@
       "reviewLocalGeneratedAt": "2026-05-10T15:23:09.376759+00:00",
       "reviewCount": 11,
       "reviewLocalLikes": 0,
-      "reviewLocalLikesUpdatedAt": "2026-06-26T14:39:45.438678+00:00"
+      "reviewLocalLikesUpdatedAt": "2026-06-26T14:39:45.438678+00:00",
+      "drzratingAuto": true
     },
     {
       "bookId": "41828106",
@@ -10418,7 +10524,8 @@
       "reviewLocalGeneratedAt": "2026-05-10T15:23:15.590278+00:00",
       "reviewCount": 11,
       "reviewLocalLikes": 0,
-      "reviewLocalLikesUpdatedAt": "2026-06-26T14:39:45.438678+00:00"
+      "reviewLocalLikesUpdatedAt": "2026-06-26T14:39:45.438678+00:00",
+      "drzratingAuto": true
     },
     {
       "bookId": "60761335",
@@ -10653,7 +10760,8 @@
       "reviewLocalGeneratedAt": "2026-05-10T15:23:21.489789+00:00",
       "reviewCount": 11,
       "reviewLocalLikes": 0,
-      "reviewLocalLikesUpdatedAt": "2026-06-26T14:39:45.438678+00:00"
+      "reviewLocalLikesUpdatedAt": "2026-06-26T14:39:45.438678+00:00",
+      "drzratingAuto": true
     },
     {
       "bookId": "55359307",
@@ -10862,7 +10970,8 @@
       "reviewLocalGeneratedAt": "2026-05-10T15:23:27.429296+00:00",
       "reviewCount": 11,
       "reviewLocalLikes": 0,
-      "reviewLocalLikesUpdatedAt": "2026-06-26T14:39:45.438678+00:00"
+      "reviewLocalLikesUpdatedAt": "2026-06-26T14:39:45.438678+00:00",
+      "drzratingAuto": true
     },
     {
       "bookId": "50391711",
@@ -10934,7 +11043,8 @@
       "reviewLocalGeneratedAt": "2026-05-10T15:23:32.389050+00:00",
       "reviewCount": 11,
       "reviewLocalLikes": 0,
-      "reviewLocalLikesUpdatedAt": "2026-06-26T14:39:45.438678+00:00"
+      "reviewLocalLikesUpdatedAt": "2026-06-26T14:39:45.438678+00:00",
+      "drzratingAuto": true
     },
     {
       "bookId": "74763270",
@@ -11210,7 +11320,8 @@
       "reviewLocalGeneratedAt": "2026-05-10T15:23:40.471908+00:00",
       "reviewCount": 11,
       "reviewLocalLikes": 0,
-      "reviewLocalLikesUpdatedAt": "2026-06-26T14:39:45.438678+00:00"
+      "reviewLocalLikesUpdatedAt": "2026-06-26T14:39:45.438678+00:00",
+      "drzratingAuto": true
     },
     {
       "bookId": "63254628",
@@ -11453,7 +11564,8 @@
       "reviewLocalGeneratedAt": "2026-05-10T15:23:48.397893+00:00",
       "reviewCount": 11,
       "reviewLocalLikes": 0,
-      "reviewLocalLikesUpdatedAt": "2026-06-26T14:39:45.438678+00:00"
+      "reviewLocalLikesUpdatedAt": "2026-06-26T14:39:45.438678+00:00",
+      "drzratingAuto": true
     },
     {
       "bookId": "32853189",
@@ -11555,7 +11667,8 @@
       "reviewLocalGeneratedAt": "2026-05-10T15:23:57.233035+00:00",
       "reviewCount": 11,
       "reviewLocalLikes": 0,
-      "reviewLocalLikesUpdatedAt": "2026-06-26T14:39:45.438678+00:00"
+      "reviewLocalLikesUpdatedAt": "2026-06-26T14:39:45.438678+00:00",
+      "drzratingAuto": true
     },
     {
       "bookId": "25673675",
@@ -11797,7 +11910,8 @@
       "reviewLocalGeneratedAt": "2026-05-10T15:24:04.646216+00:00",
       "reviewCount": 11,
       "reviewLocalLikes": 0,
-      "reviewLocalLikesUpdatedAt": "2026-06-26T14:39:45.438678+00:00"
+      "reviewLocalLikesUpdatedAt": "2026-06-26T14:39:45.438678+00:00",
+      "drzratingAuto": true
     },
     {
       "bookId": "55457446",
@@ -11867,7 +11981,8 @@
       "reviewLocalGeneratedAt": "2026-05-10T15:24:19.652408+00:00",
       "reviewCount": 11,
       "reviewLocalLikes": 0,
-      "reviewLocalLikesUpdatedAt": "2026-06-26T14:39:45.438678+00:00"
+      "reviewLocalLikesUpdatedAt": "2026-06-26T14:39:45.438678+00:00",
+      "drzratingAuto": true
     },
     {
       "bookId": "7056969",
@@ -11903,7 +12018,8 @@
       "reviewLocalGeneratedAt": "2026-05-10T15:24:12.782970+00:00",
       "reviewCount": 11,
       "reviewLocalLikes": 0,
-      "reviewLocalLikesUpdatedAt": "2026-06-26T14:39:45.438678+00:00"
+      "reviewLocalLikesUpdatedAt": "2026-06-26T14:39:45.438678+00:00",
+      "drzratingAuto": true
     },
     {
       "bookId": "18686121",
@@ -11975,7 +12091,8 @@
       "reviewLocalGeneratedAt": "2026-05-10T15:24:26.854914+00:00",
       "reviewCount": 11,
       "reviewLocalLikes": 0,
-      "reviewLocalLikesUpdatedAt": "2026-06-26T14:39:45.438678+00:00"
+      "reviewLocalLikesUpdatedAt": "2026-06-26T14:39:45.438678+00:00",
+      "drzratingAuto": true
     },
     {
       "bookId": "52300880",
@@ -12590,7 +12707,8 @@
       "reviewLocalGeneratedAt": "2026-05-10T15:24:33.856330+00:00",
       "reviewCount": 11,
       "reviewLocalLikes": 0,
-      "reviewLocalLikesUpdatedAt": "2026-06-26T14:39:45.438678+00:00"
+      "reviewLocalLikesUpdatedAt": "2026-06-26T14:39:45.438678+00:00",
+      "drzratingAuto": true
     },
     {
       "bookId": "40783641",
@@ -12693,7 +12811,8 @@
       "reviewLocalGeneratedAt": "2026-05-10T15:24:40.991651+00:00",
       "reviewCount": 11,
       "reviewLocalLikes": 0,
-      "reviewLocalLikesUpdatedAt": "2026-06-26T14:39:45.438678+00:00"
+      "reviewLocalLikesUpdatedAt": "2026-06-26T14:39:45.438678+00:00",
+      "drzratingAuto": true
     },
     {
       "bookId": "60622051",
@@ -13066,7 +13185,8 @@
       "reviewLocalGeneratedAt": "2026-05-10T15:24:50.569235+00:00",
       "reviewCount": 11,
       "reviewLocalLikes": 0,
-      "reviewLocalLikesUpdatedAt": "2026-06-26T14:39:45.438678+00:00"
+      "reviewLocalLikesUpdatedAt": "2026-06-26T14:39:45.438678+00:00",
+      "drzratingAuto": true
     },
     {
       "bookId": "58875334",
@@ -13099,7 +13219,8 @@
       "reviewLocalGeneratedAt": "2026-05-10T15:24:59.548981+00:00",
       "reviewCount": 11,
       "reviewLocalLikes": 0,
-      "reviewLocalLikesUpdatedAt": "2026-06-26T14:39:45.438678+00:00"
+      "reviewLocalLikesUpdatedAt": "2026-06-26T14:39:45.438678+00:00",
+      "drzratingAuto": true
     },
     {
       "bookId": "27187428",
@@ -13171,7 +13292,8 @@
       "reviewLocalGeneratedAt": "2026-05-10T15:25:07.681444+00:00",
       "reviewCount": 11,
       "reviewLocalLikes": 0,
-      "reviewLocalLikesUpdatedAt": "2026-06-26T14:39:45.438678+00:00"
+      "reviewLocalLikesUpdatedAt": "2026-06-26T14:39:45.438678+00:00",
+      "drzratingAuto": true
     },
     {
       "bookId": "19063630",
@@ -13203,7 +13325,8 @@
       "reviewLocalGeneratedAt": "2026-05-10T15:25:15.519801+00:00",
       "reviewCount": 11,
       "reviewLocalLikes": 0,
-      "reviewLocalLikesUpdatedAt": "2026-06-26T14:39:45.438678+00:00"
+      "reviewLocalLikesUpdatedAt": "2026-06-26T14:39:45.438678+00:00",
+      "drzratingAuto": true
     },
     {
       "bookId": "43906748",
@@ -13271,7 +13394,8 @@
       "reviewLocalGeneratedAt": "2026-05-10T15:25:23.846137+00:00",
       "reviewCount": 11,
       "reviewLocalLikes": 0,
-      "reviewLocalLikesUpdatedAt": "2026-06-26T14:39:45.438678+00:00"
+      "reviewLocalLikesUpdatedAt": "2026-06-26T14:39:45.438678+00:00",
+      "drzratingAuto": true
     },
     {
       "bookId": "36242663",
@@ -13548,7 +13672,8 @@
       "reviewLocalGeneratedAt": "2026-05-10T15:25:33.470133+00:00",
       "reviewCount": 11,
       "reviewLocalLikes": 0,
-      "reviewLocalLikesUpdatedAt": "2026-06-26T14:39:45.438678+00:00"
+      "reviewLocalLikesUpdatedAt": "2026-06-26T14:39:45.438678+00:00",
+      "drzratingAuto": true
     },
     {
       "bookId": "41576706",
@@ -14594,7 +14719,8 @@
       "reviewLocalGeneratedAt": "2026-05-10T15:25:41.298244+00:00",
       "reviewCount": 11,
       "reviewLocalLikes": 0,
-      "reviewLocalLikesUpdatedAt": "2026-06-26T14:39:45.438678+00:00"
+      "reviewLocalLikesUpdatedAt": "2026-06-26T14:39:45.438678+00:00",
+      "drzratingAuto": true
     },
     {
       "bookId": "9594222",
@@ -15173,7 +15299,8 @@
       "reviewLocalGeneratedAt": "2026-05-10T15:25:53.085575+00:00",
       "reviewCount": 11,
       "reviewLocalLikes": 0,
-      "reviewLocalLikesUpdatedAt": "2026-06-26T14:39:45.438678+00:00"
+      "reviewLocalLikesUpdatedAt": "2026-06-26T14:39:45.438678+00:00",
+      "drzratingAuto": true
     },
     {
       "bookId": "24976877",
@@ -15209,7 +15336,8 @@
       "reviewLocalGeneratedAt": "2026-05-10T15:25:57.573621+00:00",
       "reviewCount": 11,
       "reviewLocalLikes": 0,
-      "reviewLocalLikesUpdatedAt": "2026-06-26T14:39:45.438678+00:00"
+      "reviewLocalLikesUpdatedAt": "2026-06-26T14:39:45.438678+00:00",
+      "drzratingAuto": true
     },
     {
       "bookId": "57092439",
@@ -15277,7 +15405,8 @@
       "reviewLocalGeneratedAt": "2026-05-10T15:26:09.245780+00:00",
       "reviewCount": 11,
       "reviewLocalLikes": 0,
-      "reviewLocalLikesUpdatedAt": "2026-06-26T14:39:45.438678+00:00"
+      "reviewLocalLikesUpdatedAt": "2026-06-26T14:39:45.438678+00:00",
+      "drzratingAuto": true
     },
     {
       "bookId": "43554612",
@@ -15694,7 +15823,8 @@
       "reviewLocalGeneratedAt": "2026-05-10T15:26:19.228026+00:00",
       "reviewCount": 11,
       "reviewLocalLikes": 0,
-      "reviewLocalLikesUpdatedAt": "2026-06-26T14:39:45.438678+00:00"
+      "reviewLocalLikesUpdatedAt": "2026-06-26T14:39:45.438678+00:00",
+      "drzratingAuto": true
     },
     {
       "bookId": "26567125",
@@ -15926,7 +16056,8 @@
       "reviewLocalGeneratedAt": "2026-05-10T15:26:28.583106+00:00",
       "reviewCount": 11,
       "reviewLocalLikes": 0,
-      "reviewLocalLikesUpdatedAt": "2026-06-26T14:39:45.438678+00:00"
+      "reviewLocalLikesUpdatedAt": "2026-06-26T14:39:45.438678+00:00",
+      "drzratingAuto": true
     },
     {
       "bookId": "30288040",
@@ -15960,7 +16091,8 @@
       "reviewLocalGeneratedAt": "2026-05-10T15:26:39.132767+00:00",
       "reviewCount": 11,
       "reviewLocalLikes": 0,
-      "reviewLocalLikesUpdatedAt": "2026-06-26T14:39:45.438678+00:00"
+      "reviewLocalLikesUpdatedAt": "2026-06-26T14:39:45.438678+00:00",
+      "drzratingAuto": true
     },
     {
       "bookId": "1995",
@@ -16031,7 +16163,8 @@
       "reviewLocalGeneratedAt": "2026-05-10T15:26:47.809442+00:00",
       "reviewCount": 11,
       "reviewLocalLikes": 0,
-      "reviewLocalLikesUpdatedAt": "2026-06-26T14:39:45.438678+00:00"
+      "reviewLocalLikesUpdatedAt": "2026-06-26T14:39:45.438678+00:00",
+      "drzratingAuto": true
     },
     {
       "bookId": "57624494",
@@ -16318,7 +16451,8 @@
       "reviewDate": "2020-12-04",
       "reviewLocalGeneratedAt": "2026-05-10T19:26:56.446419+00:00",
       "reviewLocalLikes": 0,
-      "reviewLocalLikesUpdatedAt": "2026-06-26T14:39:45.438678+00:00"
+      "reviewLocalLikesUpdatedAt": "2026-06-26T14:39:45.438678+00:00",
+      "drzratingAuto": true
     },
     {
       "bookId": "52377465",
@@ -16915,7 +17049,8 @@
       "reviewLocalGeneratedAt": "2026-05-10T15:27:20.685445+00:00",
       "reviewCount": 11,
       "reviewLocalLikes": 0,
-      "reviewLocalLikesUpdatedAt": "2026-06-26T14:39:45.438678+00:00"
+      "reviewLocalLikesUpdatedAt": "2026-06-26T14:39:45.438678+00:00",
+      "drzratingAuto": true
     },
     {
       "bookId": "33389769",
@@ -17369,7 +17504,8 @@
       "reviewLocalGeneratedAt": "2026-05-10T15:27:29.824656+00:00",
       "reviewCount": 11,
       "reviewLocalLikes": 0,
-      "reviewLocalLikesUpdatedAt": "2026-06-26T14:39:45.438678+00:00"
+      "reviewLocalLikesUpdatedAt": "2026-06-26T14:39:45.438678+00:00",
+      "drzratingAuto": true
     },
     {
       "bookId": "17697342",
