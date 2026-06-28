@@ -90,6 +90,37 @@ function getLibraryData() {
   ]);
 }
 
+/** Reseña con texto (JSON hasReview o conteo local; evita placeholder del mirror ~11 palabras). */
+function hasPublishedReview(item) {
+  if (!String(item?.reviewUrl ?? "").includes("/review/show/")) return false;
+  if (item?.hasReview === false) return false;
+  if (item?.hasReview === true) return true;
+  const wc = Number(item?.reviewCount);
+  if (Number.isFinite(wc)) return wc >= 25;
+  return true;
+}
+
+function bookDescriptionHref(bookId) {
+  const id = String(bookId || "").trim();
+  if (!id) return "";
+  return withLangQuery(`./book.html?bookid=${encodeURIComponent(id)}`);
+}
+
+function seriesBookLinkHref(book) {
+  if (book && hasPublishedReview(book)) {
+    const reviewHref = effectiveLocalReviewHref(book);
+    if (reviewHref) return withLangQuery(reviewHref);
+  }
+  const bookId = String(book?.bookId || "").trim();
+  return bookId ? bookDescriptionHref(bookId) : "";
+}
+
+function appendSeriesMetaSeparator(metaLine) {
+  if (metaLine.childElementCount > 0) {
+    metaLine.appendChild(document.createTextNode(" — "));
+  }
+}
+
 function escapeHtml(str) {
   if (!str) return "";
   return String(str)
@@ -148,7 +179,7 @@ function attachCoverImage(img, candidates) {
 function createCoverStripLink(item) {
   const link = document.createElement("a");
   link.className = "library-series-cover-strip__item";
-  link.href = withLangQuery(item.localReviewHref);
+  link.href = item.linkHref;
   link.title = item.bookTitle;
   link.setAttribute("aria-label", item.bookTitle);
 
@@ -167,12 +198,12 @@ function renderSeriesCoverStrip(series, booksById, { coverStripStep = 0.7, layou
   for (const bookRef of series.books || []) {
     const bookId = String(bookRef.libraryBookId || "");
     const matchedBook = booksById.get(bookId);
-    const localReviewHref = matchedBook ? effectiveLocalReviewHref(matchedBook) : "";
-    if (!localReviewHref) continue;
+    const linkHref = matchedBook ? seriesBookLinkHref(matchedBook) : bookDescriptionHref(bookId);
+    if (!linkHref) continue;
     coverItems.push({
       bookRef,
       matchedBook,
-      localReviewHref,
+      linkHref,
       bookTitle: String(bookRef.title || matchedBook?.title || "Libro"),
     });
   }
@@ -327,11 +358,6 @@ async function hydrateLocalLikes(container, items) {
   renderLocalLikesInContainer(container, counts);
 }
 
-function bookHasReviewLink(book) {
-  return Boolean(effectiveLocalReviewHref(book))
-    || String(book?.reviewUrl || "").includes("/review/show/");
-}
-
 function formatRating(rating, lang) {
   const value = Number(rating);
   if (!value) return escapeHtml(t("library_no_rating", lang));
@@ -345,7 +371,7 @@ function buildBookStarsHtml(book, lang) {
 }
 
 function buildBookReactionsHtml(book, lang) {
-  if (!book || !bookHasReviewLink(book)) return "";
+  if (!book || !hasPublishedReview(book)) return "";
   const parts = [];
   const likesCount = Number.isFinite(Number(book.reviewLikes)) ? Number(book.reviewLikes) : 0;
   parts.push(
@@ -431,7 +457,8 @@ function renderSeriesList(
       const bookId = String(bookRef.libraryBookId || "");
       const matchedBook = booksById.get(bookId);
       const bookTitle = String(bookRef.title || matchedBook?.title || "Libro");
-      const localReviewHref = matchedBook
+      const publishedReview = matchedBook ? hasPublishedReview(matchedBook) : false;
+      const reviewHref = publishedReview && matchedBook
         ? effectiveLocalReviewHref(matchedBook)
         : "";
 
@@ -451,13 +478,11 @@ function renderSeriesList(
       }
 
       const reactionsHtml = buildBookReactionsHtml(matchedBook, lang);
-      if (localReviewHref) {
-        if (metaLine.childElementCount > 0) {
-          metaLine.appendChild(document.createTextNode(" — "));
-        }
+      if (reviewHref) {
+        appendSeriesMetaSeparator(metaLine);
         const localLink = document.createElement("a");
         localLink.className = "link";
-        localLink.href = withLangQuery(localReviewHref);
+        localLink.href = withLangQuery(reviewHref);
         localLink.textContent = t("library_view_review_local", lang);
         metaLine.appendChild(localLink);
         if (reactionsHtml) {
@@ -468,6 +493,16 @@ function renderSeriesList(
           if (matchedBook && parseReviewIdFromUrl(matchedBook.reviewUrl)) {
             booksForLikes.push(matchedBook);
           }
+        }
+      } else if (bookId) {
+        const descHref = bookDescriptionHref(bookId);
+        if (descHref) {
+          appendSeriesMetaSeparator(metaLine);
+          const descLink = document.createElement("a");
+          descLink.className = "link";
+          descLink.href = descHref;
+          descLink.textContent = t("book_description_heading", lang);
+          metaLine.appendChild(descLink);
         }
       }
 
@@ -495,6 +530,7 @@ const FEATURED_JUMP_LINKS = [
   ["library-series-jump-feat-maria-martin", "maria-martin", "library_series_featured_maria_martin"],
   ["library-series-jump-feat-tito-vivas", "tito-vivas", "library_series_featured_tito_vivas"],
   ["library-series-jump-feat-feminismos", "feminismos", "library_series_featured_feminismos"],
+  ["library-series-jump-feat-inteligencia-artificial", "inteligencia-artificial", "library_series_featured_inteligencia_artificial"],
 ];
 
 function applySagasTranslations(lang) {

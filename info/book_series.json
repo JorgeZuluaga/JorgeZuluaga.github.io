@@ -1082,6 +1082,51 @@
           "title": "Vivir con los hombres. Reflexiones sobre el juicio Pelicot"
         }
       ]
+    },
+    {
+      "name": "Inteligencia artificial",
+      "author": "Colección personal",
+      "anchor": "inteligencia-artificial",
+      "latestDateRead": "2026-06-20",
+      "type": "collection",
+      "books": [
+        {
+          "libraryBookId": "210808890",
+          "title": "Inteligencia artificial: Guía para seres pensantes"
+        },
+        {
+          "libraryBookId": "204927599",
+          "title": "Nexus: A Brief History of Information Networks from the Stone Age to AI"
+        },
+        {
+          "libraryBookId": "199066748",
+          "title": "MANIAC"
+        },
+        {
+          "libraryBookId": "59121408",
+          "title": "Scary Smart: The Future of Artificial Intelligence and How You Can Save Our World"
+        },
+        {
+          "libraryBookId": "183526597",
+          "title": "La ola que viene. Tecnología, poder y el gran dilema del siglo XXI"
+        },
+        {
+          "libraryBookId": "216043972",
+          "title": "Cointeligencia: Vivir y trabajar con la IA"
+        },
+        {
+          "libraryBookId": "236941248",
+          "title": "Algoritmos deshumanizantes: IA y la pérdida de la noción de individuo (Spanish Edition)"
+        },
+        {
+          "libraryBookId": "60774041",
+          "title": "Infocracia: La digitalización y la crisis de la democracia"
+        },
+        {
+          "libraryBookId": "40542612",
+          "title": "Vida 3.0: Ser humano en la era de la Inteligencia Artificial"
+        }
+      ]
     }
   ]
 }
