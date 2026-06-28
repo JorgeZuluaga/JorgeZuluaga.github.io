@@ -42,6 +42,13 @@ def load_existing_ids(path: Path) -> set[str]:
     return ids
 
 
+def normalize_worker_base(worker_base: str) -> str:
+    base = str(worker_base or "").strip() or DEFAULT_WORKER_BASE
+    if not base.startswith(("http://", "https://")):
+        return DEFAULT_WORKER_BASE.rstrip("/")
+    return base.rstrip("/")
+
+
 def fetch_export_page(
     worker_base: str,
     token: str,
@@ -56,7 +63,7 @@ def fetch_export_page(
         query["since"] = since
     if cursor:
         query["cursor"] = cursor
-    url = f"{worker_base.rstrip('/')}/logs-export?{urllib.parse.urlencode(query)}"
+    url = f"{normalize_worker_base(worker_base)}/logs-export?{urllib.parse.urlencode(query)}"
     req = urllib.request.Request(url, method="GET")
     req.add_header("User-Agent", user_agent)
     with urllib.request.urlopen(req, timeout=timeout) as res:
@@ -124,6 +131,7 @@ def main() -> int:
             "Falta token. Pásalo con --token TU_TOKEN o exporta LOG_READ_TOKEN.",
         )
 
+    worker_base = normalize_worker_base(args.worker_base)
     limit = max(1, min(500, int(args.limit)))
     max_pages = max(1, int(args.max_pages))
     ndjson_path = Path(args.ndjson)
@@ -160,7 +168,7 @@ def main() -> int:
     reached_end = False
 
     print(
-        f"[visitor-logs] Sincronizando logs → {ndjson_path} (worker {args.worker_base})…",
+        f"[visitor-logs] Sincronizando logs → {ndjson_path} (worker {worker_base})…",
         flush=True,
     )
 
@@ -169,7 +177,7 @@ def main() -> int:
             pages += 1
             try:
                 payload = fetch_export_page(
-                    worker_base=args.worker_base,
+                    worker_base=worker_base,
                     token=args.token,
                     cursor=cursor,
                     limit=limit,
@@ -220,7 +228,7 @@ def main() -> int:
     generated_at = now_iso()
     state_payload = {
         "generatedAt": generated_at,
-        "workerBase": args.worker_base.rstrip("/"),
+        "workerBase": worker_base,
         "nextCursor": cursor if not reached_end else "",
         "reachedEnd": reached_end,
         "pagesFetched": pages,
@@ -237,7 +245,7 @@ def main() -> int:
     snapshot_payload = compute_snapshot(
         ndjson_path=ndjson_path,
         generated_at=generated_at,
-        worker_base=args.worker_base,
+        worker_base=worker_base,
     )
     snapshot_path.write_text(
         json.dumps(snapshot_payload, ensure_ascii=False, indent=2) + "\n",

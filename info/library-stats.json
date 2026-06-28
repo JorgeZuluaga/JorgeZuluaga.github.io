@@ -63,11 +63,12 @@
       "reviewLocalUrl": "./reviews/8711059499.html",
       "reviewLocalCoverUrl": "./reviews/covers/8711059499.jpg",
       "reviewDate": "2026-06-27",
-      "reviewLocalGeneratedAt": "2026-06-28T14:16:29.011225+00:00"
+      "reviewLocalGeneratedAt": "2026-06-28T18:31:57.028560+00:00",
+      "drzratingAuto": true
     },
     {
       "bookId": "35658293",
-      "title": "La guerra de Calibán",
+      "title": "La guerra de Calibán (The Expanse, #2)",
       "author": "James S.A. Corey",
       "dateRead": "2026-06-25",
       "rating": 5,
@@ -80,7 +81,7 @@
       "reviewLocalCoverUrl": "./reviews/covers/8709769014.jpg",
       "reviewDate": "2026-06-25",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-06-28T14:16:35.454238+00:00",
+      "reviewLocalGeneratedAt": "2026-06-28T18:32:03.816856+00:00",
       "reviewCount": 1817,
       "reviewLocalLikes": 0,
       "reviewLocalLikesUpdatedAt": "2026-06-26T14:39:45.438678+00:00"
@@ -99,7 +100,7 @@
       "reviewLocalUrl": "./reviews/8708090412.html",
       "reviewLocalCoverUrl": "./reviews/covers/8708090412.jpg",
       "reviewDate": "2026-06-25",
-      "reviewLocalStatus": "ok",
+      "reviewLocalStatus": "error: The read operation timed out",
       "reviewLocalGeneratedAt": "2026-06-28T14:16:39.794137+00:00",
       "reviewCount": 674,
       "reviewLocalLikes": 0,
@@ -120,7 +121,7 @@
       "reviewLocalCoverUrl": "./reviews/covers/8705724576.jpg",
       "reviewDate": "2026-06-27",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-06-28T14:16:30.976835+00:00",
+      "reviewLocalGeneratedAt": "2026-06-28T18:31:59.194519+00:00",
       "reviewCount": 1143,
       "reviewLocalLikes": 0,
       "reviewLocalLikesUpdatedAt": "2026-06-26T14:39:45.438678+00:00"
@@ -138,12 +139,13 @@
       "matched": false,
       "reviewLocalUrl": "./reviews/8681953506.html",
       "reviewLocalCoverUrl": "./reviews/covers/8681953506.jpg",
-      "reviewDate": "2026-06-20",
+      "reviewDate": "2026-06-28",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-06-28T14:16:46.090550+00:00",
-      "reviewCount": 11,
+      "reviewLocalGeneratedAt": "2026-06-28T18:32:32.613258+00:00",
+      "reviewCount": 2278,
       "reviewLocalLikes": 0,
-      "reviewLocalLikesUpdatedAt": "2026-06-26T14:39:45.438678+00:00"
+      "reviewLocalLikesUpdatedAt": "2026-06-26T14:39:45.438678+00:00",
+      "drzratingAuto": true
     }
   ],
   "topReviewedByLikes": [
@@ -221,7 +223,7 @@
       "dateRead": "2024-07-20",
       "rating": 5,
       "reviewUrl": "https://www.goodreads.com/review/show/6667355680?utm_medium=api&utm_source=rss",
-      "reviewLikes": 57,
+      "reviewLikes": 58,
       "reviewLocalUrl": "./reviews/6667355680.html",
       "reviewLocalStatus": "ok",
       "reviewLocalGeneratedAt": "2026-04-25T18:58:02.986509+00:00",
@@ -494,11 +496,12 @@
       "reviewLocalUrl": "./reviews/8711059499.html",
       "reviewLocalCoverUrl": "./reviews/covers/8711059499.jpg",
       "reviewDate": "2026-06-27",
-      "reviewLocalGeneratedAt": "2026-06-28T14:16:29.011225+00:00"
+      "reviewLocalGeneratedAt": "2026-06-28T18:31:57.028560+00:00",
+      "drzratingAuto": true
     },
     {
       "bookId": "35658293",
-      "title": "La guerra de Calibán",
+      "title": "La guerra de Calibán (The Expanse, #2)",
       "author": "James S.A. Corey",
       "dateRead": "2026-06-25",
       "rating": 5,
@@ -511,7 +514,7 @@
       "reviewLocalCoverUrl": "./reviews/covers/8709769014.jpg",
       "reviewDate": "2026-06-25",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-06-28T14:16:35.454238+00:00",
+      "reviewLocalGeneratedAt": "2026-06-28T18:32:03.816856+00:00",
       "reviewCount": 1817,
       "reviewLocalLikes": 0,
       "reviewLocalLikesUpdatedAt": "2026-06-26T14:39:45.438678+00:00"
@@ -530,7 +533,7 @@
       "reviewLocalUrl": "./reviews/8708090412.html",
       "reviewLocalCoverUrl": "./reviews/covers/8708090412.jpg",
       "reviewDate": "2026-06-25",
-      "reviewLocalStatus": "ok",
+      "reviewLocalStatus": "error: The read operation timed out",
       "reviewLocalGeneratedAt": "2026-06-28T14:16:39.794137+00:00",
       "reviewCount": 674,
       "reviewLocalLikes": 0,
@@ -551,7 +554,7 @@
       "reviewLocalCoverUrl": "./reviews/covers/8705724576.jpg",
       "reviewDate": "2026-06-27",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-06-28T14:16:30.976835+00:00",
+      "reviewLocalGeneratedAt": "2026-06-28T18:31:59.194519+00:00",
       "reviewCount": 1143,
       "reviewLocalLikes": 0,
       "reviewLocalLikesUpdatedAt": "2026-06-26T14:39:45.438678+00:00"
@@ -569,17 +572,18 @@
       "matched": false,
       "reviewLocalUrl": "./reviews/8681953506.html",
       "reviewLocalCoverUrl": "./reviews/covers/8681953506.jpg",
-      "reviewDate": "2026-06-20",
+      "reviewDate": "2026-06-28",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-06-28T14:16:46.090550+00:00",
-      "reviewCount": 11,
+      "reviewLocalGeneratedAt": "2026-06-28T18:32:32.613258+00:00",
+      "reviewCount": 2278,
       "reviewLocalLikes": 0,
-      "reviewLocalLikesUpdatedAt": "2026-06-26T14:39:45.438678+00:00"
+      "reviewLocalLikesUpdatedAt": "2026-06-26T14:39:45.438678+00:00",
+      "drzratingAuto": true
     }
   ],
   "totals": {
     "booksRead": 602,
     "booksReviewed": 602,
-    "totalReviewLikes": 3270
+    "totalReviewLikes": 3271
   }
 }

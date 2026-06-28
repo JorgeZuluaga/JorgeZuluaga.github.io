@@ -23,6 +23,7 @@ HOST ?= 127.0.0.1
 LIBRARY_JSON ?= info/library.json
 LIBRARY_STATS_JSON ?= info/library-stats.json
 LIBRARY_DETAILS_JSON ?= info/library-details.json
+VISITOR_WORKER_BASE ?= https://visitor-log-worker.jorgezuluaga.workers.dev
 BOOKBUDDY_CSV ?= info/bookbuddy.csv
 BOOKBUDDY_MISSING_MD ?= update/library-not-in-bookbuddy.md
 BOOKBUDDY_MISSING_PDF ?= update/library-not-in-bookbuddy.pdf
