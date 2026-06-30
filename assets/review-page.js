@@ -214,6 +214,38 @@ function updateLocalLikesInPage(count) {
   localNode.textContent = `👏 ${safeCount}`;
 }
 
+function updateBookTitleInPage(book) {
+  const bookTitle = String(book?.title || "").trim();
+  if (!bookTitle) return;
+
+  const heading = document.querySelector("h1.title-section");
+  if (heading) heading.textContent = bookTitle;
+
+  const coverImg = document.querySelector(".cover img");
+  if (coverImg) coverImg.alt = `Portada de ${bookTitle}`;
+
+  const author = String(book?.author || "").trim();
+  if (author) {
+    const authorEl = document.querySelector("p.author");
+    if (authorEl) authorEl.textContent = author;
+  }
+
+  const ogTitle = document.querySelector('meta[property="og:title"]');
+  if (ogTitle) ogTitle.setAttribute("content", bookTitle);
+
+  const twitterTitle = document.querySelector('meta[name="twitter:title"]');
+  if (twitterTitle) twitterTitle.setAttribute("content", bookTitle);
+
+  const ogDescription = document.querySelector('meta[property="og:description"]');
+  if (ogDescription) {
+    ogDescription.setAttribute("content", `Reseña de ${bookTitle} por Jorge I. Zuluaga`);
+  }
+  const twitterDescription = document.querySelector('meta[name="twitter:description"]');
+  if (twitterDescription) {
+    twitterDescription.setAttribute("content", `Reseña de ${bookTitle} por Jorge I. Zuluaga`);
+  }
+}
+
 async function hydrateReviewLikesFromLibrary() {
   const reviewId = getCurrentReviewId();
   if (!reviewId) return { localLikes: null };
@@ -224,6 +256,7 @@ async function hydrateReviewLikesFromLibrary() {
     const books = Array.isArray(library?.books) ? library.books : [];
     const match = books.find((book) => parseReviewIdFromUrl(book?.reviewUrl) === reviewId);
     if (!match) return { localLikes: null };
+    updateBookTitleInPage(match);
     updateLikesInPage(match.reviewLikes);
     if (match.drzrating !== undefined && match.drzrating !== null) {
       updateDrzRatingInPage(match.drzrating);

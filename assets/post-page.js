@@ -16,30 +16,64 @@ function captionUiText() {
       panelTitle: "Caption for your Instagram post",
       copy: "Copy",
       copied: "Copied",
-      cta: "I invite you to read the full review to learn more about this book. 👇",
       linkLabel: "🔗 Read the full review here:",
+      dmPrompt: 'Comment the word LINK and I\'ll send it to you automatically via DM',
       byPrefix: "By",
+      reviewByline: "Review by Jorge I. Zuluaga, Dr. Z",
     };
   }
   return {
     panelTitle: "Texto para la publicación en Instagram",
     copy: "Copiar",
     copied: "Copiado",
-    cta: "Te invito a leer la reseña completa para profundizar en este tema. 👇",
     linkLabel: "🔗 Lee la reseña completa aquí:",
+    dmPrompt: "Comenta la palabra ENLACE y te lo envío automáticamente por privado",
     byPrefix: "Por",
+    reviewByline: "Reseña por Jorge I. Zuluaga, Dr. Z",
   };
 }
 
-function excerptForCaption(fullText) {
-  const paragraphs = String(fullText || "")
+function reviewParagraphs(text) {
+  return String(text || "")
     .split(/\n\s*\n/)
     .map((part) => part.trim())
     .filter(Boolean);
-  const first = paragraphs[0] || String(fullText || "").trim();
-  if (!first) return "";
-  if (paragraphs.length > 1) return `${first} [...]`;
-  return first;
+}
+
+function excerptParagraphs(reviewBody, count = 2) {
+  const paragraphs = reviewParagraphs(reviewBody);
+  if (!paragraphs.length) return [];
+  const selected = paragraphs.slice(0, count);
+  if (paragraphs.length > count) {
+    const lastIndex = selected.length - 1;
+    selected[lastIndex] = `${selected[lastIndex]} [...]`;
+  }
+  return selected;
+}
+
+function excerptForCaption(fullText) {
+  return excerptParagraphs(fullText, 2).join("\n\n");
+}
+
+const POST_EXCERPT_BASE_WORDS = 70;
+
+function postExcerptMaxWords(title) {
+  const len = String(title || "").trim().length;
+  const penalty = Math.max(0, Math.floor((len - 45) / 12));
+  return Math.max(42, POST_EXCERPT_BASE_WORDS - penalty);
+}
+
+/** Extracto corto en el lienzo del post (junto a la portada). */
+function excerptForPost(reviewBody, title) {
+  const paragraphs = reviewParagraphs(reviewBody);
+  const first = paragraphs[0] || "";
+  if (!first) return [];
+  const maxWords = postExcerptMaxWords(title);
+  const words = first.trim().split(/\s+/).filter(Boolean);
+  const truncated = words.length > maxWords;
+  const text = truncated ? words.slice(0, maxWords).join(" ") : words.join(" ");
+  const hasMore = truncated || paragraphs.length > 1;
+  return hasMore ? [`${text} [...]`] : [text];
 }
 
 function buildInstagramCaption({ book, reviewBody, reviewLinkLabel }) {
@@ -54,11 +88,13 @@ function buildInstagramCaption({ book, reviewBody, reviewLinkLabel }) {
   return [
     header,
     "",
+    ui.reviewByline,
+    "",
     excerpt,
     "",
-    ui.cta,
-    "",
     link ? `${ui.linkLabel} ${link}` : "",
+    "",
+    ui.dmPrompt,
     "",
     CAPTION_HASHTAGS,
   ]
@@ -160,14 +196,6 @@ function extractReviewBodyFromHtml(raw) {
   return htmlFragmentToPlainText(match[1]);
 }
 
-function firstParagraph(text) {
-  const paragraph = String(text || "")
-    .split(/\n\s*\n/)
-    .map((part) => part.trim())
-    .filter(Boolean)[0];
-  return paragraph ? [paragraph] : [];
-}
-
 function extractMetaContent(raw, attr, value) {
   const pattern = new RegExp(
     `<meta\\s+${attr}=["']${value}["']\\s+content=["']([^"']*)["']`,
@@ -243,7 +271,10 @@ function formatStars(rating) {
   return `${"★".repeat(filled)}${"☆".repeat(5 - filled)}`;
 }
 
-function qrImageUrl(targetUrl, size = 108) {
+const POST_COVER_WIDTH = 330;
+const POST_QR_SIZE = 132;
+
+function qrImageUrl(targetUrl, size = POST_QR_SIZE) {
   const data = encodeURIComponent(String(targetUrl || "").trim());
   return `${QR_API}?size=${size}x${size}&margin=8&data=${data}`;
 }
@@ -271,59 +302,51 @@ function renderPost({ book, reviewId, paragraphs, coverSrc, reviewUrl, reviewLin
   const title = String(book.title || "").trim();
   const author = String(book.author || "").trim();
   const stars = formatStars(book.rating);
-
-  const metaParts = [];
-  if (author) metaParts.push(`Por ${author}`);
-  if (stars) {
-    metaParts.push(`<span class="post-stars" aria-label="Calificación: ${escapeHtml(String(book.rating))} de 5">${stars}</span>`);
-  }
+  const starsHtml = stars
+    ? `<span class="post-stars" aria-label="Calificación: ${escapeHtml(String(book.rating))} de 5">${stars}</span>`
+    : "";
+  const metaHtml = `<p class="post-meta"><em class="post-byline">Reseña por Jorge I. Zuluaga, Dr. Z</em>${starsHtml}</p>`;
 
   const excerptHtml = paragraphs
     .map((p) => `<p>${escapeHtml(p)}</p>`)
     .join("");
 
   const buscalibreBlock = buscalibreUrl
-    ? `<div class="post-qr-block">
-        <img src="${escapeHtml(qrImageUrl(buscalibreUrl))}" width="108" height="108" alt="QR Buscalibre" decoding="async" />
-        <p class="post-qr-label">
-          <strong>Consíguelo en Buscalibre</strong>
-          <span class="post-qr-sublabel">Escanea para comprar el libro</span>
-        </p>
+    ? `<div class="post-qr-block post-qr-block--stacked">
+        <img src="${escapeHtml(qrImageUrl(buscalibreUrl))}" width="${POST_QR_SIZE}" height="${POST_QR_SIZE}" alt="QR Buscalibre" decoding="async" />
+        <p class="post-qr-caption">Consigue Buscalibre</p>
       </div>`
-    : `<div class="post-qr-block">
-        <p class="post-qr-label"><strong>Buscalibre</strong>Enlace no disponible para este título</p>
+    : `<div class="post-qr-block post-qr-block--stacked">
+        <p class="post-qr-caption">Consigue Buscalibre</p>
       </div>`;
 
   root.className = "post-canvas";
   root.innerHTML = `
     <div class="post-inner">
-      <div class="post-topbar">
-        <div class="post-topbar__mark">
-          <img class="post-topbar__logo" src="${escapeHtml(DRZ_LOGO_URL)}" width="88" height="88" alt="Dr. Z" decoding="async" />
-          <span class="post-topbar__name">Dr.Z</span>
-        </div>
-        <p class="post-topbar__handles">@jorgeizuluagac · @dr.zacademy</p>
-      </div>
       <header class="post-header">
-        <img class="post-cover" src="${escapeHtml(coverSrc)}" alt="Portada de ${escapeHtml(title)}" width="340" decoding="async" />
-        <div class="post-header__text">
-          <p class="post-hashtag">#LibrosRecomendados</p>
-          <h1 class="post-title">${escapeHtml(title)}</h1>
-          ${metaParts.length ? `<p class="post-meta">${metaParts.join(" · ")}</p>` : ""}
-          <p class="post-byline">Reseña por Jorge I. Zuluaga, Dr. Z</p>
-          <section class="post-excerpt" aria-label="Extracto de la reseña">
-            ${excerptHtml}
-          </section>
+        <div class="post-header__content">
+          <div class="post-header__intro">
+            <p class="post-hashtag">#LibrosRecomendados</p>
+            <h1 class="post-title">${escapeHtml(title)}</h1>
+          </div>
+          <div class="post-header__body">
+            <img class="post-cover" src="${escapeHtml(coverSrc)}" alt="Portada de ${escapeHtml(title)}" width="${POST_COVER_WIDTH}" decoding="async" />
+            ${metaHtml}
+            <section class="post-excerpt" aria-label="Extracto de la reseña">
+              ${excerptHtml}
+            </section>
+          </div>
         </div>
       </header>
       <footer class="post-footer">
-        <div class="post-qr-block">
-          <img src="${escapeHtml(qrImageUrl(reviewUrl))}" width="108" height="108" alt="QR reseña" decoding="async" />
-          <p class="post-qr-label">
-            <strong>Lee la reseña completa</strong>
-            <span class="post-qr-sublabel">Escanea para abrir en la web</span>
-            <span class="post-qr-link">${escapeHtml(reviewLinkLabel || reviewUrl)}</span>
-          </p>
+        <div class="post-qr-block post-qr-block--stacked">
+          <img src="${escapeHtml(qrImageUrl(reviewUrl))}" width="${POST_QR_SIZE}" height="${POST_QR_SIZE}" alt="QR reseña" decoding="async" />
+          <p class="post-qr-caption">Reseña ${escapeHtml(reviewLinkLabel || reviewUrl)}</p>
+        </div>
+        <div class="post-brand">
+          <img class="post-brand__logo" src="${escapeHtml(DRZ_LOGO_URL)}" width="144" height="144" alt="" decoding="async" />
+          <p class="post-brand__handle">@jorgeizuluagac</p>
+          <p class="post-brand__handle">@dr.zacademy</p>
         </div>
         ${buscalibreBlock}
       </footer>
@@ -375,7 +398,7 @@ async function loadPost() {
 
     const reviewHtml = await reviewRes.text();
     const reviewBody = extractReviewBodyFromHtml(reviewHtml);
-    const paragraphs = firstParagraph(reviewBody);
+    const paragraphs = excerptForPost(reviewBody, book.title);
     if (!paragraphs.length) {
       renderError("La reseña no tiene texto para mostrar.");
       return;
