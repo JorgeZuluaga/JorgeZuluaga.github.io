@@ -63,10 +63,11 @@
       "reviewLocalUrl": "./reviews/8711059499.html",
       "reviewLocalCoverUrl": "./reviews/covers/8711059499.jpg",
       "reviewDate": "2026-06-27",
-      "reviewLocalGeneratedAt": "2026-06-29T14:22:06.153927+00:00",
+      "reviewLocalGeneratedAt": "2026-06-30T14:16:37.854712+00:00",
       "drzratingAuto": true,
       "reviewLocalLikes": 0,
-      "reviewLocalLikesUpdatedAt": "2026-06-28T18:44:49.835535+00:00"
+      "reviewLocalLikesUpdatedAt": "2026-06-29T14:44:59.687075+00:00",
+      "isbn": "9788449336539"
     },
     {
       "bookId": "35658293",
@@ -83,10 +84,11 @@
       "reviewLocalCoverUrl": "./reviews/covers/8709769014.jpg",
       "reviewDate": "2026-06-25",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-06-29T14:22:13.562616+00:00",
+      "reviewLocalGeneratedAt": "2026-06-30T14:16:44.541484+00:00",
       "reviewCount": 1817,
       "reviewLocalLikes": 3,
-      "reviewLocalLikesUpdatedAt": "2026-06-28T18:44:49.835535+00:00"
+      "reviewLocalLikesUpdatedAt": "2026-06-29T14:44:59.687075+00:00",
+      "isbn": "9788466660884"
     },
     {
       "bookId": "30320792",
@@ -103,10 +105,11 @@
       "reviewLocalCoverUrl": "./reviews/covers/8708090412.jpg",
       "reviewDate": "2026-06-25",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-06-29T14:22:18.244820+00:00",
+      "reviewLocalGeneratedAt": "2026-06-30T14:16:49.004083+00:00",
       "reviewCount": 674,
       "reviewLocalLikes": 1,
-      "reviewLocalLikesUpdatedAt": "2026-06-28T18:44:49.835535+00:00"
+      "reviewLocalLikesUpdatedAt": "2026-06-29T14:44:59.687075+00:00",
+      "isbn": "9788491042112"
     },
     {
       "bookId": "242901061",
@@ -117,16 +120,18 @@
       "reviewUrl": "https://www.goodreads.com/review/show/8705724576?utm_medium=api&utm_source=rss",
       "reviewLikes": 1,
       "drzrating": 80,
-      "bookDetails": 0,
-      "matched": false,
+      "bookDetails": 1,
+      "matched": true,
       "reviewLocalUrl": "./reviews/8705724576.html",
       "reviewLocalCoverUrl": "./reviews/covers/8705724576.jpg",
       "reviewDate": "2026-06-27",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-06-29T14:22:08.843232+00:00",
+      "reviewLocalGeneratedAt": "2026-06-30T14:16:40.152112+00:00",
       "reviewCount": 1143,
       "reviewLocalLikes": 0,
-      "reviewLocalLikesUpdatedAt": "2026-06-28T18:44:49.835535+00:00"
+      "reviewLocalLikesUpdatedAt": "2026-06-29T14:44:59.687075+00:00",
+      "isbn": "9788410214927",
+      "dateAdded": "2026-06-14"
     },
     {
       "bookId": "40542612",
@@ -143,11 +148,12 @@
       "reviewLocalCoverUrl": "./reviews/covers/8681953506.jpg",
       "reviewDate": "2026-06-28",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-06-29T14:22:03.653492+00:00",
+      "reviewLocalGeneratedAt": "2026-06-30T14:16:35.583053+00:00",
       "reviewCount": 2278,
-      "reviewLocalLikes": 0,
-      "reviewLocalLikesUpdatedAt": "2026-06-28T18:44:49.835535+00:00",
-      "drzratingAuto": true
+      "reviewLocalLikes": 2,
+      "reviewLocalLikesUpdatedAt": "2026-06-29T14:44:59.687075+00:00",
+      "drzratingAuto": true,
+      "isbn": "9788430619658"
     }
   ],
   "topReviewedByLikes": [
@@ -165,7 +171,7 @@
       "reviewLocalStatus": "ok",
       "reviewLocalGeneratedAt": "2026-04-25T18:55:49.231144+00:00",
       "reviewLocalLikes": 1,
-      "reviewLocalLikesUpdatedAt": "2026-06-28T18:44:49.835535+00:00",
+      "reviewLocalLikesUpdatedAt": "2026-06-29T14:44:59.687075+00:00",
       "drzrating": 87,
       "bookDetails": 1,
       "reviewCount": 91,
@@ -197,7 +203,7 @@
       "reviewLocalCoverUrl": "./reviews/covers/4232235817.jpg",
       "reviewDate": "2021-09-14",
       "reviewLocalLikes": 0,
-      "reviewLocalLikesUpdatedAt": "2026-06-28T18:44:49.835535+00:00",
+      "reviewLocalLikesUpdatedAt": "2026-06-29T14:44:59.687075+00:00",
       "drzrating": 100,
       "bookDetails": 1,
       "reviewCount": 1019,
@@ -232,7 +238,7 @@
       "reviewLocalCoverUrl": "./reviews/covers/6667355680.jpg",
       "reviewDate": "2024-07-20",
       "reviewLocalLikes": 2,
-      "reviewLocalLikesUpdatedAt": "2026-06-28T18:44:49.835535+00:00",
+      "reviewLocalLikesUpdatedAt": "2026-06-29T14:44:59.687075+00:00",
       "drzrating": 96,
       "bookDetails": 1,
       "dateAdded": "2023-07-07",
@@ -248,7 +254,7 @@
         "reasoning": "Neurociencia y psicología aplicadas al poder transformador de la conversación en el cerebro.",
         "confidence": 0.95
       },
-      "isbn": "9789877950472",
+      "isbn": "9786073821414",
       "matched": true
     },
     {
@@ -265,7 +271,7 @@
       "reviewLocalCoverUrl": "./reviews/covers/3063403087.jpg",
       "reviewDate": "2023-02-26",
       "reviewLocalLikes": 0,
-      "reviewLocalLikesUpdatedAt": "2026-06-28T18:44:49.835535+00:00",
+      "reviewLocalLikesUpdatedAt": "2026-06-29T14:44:59.687075+00:00",
       "drzrating": 100,
       "bookDetails": 1,
       "reviewCount": 526,
@@ -279,7 +285,7 @@
         "reasoning": "Obra en formato pseudobiográfico y ficción escrita en idioma original francés dedicada a los últimos días del emblemático emperador romano.",
         "confidence": 0.0
       },
-      "isbn": "9789871138692",
+      "isbn": "9786073103220",
       "dateAdded": "2020-12-31",
       "matched": true
     },
@@ -297,7 +303,7 @@
       "reviewLocalCoverUrl": "./reviews/covers/4664229801.jpg",
       "reviewDate": "2022-04-15",
       "reviewLocalLikes": 0,
-      "reviewLocalLikesUpdatedAt": "2026-06-28T18:44:49.835535+00:00",
+      "reviewLocalLikesUpdatedAt": "2026-06-29T14:44:59.687075+00:00",
       "drzrating": 98,
       "bookDetails": 1,
       "reviewCount": 955,
@@ -313,7 +319,7 @@
         "reasoning": "Es un manual que analiza el feminismo y las cuestiones de género en el contexto latinoamericano contemporáneo.",
         "confidence": 0.0
       },
-      "isbn": "9789585464513",
+      "isbn": "9789585464520",
       "dateAdded": "2022-03-08",
       "matched": true
     },
@@ -331,7 +337,7 @@
       "reviewLocalCoverUrl": "./reviews/covers/4278716233.jpg",
       "reviewDate": "2021-10-12",
       "reviewLocalLikes": 0,
-      "reviewLocalLikesUpdatedAt": "2026-06-28T18:44:49.835535+00:00",
+      "reviewLocalLikesUpdatedAt": "2026-06-29T14:44:59.687075+00:00",
       "drzrating": 99,
       "bookDetails": 1,
       "dateAdded": "2021-10-12",
@@ -363,7 +369,7 @@
       "reviewLocalCoverUrl": "./reviews/covers/3344914655.jpg",
       "reviewDate": "2020-07-03",
       "reviewLocalLikes": 0,
-      "reviewLocalLikesUpdatedAt": "2026-06-28T18:44:49.835535+00:00",
+      "reviewLocalLikesUpdatedAt": "2026-06-29T14:44:59.687075+00:00",
       "drzrating": 100,
       "bookDetails": 1,
       "dateAdded": "2020-12-31",
@@ -396,7 +402,7 @@
       "reviewLocalCoverUrl": "./reviews/covers/5469066244.jpg",
       "reviewDate": "2023-05-28",
       "reviewLocalLikes": 0,
-      "reviewLocalLikesUpdatedAt": "2026-06-28T18:44:49.835535+00:00",
+      "reviewLocalLikesUpdatedAt": "2026-06-29T14:44:59.687075+00:00",
       "drzrating": 100,
       "bookDetails": 0,
       "reviewCount": 1286,
@@ -410,7 +416,8 @@
         "reasoning": "Novela narrativa basada en eventos históricos que ahonda en las travesías científicas de Alexander von Humboldt por América, de la pluma de un escritor colombiano.",
         "confidence": 0.0
       },
-      "matched": false
+      "matched": false,
+      "isbn": "9786289548075"
     },
     {
       "bookId": "17567272",
@@ -426,7 +433,7 @@
       "reviewLocalCoverUrl": "./reviews/covers/3758441020.jpg",
       "reviewDate": "2023-06-21",
       "reviewLocalLikes": 0,
-      "reviewLocalLikesUpdatedAt": "2026-06-28T18:44:49.835535+00:00",
+      "reviewLocalLikesUpdatedAt": "2026-06-29T14:44:59.687075+00:00",
       "drzrating": 100,
       "bookDetails": 1,
       "dateAdded": "2021-01-04",
@@ -443,7 +450,7 @@
         "reasoning": "Obra narrativa e íntima de Rosa Montero que mezcla sus reflexiones sobre el duelo personal con la biografía de Marie Curie.",
         "confidence": 0.95
       },
-      "isbn": "9788432215803",
+      "isbn": "9788432215483",
       "matched": true
     },
     {
@@ -460,7 +467,7 @@
       "reviewLocalCoverUrl": "./reviews/covers/3742582688.jpg",
       "reviewDate": "2024-06-10",
       "reviewLocalLikes": 0,
-      "reviewLocalLikesUpdatedAt": "2026-06-28T18:44:49.835535+00:00",
+      "reviewLocalLikesUpdatedAt": "2026-06-29T14:44:59.687075+00:00",
       "drzrating": 100,
       "bookDetails": 1,
       "dateAdded": "2021-02-03",
@@ -477,7 +484,7 @@
         "reasoning": "Aclamado ensayo de Irene Vallejo sobre la historia del libro, la escritura y las bibliotecas en el mundo antiguo.",
         "confidence": 1.0
       },
-      "isbn": "9788417860790",
+      "isbn": "9788417860875",
       "matched": true
     }
   ],
@@ -498,10 +505,11 @@
       "reviewLocalUrl": "./reviews/8711059499.html",
       "reviewLocalCoverUrl": "./reviews/covers/8711059499.jpg",
       "reviewDate": "2026-06-27",
-      "reviewLocalGeneratedAt": "2026-06-29T14:22:06.153927+00:00",
+      "reviewLocalGeneratedAt": "2026-06-30T14:16:37.854712+00:00",
       "drzratingAuto": true,
       "reviewLocalLikes": 0,
-      "reviewLocalLikesUpdatedAt": "2026-06-28T18:44:49.835535+00:00"
+      "reviewLocalLikesUpdatedAt": "2026-06-29T14:44:59.687075+00:00",
+      "isbn": "9788449336539"
     },
     {
       "bookId": "35658293",
@@ -518,10 +526,11 @@
       "reviewLocalCoverUrl": "./reviews/covers/8709769014.jpg",
       "reviewDate": "2026-06-25",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-06-29T14:22:13.562616+00:00",
+      "reviewLocalGeneratedAt": "2026-06-30T14:16:44.541484+00:00",
       "reviewCount": 1817,
       "reviewLocalLikes": 3,
-      "reviewLocalLikesUpdatedAt": "2026-06-28T18:44:49.835535+00:00"
+      "reviewLocalLikesUpdatedAt": "2026-06-29T14:44:59.687075+00:00",
+      "isbn": "9788466660884"
     },
     {
       "bookId": "30320792",
@@ -538,10 +547,11 @@
       "reviewLocalCoverUrl": "./reviews/covers/8708090412.jpg",
       "reviewDate": "2026-06-25",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-06-29T14:22:18.244820+00:00",
+      "reviewLocalGeneratedAt": "2026-06-30T14:16:49.004083+00:00",
       "reviewCount": 674,
       "reviewLocalLikes": 1,
-      "reviewLocalLikesUpdatedAt": "2026-06-28T18:44:49.835535+00:00"
+      "reviewLocalLikesUpdatedAt": "2026-06-29T14:44:59.687075+00:00",
+      "isbn": "9788491042112"
     },
     {
       "bookId": "242901061",
@@ -552,16 +562,18 @@
       "reviewUrl": "https://www.goodreads.com/review/show/8705724576?utm_medium=api&utm_source=rss",
       "reviewLikes": 1,
       "drzrating": 80,
-      "bookDetails": 0,
-      "matched": false,
+      "bookDetails": 1,
+      "matched": true,
       "reviewLocalUrl": "./reviews/8705724576.html",
       "reviewLocalCoverUrl": "./reviews/covers/8705724576.jpg",
       "reviewDate": "2026-06-27",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-06-29T14:22:08.843232+00:00",
+      "reviewLocalGeneratedAt": "2026-06-30T14:16:40.152112+00:00",
       "reviewCount": 1143,
       "reviewLocalLikes": 0,
-      "reviewLocalLikesUpdatedAt": "2026-06-28T18:44:49.835535+00:00"
+      "reviewLocalLikesUpdatedAt": "2026-06-29T14:44:59.687075+00:00",
+      "isbn": "9788410214927",
+      "dateAdded": "2026-06-14"
     },
     {
       "bookId": "40542612",
@@ -578,16 +590,17 @@
       "reviewLocalCoverUrl": "./reviews/covers/8681953506.jpg",
       "reviewDate": "2026-06-28",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-06-29T14:22:03.653492+00:00",
+      "reviewLocalGeneratedAt": "2026-06-30T14:16:35.583053+00:00",
       "reviewCount": 2278,
-      "reviewLocalLikes": 0,
-      "reviewLocalLikesUpdatedAt": "2026-06-28T18:44:49.835535+00:00",
-      "drzratingAuto": true
+      "reviewLocalLikes": 2,
+      "reviewLocalLikesUpdatedAt": "2026-06-29T14:44:59.687075+00:00",
+      "drzratingAuto": true,
+      "isbn": "9788430619658"
     }
   ],
   "totals": {
     "booksRead": 602,
     "booksReviewed": 602,
-    "totalReviewLikes": 3271
+    "totalReviewLikes": 3272
   }
 }

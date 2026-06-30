@@ -1,7 +1,7 @@
 {
   "affiliateId": "74c874bfb5a8145d7c1b",
   "domain": "https://www.buscalibre.com.co",
-  "updatedAt": "2026-06-30T02:16:45.150436+00:00",
+  "updatedAt": "2026-06-30T14:19:10.706128+00:00",
   "books": {
     "6286160": {
       "bookId": "6286160",
@@ -3230,6 +3230,60 @@
       "isbn": "9788815019806",
       "title": "Allegro ma non troppo. Con Le leggi fondamentali della stupidità umana",
       "url": "https://www.buscalibre.com.co/libro-allegro-ma-non-troppo-contrappunti-italian-edition/9788815019806/p/47404209?afiliado=74c874bfb5a8145d7c1b"
+    },
+    "241162726": {
+      "bookId": "241162726",
+      "isbn": "9788491998235",
+      "title": "El Partenón",
+      "url": "https://www.buscalibre.com.co/libro-el-partenon/9788491998235/p/64596712?afiliado=74c874bfb5a8145d7c1b"
+    },
+    "236082313": {
+      "bookId": "236082313",
+      "isbn": "9788491057277",
+      "title": "El arte de la felicidad",
+      "url": "https://www.buscalibre.com.co/libro-el-arte-de-la-felicidad/9788491057277/p/64356607?afiliado=74c874bfb5a8145d7c1b"
+    },
+    "32202588": {
+      "bookId": "32202588",
+      "isbn": "9788491052401",
+      "title": "Los tres mosqueteros",
+      "url": "https://www.buscalibre.com.co/libro-los-tres-mosqueteros-the-three-musketeers/9788491052401/p/47614010?afiliado=74c874bfb5a8145d7c1b"
+    },
+    "49969639": {
+      "bookId": "49969639",
+      "isbn": "9780008292393",
+      "title": "Symphony in C: Carbon and the Evolution of (Almost) Everything",
+      "url": "https://www.buscalibre.com.co/libro-symphony-in-c-carbon-and-the-evolution-of-almost-everything/9780008292393/p/51954348?afiliado=74c874bfb5a8145d7c1b"
+    },
+    "57926221": {
+      "bookId": "57926221",
+      "isbn": "9788491993056",
+      "title": "Un mar sin límites: Una historia humana de los océanos",
+      "url": "https://www.buscalibre.com.co/libro-un-mar-sin-limites-una-historia-humana-de-los-oceanos/9788491993056/p/53333431?afiliado=74c874bfb5a8145d7c1b"
+    },
+    "2113230": {
+      "bookId": "2113230",
+      "isbn": "9788433925749",
+      "title": "300 días en Afganistán",
+      "url": "https://www.buscalibre.com.co/libro-300-dias-en-afganistan/9788433925749/p/1027035?afiliado=74c874bfb5a8145d7c1b"
+    },
+    "52770736": {
+      "bookId": "52770736",
+      "isbn": "9780241406793",
+      "title": "The Zoologist's Guide to the Galaxy: What Animals on Earth Reveal about Aliens – and Ourselves",
+      "url": "https://www.buscalibre.com.co/libro-the-zoologist-s-guide-to-the-galaxy-what-animals-on-earth-reveal-about-aliens-and-ourselves/9780241406793/p/53476251?afiliado=74c874bfb5a8145d7c1b"
+    },
+    "59111160": {
+      "bookId": "59111160",
+      "isbn": "9788418741081",
+      "title": "Energía y civilización: una historia",
+      "url": "https://www.buscalibre.com.co/libro-energia-y-civilizacion-una-historia/9788418741081/p/53608943?afiliado=74c874bfb5a8145d7c1b"
+    },
+    "28925478": {
+      "bookId": "28925478",
+      "isbn": "9788434583849",
+      "title": "En busca del gato de Schrödinger",
+      "url": "https://www.buscalibre.com.co/libro-en-busca-del-gato-de-schrodinger-la-fascinante-historia-de-la-mecanica-cuantica/9788434583849/p/55038747?afiliado=74c874bfb5a8145d7c1b"
     }
   }
 }
