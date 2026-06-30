@@ -121,6 +121,35 @@ def rss_has_review_body(item: ET.Element, user_review: str) -> bool:
     return bool(extract_review_text_from_description(desc))
 
 
+def normalize_isbn(value: object) -> str:
+    raw = str(value or "").strip()
+    if not raw:
+        return ""
+    return re.sub(r"[^0-9Xx]", "", raw).upper()
+
+
+def isbn10_to_isbn13(isbn10: str) -> str:
+    core = "978" + isbn10[:-1]
+    total = sum(int(char) * (1 if idx % 2 == 0 else 3) for idx, char in enumerate(core))
+    check = (10 - total % 10) % 10
+    return core + str(check)
+
+
+def isbn_from_rss_item(item: ET.Element) -> str:
+    raw = normalize_isbn(item.findtext("isbn") or "")
+    if not raw:
+        return ""
+    if len(raw) == 10:
+        return isbn10_to_isbn13(raw)
+    return raw
+
+
+def apply_rss_isbn(entry: dict, item: ET.Element) -> None:
+    isbn = isbn_from_rss_item(item)
+    if isbn:
+        entry["isbn"] = isbn
+
+
 def extract_like_count(html: str) -> int:
     patterns = [
         r'"likesCount"\s*:\s*(\d+)',
@@ -314,6 +343,7 @@ def build_library_data(
             )
             if preserve_existing_titles and preserved_title:
                 entry["title"] = preserved_title
+            apply_rss_isbn(entry, item)
             if "reviewLikes" not in entry:
                 entry["reviewLikes"] = review_likes
             if "scrapeStatus" not in entry:
@@ -332,6 +362,7 @@ def build_library_data(
                 "scrapeStatus": scrape_status,
                 "drzrating": -1,
             }
+            apply_rss_isbn(entry, item)
         entry["bookDetails"] = 1 if book_id in details_book_ids else 0
         # matched means: this Goodreads bookId is already linked to some row in library-details.json
         entry["matched"] = bool(book_id in details_book_ids)

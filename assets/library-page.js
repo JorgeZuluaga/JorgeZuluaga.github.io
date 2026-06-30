@@ -5,13 +5,26 @@ import {
   withLangQuery,
 } from "./i18n.js";
 import { applyHeaderLangChrome, applyLibrarySectionNav } from "./library-nav.js";
-import { trackPageView } from "./visitor-tracker.js";
+import { trackEvent, trackPageView } from "./visitor-tracker.js";
 
 const LIBRARY_JSON = "./info/library.json";
 const LIBRARY_DETAILS_JSON = "./info/library-details.json";
 const BOOK_SERIES_JSON = "./info/book_series.json";
 const LOCAL_LIKES_CACHE_PREFIX = "review_local_likes_count_";
+const REVIEW_LIKE_CLICKED_PREFIX = "review_like_clicked_";
 const LIBRARY_LIST_EXPANDED_COUNT = 50;
+const FEATURED_REVIEW_CANDIDATE_LIMIT = 10;
+const FEATURED_REVIEW_MIN_WORDS = 250;
+const FEATURED_REVIEW_EXCERPT_MAX = 600;
+
+const LIBRARY_HOME_JUMP_LINKS = [
+  ["library-home-jump-featured", "library-featured-review-card", "library_home_jump_featured"],
+  ["library-home-jump-latest-reviews", "library-section-latest-reviews", "library_home_jump_latest_reviews"],
+  ["library-home-jump-latest-read", "library-section-latest-read", "library_home_jump_latest_read"],
+  ["library-home-jump-top-reviewed", "library-section-top-reviewed", "library_home_jump_top_reviewed"],
+  ["library-home-jump-top50", "library-section-top50", "library_home_jump_top50"],
+  ["library-home-jump-year", "library-section-year-chart", "library_home_jump_by_year"],
+];
 
 function buildDetailsBookIdSet(detailsBooks) {
   const set = new Set();
@@ -248,6 +261,445 @@ function reviewActionLabel(item, lang) {
   return t("library_view_review", lang);
 }
 
+function featuredReviewScore(item) {
+  const rating = Number.isFinite(Number(item?.rating)) ? Number(item.rating) : 0;
+  const drzRaw = item?.drzrating;
+  const drz =
+    drzRaw !== undefined && drzRaw !== -1 && Number.isFinite(Number(drzRaw)) ? Number(drzRaw) : 0;
+  const grLikes = Number.isFinite(Number(item?.reviewLikes)) ? Number(item.reviewLikes) : 0;
+  const localLikes = Number.isFinite(Number(item?.reviewLocalLikes)) ? Number(item.reviewLocalLikes) : 0;
+  const reviewDate = item?._reviewDate?.getTime?.() ?? 0;
+  const reviewId = Number(parseReviewIdFromUrl(item?.reviewUrl)) || 0;
+  return [rating, drz, grLikes + localLikes, reviewDate, reviewId];
+}
+
+function compareFeaturedReviewScore(a, b) {
+  const scoreA = featuredReviewScore(a);
+  const scoreB = featuredReviewScore(b);
+  for (let i = 0; i < scoreA.length; i += 1) {
+    if (scoreB[i] !== scoreA[i]) return scoreB[i] - scoreA[i];
+  }
+  return 0;
+}
+
+function pickFeaturedReview(reviewedBooks) {
+  const recent = [...reviewedBooks]
+    .filter((item) => item._reviewDate && parseReviewIdFromUrl(item.reviewUrl))
+    .sort((a, b) => (b._reviewDate?.getTime() ?? 0) - (a._reviewDate?.getTime() ?? 0))
+    .slice(0, FEATURED_REVIEW_CANDIDATE_LIMIT);
+  const eligible = recent.filter((item) => {
+    const wordCount = Number(item.reviewCount);
+    return Number.isFinite(wordCount) && wordCount > FEATURED_REVIEW_MIN_WORDS;
+  });
+  if (!eligible.length) return null;
+  eligible.sort(compareFeaturedReviewScore);
+  return eligible[0];
+}
+
+function htmlFragmentToPlainText(fragment) {
+  const tmp = document.createElement("div");
+  tmp.innerHTML = String(fragment || "").replace(/<br\s*\/?>/gi, "\n");
+  return tmp.textContent
+    .replace(/\r\n/g, "\n")
+    .split("\n")
+    .map((line) => line.replace(/\s+/g, " ").trim())
+    .join("\n")
+    .replace(/\n{3,}/g, "\n\n")
+    .trim();
+}
+
+function extractReviewBodyFromHtml(raw) {
+  const match = String(raw || "").match(/<article\s+class="card"[^>]*>([\s\S]*?)<\/article>/i);
+  if (!match) return "";
+  return htmlFragmentToPlainText(match[1]);
+}
+
+function firstParagraphExcerpt(text, maxChars = FEATURED_REVIEW_EXCERPT_MAX) {
+  const normalized = String(text || "")
+    .split(/\n\s*\n/)
+    .map((part) => part.trim())
+    .filter(Boolean);
+  const paragraph = normalized[0] || String(text || "").trim();
+  if (!paragraph) return { excerpt: "", hasMore: false };
+  const hasMoreParagraphs = normalized.length > 1;
+  if (paragraph.length <= maxChars) {
+    return { excerpt: paragraph, hasMore: hasMoreParagraphs };
+  }
+  const trimmed = paragraph.slice(0, maxChars - 1).replace(/\s+\S*$/, "");
+  return { excerpt: trimmed, hasMore: true };
+}
+
+async function fetchFeaturedExcerpt(book) {
+  const reviewId = parseReviewIdFromUrl(book?.reviewUrl);
+  if (!reviewId) return { excerpt: "", hasMore: false };
+  const localUrl = String(book?.reviewLocalUrl || "").trim();
+  const path = localUrl || `./reviews/${reviewId}.html`;
+  try {
+    const res = await fetch(path, { cache: "no-store" });
+    if (!res.ok) return { excerpt: "", hasMore: false };
+    const raw = await res.text();
+    return firstParagraphExcerpt(extractReviewBodyFromHtml(raw));
+  } catch {
+    return { excerpt: "", hasMore: false };
+  }
+}
+
+function reviewLikeClickedKey(reviewId) {
+  return `${REVIEW_LIKE_CLICKED_PREFIX}${reviewId}`;
+}
+
+async function copyTextToClipboard(text) {
+  const value = String(text || "").trim();
+  if (!value) return false;
+  try {
+    if (navigator.clipboard && typeof navigator.clipboard.writeText === "function") {
+      await navigator.clipboard.writeText(value);
+      return true;
+    }
+  } catch {
+    // fallback below
+  }
+  try {
+    const ta = document.createElement("textarea");
+    ta.value = value;
+    ta.style.position = "fixed";
+    ta.style.left = "-9999px";
+    ta.setAttribute("readonly", "true");
+    document.body.appendChild(ta);
+    ta.select();
+    const ok = document.execCommand("copy");
+    document.body.removeChild(ta);
+    return Boolean(ok);
+  } catch {
+    return false;
+  }
+}
+
+function showFeaturedShareToast(message) {
+  const msg = String(message || "").trim();
+  if (!msg) return;
+  const existing = document.getElementById("library-featured-share-toast");
+  const el = existing || document.createElement("div");
+  el.id = "library-featured-share-toast";
+  el.textContent = msg;
+  el.setAttribute("role", "status");
+  el.setAttribute("aria-live", "polite");
+  el.style.position = "fixed";
+  el.style.left = "50%";
+  el.style.top = "1rem";
+  el.style.transform = "translateX(-50%)";
+  el.style.zIndex = "9999";
+  el.style.padding = "0.6rem 0.85rem";
+  el.style.borderRadius = "999px";
+  el.style.background = "rgba(0, 0, 0, 0.85)";
+  el.style.color = "#fff";
+  el.style.fontSize = "0.95rem";
+  el.style.boxShadow = "0 10px 25px rgba(0,0,0,0.25)";
+  el.style.maxWidth = "92vw";
+  el.style.textAlign = "center";
+  el.style.opacity = "0";
+  el.style.transition = "opacity 160ms ease";
+  if (!existing) document.body.appendChild(el);
+  clearTimeout(el.__toastTimer);
+  requestAnimationFrame(() => {
+    el.style.opacity = "1";
+  });
+  el.__toastTimer = setTimeout(() => {
+    el.style.opacity = "0";
+  }, 1400);
+}
+
+function styleFeaturedReviewActionButton(el, { primary = false } = {}) {
+  el.style.display = "inline-flex";
+  el.style.alignItems = "center";
+  el.style.justifyContent = "center";
+  el.style.gap = "0.35rem";
+  el.style.margin = "0";
+  el.style.padding = primary ? "0.45rem 0.75rem" : "0.45rem 0.75rem";
+  el.style.fontSize = "0.9rem";
+  el.style.fontFamily = "inherit";
+  el.style.fontWeight = "500";
+  el.style.border = "1px solid color-mix(in srgb, var(--black) 22%, transparent)";
+  el.style.borderRadius = "8px";
+  el.style.background = "color-mix(in srgb, var(--black) 4%, var(--white))";
+  el.style.color = "var(--black)";
+  el.style.cursor = "pointer";
+}
+
+function updateFeaturedLikeButton(btn, count, liked, lang) {
+  if (!btn) return;
+  const safeCount = Number.isFinite(Number(count)) ? Math.max(0, Number(count)) : 0;
+  btn.textContent = liked
+    ? `${t("review_action_liked", lang)} (${safeCount})`
+    : `${t("review_action_like", lang)} (${safeCount})`;
+  btn.setAttribute("aria-label", `${t("review_action_like_aria", lang)} ${safeCount}`);
+  btn.disabled = liked;
+}
+
+async function mountFeaturedReviewActions(article, { reviewId, reviewHref, book, lang }) {
+  if (!article || !reviewId) return;
+
+  const actions = document.createElement("div");
+  actions.className = "library-featured-review__actions";
+  actions.setAttribute("aria-label", lang === "en" ? "Review actions" : "Acciones de la reseña");
+
+  const likeBtn = document.createElement("button");
+  likeBtn.type = "button";
+  likeBtn.id = "library-featured-review-like-btn";
+  likeBtn.className = "library-featured-review__action-btn";
+  styleFeaturedReviewActionButton(likeBtn, { primary: true });
+  const liked = localStorage.getItem(reviewLikeClickedKey(reviewId)) === "1";
+  const snapshotLikes = readSnapshotLocalLikes(book);
+  updateFeaturedLikeButton(likeBtn, snapshotLikes ?? 0, liked, lang);
+  actions.appendChild(likeBtn);
+
+  const shareUrl = new URL(reviewHref, window.location.href).toString();
+  const shareBtn = document.createElement("button");
+  shareBtn.type = "button";
+  shareBtn.className = "library-featured-review__action-btn";
+  styleFeaturedReviewActionButton(shareBtn);
+  shareBtn.setAttribute("aria-label", t("review_action_share", lang));
+  shareBtn.innerHTML = `<span data-share-label>${t("review_action_share", lang)}</span>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" focusable="false">
+      <path d="M8 12v7a2 2 0 0 0 2 2h4a2 2 0 0 0 2-2v-7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+      <path d="M12 16V3" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+      <path d="M8.5 6.5 12 3l3.5 3.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+    </svg>`;
+  shareBtn.addEventListener("click", async () => {
+    const ok = await copyTextToClipboard(shareUrl);
+    const label = shareBtn.querySelector("[data-share-label]");
+    if (label) {
+      const prev = label.textContent;
+      label.textContent = ok ? t("review_action_copied", lang) : t("review_action_share", lang);
+      setTimeout(() => {
+        label.textContent = prev;
+      }, 1200);
+    }
+    if (ok) showFeaturedShareToast(t("review_action_share_toast", lang));
+  });
+  actions.appendChild(shareBtn);
+
+  const subscribeBtn = document.createElement("button");
+  subscribeBtn.type = "button";
+  subscribeBtn.className = "library-featured-review__action-btn";
+  styleFeaturedReviewActionButton(subscribeBtn);
+  subscribeBtn.setAttribute("aria-label", t("review_action_subscribe_aria", lang));
+  subscribeBtn.innerHTML = `<span>${t("review_action_subscribe", lang)}</span>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" focusable="false">
+      <rect x="2" y="4" width="20" height="16" rx="2" fill="none" stroke="currentColor" stroke-width="2"></rect>
+      <path d="m2 7 10 7 10-7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+    </svg>`;
+  subscribeBtn.addEventListener("click", () => {
+    document.getElementById("review-subscribe-open")?.click();
+  });
+  actions.appendChild(subscribeBtn);
+
+  article.appendChild(actions);
+
+  const base = workerBaseFromLogEndpoint();
+  if (!base) return;
+
+  let initialCount = await fetchLocalLikeCount(base, reviewId);
+  if (initialCount === null) initialCount = snapshotLikes ?? 0;
+  updateFeaturedLikeButton(likeBtn, initialCount, liked, lang);
+
+  likeBtn.addEventListener("click", async () => {
+    likeBtn.disabled = true;
+    try {
+      const response = await fetch(`${base}/review-like`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          reviewId,
+          page: location.pathname,
+          url: location.href,
+        }),
+        mode: "cors",
+        credentials: "omit",
+      });
+      if (!response.ok) throw new Error("like failed");
+      const data = await response.json();
+      const count = Number.isFinite(Number(data?.count)) ? Number(data.count) : initialCount;
+      localStorage.setItem(reviewLikeClickedKey(reviewId), "1");
+      writeCachedLocalLikes(reviewId, count);
+      updateFeaturedLikeButton(likeBtn, count, true, lang);
+      const localSpan = article.querySelector("[data-local-likes-for]");
+      if (localSpan) localSpan.textContent = `👏 ${count}`;
+      if (data?.alreadyLiked) {
+        trackEvent("review_like_already_liked", { reviewId, count, alreadyLiked: true });
+      } else {
+        trackEvent("review_like_click", { reviewId, count, alreadyLiked: false });
+      }
+    } catch {
+      likeBtn.disabled = liked;
+    }
+  });
+}
+
+function ratingStarsElement(rating) {
+  const value = Math.max(0, Math.min(5, Math.round(Number(rating) || 0)));
+  if (!value) return null;
+  const span = document.createElement("span");
+  span.className = "library-featured-review__stars library-tooltip";
+  span.setAttribute("data-title", "");
+  span.textContent = "★".repeat(value) + "☆".repeat(5 - value);
+  return span;
+}
+
+async function renderFeaturedReview(container, book, lang, cardEl) {
+  if (!container) return;
+  if (!book) {
+    container.replaceChildren();
+    if (cardEl) cardEl.hidden = true;
+    return;
+  }
+
+  const reviewId = parseReviewIdFromUrl(book.reviewUrl);
+  const reviewHref = withLangQuery(effectiveLocalReviewHref(book) || `./reviews/${reviewId}.html`);
+  const coverSrc = String(book.reviewLocalCoverUrl || `./reviews/covers/${reviewId}.jpg`).trim();
+  const author = String(book.author || "").trim();
+  const byPrefix = t("library_by_author", lang).replace(/:$/, "").trim();
+  const { excerpt, hasMore } = await fetchFeaturedExcerpt(book);
+
+  container.replaceChildren();
+  if (cardEl) cardEl.hidden = false;
+
+  const article = document.createElement("article");
+  article.className = "library-featured-review";
+
+  if (coverSrc) {
+    const coverLink = document.createElement("a");
+    coverLink.className = "library-featured-review__cover-link";
+    coverLink.href = reviewHref;
+    const img = document.createElement("img");
+    img.src = coverSrc;
+    img.alt = String(book.title || "");
+    img.loading = "lazy";
+    img.decoding = "async";
+    img.width = 160;
+    coverLink.appendChild(img);
+    article.appendChild(coverLink);
+  }
+
+  const title = document.createElement("h3");
+  title.className = "library-featured-review__title";
+  const titleLink = document.createElement("a");
+  titleLink.className = "link";
+  titleLink.href = reviewHref;
+  titleLink.textContent = String(book.title || "");
+  title.appendChild(titleLink);
+  article.appendChild(title);
+
+  const meta = document.createElement("p");
+  meta.className = "library-featured-review__meta";
+  const metaBits = [];
+  if (author) {
+    const authorBit = document.createElement("span");
+    authorBit.textContent = `${byPrefix} ${author}`;
+    metaBits.push(authorBit);
+  }
+  const stars = ratingStarsElement(book.rating);
+  if (stars) {
+    stars.setAttribute("data-title", t("library_rating_gr_hover", lang));
+    metaBits.push(stars);
+  }
+  for (const bit of metaBits) {
+    if (meta.childElementCount > 0) {
+      meta.appendChild(document.createTextNode(" · "));
+    }
+    meta.appendChild(bit);
+  }
+  if (meta.childElementCount > 0) article.appendChild(meta);
+
+  const byline = document.createElement("p");
+  byline.className = "library-featured-review__byline";
+  const bylineEm = document.createElement("em");
+  bylineEm.textContent = t("library_featured_review_byline", lang);
+  byline.appendChild(bylineEm);
+  article.appendChild(byline);
+
+  if (excerpt) {
+    const excerptEl = document.createElement("p");
+    excerptEl.className = "library-featured-review__excerpt";
+    excerptEl.textContent = excerpt;
+    if (hasMore) {
+      const more = document.createElement("span");
+      more.className = "library-featured-review__excerpt-more";
+      more.setAttribute("aria-hidden", "true");
+      more.textContent = "…";
+      excerptEl.appendChild(more);
+    }
+    article.appendChild(excerptEl);
+  }
+
+  const stats = document.createElement("p");
+  stats.className = "library-featured-review__stats";
+  const statBits = [];
+  if (book.drzrating !== undefined && book.drzrating !== -1) {
+    const drzWrap = document.createElement("span");
+    const drzLabel = document.createElement("strong");
+    drzLabel.textContent = `${t("library_rating_drz", lang)} `;
+    drzWrap.appendChild(drzLabel);
+    const drzValue = document.createElement("span");
+    drzValue.className = "library-tooltip";
+    drzValue.setAttribute("data-title", t("library_rating_drz_hover", lang));
+    drzValue.textContent = `🤓 ${String(book.drzrating)}`;
+    drzWrap.appendChild(drzValue);
+    statBits.push(drzWrap);
+  }
+
+  const reactionBits = [];
+  const grLikes = Number(book.reviewLikes);
+  if (String(book.reviewUrl || "").includes("/review/show/") && Number.isFinite(grLikes)) {
+    const likesSpan = document.createElement("span");
+    likesSpan.className = "library-tooltip";
+    likesSpan.setAttribute("data-title", t("library_likes_gr_hover", lang));
+    likesSpan.textContent = `👍 ${grLikes}`;
+    reactionBits.push(likesSpan);
+  }
+  if (reviewId) {
+    const localSpan = document.createElement("span");
+    localSpan.className = "library-tooltip";
+    localSpan.setAttribute("data-title", t("library_likes_local_hover", lang));
+    localSpan.setAttribute("data-local-likes-for", reviewId);
+    const snapshotLikes = readSnapshotLocalLikes(book);
+    localSpan.textContent = snapshotLikes === null ? "👏 —" : `👏 ${snapshotLikes}`;
+    reactionBits.push(localSpan);
+  }
+  if (reactionBits.length > 0) {
+    const reactionsWrap = document.createElement("span");
+    const reactionsLabel = document.createElement("strong");
+    reactionsLabel.textContent = `${t("library_featured_review_reactions", lang)} `;
+    reactionsWrap.appendChild(reactionsLabel);
+    reactionBits.forEach((bit, index) => {
+      if (index > 0) reactionsWrap.appendChild(document.createTextNode(" · "));
+      reactionsWrap.appendChild(bit);
+    });
+    statBits.push(reactionsWrap);
+  }
+  for (const bit of statBits) {
+    if (stats.childElementCount > 0) {
+      stats.appendChild(document.createTextNode(" · "));
+    }
+    stats.appendChild(bit);
+  }
+  if (stats.childElementCount > 0) article.appendChild(stats);
+
+  await mountFeaturedReviewActions(article, { reviewId, reviewHref, book, lang });
+
+  const readWrap = document.createElement("p");
+  readWrap.className = "library-featured-review__read";
+  const readLink = document.createElement("a");
+  readLink.className = "link library-featured-review__read-link";
+  readLink.href = reviewHref;
+  readLink.textContent = `${t("library_featured_review_read", lang)} →`;
+  readWrap.appendChild(readLink);
+  article.appendChild(readWrap);
+
+  container.appendChild(article);
+  await hydrateLocalLikes(container, [book], lang);
+}
+
 function endpointFromMeta() {
   const el = document.querySelector('meta[name="visitor-log-endpoint"]');
   return String(el?.getAttribute("content") || "").trim();
@@ -476,18 +928,11 @@ function renderBookList(container, items, lang, seriesMap = new Map(), options =
     let actionsHtml = "";
     const grBookId = String(item.bookId || "").trim();
 
-    if (grBookId) {
+    if (grBookId && detailsBookIdSet?.has(grBookId)) {
       const descHref = withLangQuery(
         `./book.html?bookid=${encodeURIComponent(grBookId)}`,
       );
-      if (detailsBookIdSet?.has(grBookId)) {
-        actionsHtml += `<a class="link" href="${escapeLibrary(descHref)}">${escapeLibrary(t("library_view_description_complete", lang))}</a>`;
-      } else {
-        const before = escapeLibrary(t("library_view_description_incomplete_before", lang));
-        const em = escapeLibrary(t("library_view_description_incomplete_em", lang));
-        const after = escapeLibrary(t("library_view_description_incomplete_after", lang));
-        actionsHtml += `<a class="link" href="${escapeLibrary(descHref)}">${before}<u>${em}</u>${after}</a>`;
-      }
+      actionsHtml += `<a class="link" href="${escapeLibrary(descHref)}">${escapeLibrary(t("library_view_description_complete", lang))}</a>`;
     }
 
     if (publishedReview && hasLocalReview) {
@@ -500,7 +945,7 @@ function renderBookList(container, items, lang, seriesMap = new Map(), options =
 
     if (actionsHtml) {
       if (publishedReview && hasAnyReviewUrl) {
-        const reactionsText = lang === "en" ? "Reactions" : "Reacciones a la reseña";
+        const reactionsText = t("library_reactions", lang);
         const likesCount = Number.isFinite(Number(item.reviewLikes)) ? item.reviewLikes : 0;
         actionsHtml += ` · ${reactionsText} <span class="library-tooltip" data-title="${escapeLibrary(t("library_likes_gr_hover", lang))}">👍 ${likesCount}</span>${localLikesSuffixHtml(reviewId, lang)}`;
       }
@@ -690,8 +1135,19 @@ function applyLibraryChrome(lang) {
   if (hTop) hTop.textContent = t("library_top10", lang);
   const hLatestReviews = document.getElementById("library-h2-latest-reviews");
   if (hLatestReviews) hLatestReviews.textContent = t("library_latest_reviews_written", lang);
+  const hFeaturedReview = document.getElementById("library-h2-featured-review");
+  if (hFeaturedReview) hFeaturedReview.textContent = t("library_featured_review_title", lang);
   const hTop50 = document.getElementById("library-h2-top50");
   if (hTop50) hTop50.textContent = t("library_top50_title", lang);
+
+  const jumpNav = document.getElementById("library-home-jump-nav");
+  if (jumpNav) jumpNav.setAttribute("aria-label", t("library_home_jump_nav_aria", lang));
+  for (const [linkId, anchorId, titleKey] of LIBRARY_HOME_JUMP_LINKS) {
+    const linkEl = document.getElementById(linkId);
+    if (!linkEl) continue;
+    linkEl.textContent = t(titleKey, lang);
+    linkEl.setAttribute("href", `#${anchorId}`);
+  }
 
   const allLink = document.getElementById("btn-all-books");
   if (allLink) {
@@ -754,6 +1210,8 @@ async function main() {
   const latestReadEl = document.getElementById("library-latest-read");
   const topReviewedEl = document.getElementById("library-top-reviewed");
   const latestReviewedEl = document.getElementById("library-latest-reviewed");
+  const featuredReviewCardEl = document.getElementById("library-featured-review-card");
+  const featuredReviewEl = document.getElementById("library-featured-review");
   const top50El = document.getElementById("library-top50");
   if (
     !titleEl ||
@@ -891,6 +1349,10 @@ async function main() {
   }
 
   chartEl.replaceChildren(frag);
+
+  const featuredBook = pickFeaturedReview(reviewed);
+  await renderFeaturedReview(featuredReviewEl, featuredBook, lang, featuredReviewCardEl);
+
   addListToggleControls(latestReviewedEl, latestReviewsWritten, lang, seriesMap, {
     initialCount: 5,
     expandedCount: LIBRARY_LIST_EXPANDED_COUNT,

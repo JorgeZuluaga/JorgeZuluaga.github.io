@@ -338,17 +338,11 @@ function buildDetailsBookIdSet(detailsBooks) {
 
 function buildDescriptionLinkHtml(item, lang, detailsBookIdSet) {
   const grBookId = String(item.bookId || "").trim();
-  if (!grBookId) return "";
+  if (!grBookId || !detailsBookIdSet?.has(grBookId)) return "";
   const descHref = escapeLibrary(
     withLangQuery(`./book.html?bookid=${encodeURIComponent(grBookId)}`),
   );
-  if (detailsBookIdSet?.has(grBookId)) {
-    return `<a class="link" href="${descHref}">${escapeLibrary(t("library_view_description_complete", lang))}</a>`;
-  }
-  const before = escapeLibrary(t("library_view_description_incomplete_before", lang));
-  const em = escapeLibrary(t("library_view_description_incomplete_em", lang));
-  const after = escapeLibrary(t("library_view_description_incomplete_after", lang));
-  return `<a class="link" href="${descHref}">${before}<u>${em}</u>${after}</a>`;
+  return `<a class="link" href="${descHref}">${escapeLibrary(t("library_view_description_complete", lang))}</a>`;
 }
 
 function parseDate(dateText) {
@@ -813,7 +807,7 @@ function renderBookList(container, items, lang, seriesMap = new Map(), detailsBo
       reviewHtml += `<a class="link" href="${escapeLibrary(reviewUrl)}" target="_blank" rel="noopener noreferrer">${escapeLibrary(reviewActionLabel(item, lang))}</a>`;
     }
     if (publishedReview && hasAnyReviewUrl) {
-      const reactionsText = lang === "en" ? "Reactions" : "Reacciones a la reseña";
+      const reactionsText = t("library_reactions", lang);
       const likesCount = Number.isFinite(Number(item.reviewLikes)) ? item.reviewLikes : 0;
       const reactionsPart = `${reactionsText} <span class="library-tooltip" data-title="${escapeLibrary(t("library_likes_gr_hover", lang))}">👍 ${likesCount}</span>${localLikesSuffixHtml(reviewId, lang)}`;
       if (reviewHtml) reviewHtml += ` · ${reactionsPart}`;

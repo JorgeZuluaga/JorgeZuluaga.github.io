@@ -40,20 +40,41 @@ run_daily_once() {
   echo "[daily-goodreads] RSS_URL cargado (${#RSS_URL} chars); cookie $([ -n "${COOKIE:-}" ] && echo sí || echo no)"
 
   echo ""
-  echo "=== [1/4] library-goodreads-likes (RSS + scrape likes) ==="
+  echo "=== [1/8] library-goodreads-likes (RSS + scrape likes + ISBN) ==="
   make library-goodreads-likes RSS_URL="$RSS_URL" RSS_PAGES="$RSS_PAGES" COOKIE="${COOKIE:-}"
 
   echo ""
-  echo "=== [2/4] library-goodreads-reviews-latest (mirror ~10 reseñas) ==="
+  echo "=== [2/8] library-goodreads-reviews-latest (mirror ~10 reseñas) ==="
   make library-goodreads-reviews-latest COOKIE="${COOKIE:-}" REVIEW_RSS_PAGES="$REVIEW_RSS_PAGES"
 
   echo ""
-  echo "=== [3/4] library-stats ==="
+  echo "=== [3/8] library-goodreads-isbn-sync (ISBN faltantes desde RSS) ==="
+  make library-goodreads-isbn-sync RSS_URL="$RSS_URL" RSS_PAGES="$RSS_PAGES"
+
+  echo ""
+  echo "=== [4/8] library-link-details-by-isbn ==="
+  make library-link-details-by-isbn
+
+  echo ""
+  echo "=== [5/8] buscalibre-links-fetch (enlaces nuevos) ==="
+  make buscalibre-links-fetch MISSING_FROM_LIBRARY=1
+
+  echo ""
+  echo "=== [6/8] library-stats ==="
   make library-stats
 
   echo ""
-  echo "=== [4/4] library-drzrating-update ==="
+  echo "=== [7/8] library-drzrating-update ==="
   make library-drzrating-update
+
+  if [[ -z "${SKIP_REVIEW_NOTIFY:-}" ]]; then
+    echo ""
+    echo "=== [8/8] review-notify-send (tras Buscalibre) ==="
+    make review-notify-send || echo "[daily-goodreads] review-notify-send omitido o falló."
+  else
+    echo ""
+    echo "=== [8/8] review-notify-send omitido (SKIP_REVIEW_NOTIFY=1) ==="
+  fi
 
   echo ""
   echo "[daily-goodreads] Completado."

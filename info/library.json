@@ -27,7 +27,8 @@
       "reviewLocalGeneratedAt": "2026-06-29T14:48:50.081312+00:00",
       "drzratingAuto": true,
       "reviewLocalLikes": 0,
-      "reviewLocalLikesUpdatedAt": "2026-06-29T14:44:59.687075+00:00"
+      "reviewLocalLikesUpdatedAt": "2026-06-29T14:44:59.687075+00:00",
+      "isbn": "9788449336539"
     },
     {
       "bookId": "35658293",
@@ -49,7 +50,8 @@
       "reviewLocalGeneratedAt": "2026-06-29T14:48:56.925337+00:00",
       "reviewCount": 1817,
       "reviewLocalLikes": 3,
-      "reviewLocalLikesUpdatedAt": "2026-06-29T14:44:59.687075+00:00"
+      "reviewLocalLikesUpdatedAt": "2026-06-29T14:44:59.687075+00:00",
+      "isbn": "9788466660884"
     },
     {
       "bookId": "30320792",
@@ -71,7 +73,8 @@
       "reviewLocalGeneratedAt": "2026-06-29T14:49:01.662631+00:00",
       "reviewCount": 674,
       "reviewLocalLikes": 1,
-      "reviewLocalLikesUpdatedAt": "2026-06-29T14:44:59.687075+00:00"
+      "reviewLocalLikesUpdatedAt": "2026-06-29T14:44:59.687075+00:00",
+      "isbn": "9788491042112"
     },
     {
       "bookId": "242901061",
@@ -84,8 +87,8 @@
       "reviewLikes": 1,
       "scrapeStatus": "ok",
       "drzrating": 80,
-      "bookDetails": 0,
-      "matched": false,
+      "bookDetails": 1,
+      "matched": true,
       "reviewLocalUrl": "./reviews/8705724576.html",
       "reviewLocalCoverUrl": "./reviews/covers/8705724576.jpg",
       "reviewDate": "2026-06-27",
@@ -93,7 +96,9 @@
       "reviewLocalGeneratedAt": "2026-06-29T14:48:52.210067+00:00",
       "reviewCount": 1143,
       "reviewLocalLikes": 0,
-      "reviewLocalLikesUpdatedAt": "2026-06-29T14:44:59.687075+00:00"
+      "reviewLocalLikesUpdatedAt": "2026-06-29T14:44:59.687075+00:00",
+      "isbn": "9788410214927",
+      "dateAdded": "2026-06-14"
     },
     {
       "bookId": "40542612",
@@ -116,7 +121,8 @@
       "reviewCount": 2278,
       "reviewLocalLikes": 2,
       "reviewLocalLikesUpdatedAt": "2026-06-29T14:44:59.687075+00:00",
-      "drzratingAuto": true
+      "drzratingAuto": true,
+      "isbn": "9788430619658"
     },
     {
       "bookId": "249891440",
@@ -138,7 +144,8 @@
       "reviewLocalGeneratedAt": "2026-06-29T14:49:06.212246+00:00",
       "reviewCount": 471,
       "reviewLocalLikes": 1,
-      "reviewLocalLikesUpdatedAt": "2026-06-29T14:44:59.687075+00:00"
+      "reviewLocalLikesUpdatedAt": "2026-06-29T14:44:59.687075+00:00",
+      "isbn": "9788446057390"
     },
     {
       "bookId": "25857483",
@@ -160,7 +167,8 @@
       "reviewLocalGeneratedAt": "2026-06-29T14:49:03.776711+00:00",
       "reviewCount": 402,
       "reviewLocalLikes": 0,
-      "reviewLocalLikesUpdatedAt": "2026-06-29T14:44:59.687075+00:00"
+      "reviewLocalLikesUpdatedAt": "2026-06-29T14:44:59.687075+00:00",
+      "isbn": "9788439725473"
     },
     {
       "bookId": "6286160",
@@ -183,7 +191,8 @@
       "reviewCount": 992,
       "dateAdded": "2020-12-31",
       "reviewLocalLikes": 1,
-      "reviewLocalLikesUpdatedAt": "2026-06-29T14:44:59.687075+00:00"
+      "reviewLocalLikesUpdatedAt": "2026-06-29T14:44:59.687075+00:00",
+      "isbn": "9789879317181"
     },
     {
       "bookId": "241098479",
@@ -206,7 +215,8 @@
       "reviewCount": 11,
       "reviewLocalLikes": 0,
       "reviewLocalLikesUpdatedAt": "2026-06-29T14:44:59.687075+00:00",
-      "drzratingAuto": true
+      "drzratingAuto": true,
+      "isbn": "9788423368730"
     },
     {
       "bookId": "122763633",
@@ -229,7 +239,8 @@
       "reviewCount": 160,
       "dateAdded": "2026-05-28",
       "reviewLocalLikes": 0,
-      "reviewLocalLikesUpdatedAt": "2026-06-29T14:44:59.687075+00:00"
+      "reviewLocalLikesUpdatedAt": "2026-06-29T14:44:59.687075+00:00",
+      "isbn": "9788419089410"
     },
     {
       "bookId": "250492693",
@@ -252,7 +263,8 @@
       "reviewCount": 11,
       "reviewLocalLikes": 0,
       "reviewLocalLikesUpdatedAt": "2026-06-29T14:44:59.687075+00:00",
-      "drzratingAuto": true
+      "drzratingAuto": true,
+      "isbn": "9782384334810"
     },
     {
       "bookId": "32023743",
@@ -274,7 +286,8 @@
       "reviewLocalGeneratedAt": "2026-06-29T14:48:59.293043+00:00",
       "reviewCount": 1817,
       "reviewLocalLikes": 0,
-      "reviewLocalLikesUpdatedAt": "2026-06-29T14:44:59.687075+00:00"
+      "reviewLocalLikesUpdatedAt": "2026-06-29T14:44:59.687075+00:00",
+      "isbn": "9788466660150"
     },
     {
       "bookId": "59221394",
@@ -287,7 +300,7 @@
       "reviewLikes": 0,
       "scrapeStatus": "ok",
       "drzrating": -1,
-      "bookDetails": 0,
+      "bookDetails": 1,
       "matched": false,
       "reviewLocalUrl": "./reviews/8624597683.html",
       "reviewLocalCoverUrl": "./reviews/covers/8624597683.jpg",
@@ -297,7 +310,9 @@
       "reviewCount": 11,
       "reviewLocalLikes": 0,
       "reviewLocalLikesUpdatedAt": "2026-06-29T14:44:59.687075+00:00",
-      "drzratingAuto": true
+      "drzratingAuto": true,
+      "isbn": "9788417121389",
+      "dateAdded": "2024-01-26"
     },
     {
       "bookId": "228680531",
@@ -310,7 +325,7 @@
       "reviewLikes": 0,
       "scrapeStatus": "ok",
       "drzrating": -1,
-      "bookDetails": 0,
+      "bookDetails": 1,
       "matched": false,
       "reviewLocalUrl": "./reviews/8609645998.html",
       "reviewLocalCoverUrl": "./reviews/covers/8609645998.jpg",
@@ -320,7 +335,9 @@
       "reviewCount": 11,
       "reviewLocalLikes": 0,
       "reviewLocalLikesUpdatedAt": "2026-06-29T14:44:59.687075+00:00",
-      "drzratingAuto": true
+      "drzratingAuto": true,
+      "isbn": "9788410096950",
+      "dateAdded": "2025-08-09"
     },
     {
       "bookId": "239940189",
@@ -333,7 +350,7 @@
       "reviewLikes": 0,
       "scrapeStatus": "ok",
       "drzrating": 96,
-      "bookDetails": 0,
+      "bookDetails": 1,
       "matched": false,
       "reviewLocalUrl": "./reviews/8604906707.html",
       "reviewLocalCoverUrl": "./reviews/covers/8604906707.jpg",
@@ -342,7 +359,9 @@
       "reviewLocalGeneratedAt": "2026-05-17T17:05:32.184675+00:00",
       "reviewCount": 804,
       "reviewLocalLikes": 0,
-      "reviewLocalLikesUpdatedAt": "2026-06-29T14:44:59.687075+00:00"
+      "reviewLocalLikesUpdatedAt": "2026-06-29T14:44:59.687075+00:00",
+      "isbn": "9788466679602",
+      "dateAdded": "2026-05-11"
     },
     {
       "bookId": "14735289",
@@ -356,7 +375,7 @@
       "scrapeStatus": "ok",
       "drzrating": 80,
       "bookDetails": 1,
-      "matched": true,
+      "matched": false,
       "reviewLocalUrl": "./reviews/8581336028.html",
       "reviewLocalCoverUrl": "./reviews/covers/8581336028.jpg",
       "reviewDate": "2026-05-17",
@@ -365,7 +384,8 @@
       "reviewCount": 907,
       "dateAdded": "2022-09-03",
       "reviewLocalLikes": 0,
-      "reviewLocalLikesUpdatedAt": "2026-06-29T14:44:59.687075+00:00"
+      "reviewLocalLikesUpdatedAt": "2026-06-29T14:44:59.687075+00:00",
+      "isbn": "9789681666088"
     },
     {
       "bookId": "232453948",
@@ -379,7 +399,7 @@
       "scrapeStatus": "ok",
       "drzrating": 85,
       "bookDetails": 1,
-      "matched": true,
+      "matched": false,
       "dateAdded": "2026-05-03",
       "dcc_classes": {
         "800": "Literatura y retorica (800)"
@@ -398,7 +418,8 @@
       "reviewLocalGeneratedAt": "2026-05-17T17:06:00.739822+00:00",
       "reviewCount": 757,
       "reviewLocalLikes": 3,
-      "reviewLocalLikesUpdatedAt": "2026-06-29T14:44:59.687075+00:00"
+      "reviewLocalLikesUpdatedAt": "2026-06-29T14:44:59.687075+00:00",
+      "isbn": "9788408306863"
     },
     {
       "bookId": "237811588",
@@ -423,7 +444,7 @@
         "reasoning": "Ensayo de la filósofa Manon Garcia relacionado con el machismo, el feminismo y las cuestiones judiciales que afectan a mujeres y grupos sociales.",
         "confidence": 0.85
       },
-      "matched": true,
+      "matched": false,
       "dateAdded": "2026-04-26",
       "reviewLocalUrl": "./reviews/8554509688.html",
       "reviewLocalCoverUrl": "./reviews/covers/8554509688.jpg",
@@ -432,7 +453,8 @@
       "reviewLocalGeneratedAt": "2026-06-25T15:18:02.028491+00:00",
       "reviewCount": 932,
       "reviewLocalLikes": 10,
-      "reviewLocalLikesUpdatedAt": "2026-06-29T14:44:59.687075+00:00"
+      "reviewLocalLikesUpdatedAt": "2026-06-29T14:44:59.687075+00:00",
+      "isbn": "9788446057307"
     },
     {
       "bookId": "62597512",
@@ -464,7 +486,8 @@
       "reviewLocalGeneratedAt": "2026-05-17T17:05:36.569327+00:00",
       "reviewCount": 602,
       "reviewLocalLikes": 4,
-      "reviewLocalLikesUpdatedAt": "2026-06-29T14:44:59.687075+00:00"
+      "reviewLocalLikesUpdatedAt": "2026-06-29T14:44:59.687075+00:00",
+      "isbn": "9788420461854"
     },
     {
       "bookId": "36006321",
@@ -496,8 +519,9 @@
         "reasoning": "Es una novela de ciencia ficción escrita por el autor estadounidense Andy Weir (autor de 'El Marciano').",
         "confidence": 0.98
       },
-      "matched": true,
-      "dateAdded": "2026-05-05"
+      "matched": false,
+      "dateAdded": "2026-05-05",
+      "isbn": "9788490698952"
     },
     {
       "bookId": "251441851",
@@ -511,7 +535,7 @@
       "scrapeStatus": "ok",
       "drzrating": 94,
       "bookDetails": 1,
-      "matched": true,
+      "matched": false,
       "reviewLocalUrl": "./reviews/8590116363.html",
       "reviewLocalCoverUrl": "./reviews/covers/8590116363.jpg",
       "reviewDate": "2026-05-10",
@@ -520,7 +544,8 @@
       "reviewCount": 350,
       "dateAdded": "2026-05-10",
       "reviewLocalLikes": 2,
-      "reviewLocalLikesUpdatedAt": "2026-06-29T14:44:59.687075+00:00"
+      "reviewLocalLikesUpdatedAt": "2026-06-29T14:44:59.687075+00:00",
+      "isbn": "9786287794948"
     },
     {
       "bookId": "5996229",
@@ -555,7 +580,8 @@
       "reviewCount": 11,
       "reviewLocalLikes": 0,
       "reviewLocalLikesUpdatedAt": "2026-06-29T14:44:59.687075+00:00",
-      "drzratingAuto": true
+      "drzratingAuto": true,
+      "isbn": "9789586396103"
     },
     {
       "bookId": "59021993",
@@ -590,7 +616,7 @@
       },
       "isbn": "9789878010489",
       "dateAdded": "2025-05-24",
-      "matched": true
+      "matched": false
     },
     {
       "bookId": "220648311",
@@ -622,7 +648,8 @@
         "reasoning": "Novela histórica escrita por el autor español Ildefonso Falcones.",
         "confidence": 0.98
       },
-      "matched": false
+      "matched": false,
+      "isbn": "9788425369582"
     },
     {
       "bookId": "242110718",
@@ -659,7 +686,7 @@
       },
       "isbn": "9788430628889",
       "dateAdded": "2026-02-14",
-      "matched": true
+      "matched": false
     },
     {
       "bookId": "216802309",
@@ -696,7 +723,7 @@
         "confidence": 0.98
       },
       "isbn": "9788420471228",
-      "matched": true
+      "matched": false
     },
     {
       "bookId": "24114125",
@@ -832,7 +859,8 @@
         "reasoning": "Novela de ciencia ficción de Andy Weir, autor estadounidense.",
         "confidence": 0.98
       },
-      "matched": false
+      "matched": false,
+      "isbn": "9788418037016"
     },
     {
       "bookId": "36632175",
@@ -865,7 +893,8 @@
       "reviewCount": 11,
       "reviewLocalLikes": 0,
       "reviewLocalLikesUpdatedAt": "2026-06-29T14:44:59.687075+00:00",
-      "drzratingAuto": true
+      "drzratingAuto": true,
+      "isbn": "9788494510397"
     },
     {
       "bookId": "60774041",
@@ -1079,7 +1108,8 @@
       "reviewCount": 11,
       "reviewLocalLikes": 0,
       "reviewLocalLikesUpdatedAt": "2026-06-29T14:44:59.687075+00:00",
-      "drzratingAuto": true
+      "drzratingAuto": true,
+      "isbn": "9788413932972"
     },
     {
       "bookId": "20740274",
@@ -1111,7 +1141,8 @@
         "reasoning": "La primera novela de Sherlock Holmes, por el británico Arthur Conan Doyle.",
         "confidence": 0.98
       },
-      "matched": false
+      "matched": false,
+      "isbn": "9789509051003"
     },
     {
       "bookId": "17569031",
@@ -1144,7 +1175,8 @@
         "reasoning": "Divulgación científica sobre las reacciones químicas y físicas que suceden durante la preparación de los alimentos.",
         "confidence": 0.95
       },
-      "matched": false
+      "matched": false,
+      "isbn": "9789876292443"
     },
     {
       "bookId": "1272964",
@@ -1177,7 +1209,8 @@
       "reviewCount": 11,
       "reviewLocalLikes": 0,
       "reviewLocalLikesUpdatedAt": "2026-06-29T14:44:59.687075+00:00",
-      "drzratingAuto": true
+      "drzratingAuto": true,
+      "isbn": "9788423333219"
     },
     {
       "bookId": "54657941",
@@ -1248,7 +1281,8 @@
       "reviewCount": 11,
       "reviewLocalLikes": 0,
       "reviewLocalLikesUpdatedAt": "2026-06-29T14:44:59.687075+00:00",
-      "drzratingAuto": true
+      "drzratingAuto": true,
+      "isbn": "9789877371321"
     },
     {
       "bookId": "40538196",
@@ -1496,7 +1530,8 @@
       "reviewCount": 11,
       "reviewLocalLikes": 0,
       "reviewLocalLikesUpdatedAt": "2026-06-29T14:44:59.687075+00:00",
-      "drzratingAuto": true
+      "drzratingAuto": true,
+      "isbn": "9788426411587"
     },
     {
       "bookId": "71565",
@@ -1528,7 +1563,8 @@
         "reasoning": "Novela de misterio e histórica del autor italiano Umberto Eco.",
         "confidence": 0.98
       },
-      "matched": false
+      "matched": false,
+      "isbn": "9789872060954"
     },
     {
       "bookId": "50214707",
@@ -1852,7 +1888,8 @@
         "reasoning": "Novela de ciencia ficción y aventuras (secuela de Jurassic Park) escrita por el autor estadounidense Michael Crichton.",
         "confidence": 0.98
       },
-      "matched": false
+      "matched": false,
+      "isbn": "9788466343756"
     },
     {
       "bookId": "122775836",
@@ -1885,7 +1922,8 @@
         "reasoning": "Como lo indica su subtítulo, es un manual filosófico sobre problemas metafísicos y conceptuales variados.",
         "confidence": 0.95
       },
-      "matched": false
+      "matched": false,
+      "isbn": "9788430625758"
     },
     {
       "bookId": "43450595",
@@ -1919,7 +1957,8 @@
       "reviewCount": 11,
       "reviewLocalLikes": 0,
       "reviewLocalLikesUpdatedAt": "2026-06-29T14:44:59.687075+00:00",
-      "drzratingAuto": true
+      "drzratingAuto": true,
+      "isbn": "9788467055221"
     },
     {
       "bookId": "25377233",
@@ -1952,7 +1991,8 @@
         "reasoning": "Colección de ensayos sobre arte, libros y literatura del autor colombiano William Ospina.",
         "confidence": 0.95
       },
-      "matched": false
+      "matched": false,
+      "isbn": "9789588640839"
     },
     {
       "bookId": "39742374",
@@ -1985,7 +2025,8 @@
         "reasoning": "Clásica novela de ciencia ficción americana por Michael Crichton.",
         "confidence": 0.98
       },
-      "matched": false
+      "matched": false,
+      "isbn": "9781947783744"
     },
     {
       "bookId": "113645",
@@ -2019,7 +2060,8 @@
       "reviewCount": 11,
       "reviewLocalLikes": 0,
       "reviewLocalLikesUpdatedAt": "2026-06-29T14:44:59.687075+00:00",
-      "drzratingAuto": true
+      "drzratingAuto": true,
+      "isbn": "9781584887980"
     },
     {
       "bookId": "233875060",
@@ -2054,7 +2096,8 @@
         "reasoning": "Slavoj Žižek escribe ensayos sobre los problemas políticos, económicos y sociales del mundo contemporáneo.",
         "confidence": 0.9
       },
-      "matched": false
+      "matched": false,
+      "isbn": "9788433947611"
     },
     {
       "bookId": "49020183",
@@ -2123,7 +2166,8 @@
         "reasoning": "Novela escrita por la norirlandesa Maggie O'Farrell, una pieza de literatura y ficción histórica.",
         "confidence": 0.95
       },
-      "matched": false
+      "matched": false,
+      "isbn": "9788417977580"
     },
     {
       "bookId": "337",
@@ -2155,7 +2199,8 @@
         "reasoning": "Famosa novela literaria del autor alemán Patrick Süskind.",
         "confidence": 0.98
       },
-      "matched": false
+      "matched": false,
+      "isbn": "9788432216060"
     },
     {
       "bookId": "236033220",
@@ -2335,7 +2380,8 @@
       "reviewCount": 11,
       "reviewLocalLikes": 0,
       "reviewLocalLikesUpdatedAt": "2026-06-29T14:44:59.687075+00:00",
-      "drzratingAuto": true
+      "drzratingAuto": true,
+      "isbn": "9781399807944"
     },
     {
       "bookId": "3362986",
@@ -2367,7 +2413,8 @@
         "reasoning": "Novela clásica escrita por el autor escocés Robert Louis Stevenson.",
         "confidence": 0.98
       },
-      "matched": false
+      "matched": false,
+      "isbn": "9789870409236"
     },
     {
       "bookId": "25881698",
@@ -2577,7 +2624,8 @@
       "reviewCount": 11,
       "reviewLocalLikes": 0,
       "reviewLocalLikesUpdatedAt": "2026-06-29T14:44:59.687075+00:00",
-      "drzratingAuto": true
+      "drzratingAuto": true,
+      "isbn": "9788410298736"
     },
     {
       "bookId": "235679277",
@@ -2610,7 +2658,8 @@
       "reviewLocalGeneratedAt": "2026-05-10T19:26:47.561923+00:00",
       "reviewLocalLikes": 0,
       "reviewLocalLikesUpdatedAt": "2026-06-29T14:44:59.687075+00:00",
-      "drzratingAuto": true
+      "drzratingAuto": true,
+      "isbn": "9788401036828"
     },
     {
       "bookId": "232494918",
@@ -2681,7 +2730,8 @@
       "reviewCount": 11,
       "reviewLocalLikes": 0,
       "reviewLocalLikesUpdatedAt": "2026-06-29T14:44:59.687075+00:00",
-      "drzratingAuto": true
+      "drzratingAuto": true,
+      "isbn": "9788423350100"
     },
     {
       "bookId": "59080630",
@@ -2716,7 +2766,8 @@
       "reviewCount": 11,
       "reviewLocalLikes": 0,
       "reviewLocalLikesUpdatedAt": "2026-06-29T14:44:59.687075+00:00",
-      "drzratingAuto": true
+      "drzratingAuto": true,
+      "isbn": "9788433916556"
     },
     {
       "bookId": "25516857",
@@ -2729,7 +2780,7 @@
       "reviewLikes": 1,
       "scrapeStatus": "ok",
       "drzrating": -1,
-      "bookDetails": 0,
+      "bookDetails": 1,
       "dcc_classes": {
         "800": "Literatura (800)"
       },
@@ -2742,7 +2793,7 @@
         "confidence": 0.0
       },
       "isbn": "9788420650807",
-      "matched": false,
+      "matched": true,
       "reviewLocalUrl": "./reviews/4360309104.html",
       "reviewLocalCoverUrl": "./reviews/covers/4360309104.jpg",
       "reviewDate": "2025-09-24",
@@ -2751,7 +2802,8 @@
       "reviewCount": 11,
       "reviewLocalLikes": 0,
       "reviewLocalLikesUpdatedAt": "2026-06-29T14:44:59.687075+00:00",
-      "drzratingAuto": true
+      "drzratingAuto": true,
+      "dateAdded": "2023-08-18"
     },
     {
       "bookId": "56920719",
@@ -2785,7 +2837,8 @@
       "reviewCount": 11,
       "reviewLocalLikes": 0,
       "reviewLocalLikesUpdatedAt": "2026-06-29T14:44:59.687075+00:00",
-      "drzratingAuto": true
+      "drzratingAuto": true,
+      "isbn": "9788408239574"
     },
     {
       "bookId": "17333142",
@@ -2853,7 +2906,8 @@
       "reviewCount": 11,
       "reviewLocalLikes": 0,
       "reviewLocalLikesUpdatedAt": "2026-06-29T14:44:59.687075+00:00",
-      "drzratingAuto": true
+      "drzratingAuto": true,
+      "isbn": "9780691236117"
     },
     {
       "bookId": "20768906",
@@ -2886,7 +2940,8 @@
       "reviewCount": 11,
       "reviewLocalLikes": 0,
       "reviewLocalLikesUpdatedAt": "2026-06-29T14:44:59.687075+00:00",
-      "drzratingAuto": true
+      "drzratingAuto": true,
+      "isbn": "9788437066691"
     },
     {
       "bookId": "24379753",
@@ -2992,7 +3047,8 @@
       "reviewCount": 11,
       "reviewLocalLikes": 0,
       "reviewLocalLikesUpdatedAt": "2026-06-29T14:44:59.687075+00:00",
-      "drzratingAuto": true
+      "drzratingAuto": true,
+      "isbn": "9788423438693"
     },
     {
       "bookId": "235770304",
@@ -3099,7 +3155,8 @@
       "reviewCount": 11,
       "reviewLocalLikes": 0,
       "reviewLocalLikesUpdatedAt": "2026-06-29T14:44:59.687075+00:00",
-      "drzratingAuto": true
+      "drzratingAuto": true,
+      "isbn": "9786280189499"
     },
     {
       "bookId": "51222253",
@@ -3169,7 +3226,8 @@
       "reviewCount": 11,
       "reviewLocalLikes": 0,
       "reviewLocalLikesUpdatedAt": "2026-06-29T14:44:59.687075+00:00",
-      "drzratingAuto": true
+      "drzratingAuto": true,
+      "isbn": "9780465036677"
     },
     {
       "bookId": "62105428",
@@ -3240,7 +3298,8 @@
       "reviewCount": 11,
       "reviewLocalLikes": 0,
       "reviewLocalLikesUpdatedAt": "2026-06-29T14:44:59.687075+00:00",
-      "drzratingAuto": true
+      "drzratingAuto": true,
+      "isbn": "9789504977247"
     },
     {
       "bookId": "153617796",
@@ -3343,7 +3402,8 @@
         "reasoning": "Novela de ficción de corte histórico que forma parte de la saga literaria de Los Reyes Malditos.",
         "confidence": 0.0
       },
-      "matched": false
+      "matched": false,
+      "isbn": "9788498721454"
     },
     {
       "bookId": "213022316",
@@ -3376,7 +3436,8 @@
       "reviewCount": 11,
       "reviewLocalLikes": 0,
       "reviewLocalLikesUpdatedAt": "2026-06-29T14:44:59.687075+00:00",
-      "drzratingAuto": true
+      "drzratingAuto": true,
+      "isbn": "9789873831850"
     },
     {
       "bookId": "218139790",
@@ -3444,7 +3505,8 @@
         "confidence": 0.0
       },
       "dateAdded": "2024-08-04",
-      "matched": true
+      "matched": true,
+      "isbn": "9788439743019"
     },
     {
       "bookId": "7663502",
@@ -3476,7 +3538,8 @@
         "reasoning": "Ficción histórica francesa sobre las intrigas reales medievales (Saga Los Reyes Malditos).",
         "confidence": 0.0
       },
-      "matched": false
+      "matched": false,
+      "isbn": "9788498721447"
     },
     {
       "bookId": "234774982",
@@ -3583,7 +3646,8 @@
         "reasoning": "Novela policíaca con profundo escenario histórico ambientada en la antigua Grecia.",
         "confidence": 0.0
       },
-      "matched": false
+      "matched": false,
+      "isbn": "9788408302513"
     },
     {
       "bookId": "216114293",
@@ -3640,7 +3704,7 @@
       "reviewLocalLikes": 0,
       "reviewLocalLikesUpdatedAt": "2026-06-29T14:44:59.687075+00:00",
       "drzrating": 94,
-      "bookDetails": 0,
+      "bookDetails": 1,
       "reviewCount": 273,
       "dcc_classes": {
         "500": "Ciencias naturales y matematicas (500)"
@@ -3652,7 +3716,9 @@
         "reasoning": "Libro de divulgación biológica concentrado extensivamente en la neurobiología y ecología de las aves.",
         "confidence": 0.0
       },
-      "matched": false
+      "matched": true,
+      "isbn": "9788412064506",
+      "dateAdded": "2025-04-14"
     },
     {
       "bookId": "57061598",
@@ -3788,7 +3854,8 @@
         "reasoning": "Desmiente seudociencias mediante investigación arqueológica formal y erudita del antiguo Egipto.",
         "confidence": 0.0
       },
-      "matched": false
+      "matched": false,
+      "isbn": "9788418227578"
     },
     {
       "bookId": "6532610",
@@ -3820,7 +3887,8 @@
         "reasoning": "Obra magna de la ficción histórica centrada en el conflicto social de la España morisca.",
         "confidence": 0.0
       },
-      "matched": false
+      "matched": false,
+      "isbn": "9780307476067"
     },
     {
       "bookId": "209386201",
@@ -3888,7 +3956,8 @@
         "reasoning": "Novela hispana de género distópico que reflexiona críticamente sobre problemáticas presentes a través de la ficción.",
         "confidence": 0.0
       },
-      "matched": false
+      "matched": false,
+      "isbn": "9789870737940"
     },
     {
       "bookId": "89009188",
@@ -4030,7 +4099,8 @@
       "reviewCount": 11,
       "reviewLocalLikes": 0,
       "reviewLocalLikesUpdatedAt": "2026-06-29T14:44:59.687075+00:00",
-      "drzratingAuto": true
+      "drzratingAuto": true,
+      "isbn": "9788491996675"
     },
     {
       "bookId": "26196560",
@@ -4063,7 +4133,8 @@
       "reviewCount": 11,
       "reviewLocalLikes": 0,
       "reviewLocalLikesUpdatedAt": "2026-06-29T14:44:59.687075+00:00",
-      "drzratingAuto": true
+      "drzratingAuto": true,
+      "isbn": "9780300218275"
     },
     {
       "bookId": "35959740",
@@ -4167,7 +4238,8 @@
       "reviewCount": 11,
       "reviewLocalLikes": 0,
       "reviewLocalLikesUpdatedAt": "2026-06-29T14:44:59.687075+00:00",
-      "drzratingAuto": true
+      "drzratingAuto": true,
+      "isbn": "9788408104827"
     },
     {
       "bookId": "60674842",
@@ -4233,7 +4305,8 @@
         "reasoning": "Aventura basada en hitos científicos e históricos que se clasifica dentro de la narrativa hispánica.",
         "confidence": 0.0
       },
-      "matched": false
+      "matched": false,
+      "isbn": "9788432239007"
     },
     {
       "bookId": "209668727",
@@ -4338,7 +4411,8 @@
         "reasoning": "Reivindicación documental y pedagógica dedicada a realzar el papel omitido de figuras femeninas globales.",
         "confidence": 0.0
       },
-      "matched": false
+      "matched": false,
+      "isbn": "9786287539983"
     },
     {
       "bookId": "108876355",
@@ -4351,7 +4425,7 @@
       "reviewLikes": 0,
       "scrapeStatus": "ok",
       "drzrating": -1,
-      "bookDetails": 0,
+      "bookDetails": 1,
       "dcc_classes": {
         "300": "Ciencias sociales (300)"
       },
@@ -4362,7 +4436,7 @@
         "reasoning": "Texto analítico centrado en las escalas macroeconómicas y el costo ecológico de sistemas alimentarios intensivos.",
         "confidence": 0.0
       },
-      "matched": false,
+      "matched": true,
       "reviewLocalUrl": "./reviews/7267823506.html",
       "reviewLocalCoverUrl": "./reviews/covers/7267823506.jpg",
       "reviewDate": "2025-03-01",
@@ -4371,7 +4445,9 @@
       "reviewCount": 11,
       "reviewLocalLikes": 0,
       "reviewLocalLikesUpdatedAt": "2026-06-29T14:44:59.687075+00:00",
-      "drzratingAuto": true
+      "drzratingAuto": true,
+      "isbn": "9786071672827",
+      "dateAdded": "2024-07-25"
     },
     {
       "bookId": "62012773",
@@ -4404,7 +4480,8 @@
       "reviewCount": 11,
       "reviewLocalLikes": 0,
       "reviewLocalLikesUpdatedAt": "2026-06-29T14:44:59.687075+00:00",
-      "drzratingAuto": true
+      "drzratingAuto": true,
+      "isbn": "9789587648461"
     },
     {
       "bookId": "6691227",
@@ -4506,7 +4583,8 @@
       "reviewCount": 11,
       "reviewLocalLikes": 0,
       "reviewLocalLikesUpdatedAt": "2026-06-29T14:44:59.687075+00:00",
-      "drzratingAuto": true
+      "drzratingAuto": true,
+      "isbn": "9788415120100"
     },
     {
       "bookId": "18333591",
@@ -4607,7 +4685,8 @@
       "reviewCount": 11,
       "reviewLocalLikes": 0,
       "reviewLocalLikesUpdatedAt": "2026-06-29T14:44:59.687075+00:00",
-      "drzratingAuto": true
+      "drzratingAuto": true,
+      "isbn": "9788408283744"
     },
     {
       "bookId": "213130133",
@@ -4641,7 +4720,8 @@
       "reviewCount": 11,
       "reviewLocalLikes": 0,
       "reviewLocalLikesUpdatedAt": "2026-06-29T14:44:59.687075+00:00",
-      "drzratingAuto": true
+      "drzratingAuto": true,
+      "isbn": "9786287638525"
     },
     {
       "bookId": "35078318",
@@ -4781,7 +4861,8 @@
       "reviewCount": 11,
       "reviewLocalLikes": 0,
       "reviewLocalLikesUpdatedAt": "2026-06-29T14:44:59.687075+00:00",
-      "drzratingAuto": true
+      "drzratingAuto": true,
+      "isbn": "9788439730026"
     },
     {
       "bookId": "216146481",
@@ -4916,7 +4997,8 @@
         "reasoning": "Ficción histórica concebida por pluma estadounidense, fundamentada en anécdotas de la época bélica.",
         "confidence": 0.0
       },
-      "matched": false
+      "matched": false,
+      "isbn": "9786070757259"
     },
     {
       "bookId": "207910816",
@@ -5129,7 +5211,8 @@
         "reasoning": "Propone un análisis sobre gramática y uso equitativo concentrado formalmente en las estructuras lingüísticas del español.",
         "confidence": 0.0
       },
-      "matched": false
+      "matched": false,
+      "isbn": "9786073919562"
     },
     {
       "bookId": "63350196",
@@ -5301,7 +5384,8 @@
         "reasoning": "Esfuerzo del célebre autor latinoamericano por explorar las corrientes éticas y metafísicas en la tradición del budismo.",
         "confidence": 0.0
       },
-      "matched": false
+      "matched": false,
+      "isbn": "9786287658073"
     },
     {
       "bookId": "7802262",
@@ -5403,7 +5487,8 @@
       "reviewCount": 11,
       "reviewLocalLikes": 0,
       "reviewLocalLikesUpdatedAt": "2026-06-29T14:44:59.687075+00:00",
-      "drzratingAuto": true
+      "drzratingAuto": true,
+      "isbn": "9788419399649"
     },
     {
       "bookId": "42959231",
@@ -5472,7 +5557,8 @@
       "reviewCount": 11,
       "reviewLocalLikes": 0,
       "reviewLocalLikesUpdatedAt": "2026-06-29T14:44:59.687075+00:00",
-      "drzratingAuto": true
+      "drzratingAuto": true,
+      "isbn": "9781592402427"
     },
     {
       "bookId": "209668687",
@@ -5616,7 +5702,8 @@
       "reviewCount": 11,
       "reviewLocalLikes": 0,
       "reviewLocalLikesUpdatedAt": "2026-06-29T14:44:59.687075+00:00",
-      "drzratingAuto": true
+      "drzratingAuto": true,
+      "isbn": "9781529077636"
     },
     {
       "bookId": "38667",
@@ -5716,7 +5803,8 @@
       "reviewCount": 11,
       "reviewLocalLikes": 0,
       "reviewLocalLikesUpdatedAt": "2026-06-29T14:44:59.687075+00:00",
-      "drzratingAuto": true
+      "drzratingAuto": true,
+      "isbn": "9788432216091"
     },
     {
       "bookId": "199066748",
@@ -5783,7 +5871,8 @@
         "reasoning": "Aventura estadounidense policíaca e histórica entrelazada en múltiples etapas de tiempo.",
         "confidence": 0.0
       },
-      "matched": false
+      "matched": false,
+      "isbn": "9788466617499"
     },
     {
       "bookId": "39072768",
@@ -5815,7 +5904,8 @@
         "reasoning": "Libro de cuentos que pertenece a las literaturas y tradiciones de ficción del norte andino moderno.",
         "confidence": 0.0
       },
-      "matched": false
+      "matched": false,
+      "isbn": "9788483936139"
     },
     {
       "bookId": "204663454",
@@ -5884,7 +5974,8 @@
         "reasoning": "Final de un esfuerzo literario en prosa sobre historia y aventura perteneciente al medio colombiano contemporáneo.",
         "confidence": 0.0
       },
-      "matched": false
+      "matched": false,
+      "isbn": "9789585197572"
     },
     {
       "bookId": "40317192",
@@ -5916,7 +6007,8 @@
         "reasoning": "Colección detallada de reseñas sobre la existencia real de mujeres clave omitidas en la visión común de épocas pasadas.",
         "confidence": 0.0
       },
-      "matched": false
+      "matched": false,
+      "isbn": "9789585428966"
     },
     {
       "bookId": "35704551",
@@ -5985,7 +6077,8 @@
       "reviewCount": 11,
       "reviewLocalLikes": 0,
       "reviewLocalLikesUpdatedAt": "2026-06-29T14:44:59.687075+00:00",
-      "drzratingAuto": true
+      "drzratingAuto": true,
+      "isbn": "9789500417563"
     },
     {
       "bookId": "204927599",
@@ -6161,7 +6254,8 @@
         "reasoning": "Quinto pilar narrativo literario norteamericano que busca reconstruir civilizaciones prehistóricas con formato distendido.",
         "confidence": 0.0
       },
-      "matched": false
+      "matched": false,
+      "isbn": "9788495354631"
     },
     {
       "bookId": "27153845",
@@ -6229,7 +6323,8 @@
         "reasoning": "Cartografía que examina desde una óptica mixta, física y poética, el entendimiento sobre las agrupaciones del cielo nocturno.",
         "confidence": 0.0
       },
-      "matched": false
+      "matched": false,
+      "isbn": "9788416544493"
     },
     {
       "bookId": "208870354",
@@ -6261,7 +6356,8 @@
         "reasoning": "Sección media de la obra regional ficticia ligada a un contexto histórico clásico y guerrero.",
         "confidence": 0.0
       },
-      "matched": false
+      "matched": false,
+      "isbn": "9789585197381"
     },
     {
       "bookId": "202968198",
@@ -6330,7 +6426,8 @@
       "reviewCount": 11,
       "reviewLocalLikes": 0,
       "reviewLocalLikesUpdatedAt": "2026-06-29T14:44:59.687075+00:00",
-      "drzratingAuto": true
+      "drzratingAuto": true,
+      "isbn": "9789587145861"
     },
     {
       "bookId": "58440113",
@@ -6362,7 +6459,8 @@
         "reasoning": "Divulga conceptos sobre cosmología contemporánea en el formato directo de cien breves monográficos cósmicos.",
         "confidence": 0.0
       },
-      "matched": false
+      "matched": false,
+      "isbn": "9788434433571"
     },
     {
       "bookId": "2631671",
@@ -6394,7 +6492,8 @@
         "reasoning": "Sucesión imaginativa e introducida en los dominios de la literatura estadounidense.",
         "confidence": 0.0
       },
-      "matched": false
+      "matched": false,
+      "isbn": "9788495354686"
     },
     {
       "bookId": "198669578",
@@ -6462,7 +6561,8 @@
       "reviewCount": 11,
       "reviewLocalLikes": 0,
       "reviewLocalLikesUpdatedAt": "2026-06-29T14:44:59.687075+00:00",
-      "drzratingAuto": true
+      "drzratingAuto": true,
+      "isbn": "9788412198096"
     },
     {
       "bookId": "209140616",
@@ -6494,7 +6594,8 @@
         "reasoning": "Pieza liminar que da inicio a un relato novelado de ficción escrito en Colombia.",
         "confidence": 0.0
       },
-      "matched": false
+      "matched": false,
+      "isbn": "9789585197312"
     },
     {
       "bookId": "63363282",
@@ -6595,7 +6696,8 @@
         "reasoning": "Tramas criminales y de intriga novelada de una autora ícono de las letras en castellano.",
         "confidence": 0.0
       },
-      "matched": false
+      "matched": false,
+      "isbn": "9788467020069"
     },
     {
       "bookId": "213847532",
@@ -6663,7 +6765,8 @@
       "reviewCount": 11,
       "reviewLocalLikes": 0,
       "reviewLocalLikesUpdatedAt": "2026-06-29T14:44:59.687075+00:00",
-      "drzratingAuto": true
+      "drzratingAuto": true,
+      "isbn": "9788412779745"
     },
     {
       "bookId": "57386590",
@@ -6731,7 +6834,8 @@
         "reasoning": "Detallada panorámica divulgativa de alto grado en torno a discusiones en los principios mismos de la teoría.",
         "confidence": 0.0
       },
-      "matched": false
+      "matched": false,
+      "isbn": "9788417141554"
     },
     {
       "bookId": "16097219",
@@ -6833,7 +6937,8 @@
         "reasoning": "Suma del canon literario de aventura prehistórica producido dentro de los Estados Unidos.",
         "confidence": 0.0
       },
-      "matched": false
+      "matched": false,
+      "isbn": "9788496231658"
     },
     {
       "bookId": "53346056",
@@ -6934,7 +7039,8 @@
       "reviewCount": 11,
       "reviewLocalLikes": 0,
       "reviewLocalLikesUpdatedAt": "2026-06-29T14:44:59.687075+00:00",
-      "drzratingAuto": true
+      "drzratingAuto": true,
+      "isbn": "9788420627625"
     },
     {
       "bookId": "53247016",
@@ -7072,7 +7178,8 @@
         "reasoning": "Inmersión honesta e ilustrativa que estudia el contexto etnográfico mediante narraciones diversas.",
         "confidence": 0.0
       },
-      "matched": false
+      "matched": false,
+      "isbn": "9786287571297"
     },
     {
       "bookId": "59791125",
@@ -7209,7 +7316,8 @@
         "reasoning": "Aporte novelesco centrado en revivir un episodio de la realeza y la aristocracia dentro de las literaturas francesas.",
         "confidence": 0.0
       },
-      "matched": false
+      "matched": false,
+      "isbn": "9788466613187"
     },
     {
       "bookId": "687772",
@@ -7243,7 +7351,8 @@
       "reviewCount": 11,
       "reviewLocalLikes": 0,
       "reviewLocalLikesUpdatedAt": "2026-06-29T14:44:59.687075+00:00",
-      "drzratingAuto": true
+      "drzratingAuto": true,
+      "isbn": "9788474326284"
     },
     {
       "bookId": "18754940",
@@ -7276,7 +7385,8 @@
         "reasoning": "Profunda exploración bibliográfica enfocada en rastrear las transformaciones estructurales de la civilización romana.",
         "confidence": 0.0
       },
-      "matched": false
+      "matched": false,
+      "isbn": "9788498922882"
     },
     {
       "bookId": "25834165",
@@ -7308,7 +7418,8 @@
         "reasoning": "Novela de ficción prehistórica que continúa la famosa saga escrita por la autora estadounidense Jean M. Auel.",
         "confidence": 0.0
       },
-      "matched": false
+      "matched": false,
+      "isbn": "9788415120148"
     },
     {
       "bookId": "38323208",
@@ -7483,7 +7594,8 @@
       "reviewCount": 11,
       "reviewLocalLikes": 0,
       "reviewLocalLikesUpdatedAt": "2026-06-29T14:44:59.687075+00:00",
-      "drzratingAuto": true
+      "drzratingAuto": true,
+      "isbn": "9780199682782"
     },
     {
       "bookId": "200142395",
@@ -7516,7 +7628,8 @@
       "reviewCount": 11,
       "reviewLocalLikes": 0,
       "reviewLocalLikesUpdatedAt": "2026-06-29T14:44:59.687075+00:00",
-      "drzratingAuto": true
+      "drzratingAuto": true,
+      "isbn": "9788439743071"
     },
     {
       "bookId": "200659844",
@@ -7584,7 +7697,8 @@
       "reviewCount": 11,
       "reviewLocalLikes": 0,
       "reviewLocalLikesUpdatedAt": "2026-06-29T14:44:59.687075+00:00",
-      "drzratingAuto": true
+      "drzratingAuto": true,
+      "isbn": "9781509522712"
     },
     {
       "bookId": "55050608",
@@ -7720,7 +7834,8 @@
         "reasoning": "Texto de divulgación centrado en la astrobiología, abarcando desde los orígenes orgánicos hasta la búsqueda de vida en el universo.",
         "confidence": 0.0
       },
-      "matched": false
+      "matched": false,
+      "isbn": "9789569398735"
     },
     {
       "bookId": "35998224",
@@ -7752,7 +7867,8 @@
         "reasoning": "Primera entrega de la aclamada saga de ficción histórica y antropológica ambientada en el Paleolítico, por una autora norteamericana.",
         "confidence": 0.0
       },
-      "matched": false
+      "matched": false,
+      "isbn": "9786074004342"
     },
     {
       "bookId": "121174855",
@@ -7855,7 +7971,8 @@
         "reasoning": "Aclamada novela de ficción y realismo mágico escrita por la autora latinoamericana Isabel Allende.",
         "confidence": 0.0
       },
-      "matched": false
+      "matched": false,
+      "isbn": "9780525433477"
     },
     {
       "bookId": "62653760",
@@ -7888,7 +8005,8 @@
         "reasoning": "Estudio zoológico escrito por un primatólogo que explora el concepto del género y la sexualidad humana mediante observaciones etológicas de los primates.",
         "confidence": 0.0
       },
-      "matched": false
+      "matched": false,
+      "isbn": "9788411071659"
     },
     {
       "bookId": "157620810",
@@ -7943,7 +8061,7 @@
       "reviewLocalLikes": 0,
       "reviewLocalLikesUpdatedAt": "2026-06-29T14:44:59.687075+00:00",
       "drzrating": 93,
-      "bookDetails": 0,
+      "bookDetails": 1,
       "reviewCount": 881,
       "dcc_classes": {
         "900": "Historia y geografia (900)"
@@ -7958,7 +8076,7 @@
       },
       "isbn": "9788482984803",
       "dateAdded": "2023-04-19",
-      "matched": false
+      "matched": true
     },
     {
       "bookId": "86239972",
@@ -7990,7 +8108,8 @@
         "reasoning": "Divulgación científica donde la química funciona como elemento primordial para explicar la estética, el arte y aspectos del día a día.",
         "confidence": 0.0
       },
-      "matched": false
+      "matched": false,
+      "isbn": "9788449340840"
     },
     {
       "bookId": "54210068",
@@ -8022,7 +8141,8 @@
         "reasoning": "Crónica de viajes por el Mediterráneo que conecta el territorio geográfico actual con los hechos de la civilización y filosofía griegas.",
         "confidence": 0.0
       },
-      "matched": false
+      "matched": false,
+      "isbn": "9788418089855"
     },
     {
       "bookId": "48842680",
@@ -8266,7 +8386,8 @@
         "reasoning": "Transcripción de una charla TEDx abordando el impacto sociológico, los estereotipos culturales y el poder discursivo de los relatos dominantes.",
         "confidence": 0.0
       },
-      "matched": false
+      "matched": false,
+      "isbn": "9788439733928"
     },
     {
       "bookId": "128747007",
@@ -8407,7 +8528,8 @@
       "reviewCount": 11,
       "reviewLocalLikes": 0,
       "reviewLocalLikesUpdatedAt": "2026-06-29T14:44:59.687075+00:00",
-      "drzratingAuto": true
+      "drzratingAuto": true,
+      "isbn": "9788423362394"
     },
     {
       "bookId": "157390676",
@@ -8717,7 +8839,8 @@
         "reasoning": "Investigación arqueológica sobre el final interconectado de las civilizaciones mediterráneas del Bronce Final y las lecciones derivadas.",
         "confidence": 0.0
       },
-      "matched": false
+      "matched": false,
+      "isbn": "9788498927757"
     },
     {
       "bookId": "4912811",
@@ -8821,7 +8944,8 @@
       "reviewCount": 11,
       "reviewLocalLikes": 0,
       "reviewLocalLikesUpdatedAt": "2026-06-29T14:44:59.687075+00:00",
-      "drzratingAuto": true
+      "drzratingAuto": true,
+      "isbn": "9788481643831"
     },
     {
       "bookId": "175083285",
@@ -8925,7 +9049,8 @@
         "reasoning": "Estudio histórico profundo dedicado al análisis cultural, teológico y civilizacional del antiguo Egipto desde perspectivas pluralistas.",
         "confidence": 0.0
       },
-      "matched": false
+      "matched": false,
+      "isbn": "9788446005452"
     },
     {
       "bookId": "63227787",
@@ -9028,7 +9153,8 @@
         "reasoning": "Cuarta parte de una famosa serie de novela histórica narrativa originalmente escrita en idioma francés.",
         "confidence": 0.0
       },
-      "matched": false
+      "matched": false,
+      "isbn": "9788466613262"
     },
     {
       "bookId": "63392722",
@@ -9200,7 +9326,8 @@
         "reasoning": "Crítica sobre la sociología e historia de la ciencia y el resurgimiento y sesgo perjudicial de utilizar la genética para justificar la discriminación racial.",
         "confidence": 0.0
       },
-      "matched": false
+      "matched": false,
+      "isbn": "9788412226744"
     },
     {
       "bookId": "61764009",
@@ -9408,7 +9535,8 @@
         "reasoning": "Enfoque histórico de las obras maestras y los períodos artísticos de Occidente a través del filtro de una revisión teórica de corte feminista.",
         "confidence": 0.0
       },
-      "matched": false
+      "matched": false,
+      "isbn": "9788402426567"
     },
     {
       "bookId": "60773570",
@@ -9511,7 +9639,8 @@
         "reasoning": "Novela escrita por una reconocida autora hispana que entrelaza la ficción histórica ambientada en el medioevo europeo y destellos narrativos fantásticos.",
         "confidence": 0.0
       },
-      "matched": false
+      "matched": false,
+      "isbn": "9788420498706"
     },
     {
       "bookId": "71603321",
@@ -9615,7 +9744,8 @@
         "reasoning": "Estudio centrado en la disciplina de la sociolingüística y el análisis estructural del lenguaje como perpetuador de estereotipos sobre las mujeres.",
         "confidence": 0.0
       },
-      "matched": false
+      "matched": false,
+      "isbn": "9788413520889"
     },
     {
       "bookId": "49969639",
@@ -9683,7 +9813,8 @@
       "reviewCount": 11,
       "reviewLocalLikes": 0,
       "reviewLocalLikesUpdatedAt": "2026-06-29T14:44:59.687075+00:00",
-      "drzratingAuto": true
+      "drzratingAuto": true,
+      "isbn": "9788415618775"
     },
     {
       "bookId": "125064740",
@@ -9715,7 +9846,8 @@
         "reasoning": "Novela narrativa basada en eventos históricos que ahonda en las travesías científicas de Alexander von Humboldt por América, de la pluma de un escritor colombiano.",
         "confidence": 0.0
       },
-      "matched": false
+      "matched": false,
+      "isbn": "9786289548075"
     },
     {
       "bookId": "17567272",
@@ -9784,7 +9916,8 @@
         "reasoning": "Crítica sociológica y académica que explora de qué manera la investigación histórica, por años, instituyó falsas preconcepciones sobre la fisiología de la mujer.",
         "confidence": 0.0
       },
-      "matched": false
+      "matched": false,
+      "isbn": "9788490972656"
     },
     {
       "bookId": "30343915",
@@ -9817,7 +9950,8 @@
         "reasoning": "Obra cumbre de la novela clásica escrita por el famoso y prominente literato ruso y representante del realismo decimonónico.",
         "confidence": 0.0
       },
-      "matched": false
+      "matched": false,
+      "isbn": "9788491051930"
     },
     {
       "bookId": "17506002",
@@ -10021,7 +10155,8 @@
         "reasoning": "Ensayo sobre los orígenes míticos, el razonamiento arcaico y la conformación del pensamiento en la historia de la Grecia presocrática y clásica.",
         "confidence": 0.0
       },
-      "matched": false
+      "matched": false,
+      "isbn": "9788483107027"
     },
     {
       "bookId": "25745999",
@@ -10053,7 +10188,8 @@
         "reasoning": "Ensayo racional de un eminente paleontólogo donde propone un principio ético y epistemológico de no superposición de los dominios científicos y teológicos.",
         "confidence": 0.0
       },
-      "matched": false
+      "matched": false,
+      "isbn": "9788408008583"
     },
     {
       "bookId": "61839157",
@@ -10121,7 +10257,8 @@
         "reasoning": "Libro de la categoría crónicas de viaje moderno que sirve como excusa para enlazar historias, ruinas geográficas y rutas relativas a la antigüedad greco-persa.",
         "confidence": 0.0
       },
-      "matched": false
+      "matched": false,
+      "isbn": "9788416392254"
     },
     {
       "bookId": "769488",
@@ -10260,7 +10397,8 @@
         "reasoning": "Clásica compilación de ficción narrativa que reúne cuentos del destacado premio nobel literario de Colombia.",
         "confidence": 0.0
       },
-      "matched": false
+      "matched": false,
+      "isbn": "9780307350329"
     },
     {
       "bookId": "95722",
@@ -10292,7 +10430,8 @@
         "reasoning": "Célebre relato en formato de novela corta que introdujo Macondo al universo del autor sudamericano de lengua hispana.",
         "confidence": 0.0
       },
-      "matched": false
+      "matched": false,
+      "isbn": "9780307350473"
     },
     {
       "bookId": "21524683",
@@ -10395,7 +10534,8 @@
         "reasoning": "Manual del método y epistemología que sirve para introducir la teoría filosófica detrás de la labor científica, dirigido de manera precisa al sector académico e investigativo.",
         "confidence": 0.0
       },
-      "matched": false
+      "matched": false,
+      "isbn": "9783319265490"
     },
     {
       "bookId": "39940542",
@@ -10428,7 +10568,8 @@
         "reasoning": "Ficción histórico-norteamericana póstuma centrada en eventos y rencillas verídicas que rodearon a los exploradores de dinosaurios durante las expediciones al oeste.",
         "confidence": 0.0
       },
-      "matched": false
+      "matched": false,
+      "isbn": "9788401021015"
     },
     {
       "bookId": "63000056",
@@ -10461,7 +10602,8 @@
       "reviewCount": 11,
       "reviewLocalLikes": 0,
       "reviewLocalLikesUpdatedAt": "2026-06-29T14:44:59.687075+00:00",
-      "drzratingAuto": true
+      "drzratingAuto": true,
+      "isbn": "9788424939434"
     },
     {
       "bookId": "18754769",
@@ -10494,7 +10636,8 @@
       "reviewCount": 11,
       "reviewLocalLikes": 0,
       "reviewLocalLikesUpdatedAt": "2026-06-29T14:44:59.687075+00:00",
-      "drzratingAuto": true
+      "drzratingAuto": true,
+      "isbn": "9788415917977"
     },
     {
       "bookId": "41828106",
@@ -10527,7 +10670,8 @@
       "reviewCount": 11,
       "reviewLocalLikes": 0,
       "reviewLocalLikesUpdatedAt": "2026-06-29T14:44:59.687075+00:00",
-      "drzratingAuto": true
+      "drzratingAuto": true,
+      "isbn": "9788424924744"
     },
     {
       "bookId": "60761335",
@@ -10596,7 +10740,8 @@
         "reasoning": "Sexto volumen de un trabajo matriz de historia arcaica, centrada primordialmente en los conflictos y campañas previas a la invasión de Jerjes a Grecia.",
         "confidence": 0.0
       },
-      "matched": false
+      "matched": false,
+      "isbn": "9780521141161"
     },
     {
       "bookId": "12824455",
@@ -10662,7 +10807,8 @@
         "reasoning": "Secciones bibliográficas enfocadas en el relato historiográfico sobre diversas regiones arcaicas colindantes al mundo griego y al expansionismo asiático.",
         "confidence": 0.0
       },
-      "matched": false
+      "matched": false,
+      "isbn": "9788424939748"
     },
     {
       "bookId": "65778966",
@@ -10717,7 +10863,7 @@
       "reviewLocalLikes": 0,
       "reviewLocalLikesUpdatedAt": "2026-06-29T14:44:59.687075+00:00",
       "drzrating": 98,
-      "bookDetails": 0,
+      "bookDetails": 1,
       "reviewCount": 850,
       "dcc_classes": {
         "700": "Artes y recreacion (700)"
@@ -10729,7 +10875,9 @@
         "reasoning": "Lectura que aborda desde una perspectiva ligera, crítica y divulgativa todo lo subyacente y subjetivo con respecto al canon del arte.",
         "confidence": 0.0
       },
-      "matched": false
+      "matched": true,
+      "isbn": "9788418051241",
+      "dateAdded": "2023-01-04"
     },
     {
       "bookId": "60630995",
@@ -10763,7 +10911,8 @@
       "reviewCount": 11,
       "reviewLocalLikes": 0,
       "reviewLocalLikesUpdatedAt": "2026-06-29T14:44:59.687075+00:00",
-      "drzratingAuto": true
+      "drzratingAuto": true,
+      "isbn": "9788423433742"
     },
     {
       "bookId": "55359307",
@@ -10795,7 +10944,8 @@
         "reasoning": "Volúmenes inaugurales con un énfasis enorme en crónicas sociopolíticas arcaicas, mitos fundacionales y la geografía detallada sobre las tierras egipcias y de Lidia.",
         "confidence": 0.0
       },
-      "matched": false
+      "matched": false,
+      "isbn": "9788424939731"
     },
     {
       "bookId": "5280500",
@@ -11078,7 +11228,8 @@
         "reasoning": "Tratado orientado de manera precisa hacia la investigación de los problemas lingüísticos subyacentes, sus vertientes sociales y del uso incluyente.",
         "confidence": 0.0
       },
-      "matched": false
+      "matched": false,
+      "isbn": "9788413523989"
     },
     {
       "bookId": "16050287",
@@ -11323,7 +11474,8 @@
       "reviewCount": 11,
       "reviewLocalLikes": 0,
       "reviewLocalLikesUpdatedAt": "2026-06-29T14:44:59.687075+00:00",
-      "drzratingAuto": true
+      "drzratingAuto": true,
+      "isbn": "9788498922455"
     },
     {
       "bookId": "63254628",
@@ -11427,7 +11579,8 @@
         "reasoning": "Ficción novelesca de ambientación e intrigas de origen histórico desarrollada alrededor de la regencia del monarca europeo de origen galo.",
         "confidence": 0.0
       },
-      "matched": false
+      "matched": false,
+      "isbn": "9788466613255"
     },
     {
       "bookId": "60280380",
@@ -11460,7 +11613,8 @@
         "reasoning": "Publicación enfocada a demostrar cómo los paradigmas del mercado, finanzas y tecnología han dejado tradicionalmente de lado un análisis económico incluyente.",
         "confidence": 0.0
       },
-      "matched": false
+      "matched": false,
+      "isbn": "9788418216374"
     },
     {
       "bookId": "769660",
@@ -11600,7 +11754,8 @@
         "reasoning": "Discurso literario que indaga sobre la historia del pensamiento económico universal a través del lente invisible y sociológico de un marco y enfoque femenino.",
         "confidence": 0.0
       },
-      "matched": false
+      "matched": false,
+      "isbn": "9788499925981"
     },
     {
       "bookId": "1044175",
@@ -11632,7 +11787,8 @@
         "reasoning": "Volumen consecutivo y dramático de la saga de tramas de época que involucran en narrativa novelada el devenir de los monarcas occidentales francos.",
         "confidence": 0.0
       },
-      "matched": false
+      "matched": false,
+      "isbn": "9789684970588"
     },
     {
       "bookId": "12722497",
@@ -11805,7 +11961,8 @@
         "reasoning": "Parte fundacional de los tomos biográfico-novelescos dedicados a recrear fielmente en clave literaria francesa las luchas medievales palaciegas de ese país.",
         "confidence": 0.0
       },
-      "matched": false
+      "matched": false,
+      "isbn": "9788490703717"
     },
     {
       "bookId": "20558537",
@@ -12126,7 +12283,8 @@
         "reasoning": "Investigación de teorías profundas referidas al sistema de mercado y del qué se valora o extrae dentro de un marco capitalista actual.",
         "confidence": 0.0
       },
-      "matched": false
+      "matched": false,
+      "isbn": "9788430622115"
     },
     {
       "bookId": "131008",
@@ -12158,7 +12316,8 @@
         "reasoning": "Referencia técnica, antropológica y también arqueológica acerca de los antiguos vestigios fúnebres de este imperio.",
         "confidence": 0.0
       },
-      "matched": false
+      "matched": false,
+      "isbn": "9780582772168"
     },
     {
       "bookId": "59106",
@@ -12190,7 +12349,8 @@
         "reasoning": "Aclamada prosa ficcional producida durante el auge enmarcado de literatura en lengua de Francia sobre ambientaciones arcanas de época.",
         "confidence": 0.0
       },
-      "matched": false
+      "matched": false,
+      "isbn": "9789505118670"
     },
     {
       "bookId": "8803371",
@@ -12223,7 +12383,8 @@
         "reasoning": "Recuento de toda la vida académica, el auge, el contexto inquisitorio temporal de la vida del padre que reformó la astronomía occidental moderna.",
         "confidence": 0.0
       },
-      "matched": false
+      "matched": false,
+      "isbn": "9780300125368"
     },
     {
       "bookId": "41566176",
@@ -12255,7 +12416,8 @@
         "reasoning": "Documento completo acerca de todas las eras, etapas primordiales, y el bagaje que han forjado estructuralmente al país cafetero.",
         "confidence": 0.0
       },
-      "matched": false
+      "matched": false,
+      "isbn": "9789585433212"
     },
     {
       "bookId": "6746962",
@@ -12570,7 +12732,8 @@
         "reasoning": "Crónicas afables que desmenuzan y exponen el día a día social arcaico enmarcado al compás del antiguo mundo de un imperio africano central en oriente medio.",
         "confidence": 0.0
       },
-      "matched": false
+      "matched": false,
+      "isbn": "9788427049888"
     },
     {
       "bookId": "59787413",
@@ -12602,7 +12765,8 @@
         "reasoning": "Argumentación socioeconómica sobre el bagaje global moderno para medir índices de las divisiones de la riqueza monetaria global.",
         "confidence": 0.0
       },
-      "matched": false
+      "matched": false,
+      "isbn": "9788423433179"
     },
     {
       "bookId": "52770736",
@@ -12814,7 +12978,8 @@
       "reviewCount": 11,
       "reviewLocalLikes": 0,
       "reviewLocalLikesUpdatedAt": "2026-06-29T14:44:59.687075+00:00",
-      "drzratingAuto": true
+      "drzratingAuto": true,
+      "isbn": "9788418056369"
     },
     {
       "bookId": "60622051",
@@ -12847,7 +13012,8 @@
         "reasoning": "Es una novela de ficción histórica escrita originalmente en español y se centra en la vida temprana de Julio César.",
         "confidence": 0.0
       },
-      "matched": false
+      "matched": false,
+      "isbn": "9788466671781"
     },
     {
       "bookId": "31288000",
@@ -12950,7 +13116,8 @@
         "reasoning": "Se enfoca en la investigación del comportamiento animal, específicamente en la ornitología y la inteligencia de las aves.",
         "confidence": 0.0
       },
-      "matched": false
+      "matched": false,
+      "isbn": "9788434433793"
     },
     {
       "bookId": "28559780",
@@ -13019,7 +13186,8 @@
         "reasoning": "Investigación en ciencias sociales sobre los sesgos de género y cómo la falta de datos sobre mujeres impacta la sociedad.",
         "confidence": 0.0
       },
-      "matched": false
+      "matched": false,
+      "isbn": "9788432236136"
     },
     {
       "bookId": "59925654",
@@ -13085,7 +13253,8 @@
         "reasoning": "Es una novela narrativa de ficción que recrea eventos del antiguo Egipto desde una perspectiva narrativa española.",
         "confidence": 0.0
       },
-      "matched": false
+      "matched": false,
+      "isbn": "9788413840567"
     },
     {
       "bookId": "52275150",
@@ -13188,7 +13357,8 @@
       "reviewCount": 11,
       "reviewLocalLikes": 0,
       "reviewLocalLikesUpdatedAt": "2026-06-29T14:44:59.687075+00:00",
-      "drzratingAuto": true
+      "drzratingAuto": true,
+      "isbn": "9780865718746"
     },
     {
       "bookId": "58875334",
@@ -13222,7 +13392,8 @@
       "reviewCount": 11,
       "reviewLocalLikes": 0,
       "reviewLocalLikesUpdatedAt": "2026-06-29T14:44:59.687075+00:00",
-      "drzratingAuto": true
+      "drzratingAuto": true,
+      "isbn": "9788411000208"
     },
     {
       "bookId": "27187428",
@@ -13362,7 +13533,8 @@
         "confidence": 0.0
       },
       "dateAdded": "2022-01-21",
-      "matched": true
+      "matched": true,
+      "isbn": "9788466663649"
     },
     {
       "bookId": "13010991",
@@ -13451,7 +13623,7 @@
       "reviewLocalLikes": 0,
       "reviewLocalLikesUpdatedAt": "2026-06-29T14:44:59.687075+00:00",
       "drzrating": 95,
-      "bookDetails": 0,
+      "bookDetails": 1,
       "reviewCount": 224,
       "dcc_classes": {
         "800": "Literatura (800)"
@@ -13464,7 +13636,8 @@
         "confidence": 0.0
       },
       "isbn": "9788435016704",
-      "matched": false
+      "matched": true,
+      "dateAdded": "2020-12-31"
     },
     {
       "bookId": "1562100",
@@ -13499,7 +13672,8 @@
         "reasoning": "Estudio, evolución e historia de los idiomas desde una perspectiva de la lingüística general.",
         "confidence": 0.0
       },
-      "matched": false
+      "matched": false,
+      "isbn": "9789681674939"
     },
     {
       "bookId": "60010977",
@@ -13707,7 +13881,8 @@
         "reasoning": "Relata eventos y análisis asociados con la arqueología y la historia del antiguo Egipto.",
         "confidence": 0.0
       },
-      "matched": false
+      "matched": false,
+      "isbn": "9788482987088"
     },
     {
       "bookId": "42401611",
@@ -13849,7 +14024,8 @@
         "reasoning": "Obra centrada en la vida, biografía y logros investigativos de la célebre primatóloga.",
         "confidence": 0.0
       },
-      "matched": false
+      "matched": false,
+      "isbn": "9788491874904"
     },
     {
       "bookId": "55022795",
@@ -13986,7 +14162,8 @@
         "reasoning": "Obra descriptiva sobre monumentos y elementos arqueológicos clave de la civilización del Antiguo Egipto.",
         "confidence": 0.0
       },
-      "matched": false
+      "matched": false,
+      "isbn": "9788447388219"
     },
     {
       "bookId": "56961672",
@@ -14127,7 +14304,8 @@
         "reasoning": "Ensayo que abarca los problemas del cambio climático, la civilización contemporánea y la crisis social y filosófica que enfrentamos.",
         "confidence": 0.0
       },
-      "matched": false
+      "matched": false,
+      "isbn": "9788433964717"
     },
     {
       "bookId": "33511979",
@@ -14482,7 +14660,8 @@
         "confidence": 0.0
       },
       "dateAdded": "2021-09-19",
-      "matched": true
+      "matched": true,
+      "isbn": "9789584297075"
     },
     {
       "bookId": "55824472",
@@ -14584,7 +14763,8 @@
         "reasoning": "Divulgación histórica de Isaac Asimov sobre la civilización, cronología y cultura del Antiguo Egipto.",
         "confidence": 0.0
       },
-      "matched": false
+      "matched": false,
+      "isbn": "9788420654980"
     },
     {
       "bookId": "58699395",
@@ -14618,7 +14798,8 @@
         "confidence": 0.0
       },
       "dateAdded": "2021-07-31",
-      "matched": true
+      "matched": true,
+      "isbn": "9789584296016"
     },
     {
       "bookId": "65105",
@@ -14789,7 +14970,8 @@
         "reasoning": "Un volumen histórico enfocado en los mitos mortuorios y artefactos de la tumba de uno de los faraones más famosos de Egipto.",
         "confidence": 0.0
       },
-      "matched": false
+      "matched": false,
+      "isbn": "9783836584210"
     },
     {
       "bookId": "16207748",
@@ -14856,7 +15038,8 @@
         "reasoning": "Novela histórica que relata vivencias conectadas al pasado del continente americano.",
         "confidence": 0.0
       },
-      "matched": false
+      "matched": false,
+      "isbn": "9789563607741"
     },
     {
       "bookId": "58467332",
@@ -14924,7 +15107,8 @@
         "reasoning": "Ensayo sobre sociopolítica moderna, enfocado en el surgimiento del autoritarismo y el deterioro de los sistemas democráticos.",
         "confidence": 0.0
       },
-      "matched": false
+      "matched": false,
+      "isbn": "9788418056581"
     },
     {
       "bookId": "57941146",
@@ -14957,7 +15141,8 @@
         "reasoning": "Libro introductorio a nivel académico o general sobre la cronología y cultura de los egipcios.",
         "confidence": 0.0
       },
-      "matched": false
+      "matched": false,
+      "isbn": "9788418757600"
     },
     {
       "bookId": "53972981",
@@ -15011,7 +15196,7 @@
       "reviewLocalLikes": 0,
       "reviewLocalLikesUpdatedAt": "2026-06-29T14:44:59.687075+00:00",
       "drzrating": 83,
-      "bookDetails": 0,
+      "bookDetails": 1,
       "reviewCount": 814,
       "dcc_classes": {
         "900": "Historia y geografia (900)"
@@ -15024,7 +15209,8 @@
         "confidence": 0.0
       },
       "isbn": "9788498064902",
-      "matched": false
+      "matched": true,
+      "dateAdded": "2021-06-20"
     },
     {
       "bookId": "29579029",
@@ -15163,7 +15349,8 @@
         "reasoning": "Ensayo general que instruye o analiza el proceso y la pasión por la lectura de libros y la crítica literaria básica.",
         "confidence": 0.0
       },
-      "matched": false
+      "matched": false,
+      "isbn": "9786079014544"
     },
     {
       "bookId": "42610931",
@@ -15302,7 +15489,8 @@
       "reviewCount": 11,
       "reviewLocalLikes": 0,
       "reviewLocalLikesUpdatedAt": "2026-06-29T14:44:59.687075+00:00",
-      "drzratingAuto": true
+      "drzratingAuto": true,
+      "isbn": "9788416095735"
     },
     {
       "bookId": "24976877",
@@ -15408,7 +15596,8 @@
       "reviewCount": 11,
       "reviewLocalLikes": 0,
       "reviewLocalLikesUpdatedAt": "2026-06-29T14:44:59.687075+00:00",
-      "drzratingAuto": true
+      "drzratingAuto": true,
+      "isbn": "9788496489431"
     },
     {
       "bookId": "43554612",
@@ -15477,7 +15666,8 @@
         "reasoning": "Se trata de un compendio de curiosidades y problemas que cruzan múltiples disciplinas de las ciencias exactas y naturales.",
         "confidence": 0.0
       },
-      "matched": false
+      "matched": false,
+      "isbn": "9788441541818"
     },
     {
       "bookId": "57623547",
@@ -15545,7 +15735,8 @@
         "reasoning": "Investigación sobre la historia intelectual global y la transmisión de los saberes científicos e ideas a través de culturas.",
         "confidence": 0.0
       },
-      "matched": false
+      "matched": false,
+      "isbn": "9788430622818"
     },
     {
       "bookId": "55963564",
@@ -15611,7 +15802,8 @@
         "reasoning": "Texto científico sobre la historia biológica de la evolución del ser humano desde nuestros orígenes primarios.",
         "confidence": 0.0
       },
-      "matched": false
+      "matched": false,
+      "isbn": "9788408002970"
     },
     {
       "bookId": "42955510",
@@ -15858,7 +16050,8 @@
         "reasoning": "Obra canónica de la literatura antigua y la épica atribuida a Homero.",
         "confidence": 0.0
       },
-      "matched": false
+      "matched": false,
+      "isbn": "9781516934416"
     },
     {
       "bookId": "27403373",
@@ -15890,7 +16083,8 @@
         "reasoning": "Ficción de gran peso intelectual y religioso escrita en hebreo, enfocada en la historia e identidad judía.",
         "confidence": 0.0
       },
-      "matched": false
+      "matched": false,
+      "isbn": "9788416465675"
     },
     {
       "bookId": "3056620",
@@ -15992,7 +16186,8 @@
         "reasoning": "Investigación lingüística enfocada en la permanencia, el desarrollo y la influencia histórica de la lengua latina.",
         "confidence": 0.0
       },
-      "matched": false
+      "matched": false,
+      "isbn": "9788493942663"
     },
     {
       "bookId": "27888988",
@@ -16059,7 +16254,8 @@
       "reviewCount": 11,
       "reviewLocalLikes": 0,
       "reviewLocalLikesUpdatedAt": "2026-06-29T14:44:59.687075+00:00",
-      "drzratingAuto": true
+      "drzratingAuto": true,
+      "isbn": "9780465024407"
     },
     {
       "bookId": "30288040",
@@ -16724,7 +16920,7 @@
       "reviewLocalLikes": 0,
       "reviewLocalLikesUpdatedAt": "2026-06-29T14:44:59.687075+00:00",
       "drzrating": 95,
-      "bookDetails": 0,
+      "bookDetails": 1,
       "reviewCount": 577,
       "dcc_classes": {
         "500": "Ciencias naturales y matematicas (500)"
@@ -16740,7 +16936,7 @@
       },
       "isbn": "9789584283368",
       "dateAdded": "2020-12-31",
-      "matched": false
+      "matched": true
     },
     {
       "bookId": "50096588",
@@ -16775,7 +16971,8 @@
         "confidence": 0.0
       },
       "dateAdded": "2020-12-31",
-      "matched": true
+      "matched": true,
+      "isbn": "9789589219942"
     },
     {
       "bookId": "9049717",
@@ -16843,7 +17040,8 @@
         "reasoning": "Un ensayo literario y etológico dedicado a la compleja vida de las hormigas.",
         "confidence": 0.98
       },
-      "matched": true
+      "matched": true,
+      "isbn": "9789585445123"
     },
     {
       "bookId": "50262027",
@@ -17072,7 +17270,7 @@
       "reviewLocalLikes": 0,
       "reviewLocalLikesUpdatedAt": "2026-06-29T14:44:59.687075+00:00",
       "drzrating": 85,
-      "bookDetails": 0,
+      "bookDetails": 1,
       "reviewCount": 751,
       "dcc_classes": {
         "500": "Ciencias naturales y matematicas (500)",
@@ -17087,7 +17285,8 @@
         "confidence": 0.0
       },
       "isbn": "9780544716964",
-      "matched": false
+      "matched": true,
+      "dateAdded": "2021-01-04"
     },
     {
       "bookId": "54610309",
@@ -17286,7 +17485,7 @@
       "reviewLocalLikes": 0,
       "reviewLocalLikesUpdatedAt": "2026-06-29T14:44:59.687075+00:00",
       "drzrating": 97,
-      "bookDetails": 0,
+      "bookDetails": 1,
       "reviewCount": 585,
       "dcc_classes": {
         "500": "Ciencias naturales y matematicas (500)"
@@ -17299,7 +17498,8 @@
         "confidence": 0.0
       },
       "isbn": "9788497591027",
-      "matched": false
+      "matched": true,
+      "dateAdded": "2021-01-01"
     },
     {
       "bookId": "40135796",
@@ -17645,7 +17845,8 @@
         "reasoning": "Divulgación científica sobre la historia del descubrimiento de la naturaleza de la luz y el funcionamiento de la visión.",
         "confidence": 0.0
       },
-      "matched": false
+      "matched": false,
+      "isbn": "9788498929812"
     },
     {
       "bookId": "45325040",
@@ -17713,7 +17914,8 @@
         "confidence": 0.0
       },
       "dateAdded": "2020-12-31",
-      "matched": true
+      "matched": true,
+      "isbn": "9788499924755"
     },
     {
       "bookId": "35820369",
@@ -17746,7 +17948,8 @@
         "confidence": 0.0
       },
       "libraryDuplicateHidden": false,
-      "matched": false
+      "matched": false,
+      "isbn": "9780062490421"
     },
     {
       "bookId": "43823891",
@@ -17781,7 +17984,8 @@
         "confidence": 0.0
       },
       "dateAdded": "2020-12-31",
-      "matched": true
+      "matched": true,
+      "isbn": "9786077476368"
     },
     {
       "bookId": "42392875",
@@ -17835,7 +18039,7 @@
       "reviewLocalLikes": 0,
       "reviewLocalLikesUpdatedAt": "2026-06-29T14:44:59.687075+00:00",
       "drzrating": 96,
-      "bookDetails": 0,
+      "bookDetails": 1,
       "reviewCount": 683,
       "dcc_classes": {
         "500": "Ciencias naturales y matematicas (500)"
@@ -17847,7 +18051,9 @@
         "reasoning": "Libro sobre el medio natural de los ecosistemas forestales y la botánica compleja de las plantas.",
         "confidence": 0.0
       },
-      "matched": false
+      "matched": true,
+      "isbn": "9788491110835",
+      "dateAdded": "2021-01-01"
     },
     {
       "bookId": "25838588",
@@ -18545,7 +18751,8 @@
         "reasoning": "Crónica de tipo geográfica y viaje sobre exploraciones antárticas de la autora.",
         "confidence": 0.0
       },
-      "matched": false
+      "matched": false,
+      "isbn": "9789584218896"
     },
     {
       "bookId": "147483",
@@ -18577,7 +18784,8 @@
         "reasoning": "Obra clásica literaria de la literatura inglesa con un agudo comentario y sátira de ficción social.",
         "confidence": 0.0
       },
-      "matched": false
+      "matched": false,
+      "isbn": "9789875801431"
     },
     {
       "bookId": "48503",
@@ -18610,7 +18818,8 @@
         "confidence": 0.0
       },
       "libraryDuplicateHidden": false,
-      "matched": false
+      "matched": false,
+      "isbn": "9780143039389"
     },
     {
       "bookId": "48497096",
@@ -18642,7 +18851,8 @@
         "reasoning": "Investigación periodística referida a crímenes, delitos específicos y los problemas encubiertos de pederastia eclesiástica.",
         "confidence": 0.0
       },
-      "matched": false
+      "matched": false,
+      "isbn": "9789584282897"
     },
     {
       "bookId": "48614965",
@@ -18675,7 +18885,8 @@
         "reasoning": "Tratado biográfico dedicado a documentar la vida privada y científica del físico matemático Isaac Newton.",
         "confidence": 0.0
       },
-      "matched": false
+      "matched": false,
+      "isbn": "9788434582453"
     },
     {
       "bookId": "5050",
@@ -18847,7 +19058,8 @@
         "reasoning": "Relato de exploración botánica y etnográfica a través de la Amazonía sudamericana.",
         "confidence": 0.95
       },
-      "matched": true
+      "matched": true,
+      "isbn": "9789583600760"
     },
     {
       "bookId": "36235446",
@@ -18879,7 +19091,8 @@
         "reasoning": "Relato biográfico y retrato de las pasiones de la historia personal de Johannes Kepler como astrónomo y figura crucial.",
         "confidence": 0.0
       },
-      "matched": false
+      "matched": false,
+      "isbn": "9788434581913"
     },
     {
       "bookId": "45431444",
@@ -19252,7 +19465,7 @@
       "reviewLocalLikes": 0,
       "reviewLocalLikesUpdatedAt": "2026-06-29T14:44:59.687075+00:00",
       "drzrating": 96,
-      "bookDetails": 0,
+      "bookDetails": 1,
       "reviewCount": 864,
       "dcc_classes": {
         "500": "Ciencias naturales y matematicas (500)"
@@ -19266,7 +19479,8 @@
         "confidence": 0.0
       },
       "isbn": "9788490564608",
-      "matched": false
+      "matched": true,
+      "dateAdded": "2020-12-31"
     },
     {
       "bookId": "43303157",
@@ -19298,7 +19512,8 @@
         "reasoning": "Un libro de historia de la astronáutica que devela los entresijos y detalles mecánicos y logísticos del proyecto Apolo.",
         "confidence": 0.0
       },
-      "matched": false
+      "matched": false,
+      "isbn": "9788448025069"
     },
     {
       "bookId": "28487182",
@@ -19785,7 +20000,8 @@
         "reasoning": "Aborda la paleoantropología y la evolución biológica e histórica de los homínidos y ancestros del ser humano.",
         "confidence": 0.0
       },
-      "matched": false
+      "matched": false,
+      "isbn": "9788499928982"
     },
     {
       "bookId": "8719673",
@@ -19925,7 +20141,8 @@
         "confidence": 0.0
       },
       "dateAdded": "2020-12-31",
-      "matched": true
+      "matched": true,
+      "isbn": "9788449501746"
     },
     {
       "bookId": "41752325",
@@ -20096,7 +20313,8 @@
         "reasoning": "Obra arqueológica e histórica sobre las pirámides y el antiguo Imperio Egipcio elaborada por un famoso egiptólogo.",
         "confidence": 0.0
       },
-      "matched": false
+      "matched": false,
+      "isbn": "9780385503051"
     },
     {
       "bookId": "39721554",
@@ -20269,7 +20487,8 @@
         "reasoning": "Libro orientado al pensamiento crítico, la comprensión de métodos empíricos y el desmentido de manipulaciones mediáticas sobre la ciencia.",
         "confidence": 0.0
       },
-      "matched": false
+      "matched": false,
+      "isbn": "9780137155224"
     },
     {
       "bookId": "8542774",
@@ -20428,7 +20647,7 @@
       "reviewLocalLikes": 0,
       "reviewLocalLikesUpdatedAt": "2026-06-29T14:44:59.687075+00:00",
       "drzrating": 95,
-      "bookDetails": 0,
+      "bookDetails": 1,
       "reviewCount": 17,
       "dcc_classes": {
         "300": "Ciencias sociales (300)",
@@ -20444,7 +20663,8 @@
         "confidence": 0.0
       },
       "isbn": "9789585446427",
-      "matched": false
+      "matched": true,
+      "dateAdded": "2020-12-31"
     },
     {
       "bookId": "42846107",
@@ -20478,7 +20698,8 @@
         "confidence": 0.0
       },
       "dateAdded": "2021-01-04",
-      "matched": true
+      "matched": true,
+      "isbn": "9789584274700"
     },
     {
       "bookId": "22838939",
@@ -20547,7 +20768,8 @@
         "reasoning": "Es un ensayo satírico con un análisis sobre los aspectos sociológicos y comportamentales de la estupidez en las interacciones humanas.",
         "confidence": 0.0
       },
-      "matched": false
+      "matched": false,
+      "isbn": "9788815019806"
     },
     {
       "bookId": "36661512",

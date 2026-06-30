@@ -370,6 +370,66 @@ function setText(id, value, label) {
   el.textContent = label ? `${label}: ${v}` : v;
 }
 
+function escapeHtml(value) {
+  return String(value ?? "")
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;");
+}
+
+function formatRating(rating, lang) {
+  const value = Number(rating);
+  if (!value) return escapeHtml(t("library_no_rating", lang));
+  const stars = Math.round(value);
+  return (
+    "⭐".repeat(stars) +
+    '<span style="filter: grayscale(100%); opacity: 0.4;">⭐</span>'.repeat(5 - stars)
+  );
+}
+
+function renderReadStats(lang, libraryBook, fromReadLibrary) {
+  const el = document.getElementById("book-read-stats");
+  if (!el) return;
+  if (!fromReadLibrary || !libraryBook) {
+    el.hidden = true;
+    el.replaceChildren();
+    return;
+  }
+
+  const parts = [];
+  const rating = Number(libraryBook.rating);
+  if (Number.isFinite(rating) && rating > 0) {
+    parts.push(
+      `<strong>${escapeHtml(t("library_rating_label", lang))}</strong> <span class="library-tooltip" data-title="${escapeHtml(t("library_rating_gr_hover", lang))}">${formatRating(rating, lang)}</span>`,
+    );
+  }
+
+  const drz = libraryBook.drzrating;
+  if (drz !== undefined && drz !== -1) {
+    parts.push(
+      `<strong>${escapeHtml(t("library_rating_drz", lang))}</strong> <span class="library-tooltip" data-title="${escapeHtml(t("library_rating_drz_hover", lang))}">🤓 ${escapeHtml(String(drz))}</span>`,
+    );
+  }
+
+  const reviewUrl = String(libraryBook.reviewUrl || "");
+  const likes = Number(libraryBook.reviewLikes);
+  if (reviewUrl.includes("/review/show/") && Number.isFinite(likes)) {
+    parts.push(
+      `${escapeHtml(t("book_read_reactions", lang))} <span class="library-tooltip" data-title="${escapeHtml(t("library_likes_gr_hover", lang))}">👍 ${escapeHtml(String(likes))}</span>`,
+    );
+  }
+
+  if (!parts.length) {
+    el.hidden = true;
+    el.replaceChildren();
+    return;
+  }
+
+  el.hidden = false;
+  el.innerHTML = parts.join(" · ");
+}
+
 function renderBookSummary(lang, summary, summaryIsBrief) {
   const section = document.getElementById("book-summary-section");
   const heading = document.getElementById("book-summary-heading");
@@ -492,14 +552,29 @@ function effectiveLocalReviewHref(book) {
   return `./reviews/${id}.html`;
 }
 
+/** Reseña con texto (JSON hasReview o conteo local; evita placeholder del mirror ~11 palabras). */
+function hasPublishedReview(item) {
+  if (!String(item?.reviewUrl ?? "").includes("/review/show/")) return false;
+  if (item?.hasReview === false) return false;
+  if (item?.hasReview === true) return true;
+  const wc = Number(item?.reviewCount);
+  if (Number.isFinite(wc)) return wc >= 25;
+  return true;
+}
+
 function renderReviewLinks(lang, libraryBook) {
   const wrap = document.getElementById("book-review-links");
   if (!wrap) return;
+  if (!libraryBook || !hasPublishedReview(libraryBook)) {
+    wrap.hidden = true;
+    wrap.replaceChildren();
+    return;
+  }
   const localHref = effectiveLocalReviewHref(libraryBook);
   const remoteUrl = String(libraryBook?.reviewUrl || "").trim();
   const hasLocal = Boolean(localHref);
   const hasRemote = remoteUrl.includes("/review/show/");
-  if (!libraryBook || (!hasLocal && !hasRemote)) {
+  if (!hasLocal && !hasRemote) {
     wrap.hidden = true;
     wrap.replaceChildren();
     return;
@@ -575,7 +650,10 @@ async function renderBookPageContent(lang, meta, libraryBook, coverBookKey, from
 
   const addedYm = formatYearMonth(meta.dateAdded);
   const readYm = formatYearMonth(meta.dateRead);
-  if (addedYm || String(meta.dateAdded || "").trim()) {
+  if (fromReadLibrary && (readYm || String(meta.dateRead || "").trim())) {
+    const dateReadLabel = lang === "en" ? "Date read" : "Fecha de lectura";
+    setText("book-date-added", readYm || meta.dateRead, dateReadLabel);
+  } else if (addedYm || String(meta.dateAdded || "").trim()) {
     const dateAddedLabel = lang === "en" ? "Date added" : "Fecha de agregado";
     setText("book-date-added", addedYm || meta.dateAdded, dateAddedLabel);
   } else if (readYm || String(meta.dateRead || "").trim()) {
@@ -585,6 +663,8 @@ async function renderBookPageContent(lang, meta, libraryBook, coverBookKey, from
     const dateAddedLabel = lang === "en" ? "Date added" : "Fecha de agregado";
     setText("book-date-added", "", dateAddedLabel);
   }
+
+  renderReadStats(lang, libraryBook, fromReadLibrary);
 
   setText("book-isbn", meta.isbn, "ISBN");
 

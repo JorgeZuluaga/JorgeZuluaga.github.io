@@ -62,6 +62,8 @@ function uiText() {
       copiedToast: "Link copied to clipboard",
       subscribe: "Subscribe",
       subscribeAria: "Subscribe to new review email alerts",
+      buscalibreLabel: "Get it on",
+      buscalibreBuy: "Get it on Buscalibre",
       localLikesAria: "Local likes:",
       localLikesSuffix: "(local likes)",
     };
@@ -75,6 +77,8 @@ function uiText() {
     copiedToast: "Enlace copiado a portapapeles",
     subscribe: "Suscribirse",
     subscribeAria: "Suscribirse a nuevas reseñas por correo",
+    buscalibreLabel: "Consíguelo en",
+    buscalibreBuy: "Consíguelo en Buscalibre",
     localLikesAria: "Me gusta locales:",
     localLikesSuffix: "(me gusta locales)",
   };
@@ -219,6 +223,100 @@ function reviewSubscribeCtaEnabled() {
   if (!meta) return false;
   const value = String(meta.getAttribute("content") || "").trim().toLowerCase();
   return value !== "0" && value !== "false" && value !== "no";
+}
+
+function reviewBuscalibreCtaDisabled() {
+  const meta = document.querySelector('meta[name="review-buscalibre-cta"]');
+  if (!meta) return false;
+  const value = String(meta.getAttribute("content") || "").trim().toLowerCase();
+  return value === "0" || value === "false" || value === "no";
+}
+
+const BUSCALIBRE_LOGO_URL =
+  "https://statics.cdn0.buscalibre.com/images/logos/20231208132739buscalibre.png";
+
+function createBuscalibreBlock(url, bookTitle) {
+  const text = uiText();
+  const wrap = document.createElement("p");
+  wrap.className = "review-buscalibre-wrap";
+
+  const textLink = document.createElement("a");
+  textLink.className = "link review-buscalibre-text-link";
+  textLink.href = url;
+  textLink.target = "_blank";
+  textLink.rel = "noopener noreferrer sponsored";
+  textLink.textContent = text.buscalibreLabel;
+  textLink.setAttribute("aria-label", `${text.buscalibreBuy}: ${bookTitle}`);
+
+  const logoLink = document.createElement("a");
+  logoLink.id = "review-buscalibre-link";
+  logoLink.className = "buscalibre-brand-link";
+  logoLink.href = url;
+  logoLink.target = "_blank";
+  logoLink.rel = "noopener noreferrer sponsored";
+  logoLink.setAttribute("aria-label", `${text.buscalibreBuy}: ${bookTitle}`);
+
+  const mark = document.createElement("span");
+  mark.className = "buscalibre-brand-link__mark";
+
+  const logo = document.createElement("img");
+  logo.className = "buscalibre-brand-link__logo";
+  logo.src = BUSCALIBRE_LOGO_URL;
+  logo.alt = "Buscalibre";
+  logo.decoding = "async";
+  logo.loading = "lazy";
+
+  mark.appendChild(logo);
+  logoLink.appendChild(mark);
+  wrap.append(textLink, logoLink);
+  return wrap;
+}
+
+function findGoodreadsLinksParagraph() {
+  for (const paragraph of document.querySelectorAll("p")) {
+    if (paragraph.querySelector('a[href*="goodreads.com/review/show"]')) {
+      return paragraph;
+    }
+  }
+  return null;
+}
+
+async function wireBuscalibreLink() {
+  if (reviewBuscalibreCtaDisabled()) return;
+  if (document.getElementById("review-buscalibre-link")) return;
+
+  const goodreadsParagraph = findGoodreadsLinksParagraph();
+  if (!goodreadsParagraph) return;
+
+  const reviewId = getCurrentReviewId();
+  if (!reviewId) return;
+
+  try {
+    const [libraryResponse, buscalibreResponse] = await Promise.all([
+      fetch("../info/library.json", { cache: "no-store" }),
+      fetch("../info/buscalibre.json", { cache: "no-store" }),
+    ]);
+    if (!libraryResponse.ok || !buscalibreResponse.ok) return;
+
+    const library = await libraryResponse.json();
+    const buscalibre = await buscalibreResponse.json();
+    const books = Array.isArray(library?.books) ? library.books : [];
+    const match = books.find((book) => parseReviewIdFromUrl(book?.reviewUrl) === reviewId);
+    const bookId = String(match?.bookId || "").trim();
+    if (!bookId) return;
+
+    const entry = buscalibre?.books?.[bookId];
+    const url = String(entry?.url || "").trim();
+    if (!url) return;
+
+    const bookTitle = String(entry?.title || match?.title || "").trim() || bookId;
+    goodreadsParagraph.insertAdjacentElement(
+      "afterend",
+      createBuscalibreBlock(url, bookTitle),
+    );
+  } catch (_err) {
+    // Non-critical: keep page without Buscalibre CTA.
+  }
 }
 
 function bibliotecaSubscribeHref() {
@@ -477,4 +575,5 @@ wireReviewLikeButton();
 })();
 
 wireHeaderSubscribeIcon();
+wireBuscalibreLink();
 

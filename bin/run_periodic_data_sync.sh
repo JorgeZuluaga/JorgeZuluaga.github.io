@@ -97,7 +97,7 @@ SYNC_SOURCE=launchd
 export SYNC_SOURCE
 
 echo "[$(utc_now)] Goodreads (likes + reseñas recientes + stats)..."
-if ! bash "$REPO_DIR/bin/run_daily_goodreads_sync.sh"; then
+if ! SKIP_REVIEW_NOTIFY=1 bash "$REPO_DIR/bin/run_daily_goodreads_sync.sh"; then
   echo "[$(utc_now)] Goodreads daily sync failed; no se publicará al repo." >&2
   fail_auto_run "Goodreads"
   exit 1
@@ -137,7 +137,7 @@ FINISHED="$(utc_now)"
 record_state "lastPeriodicSyncSuccessAt=${FINISHED}"
 record_auto_run "$RUN_STARTED" "$FINISHED" true "completo"
 
-echo "[$(utc_now)] Notificación de reseñas nuevas (si hay suscriptores)..."
+echo "[$(utc_now)] Notificación de reseñas nuevas (tras Buscalibre y git push)..."
 if python3 "$REPO_DIR/bin/notify_new_reviews.py" 2>/dev/null; then
   echo "[$(utc_now)] notify_new_reviews completado."
 else

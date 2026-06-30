@@ -17,6 +17,9 @@ REPO = Path(__file__).resolve().parent.parent
 DEFAULT_FROM_NAME = "Jorge Zuluaga - Biblioteca"
 SEND_DELAY_SEC = 3.0
 RECENT_FOOTER_LIMIT = 5
+BUSCALIBRE_LOGO_URL = (
+    "https://statics.cdn0.buscalibre.com/images/logos/20231208132739buscalibre.png"
+)
 
 
 def normalize_credential(raw: str, *, strip_spaces: bool = False) -> str:
@@ -92,6 +95,7 @@ def _build_featured_block(
     read_label: str,
     by_prefix: str,
     review_byline: str,
+    buscalibre_label: str = "",
     margin_top: str = "0",
 ) -> tuple[str, str]:
     title = str(review.get("title") or "Nueva reseña")
@@ -100,6 +104,7 @@ def _build_featured_block(
     cover_url = str(review.get("cover_url") or "")
     excerpt = str(review.get("excerpt") or "").strip()
     rating = _rating_stars(review.get("rating"))
+    buscalibre_url = str(review.get("buscalibre_url") or "").strip()
 
     by_line = f"{by_prefix} {author}" if author else ""
     stars_line = f" ({rating})" if rating else ""
@@ -112,6 +117,8 @@ def _build_featured_block(
     if excerpt:
         text_lines.extend(["", excerpt])
     text_lines.extend(["", url])
+    if buscalibre_url and buscalibre_label:
+        text_lines.append(f"{buscalibre_label}: {buscalibre_url}")
     text_block = "\n".join(text_lines)
 
     cover_html = ""
@@ -149,6 +156,20 @@ def _build_featured_block(
             f"</p>"
         )
 
+    buscalibre_html = ""
+    if buscalibre_url and buscalibre_label:
+        buscalibre_html = (
+            f'<p style="margin:0.5rem 0 0;clear:both;">'
+            f'<a href="{html.escape(buscalibre_url)}" '
+            f'style="color:#0b5cab;font-weight:600;text-decoration:none;">'
+            f"{html.escape(buscalibre_label)}</a>"
+            f' <a href="{html.escape(buscalibre_url)}" style="text-decoration:none;">'
+            f'<img src="{html.escape(BUSCALIBRE_LOGO_URL)}" alt="Buscalibre" width="110" '
+            f'style="display:inline-block;vertical-align:middle;height:auto;max-width:110px;" />'
+            f"</a>"
+            f"</p>"
+        )
+
     html_block = f"""\
   <div style="width:100%;border:1px solid #e6e6e6;border-radius:12px;background:#fafafa;margin-top:{margin_top};padding:16px 18px;overflow:hidden;">
     {cover_html}
@@ -161,6 +182,7 @@ def _build_featured_block(
     <p style="margin:1rem 0 0;clear:both;">
       <a href="{html.escape(url)}" style="color:#0b5cab;font-weight:600;text-decoration:none;">{read_label} →</a>
     </p>
+    {buscalibre_html}
   </div>"""
     return text_block, html_block
 
@@ -200,10 +222,17 @@ def build_review_email(
             )
         intro_paragraphs = ["Hello,", intro_body]
         read_label = "Read full review"
+        buscalibre_label = "Get it on Buscalibre"
         recent_heading = "Latest published reviews"
         by_prefix = "by"
-        review_byline = "Review by Jorge I. Zuluaga, Dr. Z"
+        review_byline = "Review by Jorge Zuluaga, Dr. Z"
         unsubscribe_label = "Unsubscribe"
+        library_promo_before = (
+            "For more reviews, recommendations and book ratings, sagas, collections and more, "
+        )
+        library_promo_link = "visit my personal library"
+        library_promo_after = "."
+        signature = "Jorge Zuluaga, Dr. Z"
     else:
         if multiple:
             subject = f"Nuevas reseñas de Jorge Zuluaga: {subject_title}"
@@ -223,10 +252,21 @@ def build_review_email(
             )
         intro_paragraphs = ["Hola,", intro_body]
         read_label = "Leer reseña completa"
+        buscalibre_label = "Consíguelo en Buscalibre"
         recent_heading = "Últimas reseñas publicadas"
         by_prefix = "de"
-        review_byline = "Reseña por Jorge I. Zuluaga, Dr. Z"
+        review_byline = "Reseña por Jorge Zuluaga, Dr. Z"
         unsubscribe_label = "No me envíes más notificaciones"
+        library_promo_before = (
+            "Para más reseñas, recomendaciones y calificaciones de libros, sagas, colecciones y más, "
+        )
+        library_promo_link = "visita mi biblioteca personal"
+        library_promo_after = "."
+        signature = "Jorge Zuluaga, Dr. Z"
+
+    library_url = f"{base}/biblioteca.html"
+    if lang == "en":
+        library_url += "?lang=en"
 
     featured_text_blocks: list[str] = []
     featured_html_blocks: list[str] = []
@@ -236,6 +276,7 @@ def build_review_email(
             read_label=read_label,
             by_prefix=by_prefix,
             review_byline=review_byline,
+            buscalibre_label=buscalibre_label,
             margin_top="0" if idx == 0 else "1rem",
         )
         featured_text_blocks.append(text_block)
@@ -256,7 +297,15 @@ def build_review_email(
             text_lines.append(f"- {item_title}{suffix}")
             if item_url:
                 text_lines.append(f"  {item_url}")
-    text_lines.extend(["", "-- Jorge Zuluaga"])
+    text_lines.extend(
+        [
+            "",
+            f"{library_promo_before}{library_promo_link}{library_promo_after}",
+            library_url,
+            "",
+            f"-- {signature}",
+        ]
+    )
     if unsubscribe_url:
         text_lines.extend(["", f"{unsubscribe_label}: {unsubscribe_url}"])
     text = "\n".join(text_lines)
@@ -273,10 +322,18 @@ def build_review_email(
             f"{html.escape(item_title)}</a>{author_bit}</li>"
         )
 
+    library_promo_html = (
+        f'<p style="margin:1.25rem 0 0;line-height:1.55;">'
+        f"{html.escape(library_promo_before)}"
+        f'<a href="{html.escape(library_url)}" style="color:#0b5cab;text-decoration:none;">'
+        f"{html.escape(library_promo_link)}</a>"
+        f"{html.escape(library_promo_after)}"
+        f"</p>"
+    )
+
     footer = (
-        f'<p style="color:#666;font-size:0.85em;margin-top:1.5rem;">'
-        f'Jorge Zuluaga — <a href="{html.escape(base)}/biblioteca.html" '
-        f'style="color:#0b5cab;">Biblioteca personal</a>'
+        f'<p style="color:#666;font-size:0.85em;margin-top:1.25rem;">'
+        f"{html.escape(signature)}"
     )
     if unsubscribe_url:
         footer += (
@@ -302,6 +359,7 @@ def build_review_email(
   {intro_html}
   {"".join(featured_html_blocks)}
   {recent_section_html}
+  {library_promo_html}
   {footer}
 </div>"""
     return subject, text, html_body

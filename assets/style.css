@@ -1456,6 +1456,9 @@ body.photos-page .photos-intro {
 }
 
 .library-list-card[id^="library-section-"],
+#library-stats-root,
+#library-featured-review-card,
+#library-section-year-chart,
 .library-book-item[id^="library-series-"] {
   scroll-margin-top: 1.25rem;
 }
@@ -2001,6 +2004,129 @@ body.photos-page .photos-intro {
   justify-content: flex-start;
 }
 
+.library-featured-review-wrap {
+  margin-top: 0.35rem;
+}
+
+.library-featured-review {
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: var(--card);
+  padding: 1rem 1.125rem;
+  overflow: hidden;
+}
+
+.library-featured-review__cover-link {
+  float: left;
+  margin: 0 1.125rem 0.75rem 0;
+  display: block;
+  line-height: 0;
+}
+
+.library-featured-review__cover-link img {
+  display: block;
+  width: 160px;
+  max-width: min(160px, 42vw);
+  height: auto;
+  border-radius: 8px;
+  border: 1px solid var(--line);
+}
+
+.library-featured-review__title {
+  margin: 0;
+  font-size: 1.25rem;
+  line-height: 1.35;
+}
+
+.library-featured-review__title .link {
+  color: inherit;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.library-featured-review__title .link:hover {
+  text-decoration: underline;
+}
+
+.library-featured-review__meta {
+  margin: 0.35rem 0 0;
+  font-size: 0.95rem;
+  opacity: 0.88;
+}
+
+.library-featured-review__byline {
+  margin: 0.35rem 0 0;
+  font-size: 0.92rem;
+  font-style: italic;
+  opacity: 0.88;
+}
+
+.library-featured-review__excerpt {
+  margin: 0.75rem 0 0;
+  line-height: 1.55;
+  font-size: 0.95rem;
+}
+
+.library-featured-review__excerpt-more {
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  opacity: 0.72;
+}
+
+.library-featured-review__actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: stretch;
+  gap: 0.5rem;
+  margin: 0.85rem 0 0;
+  clear: both;
+}
+
+.library-featured-review__action-btn:hover:not(:disabled) {
+  background: color-mix(in srgb, var(--black) 8%, var(--white));
+}
+
+.library-featured-review__action-btn:disabled {
+  opacity: 0.72;
+  cursor: default;
+}
+
+.library-featured-review__stats {
+  margin: 0.85rem 0 0;
+  font-size: 0.9rem;
+  line-height: 1.45;
+  opacity: 0.92;
+}
+
+.library-featured-review__read {
+  margin: 1rem 0 0;
+  clear: both;
+}
+
+.library-featured-review__read-link {
+  font-weight: 600;
+}
+
+.library-featured-review__stars {
+  letter-spacing: 0.04em;
+  color: #b8860b;
+}
+
+.dark-theme .library-featured-review__stars {
+  color: #e6c76b;
+}
+
+@media (max-width: 640px) {
+  .library-featured-review__cover-link {
+    float: none;
+    margin: 0 0 0.85rem;
+  }
+
+  .library-featured-review__cover-link img {
+    width: 140px;
+  }
+}
+
 .library-pager {
   margin-bottom: 1rem;
   display: flex;
@@ -2120,6 +2246,45 @@ body.photos-page .photos-intro {
   align-items: stretch;
   gap: 0.5rem;
   margin-top: 1rem;
+}
+
+.review-page-custom .review-buscalibre-wrap {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin: 0.45rem 0 0.15rem;
+}
+
+.review-page-custom .buscalibre-brand-link {
+  display: inline-flex;
+  align-items: center;
+  line-height: 0;
+  text-decoration: none;
+  transition: opacity 160ms ease;
+}
+
+.review-page-custom .buscalibre-brand-link:hover,
+.review-page-custom .buscalibre-brand-link:focus-visible {
+  text-decoration: none;
+  opacity: 0.88;
+}
+
+.review-page-custom .buscalibre-brand-link__mark {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.22rem 0.38rem;
+  border-radius: 4px;
+  background: #1f2a36;
+  line-height: 0;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.14);
+}
+
+.review-page-custom .buscalibre-brand-link__logo {
+  display: block;
+  width: auto;
+  height: 1.05rem;
+  max-width: 100%;
 }
 
 @media (max-width: 48em) {

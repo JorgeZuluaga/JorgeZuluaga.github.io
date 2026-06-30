@@ -3,11 +3,13 @@
 	classroom \
 	library-build \
 	library-goodreads-likes library-goodreads-books-only library-goodreads-reviews-latest \
+	library-goodreads-isbn-sync library-link-details-by-isbn \
 	library-daily-goodreads \
 	library-update library-stats library-refresh library-local-likes-sync visitor-logs-sync library-antibiblioteca-sync \
 	notebooklm-reviews-export reviews-todas \
 	antilibrary-covers-fetch \
 	antilibrary-covers-extract-html \
+	buscalibre-links-fetch \
 	reviews-first reviews-all reviews-force reviews-refresh reviews-fix reviews-enrich reviews-enrich-dry \
 	library-review-counts \
 	library-details-import library-details-match library-details-sync \
@@ -15,7 +17,7 @@
 	library-ddc-update library-ddc-generate-pending library-ddc-apply-gemini \
 	sync-dcc-library-details \
 	update-all-books \
-	worker-deploy review-notify-deploy review-notify-seed-test review-notify-test-send \
+	worker-deploy review-notify-deploy review-notify-send review-notify-seed-test review-notify-test-send \
 	lista-suscritos
 
 PORT ?= 8000
@@ -48,8 +50,9 @@ help:
 	@echo "  make library-goodreads-likes      - Solo likes (RSS merge + scrape; sin mirror HTML)"
 	@echo "  make library-goodreads-books-only - Solo libros nuevos desde RSS (sin likes; preserva titles)"
 	@echo "  make library-goodreads-reviews-latest - Últimas ~10 reseñas en reviews/"
-	@echo "  make library-daily-goodreads      - Script diario: likes + últimas reseñas + stats"
+	@echo "  make library-daily-goodreads      - Script diario: likes + reseñas + ISBN + Buscalibre + stats + correo"
 	@echo "  make status                       - Últimas corridas del sync automático (launchd)"
+	@echo "  make review-notify-send           - Notificar reseñas nuevas (tras Buscalibre)"
 	@echo "  make review-notify-deploy         - Desplegar worker de suscripción a reseñas"
 	@echo "  make review-notify-setup          - Crear .secrets/ (token + Gmail)"
 	@echo "  make review-notify-seed-test      - Alta de correos de prueba en el worker"
@@ -168,6 +171,29 @@ library-goodreads-reviews-latest:
 		--site-base-url "$(SITE_BASE_URL)" \
 		--refresh-latest 10
 
+# Rellena ISBN en library.json desde el RSS (libros que aún no lo tienen).
+library-goodreads-isbn-sync:
+	@echo ""
+	@echo ">>> library-goodreads-isbn-sync → $(LIBRARY_JSON)"
+	@if [ -z "$(RSS_URL)" ]; then \
+		RSS_URL="$$(python3 bin/read_library_rss_url.py)"; \
+		export RSS_URL; \
+	fi; \
+	if [ -z "$$RSS_URL" ]; then echo "RSS_URL vacío."; exit 1; fi; \
+	python3 bin/sync_goodreads_isbn_from_rss.py \
+		--library-json "$(LIBRARY_JSON)" \
+		--rss-url "$$RSS_URL" \
+		--rss-pages "$(RSS_PAGES)" \
+		--all-missing
+
+# Cruce bookId en library-details.json por ISBN desde library.json.
+library-link-details-by-isbn:
+	@echo ""
+	@echo ">>> library-link-details-by-isbn"
+	@python3 bin/link_library_details_by_isbn.py \
+		--library-json "$(LIBRARY_JSON)" \
+		--library-details-json "$(LIBRARY_DETAILS_JSON)"
+
 # A+B+C en un script (usa RSS_URL de library.json si no se exporta).
 library-daily-goodreads:
 	@SYNC_SOURCE=manual bash bin/run_daily_goodreads_sync.sh
@@ -279,6 +305,19 @@ antilibrary-covers-fetch:
 		--output-dir "$${OUTPUT_DIR:-antilibrary/covers}" \
 		--limit "$${LIMIT:-50}" \
 		--retries "$${RETRIES:-3}"
+
+# ISBN=978... o BOOK_ID=6286160; ALL=1 para todos con ISBN en library-details; MISSING_FROM_LIBRARY=1 para library.json sin enlace
+buscalibre-links-fetch:
+	@python3 bin/fetch_buscalibre_links.py \
+		--library-json "$(LIBRARY_JSON)" \
+		--library-details-json "$(LIBRARY_DETAILS_JSON)" \
+		--output "info/buscalibre.json" \
+		--sleep "$${BUSCALIBRE_SLEEP:-1}" \
+		$(if $(ISBN),--isbn "$(ISBN)",) \
+		$(if $(BOOK_ID),--book-id "$(BOOK_ID)",) \
+		$(if $(ALL),--all-with-isbn,) \
+		$(if $(MISSING_FROM_LIBRARY),--missing-from-library,) \
+		$(if $(BACKFILL_TITLES),--backfill-titles,)
 
 antilibrary-covers-extract-html:
 	@python3 bin/extract_bookbuddy_embedded_covers.py \
@@ -451,6 +490,9 @@ update-all-books:
 # Deploy Cloudflare Worker defined in wrangler.toml.
 worker-deploy:
 	@npx wrangler deploy
+
+review-notify-send:
+	@python3 bin/notify_new_reviews.py
 
 review-notify-deploy:
 	@npx wrangler deploy --config wrangler-review-notify.toml

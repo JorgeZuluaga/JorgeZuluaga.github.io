@@ -77,6 +77,38 @@ function relayoutCoverStripsIn(container) {
   container.querySelectorAll(".library-series-cover-strips").forEach(relayoutCoverStrip);
 }
 
+function scrollToPageHash({ behavior = "auto" } = {}) {
+  const id = decodeURIComponent(String(location.hash || "").replace(/^#/, ""));
+  if (!id) return;
+  const target = document.getElementById(id);
+  if (target) target.scrollIntoView({ behavior, block: "start" });
+}
+
+let hashScrollCorrectionBound = false;
+
+function bindHashScrollCorrection() {
+  if (hashScrollCorrectionBound) return;
+  hashScrollCorrectionBound = true;
+
+  window.addEventListener("hashchange", () => settleHashScroll());
+
+  const jumpNav = document.getElementById("library-series-jump-nav");
+  jumpNav?.addEventListener("click", (event) => {
+    const link = event.target.closest('a[href^="#"]');
+    if (!link) return;
+    window.setTimeout(() => settleHashScroll(), 0);
+  });
+}
+
+function settleHashScroll() {
+  if (!location.hash) return;
+  scrollToPageHash({ behavior: "auto" });
+  requestAnimationFrame(() => {
+    scrollToPageHash({ behavior: "auto" });
+    window.setTimeout(() => scrollToPageHash({ behavior: "auto" }), 200);
+  });
+}
+
 function getLibraryData() {
   return Promise.all([
     fetch("./info/library.json").then((r) => {
@@ -616,6 +648,7 @@ async function initSagasPage() {
   const lang = getPageLang();
   applySagasTranslations(lang);
   applyThemeAriaFromLang(lang);
+  bindHashScrollCorrection();
 
   const containers = {
     saga: document.getElementById("sagas-list"),
@@ -652,6 +685,7 @@ async function initSagasPage() {
       showCoverStrip: true,
       coverStripStep: 0.6,
     });
+    settleHashScroll();
   } catch (err) {
     console.error("Error cargando sagas:", err);
     const errorHtml = `<p class="error">${t("library_list_error", lang)}</p>`;

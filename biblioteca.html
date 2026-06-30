@@ -21,7 +21,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
 
-  <link rel="stylesheet" href="./assets/style.css?v=4" />
+  <link rel="stylesheet" href="./assets/style.css?v=18" />
   <script src="./assets/template.js" defer></script>
 </head>
 
@@ -77,6 +77,23 @@
         <p class="library-profile">
           <a id="goodreads-profile-link" class="link" href="https://www.goodreads.com/" target="_blank" rel="noopener noreferrer">Mi perfil en Goodreads</a>
         </p>
+
+        <nav class="library-series-jump-nav" id="library-home-jump-nav" aria-label="Ir a sección">
+          <p class="library-series-jump-nav__inner">
+            <a class="link library-series-jump-nav__link" id="library-home-jump-featured" href="#library-featured-review-card">Reseña destacada</a>
+            <span class="library-series-jump-nav__sep" aria-hidden="true"> · </span>
+            <a class="link library-series-jump-nav__link" id="library-home-jump-latest-reviews" href="#library-section-latest-reviews">Últimas reseñas</a>
+            <span class="library-series-jump-nav__sep" aria-hidden="true"> · </span>
+            <a class="link library-series-jump-nav__link" id="library-home-jump-latest-read" href="#library-section-latest-read">Leídos sin reseña</a>
+            <span class="library-series-jump-nav__sep" aria-hidden="true"> · </span>
+            <a class="link library-series-jump-nav__link" id="library-home-jump-top-reviewed" href="#library-section-top-reviewed">Mejores reseñas</a>
+            <span class="library-series-jump-nav__sep" aria-hidden="true"> · </span>
+            <a class="link library-series-jump-nav__link" id="library-home-jump-top50" href="#library-section-top50">Mis preferidos</a>
+            <span class="library-series-jump-nav__sep" aria-hidden="true"> · </span>
+            <a class="link library-series-jump-nav__link" id="library-home-jump-year" href="#library-section-year-chart">Estadísticas</a>
+          </p>
+        </nav>
+
         <p class="library-source" id="library-source-note"></p>
 
         <section class="library-todos-stats-wrap" id="library-stats-root" aria-label="">
@@ -114,7 +131,12 @@
         </section>
 
         <section class="library-lists" aria-label="Listas de lectura y reseñas">
-          <article class="library-list-card">
+          <article class="library-list-card" id="library-featured-review-card" hidden>
+            <h2 id="library-h2-featured-review" class="title-section title-section--small">Última reseña destacada</h2>
+            <div id="library-featured-review" class="library-featured-review-wrap" aria-live="polite"></div>
+          </article>
+
+          <article class="library-list-card" id="library-section-latest-reviews">
             <h2 id="library-h2-latest-reviews" class="title-section title-section--small">Últimas reseñas escritas</h2>
             <div class="library-subscribe-wrap">
               <button type="button" class="link library-all-link" id="review-subscribe-open">Suscribirse a las reseñas</button>
@@ -122,23 +144,23 @@
             <div id="library-latest-reviewed" class="library-book-list" aria-live="polite"></div>
           </article>
 
-          <article class="library-list-card">
+          <article class="library-list-card" id="library-section-latest-read">
             <h2 id="library-h2-latest" class="title-section title-section--small">Últimos libros leídos (sin reseña)</h2>
             <div id="library-latest-read" class="library-book-list" aria-live="polite"></div>
           </article>
 
-          <article class="library-list-card">
+          <article class="library-list-card" id="library-section-top-reviewed">
             <h2 id="library-h2-top" class="title-section title-section--small">Mejores reseñas (de acuerdo a la comunidad de Goodreads)</h2>
             <div id="library-top-reviewed" class="library-book-list" aria-live="polite"></div>
           </article>
 
-          <article class="library-list-card">
+          <article class="library-list-card" id="library-section-top50">
             <h2 id="library-h2-top50" class="title-section title-section--small">Los libros preferidos</h2>
             <div id="library-top50" class="library-book-list" aria-live="polite"></div>
           </article>
         </section>
 
-        <section class="library-chart" aria-label="Libros leídos por año">
+        <section class="library-chart" id="library-section-year-chart" aria-label="Libros leídos por año">
           <h2 id="library-h2-year" class="title-section title-section--small">Estadística de libros leídos por año</h2>
           <div id="library-yearly-chart" class="library-chart__list" aria-live="polite"></div>
         </section>

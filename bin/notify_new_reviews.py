@@ -19,9 +19,30 @@ from review_word_count import extract_review_body_from_html  # noqa: E402
 
 STATE_PATH = REPO / ".secrets" / "last-notified-reviews.json"
 LIBRARY_JSON = REPO / "info" / "library.json"
+BUSCALIBRE_JSON = REPO / "info" / "buscalibre.json"
 SITE_BASE = "https://jorgezuluaga.github.io"
 EXCERPT_MAX_CHARS = 600
 RECENT_FOOTER_LIMIT = 5
+
+
+def load_buscalibre_urls(path: Path = BUSCALIBRE_JSON) -> dict[str, str]:
+    if not path.exists():
+        return {}
+    try:
+        data = json.loads(path.read_text(encoding="utf-8"))
+    except (json.JSONDecodeError, OSError):
+        return {}
+    books = data.get("books")
+    if not isinstance(books, dict):
+        return {}
+    urls: dict[str, str] = {}
+    for book_id, entry in books.items():
+        if not isinstance(entry, dict):
+            continue
+        url = str(entry.get("url") or "").strip()
+        if url:
+            urls[str(book_id).strip()] = url
+    return urls
 
 
 def review_id_from_book(book: dict) -> str:
@@ -115,11 +136,21 @@ def first_paragraph_from_html(html_path: Path, *, max_chars: int = EXCERPT_MAX_C
     return f"{trimmed}…"
 
 
-def book_to_review_payload(book: dict, site_base: str) -> dict:
+def book_to_review_payload(
+    book: dict,
+    site_base: str,
+    *,
+    buscalibre_urls: dict[str, str] | None = None,
+) -> dict:
     review_id = review_id_from_book(book)
     html_path = review_html_path(review_id)
+    book_id = str(book.get("bookId") or "").strip()
+    buscalibre_url = ""
+    if buscalibre_urls and book_id:
+        buscalibre_url = buscalibre_urls.get(book_id, "")
     return {
         "id": review_id,
+        "bookId": book_id,
         "title": str(book.get("title") or "Reseña"),
         "author": str(book.get("author") or ""),
         "url": f"{site_base.rstrip('/')}/reviews/{review_id}.html",
@@ -127,17 +158,27 @@ def book_to_review_payload(book: dict, site_base: str) -> dict:
         "review_date": str(book.get("reviewDate") or ""),
         "cover_url": extract_cover_url(html_path, book, site_base),
         "excerpt": first_paragraph_from_html(html_path),
+        "buscalibre_url": buscalibre_url,
     }
 
 
-def list_recent_published_reviews(library: dict, *, limit: int = 5, site_base: str = SITE_BASE) -> list[dict]:
+def list_recent_published_reviews(
+    library: dict,
+    *,
+    limit: int = 5,
+    site_base: str = SITE_BASE,
+    buscalibre_urls: dict[str, str] | None = None,
+) -> list[dict]:
     books = [
         book
         for book in (library.get("books") or [])
         if isinstance(book, dict) and qualifies_for_latest_reviews(book)
     ]
     books.sort(key=review_sort_key, reverse=True)
-    return [book_to_review_payload(book, site_base) for book in books[:limit]]
+    return [
+        book_to_review_payload(book, site_base, buscalibre_urls=buscalibre_urls)
+        for book in books[:limit]
+    ]
 
 
 def recent_footer_reviews(
@@ -146,6 +187,7 @@ def recent_footer_reviews(
     *,
     limit: int = RECENT_FOOTER_LIMIT,
     site_base: str = SITE_BASE,
+    buscalibre_urls: dict[str, str] | None = None,
 ) -> list[dict]:
     """Las N reseñas más recientes excluyendo las ya resaltadas en el cuerpo del correo."""
     exclude_ids = {
@@ -164,7 +206,7 @@ def recent_footer_reviews(
         review_id = review_id_from_book(book)
         if review_id in exclude_ids:
             continue
-        footer.append(book_to_review_payload(book, site_base))
+        footer.append(book_to_review_payload(book, site_base, buscalibre_urls=buscalibre_urls))
         if len(footer) >= limit:
             break
     return footer
@@ -221,7 +263,13 @@ def find_book_by_review_id(library: dict, review_id: str) -> dict | None:
     return None
 
 
-def reviews_from_ids(library: dict, review_ids: list[str], *, site_base: str = SITE_BASE) -> list[dict]:
+def reviews_from_ids(
+    library: dict,
+    review_ids: list[str],
+    *,
+    site_base: str = SITE_BASE,
+    buscalibre_urls: dict[str, str] | None = None,
+) -> list[dict]:
     reviews: list[dict] = []
     for review_id in review_ids:
         book = find_book_by_review_id(library, review_id)
@@ -230,7 +278,7 @@ def reviews_from_ids(library: dict, review_ids: list[str], *, site_base: str = S
         if not qualifies_for_latest_reviews(book):
             print(f"  Aviso: {review_id} no califica como reseña publicada; se omite.", file=sys.stderr)
             continue
-        reviews.append(book_to_review_payload(book, site_base))
+        reviews.append(book_to_review_payload(book, site_base, buscalibre_urls=buscalibre_urls))
     return reviews
 
 
@@ -288,6 +336,7 @@ def main() -> int:
     )
     parser.add_argument("--test-to", default="", help="En prueba, enviar solo a este correo.")
     parser.add_argument("--library-json", default=str(LIBRARY_JSON))
+    parser.add_argument("--buscalibre-json", default=str(BUSCALIBRE_JSON))
     args = parser.parse_args()
 
     subs_resp = list_subscribers()
@@ -305,21 +354,27 @@ def main() -> int:
     with Path(args.library_json).open("r", encoding="utf-8") as f:
         library = json.load(f)
 
-    if not list_recent_published_reviews(library, limit=1):
+    buscalibre_urls = load_buscalibre_urls(Path(args.buscalibre_json))
+
+    if not list_recent_published_reviews(library, limit=1, buscalibre_urls=buscalibre_urls):
         print("No hay reseñas publicadas en la biblioteca.", file=sys.stderr)
         return 1
 
     if args.test_send:
         if args.test_review_ids.strip():
             review_ids = [part.strip() for part in args.test_review_ids.split(",") if part.strip()]
-            featured_reviews = reviews_from_ids(library, review_ids)
+            featured_reviews = reviews_from_ids(
+                library, review_ids, buscalibre_urls=buscalibre_urls
+            )
             if not featured_reviews:
                 print("No se encontraron reseñas válidas para los IDs indicados.", file=sys.stderr)
                 return 1
         else:
-            featured_reviews = list_recent_published_reviews(library, limit=1)
+            featured_reviews = list_recent_published_reviews(
+                library, limit=1, buscalibre_urls=buscalibre_urls
+            )
         featured = featured_reviews[0]
-        recent = recent_footer_reviews(library, featured_reviews)
+        recent = recent_footer_reviews(library, featured_reviews, buscalibre_urls=buscalibre_urls)
         sent = send_notification(
             featured=featured,
             featured_reviews=featured_reviews if len(featured_reviews) > 1 else None,
@@ -344,8 +399,11 @@ def main() -> int:
         print("Sin reseñas nuevas para notificar.")
         return 0
 
-    featured = book_to_review_payload(new_books[0], SITE_BASE)
-    new_reviews = [book_to_review_payload(book, SITE_BASE) for book in new_books]
+    featured = book_to_review_payload(new_books[0], SITE_BASE, buscalibre_urls=buscalibre_urls)
+    new_reviews = [
+        book_to_review_payload(book, SITE_BASE, buscalibre_urls=buscalibre_urls)
+        for book in new_books
+    ]
     featured_reviews = new_reviews if len(new_reviews) > 1 else None
 
     print(f"Reseñas nuevas ({len(new_reviews)}):")
@@ -359,7 +417,7 @@ def main() -> int:
     if args.dry_run:
         return 0
 
-    recent = recent_footer_reviews(library, new_reviews)
+    recent = recent_footer_reviews(library, new_reviews, buscalibre_urls=buscalibre_urls)
     sent = send_notification(
         featured=featured,
         featured_reviews=featured_reviews,
