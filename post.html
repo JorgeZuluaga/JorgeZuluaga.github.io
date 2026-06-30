@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="color-scheme" content="light" />
+  <title>Post Instagram — Reseña</title>
+  <link rel="icon" type="image/png" sizes="48x48" href="./assets/favicon.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --post-black: #181818;
+      --post-white: #ffffff;
+      --post-line: rgba(24, 24, 24, 0.12);
+      --post-accent: #0e55af;
+      --post-gold: #d4a017;
+      --post-muted: rgba(24, 24, 24, 0.78);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: "Poppins", sans-serif;
+      background: #e8ecf2;
+      color: var(--post-black);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      padding: 1.5rem 1.5rem 2rem;
+    }
+
+    .post-shell {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.85rem;
+    }
+
+    .post-hint {
+      font-size: 0.9rem;
+      color: rgba(24, 24, 24, 0.65);
+      text-align: center;
+      max-width: 1080px;
+    }
+
+    .post-canvas {
+      width: 1080px;
+      height: 1035px;
+      background: var(--post-white);
+      border: 1px solid var(--post-line);
+      border-radius: 4px;
+      box-shadow: 0 18px 50px rgba(24, 24, 24, 0.12);
+      overflow: hidden;
+      position: relative;
+      flex-shrink: 0;
+    }
+
+    .post-inner {
+      width: 100%;
+      height: 100%;
+      padding: 40px 56px 48px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .post-topbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      margin-bottom: 1.35rem;
+      padding-bottom: 1rem;
+      border-bottom: 1px solid var(--post-line);
+    }
+
+    .post-topbar__mark {
+      display: flex;
+      align-items: center;
+      gap: 0.7rem;
+      min-width: 0;
+    }
+
+    .post-topbar__logo {
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      display: block;
+      flex-shrink: 0;
+    }
+
+    .post-topbar__name {
+      font-size: 1.45rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      color: var(--post-accent);
+    }
+
+    .post-topbar__handles {
+      font-size: 1rem;
+      font-weight: 500;
+      color: var(--post-muted);
+      text-align: right;
+      line-height: 1.35;
+    }
+
+    .post-header {
+      display: grid;
+      grid-template-columns: 340px 1fr;
+      gap: 36px;
+      align-items: start;
+      flex: 1;
+      min-height: 0;
+    }
+
+    .post-cover {
+      width: 340px;
+      border-radius: 10px;
+      border: 1px solid var(--post-line);
+      display: block;
+      box-shadow: 0 8px 24px rgba(24, 24, 24, 0.08);
+    }
+
+    .post-header__text {
+      min-width: 0;
+      display: flex;
+      flex-direction: column;
+      min-height: 100%;
+    }
+
+    .post-hashtag {
+      display: inline-block;
+      margin: 0 0 0.55rem;
+      padding: 0.22rem 0.7rem;
+      border-radius: 999px;
+      background: rgba(14, 85, 175, 0.1);
+      color: var(--post-accent);
+      font-size: 0.98rem;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      line-height: 1.2;
+    }
+
+    .post-title {
+      font-size: 2rem;
+      font-weight: 700;
+      line-height: 1.28;
+      letter-spacing: -0.01em;
+      margin: 0;
+    }
+
+    .post-meta {
+      margin-top: 0.65rem;
+      font-size: 1.05rem;
+      color: var(--post-muted);
+    }
+
+    .post-stars {
+      color: var(--post-gold);
+      letter-spacing: 0.05em;
+      font-size: 1.05rem;
+    }
+
+    .post-byline {
+      margin-top: 0.55rem;
+      font-size: 1rem;
+      font-style: italic;
+      color: var(--post-muted);
+    }
+
+    .post-excerpt {
+      margin-top: 0.85rem;
+      flex: 1;
+      min-height: 0;
+    }
+
+    .post-excerpt p {
+      font-size: 1.22rem;
+      line-height: 1.55;
+      margin: 0;
+      color: var(--post-black);
+    }
+
+    .post-footer {
+      margin-top: auto;
+      padding-top: 1.25rem;
+      border-top: 1px solid var(--post-line);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+      align-items: end;
+    }
+
+    .post-qr-block {
+      display: flex;
+      align-items: center;
+      gap: 0.85rem;
+    }
+
+    .post-qr-block img {
+      width: 108px;
+      height: 108px;
+      border-radius: 8px;
+      border: 1px solid var(--post-line);
+      background: #fff;
+      flex-shrink: 0;
+    }
+
+    .post-qr-label {
+      font-size: 0.92rem;
+      line-height: 1.35;
+      color: var(--post-muted);
+    }
+
+    .post-qr-label strong {
+      display: block;
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--post-black);
+      margin-bottom: 0.15rem;
+    }
+
+    .post-status {
+      width: 1080px;
+      height: 1035px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 2rem;
+      font-size: 1.1rem;
+      line-height: 1.5;
+      color: var(--post-muted);
+    }
+
+    .post-status code {
+      font-size: 0.95rem;
+      background: rgba(14, 85, 175, 0.08);
+      padding: 0.15rem 0.4rem;
+      border-radius: 4px;
+    }
+
+    @media (max-width: 1120px) {
+      body {
+        padding: 1rem 0.5rem 2rem;
+      }
+
+      .post-canvas,
+      .post-status {
+        transform: scale(calc((100vw - 1rem) / 1080));
+        transform-origin: top center;
+      }
+
+      .post-shell {
+        min-height: calc(1035px * ((100vw - 1rem) / 1080) + 2rem);
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="post-shell">
+    <div id="post-root" class="post-canvas post-status" role="status" aria-live="polite">
+      Cargando reseña…
+    </div>
+    <p class="post-hint" id="post-hint">
+      Post 1080×1035 px — captura la tarjeta blanca para Instagram.
+      Ejemplo: <code>post.html?bookid=8628849214</code>
+    </p>
+  </div>
+  <script type="module" src="./assets/post-page.js"></script>
+</body>
+</html>

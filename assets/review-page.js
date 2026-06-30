@@ -164,6 +164,22 @@ function showToast(message) {
   }, 1400);
 }
 
+function updateDrzRatingInPage(drzrating) {
+  const row = document.querySelector(".rating-row");
+  if (!row) return;
+  let drzNode = null;
+  for (const span of row.querySelectorAll("span.library-tooltip")) {
+    if (span.classList.contains("rating") || span.classList.contains("likes")) continue;
+    drzNode = span;
+    break;
+  }
+  if (!drzNode) return;
+  const drz = Number(drzrating);
+  const text =
+    drzrating === -1 || !Number.isFinite(drz) || drz <= 0 ? "(pendiente)" : String(Math.round(drz));
+  drzNode.textContent = `🤓 ${text}`;
+}
+
 function updateLikesInPage(likesValue) {
   const likesNode = document.querySelector(".likes");
   if (!likesNode) return;
@@ -205,6 +221,9 @@ async function hydrateReviewLikesFromLibrary() {
     const match = books.find((book) => parseReviewIdFromUrl(book?.reviewUrl) === reviewId);
     if (!match) return { localLikes: null };
     updateLikesInPage(match.reviewLikes);
+    if (match.drzrating !== undefined && match.drzrating !== null) {
+      updateDrzRatingInPage(match.drzrating);
+    }
     const localLikes = Number(match.reviewLocalLikes);
     if (Number.isFinite(localLikes)) {
       const safe = Math.max(0, localLikes);

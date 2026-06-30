@@ -28,7 +28,19 @@
       "drzratingAuto": true,
       "reviewLocalLikes": 0,
       "reviewLocalLikesUpdatedAt": "2026-06-30T14:39:26.165934+00:00",
-      "isbn": "9788449336539"
+      "isbn": "9788449336539",
+      "dcc_classes": {
+        "100": "Filosofia y psicologia (100)",
+        "300": "Ciencias sociales (300)"
+      },
+      "dcc_codes": {
+        "150": "Psicología",
+        "301": "Sociología y antropología"
+      },
+      "dcc_notes": {
+        "reasoning": "La autora trata el comportamiento humano en sociedad analizando perfiles y rasgos narcisistas desde un enfoque analítico[cite: 1].",
+        "confidence": 0.9
+      }
     },
     {
       "bookId": "35658293",
@@ -40,7 +52,7 @@
       "hasReview": true,
       "reviewLikes": 0,
       "scrapeStatus": "ok",
-      "drzrating": 100,
+      "drzrating": 97,
       "bookDetails": 0,
       "matched": false,
       "reviewLocalUrl": "./reviews/8709769014.html",
@@ -51,7 +63,17 @@
       "reviewCount": 1817,
       "reviewLocalLikes": 3,
       "reviewLocalLikesUpdatedAt": "2026-06-30T14:39:26.165934+00:00",
-      "isbn": "9788466660884"
+      "isbn": "9788466660884",
+      "dcc_classes": {
+        "800": "Literatura y retorica (800)"
+      },
+      "dcc_codes": {
+        "813": "Ficción americana en inglés."
+      },
+      "dcc_notes": {
+        "reasoning": "Segunda entrega de la serie de ciencia ficción de James S.A. Corey[cite: 1].",
+        "confidence": 0.98
+      }
     },
     {
       "bookId": "30320792",
@@ -63,7 +85,7 @@
       "hasReview": true,
       "reviewLikes": 4,
       "scrapeStatus": "ok",
-      "drzrating": 100,
+      "drzrating": 86,
       "bookDetails": 0,
       "matched": false,
       "reviewLocalUrl": "./reviews/8708090412.html",
@@ -74,7 +96,18 @@
       "reviewCount": 674,
       "reviewLocalLikes": 1,
       "reviewLocalLikesUpdatedAt": "2026-06-30T14:39:26.165934+00:00",
-      "isbn": "9788491042112"
+      "isbn": "9788491042112",
+      "dcc_classes": {
+        "900": "Historia y geografia (900)"
+      },
+      "dcc_codes": {
+        "930": "Historia del mundo antiguo (hasta c. 499)",
+        "937": "Italia y territorios adyacentes a 476"
+      },
+      "dcc_notes": {
+        "reasoning": "Libro de Mary Beard sobre la historia general de las civilizaciones clásicas de Grecia y Roma[cite: 1].",
+        "confidence": 0.95
+      }
     },
     {
       "bookId": "242901061",
@@ -86,7 +119,7 @@
       "hasReview": true,
       "reviewLikes": 1,
       "scrapeStatus": "ok",
-      "drzrating": 80,
+      "drzrating": 64,
       "bookDetails": 1,
       "matched": true,
       "reviewLocalUrl": "./reviews/8705724576.html",
@@ -98,7 +131,20 @@
       "reviewLocalLikes": 0,
       "reviewLocalLikesUpdatedAt": "2026-06-30T14:39:26.165934+00:00",
       "isbn": "9788410214927",
-      "dateAdded": "2026-06-14"
+      "dateAdded": "2026-06-14",
+      "dcc_classes": {
+        "300": "Ciencias sociales (300)",
+        "600": "Tecnologia y ciencias aplicadas (600)"
+      },
+      "dcc_codes": {
+        "330": "Economía",
+        "338": "Producción",
+        "630": "Agricultura"
+      },
+      "dcc_notes": {
+        "reasoning": "Analiza cómo el mundo produce y consume alimentos, abordando la teoría del desarrollo y las estadísticas de nuestra alimentación desde un punto de vista socioeconómico[cite: 1].",
+        "confidence": 0.9
+      }
     },
     {
       "bookId": "40542612",
@@ -110,7 +156,7 @@
       "hasReview": true,
       "reviewLikes": 0,
       "scrapeStatus": "ok",
-      "drzrating": 90,
+      "drzrating": 85,
       "bookDetails": 0,
       "matched": false,
       "reviewLocalUrl": "./reviews/8681953506.html",
@@ -121,8 +167,19 @@
       "reviewCount": 2278,
       "reviewLocalLikes": 5,
       "reviewLocalLikesUpdatedAt": "2026-06-30T14:39:26.165934+00:00",
-      "drzratingAuto": true,
-      "isbn": "9788430619658"
+      "isbn": "9788430619658",
+      "dcc_classes": {
+        "000": "Generalidades (000)",
+        "300": "Ciencias sociales (300)"
+      },
+      "dcc_codes": {
+        "0": "Generalidades",
+        "303": "Procesos sociales"
+      },
+      "dcc_notes": {
+        "reasoning": "Otra edición de la obra de Max Tegmark enfocada en el impacto sociológico y técnico del futuro de la IA[cite: 1].",
+        "confidence": 0.95
+      }
     },
     {
       "bookId": "249891440",
@@ -134,7 +191,7 @@
       "hasReview": true,
       "reviewLikes": 4,
       "scrapeStatus": "ok",
-      "drzrating": 100,
+      "drzrating": 95,
       "bookDetails": 0,
       "matched": false,
       "reviewLocalUrl": "./reviews/8628849214.html",
@@ -145,7 +202,20 @@
       "reviewCount": 471,
       "reviewLocalLikes": 1,
       "reviewLocalLikesUpdatedAt": "2026-06-30T14:39:26.165934+00:00",
-      "isbn": "9788446057390"
+      "isbn": "9788446057390",
+      "dcc_classes": {
+        "500": "Ciencias Puras (500)",
+        "700": "Artes y recreacion (700)"
+      },
+      "dcc_codes": {
+        "520": "Astronomia y ciencias afines",
+        "700": "Artes y recreacion",
+        "750": "Pintura"
+      },
+      "dcc_notes": {
+        "reasoning": "El título indica un cruce entre arte y astronomía, pero el enfoque principal es la representación del cosmos en la disciplina artística[cite: 1].",
+        "confidence": 0.85
+      }
     },
     {
       "bookId": "25857483",
@@ -157,7 +227,7 @@
       "hasReview": true,
       "reviewLikes": 0,
       "scrapeStatus": "ok",
-      "drzrating": 75,
+      "drzrating": 60,
       "bookDetails": 0,
       "matched": false,
       "reviewLocalUrl": "./reviews/8662109207.html",
@@ -168,7 +238,18 @@
       "reviewCount": 402,
       "reviewLocalLikes": 0,
       "reviewLocalLikesUpdatedAt": "2026-06-30T14:39:26.165934+00:00",
-      "isbn": "9788439725473"
+      "isbn": "9788439725473",
+      "dcc_classes": {
+        "800": "Literatura y retorica (800)"
+      },
+      "dcc_codes": {
+        "800": "Literatura y retorica",
+        "890": "Otras literaturas"
+      },
+      "dcc_notes": {
+        "reasoning": "Es una novela de Orhan Pamuk, autor turco[cite: 1]. Pertenece a la literatura de otras lenguas (turco) que no son inglesas ni latinas[cite: 1].",
+        "confidence": 0.9
+      }
     },
     {
       "bookId": "6286160",
@@ -180,7 +261,7 @@
       "hasReview": true,
       "reviewLikes": 1,
       "scrapeStatus": "ok",
-      "drzrating": 95,
+      "drzrating": 82,
       "bookDetails": 1,
       "matched": true,
       "reviewLocalUrl": "./reviews/2806126222.html",
@@ -216,7 +297,20 @@
       "reviewLocalLikes": 0,
       "reviewLocalLikesUpdatedAt": "2026-06-30T14:39:26.165934+00:00",
       "drzratingAuto": true,
-      "isbn": "9788423368730"
+      "isbn": "9788423368730",
+      "dcc_classes": {
+        "100": "Filosofia y psicologia (100)",
+        "600": "Tecnologia y ciencias aplicadas (600)"
+      },
+      "dcc_codes": {
+        "120": "Epistemología",
+        "150": "Psicología",
+        "610": "Medicina y salud"
+      },
+      "dcc_notes": {
+        "reasoning": "Libro de António Damásio que analiza los procesos mentales, la inteligencia y la consciencia humana desde una perspectiva cognitiva[cite: 1].",
+        "confidence": 0.9
+      }
     },
     {
       "bookId": "122763633",
@@ -228,7 +322,7 @@
       "hasReview": true,
       "reviewLikes": 5,
       "scrapeStatus": "ok",
-      "drzrating": 100,
+      "drzrating": 99,
       "bookDetails": 1,
       "matched": true,
       "reviewLocalUrl": "./reviews/8640936306.html",
@@ -240,7 +334,18 @@
       "dateAdded": "2026-05-28",
       "reviewLocalLikes": 0,
       "reviewLocalLikesUpdatedAt": "2026-06-30T14:39:26.165934+00:00",
-      "isbn": "9788419089410"
+      "isbn": "9788419089410",
+      "dcc_classes": {
+        "800": "Literatura y retorica (800)"
+      },
+      "dcc_codes": {
+        "813": "Ficción americana en inglés.",
+        "820": "Literatura inglesa e inglesa antigua"
+      },
+      "dcc_notes": {
+        "reasoning": "Es una novela de ficción histórica escrita por Maggie O'Farrell, centrada en Florencia en el siglo XVI[cite: 1].",
+        "confidence": 0.9
+      }
     },
     {
       "bookId": "250492693",
@@ -264,7 +369,20 @@
       "reviewLocalLikes": 0,
       "reviewLocalLikesUpdatedAt": "2026-06-30T14:39:26.165934+00:00",
       "drzratingAuto": true,
-      "isbn": "9782384334810"
+      "isbn": "9782384334810",
+      "dcc_classes": {
+        "100": "Filosofia y psicologia (100)",
+        "200": "Religion (200)"
+      },
+      "dcc_codes": {
+        "170": "Ética",
+        "260": "Teología social y eclesiástica",
+        "282": "Iglesia Católica Romana"
+      },
+      "dcc_notes": {
+        "reasoning": "Se trata de una encíclica papal (religión cristiana) enfocada en la postura ética y social de la Iglesia frente a la inteligencia artificial y protección humana[cite: 1].",
+        "confidence": 0.9
+      }
     },
     {
       "bookId": "32023743",
@@ -276,7 +394,7 @@
       "hasReview": true,
       "reviewLikes": 3,
       "scrapeStatus": "ok",
-      "drzrating": 100,
+      "drzrating": 97,
       "bookDetails": 0,
       "matched": false,
       "reviewLocalUrl": "./reviews/8611043258.html",
@@ -287,7 +405,17 @@
       "reviewCount": 1817,
       "reviewLocalLikes": 0,
       "reviewLocalLikesUpdatedAt": "2026-06-30T14:39:26.165934+00:00",
-      "isbn": "9788466660150"
+      "isbn": "9788466660150",
+      "dcc_classes": {
+        "800": "Literatura y retorica (800)"
+      },
+      "dcc_codes": {
+        "813": "Ficción americana en inglés."
+      },
+      "dcc_notes": {
+        "reasoning": "Es una novela de ciencia ficción escrita por el autor estadounidense James S.A. Corey[cite: 1].",
+        "confidence": 0.98
+      }
     },
     {
       "bookId": "59221394",
@@ -349,7 +477,7 @@
       "hasReview": true,
       "reviewLikes": 0,
       "scrapeStatus": "ok",
-      "drzrating": 96,
+      "drzrating": 98,
       "bookDetails": 1,
       "matched": true,
       "reviewLocalUrl": "./reviews/8604906707.html",
@@ -361,7 +489,17 @@
       "reviewLocalLikes": 0,
       "reviewLocalLikesUpdatedAt": "2026-06-30T14:39:26.165934+00:00",
       "isbn": "9788466679602",
-      "dateAdded": "2026-05-11"
+      "dateAdded": "2026-05-11",
+      "dcc_classes": {
+        "700": "Artes y recreacion (700)"
+      },
+      "dcc_codes": {
+        "780": "Música"
+      },
+      "dcc_notes": {
+        "reasoning": "Analiza la historia y la teoría de las formas musicales desde los autores clásicos hasta los ritmos contemporáneos[cite: 1].",
+        "confidence": 0.98
+      }
     },
     {
       "bookId": "14735289",
@@ -373,7 +511,7 @@
       "hasReview": true,
       "reviewLikes": 0,
       "scrapeStatus": "ok",
-      "drzrating": 80,
+      "drzrating": 75,
       "bookDetails": 1,
       "matched": true,
       "reviewLocalUrl": "./reviews/8581336028.html",
@@ -397,7 +535,7 @@
       "hasReview": true,
       "reviewLikes": 3,
       "scrapeStatus": "ok",
-      "drzrating": 85,
+      "drzrating": 84,
       "bookDetails": 1,
       "matched": true,
       "dateAdded": "2026-05-03",
@@ -545,7 +683,19 @@
       "dateAdded": "2026-05-10",
       "reviewLocalLikes": 2,
       "reviewLocalLikesUpdatedAt": "2026-06-30T14:39:26.165934+00:00",
-      "isbn": "9786287794948"
+      "isbn": "9786287794948",
+      "dcc_classes": {
+        "300": "Ciencias sociales (300)",
+        "900": "Historia y geografia (900)"
+      },
+      "dcc_codes": {
+        "320": "Ciencias políticas",
+        "920": "Biografía y genealogía"
+      },
+      "dcc_notes": {
+        "reasoning": "El título y autor indican que es un relato biográfico sobre la vida del político y activista colombiano Iván Cepeda[cite: 1].",
+        "confidence": 0.95
+      }
     },
     {
       "bookId": "5996229",

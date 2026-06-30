@@ -14,6 +14,7 @@ const LOCAL_LIKES_CACHE_PREFIX = "review_local_likes_count_";
 const REVIEW_LIKE_CLICKED_PREFIX = "review_like_clicked_";
 const LIBRARY_LIST_EXPANDED_COUNT = 50;
 const FEATURED_REVIEW_CANDIDATE_LIMIT = 10;
+const FEATURED_REVIEW_MIN_GOODREADS_LIKES = 1;
 const FEATURED_REVIEW_MIN_WORDS = 250;
 const FEATURED_REVIEW_EXCERPT_MAX = 600;
 
@@ -261,25 +262,46 @@ function reviewActionLabel(item, lang) {
   return t("library_view_review", lang);
 }
 
-function featuredReviewScore(item) {
-  const rating = Number.isFinite(Number(item?.rating)) ? Number(item.rating) : 0;
-  const drzRaw = item?.drzrating;
-  const drz =
-    drzRaw !== undefined && drzRaw !== -1 && Number.isFinite(Number(drzRaw)) ? Number(drzRaw) : 0;
-  const grLikes = Number.isFinite(Number(item?.reviewLikes)) ? Number(item.reviewLikes) : 0;
-  const localLikes = Number.isFinite(Number(item?.reviewLocalLikes)) ? Number(item.reviewLocalLikes) : 0;
-  const reviewDate = item?._reviewDate?.getTime?.() ?? 0;
-  const reviewId = Number(parseReviewIdFromUrl(item?.reviewUrl)) || 0;
-  return [rating, drz, grLikes + localLikes, reviewDate, reviewId];
+function goodreadsLikes(item) {
+  return Number.isFinite(Number(item?.reviewLikes)) ? Number(item.reviewLikes) : 0;
 }
 
-function compareFeaturedReviewScore(a, b) {
-  const scoreA = featuredReviewScore(a);
-  const scoreB = featuredReviewScore(b);
-  for (let i = 0; i < scoreA.length; i += 1) {
-    if (scoreB[i] !== scoreA[i]) return scoreB[i] - scoreA[i];
-  }
-  return 0;
+function localReactionLikes(item) {
+  return Number.isFinite(Number(item?.reviewLocalLikes)) ? Number(item.reviewLocalLikes) : 0;
+}
+
+function reactionSum(item) {
+  return goodreadsLikes(item) + localReactionLikes(item);
+}
+
+function featuredDrzScore(item) {
+  const drzRaw = item?.drzrating;
+  if (drzRaw === undefined || drzRaw === -1 || !Number.isFinite(Number(drzRaw))) return 0;
+  const drz = Number(drzRaw);
+  return drz > 0 ? drz : 0;
+}
+
+function featuredClassifierScore(item, maxReactionSum) {
+  if (!maxReactionSum || maxReactionSum <= 0) return 0;
+  return (reactionSum(item) / maxReactionSum) * 100;
+}
+
+function featuredCombinedScore(item, maxReactionSum) {
+  const classifier = featuredClassifierScore(item, maxReactionSum);
+  const drz = featuredDrzScore(item);
+  return (classifier + drz) / 2;
+}
+
+function featuredReviewWordCount(item) {
+  const wordCount = Number(item?.reviewCount);
+  return Number.isFinite(wordCount) ? wordCount : 0;
+}
+
+function isFeaturedReviewEligible(item) {
+  return (
+    goodreadsLikes(item) >= FEATURED_REVIEW_MIN_GOODREADS_LIKES &&
+    featuredReviewWordCount(item) > FEATURED_REVIEW_MIN_WORDS
+  );
 }
 
 function pickFeaturedReview(reviewedBooks) {
@@ -287,12 +309,23 @@ function pickFeaturedReview(reviewedBooks) {
     .filter((item) => item._reviewDate && parseReviewIdFromUrl(item.reviewUrl))
     .sort((a, b) => (b._reviewDate?.getTime() ?? 0) - (a._reviewDate?.getTime() ?? 0))
     .slice(0, FEATURED_REVIEW_CANDIDATE_LIMIT);
-  const eligible = recent.filter((item) => {
-    const wordCount = Number(item.reviewCount);
-    return Number.isFinite(wordCount) && wordCount > FEATURED_REVIEW_MIN_WORDS;
-  });
+  const eligible = recent.filter(isFeaturedReviewEligible);
   if (!eligible.length) return null;
-  eligible.sort(compareFeaturedReviewScore);
+
+  const maxReactionSum = Math.max(...eligible.map((item) => reactionSum(item)));
+  if (maxReactionSum <= 0) return null;
+
+  eligible.sort((a, b) => {
+    const scoreA = featuredCombinedScore(a, maxReactionSum);
+    const scoreB = featuredCombinedScore(b, maxReactionSum);
+    if (scoreB !== scoreA) return scoreB - scoreA;
+    const dateA = a._reviewDate?.getTime() ?? 0;
+    const dateB = b._reviewDate?.getTime() ?? 0;
+    if (dateB !== dateA) return dateB - dateA;
+    const idA = Number(parseReviewIdFromUrl(a.reviewUrl)) || 0;
+    const idB = Number(parseReviewIdFromUrl(b.reviewUrl)) || 0;
+    return idB - idA;
+  });
   return eligible[0];
 }
 
