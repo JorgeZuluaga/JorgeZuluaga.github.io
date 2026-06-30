@@ -64,6 +64,8 @@ function uiText() {
       subscribeAria: "Subscribe to new review email alerts",
       buscalibreLabel: "Get it on",
       buscalibreBuy: "Get it on Buscalibre",
+      instagramPost: "Create an Instagram post",
+      instagramPostAria: "Open Instagram post generator for this review",
       localLikesAria: "Local likes:",
       localLikesSuffix: "(local likes)",
     };
@@ -79,6 +81,8 @@ function uiText() {
     subscribeAria: "Suscribirse a nuevas reseñas por correo",
     buscalibreLabel: "Consíguelo en",
     buscalibreBuy: "Consíguelo en Buscalibre",
+    instagramPost: "Crea un post para instagram",
+    instagramPostAria: "Abrir generador de post de Instagram para esta reseña",
     localLikesAria: "Me gusta locales:",
     localLikesSuffix: "(me gusta locales)",
   };
@@ -421,6 +425,36 @@ function appendSubscribeCta(wrap) {
   wrap.appendChild(subscribeBtn);
 }
 
+function instagramPostHref(reviewId) {
+  const params = new URLSearchParams();
+  params.set("bookid", String(reviewId || "").trim());
+  if (isEnglishPage()) params.set("lang", "en");
+  return `../post.html?${params.toString()}`;
+}
+
+function wireInstagramPostLink() {
+  const reviewId = getCurrentReviewId();
+  if (!reviewId) return;
+
+  const text = uiText();
+  let link = document.querySelector('[data-instagram-post-link="1"]');
+  if (!link) {
+    const host = document.getElementById("review-like-actions");
+    if (!host) return;
+    const paragraph = document.createElement("p");
+    paragraph.className = "review-instagram-post-link";
+    link = document.createElement("a");
+    link.className = "link";
+    link.setAttribute("data-instagram-post-link", "1");
+    paragraph.appendChild(link);
+    host.insertAdjacentElement("afterend", paragraph);
+  }
+
+  link.href = instagramPostHref(reviewId);
+  link.textContent = text.instagramPost;
+  link.setAttribute("aria-label", text.instagramPostAria);
+}
+
 function createReviewActionsWrap() {
   const host = document.getElementById("review-like-actions") || document.querySelector("article.card");
   if (!host) return null;
@@ -526,6 +560,7 @@ async function wireReviewLikeButton() {
   const base = workerBaseFromLogEndpoint();
   if (!base) {
     ensureSubscribeCta();
+    wireInstagramPostLink();
     return;
   }
 
@@ -570,10 +605,12 @@ async function wireReviewLikeButton() {
     }
   });
   ensureSubscribeCta();
+  wireInstagramPostLink();
 }
 
 trackReviewVisit();
 wireReviewLikeButton();
+wireInstagramPostLink();
 // Wire the share icon near the author line (if present).
 (() => {
   const shareUrl = shareUrlFromMeta();

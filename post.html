@@ -51,9 +51,67 @@
       max-width: 1080px;
     }
 
+    .post-caption-panel {
+      width: 1080px;
+      margin-top: 0.35rem;
+      background: var(--post-white);
+      border: 1px solid var(--post-line);
+      border-radius: 8px;
+      box-shadow: 0 10px 28px rgba(24, 24, 24, 0.08);
+      overflow: hidden;
+      flex-shrink: 0;
+    }
+
+    .post-caption-panel__head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      padding: 0.85rem 1.1rem;
+      border-bottom: 1px solid var(--post-line);
+      background: rgba(14, 85, 175, 0.05);
+    }
+
+    .post-caption-panel__title {
+      margin: 0;
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--post-black);
+    }
+
+    .post-caption-panel__copy {
+      border: 1px solid var(--post-line);
+      background: #fff;
+      color: var(--post-accent);
+      border-radius: 999px;
+      padding: 0.4rem 0.9rem;
+      font-family: inherit;
+      font-size: 0.88rem;
+      font-weight: 600;
+      cursor: pointer;
+    }
+
+    .post-caption-panel__copy:hover {
+      background: rgba(14, 85, 175, 0.06);
+    }
+
+    .post-caption-panel__text {
+      margin: 0;
+      padding: 1.1rem 1.15rem 1.2rem;
+      font-family: inherit;
+      font-size: 0.95rem;
+      line-height: 1.55;
+      white-space: pre-wrap;
+      word-break: break-word;
+      color: var(--post-black);
+      max-height: 520px;
+      overflow: auto;
+    }
+
     .post-canvas {
       width: 1080px;
-      height: 1035px;
+      height: auto;
+      max-height: 1350px;
       background: var(--post-white);
       border: 1px solid var(--post-line);
       border-radius: 4px;
@@ -61,54 +119,70 @@
       overflow: hidden;
       position: relative;
       flex-shrink: 0;
+      isolation: isolate;
+    }
+
+    .post-canvas::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: url("./assets/fondo-posts.webp") center / cover no-repeat;
+      opacity: 0.3;
+      pointer-events: none;
+      z-index: 0;
     }
 
     .post-inner {
       width: 100%;
-      height: 100%;
+      min-height: 0;
       padding: 40px 56px 48px;
       display: flex;
       flex-direction: column;
+      position: relative;
+      z-index: 1;
     }
 
     .post-topbar {
       display: flex;
+      flex-direction: column;
       align-items: center;
-      justify-content: space-between;
-      gap: 1rem;
+      justify-content: center;
+      gap: 0.45rem;
       margin-bottom: 1.35rem;
       padding-bottom: 1rem;
       border-bottom: 1px solid var(--post-line);
+      text-align: center;
     }
 
     .post-topbar__mark {
       display: flex;
       align-items: center;
+      justify-content: center;
       gap: 0.7rem;
-      min-width: 0;
     }
 
     .post-topbar__logo {
-      width: 52px;
-      height: 52px;
-      border-radius: 50%;
+      width: 88px;
+      height: 88px;
       display: block;
       flex-shrink: 0;
+      object-fit: contain;
     }
 
     .post-topbar__name {
-      font-size: 1.45rem;
+      font-size: 1.55rem;
       font-weight: 700;
       letter-spacing: -0.02em;
-      color: var(--post-accent);
+      color: var(--post-black);
     }
 
     .post-topbar__handles {
       font-size: 1rem;
       font-weight: 500;
       color: var(--post-muted);
-      text-align: right;
+      text-align: center;
       line-height: 1.35;
+      margin: 0;
     }
 
     .post-header {
@@ -116,8 +190,6 @@
       grid-template-columns: 340px 1fr;
       gap: 36px;
       align-items: start;
-      flex: 1;
-      min-height: 0;
     }
 
     .post-cover {
@@ -137,15 +209,15 @@
 
     .post-hashtag {
       display: inline-block;
-      margin: 0 0 0.55rem;
-      padding: 0.22rem 0.7rem;
+      margin: 0 0 0.6rem;
+      padding: 0.32rem 0.95rem;
       border-radius: 999px;
       background: rgba(14, 85, 175, 0.1);
       color: var(--post-accent);
-      font-size: 0.98rem;
+      font-size: 1.32rem;
       font-weight: 600;
       letter-spacing: 0.04em;
-      line-height: 1.2;
+      line-height: 1.25;
     }
 
     .post-title {
@@ -177,8 +249,6 @@
 
     .post-excerpt {
       margin-top: 0.85rem;
-      flex: 1;
-      min-height: 0;
     }
 
     .post-excerpt p {
@@ -189,7 +259,7 @@
     }
 
     .post-footer {
-      margin-top: auto;
+      margin-top: 1.5rem;
       padding-top: 1.25rem;
       border-top: 1px solid var(--post-line);
       display: grid;
@@ -219,6 +289,21 @@
       color: var(--post-muted);
     }
 
+    .post-qr-sublabel {
+      display: block;
+      margin-top: 0.1rem;
+    }
+
+    .post-qr-link {
+      display: block;
+      margin-top: 0.35rem;
+      font-size: 0.82rem;
+      font-weight: 500;
+      color: var(--post-accent);
+      word-break: break-all;
+      line-height: 1.3;
+    }
+
     .post-qr-label strong {
       display: block;
       font-size: 1rem;
@@ -229,7 +314,9 @@
 
     .post-status {
       width: 1080px;
-      height: 1035px;
+      min-height: 320px;
+      max-height: 1350px;
+      height: auto;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -238,6 +325,8 @@
       font-size: 1.1rem;
       line-height: 1.5;
       color: var(--post-muted);
+      position: relative;
+      z-index: 1;
     }
 
     .post-status code {
@@ -258,8 +347,12 @@
         transform-origin: top center;
       }
 
+      .post-caption-panel {
+        width: min(1080px, calc(100vw - 1rem));
+      }
+
       .post-shell {
-        min-height: calc(1035px * ((100vw - 1rem) / 1080) + 2rem);
+        min-height: calc(1350px * ((100vw - 1rem) / 1080) + 2rem);
       }
     }
   </style>
@@ -269,8 +362,15 @@
     <div id="post-root" class="post-canvas post-status" role="status" aria-live="polite">
       Cargando reseña…
     </div>
+    <section id="post-caption-panel" class="post-caption-panel" hidden aria-label="Texto para Instagram">
+      <div class="post-caption-panel__head">
+        <h2 class="post-caption-panel__title" id="post-caption-title">Texto para la publicación en Instagram</h2>
+        <button type="button" class="post-caption-panel__copy" id="post-caption-copy">Copiar</button>
+      </div>
+      <pre id="post-caption-text" class="post-caption-panel__text"></pre>
+    </section>
     <p class="post-hint" id="post-hint">
-      Post 1080×1035 px — captura la tarjeta blanca para Instagram.
+      Post 1080 px de ancho, alto automático (máx. 1350 px) — captura la tarjeta blanca para Instagram.
       Ejemplo: <code>post.html?bookid=8628849214</code>
     </p>
   </div>

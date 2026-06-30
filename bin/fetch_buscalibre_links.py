@@ -6,12 +6,16 @@ from __future__ import annotations
 import argparse
 import json
 import re
+import sys
 import time
 from datetime import datetime, timezone
 from pathlib import Path
+from typing import Callable
 from urllib.error import HTTPError, URLError
 from urllib.parse import quote_plus, urlencode, urlparse, urlunparse
 from urllib.request import Request, urlopen
+
+from mirror_first_review import is_shortened_share_url, shorten_share_url
 
 USER_AGENT = (
     "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) "
@@ -20,6 +24,8 @@ USER_AGENT = (
 BUSCALIBRE_DOMAIN = "https://www.buscalibre.com.co"
 SEARCH_URL = BUSCALIBRE_DOMAIN + "/libros/search/?q={query}"
 DEFAULT_AFFILIATE_ID = "74c874bfb5a8145d7c1b"
+DEFAULT_SHARE_CACHE = Path("update/share-url-cache.json")
+DEFAULT_SITE_BASE_URL = "https://jorgezuluaga.github.io"
 PRODUCT_PATH_RE = re.compile(
     r"https?://(?:www\.)?buscalibre\.com\.co/[^\"'\s<>]+/p/\d+",
     re.IGNORECASE,
@@ -284,6 +290,129 @@ def collect_targets(
     return targets
 
 
+def load_share_cache(path: Path) -> dict[str, str]:
+    if not path.is_file():
+        return {}
+    try:
+        data = json.loads(path.read_text(encoding="utf-8"))
+    except (json.JSONDecodeError, OSError):
+        return {}
+    if not isinstance(data, dict):
+        return {}
+    return {
+        str(key).strip(): str(value).strip()
+        for key, value in data.items()
+        if str(key).strip() and str(value).strip()
+    }
+
+
+def save_share_cache(path: Path, cache: dict[str, str]) -> None:
+    path.parent.mkdir(parents=True, exist_ok=True)
+    tmp = path.with_suffix(path.suffix + ".tmp")
+    with tmp.open("w", encoding="utf-8") as f:
+        json.dump(cache, f, ensure_ascii=False, indent=2)
+        f.write("\n")
+    tmp.replace(path)
+
+
+def entry_has_shorturl(entry: dict) -> bool:
+    shorturl = str(entry.get("shorturl") or "").strip()
+    return bool(shorturl and is_shortened_share_url(shorturl))
+
+
+def entry_book_id(key: str, entry: dict) -> str:
+    book_id = str(entry.get("bookId") or "").strip()
+    if book_id:
+        return book_id
+    key = str(key or "").strip()
+    if re.fullmatch(r"\d+", key):
+        return key
+    return ""
+
+
+def buscalibre_redirect_url(book_id: str, *, site_base_url: str) -> str:
+    base = site_base_url.rstrip("/")
+    return f"{base}/buscalibre.html?bookId={quote_plus(book_id)}"
+
+
+def ensure_entry_shorturl(
+    entry: dict,
+    cache: dict[str, str],
+    *,
+    book_key: str = "",
+    site_base_url: str = DEFAULT_SITE_BASE_URL,
+) -> bool:
+    """Fill entry['shorturl'] from cache or is.gd. Returns True if set/updated."""
+    url = str(entry.get("url") or "").strip()
+    if not url:
+        return False
+    if entry_has_shorturl(entry):
+        return False
+    book_id = entry_book_id(book_key, entry)
+    if not book_id:
+        return False
+    long_url = buscalibre_redirect_url(book_id, site_base_url=site_base_url)
+    cached = str(cache.get(long_url) or "").strip()
+    if cached and is_shortened_share_url(cached):
+        entry["shorturl"] = cached
+        return True
+    short = shorten_share_url(long_url)
+    if is_shortened_share_url(short):
+        entry["shorturl"] = short
+        cache[long_url] = short
+        return True
+    return False
+
+
+def backfill_shorturls(
+    books: dict,
+    cache: dict[str, str],
+    *,
+    sleep: float,
+    dry_run: bool,
+    site_base_url: str,
+    save_payload: Callable[[], None] | None = None,
+    save_cache: Callable[[], None] | None = None,
+) -> tuple[int, int, int]:
+    """Returns (updated, skipped, failed)."""
+    updated = 0
+    skipped = 0
+    failed = 0
+    pending = [
+        (key, entry)
+        for key, entry in books.items()
+        if isinstance(entry, dict) and str(entry.get("url") or "").strip()
+    ]
+    total = len(pending)
+    print(f"Enlaces cortos Buscalibre: {total} entrada(s) con URL")
+
+    for index, (key, entry) in enumerate(pending, start=1):
+        title = str(entry.get("title") or entry.get("isbn") or entry.get("bookId") or "").strip()
+        if entry_has_shorturl(entry):
+            skipped += 1
+            continue
+        if updated > 0 and sleep > 0:
+            time.sleep(sleep)
+        if ensure_entry_shorturl(
+            entry,
+            cache,
+            book_key=str(key),
+            site_base_url=site_base_url,
+        ):
+            updated += 1
+            print(f"[{index}/{total}] shorturl OK | {title} → {entry.get('shorturl')}")
+            if not dry_run:
+                if save_payload:
+                    save_payload()
+                if save_cache:
+                    save_cache()
+        else:
+            failed += 1
+            print(f"[{index}/{total}] shorturl FAIL | {title}", file=sys.stderr)
+
+    return updated, skipped, failed
+
+
 def main() -> int:
     parser = argparse.ArgumentParser(
         description=(
@@ -348,6 +477,21 @@ def main() -> int:
         help="Solo rellenar títulos en el JSON existente (sin buscar en Buscalibre).",
     )
     parser.add_argument(
+        "--backfill-shorturls",
+        action="store_true",
+        help="Solo generar shorturl (is.gd) faltantes para entradas con url.",
+    )
+    parser.add_argument(
+        "--share-cache",
+        default=str(DEFAULT_SHARE_CACHE),
+        help="Cache JSON long-url → short-url (default: update/share-url-cache.json).",
+    )
+    parser.add_argument(
+        "--site-base-url",
+        default=DEFAULT_SITE_BASE_URL,
+        help=f"Base del sitio para redirect intermedio (default: {DEFAULT_SITE_BASE_URL}).",
+    )
+    parser.add_argument(
         "--dry-run",
         action="store_true",
         help="No escribir el archivo de salida.",
@@ -359,23 +503,26 @@ def main() -> int:
         and not args.book_id
         and not args.all_with_isbn
         and not args.backfill_titles
+        and not args.backfill_shorturls
         and not args.missing_from_library
     ):
         parser.error(
-            "Indica --isbn, --book-id, --all-with-isbn, --missing-from-library "
-            "o --backfill-titles."
+            "Indica --isbn, --book-id, --all-with-isbn, --missing-from-library, "
+            "--backfill-titles o --backfill-shorturls."
         )
 
     library_path = Path(args.library_json)
     details_path = Path(args.library_details_json)
     output_path = Path(args.output)
-    if not details_path.is_file():
+    share_cache_path = Path(args.share_cache)
+    share_cache = load_share_cache(share_cache_path)
+    if not details_path.is_file() and not args.backfill_shorturls:
         raise SystemExit(f"No existe: {details_path}")
-    if not library_path.is_file():
+    if not library_path.is_file() and not args.backfill_shorturls:
         raise SystemExit(f"No existe: {library_path}")
 
-    library = load_json(library_path)
-    details = load_json(details_path)
+    library = load_json(library_path) if library_path.is_file() else {"books": []}
+    details = load_json(details_path) if details_path.is_file() else {"books": []}
     titles_by_book_id = build_title_index(library, details)
     titles_by_isbn = build_isbn_title_index(details)
 
@@ -402,6 +549,38 @@ def main() -> int:
         if not args.dry_run:
             print(f"Guardado: {output_path}")
         return 0
+
+    if args.backfill_shorturls:
+        if not output_path.is_file():
+            raise SystemExit(f"No existe: {output_path}")
+
+        def persist_payload() -> None:
+            save_json(output_path, payload)
+
+        def persist_cache() -> None:
+            save_share_cache(share_cache_path, share_cache)
+
+        updated, skipped, failed = backfill_shorturls(
+            payload["books"],
+            share_cache,
+            sleep=args.sleep,
+            dry_run=args.dry_run,
+            site_base_url=args.site_base_url,
+            save_payload=persist_payload,
+            save_cache=persist_cache,
+        )
+        if not args.dry_run:
+            payload["updatedAt"] = datetime.now(timezone.utc).isoformat()
+            save_json(output_path, payload)
+            save_share_cache(share_cache_path, share_cache)
+        print(
+            f"\nShorturls: {updated} nuevos, {skipped} ya existían, {failed} fallos "
+            f"(total {len(payload['books'])})"
+        )
+        if not args.dry_run:
+            print(f"Guardado: {output_path}")
+            print(f"Cache: {share_cache_path}")
+        return 1 if failed and updated == 0 else 0
 
     existing_buscalibre_ids = {
         str(key).strip()
@@ -470,14 +649,38 @@ def main() -> int:
             "title": resolved_title,
             "url": url,
         }
+        ensure_entry_shorturl(
+            payload["books"][key],
+            share_cache,
+            book_key=key,
+            site_base_url=args.site_base_url,
+        )
         payload["updatedAt"] = datetime.now(timezone.utc).isoformat()
         ok += 1
         if not args.dry_run:
             save_json(output_path, payload)
-            print(f"  OK  {url}")
+            save_share_cache(share_cache_path, share_cache)
+            short_note = f" | shorturl: {payload['books'][key].get('shorturl')}" if entry_has_shorturl(payload["books"][key]) else ""
+            print(f"  OK  {url}{short_note}")
             print(f"  → guardado en {output_path}")
         else:
             print(f"  OK  {url}")
+
+    if not args.dry_run:
+        updated_short, skipped_short, failed_short = backfill_shorturls(
+            payload["books"],
+            share_cache,
+            sleep=args.sleep,
+            dry_run=False,
+            site_base_url=args.site_base_url,
+            save_payload=lambda: save_json(output_path, payload),
+            save_cache=lambda: save_share_cache(share_cache_path, share_cache),
+        )
+        if updated_short:
+            payload["updatedAt"] = datetime.now(timezone.utc).isoformat()
+            save_json(output_path, payload)
+            save_share_cache(share_cache_path, share_cache)
+            print(f"\nShorturls adicionales: {updated_short} (omitidos: {skipped_short})")
 
     if not args.dry_run and ok:
         print(f"\nListo: {ok} enlace(s) en {output_path}")

@@ -2248,6 +2248,19 @@ body.photos-page .photos-intro {
   margin-top: 1rem;
 }
 
+.review-page-custom .review-instagram-post-link {
+  margin: 1.85rem 0 0;
+  font-size: 0.82rem;
+  font-style: italic;
+  line-height: 1.35;
+  opacity: 0.82;
+}
+
+.review-page-custom .review-instagram-post-link .link {
+  font-size: inherit;
+  font-style: inherit;
+}
+
 .review-page-custom .review-buscalibre-wrap {
   display: flex;
   align-items: center;

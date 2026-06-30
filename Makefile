@@ -306,18 +306,20 @@ antilibrary-covers-fetch:
 		--limit "$${LIMIT:-50}" \
 		--retries "$${RETRIES:-3}"
 
-# ISBN=978... o BOOK_ID=6286160; ALL=1 para todos con ISBN en library-details; MISSING_FROM_LIBRARY=1 para library.json sin enlace
+# ISBN=978... o BOOK_ID=6286160; ALL=1; MISSING_FROM_LIBRARY=1; BACKFILL_TITLES=1; BACKFILL_SHORTURLS=1
 buscalibre-links-fetch:
 	@python3 bin/fetch_buscalibre_links.py \
 		--library-json "$(LIBRARY_JSON)" \
 		--library-details-json "$(LIBRARY_DETAILS_JSON)" \
 		--output "info/buscalibre.json" \
+		--site-base-url "$(SITE_BASE_URL)" \
 		--sleep "$${BUSCALIBRE_SLEEP:-1}" \
 		$(if $(ISBN),--isbn "$(ISBN)",) \
 		$(if $(BOOK_ID),--book-id "$(BOOK_ID)",) \
 		$(if $(ALL),--all-with-isbn,) \
 		$(if $(MISSING_FROM_LIBRARY),--missing-from-library,) \
-		$(if $(BACKFILL_TITLES),--backfill-titles,)
+		$(if $(BACKFILL_TITLES),--backfill-titles,) \
+		$(if $(BACKFILL_SHORTURLS),--backfill-shorturls,)
 
 antilibrary-covers-extract-html:
 	@python3 bin/extract_bookbuddy_embedded_covers.py \

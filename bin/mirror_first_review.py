@@ -43,6 +43,49 @@ SUBSCRIBE_HEADER_BUTTON_HTML = """<button type="button" class="link" id="review-
             </svg>
           </button>"""
 
+def instagram_post_link_html(review_id: str) -> str:
+    safe_id = html.escape(str(review_id or "").strip())
+    if not safe_id:
+        return ""
+    return f"""        <p class="review-instagram-post-link">
+          <a class="link" href="../post.html?bookid={safe_id}" data-instagram-post-link="1">Crea un post para instagram</a>
+        </p>"""
+
+
+def patch_review_html_instagram_post(html_text: str, review_id: str = "") -> str:
+    """Insert Instagram post link after review-like-actions (idempotent)."""
+    if 'data-instagram-post-link="1"' in html_text:
+        return html_text
+
+    rid = str(review_id or "").strip()
+    if not rid:
+        match = re.search(r'data-local-likes-for="(\d+)"', html_text)
+        rid = match.group(1) if match else ""
+
+    block = instagram_post_link_html(rid)
+    if not block:
+        return html_text
+
+    updated, n = re.subn(
+        r'(<div id="review-like-actions"[^>]*></div>)',
+        r"\1\n" + block,
+        html_text,
+        count=1,
+        flags=re.IGNORECASE,
+    )
+    if n:
+        return updated
+
+    updated, n = re.subn(
+        r"(</article>\s*)",
+        r"\1\n" + block + "\n",
+        html_text,
+        count=1,
+        flags=re.IGNORECASE,
+    )
+    return updated if n else html_text
+
+
 # Same sections as biblioteca.html. Paths MUST use ../ (reviews/*.html live one level down).
 # review-page.js also passes linkBase="../" via applyLibrarySectionNav; keep both in sync.
 REVIEW_PAGE_LIBRARY_SUBNAV_HTML = """      <nav class="photos-header__subnav" id="library-section-nav" aria-label="">
@@ -505,6 +548,7 @@ def build_local_page(
           {review_fragment}
         </article>
         <div id="review-like-actions" aria-label="Interacciones de la reseña"></div>
+{instagram_post_link_html(review_id)}
       </div>
     </main>
     <footer class="print-mode-target">
