@@ -484,12 +484,13 @@
       "reviewDate": "2026-05-18",
       "reviewLocalStatus": "ok",
       "reviewLocalGeneratedAt": "2026-07-01T15:14:23.785196+00:00",
-      "reviewCount": 11,
+      "reviewCount": 801,
       "reviewLocalLikes": 0,
       "reviewLocalLikesUpdatedAt": "2026-07-01T14:48:52.042607+00:00",
       "drzratingAuto": true,
       "isbn": "9788410096950",
-      "dateAdded": "2025-08-09"
+      "dateAdded": "2025-08-09",
+      "reviewTextSyncedAt": "2026-07-01T22:04:07.569123+00:00"
     },
     {
       "bookId": "239940189",
