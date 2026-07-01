@@ -34,7 +34,7 @@ from mirror_first_review import (
     patch_review_html_subscribe,
     resolve_share_url,
 )
-from review_word_count import apply_review_counts_to_books
+from review_word_count import apply_review_counts_to_books, is_review_html_extraction_failed
 
 DEFAULT_REFRESH_LATEST = 10
 CACHE_PATH_DEFAULT = Path("update/share-url-cache.json")
@@ -214,6 +214,14 @@ def main() -> int:
         help="Base URL pública del sitio para metadatos de compartir (Open Graph).",
     )
     parser.add_argument(
+        "--only-placeholders",
+        action="store_true",
+        help=(
+            "Regenera solo reseñas cuyo mirror local tiene el placeholder "
+            "de extracción fallida; no toca reseñas con texto ya descargado."
+        ),
+    )
+    parser.add_argument(
         "--patch-share-only",
         action="store_true",
         help=(
@@ -227,11 +235,16 @@ def main() -> int:
         help="Ruta JSON para cachear share-url (default: update/share-url-cache.json).",
     )
     args = parser.parse_args()
+    if args.only_placeholders and args.patch_share_only:
+        raise SystemExit("--only-placeholders no se combina con --patch-share-only")
+    if args.only_placeholders and args.force:
+        print("[INFO] --force ignorado con --only-placeholders.", flush=True)
 
     library_path = Path(args.library_json)
     if not library_path.exists():
         raise SystemExit(f"Archivo no encontrado: {library_path}")
 
+    repo_root = library_path.resolve().parent.parent
     reviews_dir = Path(args.reviews_dir)
     reviews_dir.mkdir(parents=True, exist_ok=True)
     covers_dir = reviews_dir / "covers"
@@ -254,6 +267,7 @@ def main() -> int:
     refresh_latest = max(0, args.refresh_latest)
     print(f"[INFO] Reseñas candidatas: {total}")
     print(f"[INFO] Modo force: {'sí' if args.force else 'no'}")
+    print(f"[INFO] Solo placeholders: {'sí' if args.only_placeholders else 'no'}")
     print(f"[INFO] Reseñas recientes a refrescar: {refresh_latest}")
     print(f"[INFO] Patch share only: {'sí' if args.patch_share_only else 'no'}")
 
@@ -278,13 +292,36 @@ def main() -> int:
         review_id = extract_review_id(review_url)
         out_file = reviews_dir / f"{review_id}.html"
         existing_local = local_html_path_from_book(book, reviews_dir)
-        already_mirrored = existing_local.exists() and bool(book.get("reviewLocalStatus") == "ok")
+        local_html_abs = (repo_root / out_file).resolve()
+        alt_local = (repo_root / existing_local).resolve()
+        if alt_local.exists():
+            local_html_abs = alt_local
+        already_mirrored = local_html_abs.exists() and bool(book.get("reviewLocalStatus") == "ok")
+
+        if args.only_placeholders:
+            if not local_html_abs.exists():
+                skipped += 1
+                print(f"[{idx}/{total}] SKIP | {title} | (sin HTML local)", flush=True)
+                continue
+            if not is_review_html_extraction_failed(local_html_abs):
+                skipped += 1
+                print(f"[{idx}/{total}] SKIP | {title} | (contenido ya extraído)", flush=True)
+                continue
 
         review_page_url = f"{site_base_url}/reviews/{review_id}.html"
         cached_share = (share_cache.get(review_page_url) or "").strip()
         if is_disallowed_share_url(cached_share):
             cached_share = ""
         share_url = resolve_share_url(review_page_url, cached_share)
+        if args.only_placeholders and local_html_abs.exists():
+            try:
+                file_share = _extract_share_url_meta(
+                    local_html_abs.read_text(encoding="utf-8")
+                )
+                if is_shortened_share_url(file_share):
+                    share_url = resolve_share_url(review_page_url, file_share)
+            except OSError:
+                pass
         if is_shortened_share_url(share_url):
             share_cache[review_page_url] = share_url
         elif review_page_url in share_cache and is_disallowed_share_url(
@@ -330,7 +367,12 @@ def main() -> int:
             continue
 
         is_latest_window = idx <= refresh_latest
-        if already_mirrored and not args.force and not is_latest_window:
+        if (
+            not args.only_placeholders
+            and already_mirrored
+            and not args.force
+            and not is_latest_window
+        ):
             if out_file.exists():
                 book.setdefault(
                     "reviewLocalUrl",
@@ -410,7 +452,6 @@ def main() -> int:
             book["reviewLocalStatus"] = f"error: {err}"
             print(f"[{idx}/{total}] ERROR| {title} | {err}", flush=True)
 
-    repo_root = library_path.resolve().parent.parent
     if not args.patch_share_only:
         apply_review_counts_to_books(
             books,

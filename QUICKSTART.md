@@ -58,6 +58,36 @@ make library-goodreads-reviews-latest
 
 Opcional: `COOKIE='...'` si hace falta para contenido autenticado.
 
+### Re-descargar solo el texto de una o pocas reseñas
+
+**Qué hace:** trae de Goodreads (o del RSS si hace falta) el cuerpo actualizado de reseñas concretas y **solo reemplaza** el contenido de `<article class="card">` en `reviews/*.html`. No regenera la página entera: conserva portada, rating, Dr.Z, botones, `share-url`, etc.
+
+Útil cuando editaste la reseña **en Goodreads** y quieres reflejar ese cambio aquí, sin pisar reseñas corregidas localmente con `make reviews-fix`.
+
+Una reseña:
+
+```bash
+make reviews-remirror-text REVIEW_IDS=8171377602
+```
+
+Varias (separadas por coma):
+
+```bash
+make reviews-remirror-text REVIEW_IDS=8171377602,6294513698
+```
+
+Vista previa sin escribir archivos:
+
+```bash
+python3 bin/remirror_review_text.py --ids 8171377602 --dry-run
+```
+
+También acepta rutas: `python3 bin/remirror_review_text.py reviews/8171377602.html`
+
+Actualiza `reviewCount` y `reviewTextSyncedAt` en `info/library.json`.
+
+**No confundir con** `make reviews-force` (regenera **todas** las reseñas y borra correcciones locales) ni con `make reviews-remirror-placeholders` (solo las que tienen el mensaje de extracción fallida).
+
 ---
 
 ## Automatización diaria (A + C + estadísticas + correo a suscriptores)

@@ -10,7 +10,7 @@
 	antilibrary-covers-fetch \
 	antilibrary-covers-extract-html \
 	buscalibre-links-fetch \
-	reviews-first reviews-all reviews-force reviews-refresh reviews-fix reviews-enrich reviews-enrich-dry \
+	reviews-first reviews-all reviews-force reviews-remirror-placeholders reviews-remirror-text reviews-refresh reviews-fix reviews-enrich reviews-enrich-dry \
 	library-review-counts \
 	library-details-import library-details-match library-details-sync \
 	library-bookbuddy-update library-bookbuddy-covers bookbuddy-missing library-stub-dcc-details library-cross-ref-report \
@@ -76,7 +76,7 @@ help:
 	@echo "Servidor / otros:"
 	@echo "  make start | dev | stop | classroom | worker-deploy"
 	@echo "  make visitor-logs-sync (LOG_READ_TOKEN) | library-local-likes-sync"
-	@echo "  make reviews-all | reviews-force | notebooklm-reviews-export | reviews-todas | ..."
+	@echo "  make reviews-remirror-text REVIEW_IDS=8171377602  - Solo texto de 1+ reseñas"
 
 start:
 	@echo "Starting server on http://$(HOST):$(PORT)"
@@ -360,6 +360,32 @@ reviews-force:
 		--rss-pages "$(REVIEW_RSS_PAGES)" \
 		--site-base-url "$(SITE_BASE_URL)" \
 		--force
+
+# Re-mirror solo reseñas con placeholder de extracción fallida (no toca las corregidas).
+reviews-remirror-placeholders:
+	@echo ""
+	@echo ">>> reviews-remirror-placeholders (solo placeholders; puede tardar)"
+	@python3 bin/mirror_all_reviews.py \
+		--library-json "$(LIBRARY_JSON)" \
+		--reviews-dir reviews \
+		--cookie "$(COOKIE)" \
+		--rss-pages "$(REVIEW_RSS_PAGES)" \
+		--site-base-url "$(SITE_BASE_URL)" \
+		--only-placeholders
+
+# Re-descarga solo el cuerpo de reseñas concretas (Goodreads → <article class="card">).
+reviews-remirror-text:
+	@if [ -z "$(REVIEW_IDS)" ]; then \
+		echo "Indica REVIEW_IDS, ej: make reviews-remirror-text REVIEW_IDS=8171377602"; \
+		exit 1; \
+	fi
+	@echo ""
+	@echo ">>> reviews-remirror-text: $(REVIEW_IDS)"
+	@python3 bin/remirror_review_text.py \
+		--library-json "$(LIBRARY_JSON)" \
+		--cookie "$(COOKIE)" \
+		--rss-pages "$(REVIEW_RSS_PAGES)" \
+		--ids "$(REVIEW_IDS)"
 
 # Typical review update workflow.
 reviews-refresh: reviews-all library-stats
