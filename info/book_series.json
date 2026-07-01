@@ -747,7 +747,7 @@
       "name": "Obras de María Martín Barranco",
       "author": "María Martín Barranco",
       "anchor": "maria-martin",
-      "latestDateRead": "2024-03-17",
+      "latestDateRead": "2026-06-30",
       "type": "author",
       "books": [
         {
@@ -765,6 +765,10 @@
         {
           "libraryBookId": "200659844",
           "title": "La desfachatez machista: Hombres que nos explican el verdadero feminismo"
+        },
+        {
+          "libraryBookId": "250904699",
+          "title": "¿Por qué algunos hombres están tan enfadados?: y por qué el feminismo no los desenfadará"
         }
       ]
     },
@@ -926,7 +930,7 @@
       "name": "Feminismos",
       "author": "Colección personal",
       "anchor": "feminismos",
-      "latestDateRead": "2026-05-04",
+      "latestDateRead": "2026-06-30",
       "type": "collection",
       "books": [
         {
@@ -1044,6 +1048,10 @@
         {
           "libraryBookId": "200659844",
           "title": "La desfachatez machista: Hombres que nos explican el verdadero feminismo"
+        },
+        {
+          "libraryBookId": "250904699",
+          "title": "¿Por qué algunos hombres están tan enfadados?: y por qué el feminismo no los desenfadará"
         },
         {
           "libraryBookId": "38323208",
