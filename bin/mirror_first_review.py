@@ -46,20 +46,25 @@ SUBSCRIBE_HEADER_BUTTON_HTML = """<button type="button" class="link" id="review-
             </svg>
           </button>"""
 
+INSTAGRAM_POST_BLOCK_RE = re.compile(
+    r'<p class="review-instagram-post-link">[\s\S]*?</p>',
+    re.IGNORECASE,
+)
+
+
 def instagram_post_link_html(review_id: str) -> str:
     safe_id = html.escape(str(review_id or "").strip())
     if not safe_id:
         return ""
     return f"""        <p class="review-instagram-post-link">
-          <a class="link" href="../post.html?bookid={safe_id}" data-instagram-post-link="1">Crea un post para instagram</a>
+          Crea un post para instagram:
+          <a class="link" href="../post.html?bookid={safe_id}&amp;style=complete">estilo completo</a>,
+          <a class="link" href="../post.html?bookid={safe_id}&amp;style=square">estilo cuadrado</a>
         </p>"""
 
 
 def patch_review_html_instagram_post(html_text: str, review_id: str = "") -> str:
-    """Insert Instagram post link after review-like-actions (idempotent)."""
-    if 'data-instagram-post-link="1"' in html_text:
-        return html_text
-
+    """Insert or upgrade Instagram post links after review-like-actions (idempotent)."""
     rid = str(review_id or "").strip()
     if not rid:
         match = re.search(r'data-local-likes-for="(\d+)"', html_text)
@@ -67,6 +72,16 @@ def patch_review_html_instagram_post(html_text: str, review_id: str = "") -> str
 
     block = instagram_post_link_html(rid)
     if not block:
+        return html_text
+
+    existing = INSTAGRAM_POST_BLOCK_RE.search(html_text)
+    if existing:
+        current = existing.group(0)
+        if "style=complete" in current and "style=square" in current:
+            return html_text
+        return INSTAGRAM_POST_BLOCK_RE.sub(block.strip(), html_text, count=1)
+
+    if 'data-instagram-post-link="1"' in html_text:
         return html_text
 
     updated, n = re.subn(

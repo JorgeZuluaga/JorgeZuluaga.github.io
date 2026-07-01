@@ -21,6 +21,7 @@
       --post-height: 1000px;
       --post-cover-width: 330px;
       --post-qr-size: 132px;
+      --post-cover-qr-size: 100px;
     }
 
     * {
@@ -147,7 +148,115 @@
       z-index: 1;
     }
 
-    .post-brand {
+    .post-brand__handle {
+      font-weight: 500;
+      color: var(--post-muted);
+      margin: 0;
+    }
+
+    /* —— Estilo square (QR en portada, logo arriba a la derecha) —— */
+    .post-canvas--square .post-brand {
+      float: right;
+      width: 132px;
+      margin: 0 0 0.5rem 1rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.2rem;
+      text-align: center;
+    }
+
+    .post-canvas--square .post-brand__logo {
+      width: 120px;
+      height: 120px;
+      display: block;
+      flex-shrink: 0;
+      object-fit: contain;
+    }
+
+    .post-canvas--square .post-brand__handle {
+      font-size: 0.9rem;
+      line-height: 1.25;
+    }
+
+    .post-canvas--square .post-header__intro::after {
+      content: "";
+      display: table;
+      clear: both;
+    }
+
+    .post-canvas--square .post-cover-wrap {
+      position: relative;
+      float: left;
+      width: var(--post-cover-width);
+      margin: 0 1.25rem 0.85rem 0;
+    }
+
+    .post-canvas--square .post-cover {
+      width: 100%;
+      height: auto;
+      border-radius: 10px;
+      border: 1px solid var(--post-line);
+      display: block;
+      box-shadow: 0 8px 24px rgba(24, 24, 24, 0.08);
+    }
+
+    .post-canvas--square .post-cover-qr-stack {
+      position: absolute;
+      bottom: 10px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.3rem;
+    }
+
+    .post-canvas--square .post-cover-qr-stack--left {
+      left: 10px;
+    }
+
+    .post-canvas--square .post-cover-qr-stack--right {
+      right: 10px;
+    }
+
+    .post-canvas--square .post-cover-qr {
+      width: var(--post-cover-qr-size);
+      height: var(--post-cover-qr-size);
+      border-radius: 6px;
+      border: 2px solid var(--post-white);
+      background: var(--post-white);
+      box-shadow: 0 4px 14px rgba(24, 24, 24, 0.28);
+    }
+
+    .post-canvas--square .post-cover-qr-label {
+      margin: 0;
+      padding: 0.2rem 0.45rem;
+      font-size: 0.72rem;
+      font-weight: 600;
+      line-height: 1.2;
+      color: var(--post-black);
+      background: rgba(255, 255, 255, 0.94);
+      border-radius: 4px;
+      box-shadow: 0 2px 8px rgba(24, 24, 24, 0.15);
+      white-space: nowrap;
+    }
+
+    .post-canvas--square .post-library-footer {
+      margin-top: auto;
+      padding-top: 0.85rem;
+      border-top: 1px solid var(--post-line);
+      text-align: center;
+    }
+
+    .post-canvas--square .post-library-link {
+      font-size: 0.88rem;
+      font-weight: 500;
+      color: var(--post-black);
+      text-decoration: none;
+      line-height: 1.35;
+    }
+
+    /* —— Estilo complete (footer con QR y logo) —— */
+    .post-canvas--complete .post-brand {
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -157,7 +266,7 @@
       padding: 0 0.35rem 0.15rem;
     }
 
-    .post-brand__logo {
+    .post-canvas--complete .post-brand__logo {
       width: 144px;
       height: 144px;
       display: block;
@@ -165,12 +274,65 @@
       object-fit: contain;
     }
 
-    .post-brand__handle {
+    .post-canvas--complete .post-brand__handle {
       font-size: 0.9rem;
-      font-weight: 500;
-      color: var(--post-muted);
       line-height: 1.25;
+    }
+
+    .post-canvas--complete .post-cover {
+      float: left;
+      width: var(--post-cover-width);
+      margin: 0 1.35rem 0.85rem 0;
+      border-radius: 10px;
+      border: 1px solid var(--post-line);
+      display: block;
+      box-shadow: 0 8px 24px rgba(24, 24, 24, 0.08);
+    }
+
+    .post-canvas--complete .post-footer {
+      margin-top: auto;
+      padding-top: 1rem;
+      border-top: 1px solid var(--post-line);
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      gap: 1rem;
+      align-items: end;
+    }
+
+    .post-canvas--complete .post-footer > .post-qr-block,
+    .post-canvas--complete .post-footer > .post-brand {
+      justify-self: center;
+    }
+
+    .post-canvas--complete .post-qr-block {
+      display: flex;
+      align-items: center;
+      gap: 0.85rem;
+    }
+
+    .post-canvas--complete .post-qr-block--stacked {
+      flex-direction: column;
+      align-items: center;
+      gap: 0.45rem;
+      text-align: center;
+    }
+
+    .post-canvas--complete .post-qr-caption {
       margin: 0;
+      font-size: 0.82rem;
+      font-weight: 500;
+      color: var(--post-accent);
+      line-height: 1.3;
+      word-break: break-all;
+    }
+
+    .post-canvas--complete .post-qr-block img {
+      width: var(--post-qr-size);
+      height: var(--post-qr-size);
+      border-radius: 8px;
+      border: 1px solid var(--post-line);
+      background: #fff;
+      flex-shrink: 0;
     }
 
     .post-header {
@@ -204,16 +366,6 @@
       content: "";
       display: table;
       clear: both;
-    }
-
-    .post-cover {
-      float: left;
-      width: var(--post-cover-width);
-      margin: 0 1.35rem 0.85rem 0;
-      border-radius: 10px;
-      border: 1px solid var(--post-line);
-      display: block;
-      box-shadow: 0 8px 24px rgba(24, 24, 24, 0.08);
     }
 
     .post-hashtag {
@@ -265,81 +417,6 @@
       line-height: 1.55;
       margin: 0;
       color: var(--post-black);
-    }
-
-    .post-footer {
-      margin-top: auto;
-      padding-top: 1rem;
-      border-top: 1px solid var(--post-line);
-      display: grid;
-      grid-template-columns: 1fr auto 1fr;
-      gap: 1rem;
-      align-items: end;
-    }
-
-    .post-footer > .post-qr-block,
-    .post-footer > .post-brand {
-      justify-self: center;
-    }
-
-    .post-qr-block {
-      display: flex;
-      align-items: center;
-      gap: 0.85rem;
-    }
-
-    .post-qr-block--stacked {
-      flex-direction: column;
-      align-items: center;
-      gap: 0.45rem;
-      text-align: center;
-    }
-
-    .post-qr-caption {
-      margin: 0;
-      font-size: 0.82rem;
-      font-weight: 500;
-      color: var(--post-accent);
-      line-height: 1.3;
-      word-break: break-all;
-    }
-
-    .post-qr-block img {
-      width: var(--post-qr-size);
-      height: var(--post-qr-size);
-      border-radius: 8px;
-      border: 1px solid var(--post-line);
-      background: #fff;
-      flex-shrink: 0;
-    }
-
-    .post-qr-label {
-      font-size: 0.92rem;
-      line-height: 1.35;
-      color: var(--post-muted);
-    }
-
-    .post-qr-sublabel {
-      display: block;
-      margin-top: 0.1rem;
-    }
-
-    .post-qr-link {
-      display: block;
-      margin-top: 0.35rem;
-      font-size: 0.82rem;
-      font-weight: 500;
-      color: var(--post-accent);
-      word-break: break-all;
-      line-height: 1.3;
-    }
-
-    .post-qr-label strong {
-      display: block;
-      font-size: 1rem;
-      font-weight: 600;
-      color: var(--post-black);
-      margin-bottom: 0.15rem;
     }
 
     .post-status {
@@ -400,7 +477,8 @@
     </section>
     <p class="post-hint" id="post-hint">
       Post 800×1000 px (4:5) — captura la tarjeta blanca para Instagram.
-      Ejemplo: <code>post.html?bookid=8628849214</code>
+      Ejemplo: <code>post.html?bookid=8628849214&amp;style=square</code>
+      · <code>qrget=false</code> oculta Buscalibre · <code>qrfull=false</code> oculta reseña
     </p>
   </div>
   <script type="module" src="./assets/post-page.js"></script>

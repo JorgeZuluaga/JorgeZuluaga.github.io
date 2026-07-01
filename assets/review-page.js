@@ -64,8 +64,11 @@ function uiText() {
       subscribeAria: "Subscribe to new review email alerts",
       buscalibreLabel: "Get it on",
       buscalibreBuy: "Get it on Buscalibre",
-      instagramPost: "Create an Instagram post",
-      instagramPostAria: "Open Instagram post generator for this review",
+      instagramPostPrefix: "Create an Instagram post",
+      instagramPostComplete: "complete style",
+      instagramPostSquare: "square style",
+      instagramPostCompleteAria: "Open complete-style Instagram post for this review",
+      instagramPostSquareAria: "Open square-style Instagram post for this review",
       localLikesAria: "Local likes:",
       localLikesSuffix: "(local likes)",
     };
@@ -81,8 +84,11 @@ function uiText() {
     subscribeAria: "Suscribirse a nuevas reseñas por correo",
     buscalibreLabel: "Consíguelo en",
     buscalibreBuy: "Consíguelo en Buscalibre",
-    instagramPost: "Crea un post para instagram",
-    instagramPostAria: "Abrir generador de post de Instagram para esta reseña",
+    instagramPostPrefix: "Crea un post para instagram",
+    instagramPostComplete: "estilo completo",
+    instagramPostSquare: "estilo cuadrado",
+    instagramPostCompleteAria: "Abrir post de Instagram estilo completo para esta reseña",
+    instagramPostSquareAria: "Abrir post de Instagram estilo cuadrado para esta reseña",
     localLikesAria: "Me gusta locales:",
     localLikesSuffix: "(me gusta locales)",
   };
@@ -458,9 +464,10 @@ function appendSubscribeCta(wrap) {
   wrap.appendChild(subscribeBtn);
 }
 
-function instagramPostHref(reviewId) {
+function instagramPostHref(reviewId, style) {
   const params = new URLSearchParams();
   params.set("bookid", String(reviewId || "").trim());
+  params.set("style", String(style || "square").trim());
   if (isEnglishPage()) params.set("lang", "en");
   return `../post.html?${params.toString()}`;
 }
@@ -470,22 +477,34 @@ function wireInstagramPostLink() {
   if (!reviewId) return;
 
   const text = uiText();
-  let link = document.querySelector('[data-instagram-post-link="1"]');
-  if (!link) {
+  let paragraph = document.querySelector(".review-instagram-post-link");
+  if (!paragraph) {
     const host = document.getElementById("review-like-actions");
     if (!host) return;
-    const paragraph = document.createElement("p");
+    paragraph = document.createElement("p");
     paragraph.className = "review-instagram-post-link";
-    link = document.createElement("a");
-    link.className = "link";
-    link.setAttribute("data-instagram-post-link", "1");
-    paragraph.appendChild(link);
     host.insertAdjacentElement("afterend", paragraph);
   }
 
-  link.href = instagramPostHref(reviewId);
-  link.textContent = text.instagramPost;
-  link.setAttribute("aria-label", text.instagramPostAria);
+  paragraph.replaceChildren();
+
+  paragraph.append(document.createTextNode(`${text.instagramPostPrefix}: `));
+
+  const linkComplete = document.createElement("a");
+  linkComplete.className = "link";
+  linkComplete.href = instagramPostHref(reviewId, "complete");
+  linkComplete.textContent = text.instagramPostComplete;
+  linkComplete.setAttribute("aria-label", text.instagramPostCompleteAria);
+  paragraph.append(linkComplete);
+
+  paragraph.append(document.createTextNode(", "));
+
+  const linkSquare = document.createElement("a");
+  linkSquare.className = "link";
+  linkSquare.href = instagramPostHref(reviewId, "square");
+  linkSquare.textContent = text.instagramPostSquare;
+  linkSquare.setAttribute("aria-label", text.instagramPostSquareAria);
+  paragraph.append(linkSquare);
 }
 
 function createReviewActionsWrap() {

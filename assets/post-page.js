@@ -1,6 +1,9 @@
 const LIBRARY_JSON = "./info/library.json";
 const BUSCALIBRE_JSON = "./info/buscalibre.json";
 const DRZ_LOGO_URL = "./assets/drz.png";
+const SITE_ORIGIN = "https://jorgezuluaga.github.io";
+const LIBRARY_PAGE_URL = `${SITE_ORIGIN}/biblioteca.html`;
+const BUSCALIBRE_PAGE_URL = `${SITE_ORIGIN}/buscalibre.html`;
 const QR_API = "https://api.qrserver.com/v1/create-qr-code/";
 
 const CAPTION_HASHTAGS =
@@ -20,6 +23,8 @@ function captionUiText() {
       dmPrompt: 'Comment the word LINK and I\'ll send it to you automatically via DM',
       byPrefix: "By",
       reviewByline: "Review by Jorge I. Zuluaga, Dr. Z",
+      reviewQrLabel: "Full review",
+      buscalibreQrLabel: "Get it here",
     };
   }
   return {
@@ -30,6 +35,8 @@ function captionUiText() {
     dmPrompt: "Comenta la palabra ENLACE y te lo envío automáticamente por privado",
     byPrefix: "Por",
     reviewByline: "Reseña por Jorge I. Zuluaga, Dr. Z",
+    reviewQrLabel: "Reseña completa",
+    buscalibreQrLabel: "Consíguelo aquí",
   };
 }
 
@@ -55,7 +62,7 @@ function excerptForCaption(fullText) {
   return excerptParagraphs(fullText, 2).join("\n\n");
 }
 
-const POST_EXCERPT_BASE_WORDS = 70;
+const POST_EXCERPT_BASE_WORDS = 100;
 
 function postExcerptMaxWords(title) {
   const len = String(title || "").trim().length;
@@ -170,6 +177,29 @@ function getQueryId() {
   return String(params.get("bookid") || params.get("reviewid") || "").trim();
 }
 
+function getPostStyle() {
+  const style = String(new URLSearchParams(window.location.search).get("style") || "square")
+    .trim()
+    .toLowerCase();
+  return style === "complete" ? "complete" : "square";
+}
+
+function queryFlagTrue(name, defaultValue = true) {
+  const raw = new URLSearchParams(window.location.search).get(name);
+  if (raw === null || raw === "") return defaultValue;
+  const value = String(raw).trim().toLowerCase();
+  if (value === "false" || value === "0" || value === "no") return false;
+  if (value === "true" || value === "1" || value === "yes") return true;
+  return defaultValue;
+}
+
+function getQrOptions() {
+  return {
+    qrget: queryFlagTrue("qrget", true),
+    qrfull: queryFlagTrue("qrfull", true),
+  };
+}
+
 function findBookByQueryId(books, id) {
   const q = String(id || "").trim();
   if (!q || !Array.isArray(books)) return null;
@@ -256,6 +286,12 @@ async function shortenUrl(longUrl) {
   return displayCompactUrl(url);
 }
 
+function buscalibreShareUrl(bookId) {
+  const id = String(bookId || "").trim();
+  if (!id) return "";
+  return `${BUSCALIBRE_PAGE_URL}?bookId=${encodeURIComponent(id)}`;
+}
+
 function reviewShareUrl(raw, reviewId) {
   const share = extractMetaContent(raw, "name", "share-url");
   if (share) return share;
@@ -273,10 +309,15 @@ function formatStars(rating) {
 
 const POST_COVER_WIDTH = 330;
 const POST_QR_SIZE = 132;
+const POST_COVER_QR_SIZE = 100;
 
-function qrImageUrl(targetUrl, size = POST_QR_SIZE) {
+function qrImageUrl(targetUrl, size = POST_COVER_QR_SIZE, { ecc = "M", margin = 10 } = {}) {
   const data = encodeURIComponent(String(targetUrl || "").trim());
-  return `${QR_API}?size=${size}x${size}&margin=8&data=${data}`;
+  return `${QR_API}?size=${size}x${size}&margin=${margin}&ecc=${ecc}&data=${data}`;
+}
+
+function buscalibreQrImageUrl(targetUrl, size) {
+  return qrImageUrl(targetUrl, size, { ecc: "L", margin: 14 });
 }
 
 function escapeHtml(value) {
@@ -295,32 +336,98 @@ function renderError(message) {
   root.innerHTML = message;
 }
 
-function renderPost({ book, reviewId, paragraphs, coverSrc, reviewUrl, reviewLinkLabel, buscalibreUrl }) {
+function renderPostSquare({ book, paragraphs, coverSrc, reviewUrl, buscalibreUrl }) {
   const root = document.getElementById("post-root");
   if (!root) return;
 
   const title = String(book.title || "").trim();
-  const author = String(book.author || "").trim();
   const stars = formatStars(book.rating);
   const starsHtml = stars
     ? `<span class="post-stars" aria-label="Calificación: ${escapeHtml(String(book.rating))} de 5">${stars}</span>`
     : "";
-  const metaHtml = `<p class="post-meta"><em class="post-byline">Reseña por Jorge I. Zuluaga, Dr. Z</em>${starsHtml}</p>`;
+  const metaHtml = `<p class="post-meta"><em class="post-byline">${escapeHtml(captionUiText().reviewByline)}</em>${starsHtml}</p>`;
+  const excerptHtml = paragraphs.map((p) => `<p>${escapeHtml(p)}</p>`).join("");
+  const ui = captionUiText();
+  const { qrget, qrfull } = getQrOptions();
 
-  const excerptHtml = paragraphs
-    .map((p) => `<p>${escapeHtml(p)}</p>`)
-    .join("");
+  const buscalibreQrBlock =
+    qrget && buscalibreUrl
+      ? `<div class="post-cover-qr-stack post-cover-qr-stack--left">
+        <img class="post-cover-qr" src="${escapeHtml(buscalibreQrImageUrl(buscalibreUrl, POST_COVER_QR_SIZE))}" width="${POST_COVER_QR_SIZE}" height="${POST_COVER_QR_SIZE}" alt="QR Buscalibre" decoding="async" />
+        <p class="post-cover-qr-label">${escapeHtml(ui.buscalibreQrLabel)}</p>
+      </div>`
+      : "";
 
-  const buscalibreBlock = buscalibreUrl
-    ? `<div class="post-qr-block post-qr-block--stacked">
-        <img src="${escapeHtml(qrImageUrl(buscalibreUrl))}" width="${POST_QR_SIZE}" height="${POST_QR_SIZE}" alt="QR Buscalibre" decoding="async" />
+  const reviewQrBlock = qrfull
+    ? `<div class="post-cover-qr-stack post-cover-qr-stack--right">
+        <img class="post-cover-qr" src="${escapeHtml(qrImageUrl(reviewUrl, POST_COVER_QR_SIZE))}" width="${POST_COVER_QR_SIZE}" height="${POST_COVER_QR_SIZE}" alt="QR reseña" decoding="async" />
+        <p class="post-cover-qr-label">${escapeHtml(ui.reviewQrLabel)}</p>
+      </div>`
+    : "";
+
+  root.className = "post-canvas post-canvas--square";
+  root.innerHTML = `
+    <div class="post-inner">
+      <header class="post-header">
+        <div class="post-header__content">
+          <div class="post-header__intro">
+            <aside class="post-brand" aria-label="Dr. Z">
+              <img class="post-brand__logo" src="${escapeHtml(DRZ_LOGO_URL)}" width="120" height="120" alt="" decoding="async" />
+              <p class="post-brand__handle">@jorgeizuluagac</p>
+              <p class="post-brand__handle">@dr.zacademy</p>
+            </aside>
+            <p class="post-hashtag">#LibrosRecomendados</p>
+            <h1 class="post-title">${escapeHtml(title)}</h1>
+          </div>
+          <div class="post-header__body">
+            <figure class="post-cover-wrap">
+              <img class="post-cover" src="${escapeHtml(coverSrc)}" alt="Portada de ${escapeHtml(title)}" width="${POST_COVER_WIDTH}" decoding="async" />
+              ${buscalibreQrBlock}
+              ${reviewQrBlock}
+            </figure>
+            ${metaHtml}
+            <section class="post-excerpt" aria-label="Extracto de la reseña">
+              ${excerptHtml}
+            </section>
+          </div>
+        </div>
+      </header>
+      <footer class="post-library-footer">
+        <a class="post-library-link" href="${escapeHtml(LIBRARY_PAGE_URL)}">📚 jorgezuluaga.github.io/biblioteca.html 📚</a>
+      </footer>
+    </div>
+  `;
+}
+
+function renderPostComplete({ book, paragraphs, coverSrc, reviewUrl, reviewLinkLabel, buscalibreUrl }) {
+  const root = document.getElementById("post-root");
+  if (!root) return;
+
+  const title = String(book.title || "").trim();
+  const stars = formatStars(book.rating);
+  const starsHtml = stars
+    ? `<span class="post-stars" aria-label="Calificación: ${escapeHtml(String(book.rating))} de 5">${stars}</span>`
+    : "";
+  const metaHtml = `<p class="post-meta"><em class="post-byline">${escapeHtml(captionUiText().reviewByline)}</em>${starsHtml}</p>`;
+  const excerptHtml = paragraphs.map((p) => `<p>${escapeHtml(p)}</p>`).join("");
+  const { qrget, qrfull } = getQrOptions();
+
+  const buscalibreBlock =
+    qrget && buscalibreUrl
+      ? `<div class="post-qr-block post-qr-block--stacked">
+        <img src="${escapeHtml(buscalibreQrImageUrl(buscalibreUrl, POST_QR_SIZE))}" width="${POST_QR_SIZE}" height="${POST_QR_SIZE}" alt="QR Buscalibre" decoding="async" />
         <p class="post-qr-caption">Consigue Buscalibre</p>
       </div>`
-    : `<div class="post-qr-block post-qr-block--stacked">
-        <p class="post-qr-caption">Consigue Buscalibre</p>
-      </div>`;
+      : "";
 
-  root.className = "post-canvas";
+  const reviewQrFooterBlock = qrfull
+    ? `<div class="post-qr-block post-qr-block--stacked">
+          <img src="${escapeHtml(qrImageUrl(reviewUrl, POST_QR_SIZE))}" width="${POST_QR_SIZE}" height="${POST_QR_SIZE}" alt="QR reseña" decoding="async" />
+          <p class="post-qr-caption">Reseña ${escapeHtml(reviewLinkLabel || reviewUrl)}</p>
+        </div>`
+    : "";
+
+  root.className = "post-canvas post-canvas--complete";
   root.innerHTML = `
     <div class="post-inner">
       <header class="post-header">
@@ -339,10 +446,7 @@ function renderPost({ book, reviewId, paragraphs, coverSrc, reviewUrl, reviewLin
         </div>
       </header>
       <footer class="post-footer">
-        <div class="post-qr-block post-qr-block--stacked">
-          <img src="${escapeHtml(qrImageUrl(reviewUrl))}" width="${POST_QR_SIZE}" height="${POST_QR_SIZE}" alt="QR reseña" decoding="async" />
-          <p class="post-qr-caption">Reseña ${escapeHtml(reviewLinkLabel || reviewUrl)}</p>
-        </div>
+        ${reviewQrFooterBlock}
         <div class="post-brand">
           <img class="post-brand__logo" src="${escapeHtml(DRZ_LOGO_URL)}" width="144" height="144" alt="" decoding="async" />
           <p class="post-brand__handle">@jorgeizuluagac</p>
@@ -354,20 +458,30 @@ function renderPost({ book, reviewId, paragraphs, coverSrc, reviewUrl, reviewLin
   `;
 }
 
+function renderPost(props) {
+  if (getPostStyle() === "complete") {
+    renderPostComplete(props);
+  } else {
+    renderPostSquare(props);
+  }
+}
+
 async function loadPost() {
   const queryId = getQueryId();
   if (!queryId) {
     renderError(
-      "Indica el id de la reseña o del libro.<br><br>Ejemplo: <code>post.html?bookid=8628849214</code>",
+      "Indica el id de la reseña o del libro.<br><br>Ejemplo: <code>post.html?bookid=8628849214&amp;style=square</code>",
     );
     return;
   }
 
   try {
-    const [libraryRes, buscalibreRes] = await Promise.all([
-      fetch(LIBRARY_JSON, { cache: "no-store" }),
-      fetch(BUSCALIBRE_JSON, { cache: "no-store" }),
-    ]);
+    const { qrget } = getQrOptions();
+    const fetches = [fetch(LIBRARY_JSON, { cache: "no-store" })];
+    if (qrget) {
+      fetches.push(fetch(BUSCALIBRE_JSON, { cache: "no-store" }));
+    }
+    const [libraryRes, buscalibreRes] = await Promise.all(fetches);
 
     if (!libraryRes.ok) {
       renderError("No se pudo cargar la biblioteca.");
@@ -414,14 +528,12 @@ async function loadPost() {
     const coverSrc = String(book.reviewLocalCoverUrl || `./reviews/covers/${reviewId}.jpg`).trim();
 
     let buscalibreUrl = "";
-    if (buscalibreRes.ok) {
+    if (qrget && buscalibreRes?.ok) {
       const buscalibre = await buscalibreRes.json();
       const bookId = String(book.bookId || "").trim();
       const entry = buscalibre?.books?.[bookId];
-      const longBuscalibreUrl = String(entry?.url || "").trim();
-      if (longBuscalibreUrl) {
-        const shortened = await shortenUrl(longBuscalibreUrl);
-        buscalibreUrl = isShortUrl(shortened) ? shortened : longBuscalibreUrl;
+      if (String(entry?.url || "").trim()) {
+        buscalibreUrl = buscalibreShareUrl(bookId);
       }
     }
 
@@ -433,7 +545,6 @@ async function loadPost() {
 
     renderPost({
       book,
-      reviewId,
       paragraphs,
       coverSrc,
       reviewUrl: reviewQrUrl,
