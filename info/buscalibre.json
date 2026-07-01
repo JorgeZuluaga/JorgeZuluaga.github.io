@@ -1,7 +1,7 @@
 {
   "affiliateId": "74c874bfb5a8145d7c1b",
   "domain": "https://www.buscalibre.com.co",
-  "updatedAt": "2026-06-30T18:21:44.859405+00:00",
+  "updatedAt": "2026-07-01T14:20:31.130634+00:00",
   "books": {
     "6286160": {
       "bookId": "6286160",
@@ -3284,6 +3284,12 @@
       "isbn": "9788434583849",
       "title": "En busca del gato de Schrödinger",
       "url": "https://www.buscalibre.com.co/libro-en-busca-del-gato-de-schrodinger-la-fascinante-historia-de-la-mecanica-cuantica/9788434583849/p/55038747?afiliado=74c874bfb5a8145d7c1b"
+    },
+    "250904699": {
+      "bookId": "250904699",
+      "isbn": "9788410674981",
+      "title": "¿Por qué algunos hombres están tan enfadados?: y por qué el feminismo no los desenfadará",
+      "url": "https://www.buscalibre.com.co/libro-por-que-algunos-hombres-estan-tan-enfadados-y-por-que-el-feminismo-no-los-desenfadara/9788410674981/p/67161431?afiliado=74c874bfb5a8145d7c1b"
     }
   }
 }

@@ -7,7 +7,7 @@
   "yearlyReads": [
     {
       "year": 2026,
-      "count": 51
+      "count": 52
     },
     {
       "year": 2025,
@@ -48,6 +48,25 @@
   ],
   "latestRead": [
     {
+      "bookId": "250904699",
+      "title": "¿Por qué algunos hombres están tan enfadados?: y por qué el feminismo no los desenfadará",
+      "author": "María Martín Barranco",
+      "dateRead": "2026-06-30",
+      "rating": 5,
+      "reviewUrl": "https://www.goodreads.com/review/show/8729466900?utm_medium=api&utm_source=rss",
+      "reviewLikes": 2,
+      "drzrating": -1,
+      "isbn": "9788410674981",
+      "bookDetails": 0,
+      "matched": false,
+      "reviewLocalUrl": "./reviews/8729466900.html",
+      "reviewLocalCoverUrl": "./reviews/covers/8729466900.jpg",
+      "reviewDate": "2026-06-30",
+      "reviewLocalStatus": "ok",
+      "reviewLocalGeneratedAt": "2026-07-01T14:19:12.052258+00:00",
+      "reviewCount": 2336
+    },
+    {
       "bookId": "48712224",
       "title": "Los narcisos: Han tomado el poder",
       "author": "Marie-France Hirigoyen",
@@ -63,11 +82,23 @@
       "reviewLocalUrl": "./reviews/8711059499.html",
       "reviewLocalCoverUrl": "./reviews/covers/8711059499.jpg",
       "reviewDate": "2026-06-27",
-      "reviewLocalGeneratedAt": "2026-06-30T14:16:37.854712+00:00",
+      "reviewLocalGeneratedAt": "2026-07-01T14:19:18.283555+00:00",
       "drzratingAuto": true,
       "reviewLocalLikes": 0,
-      "reviewLocalLikesUpdatedAt": "2026-06-29T14:44:59.687075+00:00",
-      "isbn": "9788449336539"
+      "reviewLocalLikesUpdatedAt": "2026-06-30T14:39:26.165934+00:00",
+      "isbn": "9788449336539",
+      "dcc_classes": {
+        "100": "Filosofia y psicologia (100)",
+        "300": "Ciencias sociales (300)"
+      },
+      "dcc_codes": {
+        "150": "Psicología",
+        "301": "Sociología y antropología"
+      },
+      "dcc_notes": {
+        "reasoning": "La autora trata el comportamiento humano en sociedad analizando perfiles y rasgos narcisistas desde un enfoque analítico[cite: 1].",
+        "confidence": 0.9
+      }
     },
     {
       "bookId": "35658293",
@@ -77,18 +108,28 @@
       "rating": 5,
       "reviewUrl": "https://www.goodreads.com/review/show/8709769014?utm_medium=api&utm_source=rss",
       "reviewLikes": 0,
-      "drzrating": 100,
+      "drzrating": 97,
       "bookDetails": 0,
       "matched": false,
       "reviewLocalUrl": "./reviews/8709769014.html",
       "reviewLocalCoverUrl": "./reviews/covers/8709769014.jpg",
       "reviewDate": "2026-06-25",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-06-30T14:16:44.541484+00:00",
+      "reviewLocalGeneratedAt": "2026-07-01T14:19:25.318119+00:00",
       "reviewCount": 1817,
       "reviewLocalLikes": 3,
-      "reviewLocalLikesUpdatedAt": "2026-06-29T14:44:59.687075+00:00",
-      "isbn": "9788466660884"
+      "reviewLocalLikesUpdatedAt": "2026-06-30T14:39:26.165934+00:00",
+      "isbn": "9788466660884",
+      "dcc_classes": {
+        "800": "Literatura y retorica (800)"
+      },
+      "dcc_codes": {
+        "813": "Ficción americana en inglés."
+      },
+      "dcc_notes": {
+        "reasoning": "Segunda entrega de la serie de ciencia ficción de James S.A. Corey[cite: 1].",
+        "confidence": 0.98
+      }
     },
     {
       "bookId": "30320792",
@@ -98,18 +139,29 @@
       "rating": 4,
       "reviewUrl": "https://www.goodreads.com/review/show/8708090412?utm_medium=api&utm_source=rss",
       "reviewLikes": 4,
-      "drzrating": 100,
+      "drzrating": 86,
       "bookDetails": 0,
       "matched": false,
       "reviewLocalUrl": "./reviews/8708090412.html",
       "reviewLocalCoverUrl": "./reviews/covers/8708090412.jpg",
       "reviewDate": "2026-06-25",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-06-30T14:16:49.004083+00:00",
+      "reviewLocalGeneratedAt": "2026-07-01T14:19:31.666174+00:00",
       "reviewCount": 674,
       "reviewLocalLikes": 1,
-      "reviewLocalLikesUpdatedAt": "2026-06-29T14:44:59.687075+00:00",
-      "isbn": "9788491042112"
+      "reviewLocalLikesUpdatedAt": "2026-06-30T14:39:26.165934+00:00",
+      "isbn": "9788491042112",
+      "dcc_classes": {
+        "900": "Historia y geografia (900)"
+      },
+      "dcc_codes": {
+        "930": "Historia del mundo antiguo (hasta c. 499)",
+        "937": "Italia y territorios adyacentes a 476"
+      },
+      "dcc_notes": {
+        "reasoning": "Libro de Mary Beard sobre la historia general de las civilizaciones clásicas de Grecia y Roma[cite: 1].",
+        "confidence": 0.95
+      }
     },
     {
       "bookId": "242901061",
@@ -119,41 +171,32 @@
       "rating": 3,
       "reviewUrl": "https://www.goodreads.com/review/show/8705724576?utm_medium=api&utm_source=rss",
       "reviewLikes": 1,
-      "drzrating": 80,
+      "drzrating": 64,
       "bookDetails": 1,
       "matched": true,
       "reviewLocalUrl": "./reviews/8705724576.html",
       "reviewLocalCoverUrl": "./reviews/covers/8705724576.jpg",
       "reviewDate": "2026-06-27",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-06-30T14:16:40.152112+00:00",
+      "reviewLocalGeneratedAt": "2026-07-01T14:19:20.555379+00:00",
       "reviewCount": 1143,
       "reviewLocalLikes": 0,
-      "reviewLocalLikesUpdatedAt": "2026-06-29T14:44:59.687075+00:00",
+      "reviewLocalLikesUpdatedAt": "2026-06-30T14:39:26.165934+00:00",
       "isbn": "9788410214927",
-      "dateAdded": "2026-06-14"
-    },
-    {
-      "bookId": "40542612",
-      "title": "Vida 3.0: Ser humano en la era de la Inteligencia Artificial",
-      "author": "Max Tegmark",
-      "dateRead": "2026-06-20",
-      "rating": 4,
-      "reviewUrl": "https://www.goodreads.com/review/show/8681953506?utm_medium=api&utm_source=rss",
-      "reviewLikes": 0,
-      "drzrating": 90,
-      "bookDetails": 0,
-      "matched": false,
-      "reviewLocalUrl": "./reviews/8681953506.html",
-      "reviewLocalCoverUrl": "./reviews/covers/8681953506.jpg",
-      "reviewDate": "2026-06-28",
-      "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-06-30T14:16:35.583053+00:00",
-      "reviewCount": 2278,
-      "reviewLocalLikes": 2,
-      "reviewLocalLikesUpdatedAt": "2026-06-29T14:44:59.687075+00:00",
-      "drzratingAuto": true,
-      "isbn": "9788430619658"
+      "dateAdded": "2026-06-14",
+      "dcc_classes": {
+        "300": "Ciencias sociales (300)",
+        "600": "Tecnologia y ciencias aplicadas (600)"
+      },
+      "dcc_codes": {
+        "330": "Economía",
+        "338": "Producción",
+        "630": "Agricultura"
+      },
+      "dcc_notes": {
+        "reasoning": "Analiza cómo el mundo produce y consume alimentos, abordando la teoría del desarrollo y las estadísticas de nuestra alimentación desde un punto de vista socioeconómico[cite: 1].",
+        "confidence": 0.9
+      }
     }
   ],
   "topReviewedByLikes": [
@@ -171,7 +214,7 @@
       "reviewLocalStatus": "ok",
       "reviewLocalGeneratedAt": "2026-04-25T18:55:49.231144+00:00",
       "reviewLocalLikes": 1,
-      "reviewLocalLikesUpdatedAt": "2026-06-29T14:44:59.687075+00:00",
+      "reviewLocalLikesUpdatedAt": "2026-06-30T14:39:26.165934+00:00",
       "drzrating": 87,
       "bookDetails": 1,
       "reviewCount": 91,
@@ -203,7 +246,7 @@
       "reviewLocalCoverUrl": "./reviews/covers/4232235817.jpg",
       "reviewDate": "2021-09-14",
       "reviewLocalLikes": 0,
-      "reviewLocalLikesUpdatedAt": "2026-06-29T14:44:59.687075+00:00",
+      "reviewLocalLikesUpdatedAt": "2026-06-30T14:39:26.165934+00:00",
       "drzrating": 100,
       "bookDetails": 1,
       "reviewCount": 1019,
@@ -238,7 +281,7 @@
       "reviewLocalCoverUrl": "./reviews/covers/6667355680.jpg",
       "reviewDate": "2024-07-20",
       "reviewLocalLikes": 2,
-      "reviewLocalLikesUpdatedAt": "2026-06-29T14:44:59.687075+00:00",
+      "reviewLocalLikesUpdatedAt": "2026-06-30T14:39:26.165934+00:00",
       "drzrating": 96,
       "bookDetails": 1,
       "dateAdded": "2023-07-07",
@@ -271,7 +314,7 @@
       "reviewLocalCoverUrl": "./reviews/covers/3063403087.jpg",
       "reviewDate": "2023-02-26",
       "reviewLocalLikes": 0,
-      "reviewLocalLikesUpdatedAt": "2026-06-29T14:44:59.687075+00:00",
+      "reviewLocalLikesUpdatedAt": "2026-06-30T14:39:26.165934+00:00",
       "drzrating": 100,
       "bookDetails": 1,
       "reviewCount": 526,
@@ -303,7 +346,7 @@
       "reviewLocalCoverUrl": "./reviews/covers/4664229801.jpg",
       "reviewDate": "2022-04-15",
       "reviewLocalLikes": 0,
-      "reviewLocalLikesUpdatedAt": "2026-06-29T14:44:59.687075+00:00",
+      "reviewLocalLikesUpdatedAt": "2026-06-30T14:39:26.165934+00:00",
       "drzrating": 98,
       "bookDetails": 1,
       "reviewCount": 955,
@@ -337,7 +380,7 @@
       "reviewLocalCoverUrl": "./reviews/covers/4278716233.jpg",
       "reviewDate": "2021-10-12",
       "reviewLocalLikes": 0,
-      "reviewLocalLikesUpdatedAt": "2026-06-29T14:44:59.687075+00:00",
+      "reviewLocalLikesUpdatedAt": "2026-06-30T14:39:26.165934+00:00",
       "drzrating": 99,
       "bookDetails": 1,
       "dateAdded": "2021-10-12",
@@ -369,7 +412,7 @@
       "reviewLocalCoverUrl": "./reviews/covers/3344914655.jpg",
       "reviewDate": "2020-07-03",
       "reviewLocalLikes": 0,
-      "reviewLocalLikesUpdatedAt": "2026-06-29T14:44:59.687075+00:00",
+      "reviewLocalLikesUpdatedAt": "2026-06-30T14:39:26.165934+00:00",
       "drzrating": 100,
       "bookDetails": 1,
       "dateAdded": "2020-12-31",
@@ -402,7 +445,7 @@
       "reviewLocalCoverUrl": "./reviews/covers/5469066244.jpg",
       "reviewDate": "2023-05-28",
       "reviewLocalLikes": 0,
-      "reviewLocalLikesUpdatedAt": "2026-06-29T14:44:59.687075+00:00",
+      "reviewLocalLikesUpdatedAt": "2026-06-30T14:39:26.165934+00:00",
       "drzrating": 100,
       "bookDetails": 0,
       "reviewCount": 1286,
@@ -433,7 +476,7 @@
       "reviewLocalCoverUrl": "./reviews/covers/3758441020.jpg",
       "reviewDate": "2023-06-21",
       "reviewLocalLikes": 0,
-      "reviewLocalLikesUpdatedAt": "2026-06-29T14:44:59.687075+00:00",
+      "reviewLocalLikesUpdatedAt": "2026-06-30T14:39:26.165934+00:00",
       "drzrating": 100,
       "bookDetails": 1,
       "dateAdded": "2021-01-04",
@@ -467,7 +510,7 @@
       "reviewLocalCoverUrl": "./reviews/covers/3742582688.jpg",
       "reviewDate": "2024-06-10",
       "reviewLocalLikes": 0,
-      "reviewLocalLikesUpdatedAt": "2026-06-29T14:44:59.687075+00:00",
+      "reviewLocalLikesUpdatedAt": "2026-06-30T14:39:26.165934+00:00",
       "drzrating": 100,
       "bookDetails": 1,
       "dateAdded": "2021-02-03",
@@ -490,6 +533,25 @@
   ],
   "latestReviewed": [
     {
+      "bookId": "250904699",
+      "title": "¿Por qué algunos hombres están tan enfadados?: y por qué el feminismo no los desenfadará",
+      "author": "María Martín Barranco",
+      "dateRead": "2026-06-30",
+      "rating": 5,
+      "reviewUrl": "https://www.goodreads.com/review/show/8729466900?utm_medium=api&utm_source=rss",
+      "reviewLikes": 2,
+      "drzrating": -1,
+      "isbn": "9788410674981",
+      "bookDetails": 0,
+      "matched": false,
+      "reviewLocalUrl": "./reviews/8729466900.html",
+      "reviewLocalCoverUrl": "./reviews/covers/8729466900.jpg",
+      "reviewDate": "2026-06-30",
+      "reviewLocalStatus": "ok",
+      "reviewLocalGeneratedAt": "2026-07-01T14:19:12.052258+00:00",
+      "reviewCount": 2336
+    },
+    {
       "bookId": "48712224",
       "title": "Los narcisos: Han tomado el poder",
       "author": "Marie-France Hirigoyen",
@@ -505,11 +567,23 @@
       "reviewLocalUrl": "./reviews/8711059499.html",
       "reviewLocalCoverUrl": "./reviews/covers/8711059499.jpg",
       "reviewDate": "2026-06-27",
-      "reviewLocalGeneratedAt": "2026-06-30T14:16:37.854712+00:00",
+      "reviewLocalGeneratedAt": "2026-07-01T14:19:18.283555+00:00",
       "drzratingAuto": true,
       "reviewLocalLikes": 0,
-      "reviewLocalLikesUpdatedAt": "2026-06-29T14:44:59.687075+00:00",
-      "isbn": "9788449336539"
+      "reviewLocalLikesUpdatedAt": "2026-06-30T14:39:26.165934+00:00",
+      "isbn": "9788449336539",
+      "dcc_classes": {
+        "100": "Filosofia y psicologia (100)",
+        "300": "Ciencias sociales (300)"
+      },
+      "dcc_codes": {
+        "150": "Psicología",
+        "301": "Sociología y antropología"
+      },
+      "dcc_notes": {
+        "reasoning": "La autora trata el comportamiento humano en sociedad analizando perfiles y rasgos narcisistas desde un enfoque analítico[cite: 1].",
+        "confidence": 0.9
+      }
     },
     {
       "bookId": "35658293",
@@ -519,18 +593,28 @@
       "rating": 5,
       "reviewUrl": "https://www.goodreads.com/review/show/8709769014?utm_medium=api&utm_source=rss",
       "reviewLikes": 0,
-      "drzrating": 100,
+      "drzrating": 97,
       "bookDetails": 0,
       "matched": false,
       "reviewLocalUrl": "./reviews/8709769014.html",
       "reviewLocalCoverUrl": "./reviews/covers/8709769014.jpg",
       "reviewDate": "2026-06-25",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-06-30T14:16:44.541484+00:00",
+      "reviewLocalGeneratedAt": "2026-07-01T14:19:25.318119+00:00",
       "reviewCount": 1817,
       "reviewLocalLikes": 3,
-      "reviewLocalLikesUpdatedAt": "2026-06-29T14:44:59.687075+00:00",
-      "isbn": "9788466660884"
+      "reviewLocalLikesUpdatedAt": "2026-06-30T14:39:26.165934+00:00",
+      "isbn": "9788466660884",
+      "dcc_classes": {
+        "800": "Literatura y retorica (800)"
+      },
+      "dcc_codes": {
+        "813": "Ficción americana en inglés."
+      },
+      "dcc_notes": {
+        "reasoning": "Segunda entrega de la serie de ciencia ficción de James S.A. Corey[cite: 1].",
+        "confidence": 0.98
+      }
     },
     {
       "bookId": "30320792",
@@ -540,18 +624,29 @@
       "rating": 4,
       "reviewUrl": "https://www.goodreads.com/review/show/8708090412?utm_medium=api&utm_source=rss",
       "reviewLikes": 4,
-      "drzrating": 100,
+      "drzrating": 86,
       "bookDetails": 0,
       "matched": false,
       "reviewLocalUrl": "./reviews/8708090412.html",
       "reviewLocalCoverUrl": "./reviews/covers/8708090412.jpg",
       "reviewDate": "2026-06-25",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-06-30T14:16:49.004083+00:00",
+      "reviewLocalGeneratedAt": "2026-07-01T14:19:31.666174+00:00",
       "reviewCount": 674,
       "reviewLocalLikes": 1,
-      "reviewLocalLikesUpdatedAt": "2026-06-29T14:44:59.687075+00:00",
-      "isbn": "9788491042112"
+      "reviewLocalLikesUpdatedAt": "2026-06-30T14:39:26.165934+00:00",
+      "isbn": "9788491042112",
+      "dcc_classes": {
+        "900": "Historia y geografia (900)"
+      },
+      "dcc_codes": {
+        "930": "Historia del mundo antiguo (hasta c. 499)",
+        "937": "Italia y territorios adyacentes a 476"
+      },
+      "dcc_notes": {
+        "reasoning": "Libro de Mary Beard sobre la historia general de las civilizaciones clásicas de Grecia y Roma[cite: 1].",
+        "confidence": 0.95
+      }
     },
     {
       "bookId": "242901061",
@@ -561,46 +656,37 @@
       "rating": 3,
       "reviewUrl": "https://www.goodreads.com/review/show/8705724576?utm_medium=api&utm_source=rss",
       "reviewLikes": 1,
-      "drzrating": 80,
+      "drzrating": 64,
       "bookDetails": 1,
       "matched": true,
       "reviewLocalUrl": "./reviews/8705724576.html",
       "reviewLocalCoverUrl": "./reviews/covers/8705724576.jpg",
       "reviewDate": "2026-06-27",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-06-30T14:16:40.152112+00:00",
+      "reviewLocalGeneratedAt": "2026-07-01T14:19:20.555379+00:00",
       "reviewCount": 1143,
       "reviewLocalLikes": 0,
-      "reviewLocalLikesUpdatedAt": "2026-06-29T14:44:59.687075+00:00",
+      "reviewLocalLikesUpdatedAt": "2026-06-30T14:39:26.165934+00:00",
       "isbn": "9788410214927",
-      "dateAdded": "2026-06-14"
-    },
-    {
-      "bookId": "40542612",
-      "title": "Vida 3.0: Ser humano en la era de la Inteligencia Artificial",
-      "author": "Max Tegmark",
-      "dateRead": "2026-06-20",
-      "rating": 4,
-      "reviewUrl": "https://www.goodreads.com/review/show/8681953506?utm_medium=api&utm_source=rss",
-      "reviewLikes": 0,
-      "drzrating": 90,
-      "bookDetails": 0,
-      "matched": false,
-      "reviewLocalUrl": "./reviews/8681953506.html",
-      "reviewLocalCoverUrl": "./reviews/covers/8681953506.jpg",
-      "reviewDate": "2026-06-28",
-      "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-06-30T14:16:35.583053+00:00",
-      "reviewCount": 2278,
-      "reviewLocalLikes": 2,
-      "reviewLocalLikesUpdatedAt": "2026-06-29T14:44:59.687075+00:00",
-      "drzratingAuto": true,
-      "isbn": "9788430619658"
+      "dateAdded": "2026-06-14",
+      "dcc_classes": {
+        "300": "Ciencias sociales (300)",
+        "600": "Tecnologia y ciencias aplicadas (600)"
+      },
+      "dcc_codes": {
+        "330": "Economía",
+        "338": "Producción",
+        "630": "Agricultura"
+      },
+      "dcc_notes": {
+        "reasoning": "Analiza cómo el mundo produce y consume alimentos, abordando la teoría del desarrollo y las estadísticas de nuestra alimentación desde un punto de vista socioeconómico[cite: 1].",
+        "confidence": 0.9
+      }
     }
   ],
   "totals": {
-    "booksRead": 602,
-    "booksReviewed": 602,
-    "totalReviewLikes": 3272
+    "booksRead": 603,
+    "booksReviewed": 603,
+    "totalReviewLikes": 3275
   }
 }
