@@ -16,7 +16,10 @@ from urllib.request import Request, urlopen
 SHORTENER_HOSTS = frozenset({"is.gd", "v.gd"})
 import xml.etree.ElementTree as ET
 
-from review_word_count import count_words_in_review_html_file
+from review_word_count import (
+    REVIEW_EXTRACTION_FAILED_HTML,
+    count_words_in_review_html_file,
+)
 
 
 USER_AGENT = (
@@ -149,6 +152,8 @@ def clean_review_html(raw_html: str) -> str:
 
 def extract_review_fragment(review_page_html: str) -> str:
     patterns = [
+        r'(<div[^>]*class="[^"]*reviewText[^"]*"[^>]*>.*?</div>)',
+        r"(<div[^>]*class='[^']*reviewText[^']*'[^>]*>.*?</div>)",
         r'(<section[^>]*class="[^"]*ReviewText[^"]*"[^>]*>.*?</section>)',
         r"(<section[^>]*class='[^']*ReviewText[^']*'[^>]*>.*?</section>)",
         r'(<div[^>]*data-testid="reviewText"[^>]*>.*?</div>)',
@@ -427,9 +432,7 @@ def build_local_page(
     drz_text = "(pendiente)" if drzrating == -1 else str(drzrating)
     review_id = extract_review_id(review_url)
     if not (review_fragment or "").strip():
-        review_fragment = (
-            "<p>No fue posible extraer el contenido visible de la reseña automáticamente.</p>"
-        )
+        review_fragment = REVIEW_EXTRACTION_FAILED_HTML
     cover_block = ""
     if local_cover_src:
         safe_cover = html.escape(local_cover_src)

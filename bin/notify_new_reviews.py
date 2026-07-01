@@ -15,7 +15,11 @@ sys.path.insert(0, str(REPO / "bin"))
 
 from review_notify_client import list_subscribers, worker_base  # noqa: E402
 from review_notify_gmail import build_review_email, send_gmail  # noqa: E402
-from review_word_count import extract_review_body_from_html  # noqa: E402
+from review_word_count import (  # noqa: E402
+    extract_review_body_from_html,
+    is_review_extraction_failed,
+    is_review_html_extraction_failed,
+)
 
 STATE_PATH = REPO / ".secrets" / "last-notified-reviews.json"
 LIBRARY_JSON = REPO / "info" / "library.json"
@@ -102,6 +106,14 @@ def review_html_path(review_id: str) -> Path:
     return REPO / "reviews" / f"{review_id}.html"
 
 
+def has_notifyable_review_content(book: dict) -> bool:
+    """False cuando el mirror local solo tiene el placeholder de extracción fallida."""
+    review_id = review_id_from_book(book)
+    if not review_id:
+        return False
+    return not is_review_html_extraction_failed(review_html_path(review_id))
+
+
 def extract_cover_url(html_path: Path, book: dict, site_base: str) -> str:
     if html_path.exists():
         raw = html_path.read_text(encoding="utf-8", errors="ignore")
@@ -126,7 +138,7 @@ def first_paragraph_from_html(html_path: Path, *, max_chars: int = EXCERPT_MAX_C
         return ""
     raw = html_path.read_text(encoding="utf-8", errors="ignore")
     body = extract_review_body_from_html(raw)
-    if not body:
+    if not body or is_review_extraction_failed(body):
         return ""
     parts = [part.strip() for part in re.split(r"\n\s*\n", body) if part.strip()]
     paragraph = parts[0] if parts else body.strip()
@@ -172,7 +184,9 @@ def list_recent_published_reviews(
     books = [
         book
         for book in (library.get("books") or [])
-        if isinstance(book, dict) and qualifies_for_latest_reviews(book)
+        if isinstance(book, dict)
+        and qualifies_for_latest_reviews(book)
+        and has_notifyable_review_content(book)
     ]
     books.sort(key=review_sort_key, reverse=True)
     return [
@@ -198,7 +212,9 @@ def recent_footer_reviews(
     books = [
         book
         for book in (library.get("books") or [])
-        if isinstance(book, dict) and qualifies_for_latest_reviews(book)
+        if isinstance(book, dict)
+        and qualifies_for_latest_reviews(book)
+        and has_notifyable_review_content(book)
     ]
     books.sort(key=review_sort_key, reverse=True)
     footer: list[dict] = []
@@ -246,6 +262,12 @@ def find_new_review_books(library: dict, already: set[str]) -> list[dict]:
         review_id = review_id_from_book(book)
         if not review_id or review_id in already:
             continue
+        if not has_notifyable_review_content(book):
+            print(
+                f"  Omitida (sin texto extraído): {book.get('title')} [{review_id}]",
+                file=sys.stderr,
+            )
+            continue
         new_books.append(book)
     new_books.sort(key=review_sort_key, reverse=True)
     return new_books
@@ -277,6 +299,12 @@ def reviews_from_ids(
             continue
         if not qualifies_for_latest_reviews(book):
             print(f"  Aviso: {review_id} no califica como reseña publicada; se omite.", file=sys.stderr)
+            continue
+        if not has_notifyable_review_content(book):
+            print(
+                f"  Aviso: {review_id} no tiene texto extraído en el mirror local; se omite.",
+                file=sys.stderr,
+            )
             continue
         reviews.append(book_to_review_payload(book, site_base, buscalibre_urls=buscalibre_urls))
     return reviews

@@ -9,6 +9,11 @@ import re
 from html import unescape
 from pathlib import Path
 
+REVIEW_EXTRACTION_FAILED_TEXT = (
+    "No fue posible extraer el contenido visible de la reseña automáticamente."
+)
+REVIEW_EXTRACTION_FAILED_HTML = f"<p>{REVIEW_EXTRACTION_FAILED_TEXT}</p>"
+
 
 def normalize_ws(text: str) -> str:
     return re.sub(r"[ \t]+", " ", text).strip()
@@ -36,6 +41,18 @@ def extract_review_body_from_html(raw: str) -> str:
     if not match:
         return ""
     return html_to_text(match.group(1))
+
+
+def is_review_extraction_failed(text: str) -> bool:
+    return REVIEW_EXTRACTION_FAILED_TEXT in (text or "").strip()
+
+
+def is_review_html_extraction_failed(path: Path) -> bool:
+    if not path.exists():
+        return True
+    raw = path.read_text(encoding="utf-8", errors="ignore")
+    body = extract_review_body_from_html(raw)
+    return is_review_extraction_failed(body)
 
 
 def count_words(text: str) -> int:
