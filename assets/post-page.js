@@ -193,6 +193,20 @@ function queryFlagTrue(name, defaultValue = true) {
   return defaultValue;
 }
 
+function queryFlagEnabled(name) {
+  const params = new URLSearchParams(window.location.search);
+  if (!params.has(name)) return false;
+  const raw = params.get(name);
+  if (raw === null || raw === "") return true;
+  const value = String(raw).trim().toLowerCase();
+  if (value === "false" || value === "0" || value === "no") return false;
+  return true;
+}
+
+function shouldShowCaptionPanel() {
+  return !queryFlagEnabled("notext");
+}
+
 function getQrOptions() {
   return {
     qrget: queryFlagTrue("qrget", true),
@@ -537,11 +551,13 @@ async function loadPost() {
       }
     }
 
-    const captionText = buildInstagramCaption({
-      book,
-      reviewBody,
-      reviewLinkLabel,
-    });
+    const captionText = shouldShowCaptionPanel()
+      ? buildInstagramCaption({
+          book,
+          reviewBody,
+          reviewLinkLabel,
+        })
+      : "";
 
     renderPost({
       book,
@@ -551,7 +567,11 @@ async function loadPost() {
       reviewLinkLabel,
       buscalibreUrl,
     });
-    renderCaptionPanel(captionText);
+    if (shouldShowCaptionPanel()) {
+      renderCaptionPanel(captionText);
+    } else {
+      hideCaptionPanel();
+    }
   } catch {
     renderError("Error al generar el post. Revisa la consola del navegador.");
   }
