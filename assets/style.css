@@ -253,6 +253,9 @@ header .header-profile {
 }
 
 header .header-profile .image {
+  /* Ajuste del retrato: sube/baja --avatar-focus-y; zoom con --avatar-zoom */
+  --avatar-focus-y: 38%;
+  --avatar-zoom: 1.65;
   width: 11.5rem;
   height: 11.5rem;
   border-radius: 50%;
@@ -260,10 +263,14 @@ header .header-profile .image {
   overflow: hidden;
 }
 
-header .header-profile .image img {
+header .header-profile .image img,
+header .header-profile .image #avatar {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: center var(--avatar-focus-y);
+  transform: scale(var(--avatar-zoom));
+  transform-origin: center var(--avatar-focus-y);
 }
 
 header .header-profile .image a {
@@ -272,6 +279,7 @@ header .header-profile .image a {
   height: 100%;
   line-height: 0;
   border-radius: 50%;
+  cursor: pointer;
 }
 
 .header-gallery-link {

@@ -443,6 +443,15 @@ function applyIndexChrome(lang) {
 
   const avatar = document.getElementById("avatar");
   if (avatar) avatar.setAttribute("alt", t("avatar_alt", lang));
+  const avatarTrigger = document.getElementById("avatar-download");
+  if (avatarTrigger) avatarTrigger.setAttribute("aria-label", t("avatar_preview_aria", lang));
+
+  document.querySelector(".photo-lightbox__close")?.setAttribute(
+    "aria-label",
+    t("photos_preview_close", lang),
+  );
+  const lbTitle = document.getElementById("photo-lightbox-title");
+  if (lbTitle) lbTitle.textContent = t("photos_preview_title", lang);
 
   document.querySelector(".open-menu-button")?.setAttribute("aria-label", t("menu_open", lang));
   document.querySelector(".close-menu-button")?.setAttribute("aria-label", t("menu_close", lang));
@@ -712,6 +721,163 @@ async function loadJson(path) {
   return res.json();
 }
 
+function formatBytes(n) {
+  const bytes = Number(n);
+  if (!Number.isFinite(bytes) || bytes <= 0) return "";
+  if (bytes < 1024) return `${bytes} B`;
+  if (bytes < 1024 * 1024) return `${(bytes / 1024).toFixed(1)} KB`;
+  return `${(bytes / (1024 * 1024)).toFixed(1)} MB`;
+}
+
+function photoTechLine(photo, locale) {
+  const w = photo?.width;
+  const h = photo?.height;
+  const sz = formatBytes(photo?.sizeBytes);
+  const dims = w && h ? `${w} × ${h} px` : "";
+  return [dims, sz].filter(Boolean).join(" · ");
+}
+
+function closePhotoLightbox() {
+  const lb = document.getElementById("photo-lightbox");
+  if (!lb || lb.hidden) return;
+  lb.hidden = true;
+  document.body.style.overflow = "";
+  const imgEl = lb.querySelector(".photo-lightbox__img");
+  if (imgEl) {
+    imgEl.removeAttribute("src");
+    imgEl.alt = "";
+  }
+  if (lb._onKeydown) {
+    document.removeEventListener("keydown", lb._onKeydown);
+    lb._onKeydown = null;
+  }
+}
+
+function openPhotoLightbox({ previewSrc, downloadSrc, photo, downloadPhoto, lang, locale }) {
+  const lb = document.getElementById("photo-lightbox");
+  const imgEl = lb?.querySelector(".photo-lightbox__img");
+  const metaEl = document.getElementById("photo-lightbox-meta");
+  const dlEl = document.getElementById("photo-lightbox-download");
+  const closeBtn = lb?.querySelector(".photo-lightbox__close");
+  if (!lb || !imgEl || !metaEl || !dlEl || !previewSrc) return;
+
+  imgEl.src = previewSrc;
+  const titleText =
+    pickLocalized(photo, "title", lang) ?? photo?.title ?? t("avatar_alt", lang);
+  const dateText = pickLocalized(photo, "dateLabel", lang) ?? photo?.dateLabel ?? "";
+  const descriptionText =
+    pickLocalized(photo, "description", lang) ?? photo?.description ?? "";
+
+  imgEl.alt = String(titleText);
+
+  metaEl.replaceChildren();
+  const title = document.createElement("p");
+  title.className = "photo-lightbox__line photo-lightbox__line--title";
+  title.textContent = titleText;
+  metaEl.appendChild(title);
+
+  if (photo) {
+    const tech = document.createElement("p");
+    tech.className = "photo-lightbox__line photo-lightbox__line--tech";
+    tech.textContent = photoTechLine(photo, locale);
+    metaEl.appendChild(tech);
+  }
+
+  if (dateText) {
+    const d = document.createElement("p");
+    d.className = "photo-lightbox__line photo-lightbox__line--date";
+    d.textContent = dateText;
+    metaEl.appendChild(d);
+  }
+
+  if (descriptionText) {
+    const desc = document.createElement("p");
+    desc.className = "photo-lightbox__line photo-lightbox__line--desc";
+    desc.textContent = descriptionText;
+    metaEl.appendChild(desc);
+  }
+
+  const downloadPath = downloadSrc || previewSrc;
+  const fileName = String(downloadPath).split("/").pop() || "profile-photo";
+  const sizePhoto = downloadPhoto ?? photo;
+  dlEl.href = downloadPath;
+  dlEl.setAttribute("download", fileName);
+  const sizeLabel = sizePhoto?.sizeBytes ? ` (${formatBytes(sizePhoto.sizeBytes)})` : "";
+  dlEl.textContent = `${t("photos_download_file", lang)}${sizeLabel}`;
+  dlEl.onclick = () => {
+    trackEvent("image_download", {
+      source: "profile_avatar_lightbox",
+      fileName,
+      title: titleText,
+    });
+  };
+
+  lb.hidden = false;
+  document.body.style.overflow = "hidden";
+  closeBtn?.focus();
+
+  const onKey = (e) => {
+    if (e.key === "Escape") closePhotoLightbox();
+  };
+  lb._onKeydown = onKey;
+  document.addEventListener("keydown", onKey);
+}
+
+function wirePhotoLightbox() {
+  const lb = document.getElementById("photo-lightbox");
+  if (!lb) return;
+  lb.querySelectorAll("[data-lightbox-close]").forEach((el) => {
+    el.addEventListener("click", () => closePhotoLightbox());
+  });
+}
+
+async function findProfilePhotoMeta(profile) {
+  const avatarFile = String(profile?.avatar || "").split("/").pop();
+  const downloadFile = String(profile?.avatarDownload || "").split("/").pop();
+  if (!avatarFile && !downloadFile) return { preview: null, download: null };
+  try {
+    const data = await loadJson("./info/photos/photos.json");
+    const photos = data?.photos ?? [];
+    const preview =
+      photos.find((p) => p.file === avatarFile) ||
+      photos.find((p) => p.file === downloadFile) ||
+      null;
+    const download =
+      photos.find((p) => p.file === downloadFile) ||
+      preview;
+    return { preview, download };
+  } catch {
+    return { preview: null, download: null };
+  }
+}
+
+function wireAvatarLightbox(profile, lang, photoMeta) {
+  const trigger = document.getElementById("avatar-download");
+  if (!trigger) return;
+
+  const locale = lang === "en" ? "en-US" : "es-CO";
+  const previewSrc = profile?.avatar || trigger.querySelector("img")?.getAttribute("src") || "";
+  const downloadSrc = profile?.avatarDownload || previewSrc;
+  const previewPhoto = photoMeta?.preview ?? photoMeta ?? null;
+  const downloadPhoto = photoMeta?.download ?? previewPhoto;
+
+  trigger.addEventListener("click", (e) => {
+    e.preventDefault();
+    openPhotoLightbox({
+      previewSrc,
+      downloadSrc,
+      photo: previewPhoto,
+      downloadPhoto,
+      lang,
+      locale,
+    });
+    trackEvent("image_preview", {
+      source: "profile_avatar",
+      fileName: String(previewSrc).split("/").pop() || "",
+    });
+  });
+}
+
 function renderTeaching(profile, lang = "es") {
   if (!profile) return;
   const name = profile.name || "Jorge I. Zuluaga";
@@ -730,14 +896,6 @@ function renderTeaching(profile, lang = "es") {
   }
   if (profile.avatar) {
     setAttr("avatar", "src", profile.avatar);
-  }
-  if (profile.avatarDownload) {
-    const avatarDl = document.getElementById("avatar-download");
-    if (avatarDl) {
-      avatarDl.href = profile.avatarDownload;
-      const base = String(profile.avatarDownload).split("/").pop();
-      if (base) avatarDl.setAttribute("download", base);
-    }
   }
 
   const coursesEl = document.getElementById("teaching-courses");
@@ -1242,6 +1400,9 @@ async function main() {
   );
 
   const profile = await loadProfile().catch(() => null);
+  wirePhotoLightbox();
+  const photoMeta = profile ? await findProfilePhotoMeta(profile) : null;
+  wireAvatarLightbox(profile, lang, photoMeta);
   renderTeaching(profile, lang);
   renderExperience(profile, lang);
 
@@ -1452,17 +1613,6 @@ async function main() {
   if (printBtn) {
     printBtn.addEventListener("click", () => {
       trackEvent("pdf_print_click", { source: "index_footer" });
-    });
-  }
-
-  const avatarDownload = document.getElementById("avatar-download");
-  if (avatarDownload) {
-    avatarDownload.addEventListener("click", () => {
-      const fileName = avatarDownload.getAttribute("download") || "profile-photo";
-      trackEvent("image_download", {
-        source: "profile_avatar",
-        fileName,
-      });
     });
   }
 }

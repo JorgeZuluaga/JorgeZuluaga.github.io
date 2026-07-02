@@ -21,7 +21,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
     rel="stylesheet" />
 
-  <link rel="stylesheet" href="./assets/style.css?v=2" />
+  <link rel="stylesheet" href="./assets/style.css?v=6" />
   <script src="./assets/template.js" defer></script>
 </head>
 
@@ -33,10 +33,9 @@
       <!-- Profile Pic + galería (solo pantalla; oculto al imprimir PDF) -->
       <div class="header-profile">
         <div class="image" aria-hidden="false">
-          <a id="avatar-download" href="./info/photos/jorge-zuluaga-perfil-cv-2022-09.jpg" target="_blank"
-            rel="noopener noreferrer" download="jorge-zuluaga-perfil-cv-2022-09.jpg"
-            aria-label="Abrir o descargar la foto de perfil en alta resolución">
-            <img id="avatar" src="./assets/profile.jpg" alt="Foto de perfil" loading="lazy" decoding="async" />
+          <a id="avatar-download" href="#" role="button"
+            aria-label="Ver foto de perfil en grande">
+            <img id="avatar" src="./info/photos/jorge-zuluaga-artemis-ii-2026-04-21-2.JPG" alt="Foto de perfil" loading="lazy" decoding="async" />
           </a>
         </div>
         <a class="header-gallery-link" href="./photos.html">Galería</a>
@@ -454,7 +453,20 @@
   </div>
 
 
-  <script src="./assets/app.js" type="module"></script>
+  <div id="photo-lightbox" class="photo-lightbox" hidden role="dialog" aria-modal="true" aria-labelledby="photo-lightbox-title">
+    <div class="photo-lightbox__backdrop" data-lightbox-close tabindex="-1"></div>
+    <div class="photo-lightbox__panel">
+      <button type="button" class="photo-lightbox__close" data-lightbox-close aria-label="Cerrar vista previa">×</button>
+      <h2 id="photo-lightbox-title" class="visually-hidden">Vista previa</h2>
+      <img class="photo-lightbox__img" src="" alt="" />
+      <div class="photo-lightbox__meta" id="photo-lightbox-meta"></div>
+      <div class="photo-lightbox__actions">
+        <a class="link photo-lightbox__dl" id="photo-lightbox-download" href="" download="">Descargar archivo</a>
+      </div>
+    </div>
+  </div>
+
+  <script src="./assets/app.js?v=3" type="module"></script>
 </body>
 
 </html>
