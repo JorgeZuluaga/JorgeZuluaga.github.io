@@ -253,9 +253,10 @@ header .header-profile {
 }
 
 header .header-profile .image {
-  /* Ajuste del retrato: sube/baja --avatar-focus-y; zoom con --avatar-zoom */
-  --avatar-focus-y: 38%;
-  --avatar-zoom: 1.65;
+  /* Retrato: --avatar-focus-y (arriba/abajo), --avatar-pan-x (izq/der), --avatar-zoom */
+  --avatar-focus-y: 47%;
+  --avatar-pan-x: 3%;
+  --avatar-zoom: 2.15;
   width: 11.5rem;
   height: 11.5rem;
   border-radius: 50%;
@@ -269,8 +270,8 @@ header .header-profile .image #avatar {
   height: 100%;
   object-fit: cover;
   object-position: center var(--avatar-focus-y);
-  transform: scale(var(--avatar-zoom));
-  transform-origin: center var(--avatar-focus-y);
+  transform: scale(var(--avatar-zoom)) translateX(var(--avatar-pan-x));
+  transform-origin: center center;
 }
 
 header .header-profile .image a {

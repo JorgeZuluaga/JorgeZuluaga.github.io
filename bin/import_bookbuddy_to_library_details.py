@@ -47,7 +47,7 @@ def load_output(path: Path) -> tuple[dict, list[dict], str]:
         root = {
             "generatedAt": "",
             "source": {
-                "file": "info/bookbuddy.csv",
+                "file": "update/bookbuddy.csv",
                 "type": "bookbuddy_export",
             },
             "books": [],
@@ -71,7 +71,7 @@ def load_output(path: Path) -> tuple[dict, list[dict], str]:
     root = {
         "generatedAt": "",
         "source": {
-            "file": "info/bookbuddy.csv",
+            "file": "update/bookbuddy.csv",
             "type": "bookbuddy_export",
         },
         "books": [],
@@ -81,11 +81,11 @@ def load_output(path: Path) -> tuple[dict, list[dict], str]:
 
 def main() -> int:
     parser = argparse.ArgumentParser(
-        description="Import info/bookbuddy.csv into info/library-details.json."
+        description="Import update/bookbuddy.csv into info/library-details.json."
     )
     parser.add_argument(
         "--csv",
-        default="info/bookbuddy.csv",
+        default="update/bookbuddy.csv",
         help="Path to the BookBuddy CSV file.",
     )
     parser.add_argument(

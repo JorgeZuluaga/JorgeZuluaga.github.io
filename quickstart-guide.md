@@ -41,7 +41,7 @@ Ahora que tenemos los últimso libros de GoodReads, podemos ver cómo actualizar
 
 ## D. Actualizar lista de BookBuddy
 
-Descarga de BookBuddy dos archivos: bookbuddy.csv y bookbuddy.htm. De aquí sacaremos los últimos libros agregados y sus portadas.
+Descarga de BookBuddy dos archivos: `update/bookbuddy.csv` y `update/bookbuddy.htm`. De aquí sacaremos los últimos libros agregados y sus portadas.
 
 ((Haz un script que lea los archivos y si el ISBN no está en library-details.json agrega la entrada nueva. Corre el procedimiento de clasificación sobre el nuevo libro y agrega dcc_clases pero no dcc_codes ni reasoning o confidence. Pero deja estos valores vacíos. Saca las cover del *.htm))
 

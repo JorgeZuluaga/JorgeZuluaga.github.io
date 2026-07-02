@@ -26,7 +26,8 @@ LIBRARY_JSON ?= info/library.json
 LIBRARY_STATS_JSON ?= info/library-stats.json
 LIBRARY_DETAILS_JSON ?= info/library-details.json
 VISITOR_WORKER_BASE ?= https://visitor-log-worker.jorgezuluaga.workers.dev
-BOOKBUDDY_CSV ?= info/bookbuddy.csv
+BOOKBUDDY_CSV ?= update/bookbuddy.csv
+BOOKBUDDY_HTML ?= update/bookbuddy.htm
 BOOKBUDDY_MISSING_MD ?= update/library-not-in-bookbuddy.md
 BOOKBUDDY_MISSING_PDF ?= update/library-not-in-bookbuddy.pdf
 BOOKBUDDY_MISSING_PDF_MARGIN ?= 0.35in
@@ -63,7 +64,7 @@ help:
 	@echo "  make review-notify-unsubscribe EMAIL=... - Dar de baja un suscriptor"
 	@echo "  make lista-suscritos              - Listar correos suscritos (solo emails)"
 	@echo "  make library-bookbuddy-update     - Import CSV + stub dcc_classes + match bookIds"
-	@echo "  make library-bookbuddy-covers     - Portadas desde info/bookbuddy.htm (fallback: update/bookbuddy.htm)"
+	@echo "  make library-bookbuddy-covers     - Portadas desde update/bookbuddy.htm"
 	@echo "  make bookbuddy-missing             - Lista Goodreads sin BookBuddy → $(BOOKBUDDY_MISSING_MD) + PDF"
 	@echo "  make library-drzrating-gemini-export - Exporta pendientes+contexto DrZ para Gemini"
 	@echo "  make library-drzrating-gemini-apply  - Aplica DrZRating desde JSON de Gemini"
@@ -442,9 +443,10 @@ library-bookbuddy-update: library-details-import library-stub-dcc-details librar
 library-stub-dcc-details:
 	@python3 bin/stub_empty_dcc_library_details.py --library-details-json "$(LIBRARY_DETAILS_JSON)"
 
-# Portadas embebidas desde export HTML BookBuddy (por defecto info/bookbuddy.htm; fallback update/bookbuddy.htm).
+# Portadas embebidas desde export HTML BookBuddy (update/bookbuddy.htm).
 library-bookbuddy-covers:
 	@python3 bin/extract_bookbuddy_embedded_covers.py \
+		--input-html "$(BOOKBUDDY_HTML)" \
 		--output-dir "$${OUTPUT_DIR:-antilibrary/covers}"
 
 # Libros en library.json cuyo bookId no está en library-details (para añadir en BookBuddy a mano).

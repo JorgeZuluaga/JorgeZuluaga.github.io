@@ -81,7 +81,7 @@ function normalizeBooks(rawBooks) {
       _date: parseBookBuddyDate(b.dateRead) ?? parseDate(b.dateRead),
       _dateRead: parseBookBuddyDate(b.dateRead),
       _dateAdded: parseBookBuddyDate(b.dateAdded),
-      _reviewDate: parseDate(b.reviewDate),
+      _reviewDate: parseBookBuddyDate(b.reviewDate) ?? parseDate(b.reviewDate),
       rating: Number.isFinite(Number(b.rating)) ? Number(b.rating) : 0,
       reviewLikes: Number.isFinite(Number(b.reviewLikes)) ? Number(b.reviewLikes) : 0,
     }));
@@ -235,6 +235,19 @@ function parseReviewIdFromUrl(reviewUrl) {
   return match ? match[1] : "";
 }
 
+function reviewIdNumber(reviewUrl) {
+  const n = Number(parseReviewIdFromUrl(reviewUrl));
+  return Number.isFinite(n) ? n : 0;
+}
+
+/** reviewDate descendente; empate por id de reseña en Goodreads (mayor = más reciente). */
+function compareReviewsByRecency(a, b) {
+  const dateA = a._reviewDate?.getTime() ?? 0;
+  const dateB = b._reviewDate?.getTime() ?? 0;
+  if (dateB !== dateA) return dateB - dateA;
+  return reviewIdNumber(b.reviewUrl) - reviewIdNumber(a.reviewUrl);
+}
+
 /** reviewLocalUrl en JSON, o ruta canónica del mirror (`./reviews/{id}.html`). */
 function effectiveLocalReviewHref(item) {
   const explicit = String(item?.reviewLocalUrl || "").trim();
@@ -307,7 +320,7 @@ function isFeaturedReviewEligible(item) {
 function pickFeaturedReview(reviewedBooks) {
   const recent = [...reviewedBooks]
     .filter((item) => item._reviewDate && parseReviewIdFromUrl(item.reviewUrl))
-    .sort((a, b) => (b._reviewDate?.getTime() ?? 0) - (a._reviewDate?.getTime() ?? 0))
+    .sort(compareReviewsByRecency)
     .slice(0, FEATURED_REVIEW_CANDIDATE_LIMIT);
   const eligible = recent.filter(isFeaturedReviewEligible);
   if (!eligible.length) return null;
@@ -319,12 +332,7 @@ function pickFeaturedReview(reviewedBooks) {
     const scoreA = featuredCombinedScore(a, maxReactionSum);
     const scoreB = featuredCombinedScore(b, maxReactionSum);
     if (scoreB !== scoreA) return scoreB - scoreA;
-    const dateA = a._reviewDate?.getTime() ?? 0;
-    const dateB = b._reviewDate?.getTime() ?? 0;
-    if (dateB !== dateA) return dateB - dateA;
-    const idA = Number(parseReviewIdFromUrl(a.reviewUrl)) || 0;
-    const idB = Number(parseReviewIdFromUrl(b.reviewUrl)) || 0;
-    return idB - idA;
+    return compareReviewsByRecency(a, b);
   });
   return eligible[0];
 }
@@ -1294,9 +1302,12 @@ async function main() {
       return (b._date?.getTime() ?? 0) - (a._date?.getTime() ?? 0);
     })
     .slice(0, LIBRARY_LIST_EXPANDED_COUNT);
+  const featuredBook = pickFeaturedReview(reviewed);
+  const featuredReviewId = featuredBook ? parseReviewIdFromUrl(featuredBook.reviewUrl) : "";
   const latestReviewsWritten = [...reviewed]
     .filter((b) => b._reviewDate)
-    .sort((a, b) => (b._reviewDate?.getTime() ?? 0) - (a._reviewDate?.getTime() ?? 0));
+    .filter((b) => !featuredReviewId || parseReviewIdFromUrl(b.reviewUrl) !== featuredReviewId)
+    .sort(compareReviewsByRecency);
 
   const topFavorite = [...readBooks]
     .filter((b) => typeof b.drzrating === "number" && b.drzrating > 0)
@@ -1383,7 +1394,6 @@ async function main() {
 
   chartEl.replaceChildren(frag);
 
-  const featuredBook = pickFeaturedReview(reviewed);
   await renderFeaturedReview(featuredReviewEl, featuredBook, lang, featuredReviewCardEl);
 
   addListToggleControls(latestReviewedEl, latestReviewsWritten, lang, seriesMap, {

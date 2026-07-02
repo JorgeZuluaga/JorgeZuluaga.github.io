@@ -141,8 +141,8 @@ Copiar o actualizar el plist en `~/Library/LaunchAgents/` y cargar con `launchct
 
 ## D. Actualizar lista desde BookBuddy
 
-1. Exporta desde BookBuddy y coloca (o actualiza) **`info/bookbuddy.csv`**.
-2. Opcional: export HTML con imágenes embebidas como **`info/bookbuddy.htm`** (fallback: `update/bookbuddy.htm`).
+1. Exporta desde BookBuddy y coloca (o actualiza) **`update/bookbuddy.csv`**.
+2. Opcional: export HTML con imágenes embebidas como **`update/bookbuddy.htm`**.
 
 Importar filas nuevas a `library-details.json` y enlazar `bookId` con Goodreads:
 
@@ -158,7 +158,7 @@ Portadas desde el HTML:
 make library-bookbuddy-covers
 ```
 
-(Usa por defecto `info/bookbuddy.htm` (fallback: `update/bookbuddy.htm`); directorio de salida `antilibrary/covers` salvo que cambies `OUTPUT_DIR`.)
+(Usa por defecto `update/bookbuddy.htm`; directorio de salida `antilibrary/covers` salvo que cambies `OUTPUT_DIR`.)
 
 Nota: el paso de `library-details-match` **ya no añade** libros “solo BookBuddy” a `info/library.json` (para no inflar los totales). Si alguna vez quieres sembrar la antibiblioteca con esos libros, ejecuta:
 
