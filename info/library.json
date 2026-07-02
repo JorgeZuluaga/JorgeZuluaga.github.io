@@ -58,7 +58,8 @@
       "dcc_notes": {
         "reasoning": "La autora trata el comportamiento humano en sociedad analizando perfiles y rasgos narcisistas desde un enfoque analítico[cite: 1].",
         "confidence": 0.9
-      }
+      },
+      "reviewLocalCoverUrl": "./reviews/covers/8711059499.jpg"
     },
     {
       "bookId": "35658293",
@@ -395,7 +396,8 @@
       "dcc_notes": {
         "reasoning": "Se trata de una encíclica papal (religión cristiana) enfocada en la postura ética y social de la Iglesia frente a la inteligencia artificial y protección humana[cite: 1].",
         "confidence": 0.9
-      }
+      },
+      "reviewLocalCoverUrl": "./reviews/covers/8640936969.jpg"
     },
     {
       "bookId": "32023743",
@@ -447,7 +449,8 @@
       "reviewCount": 0,
       "drzratingAuto": true,
       "isbn": "9788417121389",
-      "dateAdded": "2024-01-26"
+      "dateAdded": "2024-01-26",
+      "reviewLocalCoverUrl": "./reviews/covers/8624597683.jpg"
     },
     {
       "bookId": "228680531",
@@ -733,7 +736,8 @@
       "reviewDate": "2026-04-25",
       "reviewCount": 0,
       "drzratingAuto": true,
-      "isbn": "9789586396103"
+      "isbn": "9789586396103",
+      "reviewLocalCoverUrl": "./reviews/covers/8547651140.jpg"
     },
     {
       "bookId": "59021993",
@@ -902,7 +906,8 @@
       "matched": false,
       "reviewDate": "2026-04-03",
       "reviewCount": 0,
-      "drzratingAuto": true
+      "drzratingAuto": true,
+      "reviewLocalCoverUrl": "./reviews/covers/8460970380.jpg"
     },
     {
       "bookId": "244149479",
@@ -1034,7 +1039,8 @@
       "reviewDate": "2026-03-16",
       "reviewCount": 0,
       "drzratingAuto": true,
-      "isbn": "9788494510397"
+      "isbn": "9788494510397",
+      "reviewLocalCoverUrl": "./reviews/covers/8398729076.jpg"
     },
     {
       "bookId": "60774041",
@@ -1243,7 +1249,8 @@
       "reviewDate": "2026-02-28",
       "reviewCount": 0,
       "drzratingAuto": true,
-      "isbn": "9788413932972"
+      "isbn": "9788413932972",
+      "reviewLocalCoverUrl": "./reviews/covers/8378117757.jpg"
     },
     {
       "bookId": "20740274",
@@ -1338,7 +1345,8 @@
       "reviewDate": "2026-02-18",
       "reviewCount": 0,
       "drzratingAuto": true,
-      "isbn": "9788423333219"
+      "isbn": "9788423333219",
+      "reviewLocalCoverUrl": "./reviews/covers/5557404068.jpg"
     },
     {
       "bookId": "54657941",
@@ -1404,7 +1412,8 @@
       "reviewDate": "2026-02-08",
       "reviewCount": 0,
       "drzratingAuto": true,
-      "isbn": "9789877371321"
+      "isbn": "9789877371321",
+      "reviewLocalCoverUrl": "./reviews/covers/8272239325.jpg"
     },
     {
       "bookId": "40538196",
@@ -1505,7 +1514,8 @@
       "matched": true,
       "reviewDate": "2026-01-16",
       "reviewCount": 0,
-      "drzratingAuto": true
+      "drzratingAuto": true,
+      "reviewLocalCoverUrl": "./reviews/covers/8218650989.jpg"
     },
     {
       "bookId": "32904032",
@@ -1535,7 +1545,8 @@
       "matched": true,
       "reviewDate": "2026-01-14",
       "reviewCount": 0,
-      "drzratingAuto": true
+      "drzratingAuto": true,
+      "reviewLocalCoverUrl": "./reviews/covers/6073922172.jpg"
     },
     {
       "bookId": "6707847",
@@ -1635,7 +1646,8 @@
       "reviewDate": "2026-05-11",
       "reviewCount": 0,
       "drzratingAuto": true,
-      "isbn": "9788426411587"
+      "isbn": "9788426411587",
+      "reviewLocalCoverUrl": "./reviews/covers/8233735772.jpg"
     },
     {
       "bookId": "71565",
@@ -1808,7 +1820,8 @@
       "matched": true,
       "reviewDate": "2025-12-28",
       "reviewCount": 0,
-      "drzratingAuto": true
+      "drzratingAuto": true,
+      "reviewLocalCoverUrl": "./reviews/covers/7657133958.jpg"
     },
     {
       "bookId": "17972675",
@@ -1838,7 +1851,8 @@
       "matched": true,
       "reviewDate": "2025-12-28",
       "reviewCount": 0,
-      "drzratingAuto": true
+      "drzratingAuto": true,
+      "reviewLocalCoverUrl": "./reviews/covers/5506462882.jpg"
     },
     {
       "bookId": "209668724",
@@ -1868,7 +1882,8 @@
       "matched": true,
       "reviewDate": "2025-12-26",
       "reviewCount": 0,
-      "drzratingAuto": true
+      "drzratingAuto": true,
+      "reviewLocalCoverUrl": "./reviews/covers/8173931972.jpg"
     },
     {
       "bookId": "48839637",
@@ -2038,7 +2053,8 @@
       "reviewDate": "2025-12-21",
       "reviewCount": 0,
       "drzratingAuto": true,
-      "isbn": "9788467055221"
+      "isbn": "9788467055221",
+      "reviewLocalCoverUrl": "./reviews/covers/8157580649.jpg"
     },
     {
       "bookId": "25377233",
@@ -2135,7 +2151,8 @@
       "reviewDate": "2025-12-16",
       "reviewCount": 0,
       "drzratingAuto": true,
-      "isbn": "9781584887980"
+      "isbn": "9781584887980",
+      "reviewLocalCoverUrl": "./reviews/covers/8004251715.jpg"
     },
     {
       "bookId": "233875060",
@@ -2341,7 +2358,8 @@
       "matched": true,
       "reviewDate": "2025-11-23",
       "reviewCount": 0,
-      "drzratingAuto": true
+      "drzratingAuto": true,
+      "reviewLocalCoverUrl": "./reviews/covers/8094878471.jpg"
     },
     {
       "bookId": "242077118",
@@ -2373,7 +2391,8 @@
       "matched": true,
       "reviewDate": "2025-11-23",
       "reviewCount": 0,
-      "drzratingAuto": true
+      "drzratingAuto": true,
+      "reviewLocalCoverUrl": "./reviews/covers/8073485463.jpg"
     },
     {
       "bookId": "37483810",
@@ -2437,7 +2456,8 @@
       "reviewDate": "2025-11-16",
       "reviewCount": 0,
       "drzratingAuto": true,
-      "isbn": "9781399807944"
+      "isbn": "9781399807944",
+      "reviewLocalCoverUrl": "./reviews/covers/7892700437.jpg"
     },
     {
       "bookId": "3362986",
@@ -2535,7 +2555,8 @@
       "matched": true,
       "reviewDate": "2025-11-05",
       "reviewCount": 0,
-      "drzratingAuto": true
+      "drzratingAuto": true,
+      "reviewLocalCoverUrl": "./reviews/covers/8041198555.jpg"
     },
     {
       "bookId": "19181819",
@@ -2563,7 +2584,8 @@
       "matched": false,
       "reviewDate": "2025-11-02",
       "reviewCount": 0,
-      "drzratingAuto": true
+      "drzratingAuto": true,
+      "reviewLocalCoverUrl": "./reviews/covers/7941492920.jpg"
     },
     {
       "bookId": "200887395",
@@ -2663,7 +2685,8 @@
       "reviewDate": "2025-10-12",
       "reviewCount": 0,
       "drzratingAuto": true,
-      "isbn": "9788410298736"
+      "isbn": "9788410298736",
+      "reviewLocalCoverUrl": "./reviews/covers/7970222277.jpg"
     },
     {
       "bookId": "235679277",
@@ -2691,7 +2714,8 @@
       "reviewCount": 0,
       "reviewDate": "2025-10-12",
       "drzratingAuto": true,
-      "isbn": "9788401036828"
+      "isbn": "9788401036828",
+      "reviewLocalCoverUrl": "./reviews/covers/7946233444.jpg"
     },
     {
       "bookId": "232494918",
@@ -2757,7 +2781,8 @@
       "reviewDate": "2025-09-26",
       "reviewCount": 0,
       "drzratingAuto": true,
-      "isbn": "9788423350100"
+      "isbn": "9788423350100",
+      "reviewLocalCoverUrl": "./reviews/covers/7862130465.jpg"
     },
     {
       "bookId": "59080630",
@@ -2787,7 +2812,8 @@
       "reviewDate": "2025-09-26",
       "reviewCount": 0,
       "drzratingAuto": true,
-      "isbn": "9788433916556"
+      "isbn": "9788433916556",
+      "reviewLocalCoverUrl": "./reviews/covers/7942026165.jpg"
     },
     {
       "bookId": "25516857",
@@ -2817,7 +2843,8 @@
       "reviewDate": "2025-09-24",
       "reviewCount": 0,
       "drzratingAuto": true,
-      "dateAdded": "2023-08-18"
+      "dateAdded": "2023-08-18",
+      "reviewLocalCoverUrl": "./reviews/covers/4360309104.jpg"
     },
     {
       "bookId": "56920719",
@@ -2846,7 +2873,8 @@
       "reviewDate": "2025-09-05",
       "reviewCount": 0,
       "drzratingAuto": true,
-      "isbn": "9788408239574"
+      "isbn": "9788408239574",
+      "reviewLocalCoverUrl": "./reviews/covers/7888036993.jpg"
     },
     {
       "bookId": "17333142",
@@ -2875,7 +2903,8 @@
       "matched": true,
       "reviewDate": "2025-09-02",
       "reviewCount": 0,
-      "drzratingAuto": true
+      "drzratingAuto": true,
+      "reviewLocalCoverUrl": "./reviews/covers/7864311880.jpg"
     },
     {
       "bookId": "216472768",
@@ -2903,7 +2932,8 @@
       "reviewDate": "2025-08-25",
       "reviewCount": 0,
       "drzratingAuto": true,
-      "isbn": "9780691236117"
+      "isbn": "9780691236117",
+      "reviewLocalCoverUrl": "./reviews/covers/7846186542.jpg"
     },
     {
       "bookId": "20768906",
@@ -2931,7 +2961,8 @@
       "reviewDate": "2025-08-18",
       "reviewCount": 0,
       "drzratingAuto": true,
-      "isbn": "9788437066691"
+      "isbn": "9788437066691",
+      "reviewLocalCoverUrl": "./reviews/covers/7499085686.jpg"
     },
     {
       "bookId": "24379753",
@@ -2961,7 +2992,8 @@
       "matched": true,
       "reviewDate": "2025-08-18",
       "reviewCount": 0,
-      "drzratingAuto": true
+      "drzratingAuto": true,
+      "reviewLocalCoverUrl": "./reviews/covers/3694939047.jpg"
     },
     {
       "bookId": "65156334",
@@ -2990,7 +3022,8 @@
       "matched": true,
       "reviewDate": "2025-08-18",
       "reviewCount": 0,
-      "drzratingAuto": true
+      "drzratingAuto": true,
+      "reviewLocalCoverUrl": "./reviews/covers/5161184371.jpg"
     },
     {
       "bookId": "222815644",
@@ -3020,7 +3053,8 @@
       "reviewDate": "2025-08-17",
       "reviewCount": 0,
       "drzratingAuto": true,
-      "isbn": "9788423438693"
+      "isbn": "9788423438693",
+      "reviewLocalCoverUrl": "./reviews/covers/7818918347.jpg"
     },
     {
       "bookId": "235770304",
@@ -3050,7 +3084,8 @@
       "matched": true,
       "reviewDate": "2025-08-10",
       "reviewCount": 0,
-      "drzratingAuto": true
+      "drzratingAuto": true,
+      "reviewLocalCoverUrl": "./reviews/covers/7817290317.jpg"
     },
     {
       "bookId": "217324498",
@@ -3079,7 +3114,8 @@
       "matched": true,
       "reviewDate": "2025-08-10",
       "reviewCount": 0,
-      "drzratingAuto": true
+      "drzratingAuto": true,
+      "reviewLocalCoverUrl": "./reviews/covers/7813264654.jpg"
     },
     {
       "bookId": "236941248",
@@ -3110,7 +3146,8 @@
       "reviewDate": "2025-08-03",
       "reviewCount": 0,
       "drzratingAuto": true,
-      "isbn": "9786280189499"
+      "isbn": "9786280189499",
+      "reviewLocalCoverUrl": "./reviews/covers/7719133367.jpg"
     },
     {
       "bookId": "51222253",
@@ -3141,7 +3178,8 @@
       "matched": true,
       "reviewDate": "2025-08-02",
       "reviewCount": 0,
-      "drzratingAuto": true
+      "drzratingAuto": true,
+      "reviewLocalCoverUrl": "./reviews/covers/7793777102.jpg"
     },
     {
       "bookId": "18210750",
@@ -3169,7 +3207,8 @@
       "reviewDate": "2025-07-20",
       "reviewCount": 0,
       "drzratingAuto": true,
-      "isbn": "9780465036677"
+      "isbn": "9780465036677",
+      "reviewLocalCoverUrl": "./reviews/covers/7752072552.jpg"
     },
     {
       "bookId": "62105428",
@@ -3201,7 +3240,8 @@
       "matched": true,
       "reviewDate": "2025-07-09",
       "reviewCount": 0,
-      "drzratingAuto": true
+      "drzratingAuto": true,
+      "reviewLocalCoverUrl": "./reviews/covers/7721996746.jpg"
     },
     {
       "bookId": "61274281",
@@ -3229,7 +3269,8 @@
       "reviewDate": "2025-07-09",
       "reviewCount": 0,
       "drzratingAuto": true,
-      "isbn": "9789504977247"
+      "isbn": "9789504977247",
+      "reviewLocalCoverUrl": "./reviews/covers/7708803302.jpg"
     },
     {
       "bookId": "153617796",
@@ -3361,7 +3402,8 @@
       "reviewDate": "2025-07-02",
       "reviewCount": 0,
       "drzratingAuto": true,
-      "isbn": "9789873831850"
+      "isbn": "9789873831850",
+      "reviewLocalCoverUrl": "./reviews/covers/7701762275.jpg"
     },
     {
       "bookId": "218139790",
@@ -3911,7 +3953,8 @@
       "matched": true,
       "reviewDate": "2025-04-18",
       "reviewCount": 0,
-      "drzratingAuto": true
+      "drzratingAuto": true,
+      "reviewLocalCoverUrl": "./reviews/covers/7491410014.jpg"
     },
     {
       "bookId": "9859056",
@@ -3940,7 +3983,8 @@
       "matched": true,
       "reviewDate": "2025-04-15",
       "reviewCount": 0,
-      "drzratingAuto": true
+      "drzratingAuto": true,
+      "reviewLocalCoverUrl": "./reviews/covers/3659558110.jpg"
     },
     {
       "bookId": "215857232",
@@ -4006,7 +4050,8 @@
       "reviewDate": "2025-04-13",
       "reviewCount": 0,
       "drzratingAuto": true,
-      "isbn": "9788491996675"
+      "isbn": "9788491996675",
+      "reviewLocalCoverUrl": "./reviews/covers/7432656958.jpg"
     },
     {
       "bookId": "26196560",
@@ -4034,7 +4079,8 @@
       "reviewDate": "2025-04-13",
       "reviewCount": 0,
       "drzratingAuto": true,
-      "isbn": "9780300218275"
+      "isbn": "9780300218275",
+      "reviewLocalCoverUrl": "./reviews/covers/7459514209.jpg"
     },
     {
       "bookId": "35959740",
@@ -4099,7 +4145,8 @@
       "matched": true,
       "reviewDate": "2025-04-02",
       "reviewCount": 0,
-      "drzratingAuto": true
+      "drzratingAuto": true,
+      "reviewLocalCoverUrl": "./reviews/covers/7446438317.jpg"
     },
     {
       "bookId": "13183688",
@@ -4127,7 +4174,8 @@
       "reviewDate": "2025-03-31",
       "reviewCount": 0,
       "drzratingAuto": true,
-      "isbn": "9788408104827"
+      "isbn": "9788408104827",
+      "reviewLocalCoverUrl": "./reviews/covers/4687283405.jpg"
     },
     {
       "bookId": "60674842",
@@ -4329,7 +4377,8 @@
       "reviewCount": 0,
       "drzratingAuto": true,
       "isbn": "9786071672827",
-      "dateAdded": "2024-07-25"
+      "dateAdded": "2024-07-25",
+      "reviewLocalCoverUrl": "./reviews/covers/7267823506.jpg"
     },
     {
       "bookId": "62012773",
@@ -4357,7 +4406,8 @@
       "reviewDate": "2025-03-01",
       "reviewCount": 0,
       "drzratingAuto": true,
-      "isbn": "9789587648461"
+      "isbn": "9789587648461",
+      "reviewLocalCoverUrl": "./reviews/covers/7294202965.jpg"
     },
     {
       "bookId": "6691227",
@@ -4420,7 +4470,8 @@
       "matched": true,
       "reviewDate": "2025-02-05",
       "reviewCount": 0,
-      "drzratingAuto": true
+      "drzratingAuto": true,
+      "reviewLocalCoverUrl": "./reviews/covers/7265744530.jpg"
     },
     {
       "bookId": "10979076",
@@ -4448,7 +4499,8 @@
       "reviewDate": "2025-01-28",
       "reviewCount": 0,
       "drzratingAuto": true,
-      "isbn": "9788415120100"
+      "isbn": "9788415120100",
+      "reviewLocalCoverUrl": "./reviews/covers/7173512812.jpg"
     },
     {
       "bookId": "18333591",
@@ -4475,7 +4527,8 @@
       "matched": false,
       "reviewDate": "2025-01-26",
       "reviewCount": 0,
-      "drzratingAuto": true
+      "drzratingAuto": true,
+      "reviewLocalCoverUrl": "./reviews/covers/7259258153.jpg"
     },
     {
       "bookId": "204453898",
@@ -4504,7 +4557,8 @@
       "matched": true,
       "reviewDate": "2025-01-26",
       "reviewCount": 0,
-      "drzratingAuto": true
+      "drzratingAuto": true,
+      "reviewLocalCoverUrl": "./reviews/covers/7212030177.jpg"
     },
     {
       "bookId": "202748516",
@@ -4532,7 +4586,8 @@
       "reviewDate": "2025-01-13",
       "reviewCount": 0,
       "drzratingAuto": true,
-      "isbn": "9788408283744"
+      "isbn": "9788408283744",
+      "reviewLocalCoverUrl": "./reviews/covers/7100665219.jpg"
     },
     {
       "bookId": "213130133",
@@ -4561,7 +4616,8 @@
       "reviewDate": "2025-01-09",
       "reviewCount": 0,
       "drzratingAuto": true,
-      "isbn": "9786287638525"
+      "isbn": "9786287638525",
+      "reviewLocalCoverUrl": "./reviews/covers/7193871741.jpg"
     },
     {
       "bookId": "35078318",
@@ -4592,7 +4648,8 @@
       "matched": true,
       "reviewDate": "2025-01-06",
       "reviewCount": 0,
-      "drzratingAuto": true
+      "drzratingAuto": true,
+      "reviewLocalCoverUrl": "./reviews/covers/7180822884.jpg"
     },
     {
       "bookId": "219505858",
@@ -4619,7 +4676,8 @@
       "matched": false,
       "reviewDate": "2025-01-05",
       "reviewCount": 0,
-      "drzratingAuto": true
+      "drzratingAuto": true,
+      "reviewLocalCoverUrl": "./reviews/covers/7175657457.jpg"
     },
     {
       "bookId": "217324285",
@@ -4650,7 +4708,8 @@
       "matched": true,
       "reviewDate": "2025-01-05",
       "reviewCount": 0,
-      "drzratingAuto": true
+      "drzratingAuto": true,
+      "reviewLocalCoverUrl": "./reviews/covers/7160873986.jpg"
     },
     {
       "bookId": "24997740",
@@ -4678,7 +4737,8 @@
       "reviewDate": "2025-01-04",
       "reviewCount": 0,
       "drzratingAuto": true,
-      "isbn": "9788439730026"
+      "isbn": "9788439730026",
+      "reviewLocalCoverUrl": "./reviews/covers/7160909719.jpg"
     },
     {
       "bookId": "216146481",
@@ -4775,7 +4835,8 @@
       "matched": true,
       "reviewDate": "2024-12-30",
       "reviewCount": 0,
-      "drzratingAuto": true
+      "drzratingAuto": true,
+      "reviewLocalCoverUrl": "./reviews/covers/7133556984.jpg"
     },
     {
       "bookId": "44772198",
@@ -5225,7 +5286,8 @@
       "matched": true,
       "reviewDate": "2024-12-15",
       "reviewCount": 0,
-      "drzratingAuto": true
+      "drzratingAuto": true,
+      "reviewLocalCoverUrl": "./reviews/covers/7084604148.jpg"
     },
     {
       "bookId": "136978720",
@@ -5252,7 +5314,8 @@
       },
       "matched": false,
       "reviewDate": "2024-12-14",
-      "reviewCount": 0
+      "reviewCount": 0,
+      "reviewLocalCoverUrl": "./reviews/covers/7084601960.png"
     },
     {
       "bookId": "183526597",
@@ -5280,7 +5343,8 @@
       "reviewDate": "2024-12-13",
       "reviewCount": 0,
       "drzratingAuto": true,
-      "isbn": "9788419399649"
+      "isbn": "9788419399649",
+      "reviewLocalCoverUrl": "./reviews/covers/6547265377.jpg"
     },
     {
       "bookId": "42959231",
@@ -5344,7 +5408,8 @@
       "reviewDate": "2024-12-01",
       "reviewCount": 0,
       "drzratingAuto": true,
-      "isbn": "9781592402427"
+      "isbn": "9781592402427",
+      "reviewLocalCoverUrl": "./reviews/covers/7044754740.jpg"
     },
     {
       "bookId": "209668687",
@@ -5374,7 +5439,8 @@
       "matched": true,
       "reviewDate": "2024-11-29",
       "reviewCount": 0,
-      "drzratingAuto": true
+      "drzratingAuto": true,
+      "reviewLocalCoverUrl": "./reviews/covers/6940822986.jpg"
     },
     {
       "bookId": "55616855",
@@ -5406,7 +5472,8 @@
       "matched": true,
       "reviewDate": "2024-11-27",
       "reviewCount": 0,
-      "drzratingAuto": true
+      "drzratingAuto": true,
+      "reviewLocalCoverUrl": "./reviews/covers/6991343005.jpg"
     },
     {
       "bookId": "6333294",
@@ -5572,7 +5639,8 @@
       "reviewDate": "2024-10-27",
       "reviewCount": 0,
       "drzratingAuto": true,
-      "isbn": "9788432216091"
+      "isbn": "9788432216091",
+      "reviewLocalCoverUrl": "./reviews/covers/5135515968.jpg"
     },
     {
       "bookId": "199066748",
@@ -5704,7 +5772,8 @@
       "matched": true,
       "reviewDate": "2024-10-18",
       "reviewCount": 0,
-      "drzratingAuto": true
+      "drzratingAuto": true,
+      "reviewLocalCoverUrl": "./reviews/covers/6924028891.jpg"
     },
     {
       "bookId": "219351690",
@@ -5834,7 +5903,8 @@
       "reviewDate": "2024-10-07",
       "reviewCount": 0,
       "drzratingAuto": true,
-      "isbn": "9789500417563"
+      "isbn": "9789500417563",
+      "reviewLocalCoverUrl": "./reviews/covers/4835483048.jpg"
     },
     {
       "bookId": "204927599",
@@ -5865,7 +5935,8 @@
       "matched": true,
       "reviewDate": "2024-10-06",
       "reviewCount": 0,
-      "drzratingAuto": true
+      "drzratingAuto": true,
+      "reviewLocalCoverUrl": "./reviews/covers/6867656586.jpg"
     },
     {
       "bookId": "60554656",
@@ -6035,7 +6106,8 @@
       "matched": true,
       "reviewDate": "2024-08-25",
       "reviewCount": 0,
-      "drzratingAuto": true
+      "drzratingAuto": true,
+      "reviewLocalCoverUrl": "./reviews/covers/6773768690.jpg"
     },
     {
       "bookId": "35785007",
@@ -6165,7 +6237,8 @@
       "reviewDate": "2024-08-17",
       "reviewCount": 0,
       "drzratingAuto": true,
-      "isbn": "9789587145861"
+      "isbn": "9789587145861",
+      "reviewLocalCoverUrl": "./reviews/covers/6766443560.jpg"
     },
     {
       "bookId": "58440113",
@@ -6260,7 +6333,8 @@
       "matched": true,
       "reviewDate": "2024-08-06",
       "reviewCount": 0,
-      "drzratingAuto": true
+      "drzratingAuto": true,
+      "reviewLocalCoverUrl": "./reviews/covers/6038997612.jpg"
     },
     {
       "bookId": "57028232",
@@ -6288,7 +6362,8 @@
       "reviewDate": "2024-07-28",
       "reviewCount": 0,
       "drzratingAuto": true,
-      "isbn": "9788412198096"
+      "isbn": "9788412198096",
+      "reviewLocalCoverUrl": "./reviews/covers/6708694893.jpg"
     },
     {
       "bookId": "209140616",
@@ -6451,7 +6526,8 @@
       "matched": false,
       "reviewDate": "2024-07-08",
       "reviewCount": 0,
-      "drzratingAuto": true
+      "drzratingAuto": true,
+      "reviewLocalCoverUrl": "./reviews/covers/6647656887.jpg"
     },
     {
       "bookId": "210808890",
@@ -6480,7 +6556,8 @@
       "reviewDate": "2024-07-06",
       "reviewCount": 0,
       "drzratingAuto": true,
-      "isbn": "9788412779745"
+      "isbn": "9788412779745",
+      "reviewLocalCoverUrl": "./reviews/covers/6407436035.jpg"
     },
     {
       "bookId": "57386590",
@@ -6613,7 +6690,8 @@
       "matched": true,
       "reviewDate": "2024-06-24",
       "reviewCount": 0,
-      "drzratingAuto": true
+      "drzratingAuto": true,
+      "reviewLocalCoverUrl": "./reviews/covers/6557202007.jpg"
     },
     {
       "bookId": "6916879",
@@ -6742,7 +6820,8 @@
       "reviewDate": "2024-06-03",
       "reviewCount": 0,
       "drzratingAuto": true,
-      "isbn": "9788420627625"
+      "isbn": "9788420627625",
+      "reviewLocalCoverUrl": "./reviews/covers/6482366807.jpg"
     },
     {
       "bookId": "53247016",
@@ -6807,7 +6886,8 @@
       "matched": true,
       "reviewDate": "2024-05-27",
       "reviewCount": 0,
-      "drzratingAuto": true
+      "drzratingAuto": true,
+      "reviewLocalCoverUrl": "./reviews/covers/6531734816.jpg"
     },
     {
       "bookId": "98095162",
@@ -6974,7 +7054,8 @@
       "matched": true,
       "reviewDate": "2024-05-07",
       "reviewCount": 0,
-      "drzratingAuto": true
+      "drzratingAuto": true,
+      "reviewLocalCoverUrl": "./reviews/covers/6482355597.jpg"
     },
     {
       "bookId": "99499",
@@ -7036,7 +7117,8 @@
       "reviewDate": "2024-05-01",
       "reviewCount": 0,
       "drzratingAuto": true,
-      "isbn": "9788474326284"
+      "isbn": "9788474326284",
+      "reviewLocalCoverUrl": "./reviews/covers/6352354825.jpg"
     },
     {
       "bookId": "18754940",
@@ -7168,7 +7250,8 @@
       "matched": true,
       "reviewDate": "2024-03-31",
       "reviewCount": 0,
-      "drzratingAuto": true
+      "drzratingAuto": true,
+      "reviewLocalCoverUrl": "./reviews/covers/6387592318.jpg"
     },
     {
       "bookId": "31178359",
@@ -7267,7 +7350,8 @@
       "reviewDate": "2024-03-25",
       "reviewCount": 0,
       "drzratingAuto": true,
-      "isbn": "9780199682782"
+      "isbn": "9780199682782",
+      "reviewLocalCoverUrl": "./reviews/covers/6372923697.jpg"
     },
     {
       "bookId": "200659844",
@@ -7330,7 +7414,8 @@
       "reviewDate": "2024-03-17",
       "reviewCount": 0,
       "drzratingAuto": true,
-      "isbn": "9788439743071"
+      "isbn": "9788439743071",
+      "reviewLocalCoverUrl": "./reviews/covers/6351834675.jpg"
     },
     {
       "bookId": "36913879",
@@ -7358,7 +7443,8 @@
       "reviewDate": "2024-03-14",
       "reviewCount": 0,
       "drzratingAuto": true,
-      "isbn": "9781509522712"
+      "isbn": "9781509522712",
+      "reviewLocalCoverUrl": "./reviews/covers/6313109632.jpg"
     },
     {
       "bookId": "55050608",
@@ -7456,7 +7542,8 @@
       "matched": true,
       "reviewDate": "2024-02-25",
       "reviewCount": 0,
-      "drzratingAuto": true
+      "drzratingAuto": true,
+      "reviewLocalCoverUrl": "./reviews/covers/6273729839.jpg"
     },
     {
       "bookId": "61815471",
@@ -7825,7 +7912,8 @@
       "matched": true,
       "reviewDate": "2023-12-30",
       "reviewCount": 0,
-      "drzratingAuto": true
+      "drzratingAuto": true,
+      "reviewLocalCoverUrl": "./reviews/covers/6098868416.jpg"
     },
     {
       "bookId": "56845375",
@@ -8171,7 +8259,8 @@
       "reviewDate": "2023-11-30",
       "reviewCount": 0,
       "drzratingAuto": true,
-      "isbn": "9788423362394"
+      "isbn": "9788423362394",
+      "reviewLocalCoverUrl": "./reviews/covers/5654700082.jpg"
     },
     {
       "bookId": "157390676",
@@ -8408,7 +8497,8 @@
       "matched": true,
       "reviewDate": "2023-10-30",
       "reviewCount": 0,
-      "drzratingAuto": true
+      "drzratingAuto": true,
+      "reviewLocalCoverUrl": "./reviews/covers/5848474545.jpg"
     },
     {
       "bookId": "32202588",
@@ -8575,7 +8665,8 @@
       "reviewDate": "2023-09-01",
       "reviewCount": 0,
       "drzratingAuto": true,
-      "isbn": "9788481643831"
+      "isbn": "9788481643831",
+      "reviewLocalCoverUrl": "./reviews/covers/5731553832.jpg"
     },
     {
       "bookId": "175083285",
@@ -8815,7 +8906,8 @@
       "matched": true,
       "reviewDate": "2023-08-05",
       "reviewCount": 0,
-      "drzratingAuto": true
+      "drzratingAuto": true,
+      "reviewLocalCoverUrl": "./reviews/covers/5700237733.jpg"
     },
     {
       "bookId": "35168542",
@@ -9432,7 +9524,8 @@
       "reviewDate": "2023-05-30",
       "reviewCount": 0,
       "drzratingAuto": true,
-      "isbn": "9788415618775"
+      "isbn": "9788415618775",
+      "reviewLocalCoverUrl": "./reviews/covers/5567424187.jpg"
     },
     {
       "bookId": "125064740",
@@ -9943,7 +10036,8 @@
       "matched": true,
       "reviewDate": "2023-03-12",
       "reviewCount": 0,
-      "drzratingAuto": true
+      "drzratingAuto": true,
+      "reviewLocalCoverUrl": "./reviews/covers/5408075907.jpg"
     },
     {
       "bookId": "33280679",
@@ -10209,7 +10303,8 @@
       "reviewDate": "2025-01-11",
       "reviewCount": 0,
       "drzratingAuto": true,
-      "isbn": "9788424939434"
+      "isbn": "9788424939434",
+      "reviewLocalCoverUrl": "./reviews/covers/5193786539.jpg"
     },
     {
       "bookId": "18754769",
@@ -10237,7 +10332,8 @@
       "reviewDate": "2023-01-30",
       "reviewCount": 0,
       "drzratingAuto": true,
-      "isbn": "9788415917977"
+      "isbn": "9788415917977",
+      "reviewLocalCoverUrl": "./reviews/covers/5287245618.jpg"
     },
     {
       "bookId": "41828106",
@@ -10265,7 +10361,8 @@
       "reviewDate": "2023-01-28",
       "reviewCount": 0,
       "drzratingAuto": true,
-      "isbn": "9788424924744"
+      "isbn": "9788424924744",
+      "reviewLocalCoverUrl": "./reviews/covers/5193790948.jpg"
     },
     {
       "bookId": "60761335",
@@ -10500,7 +10597,8 @@
       "reviewDate": "2023-01-08",
       "reviewCount": 0,
       "drzratingAuto": true,
-      "isbn": "9788423433742"
+      "isbn": "9788423433742",
+      "reviewLocalCoverUrl": "./reviews/covers/5232218668.jpg"
     },
     {
       "bookId": "55359307",
@@ -10705,7 +10803,8 @@
       "matched": true,
       "reviewDate": "2022-12-26",
       "reviewCount": 0,
-      "drzratingAuto": true
+      "drzratingAuto": true,
+      "reviewLocalCoverUrl": "./reviews/covers/5074782519.jpg"
     },
     {
       "bookId": "50391711",
@@ -10772,7 +10871,8 @@
       "matched": true,
       "reviewDate": "2023-06-26",
       "reviewCount": 0,
-      "drzratingAuto": true
+      "drzratingAuto": true,
+      "reviewLocalCoverUrl": "./reviews/covers/5180747441.jpg"
     },
     {
       "bookId": "74763270",
@@ -11045,7 +11145,8 @@
       "reviewDate": "2022-12-06",
       "reviewCount": 0,
       "drzratingAuto": true,
-      "isbn": "9788498922455"
+      "isbn": "9788498922455",
+      "reviewLocalCoverUrl": "./reviews/covers/5116977591.jpg"
     },
     {
       "bookId": "63254628",
@@ -11285,7 +11386,8 @@
       "matched": true,
       "reviewDate": "2023-01-07",
       "reviewCount": 0,
-      "drzratingAuto": true
+      "drzratingAuto": true,
+      "reviewLocalCoverUrl": "./reviews/covers/5077848751.jpg"
     },
     {
       "bookId": "32853189",
@@ -11384,7 +11486,8 @@
       "matched": true,
       "reviewDate": "2022-10-30",
       "reviewCount": 0,
-      "drzratingAuto": true
+      "drzratingAuto": true,
+      "reviewLocalCoverUrl": "./reviews/covers/5054173875.jpg"
     },
     {
       "bookId": "25673675",
@@ -11622,7 +11725,8 @@
       "matched": true,
       "reviewDate": "2022-09-04",
       "reviewCount": 0,
-      "drzratingAuto": true
+      "drzratingAuto": true,
+      "reviewLocalCoverUrl": "./reviews/covers/4965511987.jpg"
     },
     {
       "bookId": "55457446",
@@ -11687,7 +11791,8 @@
       "matched": true,
       "reviewDate": "2022-08-24",
       "reviewCount": 0,
-      "drzratingAuto": true
+      "drzratingAuto": true,
+      "reviewLocalCoverUrl": "./reviews/covers/4920436521.jpg"
     },
     {
       "bookId": "7056969",
@@ -11718,7 +11823,8 @@
       "matched": true,
       "reviewDate": "2022-08-24",
       "reviewCount": 0,
-      "drzratingAuto": true
+      "drzratingAuto": true,
+      "reviewLocalCoverUrl": "./reviews/covers/3776344814.jpg"
     },
     {
       "bookId": "18686121",
@@ -11785,7 +11891,8 @@
       "matched": true,
       "reviewDate": "2022-08-05",
       "reviewCount": 0,
-      "drzratingAuto": true
+      "drzratingAuto": true,
+      "reviewLocalCoverUrl": "./reviews/covers/4689995125.jpg"
     },
     {
       "bookId": "52300880",
@@ -12402,7 +12509,8 @@
       "matched": true,
       "reviewDate": "2022-05-08",
       "reviewCount": 0,
-      "drzratingAuto": true
+      "drzratingAuto": true,
+      "reviewLocalCoverUrl": "./reviews/covers/4713337847.jpg"
     },
     {
       "bookId": "40783641",
@@ -12501,7 +12609,8 @@
       "reviewDate": "2022-04-25",
       "reviewCount": 0,
       "drzratingAuto": true,
-      "isbn": "9788418056369"
+      "isbn": "9788418056369",
+      "reviewLocalCoverUrl": "./reviews/covers/4360306733.jpg"
     },
     {
       "bookId": "60622051",
@@ -12874,7 +12983,8 @@
       "reviewDate": "2022-02-27",
       "reviewCount": 0,
       "drzratingAuto": true,
-      "isbn": "9780865718746"
+      "isbn": "9780865718746",
+      "reviewLocalCoverUrl": "./reviews/covers/4577849161.jpg"
     },
     {
       "bookId": "58875334",
@@ -12903,7 +13013,8 @@
       "reviewDate": "2022-02-26",
       "reviewCount": 0,
       "drzratingAuto": true,
-      "isbn": "9788411000208"
+      "isbn": "9788411000208",
+      "reviewLocalCoverUrl": "./reviews/covers/4561253637.jpg"
     },
     {
       "bookId": "27187428",
@@ -12970,7 +13081,8 @@
       "matched": true,
       "reviewDate": "2022-02-16",
       "reviewCount": 0,
-      "drzratingAuto": true
+      "drzratingAuto": true,
+      "reviewLocalCoverUrl": "./reviews/covers/4515987709.jpg"
     },
     {
       "bookId": "19063630",
@@ -12997,7 +13109,8 @@
       "matched": false,
       "reviewDate": "2022-01-31",
       "reviewCount": 0,
-      "drzratingAuto": true
+      "drzratingAuto": true,
+      "reviewLocalCoverUrl": "./reviews/covers/4476086879.jpg"
     },
     {
       "bookId": "43906748",
@@ -13061,7 +13174,8 @@
       "matched": true,
       "reviewDate": "2022-01-29",
       "reviewCount": 0,
-      "drzratingAuto": true
+      "drzratingAuto": true,
+      "reviewLocalCoverUrl": "./reviews/covers/2780950363.jpg"
     },
     {
       "bookId": "36242663",
@@ -13335,7 +13449,8 @@
       "matched": true,
       "reviewDate": "2021-12-28",
       "reviewCount": 0,
-      "drzratingAuto": true
+      "drzratingAuto": true,
+      "reviewLocalCoverUrl": "./reviews/covers/4398485978.jpg"
     },
     {
       "bookId": "41576706",
@@ -14383,7 +14498,8 @@
       "matched": true,
       "reviewDate": "2021-07-31",
       "reviewCount": 0,
-      "drzratingAuto": true
+      "drzratingAuto": true,
+      "reviewLocalCoverUrl": "./reviews/covers/4106837485.jpg"
     },
     {
       "bookId": "9594222",
@@ -14964,7 +15080,8 @@
       "reviewDate": "2021-04-23",
       "reviewCount": 0,
       "drzratingAuto": true,
-      "isbn": "9788416095735"
+      "isbn": "9788416095735",
+      "reviewLocalCoverUrl": "./reviews/covers/3939465652.jpg"
     },
     {
       "bookId": "24976877",
@@ -14995,7 +15112,8 @@
       "matched": true,
       "reviewDate": "2024-07-31",
       "reviewCount": 0,
-      "drzratingAuto": true
+      "drzratingAuto": true,
+      "reviewLocalCoverUrl": "./reviews/covers/6717965134.jpg"
     },
     {
       "bookId": "57092439",
@@ -15059,7 +15177,8 @@
       "reviewDate": "2021-04-11",
       "reviewCount": 0,
       "drzratingAuto": true,
-      "isbn": "9788496489431"
+      "isbn": "9788496489431",
+      "reviewLocalCoverUrl": "./reviews/covers/3926843652.jpg"
     },
     {
       "bookId": "43554612",
@@ -15474,7 +15593,8 @@
       "matched": true,
       "reviewDate": "2021-02-07",
       "reviewCount": 0,
-      "drzratingAuto": true
+      "drzratingAuto": true,
+      "reviewLocalCoverUrl": "./reviews/covers/3733824303.jpg"
     },
     {
       "bookId": "26567125",
@@ -15705,7 +15825,8 @@
       "reviewDate": "2021-01-13",
       "reviewCount": 0,
       "drzratingAuto": true,
-      "isbn": "9780465024407"
+      "isbn": "9780465024407",
+      "reviewLocalCoverUrl": "./reviews/covers/2669144939.jpg"
     },
     {
       "bookId": "30288040",
@@ -15734,7 +15855,8 @@
       "matched": true,
       "reviewDate": "2021-01-09",
       "reviewCount": 0,
-      "drzratingAuto": true
+      "drzratingAuto": true,
+      "reviewLocalCoverUrl": "./reviews/covers/2681664072.jpg"
     },
     {
       "bookId": "1995",
@@ -15800,7 +15922,8 @@
       "matched": true,
       "reviewDate": "2021-01-08",
       "reviewCount": 0,
-      "drzratingAuto": true
+      "drzratingAuto": true,
+      "reviewLocalCoverUrl": "./reviews/covers/3757626877.jpg"
     },
     {
       "bookId": "57624494",
@@ -16082,7 +16205,8 @@
       "matched": true,
       "reviewCount": 0,
       "reviewDate": "2020-12-04",
-      "drzratingAuto": true
+      "drzratingAuto": true,
+      "reviewLocalCoverUrl": "./reviews/covers/3503588457.jpg"
     },
     {
       "bookId": "52377465",
@@ -16676,7 +16800,8 @@
       "matched": true,
       "reviewDate": "2020-08-02",
       "reviewCount": 0,
-      "drzratingAuto": true
+      "drzratingAuto": true,
+      "reviewLocalCoverUrl": "./reviews/covers/2669145587.jpg"
     },
     {
       "bookId": "33389769",
@@ -17127,7 +17252,8 @@
       "matched": true,
       "reviewDate": "2020-06-07",
       "reviewCount": 0,
-      "drzratingAuto": true
+      "drzratingAuto": true,
+      "reviewLocalCoverUrl": "./reviews/covers/3367788270.jpg"
     },
     {
       "bookId": "17697342",

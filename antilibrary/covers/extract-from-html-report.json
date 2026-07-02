@@ -1,10 +1,10 @@
 {
-  "generatedAt": "2026-06-25T16:00:30.958268+00:00",
-  "inputHtml": "info/bookbuddy.htm",
+  "generatedAt": "2026-07-02T18:28:24.593600+00:00",
+  "inputHtml": "update/bookbuddy.htm",
   "outputDir": "antilibrary/covers",
   "rowsSeen": 1296,
-  "extracted": 58,
-  "skippedExisting": 1238,
+  "extracted": 0,
+  "skippedExisting": 1296,
   "replacedSizeChanged": 0,
   "missingIsbn": 30,
   "invalidImage": 0,
@@ -19,7 +19,7 @@
       "coverId": "9788447377244",
       "file": "antilibrary/covers/9788447377244.png",
       "bytes": 11259,
-      "status": "extracted"
+      "status": "skipped_existing_same_size"
     },
     {
       "rowIndex": 2,
@@ -31,7 +31,7 @@
       "coverId": "9788410675919",
       "file": "antilibrary/covers/9788410675919.png",
       "bytes": 9298,
-      "status": "extracted"
+      "status": "skipped_existing_same_size"
     },
     {
       "rowIndex": 3,
@@ -43,7 +43,7 @@
       "coverId": "9788430628568",
       "file": "antilibrary/covers/9788430628568.png",
       "bytes": 10039,
-      "status": "extracted"
+      "status": "skipped_existing_same_size"
     },
     {
       "rowIndex": 4,
@@ -55,7 +55,7 @@
       "coverId": "9786287897083",
       "file": "antilibrary/covers/9786287897083.png",
       "bytes": 9906,
-      "status": "extracted"
+      "status": "skipped_existing_same_size"
     },
     {
       "rowIndex": 5,
@@ -67,7 +67,7 @@
       "coverId": "9786287897090",
       "file": "antilibrary/covers/9786287897090.png",
       "bytes": 10574,
-      "status": "extracted"
+      "status": "skipped_existing_same_size"
     },
     {
       "rowIndex": 6,
@@ -79,7 +79,7 @@
       "coverId": "9786287897106",
       "file": "antilibrary/covers/9786287897106.png",
       "bytes": 10179,
-      "status": "extracted"
+      "status": "skipped_existing_same_size"
     },
     {
       "rowIndex": 7,
@@ -91,7 +91,7 @@
       "coverId": "9788408299387",
       "file": "antilibrary/covers/9788408299387.png",
       "bytes": 10463,
-      "status": "extracted"
+      "status": "skipped_existing_same_size"
     },
     {
       "rowIndex": 8,
@@ -103,11 +103,11 @@
       "coverId": "9788411489010",
       "file": "antilibrary/covers/9788411489010.png",
       "bytes": 10079,
-      "status": "extracted"
+      "status": "skipped_existing_same_size"
     },
     {
       "rowIndex": 9,
-      "title": "Cómo funciona la comida",
+      "title": "Cómo funciona la comida: la historia y el futuro de la alimentación",
       "author": "Vaclav Smil",
       "dateAddedRaw": "June 14, 2026",
       "isbnRaw": "9788410214927",
@@ -115,7 +115,7 @@
       "coverId": "9788410214927",
       "file": "antilibrary/covers/9788410214927.png",
       "bytes": 10432,
-      "status": "extracted"
+      "status": "skipped_existing_same_size"
     },
     {
       "rowIndex": 10,
@@ -127,7 +127,7 @@
       "coverId": "9788418668289",
       "file": "antilibrary/covers/9788418668289.png",
       "bytes": 8466,
-      "status": "extracted"
+      "status": "skipped_existing_same_size"
     },
     {
       "rowIndex": 11,
@@ -139,7 +139,7 @@
       "coverId": "9788423437597",
       "file": "antilibrary/covers/9788423437597.png",
       "bytes": 6382,
-      "status": "extracted"
+      "status": "skipped_existing_same_size"
     },
     {
       "rowIndex": 12,
@@ -151,7 +151,7 @@
       "coverId": "9788491997795",
       "file": "antilibrary/covers/9788491997795.png",
       "bytes": 10437,
-      "status": "extracted"
+      "status": "skipped_existing_same_size"
     },
     {
       "rowIndex": 13,
@@ -163,7 +163,7 @@
       "coverId": "noisbn-la-m-sica-del-hombre-yehudi-menuhin-and-eae6f724bc",
       "file": "antilibrary/covers/noisbn-la-m-sica-del-hombre-yehudi-menuhin-and-eae6f724bc.png",
       "bytes": 11466,
-      "status": "extracted"
+      "status": "skipped_existing_same_size"
     },
     {
       "rowIndex": 14,
@@ -175,7 +175,7 @@
       "coverId": "9789501502510",
       "file": "antilibrary/covers/9789501502510.png",
       "bytes": 8714,
-      "status": "extracted"
+      "status": "skipped_existing_same_size"
     },
     {
       "rowIndex": 15,
@@ -187,7 +187,7 @@
       "coverId": "9788419414298",
       "file": "antilibrary/covers/9788419414298.png",
       "bytes": 10115,
-      "status": "extracted"
+      "status": "skipped_existing_same_size"
     },
     {
       "rowIndex": 16,
@@ -199,7 +199,7 @@
       "coverId": "9788430619627",
       "file": "antilibrary/covers/9788430619627.png",
       "bytes": 8335,
-      "status": "extracted"
+      "status": "skipped_existing_same_size"
     },
     {
       "rowIndex": 17,
@@ -211,7 +211,7 @@
       "coverId": "9788490706718",
       "file": "antilibrary/covers/9788490706718.png",
       "bytes": 12775,
-      "status": "extracted"
+      "status": "skipped_existing_same_size"
     },
     {
       "rowIndex": 18,
@@ -223,7 +223,7 @@
       "coverId": "9788419089410",
       "file": "antilibrary/covers/9788419089410.png",
       "bytes": 5884,
-      "status": "extracted"
+      "status": "skipped_existing_same_size"
     },
     {
       "rowIndex": 19,
@@ -235,7 +235,7 @@
       "coverId": "9791387846381",
       "file": "antilibrary/covers/9791387846381.png",
       "bytes": 8858,
-      "status": "extracted"
+      "status": "skipped_existing_same_size"
     },
     {
       "rowIndex": 20,
@@ -247,7 +247,7 @@
       "coverId": "9789505573844",
       "file": "antilibrary/covers/9789505573844.png",
       "bytes": 7343,
-      "status": "extracted"
+      "status": "skipped_existing_same_size"
     },
     {
       "rowIndex": 21,
@@ -259,7 +259,7 @@
       "coverId": "9789505576999",
       "file": "antilibrary/covers/9789505576999.png",
       "bytes": 7547,
-      "status": "extracted"
+      "status": "skipped_existing_same_size"
     },
     {
       "rowIndex": 22,
@@ -271,7 +271,7 @@
       "coverId": "9788433977885",
       "file": "antilibrary/covers/9788433977885.png",
       "bytes": 6874,
-      "status": "extracted"
+      "status": "skipped_existing_same_size"
     },
     {
       "rowIndex": 23,
@@ -283,7 +283,7 @@
       "coverId": "9789587580303",
       "file": "antilibrary/covers/9789587580303.png",
       "bytes": 8891,
-      "status": "extracted"
+      "status": "skipped_existing_same_size"
     },
     {
       "rowIndex": 24,
@@ -295,7 +295,7 @@
       "coverId": "9789587044881",
       "file": "antilibrary/covers/9789587044881.png",
       "bytes": 12015,
-      "status": "extracted"
+      "status": "skipped_existing_same_size"
     },
     {
       "rowIndex": 25,
@@ -307,7 +307,7 @@
       "coverId": "9789588894300",
       "file": "antilibrary/covers/9789588894300.png",
       "bytes": 7518,
-      "status": "extracted"
+      "status": "skipped_existing_same_size"
     },
     {
       "rowIndex": 26,
@@ -319,7 +319,7 @@
       "coverId": "9788413615035",
       "file": "antilibrary/covers/9788413615035.png",
       "bytes": 7498,
-      "status": "extracted"
+      "status": "skipped_existing_same_size"
     },
     {
       "rowIndex": 27,
@@ -331,7 +331,7 @@
       "coverId": "9788411482028",
       "file": "antilibrary/covers/9788411482028.png",
       "bytes": 7580,
-      "status": "extracted"
+      "status": "skipped_existing_same_size"
     },
     {
       "rowIndex": 28,
@@ -343,7 +343,7 @@
       "coverId": "9788466679602",
       "file": "antilibrary/covers/9788466679602.png",
       "bytes": 10660,
-      "status": "extracted"
+      "status": "skipped_existing_same_size"
     },
     {
       "rowIndex": 29,
@@ -355,7 +355,7 @@
       "coverId": "9786287794931",
       "file": "antilibrary/covers/9786287794931.png",
       "bytes": 9142,
-      "status": "extracted"
+      "status": "skipped_existing_same_size"
     },
     {
       "rowIndex": 30,
@@ -847,7 +847,7 @@
       "coverId": "noisbn-jos-mar-a-villa-un-gen-hern-n-echeverri-c-62a2292672",
       "file": "antilibrary/covers/noisbn-jos-mar-a-villa-un-gen-hern-n-echeverri-c-62a2292672.png",
       "bytes": 9660,
-      "status": "extracted"
+      "status": "skipped_existing_same_size"
     },
     {
       "rowIndex": 71,
@@ -1639,7 +1639,7 @@
       "coverId": "noisbn-ecce-homo-friedrich-nietzsch-400d7cd883",
       "file": "antilibrary/covers/noisbn-ecce-homo-friedrich-nietzsch-400d7cd883.png",
       "bytes": 7308,
-      "status": "extracted"
+      "status": "skipped_existing_same_size"
     },
     {
       "rowIndex": 137,
@@ -3451,7 +3451,7 @@
       "coverId": "noisbn-mitolog-a-romana-mar-a-delia-sol-c1774e218c",
       "file": "antilibrary/covers/noisbn-mitolog-a-romana-mar-a-delia-sol-c1774e218c.png",
       "bytes": 8289,
-      "status": "extracted"
+      "status": "skipped_existing_same_size"
     },
     {
       "rowIndex": 288,
@@ -3655,7 +3655,7 @@
       "coverId": "noisbn-la-revolucion-francesa-albert-mathiez-a0d0bc2424",
       "file": "antilibrary/covers/noisbn-la-revolucion-francesa-albert-mathiez-a0d0bc2424.png",
       "bytes": 12085,
-      "status": "extracted"
+      "status": "skipped_existing_same_size"
     },
     {
       "rowIndex": 305,
@@ -4699,7 +4699,7 @@
       "coverId": "noisbn-secretos-del-cosmos-colin-a-roman-7807403b86",
       "file": "antilibrary/covers/noisbn-secretos-del-cosmos-colin-a-roman-7807403b86.png",
       "bytes": 6935,
-      "status": "extracted"
+      "status": "skipped_existing_same_size"
     },
     {
       "rowIndex": 392,
@@ -5119,7 +5119,7 @@
       "coverId": "noisbn-la-casa-de-las-dos-pal-manuel-mej-a-valle-d1ca904525",
       "file": "antilibrary/covers/noisbn-la-casa-de-las-dos-pal-manuel-mej-a-valle-d1ca904525.png",
       "bytes": 8447,
-      "status": "extracted"
+      "status": "skipped_existing_same_size"
     },
     {
       "rowIndex": 427,
@@ -6199,7 +6199,7 @@
       "coverId": "noisbn-el-placer-en-la-roma-c-cordelia-call-s-e9e45bd20d",
       "file": "antilibrary/covers/noisbn-el-placer-en-la-roma-c-cordelia-call-s-e9e45bd20d.png",
       "bytes": 10572,
-      "status": "extracted"
+      "status": "skipped_existing_same_size"
     },
     {
       "rowIndex": 517,
@@ -6331,7 +6331,7 @@
       "coverId": "noisbn-fundamentos-de-filosof-bertrand-russell-a262d4f78c",
       "file": "antilibrary/covers/noisbn-fundamentos-de-filosof-bertrand-russell-a262d4f78c.png",
       "bytes": 2117,
-      "status": "extracted"
+      "status": "skipped_existing_same_size"
     },
     {
       "rowIndex": 528,
@@ -6883,7 +6883,7 @@
       "coverId": "noisbn-la-alta-edad-media-isaac-asimov-7c4beaf2cd",
       "file": "antilibrary/covers/noisbn-la-alta-edad-media-isaac-asimov-7c4beaf2cd.png",
       "bytes": 2117,
-      "status": "extracted"
+      "status": "skipped_existing_same_size"
     },
     {
       "rowIndex": 574,
@@ -8179,7 +8179,7 @@
       "coverId": "noisbn-por-qu-dependemos-de-l-juan-armando-s-nch-2c293390bf",
       "file": "antilibrary/covers/noisbn-por-qu-dependemos-de-l-juan-armando-s-nch-2c293390bf.png",
       "bytes": 10689,
-      "status": "extracted"
+      "status": "skipped_existing_same_size"
     },
     {
       "rowIndex": 682,
@@ -8443,7 +8443,7 @@
       "coverId": "noisbn-la-quinta-puerta-juan-camilo-carden-e3b8913c13",
       "file": "antilibrary/covers/noisbn-la-quinta-puerta-juan-camilo-carden-e3b8913c13.png",
       "bytes": 11019,
-      "status": "extracted"
+      "status": "skipped_existing_same_size"
     },
     {
       "rowIndex": 704,
@@ -11347,7 +11347,7 @@
       "coverId": "noisbn-el-islam-azra-kidwai-aca410fa65",
       "file": "antilibrary/covers/noisbn-el-islam-azra-kidwai-aca410fa65.png",
       "bytes": 13048,
-      "status": "extracted"
+      "status": "skipped_existing_same_size"
     },
     {
       "rowIndex": 946,
@@ -11671,7 +11671,7 @@
       "coverId": "noisbn-eso-lo-explica-todo-john-brockman-a87631838b",
       "file": "antilibrary/covers/noisbn-eso-lo-explica-todo-john-brockman-a87631838b.png",
       "bytes": 8483,
-      "status": "extracted"
+      "status": "skipped_existing_same_size"
     },
     {
       "rowIndex": 973,
@@ -11707,7 +11707,7 @@
       "coverId": "noisbn-la-vida-de-las-abejas--maurice-maeterlinc-e98d57ff07",
       "file": "antilibrary/covers/noisbn-la-vida-de-las-abejas--maurice-maeterlinc-e98d57ff07.png",
       "bytes": 8674,
-      "status": "extracted"
+      "status": "skipped_existing_same_size"
     },
     {
       "rowIndex": 976,
@@ -11719,7 +11719,7 @@
       "coverId": "noisbn-la-vida-de-las-hormiga-maurice-maeterlinc-3129c88886",
       "file": "antilibrary/covers/noisbn-la-vida-de-las-hormiga-maurice-maeterlinc-3129c88886.png",
       "bytes": 3430,
-      "status": "extracted"
+      "status": "skipped_existing_same_size"
     },
     {
       "rowIndex": 977,
@@ -11971,7 +11971,7 @@
       "coverId": "noisbn-asimov-s-guide-to-the--isaac-asimov-db7921d2a4",
       "file": "antilibrary/covers/noisbn-asimov-s-guide-to-the--isaac-asimov-db7921d2a4.png",
       "bytes": 9836,
-      "status": "extracted"
+      "status": "skipped_existing_same_size"
     },
     {
       "rowIndex": 998,
@@ -12331,7 +12331,7 @@
       "coverId": "noisbn-escalando-el-monte-imp-richard-dawkins-5c15201e63",
       "file": "antilibrary/covers/noisbn-escalando-el-monte-imp-richard-dawkins-5c15201e63.png",
       "bytes": 8543,
-      "status": "extracted"
+      "status": "skipped_existing_same_size"
     },
     {
       "rowIndex": 1028,
@@ -12703,7 +12703,7 @@
       "coverId": "noisbn-qu-hay-a-un-pet-metro--antonio-bernal-0bd5b6ba46",
       "file": "antilibrary/covers/noisbn-qu-hay-a-un-pet-metro--antonio-bernal-0bd5b6ba46.png",
       "bytes": 9070,
-      "status": "extracted"
+      "status": "skipped_existing_same_size"
     },
     {
       "rowIndex": 1059,
@@ -12763,7 +12763,7 @@
       "coverId": "noisbn-aurora-morgenrote-friedrich-wilhelm--165ae7956a",
       "file": "antilibrary/covers/noisbn-aurora-morgenrote-friedrich-wilhelm--165ae7956a.png",
       "bytes": 9096,
-      "status": "extracted"
+      "status": "skipped_existing_same_size"
     },
     {
       "rowIndex": 1064,
@@ -12895,7 +12895,7 @@
       "coverId": "noisbn-claves-ciertas-gerald-feinberg-771fd56413",
       "file": "antilibrary/covers/noisbn-claves-ciertas-gerald-feinberg-771fd56413.png",
       "bytes": 7778,
-      "status": "extracted"
+      "status": "skipped_existing_same_size"
     },
     {
       "rowIndex": 1075,
@@ -12919,7 +12919,7 @@
       "coverId": "noisbn-un-viaje-a-la-luna-jules-verne-5d62bc5932",
       "file": "antilibrary/covers/noisbn-un-viaje-a-la-luna-jules-verne-5d62bc5932.png",
       "bytes": 9710,
-      "status": "extracted"
+      "status": "skipped_existing_same_size"
     },
     {
       "rowIndex": 1077,
@@ -13159,7 +13159,7 @@
       "coverId": "noisbn-la-crema-de-la-ciencia-alicia-steimberg-732344917f",
       "file": "antilibrary/covers/noisbn-la-crema-de-la-ciencia-alicia-steimberg-732344917f.png",
       "bytes": 8578,
-      "status": "extracted"
+      "status": "skipped_existing_same_size"
     },
     {
       "rowIndex": 1097,
@@ -13315,7 +13315,7 @@
       "coverId": "noisbn-pedro-el-grande-henri-troyat-ef0b762d00",
       "file": "antilibrary/covers/noisbn-pedro-el-grande-henri-troyat-ef0b762d00.png",
       "bytes": 9387,
-      "status": "extracted"
+      "status": "skipped_existing_same_size"
     },
     {
       "rowIndex": 1110,
@@ -13519,7 +13519,7 @@
       "coverId": "noisbn-f-sica-nuclear-academia-norteamer-cbe8c1232f",
       "file": "antilibrary/covers/noisbn-f-sica-nuclear-academia-norteamer-cbe8c1232f.png",
       "bytes": 7930,
-      "status": "extracted"
+      "status": "skipped_existing_same_size"
     },
     {
       "rowIndex": 1127,
@@ -14107,7 +14107,7 @@
       "coverId": "noisbn-galileo-johannes-hemleben-26ebe31768",
       "file": "antilibrary/covers/noisbn-galileo-johannes-hemleben-26ebe31768.png",
       "bytes": 6609,
-      "status": "extracted"
+      "status": "skipped_existing_same_size"
     },
     {
       "rowIndex": 1176,
@@ -14323,7 +14323,7 @@
       "coverId": "noisbn-el-ingenioso-hidalgo-d-miguel-de-cervante-0a38e83504",
       "file": "antilibrary/covers/noisbn-el-ingenioso-hidalgo-d-miguel-de-cervante-0a38e83504.png",
       "bytes": 9757,
-      "status": "extracted"
+      "status": "skipped_existing_same_size"
     },
     {
       "rowIndex": 1194,
@@ -14551,7 +14551,7 @@
       "coverId": "noisbn-el-r-o-wade-davis-e58f6689cc",
       "file": "antilibrary/covers/noisbn-el-r-o-wade-davis-e58f6689cc.png",
       "bytes": 7836,
-      "status": "extracted"
+      "status": "skipped_existing_same_size"
     },
     {
       "rowIndex": 1213,
@@ -15019,7 +15019,7 @@
       "coverId": "noisbn-churchill-alan-moorehead-235a326243",
       "file": "antilibrary/covers/noisbn-churchill-alan-moorehead-235a326243.png",
       "bytes": 8397,
-      "status": "extracted"
+      "status": "skipped_existing_same_size"
     },
     {
       "rowIndex": 1252,
@@ -15043,7 +15043,7 @@
       "coverId": "noisbn-crist-bal-col-n-pedro-voltes-bou-e3859d95dc",
       "file": "antilibrary/covers/noisbn-crist-bal-col-n-pedro-voltes-bou-e3859d95dc.png",
       "bytes": 12306,
-      "status": "extracted"
+      "status": "skipped_existing_same_size"
     },
     {
       "rowIndex": 1254,

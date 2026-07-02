@@ -5,6 +5,11 @@ import {
   withLangQuery,
 } from "./i18n.js";
 import { applyHeaderLangChrome, applyLibrarySectionNav } from "./library-nav.js";
+import {
+  bindCoverImage,
+  buildDetailsIsbnByBookId,
+  collectBookCoverCandidates,
+} from "./library-covers.js";
 import { trackEvent, trackPageView } from "./visitor-tracker.js";
 
 const LIBRARY_JSON = "./info/library.json";
@@ -255,16 +260,6 @@ function effectiveLocalReviewHref(item) {
   const id = parseReviewIdFromUrl(item?.reviewUrl);
   if (!id) return "";
   return `./reviews/${id}.html`;
-}
-
-/** Portadas descargadas junto al mirror de reseña (`reviews/covers/`). */
-function pushReviewMirrorCoverCandidates(candidates, reviewUrl) {
-  const id = parseReviewIdFromUrl(reviewUrl);
-  if (!id) return;
-  candidates.push(`./reviews/covers/${id}.jpg`);
-  candidates.push(`./reviews/covers/${id}.jpeg`);
-  candidates.push(`./reviews/covers/${id}.png`);
-  candidates.push(`./reviews/covers/${id}.webp`);
 }
 
 function reviewActionLabel(item, lang) {
@@ -899,6 +894,8 @@ function renderBookList(container, items, lang, seriesMap = new Map(), options =
     ? options.dateValueSelector
     : ((item) => item.dateRead || item.dateAdded || "");
   const detailsBookIdSet = options.detailsBookIdSet instanceof Set ? options.detailsBookIdSet : null;
+  const detailsIsbnByBookId =
+    options.detailsIsbnByBookId instanceof Map ? options.detailsIsbnByBookId : null;
   if (!container) return;
   if (!Array.isArray(items) || items.length === 0) {
     container.innerHTML = `<p class="photo-card__error">${escapeLibrary(t("library_no_data", lang))}</p>`;
@@ -1007,38 +1004,8 @@ function renderBookList(container, items, lang, seriesMap = new Map(), options =
     img.decoding = "async";
     img.alt = `Portada de ${item.title}`;
     
-    const candidates = [];
-    if (item.reviewLocalCoverUrl) candidates.push(item.reviewLocalCoverUrl);
-    pushReviewMirrorCoverCandidates(candidates, item.reviewUrl);
-
-    const isbnStr = String(item.isbn || item.ISBN || "").replace(/[^0-9Xx]/g, "").toUpperCase();
-    if (isbnStr) {
-      candidates.push(`./antilibrary/covers/${isbnStr}.png`);
-      candidates.push(`./antilibrary/covers/${isbnStr}.jpg`);
-      candidates.push(`./antilibrary/covers/${isbnStr}.webp`);
-      candidates.push(`./antilibrary/covers/${isbnStr}.jpeg`);
-    }
-
-    img.dataset.candidates = JSON.stringify(candidates);
-    img.dataset.candidateIdx = "0";
-    
-    img.onerror = function() {
-      const list = JSON.parse(this.dataset.candidates || "[]");
-      const idx = parseInt(this.dataset.candidateIdx, 10) + 1;
-      if (idx < list.length) {
-        this.dataset.candidateIdx = idx;
-        this.src = list[idx];
-      } else {
-        this.onerror = null;
-        this.src = "./assets/images/dummy-cover.jpeg";
-      }
-    };
-
-    if (candidates.length > 0) {
-      img.src = candidates[0];
-    } else {
-      img.src = "./assets/images/dummy-cover.jpeg";
-    }
+    const candidates = collectBookCoverCandidates(item, { detailsIsbnByBookId });
+    bindCoverImage(img, candidates);
     coverWrapper.appendChild(img);
 
     entry.appendChild(coverWrapper);
@@ -1233,8 +1200,10 @@ async function main() {
       .then((r) => (r.ok ? r.json() : { books: [] }))
       .catch(() => ({ books: [] })),
   ]);
-  const detailsBookIdSet = buildDetailsBookIdSet(detailsData.books ?? []);
-  const listRenderOpts = { detailsBookIdSet };
+  const detailsBooks = detailsData.books ?? [];
+  const detailsBookIdSet = buildDetailsBookIdSet(detailsBooks);
+  const detailsIsbnByBookId = buildDetailsIsbnByBookId(detailsBooks);
+  const listRenderOpts = { detailsBookIdSet, detailsIsbnByBookId };
 
   const titleEl = document.getElementById("library-page-title");
   const introEl = document.getElementById("library-page-intro");

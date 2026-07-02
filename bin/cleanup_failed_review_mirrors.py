@@ -23,10 +23,18 @@ def review_id_from_book(book: dict) -> str:
     return ""
 
 
-def clear_local_mirror_fields(book: dict) -> None:
+def cover_path_for_review(reviews_dir: Path, review_id: str) -> Path | None:
+    covers_dir = reviews_dir / "covers"
+    for ext in ("jpg", "jpeg", "png", "webp"):
+        path = covers_dir / f"{review_id}.{ext}"
+        if path.exists() and path.stat().st_size > 512:
+            return path
+    return None
+
+
+def clear_local_mirror_fields(book: dict, *, keep_cover_url: str = "") -> None:
     for key in (
         "reviewLocalUrl",
-        "reviewLocalCoverUrl",
         "reviewLocalStatus",
         "reviewLocalGeneratedAt",
         "reviewTextSyncedAt",
@@ -34,6 +42,10 @@ def clear_local_mirror_fields(book: dict) -> None:
         "reviewLocalLikesUpdatedAt",
     ):
         book.pop(key, None)
+    if keep_cover_url:
+        book["reviewLocalCoverUrl"] = keep_cover_url
+    else:
+        book.pop("reviewLocalCoverUrl", None)
     book["hasReview"] = False
     book["reviewCount"] = 0
 
@@ -62,7 +74,6 @@ def main() -> int:
     repo_root = Path(__file__).resolve().parents[1]
     library_path = (repo_root / args.library_json).resolve()
     reviews_dir = (repo_root / args.reviews_dir).resolve()
-    covers_dir = reviews_dir / "covers"
 
     placeholder_ids: list[str] = []
     for html_path in sorted(reviews_dir.glob("*.html")):
@@ -74,33 +85,33 @@ def main() -> int:
     placeholder_set = set(placeholder_ids)
     updated_books = 0
 
+    covers_kept = 0
     for book in books:
         if not isinstance(book, dict):
             continue
         rid = review_id_from_book(book)
         if rid and rid in placeholder_set:
-            clear_local_mirror_fields(book)
+            keep_cover_url = ""
+            cover_path = cover_path_for_review(reviews_dir, rid)
+            if cover_path:
+                keep_cover_url = f"./{reviews_dir.name}/covers/{cover_path.name}"
+                covers_kept += 1
+            clear_local_mirror_fields(book, keep_cover_url=keep_cover_url)
             updated_books += 1
 
     deleted_html = 0
-    deleted_covers = 0
     for rid in placeholder_ids:
         html_path = reviews_dir / f"{rid}.html"
         if html_path.exists():
             deleted_html += 1
             if not args.dry_run:
                 html_path.unlink()
-        for ext in ("jpg", "jpeg", "png", "webp"):
-            cover_path = covers_dir / f"{rid}.{ext}"
-            if cover_path.exists():
-                deleted_covers += 1
-                if not args.dry_run:
-                    cover_path.unlink()
 
     print(f"[cleanup-failed-reviews] Placeholders found: {len(placeholder_ids)}")
     print(f"[cleanup-failed-reviews] library.json books cleared: {updated_books}")
+    print(f"[cleanup-failed-reviews] reviewLocalCoverUrl kept: {covers_kept}")
     print(f"[cleanup-failed-reviews] HTML deleted: {deleted_html}")
-    print(f"[cleanup-failed-reviews] Covers deleted: {deleted_covers}")
+    print("[cleanup-failed-reviews] Covers: no se borran (siguen en reviews/covers/)")
 
     if not args.dry_run:
         with library_path.open("w", encoding="utf-8") as f:
