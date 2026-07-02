@@ -36,6 +36,7 @@ COOKIE ?= $(shell cat .secrets/cookie 2>/dev/null | tr -d '\r\n')
 export RSS_URL COOKIE
 RSS_PAGES ?= 100
 REVIEW_RSS_PAGES ?= 100
+REVIEW_RETRY_FAILED_DAYS ?= 180
 FORCE ?= 0
 SITE_BASE_URL ?= https://jorgezuluaga.github.io
 REVIEWS_TODAS_MD ?= reviews/todas.md
@@ -160,16 +161,18 @@ library-goodreads-books-only:
 		--cookie "$(COOKIE)"
 
 # C: Mirror solo las ~10 reseñas más recientes (y portadas vía RSS cuando existan).
+# También reintenta placeholders recientes (REVIEW_RETRY_FAILED_DAYS, default 180).
 library-goodreads-reviews-latest:
 	@echo ""
-	@echo ">>> library-goodreads-reviews-latest: mirror --refresh-latest 10"
+	@echo ">>> library-goodreads-reviews-latest: mirror --refresh-latest 10 + placeholders recientes"
 	@python3 bin/mirror_all_reviews.py \
 		--library-json "$(LIBRARY_JSON)" \
 		--reviews-dir reviews \
 		--cookie "$(COOKIE)" \
 		--rss-pages "$(REVIEW_RSS_PAGES)" \
 		--site-base-url "$(SITE_BASE_URL)" \
-		--refresh-latest 10
+		--refresh-latest 10 \
+		--retry-failed-extraction-days "$(REVIEW_RETRY_FAILED_DAYS)"
 
 # Rellena ISBN en library.json desde el RSS (libros que aún no lo tienen).
 library-goodreads-isbn-sync:

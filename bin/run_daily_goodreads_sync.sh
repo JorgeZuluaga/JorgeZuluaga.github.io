@@ -44,8 +44,8 @@ run_daily_once() {
   make library-goodreads-likes RSS_URL="$RSS_URL" RSS_PAGES="$RSS_PAGES" COOKIE="${COOKIE:-}"
 
   echo ""
-  echo "=== [2/8] library-goodreads-reviews-latest (mirror ~10 reseñas) ==="
-  make library-goodreads-reviews-latest COOKIE="${COOKIE:-}" REVIEW_RSS_PAGES="$REVIEW_RSS_PAGES"
+  echo "=== [2/8] library-goodreads-reviews-latest (mirror ~10 reseñas + placeholders recientes) ==="
+  make library-goodreads-reviews-latest COOKIE="${COOKIE:-}" REVIEW_RSS_PAGES="$REVIEW_RSS_PAGES" REVIEW_RETRY_FAILED_DAYS="${REVIEW_RETRY_FAILED_DAYS:-180}"
 
   echo ""
   echo "=== [3/8] library-goodreads-isbn-sync (ISBN faltantes desde RSS) ==="

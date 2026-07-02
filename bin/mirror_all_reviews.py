@@ -13,7 +13,7 @@ import html
 import json
 import re
 from collections import Counter
-from datetime import datetime, timezone
+from datetime import date, datetime, timezone
 from pathlib import Path
 from urllib.parse import urlparse
 
@@ -37,6 +37,7 @@ from mirror_first_review import (
 from review_word_count import apply_review_counts_to_books, is_review_html_extraction_failed
 
 DEFAULT_REFRESH_LATEST = 10
+DEFAULT_RETRY_FAILED_EXTRACTION_DAYS = 180
 CACHE_PATH_DEFAULT = Path("update/share-url-cache.json")
 
 
@@ -110,6 +111,40 @@ def sort_books_latest_first(books: list[dict]) -> list[dict]:
         return (primary_date, book_id)
 
     return sorted(books, key=key, reverse=True)
+
+
+def review_primary_date(book: dict) -> str:
+    return str(book.get("reviewDate") or book.get("dateRead") or "").strip()[:10]
+
+
+def review_date_within_days(book: dict, max_days: int) -> bool:
+    """True si reviewDate/dateRead cae dentro de los últimos max_days (inclusive hoy)."""
+    if max_days <= 0:
+        return True
+    raw = review_primary_date(book)
+    if not raw:
+        return False
+    try:
+        review_day = datetime.strptime(raw, "%Y-%m-%d").date()
+    except ValueError:
+        return False
+    return (date.today() - review_day).days <= max_days
+
+
+def should_retry_failed_extraction(
+    book: dict,
+    local_html_abs: Path,
+    *,
+    max_days: int,
+) -> bool:
+    """Reintenta mirrors cuyo HTML local solo tiene el placeholder de extracción."""
+    if max_days < 0:
+        return False
+    if not local_html_abs.exists():
+        return False
+    if not is_review_html_extraction_failed(local_html_abs):
+        return False
+    return review_date_within_days(book, max_days)
 
 
 def _extract_share_url_meta(html_text: str) -> str:
@@ -214,6 +249,17 @@ def main() -> int:
         help="Base URL pública del sitio para metadatos de compartir (Open Graph).",
     )
     parser.add_argument(
+        "--retry-failed-extraction-days",
+        type=int,
+        default=-1,
+        metavar="N",
+        help=(
+            "Reintenta descargar mirrors con placeholder de extracción fallida. "
+            "N=0 reintenta todos; N>0 solo si reviewDate/dateRead cae en los "
+            "últimos N días; default -1 desactivado (salvo en sync diario)."
+        ),
+    )
+    parser.add_argument(
         "--only-placeholders",
         action="store_true",
         help=(
@@ -265,15 +311,27 @@ def main() -> int:
     rss_url = str((library.get("source") or {}).get("rssUrl") or "").strip()
     site_base_url = str(args.site_base_url or DEFAULT_SITE_BASE_URL).rstrip("/")
     refresh_latest = max(0, args.refresh_latest)
+    retry_failed_days = args.retry_failed_extraction_days
     print(f"[INFO] Reseñas candidatas: {total}")
     print(f"[INFO] Modo force: {'sí' if args.force else 'no'}")
     print(f"[INFO] Solo placeholders: {'sí' if args.only_placeholders else 'no'}")
     print(f"[INFO] Reseñas recientes a refrescar: {refresh_latest}")
+    if retry_failed_days >= 0:
+        if retry_failed_days == 0:
+            print("[INFO] Reintento placeholders: todos", flush=True)
+        else:
+            print(
+                f"[INFO] Reintento placeholders: últimos {retry_failed_days} días",
+                flush=True,
+            )
+    else:
+        print("[INFO] Reintento placeholders: no", flush=True)
     print(f"[INFO] Patch share only: {'sí' if args.patch_share_only else 'no'}")
 
     mirrored = 0
     skipped = 0
     errors = 0
+    placeholder_retries = 0
 
     # Cache share URLs (avoid calling is.gd repeatedly).
     share_cache_path = Path(args.share_cache)
@@ -308,12 +366,18 @@ def main() -> int:
                 print(f"[{idx}/{total}] SKIP | {title} | (contenido ya extraído)", flush=True)
                 continue
 
+        retry_placeholder = should_retry_failed_extraction(
+            book,
+            local_html_abs,
+            max_days=0 if args.only_placeholders else retry_failed_days,
+        )
+
         review_page_url = f"{site_base_url}/reviews/{review_id}.html"
         cached_share = (share_cache.get(review_page_url) or "").strip()
         if is_disallowed_share_url(cached_share):
             cached_share = ""
         share_url = resolve_share_url(review_page_url, cached_share)
-        if args.only_placeholders and local_html_abs.exists():
+        if (args.only_placeholders or retry_placeholder) and local_html_abs.exists():
             try:
                 file_share = _extract_share_url_meta(
                     local_html_abs.read_text(encoding="utf-8")
@@ -372,6 +436,7 @@ def main() -> int:
             and already_mirrored
             and not args.force
             and not is_latest_window
+            and not retry_placeholder
         ):
             if out_file.exists():
                 book.setdefault(
@@ -381,6 +446,13 @@ def main() -> int:
             skipped += 1
             print(f"[{idx}/{total}] SKIP | {title}", flush=True)
             continue
+
+        if retry_placeholder and not is_latest_window:
+            placeholder_retries += 1
+            print(
+                f"[{idx}/{total}] RETRY| {title} | (placeholder, reintento de extracción)",
+                flush=True,
+            )
 
         try:
             review_html = get_url(review_url, cookie=args.cookie)
@@ -487,6 +559,7 @@ def main() -> int:
     print("")
     print("[RESUMEN]")
     print(f"- Mirror nuevos/regenerados: {mirrored}")
+    print(f"- Reintentos por placeholder: {placeholder_retries}")
     print(f"- Skipped: {skipped}")
     print(f"- Errores: {errors}")
     if not args.patch_share_only:

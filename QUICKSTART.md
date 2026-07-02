@@ -50,11 +50,13 @@ Eso solo añade `"dcc_classes": {}` donde falta la clave; **no** rellena `dcc_co
 
 ## C. Descargar solo las últimas reseñas (mirror local)
 
-**Qué hace:** ejecuta `mirror_all_reviews.py` con `--refresh-latest 10`: regenera prioritariamente las diez reseñas más recientes. Las portadas en `reviews/covers/` se intentan cuando el RSS de respaldo aporta URL de imagen (comportamiento ya existente del mirror).
+**Qué hace:** ejecuta `mirror_all_reviews.py` con `--refresh-latest 10`: regenera prioritariamente las diez reseñas más recientes. Además, **reintenta** mirrors locales que siguen con el placeholder «No fue posible extraer…» si `reviewDate`/`dateRead` cae en los últimos **180 días** (`REVIEW_RETRY_FAILED_DAYS`; pon `0` para reintentar todos los placeholders). Así, si la primera descarga falló porque aún no había texto en Goodreads, el sync diario lo corrige aunque la reseña quede fuera del top 10. Las portadas en `reviews/covers/` se intentan cuando el RSS aporta URL de imagen.
 
 ```bash
 make library-goodreads-reviews-latest
 ```
+
+Para reintentar **todos** los placeholders de una vez (puede tardar): `make reviews-remirror-placeholders`.
 
 Opcional: `COOKIE='...'` si hace falta para contenido autenticado.
 

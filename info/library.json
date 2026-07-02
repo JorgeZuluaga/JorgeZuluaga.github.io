@@ -293,7 +293,7 @@
       "reviewDate": "2026-06-08",
       "reviewLocalStatus": "ok",
       "reviewLocalGeneratedAt": "2026-07-01T15:14:17.513377+00:00",
-      "reviewCount": 11,
+      "reviewCount": 577,
       "reviewLocalLikes": 0,
       "reviewLocalLikesUpdatedAt": "2026-07-02T14:47:11.843096+00:00",
       "drzratingAuto": true,
@@ -310,7 +310,8 @@
       "dcc_notes": {
         "reasoning": "Libro de António Damásio que analiza los procesos mentales, la inteligencia y la consciencia humana desde una perspectiva cognitiva[cite: 1].",
         "confidence": 0.9
-      }
+      },
+      "reviewTextSyncedAt": "2026-07-02T15:08:55.910803+00:00"
     },
     {
       "bookId": "6286160",
