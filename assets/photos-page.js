@@ -20,7 +20,35 @@ function sortPhotos(photos) {
 }
 
 function photoSrcPath(file) {
-  return `./info/photos/${encodeURIComponent(file)}`;
+  return photoAssetPath(file);
+}
+
+function photoAssetPath(relativePath) {
+  const parts = String(relativePath || "")
+    .split("/")
+    .filter(Boolean);
+  if (!parts.length) return "";
+  return `./info/photos/${parts.map(encodeURIComponent).join("/")}`;
+}
+
+function photoDownloadPath(p) {
+  return photoAssetPath(p?.downloadFile || p?.file);
+}
+
+function photoDownloadName(p) {
+  const raw = String(p?.downloadFile || p?.file || "").trim();
+  return raw.split("/").pop() || raw;
+}
+
+function photoDownloadBytes(p) {
+  if (p?.downloadSizeBytes != null) return p.downloadSizeBytes;
+  return p?.sizeBytes;
+}
+
+function photoIsVisible(p) {
+  if (!p || typeof p !== "object") return false;
+  const show = p.show;
+  return show !== false && show !== 0 && show !== "0";
 }
 
 /** Resuelve true solo si el archivo de imagen existe y es legible por el navegador. */
@@ -34,7 +62,7 @@ function imageUrlLoads(url) {
 }
 
 async function filterPhotosWithExistingFiles(photos) {
-  const list = sortPhotos(photos).filter((p) => p?.file);
+  const list = sortPhotos(photos).filter((p) => p?.file && photoIsVisible(p));
   const checked = await Promise.all(
     list.map(async (p) => {
       const url = photoSrcPath(p.file);
@@ -150,13 +178,13 @@ function openLightbox(p, imgPath, lang, locale) {
     metaEl.appendChild(desc);
   }
 
-  dlEl.href = imgPath;
-  dlEl.setAttribute("download", p.file ?? "");
-  dlEl.textContent = `${t("photos_download", lang)} (${formatBytes(p.sizeBytes)})`;
+  dlEl.href = photoDownloadPath(p);
+  dlEl.setAttribute("download", photoDownloadName(p));
+  dlEl.textContent = `${t("photos_download", lang)} (${formatBytes(photoDownloadBytes(p))})`;
   dlEl.onclick = () => {
     trackEvent("image_download", {
       source: "photos_lightbox",
-      fileName: p.file ?? "",
+      fileName: photoDownloadName(p),
       title: pickLocalized(p, "title", lang) ?? "",
     });
   };
@@ -196,6 +224,31 @@ function wireLightbox() {
   });
 }
 
+function renderProfileBlocks(profiles, lang, container) {
+  if (!container) return;
+  container.replaceChildren();
+  const list = Array.isArray(profiles) ? profiles : [];
+  if (!list.length) return;
+
+  for (const profile of list) {
+    const block = document.createElement("article");
+    block.className = "photos-profile__block";
+
+    const subtitle = document.createElement("h3");
+    subtitle.className = "photos-profile__subtitle";
+    subtitle.textContent =
+      pickLocalized(profile, "title", lang) ?? profile.id ?? "";
+
+    const text = document.createElement("p");
+    text.className = "photos-intro photos-profile__text";
+    text.textContent = pickLocalized(profile, "text", lang) ?? "";
+
+    block.appendChild(subtitle);
+    block.appendChild(text);
+    container.appendChild(block);
+  }
+}
+
 async function main() {
   const lang = getPageLang();
   const locale = lang === "en" ? "en-US" : "es-CO";
@@ -210,14 +263,14 @@ async function main() {
   const titleEl = document.getElementById("photos-page-title");
   const introEl = document.getElementById("photos-page-intro");
   const profileTitleEl = document.getElementById("photos-profile-title");
-  const profileTextEl = document.getElementById("photos-profile-text");
+  const profileBlocksEl = document.getElementById("photos-profile-blocks");
   const gridEl = document.getElementById("photos-grid");
   if (!titleEl || !introEl || !gridEl) return;
 
   titleEl.textContent = pickLocalized(data, "title", lang) ?? t("photos_title", lang);
   introEl.textContent = pickLocalized(data, "intro", lang) ?? t("photos_intro", lang);
   if (profileTitleEl) profileTitleEl.textContent = t("photos_profile_title", lang);
-  if (profileTextEl) profileTextEl.textContent = t("photos_profile_text", lang);
+  renderProfileBlocks(data.profiles, lang, profileBlocksEl);
 
   const photos = await filterPhotosWithExistingFiles(data.photos ?? []);
   const frag = document.createDocumentFragment();
@@ -281,15 +334,15 @@ async function main() {
 
     const dl = document.createElement("a");
     dl.className = "link photo-card__dl";
-    dl.href = imgPath;
-    dl.setAttribute("download", file);
+    dl.href = photoDownloadPath(p);
+    dl.setAttribute("download", photoDownloadName(p));
     dl.target = "_blank";
     dl.rel = "noopener noreferrer";
     dl.textContent = t("photos_download", lang);
     dl.addEventListener("click", () => {
       trackEvent("image_download", {
         source: "photos_grid",
-        fileName: file,
+        fileName: photoDownloadName(p),
         title: titleText,
       });
     });

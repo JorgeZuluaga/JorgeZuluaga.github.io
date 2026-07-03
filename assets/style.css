@@ -1385,6 +1385,16 @@ body.photos-page .photos-main .title-section {
 body.photos-page .photos-intro {
   padding-left: 0.125rem;
   padding-right: 0.125rem;
+  max-width: none;
+  width: 100%;
+  text-align: justify;
+  text-justify: inter-word;
+  hyphens: auto;
+}
+
+body.photos-page .photos-profile {
+  max-width: none;
+  width: 100%;
 }
 
 .photos-intro {
@@ -1404,8 +1414,22 @@ body.photos-page .photos-intro {
   margin-bottom: 0.6rem;
 }
 
-.photos-profile__text {
-  margin-bottom: 1.5rem;
+.photos-profile__blocks {
+  display: flex;
+  flex-direction: column;
+  gap: 1.35rem;
+}
+
+.photos-profile__subtitle {
+  margin: 0 0 0.45rem;
+  font-size: 1.05rem;
+  font-weight: 600;
+  line-height: 1.35;
+  color: var(--accent);
+}
+
+.photos-profile__block .photos-profile__text {
+  margin-bottom: 0;
 }
 
 .library-page .photos-intro {

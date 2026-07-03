@@ -3,9 +3,50 @@
   "title_en": "Photos for talks and press",
   "intro": "Imágenes de Jorge I. Zuluaga en alta resolución para programas, credenciales y comunicación. Pulse «Vista previa» (o la miniatura) para ver la foto grande antes de descargarla.",
   "intro_en": "High-resolution images of Jorge I. Zuluaga for programs, credentials, and media use. Click “Preview” (or the thumbnail) to inspect the large image before downloading it.",
+  "profiles": [
+    {
+      "id": "academic",
+      "title": "Perfil breve académico",
+      "title_en": "Brief academic profile",
+      "text": "Físico y Doctor en Física, profesor titular e investigador en la Universidad de Antioquia. Su trabajo integra investigación en ciencias planetarias y astrobiología, computación científica de alto desempeño y formación avanzada en física y astronomía. Ha liderado grupos y programas académicos, y cuenta con una trayectoria de publicaciones en exoplanetas, exolunas, campos magnéticos planetarios, dinámica orbital y meteoroides, junto con una labor sostenida de divulgación científica en escenarios académicos y públicos.",
+      "text_en": "Physicist and PhD in Physics, full professor and researcher at the University of Antioquia. His work spans planetary science and astrobiology, high-performance scientific computing, and advanced training in physics and astronomy. He has led research groups and academic programs and has an extensive publication record on exoplanets, exomoons, planetary magnetic fields, orbital dynamics, and meteoroids, together with sustained science communication in academic and public settings."
+    },
+    {
+      "id": "outreach",
+      "title": "Perfil breve divulgativo",
+      "title_en": "Brief outreach profile",
+      "text": "Divulgador científico, investigador, profesor universitario, esposo, padre de familia y mamagallista de tiempo completo. Doctor en Física de la Universidad de Antioquia, el Dr. Z lleva más de 30 años enseñando, investigando y haciendo divulgación científica con un estilo muy particular que incluye un lenguaje cercano y descomplicado y una pizca de humor. Un asteroide lleva su nombre.",
+      "text_en": "Science communicator, researcher, university professor, husband, father, and full-time punster. PhD in Physics from the University of Antioquia, Dr. Z has spent more than 30 years teaching, researching, and communicating science in a distinctive style: plain, approachable language and a touch of humor. An asteroid is named after him."
+    },
+    {
+      "id": "press",
+      "title": "Perfil breve prensa",
+      "title_en": "Brief press profile",
+      "text": "Investigador y profesor titular de astronomía y física de la Universidad de Antioquia.",
+      "text_en": "Researcher and full professor of astronomy and physics at the University of Antioquia."
+    }
+  ],
   "photos": [
     {
+      "file": "jorge-zuluaga-drz-academy-logos-2026-07-03.png",
+      "show": true,
+      "downloadFile": "DrZ-Logos/Dr_Z_Logo_Paquete.zip",
+      "downloadSizeBytes": 368195,
+      "title": "Logotipo DrZ Academy — variantes",
+      "title_en": "DrZ Academy logo — variants",
+      "dateLabel": "Julio 2026",
+      "dateLabel_en": "July 2026",
+      "year": 2026,
+      "month": 7,
+      "description": "Collage con las variantes del logotipo de DrZ Academy (fondo transparente, negro, blanco y marquesina). La descarga incluye el paquete completo en ZIP con archivos en alta resolución.",
+      "description_en": "Collage of DrZ Academy logo variants (transparent, black, white, and banner backgrounds). Download includes the full high-resolution ZIP package.",
+      "width": 1848,
+      "height": 1848,
+      "sizeBytes": 406633
+    },
+    {
       "file": "jorge-zuluaga-master-class-medellin-2026-07-02-1.jpg",
+      "show": true,
       "title": "Master Class Medellín — toma 1",
       "dateLabel": "Julio 2026",
       "year": 2026,
@@ -17,6 +58,7 @@
     },
     {
       "file": "jorge-zuluaga-master-class-medellin-2026-07-02-2.jpg",
+      "show": true,
       "title": "Master Class Medellín — toma 2",
       "dateLabel": "Julio 2026",
       "year": 2026,
@@ -28,6 +70,7 @@
     },
     {
       "file": "jorge-zuluaga-master-class-medellin-2026-07-02-3.jpg",
+      "show": true,
       "title": "Master Class Medellín — toma 3",
       "dateLabel": "Julio 2026",
       "year": 2026,
@@ -39,6 +82,7 @@
     },
     {
       "file": "jorge-zuluaga-master-class-medellin-2026-07-02-4.jpg",
+      "show": true,
       "title": "Master Class Medellín — toma 4",
       "dateLabel": "Julio 2026",
       "year": 2026,
@@ -50,6 +94,7 @@
     },
     {
       "file": "jorge-zuluaga-artemis-ii-2026-04-21-1.JPG",
+      "show": true,
       "title": "Grabación Artemis II — toma 1",
       "dateLabel": "Abril 2026",
       "year": 2026,
@@ -61,6 +106,7 @@
     },
     {
       "file": "jorge-zuluaga-artemis-ii-2026-04-21-2.JPG",
+      "show": true,
       "title": "Grabación Artemis II — toma 2",
       "dateLabel": "Abril 2026",
       "year": 2026,
@@ -72,6 +118,7 @@
     },
     {
       "file": "jorge-zuluaga-artemis-ii-2026-04-21-2-full.JPG",
+      "show": true,
       "title": "Grabación Artemis II — toma 2 (completa)",
       "dateLabel": "Abril 2026",
       "year": 2026,
@@ -83,6 +130,7 @@
     },
     {
       "file": "jorge-zuluaga-biblioteca-promocional-2026-04-01.png",
+      "show": false,
       "title": "Imagen promocional de la biblioteca",
       "dateLabel": "Abril 2026",
       "year": 2026,
@@ -94,6 +142,7 @@
     },
     {
       "file": "jorge-zuluaga-perfil-cv-2022-09.jpg",
+      "show": true,
       "title": "Foto de perfil (misma que el CV web)",
       "dateLabel": "Septiembre 2022",
       "year": 2022,
@@ -105,6 +154,7 @@
     },
     {
       "file": "jorge-zuluaga-prensa-2026-03-01.jpg",
+      "show": true,
       "title": "Fotografía — marzo 2026",
       "dateLabel": "Marzo 2026",
       "year": 2026,
@@ -116,6 +166,7 @@
     },
     {
       "file": "jorge-zuluaga-prensa-2025-12-01.jpg",
+      "show": true,
       "title": "Fotografía — diciembre 2025",
       "dateLabel": "Diciembre 2025",
       "year": 2025,
@@ -127,6 +178,7 @@
     },
     {
       "file": "jorge-zuluaga-prensa-2025-09-01.jpg",
+      "show": true,
       "title": "Fotografía — septiembre 2025",
       "dateLabel": "Septiembre 2025",
       "year": 2025,
@@ -138,6 +190,7 @@
     },
     {
       "file": "jorge-zuluaga-evento-en-vivo-2025-03-01.jpeg",
+      "show": true,
       "title": "Evento en vivo — imagen 1",
       "dateLabel": "Marzo 2025",
       "year": 2025,
@@ -149,6 +202,7 @@
     },
     {
       "file": "jorge-zuluaga-evento-en-vivo-2025-03-02.jpeg",
+      "show": true,
       "title": "Evento en vivo — imagen 2",
       "dateLabel": "Marzo 2025",
       "year": 2025,
@@ -160,6 +214,7 @@
     },
     {
       "file": "jorge-zuluaga-evento-en-vivo-2025-03-03.jpeg",
+      "show": true,
       "title": "Evento en vivo — imagen 3",
       "dateLabel": "Marzo 2025",
       "year": 2025,
@@ -171,6 +226,7 @@
     },
     {
       "file": "jorge-zuluaga-conferencia-2022-09-01.JPG",
+      "show": true,
       "title": "Retrato — variante 1",
       "dateLabel": "Septiembre 2022",
       "year": 2022,
@@ -182,6 +238,7 @@
     },
     {
       "file": "jorge-zuluaga-conferencia-2022-09-03.JPG",
+      "show": true,
       "title": "Retrato — variante 3",
       "dateLabel": "Septiembre 2022",
       "year": 2022,
@@ -193,6 +250,7 @@
     },
     {
       "file": "jorge-zuluaga-conferencia-2022-09-04.JPG",
+      "show": true,
       "title": "Retrato — variante 4",
       "dateLabel": "Septiembre 2022",
       "year": 2022,
@@ -204,6 +262,7 @@
     },
     {
       "file": "jorge-zuluaga-evento-2020-03.jpeg",
+      "show": true,
       "title": "En contexto de evento",
       "dateLabel": "Marzo 2020",
       "year": 2020,
@@ -215,6 +274,7 @@
     },
     {
       "file": "jorge-zuluaga-retrato-2019-04.jpg",
+      "show": true,
       "title": "Retrato (archivo histórico)",
       "dateLabel": "Abril 2019",
       "year": 2019,

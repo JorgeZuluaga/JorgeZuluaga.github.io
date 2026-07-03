@@ -68,7 +68,7 @@ make help
 1. Copia fotos nuevas en `info/photos/`.
 2. Renombra archivos con convención clara (ej. `jorge-zuluaga-evento-YYYY-MM-01.jpg`).
 3. Actualiza `info/photos/photos.json` con:
-   - `file`, `title`, `dateLabel`, `year`, `month`,
+   - `file`, `show` (opcional, default `true`; `false` oculta la foto en la galería), `title`, `dateLabel`, `year`, `month`,
    - `description`, `width`, `height`, `sizeBytes`.
 4. Verifica en `photos.html`:
    - miniatura,
