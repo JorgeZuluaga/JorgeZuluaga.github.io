@@ -10,24 +10,21 @@ import urllib.parse
 import urllib.request
 from pathlib import Path
 
+from review_notify_secrets import load_secret
+
 REPO = Path(__file__).resolve().parent.parent
 DEFAULT_WORKER = "https://review-notify-worker.jorgezuluaga.workers.dev"
 
 
 def load_token() -> str:
-    path = REPO / ".secrets" / "review-notify-token"
-    if not path.exists():
-        raise FileNotFoundError(
-            f"Falta {path}. Cree el token y configúrelo también en el worker (NOTIFY_TOKEN)."
-        )
-    return path.read_text(encoding="utf-8").strip()
+    return load_secret("review-notify-token")
 
 
 def worker_base() -> str:
-    path = REPO / ".secrets" / "review-notify-worker-url"
-    if path.exists():
-        return path.read_text(encoding="utf-8").strip().rstrip("/")
-    return DEFAULT_WORKER
+    try:
+        return load_secret("review-notify-worker-url").rstrip("/")
+    except FileNotFoundError:
+        return DEFAULT_WORKER
 
 
 def api_request(

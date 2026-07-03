@@ -5,7 +5,9 @@ from __future__ import annotations
 
 import argparse
 import json
+import os
 import re
+import shutil
 import sys
 from datetime import datetime, timezone
 from pathlib import Path
@@ -21,7 +23,20 @@ from review_word_count import (  # noqa: E402
     is_review_html_extraction_failed,
 )
 
-STATE_PATH = REPO / ".secrets" / "last-notified-reviews.json"
+LEGACY_NOTIFY_STATE = REPO / ".secrets" / "last-notified-reviews.json"
+DEFAULT_NOTIFY_STATE = REPO / "info" / "review-notify-state.json"
+
+
+def resolve_notify_state_path() -> Path:
+    raw = os.environ.get("NOTIFY_STATE_FILE", "").strip()
+    if raw:
+        return Path(raw)
+    if not DEFAULT_NOTIFY_STATE.exists() and LEGACY_NOTIFY_STATE.exists():
+        DEFAULT_NOTIFY_STATE.parent.mkdir(parents=True, exist_ok=True)
+        shutil.copy2(LEGACY_NOTIFY_STATE, DEFAULT_NOTIFY_STATE)
+    return DEFAULT_NOTIFY_STATE
+
+
 LIBRARY_JSON = REPO / "info" / "library.json"
 BUSCALIBRE_JSON = REPO / "info" / "buscalibre.json"
 SITE_BASE = "https://jorgezuluaga.github.io"
@@ -229,10 +244,11 @@ def recent_footer_reviews(
 
 
 def load_state() -> dict:
-    if not STATE_PATH.exists():
+    state_path = resolve_notify_state_path()
+    if not state_path.exists():
         return {"notifiedReviewIds": []}
     try:
-        with STATE_PATH.open("r", encoding="utf-8") as f:
+        with state_path.open("r", encoding="utf-8") as f:
             data = json.load(f)
     except (json.JSONDecodeError, OSError):
         return {"notifiedReviewIds": []}
@@ -241,12 +257,13 @@ def load_state() -> dict:
 
 
 def save_state(notified_ids: list[str]) -> None:
-    STATE_PATH.parent.mkdir(parents=True, exist_ok=True)
+    state_path = resolve_notify_state_path()
+    state_path.parent.mkdir(parents=True, exist_ok=True)
     payload = {
         "updatedAt": datetime.now(timezone.utc).isoformat(),
         "notifiedReviewIds": sorted(set(notified_ids)),
     }
-    with STATE_PATH.open("w", encoding="utf-8") as f:
+    with state_path.open("w", encoding="utf-8") as f:
         json.dump(payload, f, ensure_ascii=False, indent=2)
         f.write("\n")
 

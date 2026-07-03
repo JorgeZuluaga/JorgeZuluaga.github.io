@@ -1,0 +1,45 @@
+# Sync diario Goodreads + correo + push. BookBuddy sigue siendo local.
+# Horario: 19:00 UTC = 14:00 America/Bogota (launchd local sigue a las 9:00).
+
+name: Daily library sync
+
+on:
+  schedule:
+    - cron: "0 19 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: daily-library-sync
+  cancel-in-progress: false
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - name: Install dependencies
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq make curl
+          pip install -r requirements.txt
+
+      - name: Run daily sync
+        env:
+          GMAIL_SMTP_USER: ${{ secrets.GMAIL_SMTP_USER }}
+          GMAIL_APP_PASSWORD: ${{ secrets.GMAIL_APP_PASSWORD }}
+          REVIEW_NOTIFY_TOKEN: ${{ secrets.REVIEW_NOTIFY_TOKEN }}
+          GOODREADS_COOKIE: ${{ secrets.GOODREADS_COOKIE }}
+          LOG_READ_TOKEN: ${{ secrets.LOG_READ_TOKEN }}
+        run: bash bin/run_github_actions_sync.sh

@@ -22,22 +22,7 @@ BUSCALIBRE_LOGO_URL = (
 )
 
 
-def normalize_credential(raw: str, *, strip_spaces: bool = False) -> str:
-    """Limpia secretos copiados desde Google (espacios duros, NBSP, líneas extra)."""
-    text = raw.replace("\ufeff", "")
-    line = next((ln for ln in text.splitlines() if ln.strip()), text).strip()
-    for ch in ("\u00a0", "\u202f", "\u2007"):
-        line = line.replace(ch, " " if not strip_spaces else "")
-    if strip_spaces:
-        line = "".join(line.split())
-    return line.strip()
-
-
-def load_secret(name: str, *, strip_spaces: bool = False) -> str:
-    path = REPO / ".secrets" / name
-    if not path.exists():
-        raise FileNotFoundError(f"Falta {path} (p. ej. contraseña de aplicación de Gmail).")
-    return normalize_credential(path.read_text(encoding="utf-8"), strip_spaces=strip_spaces)
+from review_notify_secrets import load_secret, normalize_credential
 
 
 def _rating_stars(rating: object) -> str:

@@ -1,7 +1,7 @@
 {
   "affiliateId": "74c874bfb5a8145d7c1b",
   "domain": "https://www.buscalibre.com.co",
-  "updatedAt": "2026-07-02T14:19:09.934847+00:00",
+  "updatedAt": "2026-07-03T14:29:44.617405+00:00",
   "books": {
     "6286160": {
       "bookId": "6286160",
@@ -3290,6 +3290,18 @@
       "isbn": "9788410674981",
       "title": "¿Por qué algunos hombres están tan enfadados?: y por qué el feminismo no los desenfadará",
       "url": "https://www.buscalibre.com.co/libro-por-que-algunos-hombres-estan-tan-enfadados-y-por-que-el-feminismo-no-los-desenfadara/9788410674981/p/67161431?afiliado=74c874bfb5a8145d7c1b"
+    },
+    "252522438": {
+      "bookId": "252522438",
+      "isbn": "9788413686189",
+      "title": "Magnifica Humanitas: Sobre la custodia de la persona humana en el tiempo de la inteligencia artificial",
+      "url": "https://www.buscalibre.com.co/libro-magnifica-humanitas-sobre-la-custodia-de-la-persona-humana-en-el-tiempo-de-la-inteligencia-artificial/9788413686189/p/67329603?afiliado=74c874bfb5a8145d7c1b"
+    },
+    "250492693": {
+      "bookId": "250492693",
+      "isbn": "9788413686189",
+      "title": "Magnifica Humanitas: Sobre la custodia de la persona humana en el tiempo de la inteligencia artificial",
+      "url": "https://www.buscalibre.com.co/libro-magnifica-humanitas-sobre-la-custodia-de-la-persona-humana-en-el-tiempo-de-la-inteligencia-artificial/9788413686189/p/67329603?afiliado=74c874bfb5a8145d7c1b"
     }
   }
 }

@@ -3,6 +3,7 @@
 
 from __future__ import annotations
 
+import os
 import sys
 from datetime import datetime, timezone
 from pathlib import Path
@@ -12,8 +13,13 @@ from sync_state import load_state  # noqa: E402
 
 
 def main() -> int:
+    source = (os.environ.get("SYNC_SOURCE") or "launchd").strip() or "launchd"
     state = load_state()
-    last = str(state.get("lastPeriodicSyncSuccessAt") or state.get("lastDailyGoodreadsSuccessAt") or "")
+    source_key = f"lastPeriodicSyncSuccessAt_{source}"
+    last = str(state.get(source_key) or "")
+    if not last and source == "launchd":
+        # Compatibilidad con estado anterior (solo aplica al job local).
+        last = str(state.get("lastPeriodicSyncSuccessAt") or state.get("lastDailyGoodreadsSuccessAt") or "")
     if not last:
         return 1
     try:
@@ -21,7 +27,7 @@ def main() -> int:
     except ValueError:
         return 1
     if dt.astimezone(timezone.utc).date() == datetime.now(timezone.utc).date():
-        print(f"[sync] Ya hubo sync exitoso hoy ({last}); se omite esta corrida.")
+        print(f"[sync] Ya hubo sync exitoso hoy para {source} ({last}); se omite esta corrida.")
         return 0
     return 1
 

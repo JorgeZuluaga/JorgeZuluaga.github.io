@@ -5,12 +5,25 @@ from __future__ import annotations
 
 import argparse
 import json
+import os
+import shutil
 import sys
 from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
 
-DEFAULT_STATE_PATH = Path(".secrets/cv-data-sync-state.json")
+DEFAULT_STATE_PATH = Path("info/sync-state.json")
+LEGACY_STATE_PATH = Path(".secrets/cv-data-sync-state.json")
+
+
+def resolve_state_path() -> Path:
+    raw = os.environ.get("SYNC_STATE_FILE", "").strip()
+    if raw:
+        return Path(raw)
+    if not DEFAULT_STATE_PATH.exists() and LEGACY_STATE_PATH.exists():
+        DEFAULT_STATE_PATH.parent.mkdir(parents=True, exist_ok=True)
+        shutil.copy2(LEGACY_STATE_PATH, DEFAULT_STATE_PATH)
+    return DEFAULT_STATE_PATH
 
 
 def utc_now() -> str:
@@ -36,11 +49,12 @@ def default_state() -> dict[str, Any]:
     }
 
 
-def load_state(path: Path = DEFAULT_STATE_PATH) -> dict[str, Any]:
-    if not path.exists():
+def load_state(path: Path | None = None) -> dict[str, Any]:
+    state_path = path or resolve_state_path()
+    if not state_path.exists():
         return default_state()
     try:
-        with path.open("r", encoding="utf-8") as f:
+        with state_path.open("r", encoding="utf-8") as f:
             data = json.load(f)
     except (json.JSONDecodeError, OSError):
         return default_state()
@@ -51,23 +65,25 @@ def load_state(path: Path = DEFAULT_STATE_PATH) -> dict[str, Any]:
     return merged
 
 
-def save_state(state: dict[str, Any], path: Path = DEFAULT_STATE_PATH) -> None:
-    path.parent.mkdir(parents=True, exist_ok=True)
+def save_state(state: dict[str, Any], path: Path | None = None) -> None:
+    state_path = path or resolve_state_path()
+    state_path.parent.mkdir(parents=True, exist_ok=True)
     state["updatedAt"] = utc_now()
-    with path.open("w", encoding="utf-8") as f:
+    with state_path.open("w", encoding="utf-8") as f:
         json.dump(state, f, ensure_ascii=False, indent=2)
         f.write("\n")
 
 
-def merge_state(path: Path, **fields: Any) -> dict[str, Any]:
-    state = load_state(path)
+def merge_state(path: Path | None = None, **fields: Any) -> dict[str, Any]:
+    state_path = path or resolve_state_path()
+    state = load_state(state_path)
     state.update({k: v for k, v in fields.items() if v is not None})
-    save_state(state, path)
+    save_state(state, state_path)
     return state
 
 
 def cmd_set(args: argparse.Namespace) -> int:
-    path = Path(args.state_file)
+    path = Path(args.state_file) if args.state_file else resolve_state_path()
     fields: dict[str, Any] = {}
     for item in args.field:
         key, _, value = item.partition("=")
@@ -80,7 +96,7 @@ def cmd_set(args: argparse.Namespace) -> int:
 
 
 def append_auto_run(
-    path: Path,
+    path: Path | None = None,
     *,
     started_at: str,
     finished_at: str = "",
@@ -88,7 +104,8 @@ def append_auto_run(
     reason: str,
     max_runs: int = 60,
 ) -> None:
-    state = load_state(path)
+    state_path = path or resolve_state_path()
+    state = load_state(state_path)
     runs = list(state.get("autoRuns") or [])
     runs.append(
         {
@@ -99,11 +116,11 @@ def append_auto_run(
         }
     )
     state["autoRuns"] = runs[-max(1, max_runs) :]
-    save_state(state, path)
+    save_state(state, state_path)
 
 
 def cmd_get(args: argparse.Namespace) -> int:
-    state = load_state(Path(args.state_file))
+    state = load_state(Path(args.state_file) if args.state_file else None)
     if args.key:
         print(state.get(args.key, ""))
         return 0
@@ -112,7 +129,7 @@ def cmd_get(args: argparse.Namespace) -> int:
 
 
 def cmd_record_run(args: argparse.Namespace) -> int:
-    path = Path(args.state_file)
+    path = Path(args.state_file) if args.state_file else resolve_state_path()
     append_auto_run(
         path,
         started_at=args.started_at,
@@ -127,8 +144,8 @@ def main() -> int:
     parser = argparse.ArgumentParser(description="Manage cv-data-sync state file.")
     parser.add_argument(
         "--state-file",
-        default=str(DEFAULT_STATE_PATH),
-        help="Path to state JSON (default: .secrets/cv-data-sync-state.json).",
+        default="",
+        help="Path to state JSON (default: info/sync-state.json).",
     )
     sub = parser.add_subparsers(dest="cmd", required=True)
 

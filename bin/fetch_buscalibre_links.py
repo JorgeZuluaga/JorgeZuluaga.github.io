@@ -32,6 +32,10 @@ PRODUCT_PATH_RE = re.compile(
 )
 
 
+def log(msg: str, *, err: bool = False) -> None:
+    print(msg, file=sys.stderr if err else sys.stdout, flush=True)
+
+
 def load_json(path: Path) -> dict:
     with path.open("r", encoding="utf-8") as f:
         return json.load(f)
@@ -384,15 +388,17 @@ def backfill_shorturls(
         if isinstance(entry, dict) and str(entry.get("url") or "").strip()
     ]
     total = len(pending)
-    print(f"Enlaces cortos Buscalibre: {total} entrada(s) con URL")
+    log(f"[buscalibre] Enlaces cortos: {total} entrada(s) con URL")
 
     for index, (key, entry) in enumerate(pending, start=1):
         title = str(entry.get("title") or entry.get("isbn") or entry.get("bookId") or "").strip()
         if entry_has_shorturl(entry):
             skipped += 1
+            log(f"[buscalibre] [{index}/{total}] shorturl SKIP (ya existe) | {title}")
             continue
         if updated > 0 and sleep > 0:
             time.sleep(sleep)
+        log(f"[buscalibre] [{index}/{total}] shorturl generando… | {title}")
         if ensure_entry_shorturl(
             entry,
             cache,
@@ -400,7 +406,7 @@ def backfill_shorturls(
             site_base_url=site_base_url,
         ):
             updated += 1
-            print(f"[{index}/{total}] shorturl OK | {title} → {entry.get('shorturl')}")
+            log(f"[buscalibre] [{index}/{total}] shorturl OK | {title} → {entry.get('shorturl')}")
             if not dry_run:
                 if save_payload:
                     save_payload()
@@ -408,7 +414,7 @@ def backfill_shorturls(
                     save_cache()
         else:
             failed += 1
-            print(f"[{index}/{total}] shorturl FAIL | {title}", file=sys.stderr)
+            log(f"[buscalibre] [{index}/{total}] shorturl FAIL | {title}", err=True)
 
     return updated, skipped, failed
 
@@ -545,9 +551,9 @@ def main() -> int:
         )
         if not args.dry_run:
             save_json(output_path, payload)
-        print(f"Títulos actualizados: {updated} de {len(payload['books'])} libros")
+        log(f"[buscalibre] Títulos actualizados: {updated} de {len(payload['books'])} libros")
         if not args.dry_run:
-            print(f"Guardado: {output_path}")
+            log(f"[buscalibre] Guardado: {output_path}")
         return 0
 
     if args.backfill_shorturls:
@@ -573,13 +579,13 @@ def main() -> int:
             payload["updatedAt"] = datetime.now(timezone.utc).isoformat()
             save_json(output_path, payload)
             save_share_cache(share_cache_path, share_cache)
-        print(
-            f"\nShorturls: {updated} nuevos, {skipped} ya existían, {failed} fallos "
-            f"(total {len(payload['books'])})"
+        log(
+            f"\n[buscalibre] Shorturls: {updated} nuevos, {skipped} ya existían, "
+            f"{failed} fallos (total {len(payload['books'])})"
         )
         if not args.dry_run:
-            print(f"Guardado: {output_path}")
-            print(f"Cache: {share_cache_path}")
+            log(f"[buscalibre] Guardado: {output_path}")
+            log(f"[buscalibre] Cache: {share_cache_path}")
         return 1 if failed and updated == 0 else 0
 
     existing_buscalibre_ids = {
@@ -587,6 +593,27 @@ def main() -> int:
         for key in (existing.get("books") or {}).keys()
         if str(key).strip()
     }
+
+    if args.missing_from_library:
+        lib_isbn_count = sum(
+            1
+            for book in library.get("books") or []
+            if isinstance(book, dict)
+            and str(book.get("bookId") or "").strip()
+            and normalize_isbn(book.get("isbn"))
+        )
+        log(
+            f"[buscalibre] Modo: --missing-from-library | "
+            f"library.json con ISBN: {lib_isbn_count} | "
+            f"ya en {output_path.name}: {len(existing_buscalibre_ids)}"
+        )
+    elif args.all_with_isbn:
+        log("[buscalibre] Modo: --all-with-isbn")
+    elif args.isbn or args.book_id:
+        log(
+            f"[buscalibre] Modo: ISBN/book-id explícitos "
+            f"(ISBN={len(args.isbn)}, book-id={len(args.book_id)})"
+        )
 
     targets = collect_targets(
         library=library,
@@ -600,6 +627,11 @@ def main() -> int:
     if not targets:
         raise SystemExit("No hay libros que procesar con los filtros indicados.")
 
+    log(f"[buscalibre] Pendientes de buscar en Buscalibre: {len(targets)}")
+    if args.dry_run:
+        log("[buscalibre] dry-run: no se escribirá el JSON de salida")
+    log(f"[buscalibre] Pausa entre peticiones: {args.sleep}s")
+
     enrich_books_with_titles(
         payload["books"],
         titles_by_book_id=titles_by_book_id,
@@ -611,28 +643,29 @@ def main() -> int:
     ok = 0
     failed: list[str] = []
     total = len(targets)
-    print(f"Total: {total} libro(s)\n")
+    started = time.monotonic()
 
     for index, (book_id, isbn, title) in enumerate(targets, start=1):
         if index > 1 and args.sleep > 0:
+            log(f"[buscalibre]   esperando {args.sleep}s…")
             time.sleep(args.sleep)
         label = title or isbn
-        remaining = total - index
-        if remaining:
-            progress = f"[{index}/{total}] (faltan {remaining})"
-        else:
-            progress = f"[{index}/{total}] (último)"
-        print(f"{progress} {label}")
+        pct = int(100 * index / total) if total else 100
+        log(f"[buscalibre] [{index}/{total}] ({pct}%) {label}")
+        log(f"[buscalibre]   ISBN {isbn} | bookId {book_id or '(sin bookId)'}")
+        log(f"[buscalibre]   consultando {SEARCH_URL.format(query=quote_plus(isbn))}")
         try:
             url = search_buscalibre_by_isbn(isbn, affiliate_id=args.affiliate_id)
         except (HTTPError, URLError, TimeoutError) as err:
             failed.append(f"{label}: {err}")
-            print(f"  ERROR {err}")
+            log(f"[buscalibre]   ERROR red/HTTP: {err}", err=True)
+            log(f"[buscalibre]   acumulado: ok={ok} fail={len(failed)}", err=True)
             continue
 
         if not url:
             failed.append(f"{label}: sin resultado en Buscalibre")
-            print("  ERROR sin resultado en Buscalibre")
+            log("[buscalibre]   ERROR sin resultado en Buscalibre", err=True)
+            log(f"[buscalibre]   acumulado: ok={ok} fail={len(failed)}", err=True)
             continue
 
         key = book_id or f"isbn:{isbn}"
@@ -660,13 +693,25 @@ def main() -> int:
         if not args.dry_run:
             save_json(output_path, payload)
             save_share_cache(share_cache_path, share_cache)
-            short_note = f" | shorturl: {payload['books'][key].get('shorturl')}" if entry_has_shorturl(payload["books"][key]) else ""
-            print(f"  OK  {url}{short_note}")
-            print(f"  → guardado en {output_path}")
+            short_note = (
+                f" | shorturl: {payload['books'][key].get('shorturl')}"
+                if entry_has_shorturl(payload["books"][key])
+                else ""
+            )
+            log(f"[buscalibre]   OK  {url}{short_note}")
+            log(f"[buscalibre]   → guardado ({len(payload['books'])} libros en JSON)")
         else:
-            print(f"  OK  {url}")
+            log(f"[buscalibre]   OK  {url}")
+        log(f"[buscalibre]   acumulado: ok={ok} fail={len(failed)}")
+
+    elapsed = time.monotonic() - started
+    log(
+        f"[buscalibre] Búsqueda terminada en {elapsed:.0f}s — "
+        f"ok={ok} fail={len(failed)} de {total}"
+    )
 
     if not args.dry_run:
+        log("[buscalibre] Revisando shorturls faltantes en el JSON completo…")
         updated_short, skipped_short, failed_short = backfill_shorturls(
             payload["books"],
             share_cache,
@@ -680,15 +725,18 @@ def main() -> int:
             payload["updatedAt"] = datetime.now(timezone.utc).isoformat()
             save_json(output_path, payload)
             save_share_cache(share_cache_path, share_cache)
-            print(f"\nShorturls adicionales: {updated_short} (omitidos: {skipped_short})")
+            log(
+                f"[buscalibre] Shorturls adicionales: {updated_short} "
+                f"(omitidos: {skipped_short}, fallos: {failed_short})"
+            )
 
     if not args.dry_run and ok:
-        print(f"\nListo: {ok} enlace(s) en {output_path}")
+        log(f"[buscalibre] Listo: {ok} enlace(s) nuevos en {output_path}")
 
     if failed:
-        print("\nFallos:")
+        log("\n[buscalibre] Fallos:", err=True)
         for item in failed:
-            print(f"  - {item}")
+            log(f"[buscalibre]   - {item}", err=True)
         return 1 if ok == 0 else 0
 
     return 0

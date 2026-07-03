@@ -11,7 +11,8 @@ from pathlib import Path
 
 REPO = Path(__file__).resolve().parent.parent
 OUT_LOG = REPO / ".secrets" / "cv-data-sync.out.log"
-STATE_PATH = REPO / ".secrets" / "cv-data-sync-state.json"
+STATE_PATH = REPO / "info" / "sync-state.json"
+LEGACY_STATE_PATH = REPO / ".secrets" / "cv-data-sync-state.json"
 
 RUN_START = re.compile(
     r"\[([^\]]+)\] (?:Goodreads \(likes \+ reseñas recientes \+ stats\)\.\.\."
@@ -83,12 +84,13 @@ def parse_log_runs(text: str) -> list[dict]:
 
 
 def load_state_runs() -> list[dict]:
-    if not STATE_PATH.exists():
+    path = STATE_PATH if STATE_PATH.exists() else LEGACY_STATE_PATH
+    if not path.exists():
         return []
     try:
         import json
 
-        with STATE_PATH.open("r", encoding="utf-8") as f:
+        with path.open("r", encoding="utf-8") as f:
             data = json.load(f)
     except (OSError, json.JSONDecodeError):
         return []

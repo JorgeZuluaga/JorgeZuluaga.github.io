@@ -15,35 +15,55 @@ record_state() {
   python3 bin/sync_state.py set "$@"
 }
 
-commit_library_to_repo() {
-  local ts sha msg
+commit_repo_changes() {
+  local label="$1"
+  local ts
   ts="$(date +"%Y-%m-%d %H:%M:%S %Z")"
   git add \
     info/library.json \
     info/library-stats.json \
-    reviews/ 2>/dev/null || true
+    info/buscalibre.json \
+    info/sync-state.json \
+    reviews/ \
+    info/visitor-logs-backup.ndjson \
+    info/visitor-logs-backup-state.json \
+    info/visitor-logs-snapshot.json \
+    2>/dev/null || true
 
   if git diff --cached --quiet 2>/dev/null; then
-    echo "[$(utc_now)] Sin cambios en biblioteca/reseñas para commit."
+    echo "[$(utc_now)] Sin cambios para commit ($label)."
     return 0
   fi
 
-  msg="chore: sync biblioteca y reseñas (${ts})"
+  local msg="chore: sync biblioteca y reseñas (${ts})"
+  if [[ "$label" == "notify-state" ]]; then
+    msg="chore: update review notify state (${ts})"
+  fi
   if ! git commit -m "$msg"; then
-    echo "[$(utc_now)] git commit falló (¿working tree sucio fuera del add?)." >&2
+    echo "[$(utc_now)] git commit falló ($label)." >&2
     return 1
   fi
   if ! git push; then
-    echo "[$(utc_now)] git push falló." >&2
+    echo "[$(utc_now)] git push falló ($label)." >&2
     return 1
   fi
 
+  local sha
   sha="$(git rev-parse --short HEAD)"
   record_state \
     "lastGitCommitAt=$(utc_now)" \
     "lastGitCommitSha=${sha}"
   echo "[$(utc_now)] Publicado en remoto: ${sha} — ${msg}"
   return 0
+}
+
+commit_library_to_repo() {
+  commit_repo_changes "library"
+}
+
+commit_notify_state_to_repo() {
+  git add info/review-notify-state.json info/sync-state.json 2>/dev/null || true
+  commit_repo_changes "notify-state"
 }
 
 record_auto_run() {
@@ -93,7 +113,7 @@ if [[ -z "${LOG_READ_TOKEN:-}" && -f "$TOKEN_FILE" ]]; then
   export LOG_READ_TOKEN
 fi
 
-SYNC_SOURCE=launchd
+SYNC_SOURCE="${SYNC_SOURCE:-launchd}"
 export SYNC_SOURCE
 
 echo "[$(utc_now)] Goodreads (likes + reseñas recientes + stats)..."
@@ -134,14 +154,17 @@ if ! commit_library_to_repo; then
 fi
 
 FINISHED="$(utc_now)"
-record_state "lastPeriodicSyncSuccessAt=${FINISHED}"
+record_state \
+  "lastPeriodicSyncSuccessAt=${FINISHED}" \
+  "lastPeriodicSyncSuccessAt_${SYNC_SOURCE}=${FINISHED}"
 record_auto_run "$RUN_STARTED" "$FINISHED" true "completo"
 
 echo "[$(utc_now)] Notificación de reseñas nuevas (tras Buscalibre y git push)..."
 if python3 "$REPO_DIR/bin/notify_new_reviews.py" 2>/dev/null; then
   echo "[$(utc_now)] notify_new_reviews completado."
+  commit_notify_state_to_repo || true
 else
-  echo "[$(utc_now)] notify_new_reviews omitido o falló (revise .secrets/gmail-* y review-notify-token)." >&2
+  echo "[$(utc_now)] notify_new_reviews omitido o falló (revise Gmail/review-notify-token)." >&2
 fi
 
 echo "[${FINISHED}] Periodic data sync completed."

@@ -1,0 +1,53 @@
+{
+  "updatedAt": "2026-07-03T14:46:47.339142+00:00",
+  "lastAttemptAt": "2026-07-03T14:00:05Z",
+  "lastAttemptSource": "launchd",
+  "lastDailyGoodreadsSuccessAt": "2026-07-03T14:00:05Z",
+  "lastPeriodicSyncSuccessAt": "2026-07-02T14:51:53Z",
+  "lastGitCommitAt": "",
+  "lastGitCommitSha": "",
+  "lastFailureAt": "",
+  "lastFailureReason": "",
+  "lastFailureStep": "",
+  "consecutiveFailures": "0",
+  "lastAttemptNumber": "1",
+  "lastAttemptMax": "3",
+  "autoRuns": [
+    {
+      "startedAt": "2026-06-25T16:04:56Z",
+      "finishedAt": "2026-06-25T16:47:38Z",
+      "success": true,
+      "reason": "completo"
+    },
+    {
+      "startedAt": "2026-06-26T14:00:05Z",
+      "finishedAt": "2026-06-26T14:43:50Z",
+      "success": true,
+      "reason": "completo"
+    },
+    {
+      "startedAt": "2026-06-29T14:00:03Z",
+      "finishedAt": "2026-06-29T14:49:12Z",
+      "success": true,
+      "reason": "completo"
+    },
+    {
+      "startedAt": "2026-06-30T14:00:05Z",
+      "finishedAt": "2026-06-30T14:43:41Z",
+      "success": true,
+      "reason": "completo"
+    },
+    {
+      "startedAt": "2026-07-01T14:00:05Z",
+      "finishedAt": "2026-07-01T14:53:18Z",
+      "success": true,
+      "reason": "completo"
+    },
+    {
+      "startedAt": "2026-07-02T14:00:05Z",
+      "finishedAt": "2026-07-02T14:51:53Z",
+      "success": true,
+      "reason": "completo"
+    }
+  ]
+}
