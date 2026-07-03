@@ -1257,10 +1257,17 @@ async function main() {
     .map((b) => ({ ...b, _date: parseDate(b.dateRead) }))
     .filter((b) => b._date);
   const reviewedGr = booksReadForGrStats.filter((b) => hasReview(b));
+  const reviewedReviewIds = new Set(
+    reviewedGr.map((b) => parseReviewIdFromUrl(b.reviewUrl)).filter(Boolean),
+  );
 
   const rows = computeYearlyReads(readBooks);
   const latestReadNoReview = [...readBooks]
     .filter((b) => b._date && !hasReview(b))
+    .filter((b) => {
+      const reviewId = parseReviewIdFromUrl(b.reviewUrl);
+      return !reviewId || !reviewedReviewIds.has(reviewId);
+    })
     .sort((a, b) => b._date - a._date)
     .slice(0, LIBRARY_LIST_EXPANDED_COUNT);
   const reviewed = readBooks.filter((b) => hasReview(b));
