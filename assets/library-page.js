@@ -853,14 +853,7 @@ async function hydrateLocalLikes(container, items, lang) {
   }
   renderLocalLikesInContainer(container, counts, lang);
 
-  const needsFetch = reviewIds.filter((reviewId) => {
-    const fromSnapshot = readSnapshotLocalLikes(bookByReviewId.get(reviewId));
-    const cached = readCachedLocalLikes(reviewId);
-    return pickBestKnownLocalLikes(fromSnapshot, cached) === null;
-  });
-  if (needsFetch.length === 0) return;
-
-  await mapWithConcurrency(needsFetch, async (reviewId) => {
+  await mapWithConcurrency(reviewIds, async (reviewId) => {
     const fetched = await fetchLocalLikeCount(base, reviewId);
     if (fetched !== null) {
       counts.set(reviewId, fetched);
