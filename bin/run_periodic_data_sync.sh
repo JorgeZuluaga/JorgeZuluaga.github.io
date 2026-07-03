@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
-# launchd (diario): Goodreads (likes + últimas reseñas + stats) + logs visitantes + likes locales + git push.
+# Sync periódico: Goodreads (likes + reseñas + stats) + logs visitantes + likes locales + git push.
+# Automatización diaria: GitHub Actions (06:00 Bogotá). launchd local deshabilitado.
 set -euo pipefail
 
 REPO_DIR="$(cd "$(dirname "$0")/.." && pwd)"

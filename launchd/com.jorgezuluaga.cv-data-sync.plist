@@ -5,6 +5,9 @@
   <key>Label</key>
   <string>com.jorgezuluaga.cv-data-sync</string>
 
+  <key>Disabled</key>
+  <true/>
+
   <key>ProgramArguments</key>
   <array>
     <string>/bin/bash</string>

@@ -1,11 +1,11 @@
 # Sync diario Goodreads + correo + push. BookBuddy sigue siendo local.
-# Horario: 19:00 UTC = 14:00 America/Bogota (launchd local sigue a las 9:00).
+# Horario: 11:00 UTC = 06:00 America/Bogota.
 
 name: Daily library sync
 
 on:
   schedule:
-    - cron: "0 19 * * *"
+    - cron: "0 11 * * *"
   workflow_dispatch:
 
 permissions:
