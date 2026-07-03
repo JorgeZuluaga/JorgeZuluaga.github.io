@@ -63,7 +63,7 @@
       "reviewLocalCoverUrl": "./reviews/covers/8729466900.jpg",
       "reviewDate": "2026-06-30",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-07-03T14:18:04.664607+00:00",
+      "reviewLocalGeneratedAt": "2026-07-03T15:13:08.917365+00:00",
       "reviewCount": 2336,
       "drzratingAuto": true,
       "reviewLocalLikes": 1,
@@ -80,7 +80,7 @@
       "drzrating": -1,
       "bookDetails": 0,
       "matched": false,
-      "reviewCount": 0,
+      "reviewCount": 11,
       "reviewDate": "2026-06-27",
       "drzratingAuto": true,
       "isbn": "9788449336539",
@@ -97,7 +97,9 @@
         "confidence": 0.9
       },
       "reviewLocalCoverUrl": "./reviews/covers/8711059499.jpg",
-      "reviewLocalStatus": "error: The read operation timed out"
+      "reviewLocalStatus": "ok",
+      "reviewLocalUrl": "./reviews/8711059499.html",
+      "reviewLocalGeneratedAt": "2026-07-03T15:13:14.496507+00:00"
     },
     {
       "bookId": "35658293",
@@ -177,7 +179,7 @@
       "reviewLocalCoverUrl": "./reviews/covers/8705724576.jpg",
       "reviewDate": "2026-06-27",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-07-03T14:18:33.140434+00:00",
+      "reviewLocalGeneratedAt": "2026-07-03T15:13:16.617339+00:00",
       "reviewCount": 1143,
       "reviewLocalLikes": 0,
       "reviewLocalLikesUpdatedAt": "2026-07-02T14:47:11.843096+00:00",
@@ -547,7 +549,7 @@
       "reviewLocalCoverUrl": "./reviews/covers/8729466900.jpg",
       "reviewDate": "2026-06-30",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-07-03T14:18:04.664607+00:00",
+      "reviewLocalGeneratedAt": "2026-07-03T15:13:08.917365+00:00",
       "reviewCount": 2336,
       "drzratingAuto": true,
       "reviewLocalLikes": 1,
@@ -564,7 +566,7 @@
       "drzrating": -1,
       "bookDetails": 0,
       "matched": false,
-      "reviewCount": 0,
+      "reviewCount": 11,
       "reviewDate": "2026-06-27",
       "drzratingAuto": true,
       "isbn": "9788449336539",
@@ -581,7 +583,9 @@
         "confidence": 0.9
       },
       "reviewLocalCoverUrl": "./reviews/covers/8711059499.jpg",
-      "reviewLocalStatus": "error: The read operation timed out"
+      "reviewLocalStatus": "ok",
+      "reviewLocalUrl": "./reviews/8711059499.html",
+      "reviewLocalGeneratedAt": "2026-07-03T15:13:14.496507+00:00"
     },
     {
       "bookId": "35658293",
@@ -661,7 +665,7 @@
       "reviewLocalCoverUrl": "./reviews/covers/8705724576.jpg",
       "reviewDate": "2026-06-27",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-07-03T14:18:33.140434+00:00",
+      "reviewLocalGeneratedAt": "2026-07-03T15:13:16.617339+00:00",
       "reviewCount": 1143,
       "reviewLocalLikes": 0,
       "reviewLocalLikesUpdatedAt": "2026-07-02T14:47:11.843096+00:00",
@@ -685,6 +689,6 @@
   "totals": {
     "booksRead": 604,
     "booksReviewed": 604,
-    "totalReviewLikes": 3280
+    "totalReviewLikes": 3281
   }
 }
