@@ -16,9 +16,11 @@ from urllib.request import Request, urlopen
 SHORTENER_HOSTS = frozenset({"is.gd", "v.gd"})
 import xml.etree.ElementTree as ET
 
+from review_date_policy import review_date_for_mirror_html
 from review_word_count import (
     REVIEW_EXTRACTION_FAILED_HTML,
     count_words_in_review_html_file,
+    is_review_extraction_failed,
 )
 
 
@@ -643,6 +645,18 @@ def main() -> int:
         cover_url = str(rss_data.get("cover_url") or "").strip()
     if not review_fragment:
         review_fragment = str((rss_data.get("review_text") if rss_data else "") or "").strip()
+    rss_review_date = str((rss_data.get("review_date") if rss_data else "") or "").strip()
+    if review_fragment and not is_review_extraction_failed(review_fragment):
+        review_date = review_date_for_mirror_html(
+            book,
+            review_text=review_fragment,
+            rss_review_date=rss_review_date,
+        )
+    else:
+        review_date = (
+            str(book.get("reviewDate") or "").strip()
+            or rss_review_date
+        )
     if is_signin_page(page_title):
         page_title = "Reseña en Goodreads (mirror local)"
 
@@ -688,8 +702,6 @@ def main() -> int:
     book["reviewLocalUrl"] = f"./{reviews_dir.as_posix()}/{out_file.name}"
     if local_cover_url:
         book["reviewLocalCoverUrl"] = local_cover_url
-    if review_date:
-        book["reviewDate"] = review_date
     book["reviewLocalStatus"] = "ok"
     book["reviewLocalGeneratedAt"] = datetime.now(timezone.utc).isoformat()
 

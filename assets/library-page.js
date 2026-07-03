@@ -1275,6 +1275,7 @@ async function main() {
   const featuredReviewId = featuredBook ? parseReviewIdFromUrl(featuredBook.reviewUrl) : "";
   const latestReviewsWritten = [...reviewed]
     .filter((b) => b._reviewDate)
+    .filter((b) => b.hasReview !== false)
     .filter((b) => !featuredReviewId || parseReviewIdFromUrl(b.reviewUrl) !== featuredReviewId)
     .sort(compareReviewsByRecency);
 

@@ -34,7 +34,12 @@ from mirror_first_review import (
     patch_review_html_subscribe,
     resolve_share_url,
 )
-from review_word_count import apply_review_counts_to_books, is_review_html_extraction_failed
+from review_date_policy import review_date_for_mirror_html
+from review_word_count import (
+    apply_review_counts_to_books,
+    is_review_extraction_failed,
+    is_review_html_extraction_failed,
+)
 
 DEFAULT_REFRESH_LATEST = 10
 DEFAULT_RETRY_FAILED_EXTRACTION_DAYS = 180
@@ -475,7 +480,18 @@ def main() -> int:
                         "[mirror] Texto tomado del RSS (la página de Goodreads exige iniciar sesión).",
                         flush=True,
                     )
-            review_date = str(rss_data.get("review_date") or "").strip()
+            rss_review_date = str(rss_data.get("review_date") or "").strip()
+            if review_fragment and not is_review_extraction_failed(review_fragment):
+                review_date = review_date_for_mirror_html(
+                    book,
+                    review_text=review_fragment,
+                    rss_review_date=rss_review_date,
+                )
+            else:
+                review_date = (
+                    str(book.get("reviewDate") or "").strip()
+                    or rss_review_date
+                )
             cover_url = str(rss_data.get("cover_url") or "").strip()
 
             if is_signin_page(page_title):
@@ -512,8 +528,6 @@ def main() -> int:
             book["reviewLocalUrl"] = f"./{reviews_dir.as_posix()}/{out_file.name}"
             if local_cover_url:
                 book["reviewLocalCoverUrl"] = local_cover_url
-            if review_date:
-                book["reviewDate"] = review_date
             book["reviewLocalStatus"] = "ok"
             book["reviewLocalGeneratedAt"] = datetime.now(timezone.utc).isoformat()
 
