@@ -106,14 +106,58 @@ Eso **no** envía correos a suscriptores. Para una actualización completa **con
 bash bin/run_periodic_data_sync.sh
 ```
 
-**launchd:** `launchd/com.jorgezuluaga.cv-data-sync.plist` ejecuta ese mismo script (`run_periodic_data_sync.sh`) cada día a las 9:00. El flujo es:
+**Automatización diaria en GitHub Actions:** el workflow **Daily library sync** (`.github/workflows/daily-sync.yml`) corre cada día a las **06:00 America/Bogotá** (11:00 UTC). Usa los [GitHub Secrets](https://github.com/JorgeZuluaga/JorgeZuluaga.github.io/settings/secrets/actions) del repo (`GMAIL_SMTP_USER`, `GMAIL_APP_PASSWORD`, `REVIEW_NOTIFY_TOKEN`, opcional `GOODREADS_COOKIE` y `LOG_READ_TOKEN`). El RSS se lee de `source.rssUrl` en `info/library.json`. BookBuddy sigue siendo local.
+
+Disparo manual desde la web: **Actions → Daily library sync → Run workflow**. Entrada del job: `bash bin/run_github_actions_sync.sh` → `bin/run_periodic_data_sync.sh`.
+
+Tras cada corrida exitosa en GitHub, en tu Mac:
+
+```bash
+git pull
+make status
+```
+
+**Seguir el lanzamiento desde la terminal** (requiere [`gh`](https://cli.github.com/) autenticado contra el repo):
+
+```bash
+# Últimas corridas del workflow
+gh run list --workflow=daily-sync.yml --limit 5
+
+# Progreso en vivo (pasos del job; Ctrl+C para salir)
+gh run watch
+
+# Progreso de una corrida concreta (copia el ID de la lista anterior)
+gh run watch 12345678901
+
+# Resumen de una corrida
+gh run view 12345678901
+
+# Log completo (solo cuando ya terminó)
+gh run view 12345678901 --log
+```
+
+Enlace directo en el navegador: `https://github.com/JorgeZuluaga/JorgeZuluaga.github.io/actions/workflows/daily-sync.yml`. Para ver el log **en vivo** con detalle (Goodreads, Buscalibre, etc.), abre la corrida → job **sync** → paso **Run daily sync**.
+
+Disparo manual desde terminal (si `gh` tiene permisos de admin en Actions):
+
+```bash
+gh workflow run "Daily library sync"
+```
+
+**launchd (local, deshabilitado):** `launchd/com.jorgezuluaga.cv-data-sync.plist` tenía el mismo flujo a las 9:00; el plist en el repo lleva `Disabled=true`. Para una corrida local manual:
+
+```bash
+bash bin/run_periodic_data_sync.sh
+```
+
+El flujo periódico completo es:
 
 1. Corre `run_daily_goodreads_sync.sh` (pasos anteriores).
 2. Si existe `LOG_READ_TOKEN` (o `.secrets/log_read_token`), hace backup de logs de visitantes.
 3. Ejecuta `make library-local-likes-sync`.
 4. Opcionalmente llama a `.secrets/update-likes.sh` si está presente.
 5. Intenta commit/push de los JSON relevantes.
-6. Ejecuta `bin/notify_new_reviews.py`: si hay reseñas nuevas (según `.secrets/last-notified-reviews.json`) y suscriptores confirmados, envía el correo vía Gmail SMTP (requiere `.secrets/gmail-smtp-user`, `gmail-app-password` y `review-notify-token`). Si hay **más de una** reseña nueva, el correo incluye el primer párrafo de **todas** ellas. Al final siempre van las **5 reseñas más recientes** que no estén resaltadas en el cuerpo.
+6. Ejecuta `bin/notify_new_reviews.py`: si hay reseñas nuevas (según `info/review-notify-state.json`) y suscriptores confirmados, envía el correo vía Gmail SMTP (requiere credenciales en Secrets o `.secrets/gmail-smtp-user`, `gmail-app-password` y `review-notify-token`). Si hay **más de una** reseña nueva, el correo incluye el primer párrafo de **todas** ellas. Al final siempre van las **5 reseñas más recientes** que no estén resaltadas en el cuerpo.
 
 Correo de **prueba** (no actualiza el estado de reseñas ya notificadas):
 
@@ -135,7 +179,7 @@ make review-notify-unsubscribe EMAIL=correo@ejemplo.com
 
 Listar suscriptores: `make lista-suscritos` (solo correos). Detalle JSON: `python3 bin/review_notify_client.py list`
 
-Copiar o actualizar el plist en `~/Library/LaunchAgents/` y cargar con `launchctl load -w ...` si cambias la ruta del repo.
+Si reactivas launchd local: copia o actualiza el plist en `~/Library/LaunchAgents/` y `launchctl load -w ...` (el del repo está deshabilitado por defecto).
 
 ---
 
