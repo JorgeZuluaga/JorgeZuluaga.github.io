@@ -5,8 +5,9 @@ from __future__ import annotations
 
 import re
 from datetime import datetime, timezone
+from pathlib import Path
 
-from review_word_count import html_to_text
+from review_word_count import extract_review_body_from_html, html_to_text
 
 TRAILING_EMBEDDED_DATE_RE = re.compile(r"(?<![0-9])(\d{4})/(\d{2})/(\d{2})\s*$")
 
@@ -67,6 +68,71 @@ def should_assign_review_date_on_mirror(book: dict) -> bool:
     return True
 
 
+def apply_embedded_review_date_if_present(
+    book: dict,
+    *,
+    review_text: str,
+) -> tuple[str, bool]:
+    """Set reviewDate when the body ends with YYYY/MM/DD (never before dateRead)."""
+    embedded = parse_embedded_review_date(review_text)
+    if not embedded:
+        return str(book.get("reviewDate") or "").strip(), False
+
+    date_read_iso = normalize_iso_date(str(book.get("dateRead") or ""))
+    resolved = embedded
+    if date_read_iso and resolved < date_read_iso:
+        resolved = date_read_iso
+
+    previous = normalize_iso_date(book.get("reviewDate") or "")
+    if previous != resolved:
+        book["reviewDate"] = resolved
+        return resolved, True
+    return previous or resolved, False
+
+
+def sync_embedded_review_dates_for_books(
+    books: list[dict],
+    *,
+    repo_root: Path,
+    reviews_dir_name: str = "reviews",
+) -> int:
+    """Scan mirrored reviews/*.html and sync reviewDate from trailing YYYY/MM/DD."""
+    updated = 0
+    reviews_dir = repo_root / reviews_dir_name
+    meta_re = re.compile(
+        r'(<p class="meta">Fecha de reseña: )\d{4}-\d{2}-\d{2}(</p>)',
+        re.IGNORECASE,
+    )
+    for book in books:
+        review_url = str(book.get("reviewUrl") or "")
+        match = re.search(r"/review/show/(\d+)", review_url)
+        if not match:
+            continue
+        html_path = reviews_dir / f"{match.group(1)}.html"
+        if not html_path.exists():
+            continue
+        try:
+            body = extract_review_body_from_html(
+                html_path.read_text(encoding="utf-8", errors="ignore"),
+            )
+        except OSError:
+            continue
+        if not body:
+            continue
+        date, changed = apply_embedded_review_date_if_present(book, review_text=body)
+        if not changed:
+            continue
+        updated += 1
+        try:
+            raw = html_path.read_text(encoding="utf-8")
+            new_raw = meta_re.sub(rf"\g<1>{date}\g<2>", raw, count=1)
+            if new_raw != raw:
+                html_path.write_text(new_raw, encoding="utf-8")
+        except OSError:
+            pass
+    return updated
+
+
 def apply_review_date_on_first_text_sync(
     book: dict,
     *,
@@ -96,13 +162,17 @@ def review_date_for_mirror_html(
     rss_review_date: str = "",
     first_download_at: datetime | None = None,
 ) -> str:
-    """Pick reviewDate for mirrored HTML + library.json (first sync only updates JSON)."""
+    """Pick reviewDate for mirrored HTML + library.json."""
     if review_text.strip() and should_assign_review_date_on_mirror(book):
         return apply_review_date_on_first_text_sync(
             book,
             review_text=review_text,
             first_download_at=first_download_at,
         )
+    if review_text.strip():
+        date, _ = apply_embedded_review_date_if_present(book, review_text=review_text)
+        if date:
+            return date
     stored = str(book.get("reviewDate") or "").strip()
     if stored:
         return stored
@@ -145,6 +215,19 @@ def _self_test() -> None:
     }
     assert not should_assign_review_date_on_mirror(legacy)
     assert apply_review_date_on_first_text_sync(legacy, review_text="Fin 2099/01/01") == "2026-05-01"
+
+    synced, changed = apply_embedded_review_date_if_present(
+        legacy,
+        review_text="Texto final 2026/08/15",
+    )
+    assert synced == "2026-08-15"
+    assert changed is True
+    assert legacy["reviewDate"] == "2026-08-15"
+    _, changed_again = apply_embedded_review_date_if_present(
+        legacy,
+        review_text="Texto final 2026/08/15",
+    )
+    assert changed_again is False
 
 
 if __name__ == "__main__":

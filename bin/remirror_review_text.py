@@ -21,7 +21,11 @@ from mirror_first_review import (
     get_url,
     is_signin_page,
 )
-from review_date_policy import apply_review_date_on_first_text_sync, should_assign_review_date_on_mirror
+from review_date_policy import (
+    apply_embedded_review_date_if_present,
+    apply_review_date_on_first_text_sync,
+    should_assign_review_date_on_mirror,
+)
 from review_word_count import (
     apply_review_counts_to_books,
     count_words_in_review_html_file,
@@ -199,6 +203,8 @@ def remirror_one(
     book["reviewTextSyncedAt"] = datetime.now(timezone.utc).isoformat()
     if should_assign_review_date_on_mirror(book):
         apply_review_date_on_first_text_sync(book, review_text=fragment)
+    else:
+        apply_embedded_review_date_if_present(book, review_text=fragment)
     print(f"  OK → {html_path.name} (reviewCount={book['reviewCount']})", flush=True)
     return True
 

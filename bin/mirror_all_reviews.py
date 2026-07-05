@@ -34,7 +34,7 @@ from mirror_first_review import (
     patch_review_html_subscribe,
     resolve_share_url,
 )
-from review_date_policy import review_date_for_mirror_html
+from review_date_policy import review_date_for_mirror_html, sync_embedded_review_dates_for_books
 from review_word_count import (
     apply_review_counts_to_books,
     is_review_extraction_failed,
@@ -544,6 +544,16 @@ def main() -> int:
             repo_root=repo_root,
             reviews_dir_name=reviews_dir.as_posix(),
         )
+        embedded_dates_updated = sync_embedded_review_dates_for_books(
+            books,
+            repo_root=repo_root,
+            reviews_dir_name=reviews_dir.as_posix(),
+        )
+        if embedded_dates_updated:
+            print(
+                f"[mirror] reviewDate desde fecha embebida: {embedded_dates_updated} actualizadas",
+                flush=True,
+            )
 
         with library_path.open("w", encoding="utf-8") as f:
             json.dump(library, f, ensure_ascii=False, indent=2)
