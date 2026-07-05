@@ -21,11 +21,7 @@ from mirror_first_review import (
     get_url,
     is_signin_page,
 )
-from review_date_policy import (
-    apply_embedded_review_date_if_present,
-    apply_review_date_on_first_text_sync,
-    should_assign_review_date_on_mirror,
-)
+from review_date_policy import sync_review_date_from_review_text
 from review_word_count import (
     apply_review_counts_to_books,
     count_words_in_review_html_file,
@@ -149,16 +145,17 @@ def remirror_one(
     cookie: str,
     rss_pages: int,
     dry_run: bool,
-) -> bool:
+) -> tuple[bool, bool]:
+    """Return (success, library_dirty)."""
     review_url = str(book.get("reviewUrl") or "").strip()
     if not review_url:
         print(f"[{review_id}] ERROR: sin reviewUrl en library.json", file=sys.stderr)
-        return False
+        return False, False
 
     html_path = local_html_path(repo_root, book, review_id)
     if not html_path.exists():
         print(f"[{review_id}] ERROR: no existe {html_path}", file=sys.stderr)
-        return False
+        return False, False
 
     title = str(book.get("title") or review_id)
     print(f"[{review_id}] {title}", flush=True)
@@ -171,11 +168,11 @@ def remirror_one(
     )
     if not fragment:
         print(f"  ERROR: no se pudo extraer texto (Goodreads ni RSS)", file=sys.stderr)
-        return False
+        return False, False
 
     if is_review_extraction_failed(fragment):
         print("  ERROR: Goodreads/RSS devolvió placeholder vacío", file=sys.stderr)
-        return False
+        return False, False
 
     original = html_path.read_text(encoding="utf-8")
     old_body = extract_review_body_from_html(original)
@@ -186,9 +183,31 @@ def remirror_one(
     new_words = len(new_body.split()) if new_body else 0
     print(f"  Fuente: {source} | palabras: {old_words} → {new_words}", flush=True)
 
-    if old_body.strip() == new_body.strip():
-        print("  Sin cambios (el texto remoto coincide con el local).", flush=True)
-        return True
+    text_unchanged = old_body.strip() == new_body.strip()
+
+    if text_unchanged:
+        review_date, date_changed = sync_review_date_from_review_text(
+            book,
+            review_text=fragment,
+            html_path=None if dry_run else html_path,
+            dry_run=dry_run,
+        )
+        if date_changed:
+            print(f"  reviewDate → {review_date}", flush=True)
+        elif not dry_run:
+            print("  Sin cambios (el texto remoto coincide con el local).", flush=True)
+        else:
+            print("  dry-run: sin cambios de texto ni fecha embebida.", flush=True)
+        return True, date_changed
+
+    review_date, date_changed = sync_review_date_from_review_text(
+        book,
+        review_text=fragment,
+        html_path=None,
+        dry_run=True,
+    )
+    if date_changed:
+        print(f"  reviewDate → {review_date}", flush=True)
 
     if dry_run:
         print("  dry-run: no se escribió el archivo.", flush=True)
@@ -196,17 +215,18 @@ def remirror_one(
         preview_new = new_body[:120].replace("\n", " ")
         print(f"  local:  {preview_old}…", flush=True)
         print(f"  remoto: {preview_new}…", flush=True)
-        return True
+        return True, True
 
     html_path.write_text(new_html, encoding="utf-8")
     book["reviewCount"] = count_words_in_review_html_file(html_path)
     book["reviewTextSyncedAt"] = datetime.now(timezone.utc).isoformat()
-    if should_assign_review_date_on_mirror(book):
-        apply_review_date_on_first_text_sync(book, review_text=fragment)
-    else:
-        apply_embedded_review_date_if_present(book, review_text=fragment)
+    sync_review_date_from_review_text(
+        book,
+        review_text=fragment,
+        html_path=html_path,
+    )
     print(f"  OK → {html_path.name} (reviewCount={book['reviewCount']})", flush=True)
-    return True
+    return True, True
 
 
 def main() -> int:
@@ -259,7 +279,7 @@ def main() -> int:
 
     ok = 0
     failed = 0
-    touched_books: list[dict] = []
+    library_dirty = False
 
     for review_id in review_ids:
         book = find_book_by_review_id(books, review_id)
@@ -267,7 +287,7 @@ def main() -> int:
             print(f"[{review_id}] ERROR: no está en library.json", file=sys.stderr)
             failed += 1
             continue
-        if remirror_one(
+        success, dirty = remirror_one(
             review_id=review_id,
             book=book,
             repo_root=repo_root,
@@ -275,13 +295,15 @@ def main() -> int:
             cookie=args.cookie,
             rss_pages=args.rss_pages,
             dry_run=args.dry_run,
-        ):
+        )
+        if success:
             ok += 1
-            touched_books.append(book)
+            if dirty:
+                library_dirty = True
         else:
             failed += 1
 
-    if not args.dry_run and touched_books:
+    if not args.dry_run and library_dirty:
         apply_review_counts_to_books(
             books,
             repo_root=repo_root,

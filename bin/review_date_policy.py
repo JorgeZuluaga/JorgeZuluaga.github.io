@@ -10,6 +10,10 @@ from pathlib import Path
 from review_word_count import extract_review_body_from_html, html_to_text
 
 TRAILING_EMBEDDED_DATE_RE = re.compile(r"(?<![0-9])(\d{4})/(\d{2})/(\d{2})\s*$")
+REVIEW_META_DATE_RE = re.compile(
+    r'(<p class="meta">Fecha de reseña: )\d{4}-\d{2}-\d{2}(</p>)',
+    re.IGNORECASE,
+)
 
 
 def normalize_iso_date(value: object) -> str:
@@ -90,6 +94,63 @@ def apply_embedded_review_date_if_present(
     return previous or resolved, False
 
 
+def patch_review_html_meta_date(html_path: Path, review_date: str) -> bool:
+    """Update ``Fecha de reseña`` in a mirrored reviews/*.html file."""
+    try:
+        raw = html_path.read_text(encoding="utf-8")
+    except OSError:
+        return False
+    new_raw = REVIEW_META_DATE_RE.sub(rf"\g<1>{review_date}\g<2>", raw, count=1)
+    if new_raw == raw:
+        return False
+    html_path.write_text(new_raw, encoding="utf-8")
+    return True
+
+
+def sync_review_date_from_review_text(
+    book: dict,
+    *,
+    review_text: str,
+    html_path: Path | None = None,
+    first_download_at: datetime | None = None,
+    dry_run: bool = False,
+) -> tuple[str, bool]:
+    """Sync reviewDate from trailing YYYY/MM/DD; optionally patch local HTML meta."""
+    if dry_run:
+        embedded = parse_embedded_review_date(review_text)
+        if not embedded and not should_assign_review_date_on_mirror(book):
+            return str(book.get("reviewDate") or "").strip(), False
+        if should_assign_review_date_on_mirror(book):
+            resolved = resolve_review_date_from_text(
+                review_text=review_text,
+                date_read=str(book.get("dateRead") or ""),
+                first_download_at=first_download_at or datetime.now(timezone.utc),
+            )
+        elif embedded:
+            date_read_iso = normalize_iso_date(str(book.get("dateRead") or ""))
+            resolved = embedded
+            if date_read_iso and resolved < date_read_iso:
+                resolved = date_read_iso
+        else:
+            return str(book.get("reviewDate") or "").strip(), False
+        previous = normalize_iso_date(book.get("reviewDate") or "")
+        return resolved, previous != resolved
+
+    if should_assign_review_date_on_mirror(book):
+        date = apply_review_date_on_first_text_sync(
+            book,
+            review_text=review_text,
+            first_download_at=first_download_at,
+        )
+        changed = bool(date)
+    else:
+        date, changed = apply_embedded_review_date_if_present(book, review_text=review_text)
+
+    if changed and html_path is not None and date:
+        patch_review_html_meta_date(html_path, date)
+    return date, changed
+
+
 def sync_embedded_review_dates_for_books(
     books: list[dict],
     *,
@@ -99,10 +160,6 @@ def sync_embedded_review_dates_for_books(
     """Scan mirrored reviews/*.html and sync reviewDate from trailing YYYY/MM/DD."""
     updated = 0
     reviews_dir = repo_root / reviews_dir_name
-    meta_re = re.compile(
-        r'(<p class="meta">Fecha de reseña: )\d{4}-\d{2}-\d{2}(</p>)',
-        re.IGNORECASE,
-    )
     for book in books:
         review_url = str(book.get("reviewUrl") or "")
         match = re.search(r"/review/show/(\d+)", review_url)
@@ -119,17 +176,13 @@ def sync_embedded_review_dates_for_books(
             continue
         if not body:
             continue
-        date, changed = apply_embedded_review_date_if_present(book, review_text=body)
-        if not changed:
-            continue
-        updated += 1
-        try:
-            raw = html_path.read_text(encoding="utf-8")
-            new_raw = meta_re.sub(rf"\g<1>{date}\g<2>", raw, count=1)
-            if new_raw != raw:
-                html_path.write_text(new_raw, encoding="utf-8")
-        except OSError:
-            pass
+        _, changed = sync_review_date_from_review_text(
+            book,
+            review_text=body,
+            html_path=html_path,
+        )
+        if changed:
+            updated += 1
     return updated
 
 

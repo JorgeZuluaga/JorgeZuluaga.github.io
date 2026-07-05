@@ -352,10 +352,10 @@
       "matched": true,
       "reviewLocalUrl": "./reviews/8640936306.html",
       "reviewLocalCoverUrl": "./reviews/covers/8640936306.jpg",
-      "reviewDate": "2026-06-04",
+      "reviewDate": "2026-07-05",
       "reviewLocalStatus": "ok",
       "reviewLocalGeneratedAt": "2026-06-27T15:02:25.052423+00:00",
-      "reviewCount": 160,
+      "reviewCount": 1156,
       "dateAdded": "2026-05-28",
       "reviewLocalLikes": 0,
       "reviewLocalLikesUpdatedAt": "2026-07-05T12:41:30.720267+00:00",
@@ -370,7 +370,8 @@
       "dcc_notes": {
         "reasoning": "Es una novela de ficción histórica escrita por Maggie O'Farrell, centrada en Florencia en el siglo XVI[cite: 1].",
         "confidence": 0.9
-      }
+      },
+      "reviewTextSyncedAt": "2026-07-05T21:25:02.759011+00:00"
     },
     {
       "bookId": "252522438",
@@ -2358,7 +2359,7 @@
       "reviewLocalLikesUpdatedAt": "2026-07-05T12:41:30.720267+00:00",
       "drzrating": 99,
       "bookDetails": 0,
-      "reviewCount": 849,
+      "reviewCount": 872,
       "dcc_classes": {
         "800": "Literatura (800)"
       },
@@ -2370,7 +2371,8 @@
         "confidence": 0.95
       },
       "matched": false,
-      "isbn": "9788417977580"
+      "isbn": "9788417977580",
+      "reviewTextSyncedAt": "2026-07-05T21:29:02.443374+00:00"
     },
     {
       "bookId": "337",
