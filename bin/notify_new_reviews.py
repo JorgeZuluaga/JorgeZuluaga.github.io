@@ -5,11 +5,8 @@ from __future__ import annotations
 
 import argparse
 import json
-import os
 import re
-import shutil
 import sys
-from datetime import datetime, timezone
 from pathlib import Path
 
 REPO = Path(__file__).resolve().parent.parent
@@ -17,25 +14,12 @@ sys.path.insert(0, str(REPO / "bin"))
 
 from review_notify_client import list_subscribers, worker_base  # noqa: E402
 from review_notify_gmail import build_review_email, send_gmail  # noqa: E402
+from review_notify_state import load_state, save_state  # noqa: E402
 from review_word_count import (  # noqa: E402
     extract_review_body_from_html,
     is_review_extraction_failed,
     is_review_html_extraction_failed,
 )
-
-LEGACY_NOTIFY_STATE = REPO / ".secrets" / "last-notified-reviews.json"
-DEFAULT_NOTIFY_STATE = REPO / "info" / "review-notify-state.json"
-
-
-def resolve_notify_state_path() -> Path:
-    raw = os.environ.get("NOTIFY_STATE_FILE", "").strip()
-    if raw:
-        return Path(raw)
-    if not DEFAULT_NOTIFY_STATE.exists() and LEGACY_NOTIFY_STATE.exists():
-        DEFAULT_NOTIFY_STATE.parent.mkdir(parents=True, exist_ok=True)
-        shutil.copy2(LEGACY_NOTIFY_STATE, DEFAULT_NOTIFY_STATE)
-    return DEFAULT_NOTIFY_STATE
-
 
 LIBRARY_JSON = REPO / "info" / "library.json"
 BUSCALIBRE_JSON = REPO / "info" / "buscalibre.json"
@@ -243,32 +227,13 @@ def recent_footer_reviews(
     return footer
 
 
-def load_state() -> dict:
-    state_path = resolve_notify_state_path()
-    if not state_path.exists():
-        return {"notifiedReviewIds": []}
-    try:
-        with state_path.open("r", encoding="utf-8") as f:
-            data = json.load(f)
-    except (json.JSONDecodeError, OSError):
-        return {"notifiedReviewIds": []}
-    ids = data.get("notifiedReviewIds") if isinstance(data, dict) else []
-    return {"notifiedReviewIds": list(ids) if isinstance(ids, list) else []}
-
-
-def save_state(notified_ids: list[str]) -> None:
-    state_path = resolve_notify_state_path()
-    state_path.parent.mkdir(parents=True, exist_ok=True)
-    payload = {
-        "updatedAt": datetime.now(timezone.utc).isoformat(),
-        "notifiedReviewIds": sorted(set(notified_ids)),
-    }
-    with state_path.open("w", encoding="utf-8") as f:
-        json.dump(payload, f, ensure_ascii=False, indent=2)
-        f.write("\n")
-
-
-def find_new_review_books(library: dict, already: set[str]) -> list[dict]:
+def find_new_review_books(
+    library: dict,
+    already: set[str],
+    *,
+    queued: set[str] | None = None,
+) -> list[dict]:
+    queue = queued or set()
     books = library.get("books") or []
     new_books: list[dict] = []
     for book in books:
@@ -277,7 +242,10 @@ def find_new_review_books(library: dict, already: set[str]) -> list[dict]:
         if not qualifies_for_latest_reviews(book):
             continue
         review_id = review_id_from_book(book)
-        if not review_id or review_id in already:
+        if not review_id:
+            continue
+        in_queue = review_id in queue
+        if review_id in already and not in_queue:
             continue
         if not has_notifyable_review_content(book):
             print(
@@ -287,6 +255,10 @@ def find_new_review_books(library: dict, already: set[str]) -> list[dict]:
             continue
         new_books.append(book)
     new_books.sort(key=review_sort_key, reverse=True)
+    if queue:
+        queued_books = [book for book in new_books if review_id_from_book(book) in queue]
+        other_books = [book for book in new_books if review_id_from_book(book) not in queue]
+        new_books = queued_books + other_books
     return new_books
 
 
@@ -439,10 +411,19 @@ def main() -> int:
 
     state = load_state()
     already = set(str(x) for x in state.get("notifiedReviewIds") or [])
-    new_books = find_new_review_books(library, already)
+    queued = set(str(x) for x in state.get("queuedReviewIds") or [])
+    new_books = find_new_review_books(library, already, queued=queued)
     if not new_books:
         print("Sin reseñas nuevas para notificar.")
         return 0
+
+    queued_in_batch = [
+        review_id_from_book(book)
+        for book in new_books
+        if review_id_from_book(book) in queued
+    ]
+    if queued_in_batch:
+        print(f"Desde cola de reenvío ({len(queued_in_batch)}): {', '.join(queued_in_batch)}")
 
     featured = book_to_review_payload(new_books[0], SITE_BASE, buscalibre_urls=buscalibre_urls)
     new_reviews = [
@@ -470,8 +451,10 @@ def main() -> int:
         subscribers=subscribers,
         emails=emails,
     )
-    updated = already | {str(review["id"]) for review in new_reviews if review.get("id")}
-    save_state(sorted(updated))
+    sent_ids = {str(review["id"]) for review in new_reviews if review.get("id")}
+    updated = already | sent_ids
+    remaining_queue = [rid for rid in state.get("queuedReviewIds") or [] if rid not in sent_ids]
+    save_state(notified_ids=sorted(updated), queued_ids=remaining_queue)
     print(f"Notificación enviada a {sent} suscriptor(es).")
     return 0
 

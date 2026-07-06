@@ -79,6 +79,7 @@ help:
 	@echo "  make start | dev | stop | classroom | worker-deploy"
 	@echo "  make visitor-logs-sync (LOG_READ_TOKEN) | library-local-likes-sync"
 	@echo "  make reviews-remirror-text REVIEW_IDS=8171377602  - Solo texto de 1+ reseñas"
+	@echo "  make reviews-remirror-text REVIEW_IDS=... INQUEUE=1  - + cola de envío por correo"
 
 start:
 	@echo "Starting server on http://$(HOST):$(PORT)"
@@ -389,7 +390,8 @@ reviews-remirror-text:
 		--library-json "$(LIBRARY_JSON)" \
 		--cookie "$(COOKIE)" \
 		--rss-pages "$(REVIEW_RSS_PAGES)" \
-		--ids "$(REVIEW_IDS)"
+		--ids "$(REVIEW_IDS)" \
+		$(if $(INQUEUE),--inqueue,)
 
 # Typical review update workflow.
 reviews-refresh: reviews-all library-stats

@@ -22,6 +22,7 @@ from mirror_first_review import (
     is_signin_page,
 )
 from review_date_policy import sync_review_date_from_review_text
+from review_notify_state import enqueue_review_ids
 from review_word_count import (
     apply_review_counts_to_books,
     count_words_in_review_html_file,
@@ -256,6 +257,11 @@ def main() -> int:
         help="Páginas RSS máximas por reseña (default: 20).",
     )
     parser.add_argument("--dry-run", action="store_true")
+    parser.add_argument(
+        "--inqueue",
+        action="store_true",
+        help="Encolar envío por correo en el próximo make review-notify-send / sync diario.",
+    )
     args = parser.parse_args()
 
     review_ids = parse_review_ids(args.ids_csv)
@@ -280,6 +286,7 @@ def main() -> int:
     ok = 0
     failed = 0
     library_dirty = False
+    successful_ids: list[str] = []
 
     for review_id in review_ids:
         book = find_book_by_review_id(books, review_id)
@@ -298,6 +305,7 @@ def main() -> int:
         )
         if success:
             ok += 1
+            successful_ids.append(review_id)
             if dirty:
                 library_dirty = True
         else:
@@ -313,6 +321,22 @@ def main() -> int:
             encoding="utf-8",
         )
         print(f"Actualizado: {library_path}", flush=True)
+
+    if args.inqueue and successful_ids:
+        if args.dry_run:
+            print(
+                f"dry-run: se encolarían para correo: {', '.join(successful_ids)}",
+                flush=True,
+            )
+        else:
+            added, state_path = enqueue_review_ids(successful_ids)
+            if added:
+                print(
+                    f"Cola de envío (+{len(added)}): {', '.join(added)} → {state_path}",
+                    flush=True,
+                )
+            else:
+                print("Cola de envío: ya estaban encoladas.", flush=True)
 
     print(f"\nListo: {ok} ok, {failed} error(es).")
     return 0 if failed == 0 else 1

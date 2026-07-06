@@ -72,6 +72,14 @@ Una reseña:
 make reviews-remirror-text REVIEW_IDS=8171377602
 ```
 
+Tras actualizar una reseña ya notificada antes, encolarla para el próximo correo diario:
+
+```bash
+make reviews-remirror-text REVIEW_IDS=8640936306 INQUEUE=1
+# equivalente:
+python3 bin/remirror_review_text.py --ids 8640936306 --inqueue
+```
+
 Varias (separadas por coma):
 
 ```bash
@@ -86,7 +94,9 @@ python3 bin/remirror_review_text.py --ids 8171377602 --dry-run
 
 También acepta rutas: `python3 bin/remirror_review_text.py reviews/8171377602.html`
 
-Actualiza `reviewCount` y `reviewTextSyncedAt` en `info/library.json`.
+Actualiza `reviewCount`, `reviewTextSyncedAt` y, si el texto termina con `YYYY/MM/DD`, `reviewDate` en `info/library.json`.
+
+Con `--inqueue` (o `INQUEUE=1` en make) añade el ID a `queuedReviewIds` en `info/review-notify-state.json`. El sync diario (`review-notify-send`) enviará esa reseña aunque ya figure en `notifiedReviewIds` (caso típico: remirror de una reseña ampliada después del primer aviso).
 
 **No confundir con** `make reviews-force` (regenera **todas** las reseñas y borra correcciones locales) ni con `make reviews-remirror-placeholders` (solo las que tienen el mensaje de extracción fallida).
 
