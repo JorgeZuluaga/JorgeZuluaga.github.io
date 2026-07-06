@@ -63,11 +63,11 @@
       "reviewLocalCoverUrl": "./reviews/covers/8729466900.jpg",
       "reviewDate": "2026-06-30",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-07-05T12:37:58.738313+00:00",
+      "reviewLocalGeneratedAt": "2026-07-06T14:47:57.648140+00:00",
       "reviewCount": 2336,
       "drzratingAuto": true,
       "reviewLocalLikes": 1,
-      "reviewLocalLikesUpdatedAt": "2026-07-04T12:28:47.059110+00:00"
+      "reviewLocalLikesUpdatedAt": "2026-07-05T12:41:30.720267+00:00"
     },
     {
       "bookId": "48712224",
@@ -77,11 +77,11 @@
       "rating": 5,
       "reviewUrl": "https://www.goodreads.com/review/show/8711059499?utm_medium=api&utm_source=rss",
       "reviewLikes": 1,
-      "drzrating": -1,
+      "drzrating": 90,
       "bookDetails": 0,
       "matched": false,
       "reviewCount": 1232,
-      "reviewDate": "2026-06-27",
+      "reviewDate": "2026-07-04",
       "drzratingAuto": true,
       "isbn": "9788449336539",
       "dcc_classes": {
@@ -99,9 +99,9 @@
       "reviewLocalCoverUrl": "./reviews/covers/8711059499.jpg",
       "reviewLocalStatus": "ok",
       "reviewLocalUrl": "./reviews/8711059499.html",
-      "reviewLocalGeneratedAt": "2026-07-05T12:38:01.944026+00:00",
+      "reviewLocalGeneratedAt": "2026-07-06T14:47:53.030261+00:00",
       "reviewLocalLikes": 0,
-      "reviewLocalLikesUpdatedAt": "2026-07-04T12:28:47.059110+00:00"
+      "reviewLocalLikesUpdatedAt": "2026-07-05T12:41:30.720267+00:00"
     },
     {
       "bookId": "35658293",
@@ -121,7 +121,7 @@
       "reviewLocalGeneratedAt": "2026-07-03T14:18:38.084117+00:00",
       "reviewCount": 1817,
       "reviewLocalLikes": 3,
-      "reviewLocalLikesUpdatedAt": "2026-07-04T12:28:47.059110+00:00",
+      "reviewLocalLikesUpdatedAt": "2026-07-05T12:41:30.720267+00:00",
       "isbn": "9788466660884",
       "dcc_classes": {
         "800": "Literatura y retorica (800)"
@@ -152,7 +152,7 @@
       "reviewLocalGeneratedAt": "2026-07-02T14:51:46.779056+00:00",
       "reviewCount": 674,
       "reviewLocalLikes": 2,
-      "reviewLocalLikesUpdatedAt": "2026-07-04T12:28:47.059110+00:00",
+      "reviewLocalLikesUpdatedAt": "2026-07-05T12:41:30.720267+00:00",
       "isbn": "9788491042112",
       "dcc_classes": {
         "900": "Historia y geografia (900)"
@@ -184,7 +184,7 @@
       "reviewLocalGeneratedAt": "2026-07-05T12:38:02.787262+00:00",
       "reviewCount": 1143,
       "reviewLocalLikes": 0,
-      "reviewLocalLikesUpdatedAt": "2026-07-04T12:28:47.059110+00:00",
+      "reviewLocalLikesUpdatedAt": "2026-07-05T12:41:30.720267+00:00",
       "isbn": "9788410214927",
       "dateAdded": "2026-06-14",
       "dcc_classes": {
@@ -217,7 +217,7 @@
       "reviewLocalStatus": "ok",
       "reviewLocalGeneratedAt": "2026-04-25T18:55:49.231144+00:00",
       "reviewLocalLikes": 1,
-      "reviewLocalLikesUpdatedAt": "2026-07-04T12:28:47.059110+00:00",
+      "reviewLocalLikesUpdatedAt": "2026-07-05T12:41:30.720267+00:00",
       "drzrating": 87,
       "bookDetails": 1,
       "reviewCount": 91,
@@ -249,7 +249,7 @@
       "reviewLocalCoverUrl": "./reviews/covers/4232235817.jpg",
       "reviewDate": "2021-09-14",
       "reviewLocalLikes": 0,
-      "reviewLocalLikesUpdatedAt": "2026-07-04T12:28:47.059110+00:00",
+      "reviewLocalLikesUpdatedAt": "2026-07-05T12:41:30.720267+00:00",
       "drzrating": 100,
       "bookDetails": 1,
       "reviewCount": 1019,
@@ -284,7 +284,7 @@
       "reviewLocalCoverUrl": "./reviews/covers/6667355680.jpg",
       "reviewDate": "2024-07-20",
       "reviewLocalLikes": 2,
-      "reviewLocalLikesUpdatedAt": "2026-07-04T12:28:47.059110+00:00",
+      "reviewLocalLikesUpdatedAt": "2026-07-05T12:41:30.720267+00:00",
       "drzrating": 96,
       "bookDetails": 1,
       "dateAdded": "2023-07-07",
@@ -317,7 +317,7 @@
       "reviewLocalCoverUrl": "./reviews/covers/3063403087.jpg",
       "reviewDate": "2023-02-26",
       "reviewLocalLikes": 0,
-      "reviewLocalLikesUpdatedAt": "2026-07-04T12:28:47.059110+00:00",
+      "reviewLocalLikesUpdatedAt": "2026-07-05T12:41:30.720267+00:00",
       "drzrating": 100,
       "bookDetails": 1,
       "reviewCount": 526,
@@ -349,7 +349,7 @@
       "reviewLocalCoverUrl": "./reviews/covers/4664229801.jpg",
       "reviewDate": "2022-04-15",
       "reviewLocalLikes": 0,
-      "reviewLocalLikesUpdatedAt": "2026-07-04T12:28:47.059110+00:00",
+      "reviewLocalLikesUpdatedAt": "2026-07-05T12:41:30.720267+00:00",
       "drzrating": 98,
       "bookDetails": 1,
       "reviewCount": 955,
@@ -383,7 +383,7 @@
       "reviewLocalCoverUrl": "./reviews/covers/4278716233.jpg",
       "reviewDate": "2021-10-12",
       "reviewLocalLikes": 0,
-      "reviewLocalLikesUpdatedAt": "2026-07-04T12:28:47.059110+00:00",
+      "reviewLocalLikesUpdatedAt": "2026-07-05T12:41:30.720267+00:00",
       "drzrating": 99,
       "bookDetails": 1,
       "dateAdded": "2021-10-12",
@@ -415,7 +415,7 @@
       "reviewLocalCoverUrl": "./reviews/covers/3344914655.jpg",
       "reviewDate": "2020-07-03",
       "reviewLocalLikes": 0,
-      "reviewLocalLikesUpdatedAt": "2026-07-04T12:28:47.059110+00:00",
+      "reviewLocalLikesUpdatedAt": "2026-07-05T12:41:30.720267+00:00",
       "drzrating": 100,
       "bookDetails": 1,
       "dateAdded": "2020-12-31",
@@ -448,7 +448,7 @@
       "reviewLocalCoverUrl": "./reviews/covers/5469066244.jpg",
       "reviewDate": "2023-05-28",
       "reviewLocalLikes": 0,
-      "reviewLocalLikesUpdatedAt": "2026-07-04T12:28:47.059110+00:00",
+      "reviewLocalLikesUpdatedAt": "2026-07-05T12:41:30.720267+00:00",
       "drzrating": 100,
       "bookDetails": 0,
       "reviewCount": 1286,
@@ -479,7 +479,7 @@
       "reviewLocalCoverUrl": "./reviews/covers/3758441020.jpg",
       "reviewDate": "2023-06-21",
       "reviewLocalLikes": 0,
-      "reviewLocalLikesUpdatedAt": "2026-07-04T12:28:47.059110+00:00",
+      "reviewLocalLikesUpdatedAt": "2026-07-05T12:41:30.720267+00:00",
       "drzrating": 100,
       "bookDetails": 1,
       "dateAdded": "2021-01-04",
@@ -513,7 +513,7 @@
       "reviewLocalCoverUrl": "./reviews/covers/3742582688.jpg",
       "reviewDate": "2024-06-10",
       "reviewLocalLikes": 0,
-      "reviewLocalLikesUpdatedAt": "2026-07-04T12:28:47.059110+00:00",
+      "reviewLocalLikesUpdatedAt": "2026-07-05T12:41:30.720267+00:00",
       "drzrating": 100,
       "bookDetails": 1,
       "dateAdded": "2021-02-03",
@@ -551,11 +551,11 @@
       "reviewLocalCoverUrl": "./reviews/covers/8729466900.jpg",
       "reviewDate": "2026-06-30",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-07-05T12:37:58.738313+00:00",
+      "reviewLocalGeneratedAt": "2026-07-06T14:47:57.648140+00:00",
       "reviewCount": 2336,
       "drzratingAuto": true,
       "reviewLocalLikes": 1,
-      "reviewLocalLikesUpdatedAt": "2026-07-04T12:28:47.059110+00:00"
+      "reviewLocalLikesUpdatedAt": "2026-07-05T12:41:30.720267+00:00"
     },
     {
       "bookId": "48712224",
@@ -565,11 +565,11 @@
       "rating": 5,
       "reviewUrl": "https://www.goodreads.com/review/show/8711059499?utm_medium=api&utm_source=rss",
       "reviewLikes": 1,
-      "drzrating": -1,
+      "drzrating": 90,
       "bookDetails": 0,
       "matched": false,
       "reviewCount": 1232,
-      "reviewDate": "2026-06-27",
+      "reviewDate": "2026-07-04",
       "drzratingAuto": true,
       "isbn": "9788449336539",
       "dcc_classes": {
@@ -587,9 +587,9 @@
       "reviewLocalCoverUrl": "./reviews/covers/8711059499.jpg",
       "reviewLocalStatus": "ok",
       "reviewLocalUrl": "./reviews/8711059499.html",
-      "reviewLocalGeneratedAt": "2026-07-05T12:38:01.944026+00:00",
+      "reviewLocalGeneratedAt": "2026-07-06T14:47:53.030261+00:00",
       "reviewLocalLikes": 0,
-      "reviewLocalLikesUpdatedAt": "2026-07-04T12:28:47.059110+00:00"
+      "reviewLocalLikesUpdatedAt": "2026-07-05T12:41:30.720267+00:00"
     },
     {
       "bookId": "35658293",
@@ -609,7 +609,7 @@
       "reviewLocalGeneratedAt": "2026-07-03T14:18:38.084117+00:00",
       "reviewCount": 1817,
       "reviewLocalLikes": 3,
-      "reviewLocalLikesUpdatedAt": "2026-07-04T12:28:47.059110+00:00",
+      "reviewLocalLikesUpdatedAt": "2026-07-05T12:41:30.720267+00:00",
       "isbn": "9788466660884",
       "dcc_classes": {
         "800": "Literatura y retorica (800)"
@@ -640,7 +640,7 @@
       "reviewLocalGeneratedAt": "2026-07-02T14:51:46.779056+00:00",
       "reviewCount": 674,
       "reviewLocalLikes": 2,
-      "reviewLocalLikesUpdatedAt": "2026-07-04T12:28:47.059110+00:00",
+      "reviewLocalLikesUpdatedAt": "2026-07-05T12:41:30.720267+00:00",
       "isbn": "9788491042112",
       "dcc_classes": {
         "900": "Historia y geografia (900)"
@@ -672,7 +672,7 @@
       "reviewLocalGeneratedAt": "2026-07-05T12:38:02.787262+00:00",
       "reviewCount": 1143,
       "reviewLocalLikes": 0,
-      "reviewLocalLikesUpdatedAt": "2026-07-04T12:28:47.059110+00:00",
+      "reviewLocalLikesUpdatedAt": "2026-07-05T12:41:30.720267+00:00",
       "isbn": "9788410214927",
       "dateAdded": "2026-06-14",
       "dcc_classes": {
@@ -693,6 +693,6 @@
   "totals": {
     "booksRead": 604,
     "booksReviewed": 604,
-    "totalReviewLikes": 3283
+    "totalReviewLikes": 3295
   }
 }
