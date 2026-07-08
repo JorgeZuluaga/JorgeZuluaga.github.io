@@ -214,12 +214,6 @@ make library-bookbuddy-covers
 
 (Usa por defecto `update/bookbuddy.htm`; directorio de salida `antilibrary/covers` salvo que cambies `OUTPUT_DIR`.)
 
-Nota: el paso de `library-details-match` **ya no añade** libros “solo BookBuddy” a `info/library.json` (para no inflar los totales). Si alguna vez quieres sembrar la antibiblioteca con esos libros, ejecuta:
-
-```bash
-python3 bin/match_library_details_bookids.py --add-details-only-to-library
-```
-
 ---
 
 ## E. Buscar cruces (cross-references)

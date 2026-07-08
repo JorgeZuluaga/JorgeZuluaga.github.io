@@ -101,7 +101,7 @@
       "scrapeStatus": "ok",
       "drzrating": 97,
       "bookDetails": 0,
-      "matched": false,
+      "matched": true,
       "reviewLocalUrl": "./reviews/8709769014.html",
       "reviewLocalCoverUrl": "./reviews/covers/8709769014.jpg",
       "reviewDate": "2026-06-25",
@@ -120,7 +120,8 @@
       "dcc_notes": {
         "reasoning": "Segunda entrega de la serie de ciencia ficción de James S.A. Corey[cite: 1].",
         "confidence": 0.98
-      }
+      },
+      "dateAdded": "2026-06-25"
     },
     {
       "bookId": "30320792",
@@ -240,7 +241,7 @@
       "scrapeStatus": "ok",
       "drzrating": 95,
       "bookDetails": 0,
-      "matched": false,
+      "matched": true,
       "reviewLocalUrl": "./reviews/8628849214.html",
       "reviewLocalCoverUrl": "./reviews/covers/8628849214.jpg",
       "reviewDate": "2026-06-24",
@@ -262,7 +263,8 @@
       "dcc_notes": {
         "reasoning": "El título indica un cruce entre arte y astronomía, pero el enfoque principal es la representación del cosmos en la disciplina artística[cite: 1].",
         "confidence": 0.85
-      }
+      },
+      "dateAdded": "2026-07-08"
     },
     {
       "bookId": "25857483",
@@ -505,7 +507,7 @@
       "scrapeStatus": "ok",
       "drzrating": 90,
       "bookDetails": 1,
-      "matched": true,
+      "matched": false,
       "reviewDate": "2026-07-04",
       "reviewCount": 1225,
       "drzratingAuto": true,
@@ -530,7 +532,7 @@
       "scrapeStatus": "ok",
       "drzrating": 90,
       "bookDetails": 1,
-      "matched": true,
+      "matched": false,
       "reviewLocalUrl": "./reviews/8609645998.html",
       "reviewLocalCoverUrl": "./reviews/covers/8609645998.jpg",
       "reviewDate": "2026-07-01",
@@ -556,7 +558,7 @@
       "scrapeStatus": "ok",
       "drzrating": 98,
       "bookDetails": 1,
-      "matched": true,
+      "matched": false,
       "reviewLocalUrl": "./reviews/8604906707.html",
       "reviewLocalCoverUrl": "./reviews/covers/8604906707.jpg",
       "reviewDate": "2026-05-17",
@@ -590,7 +592,7 @@
       "scrapeStatus": "ok",
       "drzrating": 75,
       "bookDetails": 1,
-      "matched": true,
+      "matched": false,
       "reviewLocalUrl": "./reviews/8581336028.html",
       "reviewLocalCoverUrl": "./reviews/covers/8581336028.jpg",
       "reviewDate": "2026-05-17",
@@ -614,7 +616,7 @@
       "scrapeStatus": "ok",
       "drzrating": 84,
       "bookDetails": 1,
-      "matched": true,
+      "matched": false,
       "dateAdded": "2026-05-03",
       "dcc_classes": {
         "800": "Literatura y retorica (800)"
@@ -659,7 +661,7 @@
         "reasoning": "Ensayo de la filósofa Manon Garcia relacionado con el machismo, el feminismo y las cuestiones judiciales que afectan a mujeres y grupos sociales.",
         "confidence": 0.85
       },
-      "matched": true,
+      "matched": false,
       "dateAdded": "2026-04-26",
       "reviewLocalUrl": "./reviews/8554509688.html",
       "reviewLocalCoverUrl": "./reviews/covers/8554509688.jpg",
@@ -734,7 +736,7 @@
         "reasoning": "Es una novela de ciencia ficción escrita por el autor estadounidense Andy Weir (autor de 'El Marciano').",
         "confidence": 0.98
       },
-      "matched": true,
+      "matched": false,
       "dateAdded": "2026-05-05",
       "isbn": "9788490698952"
     },
@@ -750,7 +752,7 @@
       "scrapeStatus": "ok",
       "drzrating": 94,
       "bookDetails": 1,
-      "matched": true,
+      "matched": false,
       "reviewLocalUrl": "./reviews/8590116363.html",
       "reviewLocalCoverUrl": "./reviews/covers/8590116363.jpg",
       "reviewDate": "2026-05-10",
@@ -843,7 +845,7 @@
       },
       "isbn": "9789878010540",
       "dateAdded": "2025-05-24",
-      "matched": true
+      "matched": false
     },
     {
       "bookId": "220648311",
@@ -913,7 +915,7 @@
       },
       "isbn": "9789566275428",
       "dateAdded": "2026-02-14",
-      "matched": true
+      "matched": false
     },
     {
       "bookId": "216802309",
@@ -950,7 +952,7 @@
         "confidence": 0.98
       },
       "isbn": "9788420471914",
-      "matched": true
+      "matched": false
     },
     {
       "bookId": "24114125",

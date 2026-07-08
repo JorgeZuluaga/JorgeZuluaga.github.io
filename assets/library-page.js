@@ -29,6 +29,7 @@ const LIBRARY_HOME_JUMP_LINKS = [
   ["library-home-jump-latest-read", "library-section-latest-read", "library_home_jump_latest_read"],
   ["library-home-jump-top-reviewed", "library-section-top-reviewed", "library_home_jump_top_reviewed"],
   ["library-home-jump-top50", "library-section-top50", "library_home_jump_top50"],
+  ["library-home-jump-latest-acquired", "library-section-latest-acquired", "library_home_jump_latest_acquired"],
   ["library-home-jump-year", "library-section-year-chart", "library_home_jump_by_year"],
 ];
 
@@ -180,6 +181,42 @@ function detailsRowToAntiBook(row) {
     bookDetails: 1,
     _dateAdded: parseBookBuddyDate(dateAdded),
   };
+}
+
+function formatDateAddedDisplay(item) {
+  if (item?._dateAdded instanceof Date && !Number.isNaN(item._dateAdded.getTime())) {
+    return item._dateAdded.toISOString().slice(0, 10);
+  }
+  const raw = String(item?.dateAdded || item?.["Date Added"] || "").trim();
+  const match = raw.match(/^(\d{4})[/-](\d{2})[/-](\d{2})/);
+  if (match) return `${match[1]}-${match[2]}-${match[3]}`;
+  return raw.slice(0, 10);
+}
+
+function detailsRowToAcquiredBook(row, libraryByBookId) {
+  const base = detailsRowToAntiBook(row);
+  if (!base.title || !base._dateAdded) return null;
+  const lib = base.bookId ? libraryByBookId.get(base.bookId) : null;
+  if (!lib || isLibraryDuplicateHidden(lib)) {
+    return base;
+  }
+  return {
+    ...lib,
+    dateAdded: base.dateAdded,
+    _dateAdded: base._dateAdded,
+    isbn: base.isbn || lib.isbn,
+    ISBN: base.isbn || lib.isbn,
+    bookDetails: 1,
+  };
+}
+
+function buildLatestAcquiredBooks(detailsRows, libraryByBookId) {
+  return detailsRows
+    .filter((row) => row && typeof row === "object")
+    .filter((row) => !isLibraryDuplicateHidden(row))
+    .map((row) => detailsRowToAcquiredBook(row, libraryByBookId))
+    .filter(Boolean)
+    .sort((a, b) => (b._dateAdded?.getTime() ?? 0) - (a._dateAdded?.getTime() ?? 0));
 }
 
 function computeCatalogSummary(booksNormalized, detailsRows) {
@@ -1132,6 +1169,8 @@ function applyLibraryChrome(lang) {
   if (hYear) hYear.textContent = t("library_by_year", lang);
   const hLatest = document.getElementById("library-h2-latest");
   if (hLatest) hLatest.textContent = t("library_latest", lang);
+  const hLatestAcquired = document.getElementById("library-h2-latest-acquired");
+  if (hLatestAcquired) hLatestAcquired.textContent = t("library_latest_acquired", lang);
   const hTop = document.getElementById("library-h2-top");
   if (hTop) hTop.textContent = t("library_top10", lang);
   const hLatestReviews = document.getElementById("library-h2-latest-reviews");
@@ -1211,6 +1250,7 @@ async function main() {
   const totalLocalLikesEl = document.getElementById("library-gr-val-likes-local");
   const chartEl = document.getElementById("library-yearly-chart");
   const latestReadEl = document.getElementById("library-latest-read");
+  const latestAcquiredEl = document.getElementById("library-latest-acquired");
   const topReviewedEl = document.getElementById("library-top-reviewed");
   const latestReviewedEl = document.getElementById("library-latest-reviewed");
   const featuredReviewCardEl = document.getElementById("library-featured-review-card");
@@ -1230,6 +1270,7 @@ async function main() {
     !totalLocalLikesEl ||
     !chartEl ||
     !latestReadEl ||
+    !latestAcquiredEl ||
     !topReviewedEl ||
     !latestReviewedEl ||
     !top50El
@@ -1253,6 +1294,9 @@ async function main() {
   const reviewedReviewIds = new Set(
     reviewedGr.map((b) => parseReviewIdFromUrl(b.reviewUrl)).filter(Boolean),
   );
+
+  const libraryByBookId = buildLibraryBookIdMap(books);
+  const latestAcquired = buildLatestAcquiredBooks(detailsRows, libraryByBookId);
 
   const rows = computeYearlyReads(readBooks);
   const latestReadNoReview = [...readBooks]
@@ -1401,6 +1445,18 @@ async function main() {
     showLessKey: "library_show_latest_5",
     includeAllBooksLink: true,
     renderOptions: listRenderOpts,
+  });
+  addListToggleControls(latestAcquiredEl, latestAcquired, lang, seriesMap, {
+    initialCount: 5,
+    expandedCount: LIBRARY_LIST_EXPANDED_COUNT,
+    showMoreKey: "library_show_latest_20",
+    showLessKey: "library_show_latest_5",
+    includeAllBooksLink: false,
+    renderOptions: {
+      ...listRenderOpts,
+      dateLabelKey: "library_date_added",
+      dateValueSelector: (item) => formatDateAddedDisplay(item),
+    },
   });
   hydrateTotalLocalLikes(totalLocalLikesEl, reviewedGr).catch(() => {});
 }
