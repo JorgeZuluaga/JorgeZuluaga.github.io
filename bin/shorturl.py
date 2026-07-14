@@ -11,14 +11,23 @@ def main():
     
     args = parser.parse_args()
     
-    # Extract path from short_url
-    parts = args.short_url.split('/', 1)
-    if len(parts) > 1:
-        # e.g. domain is jorgezuluaga.github.io, path is sh/montupython-desktop-windows
-        domain = parts[0]
-        path = parts[1]
+    raw_short_url = args.short_url
+    
+    # Strip protocol
+    if raw_short_url.startswith('http://'):
+        raw_short_url = raw_short_url[7:]
+    elif raw_short_url.startswith('https://'):
+        raw_short_url = raw_short_url[8:]
+        
+    # Strip known domain
+    if raw_short_url.startswith('jorgezuluaga.github.io/'):
+        raw_short_url = raw_short_url[len('jorgezuluaga.github.io/'):]
+        
+    # If it's just a slug without slashes, assume it goes in sh/
+    if not raw_short_url.startswith('sh/') and '/' not in raw_short_url:
+        path = 'sh/' + raw_short_url
     else:
-        path = parts[0]
+        path = raw_short_url
         
     repo_root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
     target_dir = os.path.join(repo_root, path)
