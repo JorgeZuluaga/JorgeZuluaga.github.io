@@ -7,7 +7,7 @@
   "yearlyReads": [
     {
       "year": 2026,
-      "count": 55
+      "count": 56
     },
     {
       "year": 2025,
@@ -48,6 +48,24 @@
   ],
   "latestRead": [
     {
+      "bookId": "12510663",
+      "title": "Muerte en el Nilo (Hercule Poirot, #18)",
+      "author": "Agatha Christie",
+      "dateRead": "2026-07-13",
+      "rating": 5,
+      "reviewUrl": "https://www.goodreads.com/review/show/4608628674?utm_medium=api&utm_source=rss",
+      "reviewLikes": 2,
+      "drzrating": -1,
+      "isbn": "9788427298057",
+      "bookDetails": 0,
+      "matched": false,
+      "reviewLocalUrl": "./reviews/4608628674.html",
+      "reviewLocalCoverUrl": "./reviews/covers/4608628674.jpg",
+      "reviewLocalStatus": "ok",
+      "reviewLocalGeneratedAt": "2026-07-14T12:30:57.562575+00:00",
+      "reviewCount": 11
+    },
+    {
       "bookId": "244793641",
       "title": "El último Neandertal (Spanish Edition)",
       "author": "Ludovic Slimak",
@@ -62,11 +80,11 @@
       "reviewLocalUrl": "./reviews/8729541486.html",
       "reviewLocalCoverUrl": "./reviews/covers/8729541486.jpg",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-07-13T13:47:24.336753+00:00",
+      "reviewLocalGeneratedAt": "2026-07-14T12:31:00.307560+00:00",
       "reviewCount": 11,
       "drzratingAuto": true,
       "reviewLocalLikes": 0,
-      "reviewLocalLikesUpdatedAt": "2026-07-12T12:18:13.438319+00:00"
+      "reviewLocalLikesUpdatedAt": "2026-07-13T13:51:25.344645+00:00"
     },
     {
       "bookId": "61893716",
@@ -83,11 +101,11 @@
       "reviewLocalUrl": "./reviews/8562963277.html",
       "reviewLocalCoverUrl": "./reviews/covers/8562963277.jpg",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-07-13T13:47:25.791250+00:00",
+      "reviewLocalGeneratedAt": "2026-07-14T12:31:01.135499+00:00",
       "reviewCount": 11,
       "drzratingAuto": true,
       "reviewLocalLikes": 0,
-      "reviewLocalLikesUpdatedAt": "2026-07-12T12:18:13.438319+00:00"
+      "reviewLocalLikesUpdatedAt": "2026-07-13T13:51:25.344645+00:00"
     },
     {
       "bookId": "250904699",
@@ -109,7 +127,7 @@
       "reviewCount": 2336,
       "drzratingAuto": true,
       "reviewLocalLikes": 1,
-      "reviewLocalLikesUpdatedAt": "2026-07-12T12:18:13.438319+00:00"
+      "reviewLocalLikesUpdatedAt": "2026-07-13T13:51:25.344645+00:00"
     },
     {
       "bookId": "48712224",
@@ -141,41 +159,9 @@
       "reviewLocalCoverUrl": "./reviews/covers/8711059499.jpg",
       "reviewLocalStatus": "ok",
       "reviewLocalUrl": "./reviews/8711059499.html",
-      "reviewLocalGeneratedAt": "2026-07-13T13:47:31.069989+00:00",
+      "reviewLocalGeneratedAt": "2026-07-14T12:31:04.022053+00:00",
       "reviewLocalLikes": 1,
-      "reviewLocalLikesUpdatedAt": "2026-07-12T12:18:13.438319+00:00"
-    },
-    {
-      "bookId": "35658293",
-      "title": "La guerra de Calibán (The Expanse, #2)",
-      "author": "James S.A. Corey",
-      "dateRead": "2026-06-25",
-      "rating": 5,
-      "reviewUrl": "https://www.goodreads.com/review/show/8709769014?utm_medium=api&utm_source=rss",
-      "reviewLikes": 0,
-      "drzrating": 97,
-      "bookDetails": 1,
-      "matched": true,
-      "reviewLocalUrl": "./reviews/8709769014.html",
-      "reviewLocalCoverUrl": "./reviews/covers/8709769014.jpg",
-      "reviewDate": "2026-06-25",
-      "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-07-03T14:18:38.084117+00:00",
-      "reviewCount": 1817,
-      "reviewLocalLikes": 3,
-      "reviewLocalLikesUpdatedAt": "2026-07-12T12:18:13.438319+00:00",
-      "isbn": "9788466660884",
-      "dcc_classes": {
-        "800": "Literatura y retorica (800)"
-      },
-      "dcc_codes": {
-        "813": "Ficción americana en inglés."
-      },
-      "dcc_notes": {
-        "reasoning": "Segunda entrega de la serie de ciencia ficción de James S.A. Corey[cite: 1].",
-        "confidence": 0.98
-      },
-      "dateAdded": "2026-06-25"
+      "reviewLocalLikesUpdatedAt": "2026-07-13T13:51:25.344645+00:00"
     }
   ],
   "topReviewedByLikes": [
@@ -193,7 +179,7 @@
       "reviewLocalStatus": "ok",
       "reviewLocalGeneratedAt": "2026-04-25T18:55:49.231144+00:00",
       "reviewLocalLikes": 1,
-      "reviewLocalLikesUpdatedAt": "2026-07-12T12:18:13.438319+00:00",
+      "reviewLocalLikesUpdatedAt": "2026-07-13T13:51:25.344645+00:00",
       "drzrating": 87,
       "bookDetails": 1,
       "reviewCount": 91,
@@ -225,7 +211,7 @@
       "reviewLocalCoverUrl": "./reviews/covers/4232235817.jpg",
       "reviewDate": "2021-09-14",
       "reviewLocalLikes": 0,
-      "reviewLocalLikesUpdatedAt": "2026-07-12T12:18:13.438319+00:00",
+      "reviewLocalLikesUpdatedAt": "2026-07-13T13:51:25.344645+00:00",
       "drzrating": 100,
       "bookDetails": 1,
       "reviewCount": 1019,
@@ -260,7 +246,7 @@
       "reviewLocalCoverUrl": "./reviews/covers/6667355680.jpg",
       "reviewDate": "2024-07-20",
       "reviewLocalLikes": 2,
-      "reviewLocalLikesUpdatedAt": "2026-07-12T12:18:13.438319+00:00",
+      "reviewLocalLikesUpdatedAt": "2026-07-13T13:51:25.344645+00:00",
       "drzrating": 96,
       "bookDetails": 1,
       "dateAdded": "2023-07-07",
@@ -293,7 +279,7 @@
       "reviewLocalCoverUrl": "./reviews/covers/3063403087.jpg",
       "reviewDate": "2023-02-26",
       "reviewLocalLikes": 0,
-      "reviewLocalLikesUpdatedAt": "2026-07-12T12:18:13.438319+00:00",
+      "reviewLocalLikesUpdatedAt": "2026-07-13T13:51:25.344645+00:00",
       "drzrating": 100,
       "bookDetails": 1,
       "reviewCount": 526,
@@ -318,14 +304,14 @@
       "dateRead": "2022-04-14",
       "rating": 5,
       "reviewUrl": "https://www.goodreads.com/review/show/4664229801?utm_medium=api&utm_source=rss",
-      "reviewLikes": 41,
+      "reviewLikes": 42,
       "reviewLocalUrl": "./reviews/4664229801.html",
       "reviewLocalStatus": "ok",
       "reviewLocalGeneratedAt": "2026-04-25T19:10:28.526516+00:00",
       "reviewLocalCoverUrl": "./reviews/covers/4664229801.jpg",
       "reviewDate": "2022-04-15",
       "reviewLocalLikes": 0,
-      "reviewLocalLikesUpdatedAt": "2026-07-12T12:18:13.438319+00:00",
+      "reviewLocalLikesUpdatedAt": "2026-07-13T13:51:25.344645+00:00",
       "drzrating": 98,
       "bookDetails": 1,
       "reviewCount": 955,
@@ -359,7 +345,7 @@
       "reviewLocalCoverUrl": "./reviews/covers/4278716233.jpg",
       "reviewDate": "2021-10-12",
       "reviewLocalLikes": 0,
-      "reviewLocalLikesUpdatedAt": "2026-07-12T12:18:13.438319+00:00",
+      "reviewLocalLikesUpdatedAt": "2026-07-13T13:51:25.344645+00:00",
       "drzrating": 99,
       "bookDetails": 1,
       "dateAdded": "2021-10-12",
@@ -391,7 +377,7 @@
       "reviewLocalCoverUrl": "./reviews/covers/3344914655.jpg",
       "reviewDate": "2020-07-03",
       "reviewLocalLikes": 0,
-      "reviewLocalLikesUpdatedAt": "2026-07-12T12:18:13.438319+00:00",
+      "reviewLocalLikesUpdatedAt": "2026-07-13T13:51:25.344645+00:00",
       "drzrating": 100,
       "bookDetails": 1,
       "dateAdded": "2020-12-31",
@@ -424,7 +410,7 @@
       "reviewLocalCoverUrl": "./reviews/covers/5469066244.jpg",
       "reviewDate": "2023-05-28",
       "reviewLocalLikes": 0,
-      "reviewLocalLikesUpdatedAt": "2026-07-12T12:18:13.438319+00:00",
+      "reviewLocalLikesUpdatedAt": "2026-07-13T13:51:25.344645+00:00",
       "drzrating": 100,
       "bookDetails": 0,
       "reviewCount": 1286,
@@ -455,7 +441,7 @@
       "reviewLocalCoverUrl": "./reviews/covers/3758441020.jpg",
       "reviewDate": "2023-06-21",
       "reviewLocalLikes": 0,
-      "reviewLocalLikesUpdatedAt": "2026-07-12T12:18:13.438319+00:00",
+      "reviewLocalLikesUpdatedAt": "2026-07-13T13:51:25.344645+00:00",
       "drzrating": 100,
       "bookDetails": 1,
       "dateAdded": "2021-01-04",
@@ -489,7 +475,7 @@
       "reviewLocalCoverUrl": "./reviews/covers/3742582688.jpg",
       "reviewDate": "2024-06-10",
       "reviewLocalLikes": 0,
-      "reviewLocalLikesUpdatedAt": "2026-07-12T12:18:13.438319+00:00",
+      "reviewLocalLikesUpdatedAt": "2026-07-13T13:51:25.344645+00:00",
       "drzrating": 100,
       "bookDetails": 1,
       "dateAdded": "2021-02-03",
@@ -512,6 +498,24 @@
   ],
   "latestReviewed": [
     {
+      "bookId": "12510663",
+      "title": "Muerte en el Nilo (Hercule Poirot, #18)",
+      "author": "Agatha Christie",
+      "dateRead": "2026-07-13",
+      "rating": 5,
+      "reviewUrl": "https://www.goodreads.com/review/show/4608628674?utm_medium=api&utm_source=rss",
+      "reviewLikes": 2,
+      "drzrating": -1,
+      "isbn": "9788427298057",
+      "bookDetails": 0,
+      "matched": false,
+      "reviewLocalUrl": "./reviews/4608628674.html",
+      "reviewLocalCoverUrl": "./reviews/covers/4608628674.jpg",
+      "reviewLocalStatus": "ok",
+      "reviewLocalGeneratedAt": "2026-07-14T12:30:57.562575+00:00",
+      "reviewCount": 11
+    },
+    {
       "bookId": "244793641",
       "title": "El último Neandertal (Spanish Edition)",
       "author": "Ludovic Slimak",
@@ -526,11 +530,11 @@
       "reviewLocalUrl": "./reviews/8729541486.html",
       "reviewLocalCoverUrl": "./reviews/covers/8729541486.jpg",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-07-13T13:47:24.336753+00:00",
+      "reviewLocalGeneratedAt": "2026-07-14T12:31:00.307560+00:00",
       "reviewCount": 11,
       "drzratingAuto": true,
       "reviewLocalLikes": 0,
-      "reviewLocalLikesUpdatedAt": "2026-07-12T12:18:13.438319+00:00"
+      "reviewLocalLikesUpdatedAt": "2026-07-13T13:51:25.344645+00:00"
     },
     {
       "bookId": "61893716",
@@ -547,11 +551,11 @@
       "reviewLocalUrl": "./reviews/8562963277.html",
       "reviewLocalCoverUrl": "./reviews/covers/8562963277.jpg",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-07-13T13:47:25.791250+00:00",
+      "reviewLocalGeneratedAt": "2026-07-14T12:31:01.135499+00:00",
       "reviewCount": 11,
       "drzratingAuto": true,
       "reviewLocalLikes": 0,
-      "reviewLocalLikesUpdatedAt": "2026-07-12T12:18:13.438319+00:00"
+      "reviewLocalLikesUpdatedAt": "2026-07-13T13:51:25.344645+00:00"
     },
     {
       "bookId": "250904699",
@@ -573,7 +577,7 @@
       "reviewCount": 2336,
       "drzratingAuto": true,
       "reviewLocalLikes": 1,
-      "reviewLocalLikesUpdatedAt": "2026-07-12T12:18:13.438319+00:00"
+      "reviewLocalLikesUpdatedAt": "2026-07-13T13:51:25.344645+00:00"
     },
     {
       "bookId": "48712224",
@@ -605,46 +609,14 @@
       "reviewLocalCoverUrl": "./reviews/covers/8711059499.jpg",
       "reviewLocalStatus": "ok",
       "reviewLocalUrl": "./reviews/8711059499.html",
-      "reviewLocalGeneratedAt": "2026-07-13T13:47:31.069989+00:00",
+      "reviewLocalGeneratedAt": "2026-07-14T12:31:04.022053+00:00",
       "reviewLocalLikes": 1,
-      "reviewLocalLikesUpdatedAt": "2026-07-12T12:18:13.438319+00:00"
-    },
-    {
-      "bookId": "35658293",
-      "title": "La guerra de Calibán (The Expanse, #2)",
-      "author": "James S.A. Corey",
-      "dateRead": "2026-06-25",
-      "rating": 5,
-      "reviewUrl": "https://www.goodreads.com/review/show/8709769014?utm_medium=api&utm_source=rss",
-      "reviewLikes": 0,
-      "drzrating": 97,
-      "bookDetails": 1,
-      "matched": true,
-      "reviewLocalUrl": "./reviews/8709769014.html",
-      "reviewLocalCoverUrl": "./reviews/covers/8709769014.jpg",
-      "reviewDate": "2026-06-25",
-      "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-07-03T14:18:38.084117+00:00",
-      "reviewCount": 1817,
-      "reviewLocalLikes": 3,
-      "reviewLocalLikesUpdatedAt": "2026-07-12T12:18:13.438319+00:00",
-      "isbn": "9788466660884",
-      "dcc_classes": {
-        "800": "Literatura y retorica (800)"
-      },
-      "dcc_codes": {
-        "813": "Ficción americana en inglés."
-      },
-      "dcc_notes": {
-        "reasoning": "Segunda entrega de la serie de ciencia ficción de James S.A. Corey[cite: 1].",
-        "confidence": 0.98
-      },
-      "dateAdded": "2026-06-25"
+      "reviewLocalLikesUpdatedAt": "2026-07-13T13:51:25.344645+00:00"
     }
   ],
   "totals": {
-    "booksRead": 606,
-    "booksReviewed": 606,
-    "totalReviewLikes": 3305
+    "booksRead": 607,
+    "booksReviewed": 607,
+    "totalReviewLikes": 3308
   }
 }

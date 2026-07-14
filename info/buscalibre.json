@@ -1,7 +1,7 @@
 {
   "affiliateId": "74c874bfb5a8145d7c1b",
   "domain": "https://www.buscalibre.com.co",
-  "updatedAt": "2026-07-13T13:50:07.349042+00:00",
+  "updatedAt": "2026-07-14T12:32:30.697151+00:00",
   "books": {
     "6286160": {
       "bookId": "6286160",
@@ -3787,6 +3787,12 @@
       "title": "Inferno (Robert Langdon, #4)",
       "url": "https://www.buscalibre.com.co/libro-inferno-edicion-colombiana/9789584235107/p/53684145?afiliado=74c874bfb5a8145d7c1b",
       "shorturl": "https://is.gd/PUbVE1"
+    },
+    "12510663": {
+      "bookId": "12510663",
+      "isbn": "9788427298057",
+      "title": "Muerte en el Nilo (Hercule Poirot, #18)",
+      "url": "https://www.buscalibre.com.co/libro-muerte-en-el-nilo/9788427298057/p/54936579?afiliado=74c874bfb5a8145d7c1b"
     }
   }
 }
