@@ -18,7 +18,8 @@
 	sync-dcc-library-details \
 	update-all-books \
 	worker-deploy review-notify-deploy review-notify-send review-notify-seed-test review-notify-test-send \
-	lista-suscritos
+	lista-suscritos \
+	update-shorts
 
 PORT ?= 8000
 HOST ?= 127.0.0.1
@@ -553,3 +554,7 @@ review-notify-unsubscribe:
 
 lista-suscritos:
 	@python3 bin/review_notify_client.py list-emails
+
+update-shorts:
+	@echo ">>> Generando URLs cortas (sh/) desde sh/shorturls.json"
+	@python3 bin/generate_shorts.py
