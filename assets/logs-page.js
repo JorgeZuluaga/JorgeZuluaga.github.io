@@ -652,7 +652,68 @@ function imageLinkHtml(fileName) {
   return `<a class="link" href="${escapeHtml(href)}" target="_blank" rel="noopener noreferrer">${escapeHtml(raw)}</a>`;
 }
 
+async function renderShorturlsReport(logs) {
+  const tbody = document.getElementById("shorturls-table");
+  if (!tbody) return;
+  
+  let configuredShorturls = {};
+  try {
+    const res = await fetch("./sh/shorturls.json", { cache: "no-store" });
+    if (res.ok) {
+      configuredShorturls = await res.json();
+    }
+  } catch (e) {
+    console.error("Error loading shorturls.json", e);
+  }
+  
+  const events = logs.filter(x => x.eventType === "shorturl_click");
+  const rowsHtml = [];
+  
+  for (const [rawSlug, dest] of Object.entries(configuredShorturls)) {
+    let slug = rawSlug.trim();
+    slug = slug.replace(/^https?:\/\//, "");
+    slug = slug.replace(/^jorgezuluaga\.github\.io\//, "");
+    slug = slug.replace(/^sh\//, "");
+
+    const urlPattern = new RegExp(`^/sh/${slug}(/index\\.html)?$`);
+    const clicks = events.filter(x => urlPattern.test(x.page) || String(x?.details?.destination) === dest);
+    
+    const clickCount = clicks.length;
+    const uniqueIps = new Set(clicks.map(x => x.ip).filter(Boolean)).size;
+    const countriesCount = countBy(clicks, x => String(x.country || "XX").toUpperCase());
+    const countriesHtml = countriesCount.map(([c, count]) => `${countryLabel(c)} (${count})`).join(", ") || "Ninguno";
+    
+    rowsHtml.push(`<tr>
+      <td><a class="link" href="/sh/${escapeHtml(slug)}" target="_blank">${escapeHtml(rawSlug)}</a></td>
+      <td><a class="link" href="${escapeHtml(dest)}" target="_blank">${escapeHtml(dest)}</a></td>
+      <td>${fmt(clickCount)}</td>
+      <td>${fmt(uniqueIps)}</td>
+      <td>${countriesHtml}</td>
+    </tr>`);
+  }
+  
+  if (!rowsHtml.length) {
+    tbody.innerHTML = '<tr><td colspan="5">No hay shorturls configurados.</td></tr>';
+  } else {
+    tbody.innerHTML = rowsHtml.join("");
+  }
+}
+
 async function renderReport(logs) {
+  const isShorturlsMode = new URLSearchParams(window.location.search).has("shorturls");
+  if (isShorturlsMode) {
+    document.querySelectorAll(".logs-section").forEach(s => {
+      if (s.id !== "shorturls-section") s.hidden = true;
+    });
+    const ss = document.getElementById("shorturls-section");
+    if (ss) ss.hidden = false;
+    const summary = document.getElementById("logs-summary");
+    if (summary) summary.style.display = "none";
+    
+    await renderShorturlsReport(logs);
+    return;
+  }
+
   const allPageViews = logs.filter((x) => x.eventType === "page_view");
   const { rows: countryRows, total: countryTotal } = computeCountryUniqueIpRows(allPageViews);
   renderCountryCloud(countryRows, countryTotal);

@@ -36,12 +36,23 @@ def main():
     
     index_path = os.path.join(target_dir, 'index.html')
     
+    depth = len(path.split('/'))
+    relative_prefix = '../' * depth
+    
     html_content = f"""<!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="refresh" content="0; url={args.destination_url}">
+    <meta name="visitor-log-endpoint" content="https://visitor-log-worker.jorgezuluaga.workers.dev/log" />
     <title>Redirigiendo...</title>
+    <script type="module">
+        import {{ trackEvent }} from "{relative_prefix}assets/visitor-tracker.js";
+        trackEvent("shorturl_click", {{ destination: "{args.destination_url}" }});
+        setTimeout(() => {{
+            window.location.replace("{args.destination_url}");
+        }}, 300);
+    </script>
+    <meta http-equiv="refresh" content="1; url={args.destination_url}">
 </head>
 <body>
     <p>Redirigiendo a <a href="{args.destination_url}">{args.destination_url}</a>...</p>
