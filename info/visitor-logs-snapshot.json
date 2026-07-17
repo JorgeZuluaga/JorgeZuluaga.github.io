@@ -1,9 +1,9 @@
 {
-  "generatedAt": "2026-07-16T12:40:28.120304+00:00",
+  "generatedAt": "2026-07-17T12:33:59.949413+00:00",
   "source": "https://visitor-log-worker.jorgezuluaga.workers.dev",
-  "totalEvents": 6829,
-  "uniqueIps": 3054,
+  "totalEvents": 6854,
+  "uniqueIps": 3072,
   "countries": 28,
-  "lastEventTimestamp": "2026-07-15T17:00:19.425Z",
+  "lastEventTimestamp": "2026-07-17T11:54:40.234Z",
   "notes": "Snapshot histórico desde backup local versionado en el repo."
 }
