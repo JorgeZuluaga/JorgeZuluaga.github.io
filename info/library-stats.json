@@ -62,11 +62,11 @@
       "reviewLocalUrl": "./reviews/4608628674.html",
       "reviewLocalCoverUrl": "./reviews/covers/4608628674.jpg",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-07-20T13:29:21.930818+00:00",
+      "reviewLocalGeneratedAt": "2026-07-21T12:44:42.608716+00:00",
       "reviewCount": 11,
       "drzratingAuto": true,
       "reviewLocalLikes": 0,
-      "reviewLocalLikesUpdatedAt": "2026-07-19T12:27:27.952026+00:00"
+      "reviewLocalLikesUpdatedAt": "2026-07-20T13:33:36.020685+00:00"
     },
     {
       "bookId": "244793641",
@@ -83,11 +83,11 @@
       "reviewLocalUrl": "./reviews/8729541486.html",
       "reviewLocalCoverUrl": "./reviews/covers/8729541486.jpg",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-07-20T13:29:24.191890+00:00",
+      "reviewLocalGeneratedAt": "2026-07-21T12:44:44.455012+00:00",
       "reviewCount": 11,
       "drzratingAuto": true,
       "reviewLocalLikes": 0,
-      "reviewLocalLikesUpdatedAt": "2026-07-19T12:27:27.952026+00:00"
+      "reviewLocalLikesUpdatedAt": "2026-07-20T13:33:36.020685+00:00"
     },
     {
       "bookId": "61893716",
@@ -96,7 +96,7 @@
       "dateRead": "2026-07-07",
       "rating": 5,
       "reviewUrl": "https://www.goodreads.com/review/show/8562963277?utm_medium=api&utm_source=rss",
-      "reviewLikes": 1,
+      "reviewLikes": 2,
       "drzrating": -1,
       "isbn": "9789584235107",
       "bookDetails": 0,
@@ -104,11 +104,11 @@
       "reviewLocalUrl": "./reviews/8562963277.html",
       "reviewLocalCoverUrl": "./reviews/covers/8562963277.jpg",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-07-20T13:29:25.881463+00:00",
+      "reviewLocalGeneratedAt": "2026-07-21T12:44:45.923200+00:00",
       "reviewCount": 11,
       "drzratingAuto": true,
       "reviewLocalLikes": 0,
-      "reviewLocalLikesUpdatedAt": "2026-07-19T12:27:27.952026+00:00"
+      "reviewLocalLikesUpdatedAt": "2026-07-20T13:33:36.020685+00:00"
     },
     {
       "bookId": "250904699",
@@ -130,7 +130,7 @@
       "reviewCount": 2336,
       "drzratingAuto": true,
       "reviewLocalLikes": 1,
-      "reviewLocalLikesUpdatedAt": "2026-07-19T12:27:27.952026+00:00"
+      "reviewLocalLikesUpdatedAt": "2026-07-20T13:33:36.020685+00:00"
     },
     {
       "bookId": "48712224",
@@ -162,9 +162,9 @@
       "reviewLocalCoverUrl": "./reviews/covers/8711059499.jpg",
       "reviewLocalStatus": "ok",
       "reviewLocalUrl": "./reviews/8711059499.html",
-      "reviewLocalGeneratedAt": "2026-07-20T13:29:30.962355+00:00",
+      "reviewLocalGeneratedAt": "2026-07-21T12:44:52.013530+00:00",
       "reviewLocalLikes": 1,
-      "reviewLocalLikesUpdatedAt": "2026-07-19T12:27:27.952026+00:00"
+      "reviewLocalLikesUpdatedAt": "2026-07-20T13:33:36.020685+00:00"
     }
   ],
   "topReviewedByLikes": [
@@ -175,14 +175,14 @@
       "dateRead": "2021-12-30",
       "rating": 4,
       "reviewUrl": "https://www.goodreads.com/review/show/4423951235?utm_medium=api&utm_source=rss",
-      "reviewLikes": 74,
+      "reviewLikes": 75,
       "reviewLocalUrl": "./reviews/4423951235.html",
       "reviewLocalCoverUrl": "./reviews/covers/4423951235.jpg",
       "reviewDate": "2025-01-07",
       "reviewLocalStatus": "ok",
       "reviewLocalGeneratedAt": "2026-04-25T18:55:49.231144+00:00",
       "reviewLocalLikes": 1,
-      "reviewLocalLikesUpdatedAt": "2026-07-19T12:27:27.952026+00:00",
+      "reviewLocalLikesUpdatedAt": "2026-07-20T13:33:36.020685+00:00",
       "drzrating": 87,
       "bookDetails": 1,
       "reviewCount": 91,
@@ -214,7 +214,7 @@
       "reviewLocalCoverUrl": "./reviews/covers/4232235817.jpg",
       "reviewDate": "2021-09-14",
       "reviewLocalLikes": 0,
-      "reviewLocalLikesUpdatedAt": "2026-07-19T12:27:27.952026+00:00",
+      "reviewLocalLikesUpdatedAt": "2026-07-20T13:33:36.020685+00:00",
       "drzrating": 100,
       "bookDetails": 1,
       "reviewCount": 1019,
@@ -249,7 +249,7 @@
       "reviewLocalCoverUrl": "./reviews/covers/6667355680.jpg",
       "reviewDate": "2024-07-20",
       "reviewLocalLikes": 2,
-      "reviewLocalLikesUpdatedAt": "2026-07-19T12:27:27.952026+00:00",
+      "reviewLocalLikesUpdatedAt": "2026-07-20T13:33:36.020685+00:00",
       "drzrating": 96,
       "bookDetails": 1,
       "dateAdded": "2023-07-07",
@@ -282,7 +282,7 @@
       "reviewLocalCoverUrl": "./reviews/covers/3063403087.jpg",
       "reviewDate": "2023-02-26",
       "reviewLocalLikes": 0,
-      "reviewLocalLikesUpdatedAt": "2026-07-19T12:27:27.952026+00:00",
+      "reviewLocalLikesUpdatedAt": "2026-07-20T13:33:36.020685+00:00",
       "drzrating": 100,
       "bookDetails": 1,
       "reviewCount": 526,
@@ -314,7 +314,7 @@
       "reviewLocalCoverUrl": "./reviews/covers/4664229801.jpg",
       "reviewDate": "2022-04-15",
       "reviewLocalLikes": 0,
-      "reviewLocalLikesUpdatedAt": "2026-07-19T12:27:27.952026+00:00",
+      "reviewLocalLikesUpdatedAt": "2026-07-20T13:33:36.020685+00:00",
       "drzrating": 98,
       "bookDetails": 1,
       "reviewCount": 955,
@@ -335,52 +335,20 @@
       "matched": true
     },
     {
-      "bookId": "59110779",
-      "title": "Una vida, muchas vidas (Spanish Edition)",
-      "author": "Gustavo Petro",
-      "dateRead": "2021-10-10",
-      "rating": 5,
-      "reviewUrl": "https://www.goodreads.com/review/show/4278716233?utm_medium=api&utm_source=rss",
-      "reviewLikes": 33,
-      "reviewLocalUrl": "./reviews/4278716233.html",
-      "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-04-25T19:13:34.787210+00:00",
-      "reviewLocalCoverUrl": "./reviews/covers/4278716233.jpg",
-      "reviewDate": "2021-10-12",
-      "reviewLocalLikes": 0,
-      "reviewLocalLikesUpdatedAt": "2026-07-19T12:27:27.952026+00:00",
-      "drzrating": 99,
-      "bookDetails": 1,
-      "dateAdded": "2021-10-12",
-      "reviewCount": 2091,
-      "dcc_classes": {
-        "900": "Historia y geografia (900)"
-      },
-      "dcc_codes": {
-        "920": "Biografía y genealogía"
-      },
-      "dcc_notes": {
-        "reasoning": "Es el libro de memorias autobiográficas del presidente de Colombia Gustavo Petro.",
-        "confidence": 0.98
-      },
-      "isbn": "9789584297495",
-      "matched": true
-    },
-    {
       "bookId": "40135796",
       "title": "Historia de Colombia y sus oligarquías",
       "author": "Antonio Caballero",
       "dateRead": "2020-07-01",
       "rating": 5,
       "reviewUrl": "https://www.goodreads.com/review/show/3344914655?utm_medium=api&utm_source=rss",
-      "reviewLikes": 33,
+      "reviewLikes": 34,
       "reviewLocalUrl": "./reviews/3344914655.html",
       "reviewLocalStatus": "ok",
       "reviewLocalGeneratedAt": "2026-04-25T19:22:00.211491+00:00",
       "reviewLocalCoverUrl": "./reviews/covers/3344914655.jpg",
       "reviewDate": "2020-07-03",
       "reviewLocalLikes": 0,
-      "reviewLocalLikesUpdatedAt": "2026-07-19T12:27:27.952026+00:00",
+      "reviewLocalLikesUpdatedAt": "2026-07-20T13:33:36.020685+00:00",
       "drzrating": 100,
       "bookDetails": 1,
       "dateAdded": "2020-12-31",
@@ -400,6 +368,38 @@
       "matched": true
     },
     {
+      "bookId": "59110779",
+      "title": "Una vida, muchas vidas (Spanish Edition)",
+      "author": "Gustavo Petro",
+      "dateRead": "2021-10-10",
+      "rating": 5,
+      "reviewUrl": "https://www.goodreads.com/review/show/4278716233?utm_medium=api&utm_source=rss",
+      "reviewLikes": 33,
+      "reviewLocalUrl": "./reviews/4278716233.html",
+      "reviewLocalStatus": "ok",
+      "reviewLocalGeneratedAt": "2026-04-25T19:13:34.787210+00:00",
+      "reviewLocalCoverUrl": "./reviews/covers/4278716233.jpg",
+      "reviewDate": "2021-10-12",
+      "reviewLocalLikes": 0,
+      "reviewLocalLikesUpdatedAt": "2026-07-20T13:33:36.020685+00:00",
+      "drzrating": 99,
+      "bookDetails": 1,
+      "dateAdded": "2021-10-12",
+      "reviewCount": 2091,
+      "dcc_classes": {
+        "900": "Historia y geografia (900)"
+      },
+      "dcc_codes": {
+        "920": "Biografía y genealogía"
+      },
+      "dcc_notes": {
+        "reasoning": "Es el libro de memorias autobiográficas del presidente de Colombia Gustavo Petro.",
+        "confidence": 0.98
+      },
+      "isbn": "9789584297495",
+      "matched": true
+    },
+    {
       "bookId": "125064740",
       "title": "Pondré mi oído en la piedra hasta que hable",
       "author": "William Ospina",
@@ -413,7 +413,7 @@
       "reviewLocalCoverUrl": "./reviews/covers/5469066244.jpg",
       "reviewDate": "2023-05-28",
       "reviewLocalLikes": 0,
-      "reviewLocalLikesUpdatedAt": "2026-07-19T12:27:27.952026+00:00",
+      "reviewLocalLikesUpdatedAt": "2026-07-20T13:33:36.020685+00:00",
       "drzrating": 100,
       "bookDetails": 0,
       "reviewCount": 1286,
@@ -444,7 +444,7 @@
       "reviewLocalCoverUrl": "./reviews/covers/3758441020.jpg",
       "reviewDate": "2023-06-21",
       "reviewLocalLikes": 0,
-      "reviewLocalLikesUpdatedAt": "2026-07-19T12:27:27.952026+00:00",
+      "reviewLocalLikesUpdatedAt": "2026-07-20T13:33:36.020685+00:00",
       "drzrating": 100,
       "bookDetails": 1,
       "dateAdded": "2021-01-04",
@@ -478,7 +478,7 @@
       "reviewLocalCoverUrl": "./reviews/covers/3742582688.jpg",
       "reviewDate": "2024-06-10",
       "reviewLocalLikes": 0,
-      "reviewLocalLikesUpdatedAt": "2026-07-19T12:27:27.952026+00:00",
+      "reviewLocalLikesUpdatedAt": "2026-07-20T13:33:36.020685+00:00",
       "drzrating": 100,
       "bookDetails": 1,
       "dateAdded": "2021-02-03",
@@ -515,11 +515,11 @@
       "reviewLocalUrl": "./reviews/4608628674.html",
       "reviewLocalCoverUrl": "./reviews/covers/4608628674.jpg",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-07-20T13:29:21.930818+00:00",
+      "reviewLocalGeneratedAt": "2026-07-21T12:44:42.608716+00:00",
       "reviewCount": 11,
       "drzratingAuto": true,
       "reviewLocalLikes": 0,
-      "reviewLocalLikesUpdatedAt": "2026-07-19T12:27:27.952026+00:00"
+      "reviewLocalLikesUpdatedAt": "2026-07-20T13:33:36.020685+00:00"
     },
     {
       "bookId": "244793641",
@@ -536,11 +536,11 @@
       "reviewLocalUrl": "./reviews/8729541486.html",
       "reviewLocalCoverUrl": "./reviews/covers/8729541486.jpg",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-07-20T13:29:24.191890+00:00",
+      "reviewLocalGeneratedAt": "2026-07-21T12:44:44.455012+00:00",
       "reviewCount": 11,
       "drzratingAuto": true,
       "reviewLocalLikes": 0,
-      "reviewLocalLikesUpdatedAt": "2026-07-19T12:27:27.952026+00:00"
+      "reviewLocalLikesUpdatedAt": "2026-07-20T13:33:36.020685+00:00"
     },
     {
       "bookId": "61893716",
@@ -549,7 +549,7 @@
       "dateRead": "2026-07-07",
       "rating": 5,
       "reviewUrl": "https://www.goodreads.com/review/show/8562963277?utm_medium=api&utm_source=rss",
-      "reviewLikes": 1,
+      "reviewLikes": 2,
       "drzrating": -1,
       "isbn": "9789584235107",
       "bookDetails": 0,
@@ -557,11 +557,11 @@
       "reviewLocalUrl": "./reviews/8562963277.html",
       "reviewLocalCoverUrl": "./reviews/covers/8562963277.jpg",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-07-20T13:29:25.881463+00:00",
+      "reviewLocalGeneratedAt": "2026-07-21T12:44:45.923200+00:00",
       "reviewCount": 11,
       "drzratingAuto": true,
       "reviewLocalLikes": 0,
-      "reviewLocalLikesUpdatedAt": "2026-07-19T12:27:27.952026+00:00"
+      "reviewLocalLikesUpdatedAt": "2026-07-20T13:33:36.020685+00:00"
     },
     {
       "bookId": "250904699",
@@ -583,7 +583,7 @@
       "reviewCount": 2336,
       "drzratingAuto": true,
       "reviewLocalLikes": 1,
-      "reviewLocalLikesUpdatedAt": "2026-07-19T12:27:27.952026+00:00"
+      "reviewLocalLikesUpdatedAt": "2026-07-20T13:33:36.020685+00:00"
     },
     {
       "bookId": "48712224",
@@ -615,14 +615,14 @@
       "reviewLocalCoverUrl": "./reviews/covers/8711059499.jpg",
       "reviewLocalStatus": "ok",
       "reviewLocalUrl": "./reviews/8711059499.html",
-      "reviewLocalGeneratedAt": "2026-07-20T13:29:30.962355+00:00",
+      "reviewLocalGeneratedAt": "2026-07-21T12:44:52.013530+00:00",
       "reviewLocalLikes": 1,
-      "reviewLocalLikesUpdatedAt": "2026-07-19T12:27:27.952026+00:00"
+      "reviewLocalLikesUpdatedAt": "2026-07-20T13:33:36.020685+00:00"
     }
   ],
   "totals": {
     "booksRead": 607,
     "booksReviewed": 607,
-    "totalReviewLikes": 3309
+    "totalReviewLikes": 3312
   }
 }
