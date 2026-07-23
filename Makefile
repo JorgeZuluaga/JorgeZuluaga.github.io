@@ -558,3 +558,8 @@ lista-suscritos:
 update-shorts:
 	@echo ">>> Generando URLs cortas (sh/) desde sh/shorturls.json"
 	@python3 bin/generate_shorts.py
+
+stash:
+	git stash
+	git pull
+	git stash pop
