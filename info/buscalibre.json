@@ -1,7 +1,7 @@
 {
   "affiliateId": "74c874bfb5a8145d7c1b",
   "domain": "https://www.buscalibre.com.co",
-  "updatedAt": "2026-07-25T12:22:57.870546+00:00",
+  "updatedAt": "2026-07-26T12:29:24.093583+00:00",
   "books": {
     "6286160": {
       "bookId": "6286160",
@@ -3793,6 +3793,12 @@
       "isbn": "9788427298057",
       "title": "Muerte en el Nilo (Hercule Poirot, #18)",
       "url": "https://www.buscalibre.com.co/libro-muerte-en-el-nilo/9788427298057/p/54936579?afiliado=74c874bfb5a8145d7c1b"
+    },
+    "58604433": {
+      "bookId": "58604433",
+      "isbn": "9788491054863",
+      "title": "Divina Comedia. Infierno",
+      "url": "https://www.buscalibre.com.co/libro-divina-comedia-infierno-edicion-bilingue/9788491054863/p/53390494?afiliado=74c874bfb5a8145d7c1b"
     }
   }
 }
