@@ -1,8 +1,8 @@
 {
-  "updatedAt": "2026-07-29T13:24:15.806579+00:00",
-  "lastAttemptAt": "2026-07-29T13:05:07Z",
+  "updatedAt": "2026-07-30T13:07:15.512040+00:00",
+  "lastAttemptAt": "2026-07-30T12:49:11Z",
   "lastAttemptSource": "github-actions",
-  "lastDailyGoodreadsSuccessAt": "2026-07-29T13:05:07Z",
+  "lastDailyGoodreadsSuccessAt": "2026-07-30T12:49:11Z",
   "lastPeriodicSyncSuccessAt": "2026-07-29T13:24:15Z",
   "lastGitCommitAt": "2026-07-29T13:24:15Z",
   "lastGitCommitSha": "2b8d502",
