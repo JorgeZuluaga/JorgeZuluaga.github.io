@@ -1,0 +1,7 @@
+name = "book-og-worker"
+main = "book-og-worker.js"
+compatibility_date = "2026-04-22"
+account_id = "a895e77ce7e3bfd4e5255101f84be30b"
+
+[vars]
+SITE_BASE_URL = "https://jorgezuluaga.github.io"

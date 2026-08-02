@@ -22,10 +22,12 @@ commit_repo_changes() {
   ts="$(date +"%Y-%m-%d %H:%M:%S %Z")"
   git add \
     info/library.json \
+    info/library-details.json \
     info/library-stats.json \
     info/buscalibre.json \
     info/sync-state.json \
     reviews/ \
+    antilibrary/covers/ \
     info/visitor-logs-backup.ndjson \
     info/visitor-logs-backup-state.json \
     info/visitor-logs-snapshot.json \
@@ -153,6 +155,9 @@ if ! commit_library_to_repo; then
   fail_auto_run "git publish"
   exit 1
 fi
+
+echo "[$(utc_now)] book-og: verificar worker (lee catálogo publicado en Pages)…"
+bash "$REPO_DIR/bin/book_og_ensure.sh" || echo "[$(utc_now)] book-og: check omitido o falló (no bloquea el sync)."
 
 FINISHED="$(utc_now)"
 record_state \

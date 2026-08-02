@@ -7,6 +7,7 @@ const LIBRARY_DETAILS_JSON = "./info/library-details.json";
 const BUSCALIBRE_JSON = "./info/buscalibre.json";
 const BUSCALIBRE_LOGO_URL =
   "https://statics.cdn0.buscalibre.com/images/logos/20231208132739buscalibre.png";
+const DEFAULT_BOOK_OG_ENDPOINT = "https://book-og-worker.drz-academy.workers.dev";
 const LOCAL_STORAGE_KEY_PREFIX = "anti_book_id_";
 const COVER_DIR = "./antilibrary/covers";
 const COVER_EXTS = ["jpg", "jpeg", "png", "webp"];
@@ -565,6 +566,192 @@ function hasPublishedReview(item) {
   return true;
 }
 
+function bookOgEndpoint() {
+  const meta = document.querySelector('meta[name="book-og-endpoint"]');
+  const fromMeta = String(meta?.getAttribute("content") || "").trim().replace(/\/$/, "");
+  return fromMeta || DEFAULT_BOOK_OG_ENDPOINT;
+}
+
+function bookShareUrl(meta, libraryBook) {
+  const base = bookOgEndpoint();
+  const bookId = String(libraryBook?.bookId || meta?.id || "").trim();
+  const isbn = normalizeIsbn(meta?.isbn);
+  const lang = getPageLang();
+  const params = new URLSearchParams();
+  if (bookId && /^\d+$/.test(bookId)) params.set("bookid", bookId);
+  else if (isbn) params.set("isbn", isbn);
+  else return "";
+  if (lang === "en") params.set("lang", "en");
+  return `${base}/?${params.toString()}`;
+}
+
+function upsertMeta(attr, key, value) {
+  if (!value) return;
+  const selector =
+    attr === "property"
+      ? `meta[property="${key}"]`
+      : `meta[name="${key}"]`;
+  let el = document.head.querySelector(selector);
+  if (!el) {
+    el = document.createElement("meta");
+    el.setAttribute(attr, key);
+    document.head.appendChild(el);
+  }
+  el.setAttribute("content", value);
+}
+
+function applyClientOgTags(lang, meta, imageUrl, shareUrl, canonicalUrl) {
+  const title = String(meta?.title || "").trim() || "Libro";
+  const author = String(meta?.author || "").trim() || "—";
+  const description =
+    lang === "en"
+      ? `${title} by ${author} — Jorge Zuluaga’s library`
+      : `${title} de ${author} — Biblioteca de Jorge I. Zuluaga`;
+  upsertMeta("property", "og:type", "book");
+  upsertMeta("property", "og:title", title);
+  upsertMeta("property", "og:description", description);
+  upsertMeta("property", "og:url", shareUrl || canonicalUrl);
+  if (imageUrl) {
+    upsertMeta("property", "og:image", imageUrl);
+    upsertMeta("property", "og:image:alt", title);
+  }
+  upsertMeta("name", "twitter:card", "summary_large_image");
+  upsertMeta("name", "twitter:title", title);
+  upsertMeta("name", "twitter:description", description);
+  if (imageUrl) upsertMeta("name", "twitter:image", imageUrl);
+}
+
+async function copyToClipboard(text) {
+  const value = String(text || "");
+  if (!value) return false;
+  try {
+    if (navigator.clipboard?.writeText) {
+      await navigator.clipboard.writeText(value);
+      return true;
+    }
+  } catch {
+    // fall through
+  }
+  try {
+    const ta = document.createElement("textarea");
+    ta.value = value;
+    ta.setAttribute("readonly", "");
+    ta.style.position = "fixed";
+    ta.style.left = "-9999px";
+    document.body.appendChild(ta);
+    ta.select();
+    const ok = document.execCommand("copy");
+    ta.remove();
+    return ok;
+  } catch {
+    return false;
+  }
+}
+
+function showBookToast(message) {
+  let toast = document.getElementById("book-share-toast");
+  if (!toast) {
+    toast = document.createElement("p");
+    toast.id = "book-share-toast";
+    toast.className = "review-subscribe-toast";
+    toast.hidden = true;
+    toast.setAttribute("aria-live", "polite");
+    document.body.appendChild(toast);
+  }
+  toast.textContent = message;
+  toast.hidden = false;
+  clearTimeout(showBookToast._timer);
+  showBookToast._timer = setTimeout(() => {
+    toast.hidden = true;
+  }, 1800);
+}
+
+function renderShareActions(lang, meta, libraryBook) {
+  const wrap = document.getElementById("book-share-actions");
+  if (!wrap) return;
+  wrap.replaceChildren();
+  const shareUrl = bookShareUrl(meta, libraryBook);
+  if (!shareUrl) {
+    wrap.hidden = true;
+    return;
+  }
+  wrap.hidden = false;
+  wrap.style.marginTop = "1rem";
+
+  const title = String(meta?.title || libraryBook?.title || "").trim() || "Libro";
+  const author = String(meta?.author || libraryBook?.author || "").trim();
+  const shareLabel = lang === "en" ? "Share" : "Compartir";
+  const copiedLabel = lang === "en" ? "Copied" : "Copiado";
+  const copiedToast =
+    lang === "en"
+      ? "Share link copied (cover preview for WhatsApp/Twitter)"
+      : "Enlace copiado (con portada para WhatsApp/Twitter)";
+  const shareText =
+    lang === "en"
+      ? author
+        ? `${title} by ${author}`
+        : title
+      : author
+        ? `${title} de ${author}`
+        : title;
+
+  const shareBtn = document.createElement("button");
+  shareBtn.type = "button";
+  shareBtn.id = "book-share-btn";
+  shareBtn.className = "logs-refresh";
+  shareBtn.style.padding = "0.45rem 0.75rem";
+  shareBtn.style.fontSize = "0.9rem";
+  shareBtn.setAttribute("aria-label", shareLabel);
+  shareBtn.innerHTML = `<span data-share-label>${shareLabel}</span>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" focusable="false" style="vertical-align:-3px;margin-left:0.35rem;">
+      <path d="M8 12v7a2 2 0 0 0 2 2h4a2 2 0 0 0 2-2v-7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+      <path d="M12 16V3" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+      <path d="M8.5 6.5 12 3l3.5 3.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+    </svg>`;
+
+  const flashCopied = () => {
+    const label = shareBtn.querySelector("[data-share-label]");
+    if (!label) return;
+    const prev = label.textContent;
+    label.textContent = copiedLabel;
+    setTimeout(() => {
+      label.textContent = prev;
+    }, 1200);
+  };
+
+  shareBtn.addEventListener("click", async () => {
+    if (typeof navigator.share === "function") {
+      try {
+        await navigator.share({
+          title,
+          text: shareText,
+          url: shareUrl,
+        });
+        return;
+      } catch (err) {
+        if (err?.name === "AbortError") return;
+        // fall through to clipboard
+      }
+    }
+    const ok = await copyToClipboard(shareUrl);
+    if (ok) {
+      flashCopied();
+      showBookToast(copiedToast);
+    }
+  });
+  wrap.appendChild(shareBtn);
+}
+
+function absoluteAssetUrl(path) {
+  if (!path) return "";
+  if (/^https?:\/\//i.test(path)) return path;
+  try {
+    return new URL(path, window.location.origin + window.location.pathname.replace(/[^/]+$/, "")).href;
+  } catch {
+    return path;
+  }
+}
+
 function findBuscalibreEntry(buscalibreBooks, bookId, isbn) {
   const bid = String(bookId || "").trim();
   if (bid && buscalibreBooks?.[bid]) return buscalibreBooks[bid];
@@ -755,6 +942,7 @@ async function renderBookPageContent(lang, meta, libraryBook, coverBookKey, from
 
   renderReviewLinks(lang, libraryBook);
   await renderBuscalibreCta(lang, meta, libraryBook);
+  renderShareActions(lang, meta, libraryBook);
 
   renderBookSummary(lang, meta.summary, meta.summaryIsBrief);
 
@@ -768,6 +956,10 @@ async function renderBookPageContent(lang, meta, libraryBook, coverBookKey, from
     }
     if (fig) fig.hidden = false;
   }
+
+  const shareUrl = bookShareUrl(meta, libraryBook);
+  const canonicalUrl = window.location.href.split("#")[0];
+  applyClientOgTags(lang, meta, absoluteAssetUrl(coverSrc), shareUrl, canonicalUrl);
 }
 
 async function main() {

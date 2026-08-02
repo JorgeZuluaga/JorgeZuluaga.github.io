@@ -193,6 +193,31 @@ Si reactivas launchd local: copia o actualiza el plist en `~/Library/LaunchAgent
 
 ---
 
+## Preview de portada al compartir `book.html` (WhatsApp / Twitter)
+
+`book.html?bookid=…` es una SPA: los crawlers de WhatsApp/Twitter **no ejecutan JavaScript**, así que las meta OG no pueden ponerse solo en el cliente.
+
+Solución: Worker `book-og-worker` que sirve HTML con `og:image` (portada) a bots y redirige humanos a GitHub Pages.
+
+```bash
+make book-og-deploy   # solo cuando cambias book-og-worker.js
+make book-og-check    # tras sync / BookBuddy: verifica que el worker responda
+```
+
+**Importante:** el worker **no guarda** el catálogo. Lee `info/library.json`, `info/library-details.json` y portadas (`reviews/covers/`, `antilibrary/covers/`) desde GitHub Pages. El sync diario y BookBuddy **no necesitan** `wrangler deploy` por libros nuevos: basta con **commit + push** de esos archivos. El sync periódico ya incluye `library-details.json` y `antilibrary/covers/` en el push, y luego corre `book_og_ensure.sh`.
+
+URL para compartir (botón **Compartir** en la página del libro):
+
+```text
+https://book-og-worker.drz-academy.workers.dev/?bookid=89009188
+```
+
+También vale `/?isbn=9788418741838` o `/book/89009188`.
+
+Desplegado en la cuenta Cloudflare de `soydoctorz@gmail.com` (workers.dev: `drz-academy`). Redeploy de código opcional: `BOOK_OG_DEPLOY=1 make book-og-ensure`.
+
+---
+
 ## D. Actualizar lista desde BookBuddy
 
 1. Exporta desde BookBuddy y coloca (o actualiza) **`update/bookbuddy.csv`**.

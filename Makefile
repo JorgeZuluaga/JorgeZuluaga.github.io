@@ -17,7 +17,7 @@
 	library-ddc-update library-ddc-generate-pending library-ddc-apply-gemini \
 	sync-dcc-library-details \
 	update-all-books \
-	worker-deploy review-notify-deploy review-notify-send review-notify-seed-test review-notify-test-send \
+	worker-deploy book-og-deploy book-og-check book-og-ensure review-notify-deploy review-notify-send review-notify-seed-test review-notify-test-send \
 	lista-suscritos \
 	update-shorts
 
@@ -57,6 +57,8 @@ help:
 	@echo "  make status                       - Últimas corridas del sync automático (launchd)"
 	@echo "  make review-notify-send           - Notificar reseñas nuevas (tras Buscalibre)"
 	@echo "  make review-notify-deploy         - Desplegar worker de suscripción a reseñas"
+	@echo "  make book-og-deploy               - Desplegar código del worker OG (book.html share)"
+	@echo "  make book-og-check                - Comprobar worker OG (tras sync/BookBuddy)"
 	@echo "  make review-notify-setup          - Crear .secrets/ (token + Gmail)"
 	@echo "  make review-notify-seed-test      - Alta de correos de prueba en el worker"
 	@echo "  make review-notify-test-send      - Enviar correo de prueba a suscriptores"
@@ -442,6 +444,10 @@ library-details-sync: library-details-import library-details-match
 
 # D: Tras copiar bookbuddy.csv (y opcionalmente export HTML BookBuddy): import + marcador DCC vacío + match bookIds.
 library-bookbuddy-update: library-details-import library-stub-dcc-details library-details-match
+	@echo ""
+	@echo ">>> BookBuddy: commit+push de info/library-details.json (y covers si aplica)"
+	@echo ">>> El worker book-og NO requiere redeploy: usa esos JSON/portadas desde GitHub Pages."
+	@bash bin/book_og_ensure.sh || true
 
 library-stub-dcc-details:
 	@python3 bin/stub_empty_dcc_library_details.py --library-details-json "$(LIBRARY_DETAILS_JSON)"
@@ -451,6 +457,9 @@ library-bookbuddy-covers:
 	@python3 bin/extract_bookbuddy_embedded_covers.py \
 		--input-html "$(BOOKBUDDY_HTML)" \
 		--output-dir "$${OUTPUT_DIR:-antilibrary/covers}"
+	@echo ""
+	@echo ">>> Portadas en antilibrary/covers/: haz commit+push para que el worker OG las sirva."
+	@bash bin/book_og_ensure.sh || true
 
 # Libros en library.json cuyo bookId no está en library-details (para añadir en BookBuddy a mano).
 bookbuddy-missing:
@@ -526,6 +535,16 @@ update-all-books:
 # Deploy Cloudflare Worker defined in wrangler.toml.
 worker-deploy:
 	@npx wrangler deploy
+
+book-og-deploy:
+	@npx wrangler deploy --config wrangler-book-og.toml
+
+# Comprueba que el worker OG esté en línea (no redeploya datos; opcional: DEPLOY=1).
+book-og-check:
+	@bash bin/book_og_ensure.sh
+
+book-og-ensure:
+	@bash bin/book_og_ensure.sh $(if $(DEPLOY),--deploy,)
 
 review-notify-send:
 	@python3 bin/notify_new_reviews.py
