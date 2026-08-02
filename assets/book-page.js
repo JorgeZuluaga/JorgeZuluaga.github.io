@@ -4,6 +4,9 @@ import { trackPageView } from "./visitor-tracker.js";
 
 const LIBRARY_JSON = "./info/library.json";
 const LIBRARY_DETAILS_JSON = "./info/library-details.json";
+const BUSCALIBRE_JSON = "./info/buscalibre.json";
+const BUSCALIBRE_LOGO_URL =
+  "https://statics.cdn0.buscalibre.com/images/logos/20231208132739buscalibre.png";
 const LOCAL_STORAGE_KEY_PREFIX = "anti_book_id_";
 const COVER_DIR = "./antilibrary/covers";
 const COVER_EXTS = ["jpg", "jpeg", "png", "webp"];
@@ -562,6 +565,76 @@ function hasPublishedReview(item) {
   return true;
 }
 
+function findBuscalibreEntry(buscalibreBooks, bookId, isbn) {
+  const bid = String(bookId || "").trim();
+  if (bid && buscalibreBooks?.[bid]) return buscalibreBooks[bid];
+  const want = normalizeIsbn(isbn);
+  if (!want || !buscalibreBooks || typeof buscalibreBooks !== "object") return null;
+  for (const entry of Object.values(buscalibreBooks)) {
+    if (!entry || typeof entry !== "object") continue;
+    if (normalizeIsbn(entry.isbn) === want) return entry;
+  }
+  return null;
+}
+
+function renderBuscalibreCta(lang, meta, libraryBook) {
+  const wrap = document.getElementById("book-buscalibre");
+  if (!wrap) return Promise.resolve();
+  wrap.hidden = true;
+  wrap.replaceChildren();
+
+  const bookId = String(libraryBook?.bookId || meta?.id || "").trim();
+  const isbn = normalizeIsbn(meta?.isbn);
+  if (!bookId && !isbn) return Promise.resolve();
+
+  return fetchJson(BUSCALIBRE_JSON)
+    .then((data) => {
+      const books = data?.books && typeof data.books === "object" ? data.books : {};
+      const entry = findBuscalibreEntry(books, bookId, isbn);
+      const url = String(entry?.url || "").trim();
+      if (!url) return;
+
+      const bookTitle =
+        String(entry?.title || meta?.title || libraryBook?.title || "").trim() || bookId || isbn;
+      const label = lang === "en" ? "Get it on" : "Consíguelo en";
+      const buyLabel = lang === "en" ? "Get it on Buscalibre" : "Consíguelo en Buscalibre";
+
+      const textLink = document.createElement("a");
+      textLink.className = "link review-buscalibre-text-link";
+      textLink.href = url;
+      textLink.target = "_blank";
+      textLink.rel = "noopener noreferrer sponsored";
+      textLink.textContent = label;
+      textLink.setAttribute("aria-label", `${buyLabel}: ${bookTitle}`);
+
+      const logoLink = document.createElement("a");
+      logoLink.id = "book-buscalibre-link";
+      logoLink.className = "buscalibre-brand-link";
+      logoLink.href = url;
+      logoLink.target = "_blank";
+      logoLink.rel = "noopener noreferrer sponsored";
+      logoLink.setAttribute("aria-label", `${buyLabel}: ${bookTitle}`);
+
+      const mark = document.createElement("span");
+      mark.className = "buscalibre-brand-link__mark";
+
+      const logo = document.createElement("img");
+      logo.className = "buscalibre-brand-link__logo";
+      logo.src = BUSCALIBRE_LOGO_URL;
+      logo.alt = "Buscalibre";
+      logo.decoding = "async";
+      logo.loading = "lazy";
+
+      mark.appendChild(logo);
+      logoLink.appendChild(mark);
+      wrap.append(textLink, logoLink);
+      wrap.hidden = false;
+    })
+    .catch(() => {
+      // Non-critical: keep page without Buscalibre CTA.
+    });
+}
+
 function renderReviewLinks(lang, libraryBook) {
   const wrap = document.getElementById("book-review-links");
   if (!wrap) return;
@@ -681,6 +754,7 @@ async function renderBookPageContent(lang, meta, libraryBook, coverBookKey, from
   }
 
   renderReviewLinks(lang, libraryBook);
+  await renderBuscalibreCta(lang, meta, libraryBook);
 
   renderBookSummary(lang, meta.summary, meta.summaryIsBrief);
 
