@@ -1,7 +1,7 @@
 {
   "affiliateId": "74c874bfb5a8145d7c1b",
   "domain": "https://www.buscalibre.com.co",
-  "updatedAt": "2026-08-03T14:08:54.479308+00:00",
+  "updatedAt": "2026-08-04T13:19:17.762281+00:00",
   "books": {
     "6286160": {
       "bookId": "6286160",
@@ -3799,6 +3799,12 @@
       "isbn": "9788491054863",
       "title": "Divina Comedia. Infierno",
       "url": "https://www.buscalibre.com.co/libro-divina-comedia-infierno-edicion-bilingue/9788491054863/p/53390494?afiliado=74c874bfb5a8145d7c1b"
+    },
+    "40670568": {
+      "bookId": "40670568",
+      "isbn": "9788417347208",
+      "title": "La puerta de Abadón (The Expanse, #3)",
+      "url": "https://www.buscalibre.com.co/libro-puerta-de-abadon-la/9788417347208/p/50591586?afiliado=74c874bfb5a8145d7c1b"
     }
   }
 }
