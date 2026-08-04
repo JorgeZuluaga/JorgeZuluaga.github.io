@@ -1,11 +1,11 @@
 {
-  "updatedAt": "2026-08-04T13:20:17.431044+00:00",
+  "updatedAt": "2026-08-04T13:21:27.963435+00:00",
   "lastAttemptAt": "2026-08-04T13:05:59Z",
   "lastAttemptSource": "github-actions",
   "lastDailyGoodreadsSuccessAt": "2026-08-04T13:05:59Z",
-  "lastPeriodicSyncSuccessAt": "2026-08-03T14:11:47Z",
-  "lastGitCommitAt": "2026-08-03T14:11:46Z",
-  "lastGitCommitSha": "6d54421",
+  "lastPeriodicSyncSuccessAt": "2026-08-04T13:21:27Z",
+  "lastGitCommitAt": "2026-08-04T13:21:27Z",
+  "lastGitCommitSha": "5301170",
   "lastFailureAt": "",
   "lastFailureReason": "",
   "lastFailureStep": "",
@@ -234,7 +234,13 @@
       "finishedAt": "2026-08-03T14:11:47Z",
       "success": true,
       "reason": "completo"
+    },
+    {
+      "startedAt": "2026-08-04T13:05:58Z",
+      "finishedAt": "2026-08-04T13:21:27Z",
+      "success": true,
+      "reason": "completo"
     }
   ],
-  "lastPeriodicSyncSuccessAt_github-actions": "2026-08-03T14:11:47Z"
+  "lastPeriodicSyncSuccessAt_github-actions": "2026-08-04T13:21:27Z"
 }
