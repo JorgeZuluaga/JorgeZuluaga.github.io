@@ -1,7 +1,7 @@
 {
   "affiliateId": "74c874bfb5a8145d7c1b",
   "domain": "https://www.buscalibre.com.co",
-  "updatedAt": "2026-08-10T12:12:08.553952+00:00",
+  "updatedAt": "2026-08-11T12:09:48.545327+00:00",
   "books": {
     "6286160": {
       "bookId": "6286160",
@@ -3805,6 +3805,12 @@
       "isbn": "9788417347208",
       "title": "La puerta de Abadón (The Expanse, #3)",
       "url": "https://www.buscalibre.com.co/libro-puerta-de-abadon-la/9788417347208/p/50591586?afiliado=74c874bfb5a8145d7c1b"
+    },
+    "4260798": {
+      "bookId": "4260798",
+      "isbn": "9789871181872",
+      "title": "Historia de los extraterrestres: Los mitos, las fábulas, los miedos (Spanish Edition)",
+      "url": "https://www.buscalibre.com.co/libro-historia-de-los-extraterrestres/9789871181872/p/1064947?afiliado=74c874bfb5a8145d7c1b"
     }
   }
 }
