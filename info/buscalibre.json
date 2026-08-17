@@ -1,7 +1,7 @@
 {
   "affiliateId": "74c874bfb5a8145d7c1b",
   "domain": "https://www.buscalibre.com.co",
-  "updatedAt": "2026-08-16T11:42:51.010185+00:00",
+  "updatedAt": "2026-08-17T11:47:34.598387+00:00",
   "books": {
     "6286160": {
       "bookId": "6286160",
@@ -3811,6 +3811,12 @@
       "isbn": "9789871181872",
       "title": "Historia de los extraterrestres: Los mitos, las fábulas, los miedos (Spanish Edition)",
       "url": "https://www.buscalibre.com.co/libro-historia-de-los-extraterrestres/9789871181872/p/1064947?afiliado=74c874bfb5a8145d7c1b"
+    },
+    "12146201": {
+      "bookId": "12146201",
+      "isbn": "9786071107749",
+      "title": "La andadura del español por el mundo",
+      "url": "https://www.buscalibre.com.co/libro-la-andadura-del-espanol-por-el-mundo-adventures-of-the-spanish-lenguage-around-the-world/9786071107749/p/4084680?afiliado=74c874bfb5a8145d7c1b"
     }
   }
 }
