@@ -21,12 +21,12 @@
   {
     "key": "github",
     "icon": "github",
-    "href": "http://github.com/seap-udea",
+      "href": "https://seap-udea.github.io/",
     "target": "_blank",
     "ariaLabel": "GitHub",
     "ariaLabel_en": "GitHub",
-    "label": "GitHub: github.com/seap-udea",
-    "label_en": "GitHub: github.com/seap-udea"
+      "label": "GitHub: seap-udea.github.io",
+    "label_en": "GitHub: seap-udea.github.io"
   },
   {
     "key": "website",
