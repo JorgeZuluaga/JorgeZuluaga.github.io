@@ -1,7 +1,7 @@
 {
   "affiliateId": "74c874bfb5a8145d7c1b",
   "domain": "https://www.buscalibre.com.co",
-  "updatedAt": "2026-08-31T18:11:02.865543+00:00",
+  "updatedAt": "2026-09-01T15:48:07.106696+00:00",
   "books": {
     "6286160": {
       "bookId": "6286160",
@@ -3817,6 +3817,12 @@
       "isbn": "9786071107749",
       "title": "La andadura del español por el mundo",
       "url": "https://www.buscalibre.com.co/libro-la-andadura-del-espanol-por-el-mundo-adventures-of-the-spanish-lenguage-around-the-world/9786071107749/p/4084680?afiliado=74c874bfb5a8145d7c1b"
+    },
+    "144025193": {
+      "bookId": "144025193",
+      "isbn": "9789504981602",
+      "title": "Apia de Roma",
+      "url": "https://www.buscalibre.com.co/libro-apia-de-roma/9789504981602/p/54929618?afiliado=74c874bfb5a8145d7c1b"
     }
   }
 }
