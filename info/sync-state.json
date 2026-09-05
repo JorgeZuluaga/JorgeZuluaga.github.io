@@ -1,11 +1,11 @@
 {
-  "updatedAt": "2026-09-05T14:13:48.018610+00:00",
+  "updatedAt": "2026-09-05T14:15:09.121641+00:00",
   "lastAttemptAt": "2026-09-05T13:48:39Z",
   "lastAttemptSource": "github-actions",
   "lastDailyGoodreadsSuccessAt": "2026-09-05T13:48:39Z",
-  "lastPeriodicSyncSuccessAt": "2026-09-04T15:07:33Z",
-  "lastGitCommitAt": "2026-09-04T15:07:33Z",
-  "lastGitCommitSha": "08b850a",
+  "lastPeriodicSyncSuccessAt": "2026-09-05T14:15:09Z",
+  "lastGitCommitAt": "2026-09-05T14:15:08Z",
+  "lastGitCommitSha": "9e13835",
   "lastFailureAt": "",
   "lastFailureReason": "",
   "lastFailureStep": "",
@@ -13,12 +13,6 @@
   "lastAttemptNumber": "1",
   "lastAttemptMax": "3",
   "autoRuns": [
-    {
-      "startedAt": "2026-07-06T14:31:55Z",
-      "finishedAt": "2026-07-06T14:52:36Z",
-      "success": true,
-      "reason": "completo"
-    },
     {
       "startedAt": "2026-07-07T13:24:04Z",
       "finishedAt": "2026-07-07T13:47:47Z",
@@ -372,7 +366,13 @@
       "finishedAt": "2026-09-04T15:07:33Z",
       "success": true,
       "reason": "completo"
+    },
+    {
+      "startedAt": "2026-09-05T13:48:39Z",
+      "finishedAt": "2026-09-05T14:15:09Z",
+      "success": true,
+      "reason": "completo"
     }
   ],
-  "lastPeriodicSyncSuccessAt_github-actions": "2026-09-04T15:07:33Z"
+  "lastPeriodicSyncSuccessAt_github-actions": "2026-09-05T14:15:09Z"
 }
