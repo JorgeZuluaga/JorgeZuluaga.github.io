@@ -1,7 +1,7 @@
 {
   "affiliateId": "74c874bfb5a8145d7c1b",
   "domain": "https://www.buscalibre.com.co",
-  "updatedAt": "2026-09-04T15:04:39.059872+00:00",
+  "updatedAt": "2026-09-05T14:12:49.215075+00:00",
   "books": {
     "6286160": {
       "bookId": "6286160",
@@ -3823,6 +3823,12 @@
       "isbn": "9789504981602",
       "title": "Apia de Roma",
       "url": "https://www.buscalibre.com.co/libro-apia-de-roma/9789504981602/p/54929618?afiliado=74c874bfb5a8145d7c1b"
+    },
+    "247283113": {
+      "bookId": "247283113",
+      "isbn": "9788410675353",
+      "title": "Inteligencia artificial y física: Un viaje compartido de descubrimientos",
+      "url": "https://www.buscalibre.com.co/libro-inteligencia-artificial-y-fisica-un-viaje-compartido-de-descubrimientos/9788410675353/p/65769791?afiliado=74c874bfb5a8145d7c1b"
     }
   }
 }

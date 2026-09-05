@@ -7,7 +7,7 @@
   "yearlyReads": [
     {
       "year": 2026,
-      "count": 66
+      "count": 67
     },
     {
       "year": 2025,
@@ -48,6 +48,24 @@
   ],
   "latestRead": [
     {
+      "bookId": "247283113",
+      "title": "Inteligencia artificial y física: Un viaje compartido de descubrimientos",
+      "author": "Jorge Bravo Abad",
+      "dateRead": "2026-09-04",
+      "rating": 4,
+      "reviewUrl": "https://www.goodreads.com/review/show/8916893750?utm_medium=api&utm_source=rss",
+      "reviewLikes": 0,
+      "drzrating": -1,
+      "isbn": "9788410675353",
+      "bookDetails": 0,
+      "matched": false,
+      "reviewLocalUrl": "./reviews/8916893750.html",
+      "reviewLocalCoverUrl": "./reviews/covers/8916893750.jpg",
+      "reviewLocalStatus": "ok",
+      "reviewLocalGeneratedAt": "2026-09-05T14:11:10.651178+00:00",
+      "reviewCount": 11
+    },
+    {
       "bookId": "144025193",
       "title": "Apia de Roma",
       "author": "Viviana Rivero",
@@ -62,11 +80,11 @@
       "reviewLocalUrl": "./reviews/8839079698.html",
       "reviewLocalCoverUrl": "./reviews/covers/8839079698.jpg",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-09-04T15:03:45.438730+00:00",
+      "reviewLocalGeneratedAt": "2026-09-05T14:11:11.901716+00:00",
       "reviewCount": 11,
       "drzratingAuto": true,
       "reviewLocalLikes": 0,
-      "reviewLocalLikesUpdatedAt": "2026-09-03T15:12:03.853145+00:00"
+      "reviewLocalLikesUpdatedAt": "2026-09-04T15:05:36.445135+00:00"
     },
     {
       "bookId": "256004393",
@@ -83,11 +101,11 @@
       "reviewLocalUrl": "./reviews/8865685833.html",
       "reviewLocalCoverUrl": "./reviews/covers/8865685833.jpg",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-09-04T15:03:46.482875+00:00",
+      "reviewLocalGeneratedAt": "2026-09-05T14:11:12.879607+00:00",
       "reviewCount": 11,
       "drzratingAuto": true,
       "reviewLocalLikes": 0,
-      "reviewLocalLikesUpdatedAt": "2026-09-03T15:12:03.853145+00:00"
+      "reviewLocalLikesUpdatedAt": "2026-09-04T15:05:36.445135+00:00"
     },
     {
       "bookId": "52770736",
@@ -103,7 +121,7 @@
       "reviewLocalCoverUrl": "./reviews/covers/4631221611.jpg",
       "reviewDate": "2022-05-22",
       "reviewLocalLikes": 0,
-      "reviewLocalLikesUpdatedAt": "2026-09-03T15:12:03.853145+00:00",
+      "reviewLocalLikesUpdatedAt": "2026-09-04T15:05:36.445135+00:00",
       "drzrating": 96,
       "bookDetails": 1,
       "reviewCount": 34,
@@ -136,32 +154,11 @@
       "reviewLocalUrl": "./reviews/8803861717.html",
       "reviewLocalCoverUrl": "./reviews/covers/8803861717.jpg",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-09-04T15:03:47.526917+00:00",
+      "reviewLocalGeneratedAt": "2026-09-05T14:11:13.976832+00:00",
       "reviewCount": 11,
       "drzratingAuto": true,
       "reviewLocalLikes": 0,
-      "reviewLocalLikesUpdatedAt": "2026-09-03T15:12:03.853145+00:00"
-    },
-    {
-      "bookId": "713143",
-      "title": "The UFO Experience: A Scientific Inquiry",
-      "author": "J. Allen Hynek",
-      "dateRead": "2026-08-10",
-      "rating": 4,
-      "reviewUrl": "https://www.goodreads.com/review/show/8842067352?utm_medium=api&utm_source=rss",
-      "reviewLikes": 0,
-      "drzrating": -1,
-      "isbn": "9781569247822",
-      "bookDetails": 0,
-      "matched": false,
-      "reviewLocalUrl": "./reviews/8842067352.html",
-      "reviewLocalCoverUrl": "./reviews/covers/8842067352.jpg",
-      "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-09-04T15:03:48.635351+00:00",
-      "reviewCount": 11,
-      "drzratingAuto": true,
-      "reviewLocalLikes": 0,
-      "reviewLocalLikesUpdatedAt": "2026-09-03T15:12:03.853145+00:00"
+      "reviewLocalLikesUpdatedAt": "2026-09-04T15:05:36.445135+00:00"
     }
   ],
   "topReviewedByLikes": [
@@ -179,7 +176,7 @@
       "reviewLocalStatus": "ok",
       "reviewLocalGeneratedAt": "2026-04-25T18:55:49.231144+00:00",
       "reviewLocalLikes": 1,
-      "reviewLocalLikesUpdatedAt": "2026-09-03T15:12:03.853145+00:00",
+      "reviewLocalLikesUpdatedAt": "2026-09-04T15:05:36.445135+00:00",
       "drzrating": 87,
       "bookDetails": 1,
       "reviewCount": 91,
@@ -211,7 +208,7 @@
       "reviewLocalCoverUrl": "./reviews/covers/4232235817.jpg",
       "reviewDate": "2021-09-14",
       "reviewLocalLikes": 0,
-      "reviewLocalLikesUpdatedAt": "2026-09-03T15:12:03.853145+00:00",
+      "reviewLocalLikesUpdatedAt": "2026-09-04T15:05:36.445135+00:00",
       "drzrating": 100,
       "bookDetails": 1,
       "reviewCount": 1019,
@@ -246,7 +243,7 @@
       "reviewLocalCoverUrl": "./reviews/covers/6667355680.jpg",
       "reviewDate": "2024-07-20",
       "reviewLocalLikes": 2,
-      "reviewLocalLikesUpdatedAt": "2026-09-03T15:12:03.853145+00:00",
+      "reviewLocalLikesUpdatedAt": "2026-09-04T15:05:36.445135+00:00",
       "drzrating": 96,
       "bookDetails": 1,
       "dateAdded": "2023-07-07",
@@ -279,7 +276,7 @@
       "reviewLocalCoverUrl": "./reviews/covers/3063403087.jpg",
       "reviewDate": "2023-02-26",
       "reviewLocalLikes": 0,
-      "reviewLocalLikesUpdatedAt": "2026-09-03T15:12:03.853145+00:00",
+      "reviewLocalLikesUpdatedAt": "2026-09-04T15:05:36.445135+00:00",
       "drzrating": 100,
       "bookDetails": 1,
       "reviewCount": 526,
@@ -311,7 +308,7 @@
       "reviewLocalCoverUrl": "./reviews/covers/4664229801.jpg",
       "reviewDate": "2022-04-15",
       "reviewLocalLikes": 0,
-      "reviewLocalLikesUpdatedAt": "2026-09-03T15:12:03.853145+00:00",
+      "reviewLocalLikesUpdatedAt": "2026-09-04T15:05:36.445135+00:00",
       "drzrating": 98,
       "bookDetails": 1,
       "reviewCount": 955,
@@ -345,7 +342,7 @@
       "reviewLocalCoverUrl": "./reviews/covers/3344914655.jpg",
       "reviewDate": "2020-07-03",
       "reviewLocalLikes": 0,
-      "reviewLocalLikesUpdatedAt": "2026-09-03T15:12:03.853145+00:00",
+      "reviewLocalLikesUpdatedAt": "2026-09-04T15:05:36.445135+00:00",
       "drzrating": 100,
       "bookDetails": 1,
       "dateAdded": "2020-12-31",
@@ -378,7 +375,7 @@
       "reviewLocalCoverUrl": "./reviews/covers/4278716233.jpg",
       "reviewDate": "2021-10-12",
       "reviewLocalLikes": 0,
-      "reviewLocalLikesUpdatedAt": "2026-09-03T15:12:03.853145+00:00",
+      "reviewLocalLikesUpdatedAt": "2026-09-04T15:05:36.445135+00:00",
       "drzrating": 99,
       "bookDetails": 1,
       "dateAdded": "2021-10-12",
@@ -410,7 +407,7 @@
       "reviewLocalCoverUrl": "./reviews/covers/5469066244.jpg",
       "reviewDate": "2023-05-28",
       "reviewLocalLikes": 0,
-      "reviewLocalLikesUpdatedAt": "2026-09-03T15:12:03.853145+00:00",
+      "reviewLocalLikesUpdatedAt": "2026-09-04T15:05:36.445135+00:00",
       "drzrating": 100,
       "bookDetails": 0,
       "reviewCount": 1286,
@@ -441,7 +438,7 @@
       "reviewLocalCoverUrl": "./reviews/covers/3758441020.jpg",
       "reviewDate": "2023-06-21",
       "reviewLocalLikes": 0,
-      "reviewLocalLikesUpdatedAt": "2026-09-03T15:12:03.853145+00:00",
+      "reviewLocalLikesUpdatedAt": "2026-09-04T15:05:36.445135+00:00",
       "drzrating": 100,
       "bookDetails": 1,
       "dateAdded": "2021-01-04",
@@ -475,7 +472,7 @@
       "reviewLocalCoverUrl": "./reviews/covers/3742582688.jpg",
       "reviewDate": "2024-06-10",
       "reviewLocalLikes": 0,
-      "reviewLocalLikesUpdatedAt": "2026-09-03T15:12:03.853145+00:00",
+      "reviewLocalLikesUpdatedAt": "2026-09-04T15:05:36.445135+00:00",
       "drzrating": 100,
       "bookDetails": 1,
       "dateAdded": "2021-02-03",
@@ -498,6 +495,24 @@
   ],
   "latestReviewed": [
     {
+      "bookId": "247283113",
+      "title": "Inteligencia artificial y física: Un viaje compartido de descubrimientos",
+      "author": "Jorge Bravo Abad",
+      "dateRead": "2026-09-04",
+      "rating": 4,
+      "reviewUrl": "https://www.goodreads.com/review/show/8916893750?utm_medium=api&utm_source=rss",
+      "reviewLikes": 0,
+      "drzrating": -1,
+      "isbn": "9788410675353",
+      "bookDetails": 0,
+      "matched": false,
+      "reviewLocalUrl": "./reviews/8916893750.html",
+      "reviewLocalCoverUrl": "./reviews/covers/8916893750.jpg",
+      "reviewLocalStatus": "ok",
+      "reviewLocalGeneratedAt": "2026-09-05T14:11:10.651178+00:00",
+      "reviewCount": 11
+    },
+    {
       "bookId": "144025193",
       "title": "Apia de Roma",
       "author": "Viviana Rivero",
@@ -512,11 +527,11 @@
       "reviewLocalUrl": "./reviews/8839079698.html",
       "reviewLocalCoverUrl": "./reviews/covers/8839079698.jpg",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-09-04T15:03:45.438730+00:00",
+      "reviewLocalGeneratedAt": "2026-09-05T14:11:11.901716+00:00",
       "reviewCount": 11,
       "drzratingAuto": true,
       "reviewLocalLikes": 0,
-      "reviewLocalLikesUpdatedAt": "2026-09-03T15:12:03.853145+00:00"
+      "reviewLocalLikesUpdatedAt": "2026-09-04T15:05:36.445135+00:00"
     },
     {
       "bookId": "256004393",
@@ -533,11 +548,11 @@
       "reviewLocalUrl": "./reviews/8865685833.html",
       "reviewLocalCoverUrl": "./reviews/covers/8865685833.jpg",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-09-04T15:03:46.482875+00:00",
+      "reviewLocalGeneratedAt": "2026-09-05T14:11:12.879607+00:00",
       "reviewCount": 11,
       "drzratingAuto": true,
       "reviewLocalLikes": 0,
-      "reviewLocalLikesUpdatedAt": "2026-09-03T15:12:03.853145+00:00"
+      "reviewLocalLikesUpdatedAt": "2026-09-04T15:05:36.445135+00:00"
     },
     {
       "bookId": "52770736",
@@ -553,7 +568,7 @@
       "reviewLocalCoverUrl": "./reviews/covers/4631221611.jpg",
       "reviewDate": "2022-05-22",
       "reviewLocalLikes": 0,
-      "reviewLocalLikesUpdatedAt": "2026-09-03T15:12:03.853145+00:00",
+      "reviewLocalLikesUpdatedAt": "2026-09-04T15:05:36.445135+00:00",
       "drzrating": 96,
       "bookDetails": 1,
       "reviewCount": 34,
@@ -586,37 +601,16 @@
       "reviewLocalUrl": "./reviews/8803861717.html",
       "reviewLocalCoverUrl": "./reviews/covers/8803861717.jpg",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-09-04T15:03:47.526917+00:00",
+      "reviewLocalGeneratedAt": "2026-09-05T14:11:13.976832+00:00",
       "reviewCount": 11,
       "drzratingAuto": true,
       "reviewLocalLikes": 0,
-      "reviewLocalLikesUpdatedAt": "2026-09-03T15:12:03.853145+00:00"
-    },
-    {
-      "bookId": "713143",
-      "title": "The UFO Experience: A Scientific Inquiry",
-      "author": "J. Allen Hynek",
-      "dateRead": "2026-08-10",
-      "rating": 4,
-      "reviewUrl": "https://www.goodreads.com/review/show/8842067352?utm_medium=api&utm_source=rss",
-      "reviewLikes": 0,
-      "drzrating": -1,
-      "isbn": "9781569247822",
-      "bookDetails": 0,
-      "matched": false,
-      "reviewLocalUrl": "./reviews/8842067352.html",
-      "reviewLocalCoverUrl": "./reviews/covers/8842067352.jpg",
-      "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-09-04T15:03:48.635351+00:00",
-      "reviewCount": 11,
-      "drzratingAuto": true,
-      "reviewLocalLikes": 0,
-      "reviewLocalLikesUpdatedAt": "2026-09-03T15:12:03.853145+00:00"
+      "reviewLocalLikesUpdatedAt": "2026-09-04T15:05:36.445135+00:00"
     }
   ],
   "totals": {
-    "booksRead": 616,
-    "booksReviewed": 616,
+    "booksRead": 617,
+    "booksReviewed": 617,
     "totalReviewLikes": 3343
   }
 }
