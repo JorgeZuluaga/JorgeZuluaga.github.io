@@ -582,3 +582,13 @@ stash:
 	git stash
 	git pull
 	git stash pop
+# --- dev/cleanall (auto) ---
+include .dev_common.mk
+
+.PHONY: cleanall
+
+cleanall: _dev_cleanall
+
+.PHONY: env
+
+env: _dev_env
