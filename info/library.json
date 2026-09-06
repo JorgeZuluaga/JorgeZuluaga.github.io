@@ -1,9 +1,9 @@
 {
-  "generatedAt": "2026-09-06T14:16:37.354448+00:00",
+  "generatedAt": "2026-09-06T17:36:50.729639+00:00",
   "source": {
     "rssUrl": "https://www.goodreads.com/review/list_rss/91991657?key=kpN1wAHi2GZUUO7BHv1v3ZCOGhOk_QjljXSDnXSc3kA-lzU7&shelf=%23ALL%23",
-    "scrapeLikes": true,
-    "scrapeLikesMode": "all"
+    "scrapeLikes": false,
+    "scrapeLikesMode": "none"
   },
   "books": [
     {
@@ -13,7 +13,7 @@
       "dateRead": "2026-09-04",
       "rating": 4,
       "reviewUrl": "https://www.goodreads.com/review/show/8916893750?utm_medium=api&utm_source=rss",
-      "hasReview": false,
+      "hasReview": true,
       "reviewLikes": 0,
       "scrapeStatus": "ok",
       "drzrating": -1,
@@ -37,7 +37,7 @@
       "dateRead": "2026-08-31",
       "rating": 5,
       "reviewUrl": "https://www.goodreads.com/review/show/8839079698?utm_medium=api&utm_source=rss",
-      "hasReview": false,
+      "hasReview": true,
       "reviewLikes": 1,
       "scrapeStatus": "ok",
       "drzrating": -1,
@@ -61,7 +61,7 @@
       "dateRead": "2026-08-30",
       "rating": 5,
       "reviewUrl": "https://www.goodreads.com/review/show/8865685833?utm_medium=api&utm_source=rss",
-      "hasReview": false,
+      "hasReview": true,
       "reviewLikes": 1,
       "scrapeStatus": "ok",
       "drzrating": -1,
@@ -21313,14 +21313,5 @@
       "dateAdded": "2020-12-31",
       "matched": true
     }
-  ],
-  "localLikesSnapshot": {
-    "generatedAt": "2026-09-06T14:18:44.574951+00:00",
-    "workerBase": "https://visitor-log-worker.jorgezuluaga.workers.dev",
-    "reviewedBooks": 617,
-    "updatedBooks": 0,
-    "failedBooks": 0,
-    "failureReasons": {},
-    "mode": "exact"
-  }
+  ]
 }
