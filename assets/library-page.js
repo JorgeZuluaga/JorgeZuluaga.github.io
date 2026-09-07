@@ -350,6 +350,9 @@ function isFeaturedReviewEligible(item) {
 }
 
 function pickFeaturedReview(reviewedBooks) {
+  const explicitFeatured = reviewedBooks.find((item) => item.featured === true);
+  if (explicitFeatured) return explicitFeatured;
+
   const recent = [...reviewedBooks]
     .filter((item) => item._reviewDate && parseReviewIdFromUrl(item.reviewUrl))
     .sort(compareReviewsByRecency)

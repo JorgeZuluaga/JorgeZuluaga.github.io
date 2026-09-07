@@ -56,7 +56,7 @@
     },
     {
       "bookId": "256004393",
-      "title": "El jardín del mundo (Spanish Edition)",
+      "title": "El jardín del mundo",
       "author": "Pablo Montoya",
       "dateRead": "2026-08-30",
       "rating": 5,
@@ -76,7 +76,8 @@
       "drzratingAuto": true,
       "reviewLocalLikes": 0,
       "reviewLocalLikesUpdatedAt": "2026-09-06T18:21:51.793375+00:00",
-      "reviewDate": "2026-09-06"
+      "reviewDate": "2026-09-06",
+      "featured": true
     },
     {
       "bookId": "52770736",
