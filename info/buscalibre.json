@@ -1,7 +1,7 @@
 {
   "affiliateId": "74c874bfb5a8145d7c1b",
   "domain": "https://www.buscalibre.com.co",
-  "updatedAt": "2026-09-09T15:27:08.529425+00:00",
+  "updatedAt": "2026-09-10T15:27:14.469757+00:00",
   "books": {
     "6286160": {
       "bookId": "6286160",
@@ -3841,6 +3841,60 @@
       "isbn": "9788412779745",
       "title": "Inteligencia artificial: Guía para seres pensantes",
       "url": "https://www.buscalibre.com.co/libro-digital-inteligencia-artificial-guia-para-seres-pensantes/9788412779745/p/68699935?afiliado=74c874bfb5a8145d7c1b"
+    },
+    "241640739": {
+      "bookId": "241640739",
+      "isbn": "9788426433220",
+      "title": "Un himno a la vida: Mi historia",
+      "url": "https://www.buscalibre.com.co/libro-digital-un-himno-a-la-vida-mi-historia/9788426433220/p/68720338?afiliado=74c874bfb5a8145d7c1b"
+    },
+    "243727708": {
+      "bookId": "243727708",
+      "isbn": "9788430627424",
+      "title": "En el palacio de los astrónomos: La transformación de la ciencia en la Europa del norte del siglo XVI (Spanish Edition)",
+      "url": "https://www.buscalibre.com.co/libro-digital-en-el-palacio-de-los-astronomos-la-transformacion-de-la-ciencia-en-la-europa-del-norte-del-siglo-xvi/9788430627424/p/68722911?afiliado=74c874bfb5a8145d7c1b"
+    },
+    "62012773": {
+      "bookId": "62012773",
+      "isbn": "9789587648461",
+      "title": "La noche de la peste (Spanish Edition)",
+      "url": "https://www.buscalibre.com.co/libro-digital-la-noche-de-la-peste/9789587648461/p/68753530?afiliado=74c874bfb5a8145d7c1b"
+    },
+    "39072768": {
+      "bookId": "39072768",
+      "isbn": "9788483936139",
+      "title": "Pelea de gallos",
+      "url": "https://www.buscalibre.com.co/libro-digital-pelea-de-gallos/9788483936139/p/68728903?afiliado=74c874bfb5a8145d7c1b"
+    },
+    "61815471": {
+      "bookId": "61815471",
+      "isbn": "9789569398735",
+      "title": "Vida: su origen, evolución y búsqueda en el espacio (Spanish Edition)",
+      "url": "https://www.buscalibre.com.co/libro-digital-vida-su-origen-evolucion-y-busqueda-en-el-espacio/9789569398735/p/68747654?afiliado=74c874bfb5a8145d7c1b"
+    },
+    "121174855": {
+      "bookId": "121174855",
+      "isbn": "9788425448928",
+      "title": "Mujeres, poder y conocimiento (Spanish Edition)",
+      "url": "https://www.buscalibre.com.co/libro-digital-mujeres-poder-y-conocimiento/9788425448928/p/68720166?afiliado=74c874bfb5a8145d7c1b"
+    },
+    "58841459": {
+      "bookId": "58841459",
+      "isbn": "9788424939748",
+      "title": "Historia. Libros III-V",
+      "url": "https://www.buscalibre.com.co/libro-digital-historia-libros-iii-v/9788424939748/p/68719625?afiliado=74c874bfb5a8145d7c1b"
+    },
+    "55359307": {
+      "bookId": "55359307",
+      "isbn": "9788424939731",
+      "title": "Historia. Libros I-II",
+      "url": "https://www.buscalibre.com.co/libro-digital-historia-libros-i-ii/9788424939731/p/68719624?afiliado=74c874bfb5a8145d7c1b"
+    },
+    "55457446": {
+      "bookId": "55457446",
+      "isbn": "9788417951115",
+      "title": "Petrocalipsis: Crisis energética global y cómo (no) la vamos a solucionar",
+      "url": "https://www.buscalibre.com.co/libro-digital-petrocalipsis-crisis-energetica-global-y-como-no-la-vamos-a-solucionar/9788417951115/p/68712712?afiliado=74c874bfb5a8145d7c1b"
     }
   }
 }
