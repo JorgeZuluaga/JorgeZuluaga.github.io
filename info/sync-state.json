@@ -1,8 +1,8 @@
 {
-  "updatedAt": "2026-09-18T15:18:01.499328+00:00",
-  "lastAttemptAt": "2026-09-18T14:53:38Z",
-  "lastAttemptSource": "github-actions",
-  "lastDailyGoodreadsSuccessAt": "2026-09-18T14:53:38Z",
+  "updatedAt": "2026-09-18T19:53:10.067656+00:00",
+  "lastAttemptAt": "2026-09-18T19:30:17Z",
+  "lastAttemptSource": "launchd",
+  "lastDailyGoodreadsSuccessAt": "2026-09-18T19:30:17Z",
   "lastPeriodicSyncSuccessAt": "2026-09-18T15:18:01Z",
   "lastGitCommitAt": "2026-09-18T15:18:01Z",
   "lastGitCommitSha": "5c4abdc",
@@ -13,18 +13,6 @@
   "lastAttemptNumber": "1",
   "lastAttemptMax": "3",
   "autoRuns": [
-    {
-      "startedAt": "2026-07-21T12:26:50Z",
-      "finishedAt": "2026-07-21T12:50:05Z",
-      "success": true,
-      "reason": "completo"
-    },
-    {
-      "startedAt": "2026-07-22T12:43:42Z",
-      "finishedAt": "2026-07-22T13:11:17Z",
-      "success": true,
-      "reason": "completo"
-    },
     {
       "startedAt": "2026-07-23T12:43:51Z",
       "finishedAt": "2026-07-23T12:59:02Z",
@@ -372,6 +360,18 @@
       "finishedAt": "2026-09-18T15:18:01Z",
       "success": true,
       "reason": "completo"
+    },
+    {
+      "startedAt": "2026-09-18T19:26:28Z",
+      "finishedAt": "2026-09-18T19:26:28Z",
+      "success": true,
+      "reason": "omitido (ya sincronizado hoy)"
+    },
+    {
+      "startedAt": "2026-09-18T19:26:43Z",
+      "finishedAt": "2026-09-18T19:26:43Z",
+      "success": true,
+      "reason": "omitido (ya sincronizado hoy)"
     }
   ],
   "lastPeriodicSyncSuccessAt_github-actions": "2026-09-18T15:18:01Z",

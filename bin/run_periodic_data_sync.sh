@@ -94,7 +94,16 @@ else
   trap 'rm -rf "$LOCK_DIR"' EXIT INT TERM
 fi
 
-if python3 bin/sync_skip_if_fresh.py; then
+FORCE=false
+for arg in "$@"; do
+  case "$arg" in
+    --force) FORCE=true ;;
+  esac
+done
+
+if [[ "$FORCE" == true ]]; then
+  echo "[$(utc_now)] --force: se omite el check de frescura."
+elif python3 bin/sync_skip_if_fresh.py; then
   TS="$(utc_now)"
   echo "[${TS}] Periodic sync skipped (already synced today)."
   record_auto_run "$TS" "$TS" true "omitido (ya sincronizado hoy)"
