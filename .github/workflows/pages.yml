@@ -12,7 +12,7 @@ on:
     - cron: '0 14 * * *' # 9:00 AM Bogota time
 
 permissions:
-  contents: read
+  contents: write
   pages: write
   id-token: write
 
@@ -64,3 +64,41 @@ jobs:
           # Máximo efectivo ~10 min (límite backend de Pages).
           timeout: 600000
           reporting_interval: 10000
+
+  notify:
+    # Enviar correos de reseñas nuevas DESPUÉS de que el deploy haya terminado,
+    # para que los enlaces en el correo ya apunten a contenido publicado.
+    runs-on: ubuntu-latest
+    needs: deploy
+    if: github.event_name != 'workflow_dispatch'
+    timeout-minutes: 10
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Notify new reviews
+        env:
+          GMAIL_SMTP_USER: ${{ secrets.GMAIL_SMTP_USER }}
+          GMAIL_APP_PASSWORD: ${{ secrets.GMAIL_APP_PASSWORD }}
+          REVIEW_NOTIFY_TOKEN: ${{ secrets.REVIEW_NOTIFY_TOKEN }}
+        run: |
+          python3 bin/notify_new_reviews.py || echo "notify_new_reviews omitido o falló."
+
+      - name: Commit notify state
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add info/review-notify-state.json info/sync-state.json 2>/dev/null || true
+          if ! git diff --cached --quiet 2>/dev/null; then
+            git commit -m "chore: update review notify state ($(date +'%Y-%m-%d %H:%M:%S %Z'))"
+            git push
+          fi

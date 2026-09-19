@@ -174,12 +174,6 @@ record_state \
   "lastPeriodicSyncSuccessAt_${SYNC_SOURCE}=${FINISHED}"
 record_auto_run "$RUN_STARTED" "$FINISHED" true "completo"
 
-echo "[$(utc_now)] Notificación de reseñas nuevas (tras Buscalibre y git push)..."
-if python3 "$REPO_DIR/bin/notify_new_reviews.py" 2>/dev/null; then
-  echo "[$(utc_now)] notify_new_reviews completado."
-  commit_notify_state_to_repo || true
-else
-  echo "[$(utc_now)] notify_new_reviews omitido o falló (revise Gmail/review-notify-token)." >&2
-fi
+echo "[$(utc_now)] Notificación de reseñas: se enviará tras deploy de Pages (ver pages.yml)."
 
 echo "[${FINISHED}] Periodic data sync completed."
