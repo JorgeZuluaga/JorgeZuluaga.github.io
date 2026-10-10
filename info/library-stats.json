@@ -7,7 +7,7 @@
   "yearlyReads": [
     {
       "year": 2026,
-      "count": 72
+      "count": 73
     },
     {
       "year": 2025,
@@ -48,6 +48,24 @@
   ],
   "latestRead": [
     {
+      "bookId": "25203664",
+      "title": "Dan Brown Omnibus: Inferno + El símbolo perdido",
+      "author": "Dan    Brown",
+      "dateRead": "2026-10-09",
+      "rating": 4,
+      "reviewUrl": "https://www.goodreads.com/review/show/8978052400?utm_medium=api&utm_source=rss",
+      "reviewLikes": 0,
+      "drzrating": -1,
+      "isbn": "9788408118312",
+      "bookDetails": 0,
+      "matched": false,
+      "reviewLocalUrl": "./reviews/8978052400.html",
+      "reviewLocalCoverUrl": "./reviews/covers/8978052400.jpg",
+      "reviewLocalStatus": "ok",
+      "reviewLocalGeneratedAt": "2026-10-10T16:22:25.564590+00:00",
+      "reviewCount": 11
+    },
+    {
       "bookId": "147207339",
       "title": "La hipotesis de la felicidad. La busqueda de verdades modernas en la sabiduria antigua (Psicologia) (Spanish Edition) by Jonathan Haidt (2006-10-09)",
       "author": "Jonathan Haidt",
@@ -61,11 +79,11 @@
       "reviewLocalUrl": "./reviews/8978666859.html",
       "reviewLocalCoverUrl": "./reviews/covers/8978666859.jpg",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-10-09T17:39:34.159472+00:00",
+      "reviewLocalGeneratedAt": "2026-10-10T16:22:27.782666+00:00",
       "reviewCount": 11,
       "drzratingAuto": true,
       "reviewLocalLikes": 0,
-      "reviewLocalLikesUpdatedAt": "2026-10-08T18:09:42.479785+00:00"
+      "reviewLocalLikesUpdatedAt": "2026-10-09T17:43:25.160360+00:00"
     },
     {
       "bookId": "44137339",
@@ -82,11 +100,11 @@
       "reviewLocalUrl": "./reviews/8907978055.html",
       "reviewLocalCoverUrl": "./reviews/covers/8907978055.jpg",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-10-09T17:39:32.352668+00:00",
+      "reviewLocalGeneratedAt": "2026-10-10T16:22:26.821375+00:00",
       "reviewCount": 11,
       "drzratingAuto": true,
       "reviewLocalLikes": 0,
-      "reviewLocalLikesUpdatedAt": "2026-10-08T18:09:42.479785+00:00"
+      "reviewLocalLikesUpdatedAt": "2026-10-09T17:43:25.160360+00:00"
     },
     {
       "bookId": "248160273",
@@ -103,11 +121,11 @@
       "reviewLocalUrl": "./reviews/8957826069.html",
       "reviewLocalCoverUrl": "./reviews/covers/8957826069.png",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-10-09T17:39:35.937307+00:00",
+      "reviewLocalGeneratedAt": "2026-10-10T16:22:28.776647+00:00",
       "reviewCount": 11,
       "drzratingAuto": true,
       "reviewLocalLikes": 0,
-      "reviewLocalLikesUpdatedAt": "2026-10-08T18:09:42.479785+00:00"
+      "reviewLocalLikesUpdatedAt": "2026-10-09T17:43:25.160360+00:00"
     },
     {
       "bookId": "244250488",
@@ -123,33 +141,11 @@
       "reviewLocalUrl": "./reviews/8938823936.html",
       "reviewLocalCoverUrl": "./reviews/covers/8938823936.jpg",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-10-09T17:40:05.684212+00:00",
+      "reviewLocalGeneratedAt": "2026-10-10T16:22:55.346409+00:00",
       "reviewCount": 1340,
       "drzratingAuto": true,
       "reviewLocalLikes": 0,
-      "reviewLocalLikesUpdatedAt": "2026-10-08T18:09:42.479785+00:00",
-      "reviewDate": "2026-09-18"
-    },
-    {
-      "bookId": "254535115",
-      "title": "La vida secreta del capitalismo (Spanish Edition)",
-      "author": "Margarita Serje",
-      "dateRead": "2026-09-11",
-      "rating": 5,
-      "reviewUrl": "https://www.goodreads.com/review/show/8920030058?utm_medium=api&utm_source=rss",
-      "reviewLikes": 2,
-      "drzrating": 90,
-      "isbn": "9786287900066",
-      "bookDetails": 0,
-      "matched": false,
-      "reviewLocalUrl": "./reviews/8920030058.html",
-      "reviewLocalCoverUrl": "./reviews/covers/8920030058.jpg",
-      "reviewLocalStatus": "error: The read operation timed out",
-      "reviewLocalGeneratedAt": "2026-10-08T18:06:01.221159+00:00",
-      "reviewCount": 656,
-      "drzratingAuto": true,
-      "reviewLocalLikes": 0,
-      "reviewLocalLikesUpdatedAt": "2026-10-08T18:09:42.479785+00:00",
+      "reviewLocalLikesUpdatedAt": "2026-10-09T17:43:25.160360+00:00",
       "reviewDate": "2026-09-18"
     }
   ],
@@ -168,7 +164,7 @@
       "reviewLocalStatus": "ok",
       "reviewLocalGeneratedAt": "2026-04-25T18:55:49.231144+00:00",
       "reviewLocalLikes": 1,
-      "reviewLocalLikesUpdatedAt": "2026-10-08T18:09:42.479785+00:00",
+      "reviewLocalLikesUpdatedAt": "2026-10-09T17:43:25.160360+00:00",
       "drzrating": 87,
       "bookDetails": 1,
       "reviewCount": 91,
@@ -200,7 +196,7 @@
       "reviewLocalCoverUrl": "./reviews/covers/4232235817.jpg",
       "reviewDate": "2021-09-14",
       "reviewLocalLikes": 0,
-      "reviewLocalLikesUpdatedAt": "2026-10-08T18:09:42.479785+00:00",
+      "reviewLocalLikesUpdatedAt": "2026-10-09T17:43:25.160360+00:00",
       "drzrating": 100,
       "bookDetails": 1,
       "reviewCount": 1019,
@@ -235,7 +231,7 @@
       "reviewLocalCoverUrl": "./reviews/covers/6667355680.jpg",
       "reviewDate": "2024-07-20",
       "reviewLocalLikes": 2,
-      "reviewLocalLikesUpdatedAt": "2026-10-08T18:09:42.479785+00:00",
+      "reviewLocalLikesUpdatedAt": "2026-10-09T17:43:25.160360+00:00",
       "drzrating": 96,
       "bookDetails": 1,
       "dateAdded": "2023-07-07",
@@ -268,7 +264,7 @@
       "reviewLocalCoverUrl": "./reviews/covers/3063403087.jpg",
       "reviewDate": "2023-02-26",
       "reviewLocalLikes": 0,
-      "reviewLocalLikesUpdatedAt": "2026-10-08T18:09:42.479785+00:00",
+      "reviewLocalLikesUpdatedAt": "2026-10-09T17:43:25.160360+00:00",
       "drzrating": 100,
       "bookDetails": 1,
       "reviewCount": 526,
@@ -300,7 +296,7 @@
       "reviewLocalCoverUrl": "./reviews/covers/4664229801.jpg",
       "reviewDate": "2022-04-15",
       "reviewLocalLikes": 0,
-      "reviewLocalLikesUpdatedAt": "2026-10-08T18:09:42.479785+00:00",
+      "reviewLocalLikesUpdatedAt": "2026-10-09T17:43:25.160360+00:00",
       "drzrating": 98,
       "bookDetails": 1,
       "reviewCount": 955,
@@ -334,7 +330,7 @@
       "reviewLocalCoverUrl": "./reviews/covers/3344914655.jpg",
       "reviewDate": "2020-07-03",
       "reviewLocalLikes": 0,
-      "reviewLocalLikesUpdatedAt": "2026-10-08T18:09:42.479785+00:00",
+      "reviewLocalLikesUpdatedAt": "2026-10-09T17:43:25.160360+00:00",
       "drzrating": 100,
       "bookDetails": 1,
       "dateAdded": "2020-12-31",
@@ -367,7 +363,7 @@
       "reviewLocalCoverUrl": "./reviews/covers/4278716233.jpg",
       "reviewDate": "2021-10-12",
       "reviewLocalLikes": 0,
-      "reviewLocalLikesUpdatedAt": "2026-10-08T18:09:42.479785+00:00",
+      "reviewLocalLikesUpdatedAt": "2026-10-09T17:43:25.160360+00:00",
       "drzrating": 99,
       "bookDetails": 1,
       "dateAdded": "2021-10-12",
@@ -399,7 +395,7 @@
       "reviewLocalCoverUrl": "./reviews/covers/5469066244.jpg",
       "reviewDate": "2023-05-28",
       "reviewLocalLikes": 0,
-      "reviewLocalLikesUpdatedAt": "2026-10-08T18:09:42.479785+00:00",
+      "reviewLocalLikesUpdatedAt": "2026-10-09T17:43:25.160360+00:00",
       "drzrating": 100,
       "bookDetails": 0,
       "reviewCount": 1286,
@@ -430,7 +426,7 @@
       "reviewLocalCoverUrl": "./reviews/covers/3758441020.jpg",
       "reviewDate": "2023-06-21",
       "reviewLocalLikes": 0,
-      "reviewLocalLikesUpdatedAt": "2026-10-08T18:09:42.479785+00:00",
+      "reviewLocalLikesUpdatedAt": "2026-10-09T17:43:25.160360+00:00",
       "drzrating": 100,
       "bookDetails": 1,
       "dateAdded": "2021-01-04",
@@ -464,7 +460,7 @@
       "reviewLocalCoverUrl": "./reviews/covers/3742582688.jpg",
       "reviewDate": "2024-06-10",
       "reviewLocalLikes": 0,
-      "reviewLocalLikesUpdatedAt": "2026-10-08T18:09:42.479785+00:00",
+      "reviewLocalLikesUpdatedAt": "2026-10-09T17:43:25.160360+00:00",
       "drzrating": 100,
       "bookDetails": 1,
       "dateAdded": "2021-02-03",
@@ -487,6 +483,24 @@
   ],
   "latestReviewed": [
     {
+      "bookId": "25203664",
+      "title": "Dan Brown Omnibus: Inferno + El símbolo perdido",
+      "author": "Dan    Brown",
+      "dateRead": "2026-10-09",
+      "rating": 4,
+      "reviewUrl": "https://www.goodreads.com/review/show/8978052400?utm_medium=api&utm_source=rss",
+      "reviewLikes": 0,
+      "drzrating": -1,
+      "isbn": "9788408118312",
+      "bookDetails": 0,
+      "matched": false,
+      "reviewLocalUrl": "./reviews/8978052400.html",
+      "reviewLocalCoverUrl": "./reviews/covers/8978052400.jpg",
+      "reviewLocalStatus": "ok",
+      "reviewLocalGeneratedAt": "2026-10-10T16:22:25.564590+00:00",
+      "reviewCount": 11
+    },
+    {
       "bookId": "147207339",
       "title": "La hipotesis de la felicidad. La busqueda de verdades modernas en la sabiduria antigua (Psicologia) (Spanish Edition) by Jonathan Haidt (2006-10-09)",
       "author": "Jonathan Haidt",
@@ -500,11 +514,11 @@
       "reviewLocalUrl": "./reviews/8978666859.html",
       "reviewLocalCoverUrl": "./reviews/covers/8978666859.jpg",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-10-09T17:39:34.159472+00:00",
+      "reviewLocalGeneratedAt": "2026-10-10T16:22:27.782666+00:00",
       "reviewCount": 11,
       "drzratingAuto": true,
       "reviewLocalLikes": 0,
-      "reviewLocalLikesUpdatedAt": "2026-10-08T18:09:42.479785+00:00"
+      "reviewLocalLikesUpdatedAt": "2026-10-09T17:43:25.160360+00:00"
     },
     {
       "bookId": "44137339",
@@ -521,11 +535,11 @@
       "reviewLocalUrl": "./reviews/8907978055.html",
       "reviewLocalCoverUrl": "./reviews/covers/8907978055.jpg",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-10-09T17:39:32.352668+00:00",
+      "reviewLocalGeneratedAt": "2026-10-10T16:22:26.821375+00:00",
       "reviewCount": 11,
       "drzratingAuto": true,
       "reviewLocalLikes": 0,
-      "reviewLocalLikesUpdatedAt": "2026-10-08T18:09:42.479785+00:00"
+      "reviewLocalLikesUpdatedAt": "2026-10-09T17:43:25.160360+00:00"
     },
     {
       "bookId": "248160273",
@@ -542,11 +556,11 @@
       "reviewLocalUrl": "./reviews/8957826069.html",
       "reviewLocalCoverUrl": "./reviews/covers/8957826069.png",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-10-09T17:39:35.937307+00:00",
+      "reviewLocalGeneratedAt": "2026-10-10T16:22:28.776647+00:00",
       "reviewCount": 11,
       "drzratingAuto": true,
       "reviewLocalLikes": 0,
-      "reviewLocalLikesUpdatedAt": "2026-10-08T18:09:42.479785+00:00"
+      "reviewLocalLikesUpdatedAt": "2026-10-09T17:43:25.160360+00:00"
     },
     {
       "bookId": "244250488",
@@ -562,39 +576,17 @@
       "reviewLocalUrl": "./reviews/8938823936.html",
       "reviewLocalCoverUrl": "./reviews/covers/8938823936.jpg",
       "reviewLocalStatus": "ok",
-      "reviewLocalGeneratedAt": "2026-10-09T17:40:05.684212+00:00",
+      "reviewLocalGeneratedAt": "2026-10-10T16:22:55.346409+00:00",
       "reviewCount": 1340,
       "drzratingAuto": true,
       "reviewLocalLikes": 0,
-      "reviewLocalLikesUpdatedAt": "2026-10-08T18:09:42.479785+00:00",
-      "reviewDate": "2026-09-18"
-    },
-    {
-      "bookId": "254535115",
-      "title": "La vida secreta del capitalismo (Spanish Edition)",
-      "author": "Margarita Serje",
-      "dateRead": "2026-09-11",
-      "rating": 5,
-      "reviewUrl": "https://www.goodreads.com/review/show/8920030058?utm_medium=api&utm_source=rss",
-      "reviewLikes": 2,
-      "drzrating": 90,
-      "isbn": "9786287900066",
-      "bookDetails": 0,
-      "matched": false,
-      "reviewLocalUrl": "./reviews/8920030058.html",
-      "reviewLocalCoverUrl": "./reviews/covers/8920030058.jpg",
-      "reviewLocalStatus": "error: The read operation timed out",
-      "reviewLocalGeneratedAt": "2026-10-08T18:06:01.221159+00:00",
-      "reviewCount": 656,
-      "drzratingAuto": true,
-      "reviewLocalLikes": 0,
-      "reviewLocalLikesUpdatedAt": "2026-10-08T18:09:42.479785+00:00",
+      "reviewLocalLikesUpdatedAt": "2026-10-09T17:43:25.160360+00:00",
       "reviewDate": "2026-09-18"
     }
   ],
   "totals": {
-    "booksRead": 622,
-    "booksReviewed": 622,
+    "booksRead": 623,
+    "booksReviewed": 623,
     "totalReviewLikes": 3383
   }
 }
