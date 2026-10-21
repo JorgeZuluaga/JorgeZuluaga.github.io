@@ -1,7 +1,7 @@
 {
   "affiliateId": "74c874bfb5a8145d7c1b",
   "domain": "https://www.buscalibre.com.co",
-  "updatedAt": "2026-10-20T15:46:52.966828+00:00",
+  "updatedAt": "2026-10-21T16:14:29.794865+00:00",
   "books": {
     "6286160": {
       "bookId": "6286160",
@@ -98,7 +98,8 @@
       "bookId": "52275150",
       "isbn": "9786070758676",
       "url": "https://www.buscalibre.com.co/libro-la-unica-mujer/9786070758676/p/51973796?afiliado=74c874bfb5a8145d7c1b",
-      "title": "La única mujer"
+      "title": "La única mujer",
+      "shorturl": "https://is.gd/ZB5Y00"
     },
     "21953517": {
       "bookId": "21953517",
@@ -468,7 +469,8 @@
       "bookId": "61226102",
       "isbn": "9788415732532",
       "url": "https://www.buscalibre.com.co/libro-una-muy-breve-historia-de-la-vida-en-la-tierra/9788415732532/p/54060701?afiliado=74c874bfb5a8145d7c1b",
-      "title": "Una (Muy) breve historia de la vida en la Tierra (Spanish Edition)"
+      "title": "Una (Muy) breve historia de la vida en la Tierra (Spanish Edition)",
+      "shorturl": "https://is.gd/jiKJaf"
     },
     "18001084": {
       "bookId": "18001084",
@@ -481,7 +483,8 @@
       "bookId": "23382193",
       "isbn": "9788415945505",
       "url": "https://www.buscalibre.com.co/libro-la-hermandad/9788415945505/p/46303521?afiliado=74c874bfb5a8145d7c1b",
-      "title": "La Hermandad (El asesinato de Pitágoras #2)"
+      "title": "La Hermandad (El asesinato de Pitágoras #2)",
+      "shorturl": "https://is.gd/Inguit"
     },
     "201558781": {
       "bookId": "201558781",
@@ -522,7 +525,8 @@
       "bookId": "61839157",
       "isbn": "9788416946082",
       "url": "https://www.buscalibre.com.co/libro-la-creacion-del-patriarcado/9788416946082/p/49112109?afiliado=74c874bfb5a8145d7c1b",
-      "title": "La creación del patriarcado"
+      "title": "La creación del patriarcado",
+      "shorturl": "https://is.gd/CguLsp"
     },
     "40791418": {
       "bookId": "40791418",
@@ -661,7 +665,8 @@
       "bookId": "58888589",
       "isbn": "9788418056741",
       "url": "https://www.buscalibre.com.co/libro-desastre/9788418056741/p/53572658?afiliado=74c874bfb5a8145d7c1b",
-      "title": "Desastre: Historia y política de las catástrofes"
+      "title": "Desastre: Historia y política de las catástrofes",
+      "shorturl": "https://is.gd/SHVva8"
     },
     "54657941": {
       "bookId": "54657941",
@@ -709,7 +714,8 @@
       "bookId": "65156334",
       "isbn": "9788418619670",
       "url": "https://www.buscalibre.com.co/libro-la-luz-revelada-ebook/9788418619670/p/54336779?afiliado=74c874bfb5a8145d7c1b",
-      "title": "La luz revelada: Del telescopio de Galileo a la extrañeza cuántica (Spanish Edition)"
+      "title": "La luz revelada: Del telescopio de Galileo a la extrañeza cuántica (Spanish Edition)",
+      "shorturl": "https://is.gd/dNZnMD"
     },
     "89009188": {
       "bookId": "89009188",
@@ -722,7 +728,8 @@
       "bookId": "63392722",
       "isbn": "9788418967986",
       "url": "https://www.buscalibre.com.co/libro-prometeo-americano-el-libro-que-inspiro-la-pelicula-oppenheimer-american-prom-etheus/9788418967986/p/54398358?afiliado=74c874bfb5a8145d7c1b",
-      "title": "Prometeo americano: El triunfo y la tragedia de J. Robert Oppenheimer"
+      "title": "Prometeo americano: El triunfo y la tragedia de J. Robert Oppenheimer",
+      "shorturl": "https://is.gd/VK4egC"
     },
     "122763633": {
       "bookId": "122763633",
@@ -742,7 +749,8 @@
       "bookId": "122941880",
       "isbn": "9788419399465",
       "url": "https://www.buscalibre.com.co/libro-la-armonia-de-las-celulas/9788419399465/p/54624506?afiliado=74c874bfb5a8145d7c1b",
-      "title": "La armonía de las células: Una exploración de la medicina y del nuevo ser humano / The Song of the Cell: An Exploration of Medicine and the New Human (Spanish Edition)"
+      "title": "La armonía de las células: Una exploración de la medicina y del nuevo ser humano / The Song of the Cell: An Exploration of Medicine and the New Human (Spanish Edition)",
+      "shorturl": "https://is.gd/QKhHj9"
     },
     "202968198": {
       "bookId": "202968198",
@@ -762,7 +770,8 @@
       "bookId": "209668727",
       "isbn": "9788419642738",
       "url": "https://www.buscalibre.com.co/libro-el-tamano-de-las-cosas/9788419642738/p/58769812?afiliado=74c874bfb5a8145d7c1b",
-      "title": "El tamaño de las cosas / Size : How It Explains the World (Spanish Edition)"
+      "title": "El tamaño de las cosas / Size : How It Explains the World (Spanish Edition)",
+      "shorturl": "https://is.gd/cfLDS0"
     },
     "204927599": {
       "bookId": "204927599",
@@ -852,7 +861,8 @@
       "bookId": "6941039",
       "isbn": "9788420646824",
       "url": "https://www.buscalibre.com.co/libro-bach-a-100/9788420646824/p/35978932?afiliado=74c874bfb5a8145d7c1b",
-      "title": "Bach"
+      "title": "Bach",
+      "shorturl": "https://is.gd/scCSyl"
     },
     "13601819": {
       "bookId": "13601819",
@@ -865,7 +875,8 @@
       "bookId": "30978855",
       "isbn": "9788420674605",
       "url": "https://www.buscalibre.com.co/libro-vida-en-el-universo-una-introduccion-a-la-astrobiologia/9788420674605/p/27870894?afiliado=74c874bfb5a8145d7c1b",
-      "title": "Vida en el universo"
+      "title": "Vida en el universo",
+      "shorturl": "https://is.gd/r2H7r8"
     },
     "42401611": {
       "bookId": "42401611",
@@ -920,13 +931,15 @@
       "bookId": "59791125",
       "isbn": "9788424938963",
       "url": "https://www.buscalibre.com.co/libro-meditaciones/9788424938963/p/51670925?afiliado=74c874bfb5a8145d7c1b",
-      "title": "Meditaciones: Marco Aurelio"
+      "title": "Meditaciones: Marco Aurelio",
+      "shorturl": "https://is.gd/kWt5eN"
     },
     "769488": {
       "bookId": "769488",
       "isbn": "9788425344459",
       "url": "https://www.buscalibre.com.co/libro-la-catedral-del-mar/9788425344459/p/16407814?afiliado=74c874bfb5a8145d7c1b",
-      "title": "La catedral del mar"
+      "title": "La catedral del mar",
+      "shorturl": "https://is.gd/4xgXmd"
     },
     "244149479": {
       "bookId": "244149479",
@@ -1121,13 +1134,15 @@
       "bookId": "199066748",
       "isbn": "9788433918994",
       "url": "https://www.buscalibre.com.co/libro-maniac-ebook/9788433918994/p/55712663?afiliado=74c874bfb5a8145d7c1b",
-      "title": "MANIAC"
+      "title": "MANIAC",
+      "shorturl": "https://is.gd/zPhvqF"
     },
     "5280500": {
       "bookId": "5280500",
       "isbn": "9788433973436",
       "url": "https://www.buscalibre.com.co/libro-la-trama-de-la-vida-3-ed/9788433973436/p/2393536?afiliado=74c874bfb5a8145d7c1b",
-      "title": "La trama de la vida. Una nueva perspectiva de los sistemas vivos"
+      "title": "La trama de la vida. Una nueva perspectiva de los sistemas vivos",
+      "shorturl": "https://is.gd/Yfn9i7"
     },
     "55756916": {
       "bookId": "55756916",
@@ -1168,7 +1183,8 @@
       "bookId": "98095162",
       "isbn": "9788434436060",
       "url": "https://www.buscalibre.com.co/libro-magia-portatil/9788434436060/p/54477108?afiliado=74c874bfb5a8145d7c1b",
-      "title": "Magia portátil: Una historia alternativa de los libros y sus lectores"
+      "title": "Magia portátil: Una historia alternativa de los libros y sus lectores",
+      "shorturl": "https://is.gd/iCFksd"
     },
     "75317019": {
       "bookId": "75317019",
@@ -1209,7 +1225,8 @@
       "bookId": "26029195",
       "isbn": "9788435021975",
       "url": "https://www.buscalibre.com.co/libro-cumbres-borrascosas/9788435021975/p/53076657?afiliado=74c874bfb5a8145d7c1b",
-      "title": "Cumbres borrascosas"
+      "title": "Cumbres borrascosas",
+      "shorturl": "https://is.gd/3FMFE7"
     },
     "59931194": {
       "bookId": "59931194",
@@ -1285,7 +1302,8 @@
       "bookId": "58467332",
       "isbn": "9788446037880",
       "url": "https://www.buscalibre.com.co/libro-el-antiguo-egipto-por-cinco-deben-al-dia/9788446037880/p/35306690?afiliado=74c874bfb5a8145d7c1b",
-      "title": "El Antiguo Egipto por 5 deben al día"
+      "title": "El Antiguo Egipto por 5 deben al día",
+      "shorturl": "https://is.gd/C7aUsn"
     },
     "237811588": {
       "bookId": "237811588",
@@ -1319,7 +1337,8 @@
       "bookId": "61322101",
       "isbn": "9788449339875",
       "url": "https://www.buscalibre.com.co/libro-la-vida-es-simple/9788449339875/p/54336795?afiliado=74c874bfb5a8145d7c1b",
-      "title": "La vida es simple: La navaja de Occam y la nueva historia de la ciencia y el universo"
+      "title": "La vida es simple: La navaja de Occam y la nueva historia de la ciencia y el universo",
+      "shorturl": "https://is.gd/Vfl8U4"
     },
     "62206840": {
       "bookId": "62206840",
@@ -1416,7 +1435,8 @@
       "bookId": "270882",
       "isbn": "9788472238442",
       "url": "https://www.buscalibre.com.co/libro-el-quark-y-el-jaguar/9788472238442/p/1026445?afiliado=74c874bfb5a8145d7c1b",
-      "title": "El quark y el jaguar"
+      "title": "El quark y el jaguar",
+      "shorturl": "https://is.gd/pQoQzH"
     },
     "40538196": {
       "bookId": "40538196",
@@ -1478,7 +1498,8 @@
       "bookId": "6745991",
       "isbn": "9788484607441",
       "url": "https://www.buscalibre.com.co/libro-el-sanador-de-caballos/9788484607441/p/3407421?afiliado=74c874bfb5a8145d7c1b",
-      "title": "El Sanador de Caballos"
+      "title": "El Sanador de Caballos",
+      "shorturl": "https://is.gd/TayDnf"
     },
     "22820681": {
       "bookId": "22820681",
@@ -1519,7 +1540,8 @@
       "bookId": "450643",
       "isbn": "9788490698044",
       "url": "https://www.buscalibre.com.co/libro-la-historia-de-los-judios-ebook/9788490698044/p/53241206?afiliado=74c874bfb5a8145d7c1b",
-      "title": "La historia de los judíos (Spanish Edition)"
+      "title": "La historia de los judíos (Spanish Edition)",
+      "shorturl": "https://is.gd/lwI8cJ"
     },
     "45363076": {
       "bookId": "45363076",
@@ -1630,7 +1652,8 @@
       "bookId": "62682712",
       "isbn": "9788491994626",
       "url": "https://www.buscalibre.com.co/libro-cuestion-de-olfato-bill-hansson-libro-fisico/9788491994626/p/54328812?afiliado=74c874bfb5a8145d7c1b",
-      "title": "Cuestión de olfato: Historias asombrosas sobre el mundo de los olores"
+      "title": "Cuestión de olfato: Historias asombrosas sobre el mundo de los olores",
+      "shorturl": "https://is.gd/rdGfFA"
     },
     "123245126": {
       "bookId": "123245126",
@@ -1657,7 +1680,8 @@
       "bookId": "215857232",
       "isbn": "9788491996927",
       "url": "https://www.buscalibre.com.co/libro-el-coliseo/9788491996927/p/62893297?afiliado=74c874bfb5a8145d7c1b",
-      "title": "El Coliseo"
+      "title": "El Coliseo",
+      "shorturl": "https://is.gd/jtJ2gG"
     },
     "60761335": {
       "bookId": "60761335",
@@ -1691,7 +1715,8 @@
       "bookId": "28559780",
       "isbn": "9788494516337",
       "url": "https://www.buscalibre.com.co/libro-escrituras-lengua-y-cultura-en-el-antiguo-egipto/9788494516337/p/47418468?afiliado=74c874bfb5a8145d7c1b",
-      "title": "Escrituras, lengua y cultura en el antiguo Egipto"
+      "title": "Escrituras, lengua y cultura en el antiguo Egipto",
+      "shorturl": "https://is.gd/HdVpL6"
     },
     "22060147": {
       "bookId": "22060147",
@@ -1802,7 +1827,8 @@
       "bookId": "24379753",
       "isbn": "9788499187426",
       "url": "https://www.buscalibre.com.co/libro-rusia/9788499187426/p/46808984?afiliado=74c874bfb5a8145d7c1b",
-      "title": "Rusia"
+      "title": "Rusia",
+      "shorturl": "https://is.gd/nQRx8E"
     },
     "10297104": {
       "bookId": "10297104",
@@ -1857,7 +1883,8 @@
       "bookId": "13514795",
       "isbn": "9789500726092",
       "url": "https://www.buscalibre.com.co/libro-cien-anos-de-soledad/9789500726092/p/1254156?afiliado=74c874bfb5a8145d7c1b",
-      "title": "Cien años de soledad"
+      "title": "Cien años de soledad",
+      "shorturl": "https://is.gd/gqaGQZ"
     },
     "48842680": {
       "bookId": "48842680",
@@ -1877,7 +1904,8 @@
       "bookId": "17333142",
       "isbn": "9789584233844",
       "url": "https://www.buscalibre.com.co/libro-el-maestro-del-prado-y-las-pinturas-profeticas/9789584233844/p/25993956?afiliado=74c874bfb5a8145d7c1b",
-      "title": "El maestro del Prado"
+      "title": "El maestro del Prado",
+      "shorturl": "https://is.gd/uoXkCe"
     },
     "53867650": {
       "bookId": "53867650",
@@ -1946,7 +1974,8 @@
       "bookId": "43823891",
       "isbn": "9789584268365",
       "url": "https://www.buscalibre.com.co/libro-la-vida-secreta-del-cerebro/9789584268365/p/50130592?afiliado=74c874bfb5a8145d7c1b",
-      "title": "La vida secreta del cerebro: Cómo se construyen las emociones"
+      "title": "La vida secreta del cerebro: Cómo se construyen las emociones",
+      "shorturl": "https://is.gd/ZN2AMZ"
     },
     "40135796": {
       "bookId": "40135796",
@@ -2085,13 +2114,15 @@
       "bookId": "54155668",
       "isbn": "9789585446908",
       "url": "https://www.buscalibre.com.co/libro-como-se-hizo-el-espanol/9789585446908/p/52394944?afiliado=74c874bfb5a8145d7c1b",
-      "title": "Cómo se hizo el español: La admirable historia de nuestra lengua (Spanish Edition)"
+      "title": "Cómo se hizo el español: La admirable historia de nuestra lengua (Spanish Edition)",
+      "shorturl": "https://is.gd/MedU6a"
     },
     "44577138": {
       "bookId": "44577138",
       "isbn": "9789585464513",
       "url": "https://www.buscalibre.com.co/libro-las-mujeres-que-luchan-se-encuentran/9789585464513/p/51445960?afiliado=74c874bfb5a8145d7c1b",
-      "title": "Las mujeres que luchan se encuentran: Manual de feminismo pop latinoamericano"
+      "title": "Las mujeres que luchan se encuentran: Manual de feminismo pop latinoamericano",
+      "shorturl": "https://is.gd/ttQk1G"
     },
     "43906748": {
       "bookId": "43906748",
@@ -2132,7 +2163,8 @@
       "bookId": "25006475",
       "isbn": "9789585863682",
       "url": "https://www.buscalibre.com.co/libro-del-otro-lado-del-jardin/9789585863682/p/46863607?afiliado=74c874bfb5a8145d7c1b",
-      "title": "Del Otro Lado Del Jardín"
+      "title": "Del Otro Lado Del Jardín",
+      "shorturl": "https://is.gd/Rrx0s8"
     },
     "1995": {
       "bookId": "1995",
@@ -2166,7 +2198,8 @@
       "bookId": "42959231",
       "isbn": "9789586969895",
       "url": "https://www.buscalibre.com.co/libro-el-instante-luminoso/9789586969895/p/52783480?afiliado=74c874bfb5a8145d7c1b",
-      "title": "El instante luminoso"
+      "title": "El instante luminoso",
+      "shorturl": "https://is.gd/Smy1jw"
     },
     "51569075": {
       "bookId": "51569075",
@@ -2221,7 +2254,8 @@
       "bookId": "17230085",
       "isbn": "9789588640501",
       "url": "https://www.buscalibre.com.co/libro-la-serpiente-sin-ojos/9789588640501/p/53226507?afiliado=74c874bfb5a8145d7c1b",
-      "title": "La serpiente sin ojos"
+      "title": "La serpiente sin ojos",
+      "shorturl": "https://is.gd/Uq7JoY"
     },
     "4912811": {
       "bookId": "4912811",
@@ -2234,13 +2268,15 @@
       "bookId": "7802262",
       "isbn": "9789588773636",
       "url": "https://www.buscalibre.com.co/libro-la-carretera/9789588773636/p/28318879?afiliado=74c874bfb5a8145d7c1b",
-      "title": "La carretera"
+      "title": "La carretera",
+      "shorturl": "https://is.gd/Hpvxoq"
     },
     "18939961": {
       "bookId": "18939961",
       "isbn": "9789588794280",
       "url": "https://www.buscalibre.com.co/libro-lejos-de-roma/9789588794280/p/42981871?afiliado=74c874bfb5a8145d7c1b",
-      "title": "Lejos de Roma"
+      "title": "Lejos de Roma",
+      "shorturl": "https://is.gd/z2UaiK"
     },
     "25785264": {
       "bookId": "25785264",
@@ -2281,13 +2317,15 @@
       "bookId": "28816480",
       "isbn": "9789588925424",
       "url": "https://www.buscalibre.com.co/libro-moby-dick/9789588925424/p/46796897?afiliado=74c874bfb5a8145d7c1b",
-      "title": "Moby Dick"
+      "title": "Moby Dick",
+      "shorturl": "https://is.gd/OMrWue"
     },
     "27778352": {
       "bookId": "27778352",
       "isbn": "9789588931197",
       "url": "https://www.buscalibre.com.co/libro-voces-de-chernobil/9789588931197/p/47011747?afiliado=74c874bfb5a8145d7c1b",
-      "title": "Voces de Chernóbil: Crónica del futuro (Voces de utopía, #4)"
+      "title": "Voces de Chernóbil: Crónica del futuro (Voces de utopía, #4)",
+      "shorturl": "https://is.gd/F6C2uR"
     },
     "33511979": {
       "bookId": "33511979",
@@ -2328,7 +2366,8 @@
       "bookId": "8542774",
       "isbn": "9789588969619",
       "url": "https://www.buscalibre.com.co/libro-los-simpson-y-la-filosofia/9789588969619/p/51350848?afiliado=74c874bfb5a8145d7c1b",
-      "title": "Los Simpson y la filosofía (Cultura popular y filosofía, #2)"
+      "title": "Los Simpson y la filosofía (Cultura popular y filosofía, #2)",
+      "shorturl": "https://is.gd/7Jg7wu"
     },
     "32904032": {
       "bookId": "32904032",
@@ -2362,7 +2401,8 @@
       "bookId": "31950234",
       "isbn": "9789589219102",
       "url": "https://www.buscalibre.com.co/libro-la-invencion-de-la-naturaleza/9789589219102/p/48052643?afiliado=74c874bfb5a8145d7c1b",
-      "title": "La invención de la naturaleza: El Nuevo Mundo de Alexander von Humboldt"
+      "title": "La invención de la naturaleza: El Nuevo Mundo de Alexander von Humboldt",
+      "shorturl": "https://is.gd/VAplTd"
     },
     "10816875": {
       "bookId": "10816875",
@@ -2382,19 +2422,22 @@
       "bookId": "14735268",
       "isbn": "9789681663421",
       "url": "https://www.buscalibre.com.co/libro-historia-fontana-de-la-astronomia-y-la-cosmologia/9789681663421/p/1036785?afiliado=74c874bfb5a8145d7c1b",
-      "title": "Historia Fontana de la astronomía y la cosmología (Spanish Edition)"
+      "title": "Historia Fontana de la astronomía y la cosmología (Spanish Edition)",
+      "shorturl": "https://is.gd/xEOs4T"
     },
     "21524683": {
       "bookId": "21524683",
       "isbn": "9789871138692",
       "url": "https://www.buscalibre.com.co/libro-memorias-de-adriano/9789871138692/p/2616992?afiliado=74c874bfb5a8145d7c1b",
-      "title": "Memorias de Adriano"
+      "title": "Memorias de Adriano",
+      "shorturl": "https://is.gd/kmUSxA"
     },
     "27153845": {
       "bookId": "27153845",
       "isbn": "9789873752339",
       "url": "https://www.buscalibre.com.co/libro-la-vida-secreta-de-la-mente-ebook/9789873752339/p/53229568?afiliado=74c874bfb5a8145d7c1b",
-      "title": "La vida secreta de la mente: Nuestro cerebro cuando decidimos, sentimos y pensamos"
+      "title": "La vida secreta de la mente: Nuestro cerebro cuando decidimos, sentimos y pensamos",
+      "shorturl": "https://is.gd/XD2uAf"
     },
     "53247016": {
       "bookId": "53247016",
@@ -2477,13 +2520,15 @@
       "bookId": "40542612",
       "isbn": "9788430619658",
       "title": "Vida 3.0: Ser humano en la era de la Inteligencia Artificial",
-      "url": "https://www.buscalibre.com.co/libro-vida-3-0/9788430619658/p/53244246?afiliado=74c874bfb5a8145d7c1b"
+      "url": "https://www.buscalibre.com.co/libro-vida-3-0/9788430619658/p/53244246?afiliado=74c874bfb5a8145d7c1b",
+      "shorturl": "https://is.gd/40Mdjc"
     },
     "249891440": {
       "bookId": "249891440",
       "isbn": "9788446057390",
       "title": "El cosmos en el arte: Del sistema solar a los confines del universo",
-      "url": "https://www.buscalibre.com.co/libro-el-cosmos-en-el-arte-del-sistema-solar-a-los-confines-del-universo/9788446057390/p/66886062?afiliado=74c874bfb5a8145d7c1b"
+      "url": "https://www.buscalibre.com.co/libro-el-cosmos-en-el-arte-del-sistema-solar-a-los-confines-del-universo/9788446057390/p/66886062?afiliado=74c874bfb5a8145d7c1b",
+      "shorturl": "https://is.gd/PdDaaX"
     },
     "25857483": {
       "bookId": "25857483",
@@ -2496,7 +2541,8 @@
       "bookId": "241098479",
       "isbn": "9788423368730",
       "title": "Inteligencia natural y la lógica de la consciencia",
-      "url": "https://www.buscalibre.com.co/libro-inteligencia-natural-y-la-logica-de-la-consciencia/9788423368730/p/64596619?afiliado=74c874bfb5a8145d7c1b"
+      "url": "https://www.buscalibre.com.co/libro-inteligencia-natural-y-la-logica-de-la-consciencia/9788423368730/p/64596619?afiliado=74c874bfb5a8145d7c1b",
+      "shorturl": "https://is.gd/06Jmj3"
     },
     "32023743": {
       "bookId": "32023743",
@@ -2537,7 +2583,8 @@
       "bookId": "5996229",
       "isbn": "9789586396103",
       "title": "A las puertas del El Ubérrimo",
-      "url": "https://www.buscalibre.com.co/libro-a-las-puertas-de-el-uberrimo/9789586396103/p/17585619?afiliado=74c874bfb5a8145d7c1b"
+      "url": "https://www.buscalibre.com.co/libro-a-las-puertas-de-el-uberrimo/9789586396103/p/17585619?afiliado=74c874bfb5a8145d7c1b",
+      "shorturl": "https://is.gd/E3wBok"
     },
     "220648311": {
       "bookId": "220648311",
@@ -2662,7 +2709,8 @@
       "bookId": "56644361",
       "isbn": "9788417977580",
       "title": "Hamnet",
-      "url": "https://www.buscalibre.com.co/libro-hamnet/9788417977580/p/53161210?afiliado=74c874bfb5a8145d7c1b"
+      "url": "https://www.buscalibre.com.co/libro-hamnet/9788417977580/p/53161210?afiliado=74c874bfb5a8145d7c1b",
+      "shorturl": "https://is.gd/ngESQv"
     },
     "337": {
       "bookId": "337",
@@ -2787,19 +2835,22 @@
       "bookId": "53013966",
       "isbn": "9788412064506",
       "title": "Los sentidos de las aves: qué se siente al ser un pájaro",
-      "url": "https://www.buscalibre.com.co/libro-los-sentidos-de-las-aves/9788412064506/p/51993764?afiliado=74c874bfb5a8145d7c1b"
+      "url": "https://www.buscalibre.com.co/libro-los-sentidos-de-las-aves/9788412064506/p/51993764?afiliado=74c874bfb5a8145d7c1b",
+      "shorturl": "https://is.gd/cLqZF8"
     },
     "230992651": {
       "bookId": "230992651",
       "isbn": "9788418227578",
       "title": "Guía de Egipto para piramidólogos y marcianos",
-      "url": "https://www.buscalibre.com.co/libro-guia-de-egipto-para-piramidologos-y-marcianos/9788418227578/p/64198830?afiliado=74c874bfb5a8145d7c1b"
+      "url": "https://www.buscalibre.com.co/libro-guia-de-egipto-para-piramidologos-y-marcianos/9788418227578/p/64198830?afiliado=74c874bfb5a8145d7c1b",
+      "shorturl": "https://is.gd/S7nwKP"
     },
     "6532610": {
       "bookId": "6532610",
       "isbn": "9780307476067",
       "title": "La mano de Fátima",
-      "url": "https://www.buscalibre.com.co/libro-la-mano-de-fatima-by-ildefonso-falcones-2009-08-18/9780307476067/p/2746556?afiliado=74c874bfb5a8145d7c1b"
+      "url": "https://www.buscalibre.com.co/libro-la-mano-de-fatima-by-ildefonso-falcones-2009-08-18/9780307476067/p/2746556?afiliado=74c874bfb5a8145d7c1b",
+      "shorturl": "https://is.gd/ty87Rp"
     },
     "36696699": {
       "bookId": "36696699",
@@ -2903,7 +2954,8 @@
       "bookId": "183526597",
       "isbn": "9788419399649",
       "title": "La ola que viene. Tecnología, poder y el gran dilema del siglo XXI",
-      "url": "https://www.buscalibre.com.co/libro-la-ola-que-viene/9788419399649/p/55586326?afiliado=74c874bfb5a8145d7c1b"
+      "url": "https://www.buscalibre.com.co/libro-la-ola-que-viene/9788419399649/p/55586326?afiliado=74c874bfb5a8145d7c1b",
+      "shorturl": "https://is.gd/1mbxtn"
     },
     "281016": {
       "bookId": "281016",
@@ -2958,7 +3010,8 @@
       "bookId": "35785007",
       "isbn": "9788416544493",
       "title": "Atlas de las constelaciones",
-      "url": "https://www.buscalibre.com.co/libro-atlas-de-las-constelaciones-las-historias-que-nos-cuentan-las-estrellas/9788416544493/p/48959636?afiliado=74c874bfb5a8145d7c1b"
+      "url": "https://www.buscalibre.com.co/libro-atlas-de-las-constelaciones-las-historias-que-nos-cuentan-las-estrellas/9788416544493/p/48959636?afiliado=74c874bfb5a8145d7c1b",
+      "shorturl": "https://is.gd/I6C63D"
     },
     "208870354": {
       "bookId": "208870354",
@@ -3034,13 +3087,15 @@
       "bookId": "212371663",
       "isbn": "9786287571297",
       "title": "Bajo la superficie de las cosas (Spanish Edition)",
-      "url": "https://www.buscalibre.com.co/libro-digital-bajo-la-superficie-de-las-cosas/63593943/p/63593943?afiliado=74c874bfb5a8145d7c1b"
+      "url": "https://www.buscalibre.com.co/libro-digital-bajo-la-superficie-de-las-cosas/63593943/p/63593943?afiliado=74c874bfb5a8145d7c1b",
+      "shorturl": "https://is.gd/PTR9T3"
     },
     "99499": {
       "bookId": "99499",
       "isbn": "9788466613187",
       "title": "La loba de Francia (Los Reyes Malditos, #5)",
-      "url": "https://www.buscalibre.com.co/libro-la-loba-de-francia-los-reyes-malditos-5/9788466613187/p/1741188?afiliado=74c874bfb5a8145d7c1b"
+      "url": "https://www.buscalibre.com.co/libro-la-loba-de-francia-los-reyes-malditos-5/9788466613187/p/1741188?afiliado=74c874bfb5a8145d7c1b",
+      "shorturl": "https://is.gd/po2NrP"
     },
     "687772": {
       "bookId": "687772",
@@ -3053,7 +3108,8 @@
       "bookId": "18754940",
       "isbn": "9788498922882",
       "title": "Roma. Una historia cultural",
-      "url": "https://www.buscalibre.com.co/libro-roma/9788498922882/p/55851909?afiliado=74c874bfb5a8145d7c1b"
+      "url": "https://www.buscalibre.com.co/libro-roma/9788498922882/p/55851909?afiliado=74c874bfb5a8145d7c1b",
+      "shorturl": "https://is.gd/JrWC4A"
     },
     "25834165": {
       "bookId": "25834165",
@@ -3087,7 +3143,8 @@
       "bookId": "35998224",
       "isbn": "9786074004342",
       "title": "El clan del oso cavernario",
-      "url": "https://www.buscalibre.com.co/libro-clan-del-oso-cavernario-hijos-de-la-tierra-1/9786074004342/p/4133160?afiliado=74c874bfb5a8145d7c1b"
+      "url": "https://www.buscalibre.com.co/libro-clan-del-oso-cavernario-hijos-de-la-tierra-1/9786074004342/p/4133160?afiliado=74c874bfb5a8145d7c1b",
+      "shorturl": "https://is.gd/Ea8GdE"
     },
     "31394757": {
       "bookId": "31394757",
@@ -3163,13 +3220,15 @@
       "bookId": "99500",
       "isbn": "9788466613262",
       "title": "La ley de los varones (Los Reyes Malditos, #4)",
-      "url": "https://www.buscalibre.com.co/libro-venenos-de-la-corona-los-reyes-malditos-iii/9788466613262/p/1741232?afiliado=74c874bfb5a8145d7c1b"
+      "url": "https://www.buscalibre.com.co/libro-venenos-de-la-corona-los-reyes-malditos-iii/9788466613262/p/1741232?afiliado=74c874bfb5a8145d7c1b",
+      "shorturl": "https://is.gd/Y96ZiJ"
     },
     "57027913": {
       "bookId": "57027913",
       "isbn": "9788412226744",
       "title": "Superior. El retorno del racismo científico",
-      "url": "https://www.buscalibre.com.co/libro-superior-el-retorno-del-racismo-cientifico/9788412226744/p/53146941?afiliado=74c874bfb5a8145d7c1b"
+      "url": "https://www.buscalibre.com.co/libro-superior-el-retorno-del-racismo-cientifico/9788412226744/p/53146941?afiliado=74c874bfb5a8145d7c1b",
+      "shorturl": "https://is.gd/go3EyM"
     },
     "61037084": {
       "bookId": "61037084",
@@ -3182,7 +3241,8 @@
       "bookId": "19182759",
       "isbn": "9788420498706",
       "title": "Historia del Rey Transparente",
-      "url": "https://www.buscalibre.com.co/libro-historia-del-rey-transparente/9788420498706/p/16408865?afiliado=74c874bfb5a8145d7c1b"
+      "url": "https://www.buscalibre.com.co/libro-historia-del-rey-transparente/9788420498706/p/16408865?afiliado=74c874bfb5a8145d7c1b",
+      "shorturl": "https://is.gd/wUVJia"
     },
     "56584875": {
       "bookId": "56584875",
@@ -3202,7 +3262,8 @@
       "bookId": "125064740",
       "isbn": "9786289548075",
       "title": "Pondré mi oído en la piedra hasta que hable",
-      "url": "https://www.buscalibre.com.co/libro-pondre-mi-oido-en-la-piedra-hasta-que-hable/9786289548075/p/54887094?afiliado=74c874bfb5a8145d7c1b"
+      "url": "https://www.buscalibre.com.co/libro-pondre-mi-oido-en-la-piedra-hasta-que-hable/9786289548075/p/54887094?afiliado=74c874bfb5a8145d7c1b",
+      "shorturl": "https://is.gd/YsdMIQ"
     },
     "34450299": {
       "bookId": "34450299",
@@ -3236,7 +3297,8 @@
       "bookId": "25745999",
       "isbn": "9788408008583",
       "title": "Ciencia versus religión: Un falso conflicto",
-      "url": "https://www.buscalibre.com.co/libro-ciencia-versus-religion/9788408008583/p/9268847?afiliado=74c874bfb5a8145d7c1b"
+      "url": "https://www.buscalibre.com.co/libro-ciencia-versus-religion/9788408008583/p/9268847?afiliado=74c874bfb5a8145d7c1b",
+      "shorturl": "https://is.gd/hZI4Yh"
     },
     "29009801": {
       "bookId": "29009801",
@@ -3312,7 +3374,8 @@
       "bookId": "74763270",
       "isbn": "9788413523989",
       "title": "Punto en boca: (esto no es un manual de lenguaje inclusivo) (Spanish Edition)",
-      "url": "https://www.buscalibre.com.co/libro-punto-en-boca-esto-no-es-un-manual-de-lenguaje-inclusivo-873-coleccion-mayor/9788413523989/p/53982239?afiliado=74c874bfb5a8145d7c1b"
+      "url": "https://www.buscalibre.com.co/libro-punto-en-boca-esto-no-es-un-manual-de-lenguaje-inclusivo-873-coleccion-mayor/9788413523989/p/53982239?afiliado=74c874bfb5a8145d7c1b",
+      "shorturl": "https://is.gd/kjyaxL"
     },
     "19399056": {
       "bookId": "19399056",
@@ -3381,13 +3444,15 @@
       "bookId": "41566176",
       "isbn": "9789585433212",
       "title": "Historia de Colombia. Todo lo que hay que saber",
-      "url": "https://www.buscalibre.com.co/libro-historia-de-colombia-todo-lo-que-hay-que-saber/9789585433212/p/49197788?afiliado=74c874bfb5a8145d7c1b"
+      "url": "https://www.buscalibre.com.co/libro-historia-de-colombia-todo-lo-que-hay-que-saber/9789585433212/p/49197788?afiliado=74c874bfb5a8145d7c1b",
+      "shorturl": "https://is.gd/5o0FfX"
     },
     "60742141": {
       "bookId": "60742141",
       "isbn": "9788427049888",
       "title": "Egipto increíble: Historias sorprendentes de la vida en tiempos de los faraones",
-      "url": "https://www.buscalibre.com.co/libro-egipto-increible/9788427049888/p/54023264?afiliado=74c874bfb5a8145d7c1b"
+      "url": "https://www.buscalibre.com.co/libro-egipto-increible/9788427049888/p/54023264?afiliado=74c874bfb5a8145d7c1b",
+      "shorturl": "https://is.gd/JEAatg"
     },
     "59787413": {
       "bookId": "59787413",
@@ -3477,7 +3542,8 @@
       "bookId": "29969610",
       "isbn": "9788420654980",
       "title": "Los egipcios",
-      "url": "https://www.buscalibre.com.co/libro-los-egipcios/9788420654980/p/5063717?afiliado=74c874bfb5a8145d7c1b"
+      "url": "https://www.buscalibre.com.co/libro-los-egipcios/9788420654980/p/5063717?afiliado=74c874bfb5a8145d7c1b",
+      "shorturl": "https://is.gd/Xi7DCU"
     },
     "57400686": {
       "bookId": "57400686",
@@ -3525,7 +3591,8 @@
       "bookId": "3215511",
       "isbn": "9788496489431",
       "title": "Sin destino",
-      "url": "https://www.buscalibre.com.co/libro-sin-destino/9788496489431/p/1027917?afiliado=74c874bfb5a8145d7c1b"
+      "url": "https://www.buscalibre.com.co/libro-sin-destino/9788496489431/p/1027917?afiliado=74c874bfb5a8145d7c1b",
+      "shorturl": "https://is.gd/u1YJtP"
     },
     "55958643": {
       "bookId": "55958643",
@@ -3538,19 +3605,22 @@
       "bookId": "50929116",
       "isbn": "9788430622818",
       "title": "La ruta del conocimiento. La historia de cómo se perdieron y redescubrieron las ideas del mundo clásico",
-      "url": "https://www.buscalibre.com.co/libro-la-ruta-del-conocimiento/9788430622818/p/51970437?afiliado=74c874bfb5a8145d7c1b"
+      "url": "https://www.buscalibre.com.co/libro-la-ruta-del-conocimiento/9788430622818/p/51970437?afiliado=74c874bfb5a8145d7c1b",
+      "shorturl": "https://is.gd/rM5Spw"
     },
     "18469454": {
       "bookId": "18469454",
       "isbn": "9788408002970",
       "title": "Sombras de Antepasados olvidados",
-      "url": "https://www.buscalibre.com.co/libro-sombras-de-antepasados-olvidados/9788408002970/p/54594156?afiliado=74c874bfb5a8145d7c1b"
+      "url": "https://www.buscalibre.com.co/libro-sombras-de-antepasados-olvidados/9788408002970/p/54594156?afiliado=74c874bfb5a8145d7c1b",
+      "shorturl": "https://is.gd/3sO6dX"
     },
     "26567125": {
       "bookId": "26567125",
       "isbn": "9781516934416",
       "title": "La Iliada",
-      "url": "https://www.buscalibre.com.co/libro-la-iliada-spanish-edition/9781516934416/p/47436062?afiliado=74c874bfb5a8145d7c1b"
+      "url": "https://www.buscalibre.com.co/libro-la-iliada-spanish-edition/9781516934416/p/47436062?afiliado=74c874bfb5a8145d7c1b",
+      "shorturl": "https://is.gd/whgU91"
     },
     "17164670": {
       "bookId": "17164670",
@@ -3591,7 +3661,8 @@
       "bookId": "35820369",
       "isbn": "9780062490421",
       "title": "The Rise and Fall of the Dinosaurs: A New History of a Lost World",
-      "url": "https://www.buscalibre.com.co/libro-the-rise-and-fall-of-the-dinosaurs-a-new-history-of-a-lost-world/9780062490421/p/50140218?afiliado=74c874bfb5a8145d7c1b"
+      "url": "https://www.buscalibre.com.co/libro-the-rise-and-fall-of-the-dinosaurs-a-new-history-of-a-lost-world/9780062490421/p/50140218?afiliado=74c874bfb5a8145d7c1b",
+      "shorturl": "https://is.gd/KFUsN0"
     },
     "29768870": {
       "bookId": "29768870",
@@ -3709,7 +3780,8 @@
       "bookId": "236082313",
       "isbn": "9788491057277",
       "title": "El arte de la felicidad",
-      "url": "https://www.buscalibre.com.co/libro-el-arte-de-la-felicidad/9788491057277/p/64356607?afiliado=74c874bfb5a8145d7c1b"
+      "url": "https://www.buscalibre.com.co/libro-el-arte-de-la-felicidad/9788491057277/p/64356607?afiliado=74c874bfb5a8145d7c1b",
+      "shorturl": "https://is.gd/MO3hSr"
     },
     "32202588": {
       "bookId": "32202588",
@@ -3792,109 +3864,127 @@
       "bookId": "12510663",
       "isbn": "9788427298057",
       "title": "Muerte en el Nilo (Hercule Poirot, #18)",
-      "url": "https://www.buscalibre.com.co/libro-muerte-en-el-nilo/9788427298057/p/54936579?afiliado=74c874bfb5a8145d7c1b"
+      "url": "https://www.buscalibre.com.co/libro-muerte-en-el-nilo/9788427298057/p/54936579?afiliado=74c874bfb5a8145d7c1b",
+      "shorturl": "https://is.gd/OdnvHn"
     },
     "58604433": {
       "bookId": "58604433",
       "isbn": "9788491054863",
       "title": "Divina Comedia. Infierno",
-      "url": "https://www.buscalibre.com.co/libro-divina-comedia-infierno-edicion-bilingue/9788491054863/p/53390494?afiliado=74c874bfb5a8145d7c1b"
+      "url": "https://www.buscalibre.com.co/libro-divina-comedia-infierno-edicion-bilingue/9788491054863/p/53390494?afiliado=74c874bfb5a8145d7c1b",
+      "shorturl": "https://is.gd/oH6yrG"
     },
     "40670568": {
       "bookId": "40670568",
       "isbn": "9788417347208",
       "title": "La puerta de Abadón (The Expanse, #3)",
-      "url": "https://www.buscalibre.com.co/libro-puerta-de-abadon-la/9788417347208/p/50591586?afiliado=74c874bfb5a8145d7c1b"
+      "url": "https://www.buscalibre.com.co/libro-puerta-de-abadon-la/9788417347208/p/50591586?afiliado=74c874bfb5a8145d7c1b",
+      "shorturl": "https://is.gd/0EkFU9"
     },
     "4260798": {
       "bookId": "4260798",
       "isbn": "9789871181872",
       "title": "Historia de los extraterrestres: Los mitos, las fábulas, los miedos (Spanish Edition)",
-      "url": "https://www.buscalibre.com.co/libro-historia-de-los-extraterrestres/9789871181872/p/1064947?afiliado=74c874bfb5a8145d7c1b"
+      "url": "https://www.buscalibre.com.co/libro-historia-de-los-extraterrestres/9789871181872/p/1064947?afiliado=74c874bfb5a8145d7c1b",
+      "shorturl": "https://is.gd/cQg4HU"
     },
     "12146201": {
       "bookId": "12146201",
       "isbn": "9786071107749",
       "title": "La andadura del español por el mundo",
-      "url": "https://www.buscalibre.com.co/libro-la-andadura-del-espanol-por-el-mundo-adventures-of-the-spanish-lenguage-around-the-world/9786071107749/p/4084680?afiliado=74c874bfb5a8145d7c1b"
+      "url": "https://www.buscalibre.com.co/libro-la-andadura-del-espanol-por-el-mundo-adventures-of-the-spanish-lenguage-around-the-world/9786071107749/p/4084680?afiliado=74c874bfb5a8145d7c1b",
+      "shorturl": "https://is.gd/1BSqhY"
     },
     "144025193": {
       "bookId": "144025193",
       "isbn": "9789504981602",
       "title": "Apia de Roma",
-      "url": "https://www.buscalibre.com.co/libro-apia-de-roma/9789504981602/p/54929618?afiliado=74c874bfb5a8145d7c1b"
+      "url": "https://www.buscalibre.com.co/libro-apia-de-roma/9789504981602/p/54929618?afiliado=74c874bfb5a8145d7c1b",
+      "shorturl": "https://is.gd/8a7Nza"
     },
     "247283113": {
       "bookId": "247283113",
       "isbn": "9788410675353",
       "title": "Inteligencia artificial y física: Un viaje compartido de descubrimientos",
-      "url": "https://www.buscalibre.com.co/libro-inteligencia-artificial-y-fisica-un-viaje-compartido-de-descubrimientos/9788410675353/p/65769791?afiliado=74c874bfb5a8145d7c1b"
+      "url": "https://www.buscalibre.com.co/libro-inteligencia-artificial-y-fisica-un-viaje-compartido-de-descubrimientos/9788410675353/p/65769791?afiliado=74c874bfb5a8145d7c1b",
+      "shorturl": "https://is.gd/NBPSBn"
     },
     "242077118": {
       "bookId": "242077118",
       "isbn": "9786287669949",
       "title": "Consumidores de atención: Sobre la dispersión y la vida interior en la era digital (Spanish Edition)",
-      "url": "https://www.buscalibre.com.co/libro-digital-consumidores-de-atencion-sobre-la-dispersion-y-la-vida-interior-en-la-era-digital/9786287669949/p/68683990?afiliado=74c874bfb5a8145d7c1b"
+      "url": "https://www.buscalibre.com.co/libro-digital-consumidores-de-atencion-sobre-la-dispersion-y-la-vida-interior-en-la-era-digital/9786287669949/p/68683990?afiliado=74c874bfb5a8145d7c1b",
+      "shorturl": "https://is.gd/LsxRv8"
     },
     "210808890": {
       "bookId": "210808890",
       "isbn": "9788412779745",
       "title": "Inteligencia artificial: Guía para seres pensantes",
-      "url": "https://www.buscalibre.com.co/libro-digital-inteligencia-artificial-guia-para-seres-pensantes/9788412779745/p/68699935?afiliado=74c874bfb5a8145d7c1b"
+      "url": "https://www.buscalibre.com.co/libro-digital-inteligencia-artificial-guia-para-seres-pensantes/9788412779745/p/68699935?afiliado=74c874bfb5a8145d7c1b",
+      "shorturl": "https://is.gd/RtsNhG"
     },
     "241640739": {
       "bookId": "241640739",
       "isbn": "9788426433220",
       "title": "Un himno a la vida: Mi historia",
-      "url": "https://www.buscalibre.com.co/libro-digital-un-himno-a-la-vida-mi-historia/9788426433220/p/68720338?afiliado=74c874bfb5a8145d7c1b"
+      "url": "https://www.buscalibre.com.co/libro-digital-un-himno-a-la-vida-mi-historia/9788426433220/p/68720338?afiliado=74c874bfb5a8145d7c1b",
+      "shorturl": "https://is.gd/kkTDpB"
     },
     "243727708": {
       "bookId": "243727708",
       "isbn": "9788430627424",
       "title": "En el palacio de los astrónomos: La transformación de la ciencia en la Europa del norte del siglo XVI (Spanish Edition)",
-      "url": "https://www.buscalibre.com.co/libro-digital-en-el-palacio-de-los-astronomos-la-transformacion-de-la-ciencia-en-la-europa-del-norte-del-siglo-xvi/9788430627424/p/68722911?afiliado=74c874bfb5a8145d7c1b"
+      "url": "https://www.buscalibre.com.co/libro-digital-en-el-palacio-de-los-astronomos-la-transformacion-de-la-ciencia-en-la-europa-del-norte-del-siglo-xvi/9788430627424/p/68722911?afiliado=74c874bfb5a8145d7c1b",
+      "shorturl": "https://is.gd/iNPuFd"
     },
     "62012773": {
       "bookId": "62012773",
       "isbn": "9789587648461",
       "title": "La noche de la peste (Spanish Edition)",
-      "url": "https://www.buscalibre.com.co/libro-digital-la-noche-de-la-peste/9789587648461/p/68753530?afiliado=74c874bfb5a8145d7c1b"
+      "url": "https://www.buscalibre.com.co/libro-digital-la-noche-de-la-peste/9789587648461/p/68753530?afiliado=74c874bfb5a8145d7c1b",
+      "shorturl": "https://is.gd/ZvlVgf"
     },
     "39072768": {
       "bookId": "39072768",
       "isbn": "9788483936139",
       "title": "Pelea de gallos",
-      "url": "https://www.buscalibre.com.co/libro-digital-pelea-de-gallos/9788483936139/p/68728903?afiliado=74c874bfb5a8145d7c1b"
+      "url": "https://www.buscalibre.com.co/libro-digital-pelea-de-gallos/9788483936139/p/68728903?afiliado=74c874bfb5a8145d7c1b",
+      "shorturl": "https://is.gd/IC9lue"
     },
     "61815471": {
       "bookId": "61815471",
       "isbn": "9789569398735",
       "title": "Vida: su origen, evolución y búsqueda en el espacio (Spanish Edition)",
-      "url": "https://www.buscalibre.com.co/libro-digital-vida-su-origen-evolucion-y-busqueda-en-el-espacio/9789569398735/p/68747654?afiliado=74c874bfb5a8145d7c1b"
+      "url": "https://www.buscalibre.com.co/libro-digital-vida-su-origen-evolucion-y-busqueda-en-el-espacio/9789569398735/p/68747654?afiliado=74c874bfb5a8145d7c1b",
+      "shorturl": "https://is.gd/sK3XMg"
     },
     "121174855": {
       "bookId": "121174855",
       "isbn": "9788425448928",
       "title": "Mujeres, poder y conocimiento (Spanish Edition)",
-      "url": "https://www.buscalibre.com.co/libro-digital-mujeres-poder-y-conocimiento/9788425448928/p/68720166?afiliado=74c874bfb5a8145d7c1b"
+      "url": "https://www.buscalibre.com.co/libro-digital-mujeres-poder-y-conocimiento/9788425448928/p/68720166?afiliado=74c874bfb5a8145d7c1b",
+      "shorturl": "https://is.gd/9aYFBz"
     },
     "58841459": {
       "bookId": "58841459",
       "isbn": "9788424939748",
       "title": "Historia. Libros III-V",
-      "url": "https://www.buscalibre.com.co/libro-digital-historia-libros-iii-v/9788424939748/p/68719625?afiliado=74c874bfb5a8145d7c1b"
+      "url": "https://www.buscalibre.com.co/libro-digital-historia-libros-iii-v/9788424939748/p/68719625?afiliado=74c874bfb5a8145d7c1b",
+      "shorturl": "https://is.gd/whFrUH"
     },
     "55359307": {
       "bookId": "55359307",
       "isbn": "9788424939731",
       "title": "Historia. Libros I-II",
-      "url": "https://www.buscalibre.com.co/libro-digital-historia-libros-i-ii/9788424939731/p/68719624?afiliado=74c874bfb5a8145d7c1b"
+      "url": "https://www.buscalibre.com.co/libro-digital-historia-libros-i-ii/9788424939731/p/68719624?afiliado=74c874bfb5a8145d7c1b",
+      "shorturl": "https://is.gd/tp74YY"
     },
     "55457446": {
       "bookId": "55457446",
       "isbn": "9788417951115",
       "title": "Petrocalipsis: Crisis energética global y cómo (no) la vamos a solucionar",
-      "url": "https://www.buscalibre.com.co/libro-digital-petrocalipsis-crisis-energetica-global-y-como-no-la-vamos-a-solucionar/9788417951115/p/68712712?afiliado=74c874bfb5a8145d7c1b"
+      "url": "https://www.buscalibre.com.co/libro-digital-petrocalipsis-crisis-energetica-global-y-como-no-la-vamos-a-solucionar/9788417951115/p/68712712?afiliado=74c874bfb5a8145d7c1b",
+      "shorturl": "https://is.gd/UngHzb"
     }
   }
 }
