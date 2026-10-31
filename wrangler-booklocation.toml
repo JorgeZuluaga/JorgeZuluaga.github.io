@@ -1,0 +1,16 @@
+name = "booklocation-worker"
+main = "booklocation-worker.js"
+compatibility_date = "2026-04-22"
+
+# Crear el namespace y pegar el id aquí:
+#   npx wrangler kv namespace create BOOK_LOCATIONS
+[[kv_namespaces]]
+binding = "BOOK_LOCATIONS"
+id = "295a60bc22614f379758b0f3c99ffe57"
+
+# Token de acceso (secreto, no va en este archivo):
+#   npx wrangler secret put BOOKLOC_TOKEN --config wrangler-booklocation.toml
+
+[vars]
+# Orígenes permitidos por CORS (separados por coma).
+ALLOWED_ORIGINS = "https://jorgezuluaga.github.io,http://127.0.0.1:8000,http://localhost:8000"

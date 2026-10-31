@@ -17,7 +17,7 @@
 	library-ddc-update library-ddc-generate-pending library-ddc-apply-gemini \
 	sync-dcc-library-details \
 	update-all-books \
-	worker-deploy book-og-deploy book-og-check book-og-ensure review-notify-deploy review-notify-send review-notify-seed-test review-notify-test-send \
+	worker-deploy booklocation-deploy booklocation-export book-og-deploy book-og-check book-og-ensure review-notify-deploy review-notify-send review-notify-seed-test review-notify-test-send \
 	lista-suscritos \
 	update-shorts
 
@@ -535,6 +535,14 @@ update-all-books:
 # Deploy Cloudflare Worker defined in wrangler.toml.
 worker-deploy:
 	@npx wrangler deploy
+
+booklocation-deploy:
+	@npx wrangler deploy --config wrangler-booklocation.toml
+
+# Descarga el respaldo info/booklocation.json (requiere BOOKLOC_TOKEN).
+booklocation-export: BOOKLOC_TOKEN ?= $(shell cat .secrets/booklocation-token 2>/dev/null)
+booklocation-export:
+	@curl -fsS -H "Authorization: Bearer $(BOOKLOC_TOKEN)" https://booklocation-worker.booklocation-jorgezuluaga.workers.dev/booklocation.json -o info/booklocation.json && echo "info/booklocation.json actualizado"
 
 book-og-deploy:
 	@npx wrangler deploy --config wrangler-book-og.toml

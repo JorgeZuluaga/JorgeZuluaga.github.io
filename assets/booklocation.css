@@ -1,0 +1,36 @@
+/* Estilos de ubicaciones.html; reutilizan las variables de style.css (claro/oscuro). */
+.bl { max-width: 40rem; }
+.bl [hidden] { display: none !important; }
+.bl-tabs { display: flex; gap: 0.5rem; margin: 1rem 0; }
+.bl-tabs .bl-btn { flex: 1; }
+.bl-row { display: flex; gap: 0.5rem; margin: 0.6rem 0; }
+.bl-row > input, .bl-row > select { flex: 1; min-width: 0; }
+.bl input, .bl select {
+  font: inherit; padding: 0.55rem 0.75rem; border-radius: 6px;
+  border: 1px solid var(--border-bottom); background: var(--box); color: var(--black);
+}
+.bl-btn {
+  font: inherit; font-weight: 500; padding: 0.55rem 0.9rem; border-radius: 6px; cursor: pointer;
+  border: 1px solid var(--border-bottom); background: var(--box); color: var(--black);
+}
+.bl-btn:hover { border-color: var(--accent); }
+.bl-primary, .bl-tabs .bl-btn[aria-selected="true"] { background: var(--accent); border-color: var(--accent); color: #fff; }
+.bl-card { background: var(--box); box-shadow: var(--box-shadow); border-radius: 8px; padding: 0.75rem 1rem; margin: 0.7rem 0; }
+.bl-card.err { border-left: 4px solid #b91c1c; }
+.bl-muted { color: var(--grey); font-size: 0.9rem; }
+.bl-loc { font-weight: 600; color: var(--accent); }
+.bl-err { color: #dc2626; }
+.bl-token { border: 2px solid var(--accent); }
+#video { width: 100%; max-height: 42vh; background: #000; border-radius: 8px; object-fit: cover; }
+.bl-label { background: #fff; color: #000; text-align: center; padding: 0.6rem; border-radius: 8px; margin: 0.7rem 0; }
+.bl-label svg { max-width: 100%; height: auto; }
+.bl-sheet { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.5rem; background: #fff; padding: 0.5rem; margin: 0.7rem 0; }
+.bl-sheet .bl-cell { border: 1px dashed #999; color: #000; text-align: center; padding: 0.4rem; break-inside: avoid; font-weight: 600; }
+.bl-sheet svg { max-width: 100%; height: auto; }
+@media print {
+  body * { visibility: hidden; }
+  body.print-sheet .bl-sheet, body.print-sheet .bl-sheet * { visibility: visible; }
+  body.print-sheet .bl-sheet { position: absolute; left: 0; top: 0; width: 100%; display: grid !important; }
+  body:not(.print-sheet) .bl-label, body:not(.print-sheet) .bl-label * { visibility: visible; }
+  body:not(.print-sheet) .bl-label { position: absolute; left: 0; top: 0; width: 100%; }
+}
