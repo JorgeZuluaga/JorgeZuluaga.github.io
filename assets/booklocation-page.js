@@ -77,15 +77,17 @@
 
   // ---------- Datos ----------
   async function loadCatalog() {
-    const add = (title, author, isbn) => {
+    const add = (title, author, isbn, cover) => {
       const k = normIsbn(isbn);
-      if (k && !catalog.has(k)) catalog.set(k, { title: title || "(sin título)", author: author || "", isbn: k });
+      if (!k) return;
+      if (!catalog.has(k)) catalog.set(k, { title: title || "(sin título)", author: author || "", isbn: k, cover: cover || "" });
+      else if (cover && !catalog.get(k).cover) catalog.get(k).cover = cover;
     };
     const [lib, det] = await Promise.all([
       fetch("./info/library.json").then((r) => r.json()).catch(() => ({})),
       fetch("./info/library-details.json").then((r) => r.json()).catch(() => ({})),
     ]);
-    (lib.books || []).forEach((b) => add(b.title, b.author, b.isbn));
+    (lib.books || []).forEach((b) => add(b.title, b.author, b.isbn, b.reviewLocalCoverUrl));
     (det.books || []).forEach((b) => add(b.Title, b.Author, b.ISBN));
   }
   async function loadLocations() {
@@ -110,7 +112,7 @@
     stopScan();
     scanHandler = handler;
     try {
-      stream = await navigator.mediaDevices.getUserMedia({ video: { facingMode: { ideal: "environment" } }, audio: false });
+      stream = await navigator.mediaDevices.getUserMedia({ video: { facingMode: { ideal: "environment" }, width: { ideal: 1920 }, height: { ideal: 1080 } }, audio: false });
     } catch {
       status("No se pudo abrir la cámara (necesita HTTPS y permiso).", true);
       return;
@@ -119,31 +121,39 @@
     video.srcObject = stream;
     await video.play();
     $("scanner").hidden = false;
+    status("Apunta al código de barras…");
 
-    let detect;
+    // Detector nativo si existe (puede fallar con ciertos formatos, p. ej. en iOS); ZXing siempre como respaldo.
+    let native = null;
     if ("BarcodeDetector" in window) {
-      const det = new BarcodeDetector({ formats: ["ean_13", "ean_8", "upc_a", "code_128", "qr_code"] });
-      detect = async () => (await det.detect(video))[0]?.rawValue;
-    } else {
-      await loadZXing();
-      const Z = window.ZXing;
-      const reader = new Z.MultiFormatReader();
-      reader.setHints(new Map([[Z.DecodeHintType.TRY_HARDER, true]]));
-      const canvas = document.createElement("canvas");
-      detect = async () => {
-        if (!video.videoWidth) return undefined;
-        canvas.width = video.videoWidth;
-        canvas.height = video.videoHeight;
-        const ctx = canvas.getContext("2d", { willReadFrequently: true });
-        ctx.drawImage(video, 0, 0);
-        try {
-          const src = new Z.HTMLCanvasElementLuminanceSource(canvas);
-          return reader.decode(new Z.BinaryBitmap(new Z.HybridBinarizer(src))).getText();
-        } catch {
-          return undefined;
-        }
-      };
+      try { native = new BarcodeDetector({ formats: ["ean_13", "ean_8", "upc_a", "code_128", "qr_code"] }); } catch { native = null; }
     }
+    await loadZXing();
+    const Z = window.ZXing;
+    const reader = new Z.MultiFormatReader();
+    reader.setHints(new Map([
+      [Z.DecodeHintType.TRY_HARDER, true],
+      [Z.DecodeHintType.POSSIBLE_FORMATS, [Z.BarcodeFormat.CODE_128, Z.BarcodeFormat.EAN_13, Z.BarcodeFormat.EAN_8, Z.BarcodeFormat.UPC_A, Z.BarcodeFormat.QR_CODE]],
+    ]));
+    const canvas = document.createElement("canvas");
+    const detect = async () => {
+      if (!video.videoWidth) return undefined;
+      if (native) {
+        try {
+          const r = (await native.detect(video))[0]?.rawValue;
+          if (r) return r;
+        } catch { native = null; }
+      }
+      canvas.width = video.videoWidth;
+      canvas.height = video.videoHeight;
+      const ctx = canvas.getContext("2d", { willReadFrequently: true });
+      ctx.drawImage(video, 0, 0);
+      const src = new Z.HTMLCanvasElementLuminanceSource(canvas);
+      for (const bmp of [new Z.BinaryBitmap(new Z.HybridBinarizer(src)), new Z.BinaryBitmap(new Z.HybridBinarizer(src.invert()))]) {
+        try { return reader.decode(bmp).getText(); } catch { /* sin código en este cuadro */ }
+      }
+      return undefined;
+    };
 
     let last = "";
     let lastAt = 0;
@@ -155,6 +165,7 @@
       last = code;
       lastAt = now;
       if (navigator.vibrate) navigator.vibrate(60);
+      status("");
       scanHandler && scanHandler(code.trim());
     }, 250);
   }
@@ -169,16 +180,99 @@
   }
 
   // ---------- Buscar ----------
+  // ---------- Búsqueda en línea (solo si el ISBN no está en el catálogo) ----------
+  const online = new Map(); // isbn -> {title, author, cover, source} | null (no encontrado) | "pending"
+
+  async function fetchJson(url) {
+    const res = await fetch(url);
+    if (!res.ok) throw new Error("HTTP " + res.status);
+    return res.json();
+  }
+
+  async function lookupOnline(isbn) {
+    if (online.has(isbn)) return online.get(isbn);
+    online.set(isbn, "pending");
+    let found = null;
+    try {
+      const g = await fetchJson("https://www.googleapis.com/books/v1/volumes?q=isbn:" + isbn + "&maxResults=1");
+      const v = g.items?.[0]?.volumeInfo;
+      if (v?.title) {
+        found = {
+          title: [v.title, v.subtitle].filter(Boolean).join(": "),
+          author: (v.authors || []).join(", "),
+          cover: (v.imageLinks?.thumbnail || "").replace(/^http:/, "https:"),
+          source: "Google Books",
+        };
+      }
+    } catch { /* se intenta Open Library */ }
+    if (!found) {
+      try {
+        const o = (await fetchJson("https://openlibrary.org/api/books?bibkeys=ISBN:" + isbn + "&format=json&jscmd=data"))["ISBN:" + isbn];
+        if (o?.title) {
+          found = {
+            title: [o.title, o.subtitle].filter(Boolean).join(": "),
+            author: (o.authors || []).map((a) => a.name).join(", "),
+            cover: o.cover?.medium || "",
+            source: "Open Library",
+          };
+        }
+      } catch { /* sin resultado */ }
+    }
+    online.set(isbn, found);
+    return found;
+  }
+
+  function coverCandidates(isbn, b) {
+    const list = [];
+    if (b?.cover) list.push(b.cover);
+    ["png", "jpg", "webp", "jpeg"].forEach((e) => list.push(`./antilibrary/covers/${isbn}.${e}`));
+    return list;
+  }
+
+  function coverHtml(list) {
+    if (!list.length) return "";
+    return `<img class="bl-cover" alt="" loading="lazy" src="${esc(list[0])}" data-rest="${esc(JSON.stringify(list.slice(1)))}" />`;
+  }
+
+  // Si una portada no carga, prueba la siguiente; si no hay más, la oculta.
+  function onCoverError(e) {
+    const img = e.target;
+    if (!(img instanceof HTMLImageElement) || !img.classList.contains("bl-cover")) return;
+    let rest = [];
+    try { rest = JSON.parse(img.dataset.rest || "[]"); } catch { rest = []; }
+    if (rest.length) {
+      img.dataset.rest = JSON.stringify(rest.slice(1));
+      img.src = rest[0];
+    } else {
+      img.remove();
+    }
+  }
+
   function bookCard(isbn) {
-    const b = catalog.get(isbn);
+    let b = catalog.get(isbn);
+    let note = "";
+    if (!b) {
+      const o = online.get(isbn);
+      if (o === undefined || o === "pending") {
+        if (o === undefined) lookupOnline(isbn).then(renderSearch);
+        note = "No está en tu catálogo. Buscando el ISBN en Google Books…";
+      } else if (o) {
+        b = o;
+        note = "No está en tu catálogo; encontrado en " + o.source + ".";
+      } else {
+        note = "No está en tu catálogo ni se encontró el ISBN en Google Books u Open Library.";
+      }
+    }
     const loc = data.books[isbn]?.location;
     const opts = Object.entries(data.locations)
       .map(([c, l]) => `<option value="${esc(c)}"${c === loc ? " selected" : ""}>${esc(l.name)}</option>`).join("");
-    return `<div class="bl-card"><strong>${esc(b?.title || "ISBN " + isbn)}</strong>
+    const cover = coverHtml(b ? (catalog.has(isbn) ? coverCandidates(isbn, b) : [b.cover].filter(Boolean)) : []);
+    return `<div class="bl-card bl-book">${cover}<div class="bl-book__body"><strong>${esc(b?.title || "ISBN " + isbn)}</strong>
       <div class="bl-muted">${esc(b?.author || "")} · ${esc(isbn)}</div>
+      ${note ? `<div class="bl-muted">${esc(note)}</div>` : ""}
       <div>${loc ? `📍 <span class="bl-loc">${esc(locName(loc))}</span>` : '<span class="bl-muted">Sin ubicación registrada</span>'}</div>
       <div class="bl-row"><select data-move-sel="${esc(isbn)}"><option value="">${loc ? "Mover a…" : "Asignar a…"}</option>${opts}</select>
-      <button class="bl-btn" data-move="${esc(isbn)}">Guardar</button>${loc ? `<button class="bl-btn" data-unassign="${esc(isbn)}">Quitar</button>` : ""}</div></div>`;
+      <button class="bl-btn" data-move="${esc(isbn)}">Guardar</button>${loc ? `<button class="bl-btn" data-unassign="${esc(isbn)}">Quitar</button>` : ""}</div></div></div>`;
   }
 
   function renderSearch() {
@@ -199,7 +293,7 @@
 
   // ---------- Asignar ----------
   function renderCurLoc() {
-    $("cur-loc").textContent = currentLoc ? "📍 " + locName(currentLoc) : "— escanea el código de una ubicación —";
+    $("cur-loc").textContent = currentLoc ? "📍 " + locName(currentLoc) : "Escanea el código de una ubicación";
   }
   function logLine(html, cls) {
     const d = document.createElement("div");
@@ -224,7 +318,9 @@
     if (!currentLoc) { logLine("Primero escanea una ubicación.", "err"); return; }
     try {
       data = await api("/assign", { isbn, location: currentLoc });
-      logLine("✅ " + esc(catalog.get(isbn)?.title || isbn) + " → <span class=\"bl-loc\">" + esc(locName(currentLoc)) + "</span>");
+      let title = catalog.get(isbn)?.title;
+      if (!title) title = (await lookupOnline(isbn).catch(() => null))?.title;
+      logLine("✅ " + esc(title || "ISBN " + isbn + " (no encontrado en ningún catálogo)") + " → <span class=\"bl-loc\">" + esc(locName(currentLoc)) + "</span>");
     } catch (e) {
       logLine(esc(e.message), "err");
     }
@@ -350,6 +446,7 @@
     document.querySelectorAll("nav.bl-tabs button").forEach((b) => b.addEventListener("click", () => setTab(b.dataset.tab)));
     $("scan-stop").onclick = stopScan;
     $("q").addEventListener("input", renderSearch);
+    $("results").addEventListener("error", onCoverError, true);
     $("q-scan").onclick = () => startScan((code) => {
       const isbn = normIsbn(code);
       if (!isbn) { status("Código no reconocido: " + code, true); return; }

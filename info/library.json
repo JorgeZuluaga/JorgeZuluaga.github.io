@@ -42,7 +42,7 @@
       "drzrating": -1,
       "isbn": "9786070742040",
       "bookDetails": 0,
-      "matched": false,
+      "matched": true,
       "reviewLocalUrl": "./reviews/8994349425.html",
       "reviewLocalCoverUrl": "./reviews/covers/8994349425.jpg",
       "reviewLocalStatus": "error: HTTP Error 404: Not Found",
@@ -50,7 +50,8 @@
       "reviewCount": 11,
       "drzratingAuto": true,
       "reviewLocalLikes": 0,
-      "reviewLocalLikesUpdatedAt": "2026-10-30T17:01:36.241777+00:00"
+      "reviewLocalLikesUpdatedAt": "2026-10-30T17:01:36.241777+00:00",
+      "dateAdded": "2023-05-20"
     },
     {
       "bookId": "25203664",
@@ -179,7 +180,7 @@
       "drzrating": 90,
       "isbn": "9786287900066",
       "bookDetails": 0,
-      "matched": false,
+      "matched": true,
       "reviewLocalUrl": "./reviews/8920030058.html",
       "reviewLocalCoverUrl": "./reviews/covers/8920030058.jpg",
       "reviewLocalStatus": "ok",
@@ -188,7 +189,8 @@
       "drzratingAuto": true,
       "reviewLocalLikes": 0,
       "reviewLocalLikesUpdatedAt": "2026-10-30T17:01:36.241777+00:00",
-      "reviewDate": "2026-09-18"
+      "reviewDate": "2026-09-18",
+      "dateAdded": "2026-08-04"
     },
     {
       "bookId": "247283113",
@@ -251,7 +253,7 @@
       "drzrating": 90,
       "isbn": "9786287811591",
       "bookDetails": 0,
-      "matched": false,
+      "matched": true,
       "reviewLocalUrl": "./reviews/8865685833.html",
       "reviewLocalCoverUrl": "./reviews/covers/8865685833.jpg",
       "reviewLocalStatus": "ok",
@@ -261,7 +263,8 @@
       "reviewLocalLikes": 3,
       "reviewLocalLikesUpdatedAt": "2026-10-30T17:01:36.241777+00:00",
       "reviewDate": "2026-09-06",
-      "featured": true
+      "featured": true,
+      "dateAdded": "2026-08-01"
     },
     {
       "bookId": "52770736",
@@ -451,7 +454,7 @@
       "scrapeStatus": "ok",
       "drzrating": -1,
       "bookDetails": 0,
-      "matched": false,
+      "matched": true,
       "reviewLocalUrl": "./reviews/8764863542.html",
       "reviewLocalCoverUrl": "./reviews/covers/8764863542.jpg",
       "reviewLocalStatus": "error: HTTP Error 404: Not Found",
@@ -459,7 +462,8 @@
       "reviewCount": 11,
       "drzratingAuto": true,
       "reviewLocalLikes": 0,
-      "reviewLocalLikesUpdatedAt": "2026-10-30T17:01:36.241777+00:00"
+      "reviewLocalLikesUpdatedAt": "2026-10-30T17:01:36.241777+00:00",
+      "dateAdded": "2026-06-13"
     },
     {
       "bookId": "12510663",
@@ -497,7 +501,7 @@
       "drzrating": -1,
       "isbn": "9788410214958",
       "bookDetails": 0,
-      "matched": false,
+      "matched": true,
       "reviewLocalUrl": "./reviews/8729541486.html",
       "reviewLocalCoverUrl": "./reviews/covers/8729541486.jpg",
       "reviewLocalStatus": "error: HTTP Error 404: Not Found",
@@ -505,7 +509,8 @@
       "reviewCount": 11,
       "drzratingAuto": true,
       "reviewLocalLikes": 0,
-      "reviewLocalLikesUpdatedAt": "2026-10-30T17:01:36.241777+00:00"
+      "reviewLocalLikesUpdatedAt": "2026-10-30T17:01:36.241777+00:00",
+      "dateAdded": "2026-06-25"
     },
     {
       "bookId": "61893716",
@@ -520,7 +525,7 @@
       "drzrating": 90,
       "isbn": "9789584235107",
       "bookDetails": 0,
-      "matched": false,
+      "matched": true,
       "reviewLocalUrl": "./reviews/8562963277.html",
       "reviewLocalCoverUrl": "./reviews/covers/8562963277.jpg",
       "reviewLocalStatus": "error: HTTP Error 404: Not Found",
@@ -529,7 +534,8 @@
       "drzratingAuto": true,
       "reviewLocalLikes": 0,
       "reviewLocalLikesUpdatedAt": "2026-10-30T17:01:36.241777+00:00",
-      "reviewDate": "2026-09-18"
+      "reviewDate": "2026-09-18",
+      "dateAdded": "2026-09-19"
     },
     {
       "bookId": "250904699",
@@ -1009,7 +1015,7 @@
       "scrapeStatus": "ok",
       "drzrating": 90,
       "bookDetails": 1,
-      "matched": true,
+      "matched": false,
       "reviewDate": "2026-07-04",
       "reviewCount": 1225,
       "drzratingAuto": true,
@@ -1034,7 +1040,7 @@
       "scrapeStatus": "ok",
       "drzrating": 90,
       "bookDetails": 1,
-      "matched": true,
+      "matched": false,
       "reviewLocalUrl": "./reviews/8609645998.html",
       "reviewLocalCoverUrl": "./reviews/covers/8609645998.jpg",
       "reviewDate": "2026-07-01",
@@ -1060,7 +1066,7 @@
       "scrapeStatus": "ok",
       "drzrating": 98,
       "bookDetails": 1,
-      "matched": true,
+      "matched": false,
       "reviewLocalUrl": "./reviews/8604906707.html",
       "reviewLocalCoverUrl": "./reviews/covers/8604906707.jpg",
       "reviewDate": "2026-05-17",
@@ -1094,7 +1100,7 @@
       "scrapeStatus": "ok",
       "drzrating": 75,
       "bookDetails": 1,
-      "matched": true,
+      "matched": false,
       "reviewLocalUrl": "./reviews/8581336028.html",
       "reviewLocalCoverUrl": "./reviews/covers/8581336028.jpg",
       "reviewDate": "2026-05-17",
@@ -1118,7 +1124,7 @@
       "scrapeStatus": "ok",
       "drzrating": 84,
       "bookDetails": 1,
-      "matched": true,
+      "matched": false,
       "dateAdded": "2026-05-03",
       "dcc_classes": {
         "800": "Literatura y retorica (800)"
@@ -1163,7 +1169,7 @@
         "reasoning": "Ensayo de la filósofa Manon Garcia relacionado con el machismo, el feminismo y las cuestiones judiciales que afectan a mujeres y grupos sociales.",
         "confidence": 0.85
       },
-      "matched": true,
+      "matched": false,
       "dateAdded": "2026-04-26",
       "reviewLocalUrl": "./reviews/8554509688.html",
       "reviewLocalCoverUrl": "./reviews/covers/8554509688.jpg",
@@ -1238,7 +1244,7 @@
         "reasoning": "Es una novela de ciencia ficción escrita por el autor estadounidense Andy Weir (autor de 'El Marciano').",
         "confidence": 0.98
       },
-      "matched": true,
+      "matched": false,
       "dateAdded": "2026-05-05",
       "isbn": "9788490698952"
     },
@@ -1254,7 +1260,7 @@
       "scrapeStatus": "ok",
       "drzrating": 94,
       "bookDetails": 1,
-      "matched": true,
+      "matched": false,
       "reviewLocalUrl": "./reviews/8590116363.html",
       "reviewLocalCoverUrl": "./reviews/covers/8590116363.jpg",
       "reviewDate": "2026-05-10",
@@ -1347,7 +1353,7 @@
       },
       "isbn": "9789878010540",
       "dateAdded": "2025-05-24",
-      "matched": true
+      "matched": false
     },
     {
       "bookId": "220648311",
@@ -1417,7 +1423,7 @@
       },
       "isbn": "9789566275428",
       "dateAdded": "2026-02-14",
-      "matched": true
+      "matched": false
     },
     {
       "bookId": "216802309",
@@ -1454,7 +1460,7 @@
         "confidence": 0.98
       },
       "isbn": "9788420471914",
-      "matched": true
+      "matched": false
     },
     {
       "bookId": "24114125",

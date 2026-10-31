@@ -34,3 +34,6 @@
   body:not(.print-sheet) .bl-label, body:not(.print-sheet) .bl-label * { visibility: visible; }
   body:not(.print-sheet) .bl-label { position: absolute; left: 0; top: 0; width: 100%; }
 }
+.bl-book { display: flex; gap: 0.8rem; align-items: flex-start; }
+.bl-book__body { flex: 1; min-width: 0; }
+.bl-cover { width: 64px; height: auto; max-height: 96px; object-fit: cover; border-radius: 4px; flex: none; }
