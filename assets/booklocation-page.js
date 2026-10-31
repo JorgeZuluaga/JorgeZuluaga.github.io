@@ -100,6 +100,10 @@
     data = await api("/booklocation.json");
   }
 
+  // Ubicaciones en orden alfabético (ignora mayúsculas y acentos).
+  const sortedLocs = () => Object.entries(data.locations)
+    .sort((a, b) => a[1].name.localeCompare(b[1].name, "es", { sensitivity: "base", numeric: true }));
+
   const locName = (code) => data.locations[code]?.name || code;
 
   // ---------- Escáner ----------
@@ -292,7 +296,7 @@
       }
     }
     const loc = data.books[isbn]?.location;
-    const opts = Object.entries(data.locations)
+    const opts = sortedLocs()
       .map(([c, l]) => `<option value="${esc(c)}"${c === loc ? " selected" : ""}>${esc(l.name)}</option>`).join("");
     const cover = coverHtml(b ? (catalog.has(isbn) ? coverCandidates(isbn, b) : [b.cover].filter(Boolean)) : []);
     return `<div class="bl-card bl-book">${cover}<div class="bl-book__body"><strong>${esc(b?.title || "ISBN " + isbn)}</strong>
@@ -384,7 +388,7 @@
   }
 
   function fillLocSelect() {
-    const entries = Object.entries(data.locations);
+    const entries = sortedLocs();
     $("as-loc-select").innerHTML = entries.length
       ? '<option value="">Elige una ubicación…</option>' + entries.map(([c, l]) => `<option value="${esc(c)}">${esc(l.name)}</option>`).join("")
       : '<option value="">No hay ubicaciones (créalas en «Ubicaciones»)</option>';
@@ -394,7 +398,9 @@
     currentLoc = key;
     status("");
     $("a-log").innerHTML = "";
-    showStep("main");
+    // Con la ubicación elegida, pasa directo a escanear el primer libro con la cámara.
+    showStep("isbn");
+    startScan((code) => submitIsbn(code));
   }
 
   function renderMain() {
@@ -422,7 +428,7 @@
     $("af-isbn").textContent = isbn;
     $("af-title").value = st?.title || c?.title || "";
     $("af-author").value = st?.author || c?.author || "";
-    $("af-loc").innerHTML = Object.entries(data.locations)
+    $("af-loc").innerHTML = sortedLocs()
       .map(([code, l]) => `<option value="${esc(code)}"${code === currentLoc ? " selected" : ""}>${esc(l.name)}</option>`).join("");
     $("af-remove").hidden = !st;
     $("af-cover").innerHTML = coverHtml(coverCandidates(isbn, c));
@@ -480,7 +486,7 @@
   function renderLocs() {
     const counts = {};
     Object.values(data.books).forEach((b) => { counts[b.location] = (counts[b.location] || 0) + 1; });
-    const entries = Object.entries(data.locations);
+    const entries = sortedLocs();
     $("l-sheet-row").hidden = !entries.length;
     $("l-list").innerHTML = entries.length
       ? entries.map(([code, l]) => `<div class="bl-card"><strong>${esc(l.name)}</strong>
