@@ -357,17 +357,20 @@
     if (step === "loc") {
       fillLocSelect();
       $("as-loc-cancel").hidden = !currentLoc;
-      startScan((code) => {
-        const key = locFromCode(code);
-        if (!key) { status("Eso no es una ubicación conocida: " + code, true); return; }
-        chooseLoc(key);
-      });
     } else if (step === "main") {
       renderMain();
     } else if (step === "isbn") {
       $("as-isbn-input").value = "";
-      startScan((code) => submitIsbn(code));
     }
+  }
+
+  // La cámara es opcional: solo se abre con el botón 📷 de cada paso.
+  function openLocCamera() {
+    startScan((code) => {
+      const key = locFromCode(code);
+      if (!key) { status("Eso no es una ubicación conocida: " + code, true); return; }
+      chooseLoc(key);
+    });
   }
 
   function enterAssign() {
@@ -627,6 +630,8 @@
       if (!v) { status("Elige una ubicación.", true); return; }
       chooseLoc(v);
     };
+    $("as-loc-cam").onclick = openLocCamera;
+    $("as-isbn-cam").onclick = () => startScan((code) => submitIsbn(code));
     $("as-loc-cancel").onclick = () => showStep("main");
     $("as-change").onclick = () => showStep("loc");
     $("as-new").onclick = () => showStep("isbn");

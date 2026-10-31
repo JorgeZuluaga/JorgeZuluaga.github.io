@@ -71,12 +71,15 @@
           <!-- Paso 1: escoger ubicación -->
           <div id="as-loc" hidden>
             <h2 class="bl-h2">Escoge la ubicación</h2>
-            <p class="bl-muted">Escanea la etiqueta QR de la ubicación o elígela aquí abajo.</p>
+            <p class="bl-muted">Elígela aquí abajo o abre la cámara para escanear su etiqueta QR.</p>
             <div class="bl-row">
               <select id="as-loc-select" aria-label="Ubicación"></select>
               <button class="bl-btn bl-primary" id="as-loc-use" type="button">Usar</button>
             </div>
-            <button class="bl-btn" id="as-loc-cancel" type="button" hidden>Cancelar</button>
+            <div class="bl-row">
+              <button class="bl-btn" id="as-loc-cam" type="button">📷 Abrir cámara</button>
+              <button class="bl-btn" id="as-loc-cancel" type="button" hidden>Cancelar</button>
+            </div>
           </div>
 
           <!-- Paso 2: ubicación elegida y lista de libros -->
@@ -95,12 +98,15 @@
           <!-- Paso 3: escanear o escribir el ISBN -->
           <div id="as-isbn" hidden>
             <h2 class="bl-h2">Escanea el libro</h2>
-            <p class="bl-muted">Apunta al código de barras del ISBN o escríbelo aquí abajo.</p>
+            <p class="bl-muted">Escribe el ISBN o abre la cámara para escanear su código de barras.</p>
             <div class="bl-row">
               <input id="as-isbn-input" placeholder="ISBN" inputmode="numeric" autocomplete="off" />
               <button class="bl-btn bl-primary" id="as-isbn-go" type="button">Buscar</button>
             </div>
-            <button class="bl-btn" id="as-isbn-cancel" type="button">Cancelar</button>
+            <div class="bl-row">
+              <button class="bl-btn" id="as-isbn-cam" type="button">📷 Abrir cámara</button>
+              <button class="bl-btn" id="as-isbn-cancel" type="button">Cancelar</button>
+            </div>
           </div>
 
           <!-- Paso 4: ficha del libro -->
