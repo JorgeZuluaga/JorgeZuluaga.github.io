@@ -487,7 +487,7 @@
     const entries = sortedLocs();
     $("l-sheet-row").hidden = !entries.length;
     $("l-list").innerHTML = entries.length
-      ? entries.map(([code, l]) => `<div class="bl-card"><strong>${esc(l.name)}</strong>
+      ? entries.map(([code, l]) => `<div class="bl-card"><strong class="bl-open" role="button" tabindex="0" data-assign-loc="${esc(code)}" title="Agregar libros aquí">${esc(l.name)} <span class="bl-muted">›</span></strong>
           <div class="bl-muted">${esc(code)}</div>
           <details><summary>${counts[code] || 0} libros</summary>${listHtml(code, "data-open")}</details>
           <div class="bl-row"><button class="bl-btn" data-show="${esc(code)}">Etiqueta</button><button class="bl-btn" data-rename="${esc(code)}">Renombrar</button><button class="bl-btn" data-del="${esc(code)}">Borrar</button></div></div>`).join("")
@@ -601,7 +601,18 @@
     $("results").scrollIntoView({ behavior: "smooth", block: "start" });
   }
 
+  function onAssignLoc(e) {
+    const el = e.target.closest("[data-assign-loc]");
+    if (!el) return false;
+    if (e.type === "keydown" && e.key !== "Enter" && e.key !== " ") return false;
+    e.preventDefault();
+    setTab("assign");
+    chooseLoc(el.dataset.assignLoc);
+    return true;
+  }
+
   function onOpen(e) {
+    if (onAssignLoc(e)) return;
     const el = e.target.closest("[data-open]");
     if (!el) return;
     if (e.type === "keydown" && e.key !== "Enter" && e.key !== " ") return;
@@ -686,7 +697,7 @@
       }
       try {
         if (mv) {
-          const sel = e.target.parentElement.querySelector("select").value;
+          const sel = e.target.closest(".bl-move").querySelector("select").value;
           if (!sel) { status("Elige una ubicación.", true); return; }
           const typed = e.target.closest(".bl-book")?.querySelector("[data-title-input]")?.value.trim() || "";
           data = await api("/assign", { isbn: mv, location: sel, ...extraFor(mv, typed) });
