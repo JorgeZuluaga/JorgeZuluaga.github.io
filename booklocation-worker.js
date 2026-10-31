@@ -12,7 +12,7 @@
  *
  * Endpoints:
  *   GET  /booklocation.json
- *   POST /assign          { isbn, location }
+ *   POST /assign          { isbn, location, title?, author? }
  *   POST /unassign        { isbn }
  *   POST /location        { code, name }
  *   POST /location-delete { code }
@@ -120,7 +120,14 @@ export default {
       if (!data.locations[code]) {
         return json(request, env, { ok: false, error: "unknown_location" }, 404);
       }
-      data.books[isbn] = { location: code, updatedAt: new Date().toISOString() };
+      const prev = data.books[isbn] || {};
+      const entry = { location: code, updatedAt: new Date().toISOString() };
+      // Título/autor opcionales: sirven para conciliar luego libros cuyo ISBN no está en el catálogo.
+      const title = String(body.title ?? prev.title ?? "").trim().slice(0, 200);
+      const author = String(body.author ?? prev.author ?? "").trim().slice(0, 200);
+      if (title) entry.title = title;
+      if (author) entry.author = author;
+      data.books[isbn] = entry;
     } else if (pathname === "/unassign") {
       if (!isIsbn(isbn)) return json(request, env, { ok: false, error: "invalid_params" }, 400);
       delete data.books[isbn];

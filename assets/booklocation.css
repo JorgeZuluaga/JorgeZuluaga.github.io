@@ -37,3 +37,14 @@
 .bl-book { display: flex; gap: 0.8rem; align-items: flex-start; }
 .bl-book__body { flex: 1; min-width: 0; }
 .bl-cover { width: 64px; height: auto; max-height: 96px; object-fit: cover; border-radius: 4px; flex: none; }
+.bl-h2 { font-size: 1.05rem; margin: 1.2rem 0 0.4rem; color: var(--accent); }
+.bl-item { padding: 0.5rem 0; border-bottom: 1px solid var(--border-bottom); }
+.bl-item .bl-btn { margin-top: 0.3rem; font-size: 0.85rem; padding: 0.3rem 0.6rem; }
+.bl details { margin: 0.4rem 0; }
+.bl summary { cursor: pointer; }
+.bl-code { font: 11px monospace; word-break: break-all; }
+.bl-label svg, .bl-sheet svg { width: 70%; max-width: 220px; height: auto; }
+.bl-move select { width: 100%; white-space: nowrap; text-overflow: ellipsis; overflow: hidden; }
+.bl-move .bl-row { flex-wrap: wrap; }
+.bl-open { cursor: pointer; }
+.bl-open:hover strong { color: var(--accent); }

@@ -83,12 +83,18 @@
       if (!catalog.has(k)) catalog.set(k, { title: title || "(sin título)", author: author || "", isbn: k, cover: cover || "" });
       else if (cover && !catalog.get(k).cover) catalog.get(k).cover = cover;
     };
-    const [lib, det] = await Promise.all([
+    const [lib, det, aliases] = await Promise.all([
       fetch("./info/library.json").then((r) => r.json()).catch(() => ({})),
       fetch("./info/library-details.json").then((r) => r.json()).catch(() => ({})),
+      fetch("./info/booklocation-aliases.json").then((r) => (r.ok ? r.json() : {})).catch(() => ({})),
     ]);
     (lib.books || []).forEach((b) => add(b.title, b.author, b.isbn, b.reviewLocalCoverUrl));
     (det.books || []).forEach((b) => add(b.Title, b.Author, b.ISBN));
+    // ISBN escaneado distinto al del catálogo (generado por bin/reconcile_booklocation.py).
+    Object.entries(aliases.aliases || {}).forEach(([scanned, target]) => {
+      const t = catalog.get(normIsbn(target));
+      if (t && !catalog.has(scanned)) catalog.set(scanned, { ...t, isbn: scanned });
+    });
   }
   async function loadLocations() {
     data = await api("/booklocation.json");
@@ -126,7 +132,7 @@
     // Detector nativo si existe (puede fallar con ciertos formatos, p. ej. en iOS); ZXing siempre como respaldo.
     let native = null;
     if ("BarcodeDetector" in window) {
-      try { native = new BarcodeDetector({ formats: ["ean_13", "ean_8", "upc_a", "code_128", "qr_code"] }); } catch { native = null; }
+      try { native = new BarcodeDetector({ formats: ["qr_code", "ean_13", "ean_8", "upc_a", "code_128"] }); } catch { native = null; }
     }
     await loadZXing();
     const Z = window.ZXing;
@@ -248,9 +254,22 @@
     }
   }
 
+  // Título/autor a guardar junto a la asignación cuando el ISBN no está en el catálogo.
+  function extraFor(isbn, typed) {
+    if (catalog.has(isbn)) return {};
+    const o = online.get(isbn);
+    const t = typed || (o && o !== "pending" ? o.title : "") || data.books[isbn]?.title || "";
+    const a = (o && o !== "pending" ? o.author : "") || data.books[isbn]?.author || "";
+    return { ...(t ? { title: t } : {}), ...(a ? { author: a } : {}) };
+  }
+
   function bookCard(isbn) {
     let b = catalog.get(isbn);
     let note = "";
+    if (!b && data.books[isbn]?.title) {
+      b = { title: data.books[isbn].title, author: data.books[isbn].author || "", cover: "" };
+      note = "Título escrito por ti (ISBN fuera del catálogo).";
+    }
     if (!b) {
       const o = online.get(isbn);
       if (o === undefined || o === "pending") {
@@ -271,8 +290,11 @@
       <div class="bl-muted">${esc(b?.author || "")} · ${esc(isbn)}</div>
       ${note ? `<div class="bl-muted">${esc(note)}</div>` : ""}
       <div>${loc ? `📍 <span class="bl-loc">${esc(locName(loc))}</span>` : '<span class="bl-muted">Sin ubicación registrada</span>'}</div>
-      <div class="bl-row"><select data-move-sel="${esc(isbn)}"><option value="">${loc ? "Mover a…" : "Asignar a…"}</option>${opts}</select>
-      <button class="bl-btn" data-move="${esc(isbn)}">Guardar</button>${loc ? `<button class="bl-btn" data-unassign="${esc(isbn)}">Quitar</button>` : ""}</div></div></div>`;
+      ${!catalog.has(isbn) && !b?.title ? `<div class="bl-row"><input data-title-input="${esc(isbn)}" placeholder="Escribe el título (para conciliar después)" /></div>` : ""}
+      <div class="bl-move"><select data-move-sel="${esc(isbn)}"><option value="">${loc ? "Mover a…" : "Asignar a…"}</option>${opts}</select>
+      <div class="bl-row"><button class="bl-btn bl-primary" data-move="${esc(isbn)}">Guardar</button>
+      <button class="bl-btn" data-move-scan="${esc(isbn)}">📷 Escanear destino</button>
+      ${loc ? `<button class="bl-btn" data-unassign="${esc(isbn)}">Quitar</button>` : ""}</div></div></div></div>`;
   }
 
   function renderSearch() {
@@ -292,8 +314,42 @@
   }
 
   // ---------- Asignar ----------
+  function bookLabel(isbn) {
+    const c = catalog.get(isbn);
+    const st = data.books[isbn];
+    const title = c?.title || st?.title;
+    const author = c?.author || st?.author || "";
+    return title
+      ? `<strong>${esc(title)}</strong> <span class="bl-muted">${esc(author)} · ${esc(isbn)}</span>`
+      : `<strong>ISBN ${esc(isbn)}</strong> <span class="bl-muted">(sin título)</span>`;
+  }
+
+  function booksIn(code) {
+    return Object.entries(data.books)
+      .filter(([, b]) => b.location === code)
+      .sort((a, b) => String(b[1].updatedAt).localeCompare(String(a[1].updatedAt)))
+      .map(([isbn]) => isbn);
+  }
+
+  function listHtml(code, editable) {
+    const isbns = booksIn(code);
+    if (!isbns.length) return '<p class="bl-muted">Aún no hay libros aquí.</p>';
+    return isbns.map((isbn) => {
+      const needsTitle = editable && !catalog.has(isbn) && !data.books[isbn]?.title;
+      return `<div class="bl-item"><div class="bl-open" role="button" tabindex="0" data-open="${esc(isbn)}">${bookLabel(isbn)} <span class="bl-muted">›</span></div>
+        ${needsTitle ? `<div class="bl-row"><input data-item-title="${esc(isbn)}" placeholder="Título" /><button class="bl-btn" data-item-save="${esc(isbn)}">Guardar</button></div>` : ""}
+        ${editable ? `<button class="bl-btn" data-item-remove="${esc(isbn)}">Quitar</button>` : ""}</div>`;
+    }).join("");
+  }
+
   function renderCurLoc() {
     $("cur-loc").textContent = currentLoc ? "📍 " + locName(currentLoc) : "Escanea el código de una ubicación";
+    const box = $("a-books");
+    box.hidden = !currentLoc;
+    if (currentLoc) {
+      $("a-books-title").textContent = `Libros en esta ubicación (${booksIn(currentLoc).length})`;
+      $("a-books-list").innerHTML = listHtml(currentLoc, true);
+    }
   }
   function logLine(html, cls) {
     const d = document.createElement("div");
@@ -316,11 +372,13 @@
     const isbn = normIsbn(code);
     if (!isbn) { logLine("Código no reconocido: " + esc(code), "err"); return; }
     if (!currentLoc) { logLine("Primero escanea una ubicación.", "err"); return; }
+    const prevLoc = data.books[isbn]?.location;
     try {
-      data = await api("/assign", { isbn, location: currentLoc });
-      let title = catalog.get(isbn)?.title;
-      if (!title) title = (await lookupOnline(isbn).catch(() => null))?.title;
-      logLine("✅ " + esc(title || "ISBN " + isbn + " (no encontrado en ningún catálogo)") + " → <span class=\"bl-loc\">" + esc(locName(currentLoc)) + "</span>");
+      if (!catalog.has(isbn)) await lookupOnline(isbn).catch(() => null);
+      data = await api("/assign", { isbn, location: currentLoc, ...extraFor(isbn) });
+      const title = catalog.get(isbn)?.title || data.books[isbn]?.title;
+      renderCurLoc();
+      logLine("✅ " + esc(title || "ISBN " + isbn + " (no encontrado en ningún catálogo)") + (prevLoc && prevLoc !== currentLoc ? " 🔄 movido desde " + esc(locName(prevLoc)) : "") + " → <span class=\"bl-loc\">" + esc(locName(currentLoc)) + "</span>");
     } catch (e) {
       logLine(esc(e.message), "err");
     }
@@ -334,23 +392,28 @@
     $("l-sheet-row").hidden = !entries.length;
     $("l-list").innerHTML = entries.length
       ? entries.map(([code, l]) => `<div class="bl-card"><strong>${esc(l.name)}</strong>
-          <div class="bl-muted">${esc(code)} · ${counts[code] || 0} libros</div>
+          <div class="bl-muted">${esc(code)}</div>
+          <details><summary>${counts[code] || 0} libros</summary>${listHtml(code, false)}</details>
           <div class="bl-row"><button class="bl-btn" data-show="${esc(code)}">Etiqueta</button><button class="bl-btn" data-rename="${esc(code)}">Renombrar</button><button class="bl-btn" data-del="${esc(code)}">Borrar</button></div></div>`).join("")
       : '<p class="bl-muted">Aún no hay ubicaciones.</p>';
   }
 
+  // Etiquetas en QR: más robustas que Code128 con códigos largos (y legibles desde cualquier ángulo).
   function barcodeSvg(code) {
-    const svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
-    JsBarcode(svg, code, { format: "CODE128", width: 2, height: 80, displayValue: true, margin: 10 });
-    return svg;
+    const qr = qrcode(0, "M");
+    qr.addData(code);
+    qr.make();
+    const tpl = document.createElement("div");
+    tpl.innerHTML = qr.createSvgTag({ cellSize: 6, margin: 4, scalable: false });
+    return tpl.firstElementChild;
   }
 
   function buildSheet() {
     const codes = Object.keys(data.locations);
     if (!codes.length) { status("No hay ubicaciones.", true); return false; }
-    if (!window.JsBarcode) { status("Generador de códigos aún cargando; reintenta.", true); return false; }
+    if (!window.qrcode) { status("Generador de códigos aún cargando; reintenta.", true); return false; }
     const sheet = $("l-sheet");
-    sheet.innerHTML = codes.map((c) => `<div class="bl-cell"><div>${esc(locName(c))}</div><div data-code="${esc(c)}"></div></div>`).join("");
+    sheet.innerHTML = codes.map((c) => `<div class="bl-cell"><div>${esc(locName(c))}</div><div data-code="${esc(c)}"></div><div class="bl-code">${esc(c)}</div></div>`).join("");
     sheet.querySelectorAll("[data-code]").forEach((d) => d.appendChild(barcodeSvg(d.dataset.code)));
     sheet.hidden = false;
     return true;
@@ -360,7 +423,7 @@
   async function downloadSheet() {
     const codes = Object.keys(data.locations);
     if (!buildSheet()) return;
-    const cols = 3, cw = 360, ch = 190, pad = 10;
+    const cols = 3, cw = 360, ch = 330, pad = 10;
     const rows = Math.ceil(codes.length / cols);
     const canvas = document.createElement("canvas");
     canvas.width = cols * cw + pad * 2;
@@ -388,8 +451,10 @@
         img.onerror = reject;
         img.src = "data:image/svg+xml;charset=utf-8," + encodeURIComponent(new XMLSerializer().serializeToString(svg));
       });
-      const scale = Math.min((cw - 20) / w, (ch - 50) / h, 1.5);
+      const scale = Math.min((cw - 20) / w, (ch - 70) / h);
       ctx.drawImage(img, x + (cw - w * scale) / 2, y + 40, w * scale, h * scale);
+      ctx.font = "11px monospace";
+      ctx.fillText(codes[i], x + cw / 2, y + ch - 12);
     }
     const a = document.createElement("a");
     a.href = canvas.toDataURL("image/png");
@@ -408,12 +473,10 @@
     const box = $("l-label");
     box.hidden = false;
     $("l-print-row").hidden = false;
-    box.innerHTML = `<div><strong>${esc(locName(code))}</strong></div><svg id="l-svg"></svg>`;
-    if (window.JsBarcode) {
-      JsBarcode("#l-svg", code, { format: "CODE128", width: 2, height: 80, displayValue: true });
-    } else {
-      status("Generador de códigos aún cargando; reintenta.", true);
-    }
+    if (!window.qrcode) { status("Generador de códigos aún cargando; reintenta.", true); return; }
+    box.innerHTML = `<div><strong>${esc(locName(code))}</strong></div>`;
+    box.appendChild(barcodeSvg(code));
+    box.insertAdjacentHTML("beforeend", `<div class="bl-code">${esc(code)}</div>`);
   }
 
   async function addLocation() {
@@ -434,6 +497,22 @@
   }
 
   // ---------- UI ----------
+  // Abre la ficha de edición de un libro (cambiar ubicación o quitarlo).
+  function openBook(isbn) {
+    setTab("search");
+    $("q").value = isbn;
+    renderSearch();
+    $("results").scrollIntoView({ behavior: "smooth", block: "start" });
+  }
+
+  function onOpen(e) {
+    const el = e.target.closest("[data-open]");
+    if (!el) return;
+    if (e.type === "keydown" && e.key !== "Enter" && e.key !== " ") return;
+    e.preventDefault();
+    openBook(el.dataset.open);
+  }
+
   function setTab(tab) {
     stopScan();
     document.querySelectorAll("nav.bl-tabs button").forEach((b) => b.setAttribute("aria-selected", String(b.dataset.tab === tab)));
@@ -463,14 +542,50 @@
     $("l-sheet-print").onclick = printSheet;
     $("l-print").onclick = () => { document.body.classList.remove("print-sheet"); window.print(); };
     $("reset-token").onclick = () => { localStorage.removeItem("bl_token"); location.reload(); };
+    ["a-books-list", "l-list"].forEach((id) => {
+      $(id).addEventListener("click", onOpen);
+      $(id).addEventListener("keydown", onOpen);
+    });
+    $("a-books-list").addEventListener("click", async (e) => {
+      const rm = e.target.dataset.itemRemove;
+      const sv = e.target.dataset.itemSave;
+      try {
+        if (rm) {
+          data = await api("/unassign", { isbn: rm });
+        } else if (sv) {
+          const title = e.target.parentElement.querySelector("input").value.trim();
+          if (!title) { status("Escribe el título.", true); return; }
+          data = await api("/assign", { isbn: sv, location: data.books[sv].location, title });
+        } else return;
+        renderCurLoc();
+      } catch (err) { status(err.message, true); }
+    });
     $("results").addEventListener("click", async (e) => {
       const mv = e.target.dataset.move;
       const un = e.target.dataset.unassign;
+      const ms = e.target.dataset.moveScan;
+      if (ms) {
+        // Mover escaneando la etiqueta de la nueva ubicación.
+        status("Escanea la etiqueta de la nueva ubicación…");
+        startScan(async (code) => {
+          const key = /^LOC-/i.test(code) ? "LOC-" + code.slice(4) : "";
+          if (!key || !data.locations[key]) { status("Eso no es una ubicación conocida: " + code, true); return; }
+          stopScan();
+          try {
+            const typed = e.target.closest(".bl-book")?.querySelector("[data-title-input]")?.value.trim() || "";
+            data = await api("/assign", { isbn: ms, location: key, ...extraFor(ms, typed) });
+            status("Movido a " + locName(key) + " ✅");
+            renderSearch();
+          } catch (err) { status(err.message, true); }
+        });
+        return;
+      }
       try {
         if (mv) {
           const sel = e.target.parentElement.querySelector("select").value;
           if (!sel) { status("Elige una ubicación.", true); return; }
-          data = await api("/assign", { isbn: mv, location: sel });
+          const typed = e.target.closest(".bl-book")?.querySelector("[data-title-input]")?.value.trim() || "";
+          data = await api("/assign", { isbn: mv, location: sel, ...extraFor(mv, typed) });
         } else if (un) {
           data = await api("/unassign", { isbn: un });
         } else return;

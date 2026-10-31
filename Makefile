@@ -17,7 +17,7 @@
 	library-ddc-update library-ddc-generate-pending library-ddc-apply-gemini \
 	sync-dcc-library-details \
 	update-all-books \
-	worker-deploy booklocation-deploy booklocation-export book-og-deploy book-og-check book-og-ensure review-notify-deploy review-notify-send review-notify-seed-test review-notify-test-send \
+	worker-deploy booklocation-deploy booklocation-export booklocation-reconcile book-og-deploy book-og-check book-og-ensure review-notify-deploy review-notify-send review-notify-seed-test review-notify-test-send \
 	lista-suscritos \
 	update-shorts
 
@@ -543,6 +543,10 @@ booklocation-deploy:
 booklocation-export: BOOKLOC_TOKEN ?= $(shell cat .secrets/booklocation-token 2>/dev/null)
 booklocation-export:
 	@curl -fsS -H "Authorization: Bearer $(BOOKLOC_TOKEN)" https://booklocation-worker.booklocation-jorgezuluaga.workers.dev/booklocation.json -o info/booklocation.json && echo "info/booklocation.json actualizado"
+
+# Informe de libros escaneados cuyo ISBN no está en el catálogo (APPLY=1 guarda alias seguros).
+booklocation-reconcile:
+	@python3 bin/reconcile_booklocation.py $(if $(APPLY),--apply,)
 
 book-og-deploy:
 	@npx wrangler deploy --config wrangler-book-og.toml
