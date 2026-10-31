@@ -7,7 +7,7 @@
 
   let data = { locations: {}, books: {} };
   let catalog = new Map(); // isbn13 -> {title, author, isbn}
-  let currentLoc = localStorage.getItem("bl_cur_loc") || "";
+  let currentLoc = ""; // ubicación activa en «Asignar» (solo en memoria)
   let scanHandler = null;
   let stream = null;
   let scanTimer = null;
@@ -114,20 +114,26 @@
     });
   }
 
+  let scanId = 0;
+
   async function startScan(handler) {
     stopScan();
+    const id = ++scanId;
     scanHandler = handler;
+    let st;
     try {
-      stream = await navigator.mediaDevices.getUserMedia({ video: { facingMode: { ideal: "environment" }, width: { ideal: 1920 }, height: { ideal: 1080 } }, audio: false });
+      st = await navigator.mediaDevices.getUserMedia({ video: { facingMode: { ideal: "environment" }, width: { ideal: 1920 }, height: { ideal: 1080 } }, audio: false });
     } catch {
-      status("No se pudo abrir la cámara (necesita HTTPS y permiso).", true);
+      status("No se pudo abrir la cámara (necesita HTTPS y permiso). Puedes escribir el dato abajo.", true);
       return;
     }
+    if (id !== scanId) { st.getTracks().forEach((t) => t.stop()); return; }
+    stream = st;
     const video = $("video");
     video.srcObject = stream;
-    await video.play();
+    await video.play().catch(() => {});
+    if (id !== scanId) return;
     $("scanner").hidden = false;
-    status("Apunta al código de barras…");
 
     // Detector nativo si existe (puede fallar con ciertos formatos, p. ej. en iOS); ZXing siempre como respaldo.
     let native = null;
@@ -135,6 +141,7 @@
       try { native = new BarcodeDetector({ formats: ["qr_code", "ean_13", "ean_8", "upc_a", "code_128"] }); } catch { native = null; }
     }
     await loadZXing();
+    if (id !== scanId) return;
     const Z = window.ZXing;
     const reader = new Z.MultiFormatReader();
     reader.setHints(new Map([
@@ -165,18 +172,18 @@
     let lastAt = 0;
     scanTimer = setInterval(async () => {
       const code = await detect().catch(() => undefined);
-      if (!code) return;
+      if (!code || id !== scanId) return;
       const now = Date.now();
       if (code === last && now - lastAt < 2500) return;
       last = code;
       lastAt = now;
       if (navigator.vibrate) navigator.vibrate(60);
-      status("");
       scanHandler && scanHandler(code.trim());
     }, 250);
   }
 
   function stopScan() {
+    scanId++;
     clearInterval(scanTimer);
     scanTimer = null;
     scanHandler = null;
@@ -265,6 +272,8 @@
 
   function bookCard(isbn) {
     let b = catalog.get(isbn);
+    const stored = data.books[isbn];
+    if (b && stored?.title) b = { ...b, title: stored.title, author: stored.author || b.author };
     let note = "";
     if (!b && data.books[isbn]?.title) {
       b = { title: data.books[isbn].title, author: data.books[isbn].author || "", cover: "" };
@@ -317,8 +326,8 @@
   function bookLabel(isbn) {
     const c = catalog.get(isbn);
     const st = data.books[isbn];
-    const title = c?.title || st?.title;
-    const author = c?.author || st?.author || "";
+    const title = st?.title || c?.title;
+    const author = st?.author || c?.author || "";
     return title
       ? `<strong>${esc(title)}</strong> <span class="bl-muted">${esc(author)} · ${esc(isbn)}</span>`
       : `<strong>ISBN ${esc(isbn)}</strong> <span class="bl-muted">(sin título)</span>`;
@@ -331,57 +340,137 @@
       .map(([isbn]) => isbn);
   }
 
-  function listHtml(code, editable) {
+  // attr: atributo data-* que marca cada libro como clicable.
+  function listHtml(code, attr) {
     const isbns = booksIn(code);
     if (!isbns.length) return '<p class="bl-muted">Aún no hay libros aquí.</p>';
-    return isbns.map((isbn) => {
-      const needsTitle = editable && !catalog.has(isbn) && !data.books[isbn]?.title;
-      return `<div class="bl-item"><div class="bl-open" role="button" tabindex="0" data-open="${esc(isbn)}">${bookLabel(isbn)} <span class="bl-muted">›</span></div>
-        ${needsTitle ? `<div class="bl-row"><input data-item-title="${esc(isbn)}" placeholder="Título" /><button class="bl-btn" data-item-save="${esc(isbn)}">Guardar</button></div>` : ""}
-        ${editable ? `<button class="bl-btn" data-item-remove="${esc(isbn)}">Quitar</button>` : ""}</div>`;
-    }).join("");
+    return isbns.map((isbn) => `<div class="bl-item"><div class="bl-open" role="button" tabindex="0" ${attr}="${esc(isbn)}">${bookLabel(isbn)} <span class="bl-muted">›</span></div></div>`).join("");
   }
 
-  function renderCurLoc() {
-    $("cur-loc").textContent = currentLoc ? "📍 " + locName(currentLoc) : "Escanea el código de una ubicación";
-    const box = $("a-books");
-    box.hidden = !currentLoc;
-    if (currentLoc) {
-      $("a-books-title").textContent = `Libros en esta ubicación (${booksIn(currentLoc).length})`;
-      $("a-books-list").innerHTML = listHtml(currentLoc, true);
+  // ---------- Asignar (flujo guiado: ubicación → libro → ficha) ----------
+  const STEP_EL = { loc: "as-loc", main: "as-main", isbn: "as-isbn", form: "as-form" };
+  let formIsbn = "";
+
+  function showStep(step) {
+    stopScan();
+    Object.entries(STEP_EL).forEach(([k, id]) => { $(id).hidden = k !== step; });
+    if (step === "loc") {
+      fillLocSelect();
+      $("as-loc-cancel").hidden = !currentLoc;
+      startScan((code) => {
+        const key = locFromCode(code);
+        if (!key) { status("Eso no es una ubicación conocida: " + code, true); return; }
+        chooseLoc(key);
+      });
+    } else if (step === "main") {
+      renderMain();
+    } else if (step === "isbn") {
+      $("as-isbn-input").value = "";
+      startScan((code) => submitIsbn(code));
     }
-  }
-  function logLine(html, cls) {
-    const d = document.createElement("div");
-    d.className = "bl-card " + (cls || "");
-    d.innerHTML = html;
-    $("a-log").prepend(d);
   }
 
-  async function handleAssignCode(raw) {
-    const code = String(raw).trim();
-    if (/^LOC-/i.test(code)) {
-      const key = "LOC-" + code.slice(4);
-      if (!data.locations[key]) { logLine("Ubicación desconocida: " + esc(code), "err"); return; }
-      currentLoc = key;
-      localStorage.setItem("bl_cur_loc", key);
-      renderCurLoc();
-      logLine("Ubicación: <strong>" + esc(locName(key)) + "</strong>");
-      return;
+  function enterAssign() {
+    showStep(currentLoc && data.locations[currentLoc] ? "main" : "loc");
+  }
+
+  function locFromCode(raw) {
+    const m = String(raw).trim().match(/^LOC-(.+)$/i);
+    const key = m ? "LOC-" + m[1] : "";
+    return data.locations[key] ? key : "";
+  }
+
+  function fillLocSelect() {
+    const entries = Object.entries(data.locations);
+    $("as-loc-select").innerHTML = entries.length
+      ? '<option value="">Elige una ubicación…</option>' + entries.map(([c, l]) => `<option value="${esc(c)}">${esc(l.name)}</option>`).join("")
+      : '<option value="">No hay ubicaciones (créalas en «Ubicaciones»)</option>';
+  }
+
+  function chooseLoc(key) {
+    currentLoc = key;
+    status("");
+    $("a-log").innerHTML = "";
+    showStep("main");
+  }
+
+  function renderMain() {
+    $("cur-loc").textContent = "📍 " + locName(currentLoc);
+    $("a-books-title").textContent = `Libros en esta ubicación (${booksIn(currentLoc).length})`;
+    $("a-books-list").innerHTML = listHtml(currentLoc, "data-edit");
+  }
+
+  function mainMessage(html) {
+    $("a-log").innerHTML = `<div class="bl-card">${html}</div>`;
+  }
+
+  function submitIsbn(raw) {
+    const isbn = normIsbn(raw);
+    if (!isbn) { status("No es un ISBN válido: " + raw, true); return; }
+    status("");
+    openForm(isbn);
+  }
+
+  async function openForm(isbn) {
+    formIsbn = isbn;
+    showStep("form");
+    const st = data.books[isbn];
+    const c = catalog.get(isbn);
+    $("af-isbn").textContent = isbn;
+    $("af-title").value = st?.title || c?.title || "";
+    $("af-author").value = st?.author || c?.author || "";
+    $("af-loc").innerHTML = Object.entries(data.locations)
+      .map(([code, l]) => `<option value="${esc(code)}"${code === currentLoc ? " selected" : ""}>${esc(l.name)}</option>`).join("");
+    $("af-remove").hidden = !st;
+    $("af-cover").innerHTML = coverHtml(coverCandidates(isbn, c));
+
+    const notes = [];
+    if (c) notes.push("Está en tu catálogo.");
+    if (st && st.location !== currentLoc) notes.push(`Ya estaba en «${locName(st.location)}»; al guardar se moverá.`);
+    else if (st) notes.push("Ya estaba en esta ubicación.");
+    const noteEl = $("af-note");
+    noteEl.textContent = notes.join(" ");
+
+    if (!c && !st?.title) {
+      noteEl.textContent = "Buscando en Google Books…";
+      const o = await lookupOnline(isbn).catch(() => null);
+      if (formIsbn !== isbn || $("as-form").hidden) return;
+      if (o && o !== "pending") {
+        if (!$("af-title").value) $("af-title").value = o.title;
+        if (!$("af-author").value) $("af-author").value = o.author;
+        if (o.cover && !$("af-cover").firstChild) $("af-cover").innerHTML = coverHtml([o.cover]);
+        notes.unshift(`Encontrado en ${o.source}; revísalo.`);
+      } else {
+        notes.unshift("No está en tu catálogo ni en Google Books u Open Library: escribe título y autor.");
+      }
+      noteEl.textContent = notes.join(" ");
     }
-    const isbn = normIsbn(code);
-    if (!isbn) { logLine("Código no reconocido: " + esc(code), "err"); return; }
-    if (!currentLoc) { logLine("Primero escanea una ubicación.", "err"); return; }
-    const prevLoc = data.books[isbn]?.location;
+  }
+
+  async function saveForm(e) {
+    e.preventDefault();
+    const isbn = formIsbn;
+    const location = $("af-loc").value;
+    if (!location) { status("Elige una ubicación.", true); return; }
+    const title = $("af-title").value.trim();
+    const author = $("af-author").value.trim();
+    const c = catalog.get(isbn);
+    // Si coincide con el catálogo no se guarda copia del título/autor.
+    const same = c && title === c.title && author === c.author;
     try {
-      if (!catalog.has(isbn)) await lookupOnline(isbn).catch(() => null);
-      data = await api("/assign", { isbn, location: currentLoc, ...extraFor(isbn) });
-      const title = catalog.get(isbn)?.title || data.books[isbn]?.title;
-      renderCurLoc();
-      logLine("✅ " + esc(title || "ISBN " + isbn + " (no encontrado en ningún catálogo)") + (prevLoc && prevLoc !== currentLoc ? " 🔄 movido desde " + esc(locName(prevLoc)) : "") + " → <span class=\"bl-loc\">" + esc(locName(currentLoc)) + "</span>");
-    } catch (e) {
-      logLine(esc(e.message), "err");
-    }
+      data = await api("/assign", { isbn, location, title: same ? "" : title, author: same ? "" : author });
+      showStep("main");
+      mainMessage("✅ " + esc(title || "ISBN " + isbn) + ' → <span class="bl-loc">' + esc(locName(location)) + "</span>");
+    } catch (err) { status(err.message, true); }
+  }
+
+  async function removeForm() {
+    const isbn = formIsbn;
+    try {
+      data = await api("/unassign", { isbn });
+      showStep("main");
+      mainMessage("🗑 Quitado: " + esc(catalog.get(isbn)?.title || "ISBN " + isbn));
+    } catch (err) { status(err.message, true); }
   }
 
   // ---------- Ubicaciones / etiquetas ----------
@@ -393,7 +482,7 @@
     $("l-list").innerHTML = entries.length
       ? entries.map(([code, l]) => `<div class="bl-card"><strong>${esc(l.name)}</strong>
           <div class="bl-muted">${esc(code)}</div>
-          <details><summary>${counts[code] || 0} libros</summary>${listHtml(code, false)}</details>
+          <details><summary>${counts[code] || 0} libros</summary>${listHtml(code, "data-open")}</details>
           <div class="bl-row"><button class="bl-btn" data-show="${esc(code)}">Etiqueta</button><button class="bl-btn" data-rename="${esc(code)}">Renombrar</button><button class="bl-btn" data-del="${esc(code)}">Borrar</button></div></div>`).join("")
       : '<p class="bl-muted">Aún no hay ubicaciones.</p>';
   }
@@ -518,7 +607,7 @@
     document.querySelectorAll("nav.bl-tabs button").forEach((b) => b.setAttribute("aria-selected", String(b.dataset.tab === tab)));
     ["search", "assign", "locs"].forEach((t) => { $("tab-" + t).hidden = t !== tab; });
     if (tab === "locs") renderLocs();
-    if (tab === "assign") renderCurLoc();
+    if (tab === "assign") enterAssign();
   }
 
   async function init() {
@@ -533,33 +622,36 @@
       $("q").value = isbn;
       renderSearch();
     });
-    $("a-scan").onclick = () => startScan(handleAssignCode);
-    const manual = () => { const v = $("a-manual").value; $("a-manual").value = ""; if (v.trim()) handleAssignCode(v); };
-    $("a-add").onclick = manual;
-    $("a-manual").addEventListener("keydown", (e) => { if (e.key === "Enter") manual(); });
+    $("as-loc-use").onclick = () => {
+      const v = $("as-loc-select").value;
+      if (!v) { status("Elige una ubicación.", true); return; }
+      chooseLoc(v);
+    };
+    $("as-loc-cancel").onclick = () => showStep("main");
+    $("as-change").onclick = () => showStep("loc");
+    $("as-new").onclick = () => showStep("isbn");
+    $("as-isbn-go").onclick = () => submitIsbn($("as-isbn-input").value);
+    $("as-isbn-input").addEventListener("keydown", (e) => { if (e.key === "Enter") { e.preventDefault(); submitIsbn($("as-isbn-input").value); } });
+    $("as-isbn-cancel").onclick = () => showStep("main");
+    $("as-form").addEventListener("submit", saveForm);
+    $("as-form").addEventListener("error", onCoverError, true);
+    $("af-cancel").onclick = () => showStep("main");
+    $("af-remove").onclick = removeForm;
+    $("a-books-list").addEventListener("click", (e) => {
+      const el = e.target.closest("[data-edit]");
+      if (el) openForm(el.dataset.edit);
+    });
+    $("a-books-list").addEventListener("keydown", (e) => {
+      const el = e.target.closest("[data-edit]");
+      if (el && (e.key === "Enter" || e.key === " ")) { e.preventDefault(); openForm(el.dataset.edit); }
+    });
     $("l-add").onclick = addLocation;
     $("l-sheet-png").onclick = () => downloadSheet().catch((e) => status(e.message || "No se pudo generar la imagen", true));
     $("l-sheet-print").onclick = printSheet;
     $("l-print").onclick = () => { document.body.classList.remove("print-sheet"); window.print(); };
     $("reset-token").onclick = () => { localStorage.removeItem("bl_token"); location.reload(); };
-    ["a-books-list", "l-list"].forEach((id) => {
-      $(id).addEventListener("click", onOpen);
-      $(id).addEventListener("keydown", onOpen);
-    });
-    $("a-books-list").addEventListener("click", async (e) => {
-      const rm = e.target.dataset.itemRemove;
-      const sv = e.target.dataset.itemSave;
-      try {
-        if (rm) {
-          data = await api("/unassign", { isbn: rm });
-        } else if (sv) {
-          const title = e.target.parentElement.querySelector("input").value.trim();
-          if (!title) { status("Escribe el título.", true); return; }
-          data = await api("/assign", { isbn: sv, location: data.books[sv].location, title });
-        } else return;
-        renderCurLoc();
-      } catch (err) { status(err.message, true); }
-    });
+    $("l-list").addEventListener("click", onOpen);
+    $("l-list").addEventListener("keydown", onOpen);
     $("results").addEventListener("click", async (e) => {
       const mv = e.target.dataset.move;
       const un = e.target.dataset.unassign;
@@ -613,7 +705,7 @@
       if (del) {
         try {
           data = await api("/location-delete", { code: del });
-          if (currentLoc === del) { currentLoc = ""; localStorage.removeItem("bl_cur_loc"); }
+          if (currentLoc === del) currentLoc = "";
           renderLocs();
         } catch (err) { status(err.message, true); }
       }
@@ -628,6 +720,7 @@
       await Promise.all([loadCatalog(), loadLocations()]);
       status("");
       renderSearch();
+      if (!$("as-loc").hidden) fillLocSelect();
     } catch (e) {
       status(e.message, true);
       if (!localStorage.getItem("bl_token")) loadAll(true);

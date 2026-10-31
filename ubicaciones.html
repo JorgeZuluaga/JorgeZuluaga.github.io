@@ -68,21 +68,62 @@
         </section>
 
         <section id="tab-assign" hidden>
-          <div class="bl-card">
-            <div class="bl-muted">Ubicación actual</div>
-            <div id="cur-loc" class="bl-loc">Escanea el código de una ubicación</div>
+          <!-- Paso 1: escoger ubicación -->
+          <div id="as-loc" hidden>
+            <h2 class="bl-h2">Escoge la ubicación</h2>
+            <p class="bl-muted">Escanea la etiqueta QR de la ubicación o elígela aquí abajo.</p>
+            <div class="bl-row">
+              <select id="as-loc-select" aria-label="Ubicación"></select>
+              <button class="bl-btn bl-primary" id="as-loc-use" type="button">Usar</button>
+            </div>
+            <button class="bl-btn" id="as-loc-cancel" type="button" hidden>Cancelar</button>
           </div>
-          <div class="bl-row">
-            <button class="bl-btn bl-primary" id="a-scan" type="button">📷 Escanear</button>
-            <input id="a-manual" placeholder="ISBN o código manual" />
-            <button class="bl-btn" id="a-add" type="button">OK</button>
-          </div>
-          <p class="bl-muted">Escanea una ubicación (LOC-…) y después los libros: cada uno se guarda al instante. Escanear otra ubicación cambia la actual.</p>
-          <div id="a-log"></div>
-          <div id="a-books" hidden>
+
+          <!-- Paso 2: ubicación elegida y lista de libros -->
+          <div id="as-main" hidden>
+            <div class="bl-card">
+              <div class="bl-muted">Ubicación</div>
+              <div id="cur-loc" class="bl-loc"></div>
+              <div class="bl-row"><button class="bl-btn" id="as-change" type="button">Cambiar ubicación</button></div>
+            </div>
+            <button class="bl-btn bl-primary bl-wide" id="as-new" type="button">＋ Nuevo libro</button>
+            <div id="a-log"></div>
             <h2 id="a-books-title" class="bl-h2"></h2>
             <div id="a-books-list"></div>
           </div>
+
+          <!-- Paso 3: escanear o escribir el ISBN -->
+          <div id="as-isbn" hidden>
+            <h2 class="bl-h2">Escanea el libro</h2>
+            <p class="bl-muted">Apunta al código de barras del ISBN o escríbelo aquí abajo.</p>
+            <div class="bl-row">
+              <input id="as-isbn-input" placeholder="ISBN" inputmode="numeric" autocomplete="off" />
+              <button class="bl-btn bl-primary" id="as-isbn-go" type="button">Buscar</button>
+            </div>
+            <button class="bl-btn" id="as-isbn-cancel" type="button">Cancelar</button>
+          </div>
+
+          <!-- Paso 4: ficha del libro -->
+          <form id="as-form" class="bl-card bl-form" hidden>
+            <div class="bl-book">
+              <div id="af-cover"></div>
+              <div class="bl-book__body">
+                <strong>ISBN <span id="af-isbn"></span></strong>
+                <div id="af-note" class="bl-muted"></div>
+              </div>
+            </div>
+            <label for="af-title">Título</label>
+            <input id="af-title" autocomplete="off" />
+            <label for="af-author">Autor</label>
+            <input id="af-author" autocomplete="off" />
+            <label for="af-loc">Ubicación</label>
+            <select id="af-loc"></select>
+            <div class="bl-row">
+              <button class="bl-btn bl-primary" type="submit">Guardar</button>
+              <button class="bl-btn" id="af-cancel" type="button">Cancelar</button>
+              <button class="bl-btn" id="af-remove" type="button" hidden>Quitar</button>
+            </div>
+          </form>
         </section>
 
         <section id="tab-locs" hidden>
