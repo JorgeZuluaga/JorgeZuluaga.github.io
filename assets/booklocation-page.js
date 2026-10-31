@@ -398,9 +398,7 @@
     currentLoc = key;
     status("");
     $("a-log").innerHTML = "";
-    // Con la ubicación elegida, pasa directo a escanear el primer libro con la cámara.
-    showStep("isbn");
-    startScan((code) => submitIsbn(code));
+    showStep("main");
   }
 
   function renderMain() {
@@ -640,7 +638,10 @@
     $("as-isbn-cam").onclick = () => startScan((code) => submitIsbn(code));
     $("as-loc-cancel").onclick = () => showStep("main");
     $("as-change").onclick = () => showStep("loc");
-    $("as-new").onclick = () => showStep("isbn");
+    $("as-new").onclick = () => {
+      showStep("isbn");
+      startScan((code) => submitIsbn(code));
+    };
     $("as-isbn-go").onclick = () => submitIsbn($("as-isbn-input").value);
     $("as-isbn-input").addEventListener("keydown", (e) => { if (e.key === "Enter") { e.preventDefault(); submitIsbn($("as-isbn-input").value); } });
     $("as-isbn-cancel").onclick = () => showStep("main");
