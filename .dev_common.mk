@@ -8,20 +8,27 @@
 # Optional overrides in the project Makefile:
 #   VENV_DIR  — virtualenv directory name (default: .venv)
 #   PYTHON    — Python interpreter (default: python3)
+#
+# Optional on the command line:
+#   GIT_GC_AGGRESSIVE=1 make cleanall   — use `git gc --aggressive` (much
+#                                          slower, recomputes all deltas)
 # =============================================================================
 
 PYTHON   ?= python3
 VENV_DIR ?= .venv
+GIT_GC_AGGRESSIVE ?=
 
 .PHONY: _dev_cleanall _dev_cleanall_caches _dev_cleanall_node \
-        _dev_cleanall_venvs _dev_cleanall_build _dev_cleanall_misc _dev_env
+        _dev_cleanall_venvs _dev_cleanall_build _dev_cleanall_docs \
+        _dev_cleanall_misc _dev_cleanall_git _dev_env
 
 # ---------------------------------------------------------------------------
 # cleanall — deep cleanup
 # ---------------------------------------------------------------------------
 
 _dev_cleanall: _dev_cleanall_caches _dev_cleanall_node _dev_cleanall_venvs \
-               _dev_cleanall_build _dev_cleanall_misc
+               _dev_cleanall_build _dev_cleanall_docs _dev_cleanall_misc \
+               _dev_cleanall_git
 	@echo "✓ Deep cleanup finished in $(notdir $(CURDIR))"
 
 _dev_cleanall_caches:
@@ -112,12 +119,59 @@ _dev_cleanall_build:
 		-type f \( -name '.coverage' -o -name 'coverage.xml' \) \
 		-print -delete 2>/dev/null || true
 
+# Compiled documentation: Sphinx (_build) and Jekyll (_site).
+# Directories containing git-tracked files are skipped (some repos commit
+# their built docs, e.g. for GitHub Pages).
+_dev_cleanall_docs:
+	@echo "→ Compiled documentation (_build, _site)…"
+	@find . \
+		\( -path './.git' -o -path './.git/*' \) -prune -o \
+		-type d \( -name '_build' -o -name '_site' \) -prune -print 2>/dev/null \
+		| while IFS= read -r d; do \
+			[ -n "$$d" ] || continue; \
+			if git -C "$$d" ls-files --error-unmatch . >/dev/null 2>&1; then \
+				echo "   skip $$d (tracked by git)"; \
+			else \
+				echo "   rm -rf $$d"; \
+				rm -rf "$$d" || true; \
+			fi; \
+		done || true
+
 _dev_cleanall_misc:
 	@echo "→ Misc temporary files…"
 	@find . \
 		\( -path './.git' -o -path './.git/*' \) -prune -o \
 		-type d \( -name '.cache' -o -name '.sass-cache' \) -print 2>/dev/null \
 		| while IFS= read -r d; do [ -n "$$d" ] && rm -rf "$$d"; done || true
+
+# Git maintenance for every repository inside the project (root and nested
+# clones). Only non-destructive operations: history, branches, stashes,
+# unpushed commits and reflog (default 90/30-day expiry) are preserved.
+#   worktree prune  — drop metadata of worktrees whose folder no longer exists
+#   rerere gc       — expire old recorded merge resolutions
+#   lfs prune       — drop old local LFS copies already on the remote (never
+#                     unpushed ones); only if the repo uses LFS
+#   gc              — pack loose objects, delete loose copies already packed,
+#                     prune unreachable objects older than 2 weeks, pack refs,
+#                     write commit-graph
+_dev_cleanall_git:
+	@echo "→ Git maintenance (gc$(if $(GIT_GC_AGGRESSIVE), --aggressive))…"
+	@find . -type d -name '.git' -prune -print 2>/dev/null \
+		| while IFS= read -r g; do \
+			[ -n "$$g" ] || continue; \
+			repo="$$(dirname "$$g")"; \
+			git -C "$$repo" rev-parse --git-dir >/dev/null 2>&1 || continue; \
+			before=$$(du -sk "$$g" 2>/dev/null | cut -f1); \
+			git -C "$$repo" worktree prune </dev/null 2>/dev/null || true; \
+			git -C "$$repo" rerere gc </dev/null 2>/dev/null || true; \
+			if [ -d "$$g/lfs" ] && command -v git-lfs >/dev/null 2>&1; then \
+				git -C "$$repo" lfs prune </dev/null || true; \
+			fi; \
+			git -C "$$repo" gc --quiet $(if $(GIT_GC_AGGRESSIVE),--aggressive) </dev/null \
+				|| echo "   ⚠ git gc failed in $$repo"; \
+			after=$$(du -sk "$$g" 2>/dev/null | cut -f1); \
+			echo "   $$repo/.git: $$((before / 1024)) MB → $$((after / 1024)) MB"; \
+		done || true
 
 # ---------------------------------------------------------------------------
 # env — create Python virtual environment
