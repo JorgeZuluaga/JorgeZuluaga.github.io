@@ -81,8 +81,16 @@
   function showTotal(d) {
     if (!d?.books) return;
     const n = Object.keys(d.books).length;
-    $("bl-total").innerHTML = `<strong>${n}</strong> ${n === 1 ? "libro localizado" : "libros localizados"}`;
+    const m = Object.keys(d.locations || {}).length;
+    $("bl-total").innerHTML = `<strong>${n}</strong> ${n === 1 ? "libro localizado" : "libros localizados"} · <strong>${m}</strong> ${m === 1 ? "ubicación" : "ubicaciones"}`;
   }
+
+  // La versión sale del parámetro ?v=AAAAMMDDHHMM con el que se carga este script.
+  (function showVersion() {
+    const v = (document.currentScript?.src.match(/[?&]v=(\d{12})/) || [])[1];
+    const el = document.getElementById("bl-version");
+    if (v && el) el.textContent = `Versión ${v.slice(0, 4)}-${v.slice(4, 6)}-${v.slice(6, 8)} ${v.slice(8, 10)}:${v.slice(10, 12)}`;
+  })();
 
   // ---------- Datos ----------
   async function loadCatalog() {

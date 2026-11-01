@@ -13,7 +13,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="./assets/style.css?v=2" />
-  <link rel="stylesheet" href="./assets/booklocation.css?v=202611011105" />
+  <link rel="stylesheet" href="./assets/booklocation.css?v=202611011108" />
   <script src="./assets/template.js" defer></script>
 </head>
 
@@ -36,6 +36,8 @@
     <main class="photos-main">
       <div class="container bl">
         <h1 class="title-section">Ubicación de libros</h1>
+
+        <p class="bl-muted bl-intro">En esta página registras dónde está cada libro de tu biblioteca: escanea o escribe el ISBN (o el título), elige la ubicación y consúltalo después en «Buscar».</p>
 
         <p id="bl-total" class="bl-total" aria-live="polite"></p>
 
@@ -154,12 +156,13 @@
           <div id="l-sheet" class="bl-sheet" hidden></div>
           <p><button class="bl-btn" id="reset-token" type="button">Salir</button></p>
         </section>
+        <p id="bl-version" class="bl-muted bl-version"></p>
       </div>
     </main>
   </div>
 
   <script src="https://cdn.jsdelivr.net/npm/qrcode-generator@1.4.4/qrcode.js" defer></script>
-  <script src="./assets/booklocation-page.js?v=202611011105" defer></script>
+  <script src="./assets/booklocation-page.js?v=202611011108" defer></script>
 </body>
 
 </html>
