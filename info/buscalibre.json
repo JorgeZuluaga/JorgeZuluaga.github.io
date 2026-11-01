@@ -1,7 +1,7 @@
 {
   "affiliateId": "74c874bfb5a8145d7c1b",
   "domain": "https://www.buscalibre.com.co",
-  "updatedAt": "2026-10-31T16:01:23.317136+00:00",
+  "updatedAt": "2026-11-01T17:05:47.857811+00:00",
   "books": {
     "6286160": {
       "bookId": "6286160",
@@ -3985,6 +3985,41 @@
       "title": "Petrocalipsis: Crisis energética global y cómo (no) la vamos a solucionar",
       "url": "https://www.buscalibre.com.co/libro-digital-petrocalipsis-crisis-energetica-global-y-como-no-la-vamos-a-solucionar/9788417951115/p/68712712?afiliado=74c874bfb5a8145d7c1b",
       "shorturl": "https://is.gd/UngHzb"
+    },
+    "28949251": {
+      "bookId": "28949251",
+      "isbn": "9789586554299",
+      "title": "De una vez y para siempre",
+      "url": "https://www.buscalibre.com.co/libro-de-una-vez-y-para-siempre/9789586554299/p/26601141?afiliado=74c874bfb5a8145d7c1b",
+      "shorturl": "https://is.gd/cTQLvR"
+    },
+    "36237053": {
+      "bookId": "36237053",
+      "isbn": "9786070742040",
+      "title": "El pergamino de la seducción",
+      "url": "https://www.buscalibre.com.co/libro-el-pergamino-de-la-seduccion/9786070742040/p/48869626?afiliado=74c874bfb5a8145d7c1b",
+      "shorturl": "https://is.gd/S2Lwyk"
+    },
+    "44137339": {
+      "bookId": "44137339",
+      "isbn": "9788417347451",
+      "title": "La quema de Cíbola (The Expanse, #4)",
+      "url": "https://www.buscalibre.com.co/libro-the-expanse-4-la-quema-de-cibola/9788417347451/p/51623920?afiliado=74c874bfb5a8145d7c1b",
+      "shorturl": "https://is.gd/MLmhED"
+    },
+    "256004393": {
+      "bookId": "256004393",
+      "isbn": "9786287811591",
+      "title": "El jardín del mundo (Spanish Edition)",
+      "url": "https://www.buscalibre.com.co/libro-digital-el-jardin-del-mundo/9786287811591/p/68892538?afiliado=74c874bfb5a8145d7c1b",
+      "shorturl": "https://is.gd/DoNwmX"
+    },
+    "244793641": {
+      "bookId": "244793641",
+      "isbn": "9788410214958",
+      "title": "El último Neandertal (Spanish Edition)",
+      "url": "https://www.buscalibre.com.co/libro-digital-el-ultimo-neandertal/9788410214958/p/68893941?afiliado=74c874bfb5a8145d7c1b",
+      "shorturl": "https://is.gd/y3axyb"
     }
   }
 }
