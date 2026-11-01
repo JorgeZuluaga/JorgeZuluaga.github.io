@@ -467,6 +467,7 @@
       renderMain();
     } else if (step === "isbn") {
       $("as-isbn-input").value = "";
+      $("as-isbn-suggest").hidden = true;
     }
   }
 
@@ -514,9 +515,24 @@
 
   function submitIsbn(raw) {
     const isbn = normIsbn(raw);
-    if (!isbn) { status("No es un ISBN válido: " + raw, true); return; }
+    if (!isbn) {
+      // No es un ISBN: se trata como título y, si hay una sola coincidencia, se abre directamente.
+      const hits = catalogMatches(raw, "");
+      if (hits.length === 1) { status(""); openForm(hits[0].isbn); return; }
+      renderIsbnSuggest();
+      status(hits.length ? "Elige uno de los libros sugeridos." : "No es un ISBN válido y no hay libros con ese título en tu catálogo.", !hits.length);
+      return;
+    }
     status("");
     openForm(isbn);
+  }
+
+  function renderIsbnSuggest() {
+    const box = $("as-isbn-suggest");
+    const q = $("as-isbn-input").value.trim();
+    const hits = q && !/^[\d\s-]+X?$/i.test(q) ? catalogMatches(q, "") : [];
+    box.hidden = !hits.length;
+    box.innerHTML = hits.map((b) => `<button type="button" class="bl-btn bl-sug" data-isbn-sug="${esc(b.isbn)}"><strong>${esc(b.title)}</strong> <span class="bl-muted">${esc(b.author)} · ISBN ${esc(b.isbn)}</span></button>`).join("");
   }
 
   // ---------- ¿Es este el libro? (coincidencias del catálogo por título/autor) ----------
@@ -531,10 +547,11 @@
     const out = [];
     for (const [isbn, b] of catalog) {
       if (isbn !== b.isbn) continue;
-      const tt = new Set(toks(b.title));
-      const ta = new Set(toks(b.author));
-      const tHit = tq.filter((w) => tt.has(w)).length / tq.length;
-      const aHit = aq.length ? aq.filter((w) => ta.has(w)).length / aq.length : 0;
+      const tt = toks(b.title);
+      const ta = toks(b.author);
+      const has = (list, w) => list.some((x) => x === w || (w.length >= 3 && x.startsWith(w)));
+      const tHit = tq.filter((w) => has(tt, w)).length / tq.length;
+      const aHit = aq.length ? aq.filter((w) => has(ta, w)).length / aq.length : 0;
       const score = tHit * 0.7 + aHit * 0.3;
       if (tHit < 0.5 && !(aHit >= 0.5 && tHit > 0)) continue;
       const k = plain(b.title) + "|" + plain(b.author);
@@ -848,6 +865,8 @@
       showStep("isbn");
       startScan((code) => submitIsbn(code));
     };
+    $("as-isbn-input").addEventListener("input", renderIsbnSuggest);
+    $("as-isbn-suggest").addEventListener("click", (e) => { const b = e.target.closest("[data-isbn-sug]"); if (b) { status(""); openForm(b.dataset.isbnSug); } });
     $("as-isbn-go").onclick = () => submitIsbn($("as-isbn-input").value);
     $("as-isbn-input").addEventListener("keydown", (e) => { if (e.key === "Enter") { e.preventDefault(); submitIsbn($("as-isbn-input").value); } });
     $("as-isbn-cancel").onclick = () => showStep("main");
