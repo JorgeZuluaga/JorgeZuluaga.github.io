@@ -37,6 +37,8 @@
       <div class="container bl">
         <h1 class="title-section">Ubicación de libros</h1>
 
+        <p id="bl-total" class="bl-total" aria-live="polite"></p>
+
         <nav class="bl-tabs" role="tablist" aria-label="Secciones">
           <button class="bl-btn" role="tab" data-tab="search" aria-selected="true">Buscar</button>
           <button class="bl-btn" role="tab" data-tab="assign" aria-selected="false">Asignar</button>
@@ -73,7 +75,7 @@
             <h2 class="bl-h2">Escoge la ubicación</h2>
             <p class="bl-muted">Elígela aquí abajo o abre la cámara para escanear su etiqueta QR.</p>
             <div class="bl-row">
-              <select id="as-loc-select" aria-label="Ubicación"></select>
+              <div class="bl-pick" id="as-loc-pick"><input class="bl-pick__input" placeholder="Clave o parte del nombre…" autocomplete="off" aria-label="Ubicación" /><div class="bl-pick__list" hidden></div></div>
               <button class="bl-btn bl-primary" id="as-loc-use" type="button">Usar</button>
             </div>
             <div class="bl-row">
@@ -123,7 +125,7 @@
             <label for="af-author">Autor</label>
             <input id="af-author" autocomplete="off" />
             <label for="af-loc">Ubicación</label>
-            <select id="af-loc"></select>
+            <div class="bl-pick" id="af-loc-pick"><input class="bl-pick__input" id="af-loc" placeholder="Clave o parte del nombre…" autocomplete="off" /><div class="bl-pick__list" hidden></div></div>
             <div class="bl-row">
               <button class="bl-btn bl-primary" type="submit">Guardar</button>
               <button class="bl-btn" id="af-cancel" type="button">Cancelar</button>
@@ -134,17 +136,20 @@
 
         <section id="tab-locs" hidden>
           <div class="bl-row">
-            <input id="l-name" placeholder="Nombre (ej. Estudio, estante 2)" />
+            <input id="l-name" placeholder="Nombre (ej. Comedor/Módulo Central/Nivel 1)" />
+            <input id="l-key" class="bl-key" placeholder="Clave" maxlength="12" autocapitalize="characters" aria-label="Clave corta" />
             <button id="l-add" class="bl-btn bl-primary" type="button">Crear</button>
           </div>
           <p class="bl-row" id="l-sheet-row" hidden>
             <button class="bl-btn" id="l-sheet-png" type="button">⬇ Descargar etiquetas</button>
             <button class="bl-btn" id="l-sheet-print" type="button">🖨 Imprimir todas</button>
           </p>
+          <p class="bl-row" id="l-autokeys-row" hidden>
+            <button class="bl-btn" id="l-autokeys" type="button">🔑 Asignar claves a las que no tienen</button>
+          </p>
           <div id="l-list"></div>
           <div id="l-label" class="bl-label" hidden></div>
           <div id="l-sheet" class="bl-sheet" hidden></div>
-          <div class="bl-row" id="l-print-row" hidden><button class="bl-btn" id="l-print" type="button">🖨 Imprimir etiqueta</button></div>
           <p><button class="bl-btn" id="reset-token" type="button">Salir</button></p>
         </section>
       </div>

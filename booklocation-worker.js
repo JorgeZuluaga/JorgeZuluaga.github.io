@@ -14,7 +14,7 @@
  *   GET  /booklocation.json
  *   POST /assign          { isbn, location, title?, author? }
  *   POST /unassign        { isbn }
- *   POST /location        { code, name }
+ *   POST /location        { code, name, key? }   (key: clave corta alfanumérica, única)
  *   POST /location-delete { code }
  */
 
@@ -82,6 +82,7 @@ async function save(env, data) {
 }
 
 const isIsbn = (s) => /^\d{9}[\dX]$|^\d{13}$/.test(s);
+const isKey = (s) => /^[A-Za-z0-9]{1,12}$/.test(s);
 const isLocCode = (s) => /^LOC-[A-Za-z0-9_-]{1,60}$/.test(s);
 
 export default {
@@ -136,7 +137,14 @@ export default {
       if (!isLocCode(code) || !name) {
         return json(request, env, { ok: false, error: "invalid_params" }, 400);
       }
-      data.locations[code] = { name };
+      const prevKey = data.locations[code]?.key || "";
+      const key = body.key === undefined ? prevKey : String(body.key || "").trim().toUpperCase();
+      if (key && !isKey(key)) {
+        return json(request, env, { ok: false, error: "invalid_key" }, 400);
+      }
+      const clash = Object.entries(data.locations).some(([c, l]) => c !== code && key && String(l.key || "").toUpperCase() === key);
+      if (clash) return json(request, env, { ok: false, error: "La clave " + key + " ya está en uso" }, 409);
+      data.locations[code] = key ? { name, key } : { name };
     } else if (pathname === "/location-delete") {
       if (!isLocCode(code)) return json(request, env, { ok: false, error: "invalid_params" }, 400);
       delete data.locations[code];

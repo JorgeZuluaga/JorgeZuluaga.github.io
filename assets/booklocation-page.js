@@ -11,6 +11,7 @@
   let scanHandler = null;
   let stream = null;
   let scanTimer = null;
+  let keyTouched = false; // true si el usuario escribió la clave a mano
   let editing = ""; // código de la ubicación que se está renombrando
 
   function esc(s) {
@@ -72,7 +73,15 @@
     }
     const json = await res.json();
     if (!res.ok || json.ok === false) throw new Error(json.error || "Error " + res.status);
-    return json.data || json;
+    const result = json.data || json;
+    showTotal(result);
+    return result;
+  }
+
+  function showTotal(d) {
+    if (!d?.books) return;
+    const n = Object.keys(d.books).length;
+    $("bl-total").innerHTML = `<strong>${n}</strong> ${n === 1 ? "libro localizado" : "libros localizados"}`;
   }
 
   // ---------- Datos ----------
@@ -103,6 +112,94 @@
   // Ubicaciones en orden alfabético (ignora mayúsculas y acentos).
   const sortedLocs = () => Object.entries(data.locations)
     .sort((a, b) => a[1].name.localeCompare(b[1].name, "es", { sensitivity: "base", numeric: true }));
+
+  const locKey = (code) => data.locations[code]?.key || "";
+  const locLabel = (code) => (locKey(code) ? `${locName(code)} · ${locKey(code)}` : locName(code));
+  const plain = (t) => String(t || "").normalize("NFD").replace(/[\u0300-\u03ff]/g, "").toLowerCase();
+
+  // Propone una clave con las iniciales de cada palabra y el número final (Comedor/Módulo Central/Nivel 1 → CMCN1).
+  function suggestKey(name) {
+    const words = plain(name).split(/[^a-z0-9]+/).filter(Boolean);
+    let key = "";
+    for (const w of words) key += /^\d+$/.test(w) ? w : w[0];
+    key = key.toUpperCase().slice(0, 12);
+    const used = new Set(Object.entries(data.locations).filter(([c]) => c !== editing).map(([, l]) => String(l.key || "").toUpperCase()));
+    let k = key;
+    for (let i = 2; k && used.has(k); i++) k = key.slice(0, 12 - String(i).length) + i;
+    return k;
+  }
+
+  // ---------- Selector de ubicación con búsqueda (clave o parte del nombre) ----------
+  function matchLocs(q) {
+    const t = plain(q).trim();
+    const all = sortedLocs();
+    if (!t) return all;
+    const tokens = t.split(/\s+/);
+    return all
+      .filter(([c, l]) => {
+        const k = plain(l.key);
+        const n = plain(l.name);
+        return k === t || k.startsWith(t) || tokens.every((tok) => n.includes(tok));
+      })
+      .sort((a, b) => Number(plain(b[1].key) === t) - Number(plain(a[1].key) === t) || Number(plain(b[1].key).startsWith(t)) - Number(plain(a[1].key).startsWith(t)));
+  }
+
+  function renderPickList(pick) {
+    const list = pick.querySelector(".bl-pick__list");
+    const rows = matchLocs(pick.querySelector("input").value);
+    list.innerHTML = rows.length
+      ? rows.map(([c, l]) => `<button type="button" class="bl-pick__opt" data-pick-code="${esc(c)}">${esc(l.name)}${l.key ? ` <b class="bl-keytag">${esc(l.key)}</b>` : ""}</button>`).join("")
+      : '<div class="bl-muted bl-pick__empty">Sin coincidencias</div>';
+    list.hidden = false;
+  }
+
+  function setPick(pick, code) {
+    pick.dataset.value = code || "";
+    pick.querySelector("input").value = code ? locLabel(code) : "";
+    pick.querySelector(".bl-pick__list").hidden = true;
+  }
+
+  function pickValue(pick) {
+    if (pick.dataset.value && data.locations[pick.dataset.value]) return pick.dataset.value;
+    const rows = matchLocs(pick.querySelector("input").value);
+    const text = plain(pick.querySelector("input").value).trim();
+    if (text && rows.length === 1) return rows[0][0];
+    const exact = rows.find(([, l]) => plain(l.key) === text);
+    return exact ? exact[0] : "";
+  }
+
+  function choosePick(pick, code) {
+    setPick(pick, code);
+    pick.dispatchEvent(new CustomEvent("pick", { detail: code, bubbles: true }));
+  }
+
+  function initPickers() {
+    document.addEventListener("input", (e) => {
+      const pick = e.target.closest?.(".bl-pick");
+      if (!pick || !e.target.matches(".bl-pick__input")) return;
+      pick.dataset.value = "";
+      renderPickList(pick);
+    });
+    document.addEventListener("focusin", (e) => {
+      const pick = e.target.closest?.(".bl-pick");
+      if (pick && e.target.matches(".bl-pick__input")) renderPickList(pick);
+    });
+    document.addEventListener("click", (e) => {
+      const opt = e.target.closest?.(".bl-pick__opt");
+      if (opt) { choosePick(opt.closest(".bl-pick"), opt.dataset.pickCode); return; }
+      document.querySelectorAll(".bl-pick__list").forEach((l) => { if (!l.parentElement.contains(e.target)) l.hidden = true; });
+    });
+    document.addEventListener("keydown", (e) => {
+      const pick = e.target.closest?.(".bl-pick");
+      if (!pick || !e.target.matches(".bl-pick__input")) return;
+      if (e.key === "Enter") {
+        const v = pickValue(pick);
+        if (v) { e.preventDefault(); choosePick(pick, v); }
+      } else if (e.key === "Escape") {
+        pick.querySelector(".bl-pick__list").hidden = true;
+      }
+    });
+  }
 
   const locName = (code) => data.locations[code]?.name || code;
 
@@ -296,15 +393,13 @@
       }
     }
     const loc = data.books[isbn]?.location;
-    const opts = sortedLocs()
-      .map(([c, l]) => `<option value="${esc(c)}"${c === loc ? " selected" : ""}>${esc(l.name)}</option>`).join("");
     const cover = coverHtml(b ? (catalog.has(isbn) ? coverCandidates(isbn, b) : [b.cover].filter(Boolean)) : []);
     return `<div class="bl-card bl-book">${cover}<div class="bl-book__body"><strong>${esc(b?.title || "ISBN " + isbn)}</strong>
       <div class="bl-muted">${esc(b?.author || "")} · ${esc(isbn)}</div>
       ${note ? `<div class="bl-muted">${esc(note)}</div>` : ""}
       <div>${loc ? `📍 <span class="bl-loc">${esc(locName(loc))}</span>` : '<span class="bl-muted">Sin ubicación registrada</span>'}</div>
       ${!catalog.has(isbn) && !b?.title ? `<div class="bl-row"><input data-title-input="${esc(isbn)}" placeholder="Escribe el título (para conciliar después)" /></div>` : ""}
-      <div class="bl-move"><select data-move-sel="${esc(isbn)}"><option value="">${loc ? "Mover a…" : "Asignar a…"}</option>${opts}</select>
+      <div class="bl-move"><div class="bl-pick"><input class="bl-pick__input" placeholder="${loc ? "Mover a… (clave o nombre)" : "Asignar a… (clave o nombre)"}" autocomplete="off" /><div class="bl-pick__list" hidden></div></div>
       <div class="bl-row"><button class="bl-btn bl-primary" data-move="${esc(isbn)}">Guardar</button>
       <button class="bl-btn" data-move-scan="${esc(isbn)}">📷 Escanear destino</button>
       ${loc ? `<button class="bl-btn" data-unassign="${esc(isbn)}">Quitar</button>` : ""}</div></div></div></div>`;
@@ -388,10 +483,9 @@
   }
 
   function fillLocSelect() {
-    const entries = sortedLocs();
-    $("as-loc-select").innerHTML = entries.length
-      ? '<option value="">Elige una ubicación…</option>' + entries.map(([c, l]) => `<option value="${esc(c)}">${esc(l.name)}</option>`).join("")
-      : '<option value="">No hay ubicaciones (créalas en «Ubicaciones»)</option>';
+    setPick($("as-loc-pick"), "");
+    const none = !Object.keys(data.locations).length;
+    $("as-loc-pick").querySelector("input").placeholder = none ? "No hay ubicaciones (créalas en «Ubicaciones»)" : "Clave o parte del nombre…";
   }
 
   function chooseLoc(key) {
@@ -402,7 +496,7 @@
   }
 
   function renderMain() {
-    $("cur-loc").textContent = "📍 " + locName(currentLoc);
+    $("cur-loc").textContent = "📍 " + locLabel(currentLoc);
     $("a-books-title").textContent = `Libros en esta ubicación (${booksIn(currentLoc).length})`;
     $("a-books-list").innerHTML = listHtml(currentLoc, "data-edit");
   }
@@ -426,8 +520,7 @@
     $("af-isbn").textContent = isbn;
     $("af-title").value = st?.title || c?.title || "";
     $("af-author").value = st?.author || c?.author || "";
-    $("af-loc").innerHTML = sortedLocs()
-      .map(([code, l]) => `<option value="${esc(code)}"${code === currentLoc ? " selected" : ""}>${esc(l.name)}</option>`).join("");
+    setPick($("af-loc-pick"), currentLoc);
     $("af-remove").hidden = !st;
     $("af-cover").innerHTML = coverHtml(coverCandidates(isbn, c));
 
@@ -457,8 +550,8 @@
   async function saveForm(e) {
     e.preventDefault();
     const isbn = formIsbn;
-    const location = $("af-loc").value;
-    if (!location) { status("Elige una ubicación.", true); return; }
+    const location = pickValue($("af-loc-pick"));
+    if (!location) { status("Escribe la clave o parte del nombre y elige una ubicación.", true); return; }
     const title = $("af-title").value.trim();
     const author = $("af-author").value.trim();
     const c = catalog.get(isbn);
@@ -486,11 +579,16 @@
     Object.values(data.books).forEach((b) => { counts[b.location] = (counts[b.location] || 0) + 1; });
     const entries = sortedLocs();
     $("l-sheet-row").hidden = !entries.length;
+    $("l-autokeys-row").hidden = !entries.some(([, l]) => !l.key);
     $("l-list").innerHTML = entries.length
-      ? entries.map(([code, l]) => `<div class="bl-card"><strong class="bl-open" role="button" tabindex="0" data-assign-loc="${esc(code)}" title="Agregar libros aquí">${esc(l.name)} <span class="bl-muted">›</span></strong>
+      ? entries.map(([code, l]) => `<div class="bl-card"><strong class="bl-open" role="button" tabindex="0" data-assign-loc="${esc(code)}" title="Agregar libros aquí">${esc(l.name)}${l.key ? ` <span class="bl-keytag">${esc(l.key)}</span>` : ""} <span class="bl-muted">›</span></strong>
           <div class="bl-muted">${esc(code)}</div>
           <details><summary>${counts[code] || 0} libros</summary>${listHtml(code, "data-open")}</details>
-          <div class="bl-row"><button class="bl-btn" data-show="${esc(code)}">Etiqueta</button><button class="bl-btn" data-rename="${esc(code)}">Renombrar</button><button class="bl-btn" data-del="${esc(code)}">Borrar</button></div></div>`).join("")
+          <details data-label-for="${esc(code)}"><summary>Etiqueta</summary><div class="bl-qr"></div><div class="bl-row"><button class="bl-btn" data-print="${esc(code)}">🖨 Imprimir etiqueta</button></div></details>
+          <details data-rename-for="${esc(code)}"><summary>Renombrar</summary>
+            <div class="bl-row"><input data-rn-name value="${esc(l.name)}" aria-label="Nombre" /><input class="bl-key" data-rn-key value="${esc(l.key || "")}" maxlength="12" autocapitalize="characters" aria-label="Clave" /></div>
+            <div class="bl-row"><button class="bl-btn bl-primary" data-rn-save="${esc(code)}">Guardar</button></div></details>
+          <div class="bl-row"><button class="bl-btn" data-del="${esc(code)}">Borrar</button></div></div>`).join("")
       : '<p class="bl-muted">Aún no hay ubicaciones.</p>';
   }
 
@@ -509,7 +607,7 @@
     if (!codes.length) { status("No hay ubicaciones.", true); return false; }
     if (!window.qrcode) { status("Generador de códigos aún cargando; reintenta.", true); return false; }
     const sheet = $("l-sheet");
-    sheet.innerHTML = codes.map((c) => `<div class="bl-cell"><div>${esc(locName(c))}</div><div data-code="${esc(c)}"></div><div class="bl-code">${esc(c)}</div></div>`).join("");
+    sheet.innerHTML = codes.map((c) => `<div class="bl-cell"><div>${esc(locLabel(c))}</div><div data-code="${esc(c)}"></div><div class="bl-code">${esc(c)}</div></div>`).join("");
     sheet.querySelectorAll("[data-code]").forEach((d) => d.appendChild(barcodeSvg(d.dataset.code)));
     sheet.hidden = false;
     return true;
@@ -536,7 +634,7 @@
       ctx.fillStyle = "#000";
       ctx.font = "bold 18px sans-serif";
       ctx.textAlign = "center";
-      ctx.fillText(locName(codes[i]).slice(0, 34), x + cw / 2, y + 26);
+      ctx.fillText(locLabel(codes[i]).slice(0, 34), x + cw / 2, y + 26);
       const svg = barcodeSvg(codes[i]);
       const w = svg.getAttribute("width").replace("px", "");
       const h = svg.getAttribute("height").replace("px", "");
@@ -565,14 +663,36 @@
     window.print();
   }
 
-  function showLabel(code) {
-    const box = $("l-label");
-    box.hidden = false;
-    $("l-print-row").hidden = false;
-    if (!window.qrcode) { status("Generador de códigos aún cargando; reintenta.", true); return; }
-    box.innerHTML = `<div><strong>${esc(locName(code))}</strong></div>`;
+  function fillQr(det) {
+    const box = det.querySelector(".bl-qr");
+    if (box.firstChild) return;
+    if (!window.qrcode) { status("Generador de códigos aún cargando; reintenta.", true); det.open = false; return; }
+    const code = det.dataset.labelFor;
+    box.innerHTML = `<div><strong>${esc(locLabel(code))}</strong></div>`;
     box.appendChild(barcodeSvg(code));
     box.insertAdjacentHTML("beforeend", `<div class="bl-code">${esc(code)}</div>`);
+  }
+
+  function printLabel(code) {
+    const box = $("l-label");
+    box.innerHTML = `<div><strong>${esc(locLabel(code))}</strong></div>`;
+    box.appendChild(barcodeSvg(code));
+    box.insertAdjacentHTML("beforeend", `<div class="bl-code">${esc(code)}</div>`);
+    box.hidden = false;
+    document.body.classList.remove("print-sheet");
+    window.addEventListener("afterprint", () => { box.hidden = true; }, { once: true });
+    window.print();
+  }
+
+  async function saveRename(code, name, key) {
+    key = key.trim().toUpperCase();
+    if (!name.trim()) { status("Escribe un nombre.", true); return; }
+    if (key && !/^[A-Z0-9]{1,12}$/.test(key)) { status("La clave solo puede tener letras y números (máx. 12).", true); return; }
+    try {
+      data = await api("/location", { code, name: name.trim(), key });
+      renderLocs();
+      status("Guardado ✅");
+    } catch (e) { status(e.message, true); }
   }
 
   async function addLocation() {
@@ -580,16 +700,34 @@
     const s = slug(name);
     if (!s) { status("Escribe un nombre.", true); return; }
     const code = editing || "LOC-" + s;
+    const key = $("l-key").value.trim().toUpperCase();
+    if (key && !/^[A-Z0-9]{1,12}$/.test(key)) { status("La clave solo puede tener letras y números (máx. 12).", true); return; }
     try {
-      data = await api("/location", { code, name });
+      data = await api("/location", { code, name, key });
       $("l-name").value = "";
+      $("l-key").value = "";
+      keyTouched = false;
       $("l-add").textContent = "Crear";
       const wasEditing = editing;
       editing = "";
       renderLocs();
-      if (!wasEditing) showLabel(code);
+      if (!wasEditing) {
+        const det = $("l-list").querySelector(`[data-label-for="${code}"]`);
+        if (det) { det.open = true; fillQr(det); det.scrollIntoView({ block: "center" }); }
+      }
       status("");
     } catch (e) { status(e.message, true); }
+  }
+
+  async function autoKeys() {
+    try {
+      for (const [code, l] of sortedLocs()) {
+        if (l.key) continue;
+        data = await api("/location", { code, name: l.name, key: suggestKey(l.name) });
+      }
+      renderLocs();
+      status("Claves asignadas ✅ (puedes cambiarlas con «Renombrar»)");
+    } catch (err) { status(err.message, true); }
   }
 
   // ---------- UI ----------
@@ -641,12 +779,13 @@
       renderSearch();
     });
     $("as-loc-use").onclick = () => {
-      const v = $("as-loc-select").value;
-      if (!v) { status("Elige una ubicación.", true); return; }
+      const v = pickValue($("as-loc-pick"));
+      if (!v) { status("Escribe la clave o parte del nombre y elige una ubicación.", true); return; }
       chooseLoc(v);
     };
     $("as-loc-cam").onclick = openLocCamera;
     $("as-isbn-cam").onclick = () => startScan((code) => submitIsbn(code));
+    $("as-loc-pick").addEventListener("pick", (e) => chooseLoc(e.detail));
     $("as-loc-cancel").onclick = () => showStep("main");
     $("as-change").onclick = () => showStep("loc");
     $("as-new").onclick = () => {
@@ -669,9 +808,12 @@
       if (el && (e.key === "Enter" || e.key === " ")) { e.preventDefault(); openForm(el.dataset.edit); }
     });
     $("l-add").onclick = addLocation;
+    $("l-name").addEventListener("input", () => { if (!keyTouched) $("l-key").value = suggestKey($("l-name").value); });
+    $("l-key").addEventListener("input", () => { keyTouched = true; $("l-key").value = $("l-key").value.toUpperCase().replace(/[^A-Z0-9]/g, ""); });
+    $("l-autokeys").onclick = autoKeys;
+    initPickers();
     $("l-sheet-png").onclick = () => downloadSheet().catch((e) => status(e.message || "No se pudo generar la imagen", true));
     $("l-sheet-print").onclick = printSheet;
-    $("l-print").onclick = () => { document.body.classList.remove("print-sheet"); window.print(); };
     $("reset-token").onclick = () => { localStorage.removeItem("bl_token"); location.reload(); };
     $("l-list").addEventListener("click", onOpen);
     $("l-list").addEventListener("keydown", onOpen);
@@ -697,7 +839,7 @@
       }
       try {
         if (mv) {
-          const sel = e.target.closest(".bl-move").querySelector("select").value;
+          const sel = pickValue(e.target.closest(".bl-move").querySelector(".bl-pick"));
           if (!sel) { status("Elige una ubicación.", true); return; }
           const typed = e.target.closest(".bl-book")?.querySelector("[data-title-input]")?.value.trim() || "";
           data = await api("/assign", { isbn: mv, location: sel, ...extraFor(mv, typed) });
@@ -708,18 +850,16 @@
         renderSearch();
       } catch (err) { status(err.message, true); }
     });
+    $("l-list").addEventListener("toggle", (e) => { if (e.target.dataset?.labelFor && e.target.open) fillQr(e.target); }, true);
+    $("l-list").addEventListener("input", (e) => { if (e.target.matches("[data-rn-key]")) e.target.value = e.target.value.toUpperCase().replace(/[^A-Z0-9]/g, ""); });
     $("l-list").addEventListener("click", async (e) => {
-      const ren = e.target.dataset.rename;
-      if (ren) {
-        editing = ren;
-        $("l-name").value = data.locations[ren]?.name || "";
-        $("l-add").textContent = "Guardar nombre";
-        $("l-name").focus();
+      const del = e.target.dataset.del;
+      if (e.target.dataset.print) { printLabel(e.target.dataset.print); return; }
+      if (e.target.dataset.rnSave) {
+        const d = e.target.closest("[data-rename-for]");
+        saveRename(e.target.dataset.rnSave, d.querySelector("[data-rn-name]").value, d.querySelector("[data-rn-key]").value);
         return;
       }
-      const show = e.target.dataset.show;
-      const del = e.target.dataset.del;
-      if (show) showLabel(show);
       if (del && e.target.dataset.armed !== "1") {
         e.target.dataset.armed = "1";
         e.target.textContent = "¿Seguro? Pulsa de nuevo";
