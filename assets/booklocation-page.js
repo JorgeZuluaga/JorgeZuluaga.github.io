@@ -144,11 +144,12 @@
       .sort((a, b) => Number(plain(b[1].key) === t) - Number(plain(a[1].key) === t) || Number(plain(b[1].key).startsWith(t)) - Number(plain(a[1].key).startsWith(t)));
   }
 
+  // Con una ubicación ya elegida se muestra la lista completa (sin filtrar por su nombre) hasta que se escriba algo.
   function renderPickList(pick) {
     const list = pick.querySelector(".bl-pick__list");
-    const rows = matchLocs(pick.querySelector("input").value);
+    const rows = matchLocs(pick.dataset.value ? "" : pick.querySelector("input").value);
     list.innerHTML = rows.length
-      ? rows.map(([c, l]) => `<button type="button" class="bl-pick__opt" data-pick-code="${esc(c)}">${esc(l.name)}${l.key ? ` <b class="bl-keytag">${esc(l.key)}</b>` : ""}</button>`).join("")
+      ? rows.map(([c, l]) => `<button type="button" class="bl-pick__opt${c === pick.dataset.value ? " is-current" : ""}" data-pick-code="${esc(c)}">${esc(l.name)}${l.key ? ` <b class="bl-keytag">${esc(l.key)}</b>` : ""}</button>`).join("")
       : '<div class="bl-muted bl-pick__empty">Sin coincidencias</div>';
     list.hidden = false;
   }
@@ -182,7 +183,13 @@
     });
     document.addEventListener("focusin", (e) => {
       const pick = e.target.closest?.(".bl-pick");
-      if (pick && e.target.matches(".bl-pick__input")) renderPickList(pick);
+      if (!pick || !e.target.matches(".bl-pick__input")) return;
+      renderPickList(pick);
+      if (pick.dataset.value) setTimeout(() => e.target.select(), 0);
+    });
+    document.addEventListener("click", (e) => {
+      const pick = e.target.closest?.(".bl-pick");
+      if (pick && e.target.matches(".bl-pick__input") && pick.querySelector(".bl-pick__list").hidden) renderPickList(pick);
     });
     document.addEventListener("click", (e) => {
       const opt = e.target.closest?.(".bl-pick__opt");

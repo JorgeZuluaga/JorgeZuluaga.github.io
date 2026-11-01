@@ -68,3 +68,4 @@
 
 .bl-suggest { display: flex; flex-direction: column; gap: 6px; margin: 8px 0; }
 .bl-sug { text-align: left; white-space: normal; }
+.bl-pick__opt.is-current { font-weight: 700; }
