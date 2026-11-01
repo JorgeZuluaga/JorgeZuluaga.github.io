@@ -512,6 +512,53 @@
     openForm(isbn);
   }
 
+  // ---------- ¿Es este el libro? (coincidencias del catálogo por título/autor) ----------
+  const STOP = new Set(["de", "del", "la", "el", "los", "las", "un", "una", "y", "en", "the", "of", "and", "a"]);
+  const toks = (t) => plain(t).split(/[^a-z0-9]+/).filter((w) => w.length > 1 && !STOP.has(w));
+
+  function catalogMatches(title, author) {
+    const tq = toks(title);
+    const aq = toks(author);
+    if (!tq.length) return [];
+    const seen = new Set();
+    const out = [];
+    for (const [isbn, b] of catalog) {
+      if (isbn !== b.isbn) continue;
+      const tt = new Set(toks(b.title));
+      const ta = new Set(toks(b.author));
+      const tHit = tq.filter((w) => tt.has(w)).length / tq.length;
+      const aHit = aq.length ? aq.filter((w) => ta.has(w)).length / aq.length : 0;
+      const score = tHit * 0.7 + aHit * 0.3;
+      if (tHit < 0.5 && !(aHit >= 0.5 && tHit > 0)) continue;
+      const k = plain(b.title) + "|" + plain(b.author);
+      if (seen.has(k)) continue;
+      seen.add(k);
+      out.push({ b, score });
+    }
+    return out.sort((x, y) => y.score - x.score).slice(0, 5).map((x) => x.b);
+  }
+
+  function renderSuggest() {
+    const box = $("af-suggest");
+    if (!formIsbn || catalog.has(formIsbn)) { box.hidden = true; return; }
+    const hits = catalogMatches($("af-title").value, $("af-author").value);
+    box.hidden = !hits.length;
+    box.innerHTML = hits.length
+      ? '<div class="bl-muted">¿Es este el libro? (ya está en tu catálogo con otro ISBN)</div>' +
+        hits.map((b) => `<button type="button" class="bl-btn bl-sug" data-sug="${esc(b.isbn)}"><strong>${esc(b.title)}</strong> <span class="bl-muted">${esc(b.author)} · ISBN ${esc(b.isbn)}</span></button>`).join("")
+      : "";
+  }
+
+  function pickSuggestion(isbn) {
+    const b = catalog.get(isbn);
+    if (!b) return;
+    $("af-title").value = b.title;
+    $("af-author").value = b.author;
+    if (b.cover || coverCandidates(isbn, b).length) $("af-cover").innerHTML = coverHtml(coverCandidates(isbn, b));
+    $("af-suggest").hidden = true;
+    $("af-note").textContent = "Vinculado a «" + b.title + "» de tu catálogo (otra edición).";
+  }
+
   async function openForm(isbn) {
     formIsbn = isbn;
     showStep("form");
@@ -522,6 +569,7 @@
     $("af-author").value = st?.author || c?.author || "";
     setPick($("af-loc-pick"), currentLoc);
     $("af-remove").hidden = !st;
+    renderSuggest();
     $("af-cover").innerHTML = coverHtml(coverCandidates(isbn, c));
 
     const notes = [];
@@ -544,6 +592,7 @@
         notes.unshift("No está en tu catálogo ni en Google Books u Open Library: escribe título y autor.");
       }
       noteEl.textContent = notes.join(" ");
+      renderSuggest();
     }
   }
 
@@ -808,6 +857,9 @@
       if (el && (e.key === "Enter" || e.key === " ")) { e.preventDefault(); openForm(el.dataset.edit); }
     });
     $("l-add").onclick = addLocation;
+    let sugTimer;
+    ["af-title", "af-author"].forEach((id) => $(id).addEventListener("input", () => { clearTimeout(sugTimer); sugTimer = setTimeout(renderSuggest, 250); }));
+    $("af-suggest").addEventListener("click", (e) => { const b = e.target.closest("[data-sug]"); if (b) pickSuggestion(b.dataset.sug); });
     $("l-name").addEventListener("input", () => { if (!keyTouched) $("l-key").value = suggestKey($("l-name").value); });
     $("l-key").addEventListener("input", () => { keyTouched = true; $("l-key").value = $("l-key").value.toUpperCase().replace(/[^A-Z0-9]/g, ""); });
     $("l-autokeys").onclick = autoKeys;

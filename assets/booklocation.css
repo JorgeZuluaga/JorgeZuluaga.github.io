@@ -65,3 +65,6 @@
 .bl-pick__empty { padding: 0.6rem 0.75rem; }
 .bl-key { max-width: 7rem; text-transform: uppercase; }
 .bl-keytag { display: inline-block; background: var(--accent); color: #fff; border-radius: 4px; padding: 0 0.4rem; font-size: 0.85rem; }
+
+.bl-suggest { display: flex; flex-direction: column; gap: 6px; margin: 8px 0; }
+.bl-sug { text-align: left; white-space: normal; }
