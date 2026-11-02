@@ -327,6 +327,7 @@ App privada (página + Worker de Cloudflare con KV) para registrar en qué ubica
 3. **Asignar**: escanea el QR de la ubicación (o escribe su clave o parte del nombre) → «＋ Nuevo libro» → escanea el código de barras, o escribe el ISBN o parte del título → revisa título, autor y ubicación → Guardar. Repite con el siguiente libro.
 4. Si el ISBN no está en tu catálogo, la ficha propone coincidencias por título («¿Es este el libro?») y, si no hay, busca en Google Books/Open Library.
 5. **Buscar**: escribe o escanea el ISBN (o el título) para ver dónde está; desde ahí puedes moverlo o quitarlo.
+6. Al clasificarlo en **A/Me los prestaron**, aparece también **Ubicación secundaria**. Elige una ubicación ya creada para indicar dónde están físicamente esos libros. Ese campo solo se guarda para los libros prestados.
 
 Si cambias `assets/booklocation-page.js` o `assets/booklocation.css`, actualiza el `?v=AAAAMMDDHHMM` en `ubicaciones.html` (también es la versión que muestra la página; evita que Safari use una copia vieja) y haz commit/push.
 
@@ -418,4 +419,3 @@ make library-stats
 ## Más detalle
 
 Para el procedimiento completo y troubleshooting, ver `UPDATE.md`.
-

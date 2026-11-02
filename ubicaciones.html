@@ -13,7 +13,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="./assets/style.css?v=2" />
-  <link rel="stylesheet" href="./assets/booklocation.css?v=202611021202" />
+  <link rel="stylesheet" href="./assets/booklocation.css?v=202611021223" />
   <script src="./assets/template.js" defer></script>
 </head>
 
@@ -130,6 +130,11 @@
             <div id="af-suggest" class="bl-suggest" hidden></div>
             <label for="af-loc">Ubicación</label>
             <div class="bl-pick" id="af-loc-pick"><input class="bl-pick__input" id="af-loc" placeholder="Clave o parte del nombre…" autocomplete="off" /><div class="bl-pick__list" hidden></div></div>
+            <div id="af-secondary-wrap" hidden>
+              <label for="af-secondary-loc">Ubicación secundaria (dónde están los libros prestados)</label>
+              <p class="bl-muted">Indica en qué biblioteca o espacio están ahora.</p>
+              <div class="bl-pick" id="af-secondary-pick"><input class="bl-pick__input" id="af-secondary-loc" placeholder="Clave o parte del nombre…" autocomplete="off" /><div class="bl-pick__list" hidden></div></div>
+            </div>
             <div class="bl-row">
               <button class="bl-btn bl-primary" type="submit">Guardar</button>
               <button class="bl-btn" id="af-cancel" type="button">Cancelar</button>
@@ -145,8 +150,7 @@
             <button id="l-add" class="bl-btn bl-primary" type="button">Crear</button>
           </div>
           <p class="bl-row" id="l-sheet-row" hidden>
-            <button class="bl-btn" id="l-sheet-png" type="button">⬇ Descargar etiquetas</button>
-            <button class="bl-btn" id="l-sheet-print" type="button">🖨 Imprimir todas</button>
+            <button class="bl-btn" id="l-sheet-print" type="button">🖨 Imprimir etiquetas</button>
           </p>
           <p class="bl-row" id="l-autokeys-row" hidden>
             <button class="bl-btn" id="l-autokeys" type="button">🔑 Asignar claves a las que no tienen</button>
@@ -162,7 +166,7 @@
   </div>
 
   <script src="https://cdn.jsdelivr.net/npm/qrcode-generator@1.4.4/qrcode.js" defer></script>
-  <script src="./assets/booklocation-page.js?v=202611021202" defer></script>
+  <script src="./assets/booklocation-page.js?v=202611021231" defer></script>
 </body>
 
 </html>

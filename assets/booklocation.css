@@ -54,6 +54,9 @@
 .bl-form input, .bl-form select, #as-loc-select { width: 100%; }
 #as-loc .bl-row select { flex: 1; min-width: 0; }
 .bl-form .bl-row { flex-wrap: wrap; }
+.bl-secondary-wrap { margin-top: 0.6rem; }
+.bl-secondary-wrap label { display: block; margin: 0.3rem 0; font-weight: 500; }
+.bl-secondary-wrap .bl-muted { margin: 0.2rem 0; }
 .bl-total { margin: 0.2rem 0 0; color: var(--grey); }
 .bl-total strong { color: var(--accent); font-size: 1.4rem; }
 .bl-pick { position: relative; flex: 1; min-width: 0; width: 100%; }

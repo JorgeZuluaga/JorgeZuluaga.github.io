@@ -225,6 +225,30 @@
   }
 
   const locName = (code) => data.locations[code]?.name || code;
+  const isLoanLocation = (code) => {
+    const name = plain(locName(code));
+    return code === "LOC-prestamos" || name.includes("me los prestaron");
+  };
+  const secondaryLocName = (book) => (
+    isLoanLocation(book?.location) && book.secondaryLocation
+      ? locName(book.secondaryLocation)
+      : ""
+  );
+
+  function syncSecondaryPick(primaryPick, secondaryWrap) {
+    const primary = pickValue(primaryPick);
+    secondaryWrap.hidden = !isLoanLocation(primary);
+  }
+
+  function syncMoveSecondary(primaryPick) {
+    const card = primaryPick.closest(".bl-book");
+    const secondaryWrap = card?.querySelector("[data-secondary-wrap]");
+    if (!secondaryWrap) return;
+    const selected = pickValue(primaryPick);
+    const typed = primaryPick.querySelector("input").value.trim();
+    const existing = data.books[card.querySelector("[data-move]")?.dataset.move]?.location;
+    secondaryWrap.hidden = !(isLoanLocation(selected) || (!typed && isLoanLocation(existing)));
+  }
 
   // ---------- Escáner ----------
   function loadZXing() {
@@ -417,13 +441,22 @@
     }
     if (b && catalog.has(isbn) && b.isbn && b.isbn !== isbn) note = `Edición distinta a la del catálogo (ISBN catálogo ${b.isbn}).`;
     const loc = data.books[isbn]?.location;
+    const secondary = secondaryLocName(data.books[isbn]);
     const cover = coverHtml(b ? (catalog.has(isbn) ? coverCandidates(isbn, b) : [b.cover].filter(Boolean)) : []);
     return `<div class="bl-card bl-book">${cover}<div class="bl-book__body"><strong>${esc(b?.title || "ISBN " + isbn)}</strong>
       <div class="bl-muted">${esc(b?.author || "")} · ${esc(isbn)}</div>
       ${note ? `<div class="bl-muted">${esc(note)}</div>` : ""}
       <div>${loc ? `📍 <span class="bl-loc">${esc(locName(loc))}</span>` : '<span class="bl-muted">Sin ubicación registrada</span>'}</div>
+      ${secondary ? `<div class="bl-muted">Ubicación secundaria: ${esc(secondary)}</div>` : ""}
       ${!catalog.has(isbn) && !b?.title ? `<div class="bl-row"><input data-title-input="${esc(isbn)}" placeholder="Escribe el título (para conciliar después)" /></div>` : ""}
-      <div class="bl-move"><div class="bl-pick"><input class="bl-pick__input" placeholder="${loc ? "Mover a… (clave o nombre)" : "Asignar a… (clave o nombre)"}" autocomplete="off" /><div class="bl-pick__list" hidden></div></div>
+      <div class="bl-move"><div class="bl-pick" data-value="${isLoanLocation(loc) ? esc(loc) : ""}"><input class="bl-pick__input" value="${isLoanLocation(loc) ? esc(locLabel(loc)) : ""}" placeholder="${loc ? "Mover a… (clave o nombre)" : "Asignar a… (clave o nombre)"}" autocomplete="off" /><div class="bl-pick__list" hidden></div></div>
+      <div class="bl-secondary-wrap" data-secondary-wrap${isLoanLocation(loc) ? "" : " hidden"}>
+        <label>Ubicación secundaria (dónde están los libros prestados)</label>
+        <div class="bl-pick" data-secondary-pick data-value="${esc(data.books[isbn]?.secondaryLocation || "")}">
+          <input class="bl-pick__input" value="${esc(data.books[isbn]?.secondaryLocation ? locLabel(data.books[isbn].secondaryLocation) : "")}" placeholder="Clave o parte del nombre…" autocomplete="off" />
+          <div class="bl-pick__list" hidden></div>
+        </div>
+      </div>
       <div class="bl-row"><button class="bl-btn bl-primary" data-move="${esc(isbn)}">Guardar</button>
       <button class="bl-btn" data-move-scan="${esc(isbn)}">📷 Escanear destino</button>
       ${loc ? `<button class="bl-btn" data-unassign="${esc(isbn)}">Quitar</button>` : ""}</div></div></div></div>`;
@@ -459,8 +492,9 @@
     const st = data.books[isbn];
     const title = st?.title || c?.title;
     const author = st?.author || c?.author || "";
+    const secondary = secondaryLocName(st);
     return title
-      ? `<strong>${esc(title)}</strong> <span class="bl-muted">${esc(author)} · ${esc(isbn)}</span>`
+      ? `<strong>${esc(title)}</strong> <span class="bl-muted">${esc(author)} · ${esc(isbn)}${secondary ? ` · ubicación secundaria: ${esc(secondary)}` : ""}</span>`
       : `<strong>ISBN ${esc(isbn)}</strong> <span class="bl-muted">(sin título)</span>`;
   }
 
@@ -631,6 +665,8 @@
     $("af-title").value = st?.title || c?.title || "";
     $("af-author").value = st?.author || c?.author || "";
     setPick($("af-loc-pick"), currentLoc);
+    setPick($("af-secondary-pick"), st?.secondaryLocation || "");
+    syncSecondaryPick($("af-loc-pick"), $("af-secondary-wrap"));
     $("af-remove").hidden = !st;
     renderSuggest();
     $("af-cover").innerHTML = coverHtml(coverCandidates(isbn, c));
@@ -667,10 +703,11 @@
     const title = $("af-title").value.trim();
     const author = $("af-author").value.trim();
     const c = catalog.get(isbn);
+    const secondaryLocation = isLoanLocation(location) ? pickValue($("af-secondary-pick")) : "";
     // Si coincide con el catálogo no se guarda copia del título/autor.
     const same = c && title === c.title && author === c.author;
     try {
-      data = await api("/assign", { isbn, location, title: same ? "" : title, author: same ? "" : author });
+      data = await api("/assign", { isbn, location, secondaryLocation, title: same ? "" : title, author: same ? "" : author });
       showStep("main");
       mainMessage("✅ " + esc(title || "ISBN " + isbn) + ' → <span class="bl-loc">' + esc(locName(location)) + "</span>");
     } catch (err) { status(err.message, true); }
@@ -722,49 +759,6 @@
     sheet.innerHTML = codes.map((c) => `<div class="bl-cell"><div class="bl-cell__name">${esc(locLabel(c))}</div><div data-code="${esc(c)}"></div><div class="bl-code">${esc(c)}</div><div class="bl-cell__key">${esc(locKey(c) || locName(c).slice(0, 6))}</div></div>`).join("");
     sheet.querySelectorAll("[data-code]").forEach((d) => d.appendChild(barcodeSvg(d.dataset.code)));
     return true;
-  }
-
-  // Dibuja la matriz de etiquetas en un canvas y la descarga como PNG.
-  async function downloadSheet() {
-    const codes = Object.keys(data.locations);
-    if (!buildSheet()) return;
-    const cols = 3, cw = 360, ch = 330, pad = 10;
-    const rows = Math.ceil(codes.length / cols);
-    const canvas = document.createElement("canvas");
-    canvas.width = cols * cw + pad * 2;
-    canvas.height = rows * ch + pad * 2;
-    const ctx = canvas.getContext("2d");
-    ctx.fillStyle = "#fff";
-    ctx.fillRect(0, 0, canvas.width, canvas.height);
-    for (let i = 0; i < codes.length; i++) {
-      const x = pad + (i % cols) * cw;
-      const y = pad + Math.floor(i / cols) * ch;
-      ctx.strokeStyle = "#999";
-      ctx.setLineDash([4, 4]);
-      ctx.strokeRect(x + 2, y + 2, cw - 4, ch - 4);
-      ctx.fillStyle = "#000";
-      ctx.font = "bold 18px sans-serif";
-      ctx.textAlign = "center";
-      ctx.fillText(locLabel(codes[i]).slice(0, 34), x + cw / 2, y + 26);
-      const svg = barcodeSvg(codes[i]);
-      const w = svg.getAttribute("width").replace("px", "");
-      const h = svg.getAttribute("height").replace("px", "");
-      svg.setAttribute("xmlns", "http://www.w3.org/2000/svg");
-      const img = new Image();
-      await new Promise((resolve, reject) => {
-        img.onload = resolve;
-        img.onerror = reject;
-        img.src = "data:image/svg+xml;charset=utf-8," + encodeURIComponent(new XMLSerializer().serializeToString(svg));
-      });
-      const scale = Math.min((cw - 20) / w, (ch - 70) / h);
-      ctx.drawImage(img, x + (cw - w * scale) / 2, y + 40, w * scale, h * scale);
-      ctx.font = "11px monospace";
-      ctx.fillText(codes[i], x + cw / 2, y + ch - 12);
-    }
-    const a = document.createElement("a");
-    a.href = canvas.toDataURL("image/png");
-    a.download = "etiquetas-ubicaciones.png";
-    a.click();
   }
 
   function printSheet() {
@@ -910,6 +904,8 @@
     $("as-isbn-input").addEventListener("keydown", (e) => { if (e.key === "Enter") { e.preventDefault(); submitIsbn($("as-isbn-input").value); } });
     $("as-isbn-cancel").onclick = () => showStep("main");
     $("as-form").addEventListener("submit", saveForm);
+    $("af-loc-pick").addEventListener("pick", () => syncSecondaryPick($("af-loc-pick"), $("af-secondary-wrap")));
+    $("af-loc-pick").addEventListener("input", () => syncSecondaryPick($("af-loc-pick"), $("af-secondary-wrap")));
     $("as-form").addEventListener("error", onCoverError, true);
     $("af-cancel").onclick = () => showStep("main");
     $("af-remove").onclick = removeForm;
@@ -929,7 +925,6 @@
     $("l-key").addEventListener("input", () => { keyTouched = true; $("l-key").value = $("l-key").value.toUpperCase().replace(/[^A-Z0-9]/g, ""); });
     $("l-autokeys").onclick = autoKeys;
     initPickers();
-    $("l-sheet-png").onclick = () => downloadSheet().catch((e) => status(e.message || "No se pudo generar la imagen", true));
     $("l-sheet-print").onclick = printSheet;
     $("reset-token").onclick = () => { localStorage.removeItem("bl_token"); location.reload(); };
     $("l-list").addEventListener("click", onOpen);
@@ -946,11 +941,27 @@
           if (!key || !data.locations[key]) { status("Eso no es una ubicación conocida: " + code, true); return; }
           stopScan();
           try {
-            const typed = e.target.closest(".bl-book")?.querySelector("[data-title-input]")?.value.trim() || "";
-            data = await api("/assign", { isbn: ms, location: key, ...extraFor(ms, typed) });
+            const card = e.target.closest(".bl-book");
+            const typed = card?.querySelector("[data-title-input]")?.value.trim() || "";
+            if (isLoanLocation(key)) {
+              const primaryPick = card.querySelector(".bl-move > .bl-pick");
+              setPick(primaryPick, key);
+              syncMoveSecondary(primaryPick);
+              status("Elige la ubicación secundaria de los libros prestados y pulsa Guardar.");
+              return;
+            }
+            data = await api("/assign", { isbn: ms, location: key, secondaryLocation: "", ...extraFor(ms, typed) });
             status("Movido a " + locName(key) + " ✅");
             renderSearch();
           } catch (err) { status(err.message, true); }
+        });
+        $("results").addEventListener("pick", (e) => {
+          const primaryPick = e.target.closest(".bl-move")?.querySelector(":scope > .bl-pick");
+          if (primaryPick === e.target) syncMoveSecondary(primaryPick);
+        });
+        $("results").addEventListener("input", (e) => {
+          const primaryPick = e.target.closest(".bl-move")?.querySelector(":scope > .bl-pick");
+          if (primaryPick && primaryPick.contains(e.target)) syncMoveSecondary(primaryPick);
         });
         return;
       }
@@ -958,8 +969,11 @@
         if (mv) {
           const sel = pickValue(e.target.closest(".bl-move").querySelector(".bl-pick"));
           if (!sel) { status("Elige una ubicación.", true); return; }
-          const typed = e.target.closest(".bl-book")?.querySelector("[data-title-input]")?.value.trim() || "";
-          data = await api("/assign", { isbn: mv, location: sel, ...extraFor(mv, typed) });
+          const card = e.target.closest(".bl-book");
+          const typed = card?.querySelector("[data-title-input]")?.value.trim() || "";
+          const secondaryPick = card?.querySelector("[data-secondary-pick]");
+          const secondaryLocation = isLoanLocation(sel) && secondaryPick ? pickValue(secondaryPick) : "";
+          data = await api("/assign", { isbn: mv, location: sel, secondaryLocation, ...extraFor(mv, typed) });
         } else if (un) {
           data = await api("/unassign", { isbn: un });
         } else return;

@@ -5,7 +5,7 @@
  * {
  *   "updatedAt": "...",
  *   "locations": { "LOC-salon-1": { "name": "Salón 1" } },
- *   "books": { "9789586554299": { "location": "LOC-salon-1", "updatedAt": "..." } }
+ *   "books": { "9789586554299": { "location": "LOC-salon-1", "secondaryLocation": "LOC-estante-1", "updatedAt": "..." } }
  * }
  * No toca info/library.json. Todos los endpoints requieren el token
  * (Authorization: Bearer <BOOKLOC_TOKEN>).
@@ -84,6 +84,13 @@ async function save(env, data) {
 const isIsbn = (s) => /^\d{9}[\dX]$|^\d{13}$/.test(s);
 const isKey = (s) => /^[A-Za-z0-9]{1,12}$/.test(s);
 const isLocCode = (s) => /^LOC-[A-Za-z0-9_-]{1,60}$/.test(s);
+const isLoanLocation = (data, code) => {
+  const name = String(data.locations[code]?.name || "")
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .toLowerCase();
+  return code === "LOC-prestamos" || name.includes("me los prestaron");
+};
 
 export default {
   async fetch(request, env) {
@@ -123,6 +130,13 @@ export default {
       }
       const prev = data.books[isbn] || {};
       const entry = { location: code, updatedAt: new Date().toISOString() };
+      if (isLoanLocation(data, code)) {
+        const secondaryLocation = String(body.secondaryLocation ?? (prev.location === code ? prev.secondaryLocation : "") ?? "").trim();
+        if (secondaryLocation && (!isLocCode(secondaryLocation) || !data.locations[secondaryLocation])) {
+          return json(request, env, { ok: false, error: "unknown_secondary_location" }, 400);
+        }
+        if (secondaryLocation) entry.secondaryLocation = secondaryLocation;
+      }
       // Título/autor opcionales: sirven para conciliar luego libros cuyo ISBN no está en el catálogo.
       const title = String(body.title ?? prev.title ?? "").trim().slice(0, 200);
       const author = String(body.author ?? prev.author ?? "").trim().slice(0, 200);
@@ -150,6 +164,7 @@ export default {
       delete data.locations[code];
       for (const [k, v] of Object.entries(data.books)) {
         if (v.location === code) delete data.books[k];
+        else if (v.secondaryLocation === code) delete v.secondaryLocation;
       }
     } else {
       return json(request, env, { ok: false, error: "not_found" }, 404);
