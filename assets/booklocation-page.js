@@ -94,23 +94,31 @@
 
   // ---------- Datos ----------
   async function loadCatalog() {
-    const add = (title, author, isbn, cover) => {
-      const k = normIsbn(isbn);
-      if (!k) return;
-      if (!catalog.has(k)) catalog.set(k, { title: title || "(sin título)", author: author || "", isbn: k, cover: cover || "" });
-      else if (cover && !catalog.get(k).cover) catalog.get(k).cover = cover;
+    // Cada libro es un solo objeto accesible por su ISBN principal y por los secundarios (ISBN2).
+    const add = (title, author, isbn, cover, extra = []) => {
+      const ks = [isbn, ...extra].map(normIsbn).filter(Boolean);
+      if (!ks.length) return;
+      let e = ks.map((k) => catalog.get(k)).find(Boolean);
+      if (!e) {
+        e = { title: title || "(sin título)", author: author || "", isbn: ks[0], isbns: [], cover: cover || "" };
+      } else if (cover && !e.cover) e.cover = cover;
+      ks.forEach((k) => {
+        if (!e.isbns.includes(k)) e.isbns.push(k);
+        if (!catalog.has(k)) catalog.set(k, e);
+      });
     };
+    const fetchDetails = () => fetch("./info/library-details.json").then((r) => r.json()).catch(() => ({}));
     const [lib, det, aliases] = await Promise.all([
       fetch("./info/library.json").then((r) => r.json()).catch(() => ({})),
-      fetch("./info/library-details.json").then((r) => r.json()).catch(() => ({})),
+      fetchDetails(),
       fetch("./info/booklocation-aliases.json").then((r) => (r.ok ? r.json() : {})).catch(() => ({})),
     ]);
-    (lib.books || []).forEach((b) => add(b.title, b.author, b.isbn, b.reviewLocalCoverUrl));
-    (det.books || []).forEach((b) => add(b.Title, b.Author, b.ISBN));
+    (lib.books || []).forEach((b) => add(b.title, b.author, b.isbn, b.reviewLocalCoverUrl, String(b.isbn2 || "").split(",")));
+    (det.books || []).forEach((b) => add(b.Title, b.Author, b.ISBN, "", String(b.ISBN2 || "").split(",")));
     // ISBN escaneado distinto al del catálogo (generado por bin/reconcile_booklocation.py).
     Object.entries(aliases.aliases || {}).forEach(([scanned, target]) => {
       const t = catalog.get(normIsbn(target));
-      if (t && !catalog.has(scanned)) catalog.set(scanned, { ...t, isbn: scanned });
+      if (t && !catalog.has(scanned)) { catalog.set(scanned, t); if (!t.isbns.includes(scanned)) t.isbns.push(scanned); }
     });
   }
   async function loadLocations() {
@@ -354,7 +362,7 @@
   function coverCandidates(isbn, b) {
     const list = [];
     if (b?.cover) list.push(b.cover);
-    ["png", "jpg", "webp", "jpeg"].forEach((e) => list.push(`./antilibrary/covers/${isbn}.${e}`));
+    [...new Set([isbn, ...(b?.isbns || [])])].forEach((k) => ["png", "jpg", "webp", "jpeg"].forEach((e) => list.push(`./antilibrary/covers/${k}.${e}`)));
     return list;
   }
 
@@ -407,6 +415,7 @@
         note = "No está en tu catálogo ni se encontró el ISBN en Google Books u Open Library.";
       }
     }
+    if (b && catalog.has(isbn) && b.isbn && b.isbn !== isbn) note = `Edición distinta a la del catálogo (ISBN catálogo ${b.isbn}).`;
     const loc = data.books[isbn]?.location;
     const cover = coverHtml(b ? (catalog.has(isbn) ? coverCandidates(isbn, b) : [b.cover].filter(Boolean)) : []);
     return `<div class="bl-card bl-book">${cover}<div class="bl-book__body"><strong>${esc(b?.title || "ISBN " + isbn)}</strong>
@@ -426,8 +435,16 @@
     if (q.length < 2) { out.innerHTML = ""; return; }
     const digits = normIsbn(q);
     const hits = [];
-    for (const [isbn, b] of catalog) {
-      if (isbn === digits || (b.title + " " + b.author).toLowerCase().includes(q)) hits.push(isbn);
+    const seen = new Set();
+    for (const [, b] of catalog) {
+      if (seen.has(b)) continue;
+      if (!((digits && b.isbns.includes(digits)) || (b.title + " " + b.author).toLowerCase().includes(q))) continue;
+      seen.add(b);
+      // Un duplicado sin ubicación se omite si otro registro del mismo libro sí la tiene.
+      if (!locatedIsbn(b) && [...catalog.values()].some((o) => o !== b && dupKey(o) === dupKey(b) && locatedIsbn(o))) continue;
+      // Una tarjeta por cada ISBN (principal o secundario) con ubicación; si ninguno la tiene, la del principal.
+      const located = b.isbns.filter((k) => data.books[k]);
+      hits.push(...(located.length ? located : [b.isbn]));
       if (hits.length >= 30) break;
     }
     if (digits && !catalog.has(digits)) hits.push(digits);
@@ -540,12 +557,20 @@
     const q = $("as-isbn-input").value.trim();
     const hits = q && !/^[\d\s-]+X?$/i.test(q) ? catalogMatches(q, "") : [];
     box.hidden = !hits.length;
-    box.innerHTML = hits.map((b) => `<button type="button" class="bl-btn bl-sug" data-isbn-sug="${esc(b.isbn)}"><strong>${esc(b.title)}</strong> <span class="bl-muted">${esc(b.author)} · ISBN ${esc(b.isbn)}</span></button>`).join("");
+    box.innerHTML = hits.map((b) => {
+      const k = b.isbns.find((x) => data.books[x]) || b.isbn; // si ya está ubicado (con cualquiera de sus ISBN), se abre ese
+      const at = data.books[k] ? ` · 📍 ${esc(locName(data.books[k].location))}` : "";
+      return `<button type="button" class="bl-btn bl-sug" data-isbn-sug="${esc(k)}"><strong>${esc(b.title)}</strong> <span class="bl-muted">${esc(b.author)} · ISBN ${esc(k)}${at}</span></button>`;
+    }).join("");
   }
 
   // ---------- ¿Es este el libro? (coincidencias del catálogo por título/autor) ----------
   const STOP = new Set(["de", "del", "la", "el", "los", "las", "un", "una", "y", "en", "the", "of", "and", "a"]);
   const toks = (t) => plain(t).split(/[^a-z0-9]+/).filter((w) => w.length > 1 && !STOP.has(w));
+
+  // El mismo libro puede venir de library.json y de library-details.json con ISBN distintos: se agrupa por título+autor.
+  const dupKey = (b) => plain(b.title) + "|" + plain(b.author);
+  const locatedIsbn = (b) => b.isbns.find((k) => data.books[k]);
 
   function catalogMatches(title, author) {
     const tq = toks(title);
@@ -562,8 +587,13 @@
       const aHit = aq.length ? aq.filter((w) => has(ta, w)).length / aq.length : 0;
       const score = tHit * 0.7 + aHit * 0.3;
       if (tHit < 0.5 && !(aHit >= 0.5 && tHit > 0)) continue;
-      const k = plain(b.title) + "|" + plain(b.author);
-      if (seen.has(k)) continue;
+      const k = dupKey(b);
+      if (seen.has(k)) {
+        // Entre duplicados se conserva el que ya está ubicado.
+        const i = out.findIndex((o) => dupKey(o.b) === k);
+        if (!locatedIsbn(out[i].b) && locatedIsbn(b)) out[i] = { b, score };
+        continue;
+      }
       seen.add(k);
       out.push({ b, score });
     }
@@ -688,9 +718,8 @@
     if (!codes.length) { status("No hay ubicaciones.", true); return false; }
     if (!window.qrcode) { status("Generador de códigos aún cargando; reintenta.", true); return false; }
     const sheet = $("l-sheet");
-    sheet.innerHTML = codes.map((c) => `<div class="bl-cell"><div>${esc(locLabel(c))}</div><div data-code="${esc(c)}"></div><div class="bl-code">${esc(c)}</div></div>`).join("");
+    sheet.innerHTML = codes.map((c) => `<div class="bl-cell"><div class="bl-cell__name">${esc(locLabel(c))}</div><div data-code="${esc(c)}"></div><div class="bl-code">${esc(c)}</div><div class="bl-cell__key">${esc(locKey(c) || locName(c).slice(0, 6))}</div></div>`).join("");
     sheet.querySelectorAll("[data-code]").forEach((d) => d.appendChild(barcodeSvg(d.dataset.code)));
-    sheet.hidden = false;
     return true;
   }
 
@@ -739,8 +768,9 @@
 
   function printSheet() {
     if (!buildSheet()) return;
+    $("l-sheet").hidden = false;
     document.body.classList.add("print-sheet");
-    window.addEventListener("afterprint", () => document.body.classList.remove("print-sheet"), { once: true });
+    window.addEventListener("afterprint", () => { document.body.classList.remove("print-sheet"); $("l-sheet").hidden = true; }, { once: true });
     window.print();
   }
 

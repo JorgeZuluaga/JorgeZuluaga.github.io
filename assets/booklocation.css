@@ -27,10 +27,11 @@
 .bl-sheet { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.5rem; background: #fff; padding: 0.5rem; margin: 0.7rem 0; }
 .bl-sheet .bl-cell { border: 1px dashed #999; color: #000; text-align: center; padding: 0.4rem; break-inside: avoid; font-weight: 600; }
 .bl-sheet svg { max-width: 100%; height: auto; }
+.bl-cell__key { display: none; }
 @media print {
   body * { visibility: hidden; }
   body.print-sheet .bl-sheet, body.print-sheet .bl-sheet * { visibility: visible; }
-  body.print-sheet .bl-sheet { position: absolute; left: 0; top: 0; width: 100%; display: grid !important; }
+  body.print-sheet .bl-sheet { display: grid !important; }
   body:not(.print-sheet) .bl-label, body:not(.print-sheet) .bl-label * { visibility: visible; }
   body:not(.print-sheet) .bl-label { position: absolute; left: 0; top: 0; width: 100%; }
 }
@@ -70,3 +71,19 @@
 .bl-sug { text-align: left; white-space: normal; }
 .bl-pick__opt.is-current { font-weight: 700; }
 .bl-version { margin-top: 24px; font-size: 0.8rem; text-align: center; }
+
+/* "Imprimir todas": etiquetas de 2 cm x 2 cm con QR y solo la clave. */
+@media print {
+  html, html body.print-sheet { zoom: 1 !important; }
+  /* Solo queda la hoja y sus ancestros: lo demás no ocupa espacio (evita páginas en blanco). */
+  body.print-sheet :not(:has(#l-sheet)):not(#l-sheet):not(#l-sheet *) { display: none !important; }
+  body.print-sheet, body.print-sheet * { margin-top: 0; }
+  body.print-sheet .bl, body.print-sheet main, body.print-sheet .container, body.print-sheet #tab-locs { padding: 0 !important; margin: 0 !important; width: auto !important; max-width: none !important; }
+  @page { margin: 8mm; }
+  body.print-sheet .bl-sheet { grid-template-columns: repeat(auto-fill, 2cm); gap: 3mm; padding: 0; margin: 0; }
+  body.print-sheet .bl-sheet .bl-cell { width: 2cm; height: 2cm; box-sizing: border-box; padding: 0; border: 0; overflow: hidden; display: flex; flex-direction: column; align-items: center; justify-content: center; }
+  body.print-sheet .bl-cell__name, body.print-sheet .bl-cell .bl-code { display: none; }
+  body.print-sheet .bl-cell [data-code] { width: 1.5cm; height: 1.5cm; }
+  body.print-sheet .bl-cell svg { width: 100%; height: 100%; max-width: none; display: block; }
+  body.print-sheet .bl-cell__key { display: block; font: 700 8pt/1 sans-serif; height: 0.4cm; max-width: 2cm; white-space: nowrap; overflow: hidden; text-align: center; }
+}

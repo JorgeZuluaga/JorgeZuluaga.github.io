@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-31T12:58:37.175568+00:00",
+  "generatedAt": "2026-11-02T14:42:22.847100+00:00",
   "source": {
     "file": "update/bookbuddy.csv",
     "type": "bookbuddy_export"
@@ -190,7 +190,8 @@
       "dcc_notes": {
         "reasoning": "Colección de crónicas económicas y políticas sobre el fracaso del sovietismo y propuestas socialistas modernas.",
         "confidence": 0.95
-      }
+      },
+      "ISBN2": "9789584296818"
     },
     {
       "Title": "¿Cómo se sale de aquí?",
@@ -845,7 +846,8 @@
       "dcc_notes": {
         "reasoning": "Trata sobre cognición animal, etología y la capacidad mental de diferentes especies.",
         "confidence": 0.95
-      }
+      },
+      "ISBN2": "9789584262288"
     },
     {
       "Title": "\"Surely You're Joking, Mr. Feynman!\": Adventures of a Curious Character",
@@ -1315,7 +1317,8 @@
       "dcc_notes": {
         "reasoning": "Relato de viaje y experiencia personal en un contexto geográfico específico.",
         "confidence": 0.85
-      }
+      },
+      "ISBN2": "9786280000954"
     },
     {
       "Title": "90 GRADOS DE LATITUD SUR",
@@ -5907,7 +5910,8 @@
       "dcc_notes": {
         "reasoning": "Historia de los primeros pobladores y comunidades precolombinas en el actual territorio colombiano.",
         "confidence": 0.98
-      }
+      },
+      "ISBN2": "9789585132283"
     },
     {
       "Title": "Antifrágil",
@@ -6001,7 +6005,8 @@
       "dcc_notes": {
         "reasoning": "Filosofía sobre la incertidumbre, el azar y la toma de decisiones en sistemas complejos.",
         "confidence": 0.9
-      }
+      },
+      "ISBN2": "9786077477907"
     },
     {
       "Title": "Antifragile",
@@ -7219,7 +7224,8 @@
       "dcc_notes": {
         "reasoning": "Historia de la humanidad y sus desigualdades desde una perspectiva geográfica y biológica.",
         "confidence": 0.98
-      }
+      },
+      "ISBN2": "9788499928715"
     },
     {
       "Title": "Aromas del mundo",
@@ -7965,7 +7971,8 @@
       "dcc_notes": {
         "reasoning": "Obra filosófica fundamental de Friedrich Nietzsche.",
         "confidence": 1.0
-      }
+      },
+      "ISBN2": "9789587232462"
     },
     {
       "Title": "Asimov's Guide to the Bible",
@@ -8059,7 +8066,8 @@
       "dcc_notes": {
         "reasoning": "Es una guía sobre la Biblia escrita por Isaac Asimov, enfocada en sus aspectos históricos y geográficos.",
         "confidence": 0.98
-      }
+      },
+      "ISBN2": "9780517209776"
     },
     {
       "Title": "Aspectos de la muerte en la antigüedad clásica",
@@ -9089,7 +9097,8 @@
       "dcc_notes": {
         "reasoning": "Libro sobre la historia de la producción, el comercio y el impacto del azúcar en la civilización y la economía.",
         "confidence": 0.85
-      }
+      },
+      "ISBN2": "9786287569874"
     },
     {
       "Title": "Babel : la vuelta al mundo en 20 idiomas",
@@ -9555,7 +9564,8 @@
       "dcc_notes": {
         "reasoning": "Novela de ficción literaria contemporánea del autor colombiano.",
         "confidence": 1.0
-      }
+      },
+      "ISBN2": "9789585433502"
     },
     {
       "Title": "Beethoven",
@@ -10023,7 +10033,8 @@
       "dcc_notes": {
         "reasoning": "Ensayo sobre la evolución cultural, las instituciones sociales y la tecnología.",
         "confidence": 0.9
-      }
+      },
+      "ISBN2": "9789584274748"
     },
     {
       "Title": "Biografía del Caribe",
@@ -10116,7 +10127,8 @@
       "dcc_notes": {
         "reasoning": "Ensayo histórico sobre la región del Caribe y su desarrollo socio-político.",
         "confidence": 0.95
-      }
+      },
+      "ISBN2": "9789585446830"
     },
     {
       "Title": "Biografías",
@@ -10578,7 +10590,8 @@
       "dcc_notes": {
         "reasoning": "Obra biográfica sobre Simón Bolívar y su contexto histórico en Suramérica.",
         "confidence": 1.0
-      }
+      },
+      "ISBN2": "9789585446724"
     },
     {
       "Title": "Borges esencial",
@@ -11327,7 +11340,8 @@
       "dcc_notes": {
         "reasoning": "Historia universal de las ideas, el desarrollo intelectual y la ciencia.",
         "confidence": 0.98
-      }
+      },
+      "ISBN2": "9789584251398"
     },
     {
       "Title": "Breviario de podredumbre",
@@ -11797,7 +11811,8 @@
       "dcc_notes": {
         "reasoning": "Biografía de Siddhartha Gautama enfocada en el aspecto histórico, espiritual y religioso.",
         "confidence": 0.98
-      }
+      },
+      "ISBN2": "9789585446038"
     },
     {
       "Title": "Caesar",
@@ -12640,7 +12655,8 @@
       "dcc_notes": {
         "reasoning": "Manifiesto crítico de Joseph Stiglitz proponiendo reformas estructurales en el sistema económico.",
         "confidence": 1.0
-      }
+      },
+      "ISBN2": "9789589219904"
     },
     {
       "Title": "Carlos V",
@@ -12826,7 +12842,8 @@
       "dcc_notes": {
         "reasoning": "Historia profunda sobre el surgimiento, vida y caída del imperio de Cartago.",
         "confidence": 0.95
-      }
+      },
+      "ISBN2": "9789585165977"
     },
     {
       "Title": "Cazadores, campesinos y carbón",
@@ -13390,7 +13407,8 @@
       "dcc_notes": {
         "reasoning": "Investigación extensa sobre el pasado antropológico y el descubrimiento rupestre en la serranía amazónica de Colombia.",
         "confidence": 0.98
-      }
+      },
+      "ISBN2": "9789585240087"
     },
     {
       "Title": "Chopin",
@@ -14688,7 +14706,8 @@
       "Uploaded Image URL": "",
       "Activities": "",
       "bookId": "228680531",
-      "dcc_classes": {}
+      "dcc_classes": {},
+      "ISBN2": "9786287784109"
     },
     {
       "Title": "Código fuente",
@@ -14783,7 +14802,8 @@
       "dcc_notes": {
         "reasoning": "Autobiografía o memorias personales y empresariales de Bill Gates.",
         "confidence": 1.0
-      }
+      },
+      "ISBN2": "9786287737129"
     },
     {
       "Title": "Cointeligencia: Vivir y trabajar con la IA",
@@ -15066,7 +15086,8 @@
       "dcc_notes": {
         "reasoning": "Ensayo histórico y analítico profundo sobre los ciclos de violencia en Colombia.",
         "confidence": 1.0
-      }
+      },
+      "ISBN2": "9789584296436"
     },
     {
       "Title": "Colón",
@@ -15348,7 +15369,8 @@
       "dcc_notes": {
         "reasoning": "Ensayos históricos de Eric Hobsbawm dedicados a la evolución de las ideas de Marx.",
         "confidence": 0.95
-      }
+      },
+      "ISBN2": "9786077479413"
     },
     {
       "Title": "Cómo crear un ser humano",
@@ -15442,7 +15464,8 @@
       "dcc_notes": {
         "reasoning": "Libro de divulgación científica en el terreno de la biología reproductiva y la embriología humana.",
         "confidence": 0.9
-      }
+      },
+      "ISBN2": "9789583202834"
     },
     {
       "Title": "Cómo evitar un desastre climático: Las soluciones que ya tenemos y los avances que aún necesitamos",
@@ -16566,7 +16589,8 @@
       "dcc_notes": {
         "reasoning": "Aborda un problema psicológico y cognitivo sobre la atención y la dispersión mental debido a las tecnologías digitales.",
         "confidence": 0.9
-      }
+      },
+      "ISBN2": "9786287669932"
     },
     {
       "Title": "Contra la sostenibilidad",
@@ -17127,7 +17151,8 @@
       "dcc_notes": {
         "reasoning": "Clásico monumental de la divulgación científica sobre la evolución del universo.",
         "confidence": 1.0
-      }
+      },
+      "ISBN2": "9788408053040"
     },
     {
       "Title": "Crimen y castigo",
@@ -18061,7 +18086,8 @@
       "dcc_notes": {
         "reasoning": "Memorias dolorosas de Rushdie tras su atentado en 2022.",
         "confidence": 1.0
-      }
+      },
+      "ISBN2": "9786287638464"
     },
     {
       "Title": "Cuentistas antioqueños",
@@ -18616,7 +18642,8 @@
       "dcc_notes": {
         "reasoning": "Primer volumen de los relatos de Cortázar, representativos de las letras hispanoamericanas.",
         "confidence": 1.0
-      }
+      },
+      "ISBN2": "9789589016763"
     },
     {
       "Title": "Cuentos completos",
@@ -19179,7 +19206,8 @@
       "dcc_notes": {
         "reasoning": "Libro introductorio sobre la historia de Colombia.",
         "confidence": 0.95
-      }
+      },
+      "ISBN2": "9789587578379"
     },
     {
       "Title": "Cursillo de mitología",
@@ -22464,7 +22492,8 @@
       "dcc_notes": {
         "reasoning": "Obra cumbre de la filosofía moderna escrita por el pensador francés René Descartes.",
         "confidence": 1.0
-      }
+      },
+      "ISBN2": "9789588925974"
     },
     {
       "Title": "Divulgar la ciencia",
@@ -23774,7 +23803,8 @@
       "dcc_notes": {
         "reasoning": "Es la célebre obra autobiográfica y reflexiva del filósofo alemán Friedrich Nietzsche.",
         "confidence": 0.95
-      }
+      },
+      "ISBN2": "9789587232608"
     },
     {
       "Title": "Eco-feminismos: la sostenibilidad de la vida",
@@ -24151,7 +24181,8 @@
       "dcc_notes": {
         "reasoning": "Guía divulgativa y accesible sobre conceptos fundamentales de la economía diaria y global.",
         "confidence": 1.0
-      }
+      },
+      "ISBN2": "9789584273369"
     },
     {
       "Title": "Economía para el 99% de la población",
@@ -25081,7 +25112,8 @@
       "dcc_notes": {
         "reasoning": "La monumental biografía de Einstein escrita por Walter Isaacson, abarcando su ciencia y vida.",
         "confidence": 1.0
-      }
+      },
+      "ISBN2": "9789588931869"
     },
     {
       "Title": "Einstein, el hombre y su obra",
@@ -26296,7 +26328,8 @@
       "dcc_notes": {
         "reasoning": "Crítica filosófica contundente a la religión cristiana escrita por Nietzsche.",
         "confidence": 1.0
-      }
+      },
+      "ISBN2": "9789587232554"
     },
     {
       "Title": "El antiguo Egipto",
@@ -26856,7 +26889,8 @@
       "dcc_notes": {
         "reasoning": "Compendio de textos y filosofía clásica griega, principalmente epicúrea.",
         "confidence": 1.0
-      }
+      },
+      "ISBN2": "9789585573550"
     },
     {
       "Title": "El arte de pensar: 52 errores de lógica que es mejor dejar que cometan otros",
@@ -26949,7 +26983,8 @@
       "dcc_notes": {
         "reasoning": "El libro es un ensayo que explora sesgos cognitivos, la lógica de toma de decisiones y el pensamiento racional.",
         "confidence": 0.0
-      }
+      },
+      "ISBN2": "9789585566200"
     },
     {
       "Title": "El arte perdido de las Escrituras",
@@ -27135,7 +27170,8 @@
       "dcc_notes": {
         "reasoning": "Ensayo que combina neurociencia y psicología aplicada sobre los beneficios del ocio.",
         "confidence": 0.95
-      }
+      },
+      "ISBN2": "9789569043642"
     },
     {
       "Title": "El ascenso de China",
@@ -27230,7 +27266,8 @@
       "dcc_notes": {
         "reasoning": "Ensayo sobre el papel geopolítico y económico de China como potencia emergente.",
         "confidence": 0.98
-      }
+      },
+      "ISBN2": "9786287807037"
     },
     {
       "Title": "El asesinato de Pitágoras",
@@ -28540,7 +28577,8 @@
       "dcc_notes": {
         "reasoning": "Ensayos de Carl Sagan sobre ciencia, el cerebro, la exploración espacial y la civilización.",
         "confidence": 0.95
-      }
+      },
+      "ISBN2": "9789502800103"
     },
     {
       "Title": "El cerebro idiota",
@@ -28634,7 +28672,8 @@
       "dcc_notes": {
         "reasoning": "Divulgación científica sobre los sesgos, fallos y el funcionamiento de la mente humana.",
         "confidence": 0.98
-      }
+      },
+      "ISBN2": "9789584262707"
     },
     {
       "Title": "El cerebro y el mito del yo",
@@ -29105,7 +29144,8 @@
       "dcc_notes": {
         "reasoning": "Biografía de Jennifer Doudna centrada en el descubrimiento de la edición genética CRISPR.",
         "confidence": 1.0
-      }
+      },
+      "ISBN2": "9789585132245"
     },
     {
       "Title": "El Coliseo",
@@ -29293,7 +29333,8 @@
       "dcc_notes": {
         "reasoning": "Divulgación paleoantropológica sobre la evolución y vida de los neandertales.",
         "confidence": 0.98
-      }
+      },
+      "ISBN2": "9786077477273"
     },
     {
       "Title": "El color púrpura",
@@ -29480,7 +29521,8 @@
       "dcc_notes": {
         "reasoning": "Ensayos filosóficos de Luis Villoro sobre la teoría del conocimiento y la ideología.",
         "confidence": 0.95
-      }
+      },
+      "ISBN2": "9789681682903"
     },
     {
       "Title": "El conde de Montecristo",
@@ -29761,7 +29803,8 @@
       "dcc_notes": {
         "reasoning": "Obra crítica y filosófica de Friedrich Nietzsche.",
         "confidence": 1.0
-      }
+      },
+      "ISBN2": "9789587232547"
     },
     {
       "Title": "El cuento de la criada",
@@ -30321,7 +30364,8 @@
       "dcc_notes": {
         "reasoning": "Una extensa biografía médica e histórica sobre el cáncer, ganadora del Pulitzer.",
         "confidence": 1.0
-      }
+      },
+      "ISBN2": "9789586397391"
     },
     {
       "Title": "El encanto de la física",
@@ -30508,7 +30552,8 @@
       "dcc_notes": {
         "reasoning": "Explora los misterios históricos de las exploraciones de occidente en los viajes marítimos.",
         "confidence": 0.0
-      }
+      },
+      "ISBN2": "9788408050421"
     },
     {
       "Title": "El enigma Spinoza",
@@ -30966,7 +31011,8 @@
       "dcc_notes": {
         "reasoning": "Ensayo económico sobre la participación activa del Estado en la innovación.",
         "confidence": 1.0
-      }
+      },
+      "ISBN2": "9789585165380"
     },
     {
       "Title": "El evangelio según Jesucristo",
@@ -31527,7 +31573,8 @@
       "dcc_notes": {
         "reasoning": "Tercera entrega de la celebrada novela de ciencia ficción del autor chino Cixin Liu.",
         "confidence": 1.0
-      }
+      },
+      "ISBN2": "9789585986824"
     },
     {
       "Title": "El fin de la oscuridad",
@@ -31716,7 +31763,8 @@
       "dcc_notes": {
         "reasoning": "Estudio interdisciplinario sobre cómo erradicar prejuicios y sesgos discriminatorios en la sociedad.",
         "confidence": 0.95
-      }
+      },
+      "ISBN2": "9789585531833"
     },
     {
       "Title": "El fin siempre está cerca",
@@ -32367,7 +32415,8 @@
       "dcc_notes": {
         "reasoning": "Colección de ensayos literarios conectando el legado humanista y clásico grecolatino con el presente.",
         "confidence": 0.95
-      }
+      },
+      "ISBN2": "9786287669628"
     },
     {
       "Title": "El gay saber",
@@ -35735,7 +35784,8 @@
       "dcc_notes": {
         "reasoning": "Una historia exhaustiva de la ciencia, desde la Grecia clásica hasta hoy.",
         "confidence": 0.98
-      }
+      },
+      "ISBN2": "9786077474708"
     },
     {
       "Title": "El jinete del silencio",
@@ -36671,7 +36721,8 @@
       "dcc_notes": {
         "reasoning": "Ensayo profundo sobre cómo grandes filósofos (Leibniz, Hegel, etc.) han intentado justificar o clasificar el mal.",
         "confidence": 0.98
-      }
+      },
+      "ISBN2": "9786287874022"
     },
     {
       "Title": "El mapa de un mundo nuevo",
@@ -37135,7 +37186,8 @@
       "dcc_notes": {
         "reasoning": "Ensayo sobre el legado del famoso pensador moderno, útil para la reflexión existencial.",
         "confidence": 0.0
-      }
+      },
+      "ISBN2": "9789584280039"
     },
     {
       "Title": "El mito de la Inteligencia Artificial",
@@ -38075,7 +38127,8 @@
       "dcc_notes": {
         "reasoning": "Obra filosófica de Friedrich Nietzsche que explora lo apolíneo y dionisíaco.",
         "confidence": 1.0
-      }
+      },
+      "ISBN2": "9789587232639"
     },
     {
       "Title": "El nuevo reino",
@@ -38542,7 +38595,8 @@
       "dcc_notes": {
         "reasoning": "Novela de ficción histórica escrita por la estadounidense Marie Benedict.",
         "confidence": 1.0
-      }
+      },
+      "ISBN2": "9789584285867"
     },
     {
       "Title": "El país de la canela",
@@ -39289,7 +39343,8 @@
       "dcc_notes": {
         "reasoning": "Novela histórica de ficción de la autora nicaragüense Gioconda Belli.",
         "confidence": 1.0
-      }
+      },
+      "ISBN2": "9786287582385"
     },
     {
       "Title": "El placer en la Roma clásica",
@@ -39664,7 +39719,8 @@
       "dcc_notes": {
         "reasoning": "Estudio literario de cómo los grandes textos han modelado la historia de la humanidad.",
         "confidence": 0.98
-      }
+      },
+      "ISBN2": "9789584279309"
     },
     {
       "Title": "El poder de las palabras",
@@ -39757,7 +39813,8 @@
       "dcc_notes": {
         "reasoning": "Neurociencia y psicología aplicadas al poder transformador de la conversación en el cerebro.",
         "confidence": 0.95
-      }
+      },
+      "ISBN2": "9789585132641"
     },
     {
       "Title": "El poder del fuego",
@@ -39945,7 +40002,8 @@
       "dcc_notes": {
         "reasoning": "Ensayo de economía crítica sobre las causas y efectos de la desigualdad.",
         "confidence": 1.0
-      }
+      },
+      "ISBN2": "9786287513310"
     },
     {
       "Title": "El primer hombre de Roma",
@@ -40132,7 +40190,8 @@
       "dcc_notes": {
         "reasoning": "Exitosísima novela de ciencia ficción original de China.",
         "confidence": 1.0
-      }
+      },
+      "ISBN2": "9789588991221"
     },
     {
       "Title": "El pueblo egipcio",
@@ -40505,7 +40564,8 @@
       "dcc_notes": {
         "reasoning": "Clásica novela gótica y de ficción del escritor irlandés Oscar Wilde.",
         "confidence": 1.0
-      }
+      },
+      "ISBN2": "9789588925790"
     },
     {
       "Title": "El río",
@@ -40598,7 +40658,8 @@
       "dcc_notes": {
         "reasoning": "Relato de exploración botánica y etnográfica a través de la Amazonía sudamericana.",
         "confidence": 0.95
-      }
+      },
+      "ISBN2": "9789584264053"
     },
     {
       "Title": "El ruido y la furia",
@@ -43682,7 +43743,8 @@
       "dcc_notes": {
         "reasoning": "Historia que evalúa la transición entre el Imperio Romano tardío y las tribus bárbaras en Europa.",
         "confidence": 0.95
-      }
+      },
+      "ISBN2": "9789584270153"
     },
     {
       "Title": "En Busca de Bolívar",
@@ -44429,7 +44491,8 @@
       "dcc_notes": {
         "reasoning": "Colección de ensayos enfocados en filosofía, racionalidad y la defensa del pensamiento humanista.",
         "confidence": 0.0
-      }
+      },
+      "ISBN2": "9789584297068"
     },
     {
       "Title": "En el palacio de los astrónomos: La transformación de la ciencia en la Europa del norte del siglo XVI",
@@ -44524,7 +44587,8 @@
       "dcc_notes": {
         "reasoning": "Libro de historia sobre la ciencia, en especial la astronomía, y cómo se desarrolló en la Europa del Renacimiento.",
         "confidence": 0.9
-      }
+      },
+      "ISBN2": "9789585165946"
     },
     {
       "Title": "En la mente de un gato",
@@ -45270,7 +45334,8 @@
       "dcc_notes": {
         "reasoning": "Volumen que agrupa la obra ensayística ineludible de Jorge Luis Borges.",
         "confidence": 1.0
-      }
+      },
+      "ISBN2": "9786287778955"
     },
     {
       "Title": "Ensayos escépticos",
@@ -46573,7 +46638,8 @@
       "dcc_notes": {
         "reasoning": "Ensayo filosófico-político de Agamben que explora la suspensión del orden jurídico como norma moderna.",
         "confidence": 0.98
-      }
+      },
+      "ISBN2": "9789874159571"
     },
     {
       "Title": "Estambul",
@@ -47409,7 +47475,8 @@
       "dcc_notes": {
         "reasoning": "Estudio basado en estadísticas globales para cambiar la percepción pesimista sobre el estado del mundo.",
         "confidence": 0.95
-      }
+      },
+      "ISBN2": "9789584284860"
     },
     {
       "Title": "Fahrenheit 451",
@@ -48158,7 +48225,8 @@
       "dcc_notes": {
         "reasoning": "Libro de divulgación que analiza grandes problemas existenciales a partir de sentencias célebres de la filosofía.",
         "confidence": 1.0
-      }
+      },
+      "ISBN2": "9789584276810"
     },
     {
       "Title": "Física Nuclear",
@@ -49090,7 +49158,8 @@
       "dcc_notes": {
         "reasoning": "Texto clásico de introducción y teoría filosófica por Bertrand Russell.",
         "confidence": 0.95
-      }
+      },
+      "ISBN2": "9789585579736"
     },
     {
       "Title": "Futurama Y La Filosofía",
@@ -49184,7 +49253,8 @@
       "dcc_notes": {
         "reasoning": "Análisis de grandes dilemas éticos y metafísicos a través de la popular serie animada de ciencia ficción.",
         "confidence": 0.95
-      }
+      },
+      "ISBN2": "9783025172792"
     },
     {
       "Title": "Gabinete de curiosidades griegas : relatos extraños y hechos sorprendentes",
@@ -51711,7 +51781,8 @@
       "dcc_notes": {
         "reasoning": "El autor económico y social, Thomas Piketty, analiza las vertientes económicas apuntando a un ecosocialismo.",
         "confidence": 0.95
-      }
+      },
+      "ISBN2": "9786287807020"
     },
     {
       "Title": "Hatshepsut",
@@ -51804,7 +51875,8 @@
       "dcc_notes": {
         "reasoning": "Biografía histórica del gran faraón femenino del Alto y Bajo Egipto.",
         "confidence": 0.95
-      }
+      },
+      "ISBN2": "9789500207317"
     },
     {
       "Title": "Hay ríos en el cielo",
@@ -52179,7 +52251,8 @@
       "dcc_notes": {
         "reasoning": "Exploración antropológica y evolutiva de los sesgos que determinan el progreso y comportamiento humano.",
         "confidence": 0.95
-      }
+      },
+      "ISBN2": "9786287669833"
     },
     {
       "Title": "Hielo: Bitácora de una expedicionaria antártica",
@@ -53110,7 +53183,8 @@
       "dcc_notes": {
         "reasoning": "Obra histórica que estudia la evolución de Jerusalén y su significado teológico a lo largo de milenios.",
         "confidence": 0.95
-      }
+      },
+      "ISBN2": "9789584279262"
     },
     {
       "Title": "Historia de la belleza",
@@ -54137,7 +54211,8 @@
       "dcc_notes": {
         "reasoning": "Análisis histórico monumental de la cotidianidad social, domesticidad y las costumbres a través de los siglos.",
         "confidence": 0.95
-      }
+      },
+      "ISBN2": "9788430699483"
     },
     {
       "Title": "Historia de La Vida Privada I - Bolsillo",
@@ -54796,7 +54871,8 @@
       "dcc_notes": {
         "reasoning": "Aproximación divulgativa de Montanelli a la cultura y la vida política de la Grecia antigua.",
         "confidence": 1.0
-      }
+      },
+      "ISBN2": "9789589016213"
     },
     {
       "Title": "Historia de Roma",
@@ -56484,7 +56560,8 @@
       "dcc_notes": {
         "reasoning": "Estudio histórico sobre la concepción, desarrollo político y científico del arma nuclear.",
         "confidence": 0.95
-      }
+      },
+      "ISBN2": "9789584291509"
     },
     {
       "Title": "Historia sencilla de la Ciencia",
@@ -56857,7 +56934,8 @@
       "dcc_notes": {
         "reasoning": "Ensayo del historiador Richard J. Evans enfocado en desmontar mitos sobre el Tercer Reich.",
         "confidence": 0.98
-      }
+      },
+      "ISBN2": "9789584296610"
     },
     {
       "Title": "Homo deus",
@@ -57981,7 +58059,8 @@
       "dcc_notes": {
         "reasoning": "Clásico fundamental de la filosofía moral y el pensamiento de Nietzsche.",
         "confidence": 1.0
-      }
+      },
+      "ISBN2": "9789587232424"
     },
     {
       "Title": "Ideas: historia intelectual de la humanidad",
@@ -58355,7 +58434,8 @@
       "dcc_notes": {
         "reasoning": "Thomas Piketty discute sobre desigualdad y concentración de la riqueza, por lo que pertenece a la economía o filosofía social.",
         "confidence": 0.9
-      }
+      },
+      "ISBN2": "9786287669765"
     },
     {
       "Title": "Ilíada",
@@ -59569,7 +59649,8 @@
       "dcc_notes": {
         "reasoning": "Análisis filosófico y político contemporáneo que diferencia la tradición progresista del tribalismo woke.",
         "confidence": 0.98
-      }
+      },
+      "ISBN2": "9786287669383"
     },
     {
       "Title": "Jerusalén",
@@ -60317,7 +60398,8 @@
       "dcc_notes": {
         "reasoning": "Estudio biográfico de la vida y mandato del emperador del Imperio Romano de Oriente.",
         "confidence": 0.98
-      }
+      },
+      "ISBN2": "9789585165724"
     },
     {
       "Title": "KL",
@@ -60412,7 +60494,8 @@
       "dcc_notes": {
         "reasoning": "Crónica extensa y minuciosa sobre la maquinaria de los campos de concentración nazis en la Segunda Guerra Mundial (940.53).",
         "confidence": 0.98
-      }
+      },
+      "ISBN2": "9789584254535"
     },
     {
       "Title": "Klara Y El Sol",
@@ -62562,7 +62645,8 @@
       "dcc_notes": {
         "reasoning": "Recopilación de ensayos apasionados de Dawkins defendiendo el método científico, el empirismo y la razón.",
         "confidence": 0.95
-      }
+      },
+      "ISBN2": "9789584282910"
     },
     {
       "Title": "La ciudad del pez elefante",
@@ -62751,7 +62835,8 @@
       "dcc_notes": {
         "reasoning": "Análisis de Jeremy Rifkin que liga la historia de la civilización y economía con la evolución de la empatía biológica.",
         "confidence": 0.95
-      }
+      },
+      "ISBN2": "9786075692920"
     },
     {
       "Title": "La civilización en la mirada",
@@ -63407,7 +63492,8 @@
       "dcc_notes": {
         "reasoning": "Obra cumbre de filosofía política elaborada por Hannah Arendt acerca de la acción y existencia humana.",
         "confidence": 1.0
-      }
+      },
+      "ISBN2": "9786075690896"
     },
     {
       "Title": "La conquista de América contada para escépticos",
@@ -64619,7 +64705,8 @@
       "dcc_notes": {
         "reasoning": "Conjunto de ensayos críticos y de pensamiento estético por el genial Oscar Wilde.",
         "confidence": 1.0
-      }
+      },
+      "ISBN2": "9789589219799"
     },
     {
       "Title": "La desfachatez machista: Hombres que nos explican el verdadero feminismo",
@@ -65459,7 +65546,8 @@
       "dcc_notes": {
         "reasoning": "Un análisis militar, tecnológico e histórico que repasa el papel de la pólvora en los imperios asiáticos.",
         "confidence": 0.95
-      }
+      },
+      "ISBN2": "9789584259127"
     },
     {
       "Title": "La Enciclopedia",
@@ -65553,7 +65641,8 @@
       "dcc_notes": {
         "reasoning": "Antología de la icónica Enciclopedia de Diderot y D'Alembert, obra cumbre del conocimiento de la Ilustración francesa.",
         "confidence": 0.95
-      }
+      },
+      "ISBN2": "9789585446281"
     },
     {
       "Title": "La Eneida",
@@ -65924,7 +66013,8 @@
       "dcc_notes": {
         "reasoning": "Novela de ciencia ficción escrita por el reconocido autor chino Cixin Liu.",
         "confidence": 1.0
-      }
+      },
+      "ISBN2": "9789585206359"
     },
     {
       "Title": "La era de las aldeas",
@@ -66486,7 +66576,8 @@
       "dcc_notes": {
         "reasoning": "Obra de divulgación paleoantropológica sobre la evolución humana.",
         "confidence": 0.98
-      }
+      },
+      "ISBN2": "9789584284228"
     },
     {
       "Title": "La estructura de las revoluciones científicas",
@@ -67606,7 +67697,8 @@
       "dcc_notes": {
         "reasoning": "Obra crítica de Friedrich Nietzsche sobre el origen histórico y filosófico de los conceptos morales.",
         "confidence": 1.0
-      }
+      },
+      "ISBN2": "9789587232561"
     },
     {
       "Title": "La guerra contra las mujeres",
@@ -68263,7 +68355,8 @@
       "dcc_notes": {
         "reasoning": "Biografía exhaustiva sobre la extraordinaria vida de Svetlana Alliluyeva, la hija de Iósif Stalin.",
         "confidence": 1.0
-      }
+      },
+      "ISBN2": "9789588931982"
     },
     {
       "Title": "La hija del sol",
@@ -69290,7 +69383,8 @@
       "dcc_notes": {
         "reasoning": "Ensayo que aborda la historia de la civilización a partir del relato y la imaginación narrativa.",
         "confidence": 0.95
-      }
+      },
+      "ISBN2": "9786287659889"
     },
     {
       "Title": "La invención del color",
@@ -69850,7 +69944,8 @@
       "dcc_notes": {
         "reasoning": "Novela de ficción basada en el periplo histórico de la famosa perla, por Carmen Posadas.",
         "confidence": 1.0
-      }
+      },
+      "ISBN2": "9789584292001"
     },
     {
       "Title": "La llama de Mileto: El nacimiento de la ciencia en la Antigua Grecia",
@@ -70220,7 +70315,8 @@
       "dcc_notes": {
         "reasoning": "Análisis histórico, cultural y arqueológico de las ruinas y la sociedad romana en Pompeya.",
         "confidence": 0.0
-      }
+      },
+      "ISBN2": "9789585165779"
     },
     {
       "Title": "La maldición de Tutankamón y otras historias de la Microbiología",
@@ -70781,7 +70877,8 @@
       "dcc_notes": {
         "reasoning": "Historia exhaustiva y divulgativa de la evolución, difusión y riqueza de la lengua española.",
         "confidence": 1.0
-      }
+      },
+      "ISBN2": "9789584251831"
     },
     {
       "Title": "La medición del mundo",
@@ -71531,7 +71628,8 @@
       "dcc_notes": {
         "reasoning": "Diálogos sobre la vejez, la plenitud, la biología de la muerte y el reloj biológico.",
         "confidence": 0.95
-      }
+      },
+      "ISBN2": "9786287525504"
     },
     {
       "Title": "La muerte de la naturaleza",
@@ -73027,7 +73125,8 @@
       "dcc_notes": {
         "reasoning": "Antología fundamental que aborda las cuestiones filosóficas y políticas de Hannah Arendt.",
         "confidence": 1.0
-      }
+      },
+      "ISBN2": "9789585165052"
     },
     {
       "Title": "La poesía de los números",
@@ -73392,7 +73491,8 @@
       "dcc_notes": {
         "reasoning": "Libro del economista colombiano Juan Camilo Cárdenas; posiblemente enfocado en retos económicos, comportamiento o medioambiente (Ariel).",
         "confidence": 0.85
-      }
+      },
+      "ISBN2": "9789584298461"
     },
     {
       "Title": "La razón de la oscuridad de la noche",
@@ -73767,7 +73867,8 @@
       "dcc_notes": {
         "reasoning": "Obra esencial de la filosofía política y ética clásica escrita por el griego Platón.",
         "confidence": 1.0
-      }
+      },
+      "ISBN2": "9789585573413"
     },
     {
       "Title": "La reseña como género académico-científico",
@@ -74048,7 +74149,8 @@
       "dcc_notes": {
         "reasoning": "Narración divulgativa y desmitificadora del acontecimiento clave de la historia de Francia y Europa por Eslava Galán.",
         "confidence": 1.0
-      }
+      },
+      "ISBN2": "9788408293613"
     },
     {
       "Title": "La revolucion francesa: La caida de la realeza (1787-1792)",
@@ -74140,7 +74242,8 @@
       "dcc_notes": {
         "reasoning": "Historia detallada de la Revolución Francesa escrita por Albert Mathiez.",
         "confidence": 0.98
-      }
+      },
+      "ISBN2": "9788412584165"
     },
     {
       "Title": "La revolución rusa",
@@ -74233,7 +74336,8 @@
       "dcc_notes": {
         "reasoning": "Obra historiográfica de referencia sobre el evento histórico ruso a cargo del prestigioso académico Richard Pipes.",
         "confidence": 1.0
-      }
+      },
+      "ISBN2": "9789585446311"
     },
     {
       "Title": "La Revolución Rusa contada para escépticos",
@@ -75077,7 +75181,8 @@
       "dcc_notes": {
         "reasoning": "Libro de divulgación histórica enfocado en contar los hitos principales y anécdotas de la Segunda Guerra Mundial (940.53).",
         "confidence": 1.0
-      }
+      },
+      "ISBN2": "9786077476993"
     },
     {
       "Title": "La serpiente sin ojos",
@@ -75358,7 +75463,8 @@
       "dcc_notes": {
         "reasoning": "Ensayo prospectivo de Ray Kurzweil sobre el avance acelerado de la inteligencia artificial y su fusión inminente con la mente humana.",
         "confidence": 0.95
-      }
+      },
+      "ISBN2": "9786287807082"
     },
     {
       "Title": "La Sociedad Romana",
@@ -77139,7 +77245,8 @@
       "dcc_notes": {
         "reasoning": "Novela histórica que rinde tributo literario a la actriz e ingeniera Hedy Lamarr.",
         "confidence": 1.0
-      }
+      },
+      "ISBN2": "9789584296658"
     },
     {
       "Title": "La vegetariana",
@@ -77420,7 +77527,8 @@
       "dcc_notes": {
         "reasoning": "Colaboración entre el paleontólogo J.L. Arsuaga y el escritor J.J. Millás para divulgar la evolución biológica y humana.",
         "confidence": 0.95
-      }
+      },
+      "ISBN2": "9789585118492"
     },
     {
       "Title": "La vida cotidiana en Egipto en tiempos de los Ramses",
@@ -77885,7 +77993,8 @@
       "dcc_notes": {
         "reasoning": "Ensayo sobre la evolución del pensamiento científico desde la época medieval, y cómo la economía argumentativa revolucionó el estudio del universo.",
         "confidence": 0.0
-      }
+      },
+      "ISBN2": "9786287596061"
     },
     {
       "Title": "La vida fue hace mucho",
@@ -78164,7 +78273,8 @@
       "dcc_notes": {
         "reasoning": "Exposición magistral acerca de la actividad neurológica y la estructura de los sesgos internos en la formación de juicios.",
         "confidence": 0.0
-      }
+      },
+      "ISBN2": "9789588931463"
     },
     {
       "Title": "La Vida Secreta de Una Hoja",
@@ -81604,7 +81714,8 @@
       "dcc_notes": {
         "reasoning": "Reelabora las pautas teóricas del epicureísmo para su comprensión como práctica filosófica de Occidente.",
         "confidence": 0.0
-      }
+      },
+      "ISBN2": "9789585165298"
     },
     {
       "Title": "Lecciones de histeria de Colombia",
@@ -83932,7 +84043,8 @@
       "dcc_notes": {
         "reasoning": "Reflexiones filosóficas de Siri Hustvedt que atacan el viejo reduccionismo que separa al cuerpo de la mente.",
         "confidence": 0.95
-      }
+      },
+      "ISBN2": "9786280003726"
     },
     {
       "Title": "Los finales del mundo",
@@ -84492,7 +84604,8 @@
         "reasoning": "Obra cumbre de la literatura rusa escrita por Fiódor Dostoievski.",
         "confidence": 1.0
       },
-      "libraryDuplicateHidden": true
+      "libraryDuplicateHidden": true,
+      "ISBN2": "9789588925363"
     },
     {
       "Title": "Los hermanos Karamázov",
@@ -84773,7 +84886,8 @@
       "dcc_notes": {
         "reasoning": "Historia cronológica de la revolución digital, la computación e internet escrita por Walter Isaacson.",
         "confidence": 1.0
-      }
+      },
+      "ISBN2": "9786287745360"
     },
     {
       "Title": "Los judíos, el mundo y el dinero",
@@ -85147,7 +85261,8 @@
       "dcc_notes": {
         "reasoning": "La monumental e influyente novela romántica y de crítica social escrita por Victor Hugo.",
         "confidence": 1.0
-      }
+      },
+      "ISBN2": "9789588925547"
     },
     {
       "Title": "Los mitos griegos",
@@ -87856,7 +87971,8 @@
       "dcc_notes": {
         "reasoning": "Relata en clave reflexiva las controversias históricas para definir la actual teoría y entendimiento del cosmos.",
         "confidence": 0.0
-      }
+      },
+      "ISBN2": "9789584255532"
     },
     {
       "Title": "Magallanes: El hombre y su gesta",
@@ -88042,7 +88158,8 @@
       "dcc_notes": {
         "reasoning": "Crónica de viaje e historia enfocada en el río Magdalena y la formación histórica y cultural de Colombia.",
         "confidence": 0.0
-      }
+      },
+      "ISBN2": "9789584296009"
     },
     {
       "Title": "Magia portátil: Una historia alternativa de los libros y sus lectores",
@@ -88229,7 +88346,8 @@
       "dcc_notes": {
         "reasoning": "Investigación sobre la historia de las ideas, filosofía e intelectualidad de un célebre círculo literario gestado a fines del s. XVIII en Alemania central.",
         "confidence": 0.0
-      }
+      },
+      "ISBN2": "9789585165366"
     },
     {
       "Title": "Maldita Roma: La conquista del poder de Julio César",
@@ -88601,7 +88719,8 @@
       "dcc_notes": {
         "reasoning": "Texto político insigne de Marx y Engels fundamental en la historia social moderna.",
         "confidence": 1.0
-      }
+      },
+      "ISBN2": "9789585165786"
     },
     {
       "Title": "Manual de la feminista aguafiestas",
@@ -90373,7 +90492,8 @@
       "dcc_notes": {
         "reasoning": "Obra en formato pseudobiográfico y ficción escrita en idioma original francés dedicada a los últimos días del emblemático emperador romano.",
         "confidence": 0.0
-      }
+      },
+      "ISBN2": "9789588820521"
     },
     {
       "Title": "Mentes geniales",
@@ -90468,7 +90588,8 @@
       "dcc_notes": {
         "reasoning": "Ensayo sobre psiquiatría, neurociencia y arte que asocia trastornos mentales a creadores famosos.",
         "confidence": 0.9
-      }
+      },
+      "ISBN2": "9786287669895"
     },
     {
       "Title": "Mentes maravillosas",
@@ -90843,7 +90964,8 @@
       "dcc_notes": {
         "reasoning": "Ensayo histórico que retrata a las ciudades y entornos urbanos como el gran motor evolutivo humano.",
         "confidence": 0.98
-      }
+      },
+      "ISBN2": "9789585132610"
     },
     {
       "Title": "Mi alma se la dejo al diablo",
@@ -91780,7 +91902,8 @@
       "dcc_notes": {
         "reasoning": "Un ensayo económico (B. Milanovic) en el que se indaga sobre el concepto de la desigualdad entrevistando imaginariamente a grandes teóricos históricos.",
         "confidence": 1.0
-      }
+      },
+      "ISBN2": "9789585165625"
     },
     {
       "Title": "Misión economía: Una guía para cambiar el capitalismo",
@@ -91872,7 +91995,8 @@
       "dcc_notes": {
         "reasoning": "Libro resolutivo sobre políticas económicas estructurales, los mercados libres y orientaciones ideadas hacia renovar una economía capitalista desde el plano de sus estados.",
         "confidence": 0.0
-      }
+      },
+      "ISBN2": "9789585165328"
     },
     {
       "Title": "Misterios de las profundidades",
@@ -94591,7 +94715,8 @@
       "dcc_notes": {
         "reasoning": "La autora analiza la crisis económica post-COVID y plantea cómo reformar la economía y las intervenciones estatales hacia la colaboración y equidad.",
         "confidence": 0.98
-      }
+      },
+      "ISBN2": "9789585423299"
     },
     {
       "Title": "No espero hacer ese viaje",
@@ -94964,7 +95089,8 @@
       "dcc_notes": {
         "reasoning": "Ensayo de filosofía contemporánea que critica el impacto de la era digital y la sobreinformación.",
         "confidence": 0.0
-      }
+      },
+      "ISBN2": "9789585165106"
     },
     {
       "Title": "Not Just for the Boys",
@@ -95526,7 +95652,8 @@
       "dcc_notes": {
         "reasoning": "Análisis histórico del autor Antonio Caballero, quien repasa los últimos milenios y las fuerzas geopolíticas de Occidente sobre el resto del mundo.",
         "confidence": 1.0
-      }
+      },
+      "ISBN2": "9789584287397"
     },
     {
       "Title": "Odisea",
@@ -95995,7 +96122,8 @@
       "dcc_notes": {
         "reasoning": "Visión macrohistórica sobre el origen de los sistemas jurídicos universales, el ordenamiento global mediante los códigos y el impacto legal en las sociedades.",
         "confidence": 0.0
-      }
+      },
+      "ISBN2": "9786280005058"
     },
     {
       "Title": "Oriente medio para dummies",
@@ -96183,7 +96311,8 @@
       "dcc_notes": {
         "reasoning": "Lewis Dartnell explora cómo la geología de la Tierra y sus variables geográficas determinaron de manera directa la historia y evolución de la humanidad.",
         "confidence": 0.9
-      }
+      },
+      "ISBN2": "9789585446687"
     },
     {
       "Title": "Oscar Wilde. Cuentos Completos",
@@ -96276,7 +96405,8 @@
       "dcc_notes": {
         "reasoning": "Recopilación de cuentos, cuentos de hadas y fábulas del eminente escritor en habla inglesa Oscar Wilde.",
         "confidence": 1.0
-      }
+      },
+      "ISBN2": "9789588925905"
     },
     {
       "Title": "Otra historia del arte",
@@ -96368,7 +96498,8 @@
       "dcc_notes": {
         "reasoning": "Lectura que aborda desde una perspectiva ligera, crítica y divulgativa todo lo subyacente y subjetivo con respecto al canon del arte.",
         "confidence": 0.0
-      }
+      },
+      "ISBN2": "9786289519907"
     },
     {
       "Title": "Oxígeno",
@@ -96834,7 +96965,8 @@
       "dcc_notes": {
         "reasoning": "Explora cómo las bacterias, los virus y las enfermedades (más que los grandes personajes) moldearon y precipitaron cambios drásticos en la historia de la humanidad.",
         "confidence": 0.9
-      }
+      },
+      "ISBN2": "9786287744417"
     },
     {
       "Title": "Pedro El Grande",
@@ -97954,7 +98086,8 @@
       "dcc_notes": {
         "reasoning": "Estudio socio-político de gran influencia de Acemoglu y Robinson, que usa el análisis institucional para explicar la desigualdad económica a nivel global.",
         "confidence": 1.0
-      }
+      },
+      "ISBN2": "9789584288882,9786077474913"
     },
     {
       "Title": "Por Que No Soy Cristiano y Otros Ensayos",
@@ -99822,7 +99955,8 @@
       "dcc_notes": {
         "reasoning": "Steven Pinker defiende nuestra capacidad de razonar frente al alza de 'fake news', examinando sesgos psicológicos e instrumentos de lógica y epistemología.",
         "confidence": 0.95
-      }
+      },
+      "ISBN2": "9789584298164"
     },
     {
       "Title": "Ramses",
@@ -100287,7 +100421,8 @@
       "dcc_notes": {
         "reasoning": "Narrativa sobre el desarrollo histórico, cultural y político de esta mítica ciudad italiana frente al Imperio Bizantino.",
         "confidence": 1.0
-      }
+      },
+      "ISBN2": "9786287669062"
     },
     {
       "Title": "rEDUvolution",
@@ -100380,7 +100515,8 @@
       "dcc_notes": {
         "reasoning": "Propuesta y manifiesto para innovar en paradigmas de educación en el aula escolar y adaptarlos al siglo XXI.",
         "confidence": 1.0
-      }
+      },
+      "ISBN2": "9786287596627"
     },
     {
       "Title": "Reencantar el mundo",
@@ -101315,7 +101451,8 @@
       "dcc_notes": {
         "reasoning": "Relato y retrato biográfico que documenta la vida personal y los logros académicos del prominente neurocientífico Rodolfo Llinás.",
         "confidence": 0.0
-      }
+      },
+      "ISBN2": "9789585425408"
     },
     {
       "Title": "Roma invicta : cuando las legiones fueron capaces de derribar el cielo",
@@ -102619,7 +102756,8 @@
       "dcc_notes": {
         "reasoning": "Describe desde un enfoque biológico holístico el devenir completo de las civilizaciones terrestres.",
         "confidence": 0.0
-      }
+      },
+      "ISBN2": "9786287669468"
     },
     {
       "Title": "Sesenta millones de romanos",
@@ -103460,7 +103598,8 @@
       "dcc_notes": {
         "reasoning": "El libro se trata de una obra biográfica sobre la histórica y compleja figura del general y político Simón Bolívar.",
         "confidence": 0.98
-      }
+      },
+      "ISBN2": "9789584284877"
     },
     {
       "Title": "Sin energía: Pequeña guía para el Gran Descenso",
@@ -103925,7 +104064,8 @@
       "dcc_notes": {
         "reasoning": "Un ensayo educativo y reflexivo acerca de los clásicos de la historia de la filosofía occidental, analizando figuras como Platón y Descartes.",
         "confidence": 1.0
-      }
+      },
+      "ISBN2": "9789585165793"
     },
     {
       "Title": "Sobre Dios",
@@ -104020,7 +104160,8 @@
       "dcc_notes": {
         "reasoning": "Ensayo filosófico de Byung-Chul Han que reinterpreta, apoyado en Simone Weil, temáticas en torno a Dios, el sufrimiento y el sentido moderno.",
         "confidence": 0.98
-      }
+      },
+      "ISBN2": "9786287596603"
     },
     {
       "Title": "Sobre el origen del tiempo",
@@ -109819,7 +109960,8 @@
       "dcc_notes": {
         "reasoning": "Libro de historia antigua escrito por Isaac Asimov, enfocado en la región de Canaán (historia de Oriente Medio y la antigua Palestina).",
         "confidence": 0.95
-      }
+      },
+      "ISBN2": "9788420669519"
     },
     {
       "Title": "Tinta Invisible",
@@ -110292,7 +110434,8 @@
       "dcc_notes": {
         "reasoning": "Narra la historia de la ciencia y la rivalidad entre Linneo y Buffon para clasificar la vida en la Tierra.",
         "confidence": 0.95
-      }
+      },
+      "ISBN2": "9789585165670"
     },
     {
       "Title": "Transformer",
@@ -110848,7 +110991,8 @@
       "dcc_notes": {
         "reasoning": "Novela histórica escrita por el autor colombiano Pablo Montoya, situada en el siglo XVI.",
         "confidence": 0.95
-      }
+      },
+      "ISBN2": "9789585579453"
     },
     {
       "Title": "Tu mente bajo los efectos de las plantas",
@@ -110942,7 +111086,8 @@
       "dcc_notes": {
         "reasoning": "Estudio sobre cómo las plantas psicoactivas alteran la mente y la conciencia humana, cruzando biología con psicología.",
         "confidence": 0.85
-      }
+      },
+      "ISBN2": "9789585132870"
     },
     {
       "Title": "Tutankhamon, Howard y yo: Cien años del descubrimiento de la tumba",
@@ -112891,7 +113036,8 @@
       "dcc_notes": {
         "reasoning": "Es una autobiografía que relata los primeros años y el despertar intelectual del científico Richard Dawkins.",
         "confidence": 0.95
-      }
+      },
+      "ISBN2": "9789584260024"
     },
     {
       "Title": "Una habitación Propia",
@@ -114273,7 +114419,8 @@
       "dcc_notes": {
         "reasoning": "Ensayo filosófico contemporáneo de Byung-Chul Han, quien reflexiona críticamente sobre el ritmo de vida actual.",
         "confidence": 0.9
-      }
+      },
+      "ISBN2": "9789585165373"
     },
     {
       "Title": "Vida de Chéjov",
@@ -114365,7 +114512,8 @@
       "dcc_notes": {
         "reasoning": "Es una biografía dedicada a Antón Chéjov, escrita por Irène Némirovsky.",
         "confidence": 0.98
-      }
+      },
+      "ISBN2": "9786287507654"
     },
     {
       "Title": "Vida de los doce Césares",
@@ -114825,7 +114973,8 @@
       "dcc_notes": {
         "reasoning": "Aborda de manera enciclopédica la historia de la biología y la teoría de la evolución biológica a través del tiempo.",
         "confidence": 0.0
-      }
+      },
+      "ISBN2": "9789584279316"
     },
     {
       "Title": "Vigilia del Almirante",
@@ -115562,7 +115711,8 @@
       "dcc_notes": {
         "reasoning": "Textos o reflexiones alrededor de la figura de Voltaire, contra el fanatismo y la intolerancia.",
         "confidence": 0.85
-      }
+      },
+      "ISBN2": "9789584244635"
     },
     {
       "Title": "Voyager",
@@ -115930,7 +116080,8 @@
       "dcc_notes": {
         "reasoning": "Aborda de manera divulgativa el clima, el viento, tormentas y cambios de temperatura.",
         "confidence": 0.95
-      }
+      },
+      "ISBN2": "9780764552434"
     },
     {
       "Title": "What Great Paintings Say",
@@ -116206,7 +116357,8 @@
       "dcc_notes": {
         "reasoning": "Es una obra histórica sobre el poder y mandato de las seis faraonas de Egipto y las concepciones actuales de la mujer en el poder.",
         "confidence": 0.95
-      }
+      },
+      "ISBN2": "9781426220883"
     },
     {
       "Title": "Why Nations Fail",
@@ -116390,7 +116542,8 @@
       "dcc_notes": {
         "reasoning": "Aborda el origen de la consciencia, el cerebro y las emociones desde el punto de vista del neurocientífico Antonio Damasio.",
         "confidence": 0.9
-      }
+      },
+      "ISBN2": "9786077476283"
     },
     {
       "Title": "Y Julia retó a los dioses",
@@ -116666,7 +116819,8 @@
       "dcc_notes": {
         "reasoning": "Enfocado estrictamente en la divulgación de las bacterias, microbios y el impacto biológico del microbioma.",
         "confidence": 0.0
-      }
+      },
+      "ISBN2": "9789585446441"
     },
     {
       "Title": "Yo Julia",
@@ -117219,7 +117373,8 @@
       "dcc_notes": {
         "reasoning": "Memorias autobiográficas de Dita Kraus, quien sobrevivió al Holocausto en el campo de Auschwitz.",
         "confidence": 0.95
-      }
+      },
+      "ISBN2": "9789588763675"
     },
     {
       "Title": "Zoópolis",
@@ -117776,7 +117931,8 @@
       "dcc_notes": {
         "reasoning": "Narra la historia de OpenAI y ChatGPT, abordando el poder de la industria tecnológica y sus tensiones éticas[cite: 1].",
         "confidence": 0.98
-      }
+      },
+      "ISBN2": "9786287807198"
     },
     {
       "Title": "El último secreto",
@@ -118045,7 +118201,8 @@
       "dcc_notes": {
         "reasoning": "Introducción general que abarca diversas escuelas del periodo helenístico como el cinismo, epicureísmo y estoicismo[cite: 1].",
         "confidence": 0.92
-      }
+      },
+      "ISBN2": "9786287596719"
     },
     {
       "Title": "Vivir con los hombres",
@@ -120381,7 +120538,8 @@
       "dcc_notes": {
         "reasoning": "Realiza un recorrido por dos mil años de historia europea conectada por el uso prolongado de las antiguas carreteras del Imperio Romano[cite: 1].",
         "confidence": 0.9
-      }
+      },
+      "ISBN2": "9786287900035"
     },
     {
       "Title": "Musicofilia",
@@ -120662,7 +120820,8 @@
       "dcc_notes": {
         "reasoning": "Colección completa de la meditación poética del gran autor literario argentino Jorge Luis Borges[cite: 1].",
         "confidence": 0.98
-      }
+      },
+      "ISBN2": "9789588773902,9786287778993"
     },
     {
       "Title": "Vida 3.0/Life 3.0: Being Human in the Age of Artificial Intelligence",
@@ -120932,7 +121091,8 @@
       "Uploaded Image URL": "",
       "Activities": "",
       "dcc_classes": {},
-      "bookId": ""
+      "bookId": "",
+      "ISBN2": "9789588925189"
     },
     {
       "Title": "El Arquitecto Del Universo / the Architect's Apprentice",
@@ -122260,7 +122420,8 @@
       "Uploaded Image URL": "",
       "Activities": "",
       "dcc_classes": {},
-      "bookId": ""
+      "bookId": "",
+      "ISBN2": "9789586112741"
     },
     {
       "Title": "Breve historia de las mujeres artistas",
@@ -123256,7 +123417,8 @@
       "Uploaded Image URL": "",
       "Activities": "",
       "dcc_classes": {},
-      "bookId": ""
+      "bookId": "",
+      "ISBN2": "9789587149425"
     },
     {
       "Title": "Filosofía y psicología",
@@ -123754,7 +123916,8 @@
       "Uploaded Image URL": "",
       "Activities": "",
       "dcc_classes": {},
-      "bookId": ""
+      "bookId": "",
+      "ISBN2": "9786287596764"
     },
     {
       "Title": "La máquina azul",
@@ -124916,7 +125079,8 @@
       "Uploaded Image URL": "http://images.amazon.com/images/P/849199890X.01Z.jpg",
       "Activities": "",
       "dcc_classes": {},
-      "bookId": ""
+      "bookId": "",
+      "ISBN2": "9786287571648"
     },
     {
       "Title": "Rey Jesús",
@@ -125082,7 +125246,8 @@
       "Uploaded Image URL": "",
       "Activities": "",
       "dcc_classes": {},
-      "bookId": ""
+      "bookId": "",
+      "ISBN2": "9786287596825"
     },
     {
       "Title": "Viajando con los clásicos",
@@ -125249,6 +125414,1670 @@
       "Activities": "",
       "dcc_classes": {},
       "bookId": ""
+    },
+    {
+      "Title": "365 días para ser más culto",
+      "Original Title": "",
+      "Subtitle": "El bestseller que recomienda el New York Times",
+      "Series": "",
+      "Volume": "",
+      "Author": "Noah D. Oppenheim,David S. Kidder",
+      "Author (Last, First)": "Oppenheim, Noah D.",
+      "Illustrator": "",
+      "Narrator": "",
+      "Translator": "",
+      "Photographer": "",
+      "Editor": "",
+      "Publisher": "Grupo Planeta Spain",
+      "Place of Publication": "",
+      "Date Published": "2012/01/24",
+      "Year Published": "2012",
+      "Original Date Published": "",
+      "Original Year Published": "",
+      "Edition": "",
+      "Genre": "Self-Help",
+      "Summary": "Los lunes: Historia, los martes: Literatura; los miércoles: Artes plásticas; los jueves: Ciencia; los viernes: Música; los sábados: Filosofía; los domingos: Religión.Una lección al día. 365 lecciones al año. Cinco minutos de esfuerzo diario para: conocer los hitos y los personajes que marcaron el desarrollo de la civilización occidental, codearse con los grandes escritores y sus obras más relevantes, comprender los movimientos artísticos y sus figuras, entender las maravillas de la ciencia de una forma fácil, dar un repaso a nuestra herencia musical y saber qué inspiró a los grandes compositores, acceder a los mayores pensadores de la humanidad y obtener una visión global de las religiones más importantes y sus principios... Sé culto, sé libre",
+      "Guided Reading Level": "",
+      "Lexile Measure": "",
+      "Lexile Code": "",
+      "Grade Level Equivalent": "",
+      "Developmental Reading Assessment": "",
+      "Interest Level": "",
+      "AR Level": "",
+      "AR Points": "",
+      "AR Quiz Number": "",
+      "Word Count": "",
+      "Number of Pages": "744",
+      "Format": "",
+      "Audio Runtime": "",
+      "Dimensions": "",
+      "Weight": "",
+      "List Price": "",
+      "Language": "Spanish",
+      "Original Language": "",
+      "DDC": "",
+      "LCC": "",
+      "LCCN": "",
+      "OCLC": "",
+      "ISBN": "9788427022898",
+      "ISSN": "",
+      "Favorites": "0",
+      "Rating": "0.000000",
+      "Physical Location": "",
+      "Status": "Unread",
+      "Status Incompleted Reason": "",
+      "Status Hidden": "0",
+      "Date Started": "",
+      "Date Finished": "",
+      "Current Page": "",
+      "Loaned To": "",
+      "Date Loaned": "",
+      "Borrowed From": "",
+      "Date Borrowed": "",
+      "Returned from Borrow": "0",
+      "Not Owned Reason": "",
+      "Quantity": "",
+      "Condition": "",
+      "Recommended By": "",
+      "Date Added": "2026/11/01 12:15:23.203142046",
+      "User Supplied ID": "",
+      "User Supplied Descriptor": "",
+      "Tags": "",
+      "Purchase Date": "",
+      "Purchase Place": "",
+      "Purchase Price": "",
+      "Notes": "",
+      "Google VolumeID": "V4wlI3nKR9MC",
+      "Category": "",
+      "Wish List": "0",
+      "Previously Owned": "0",
+      "Up Next": "0",
+      "Position": "",
+      "Uploaded Image URL": "",
+      "Activities": "",
+      "dcc_classes": {},
+      "bookId": ""
+    },
+    {
+      "Title": "Astronomía del Antiguo Egipto",
+      "Original Title": "",
+      "Subtitle": "una perspectiva cultural",
+      "Series": "",
+      "Volume": "",
+      "Author": "Juan Antonio Belmonte,José Lull",
+      "Author (Last, First)": "Belmonte, Juan Antonio",
+      "Illustrator": "",
+      "Narrator": "",
+      "Translator": "",
+      "Photographer": "",
+      "Editor": "",
+      "Publisher": "Editorial Dilema",
+      "Place of Publication": "",
+      "Date Published": "",
+      "Year Published": "2025",
+      "Original Date Published": "",
+      "Original Year Published": "",
+      "Edition": "",
+      "Genre": "",
+      "Summary": "",
+      "Guided Reading Level": "",
+      "Lexile Measure": "",
+      "Lexile Code": "",
+      "Grade Level Equivalent": "",
+      "Developmental Reading Assessment": "",
+      "Interest Level": "",
+      "AR Level": "",
+      "AR Points": "",
+      "AR Quiz Number": "",
+      "Word Count": "",
+      "Number of Pages": "830",
+      "Format": "",
+      "Audio Runtime": "",
+      "Dimensions": "",
+      "Weight": "",
+      "List Price": "",
+      "Language": "Spanish",
+      "Original Language": "",
+      "DDC": "",
+      "LCC": "",
+      "LCCN": "",
+      "OCLC": "",
+      "ISBN": "9788498276855",
+      "ISSN": "",
+      "Favorites": "0",
+      "Rating": "0.000000",
+      "Physical Location": "",
+      "Status": "Unread",
+      "Status Incompleted Reason": "",
+      "Status Hidden": "0",
+      "Date Started": "",
+      "Date Finished": "",
+      "Current Page": "",
+      "Loaned To": "",
+      "Date Loaned": "",
+      "Borrowed From": "",
+      "Date Borrowed": "",
+      "Returned from Borrow": "0",
+      "Not Owned Reason": "",
+      "Quantity": "",
+      "Condition": "",
+      "Recommended By": "",
+      "Date Added": "2026/11/01 11:26:42.548277974",
+      "User Supplied ID": "",
+      "User Supplied Descriptor": "",
+      "Tags": "",
+      "Purchase Date": "",
+      "Purchase Place": "",
+      "Purchase Price": "",
+      "Notes": "",
+      "Google VolumeID": "VYVl0QEACAAJ",
+      "Category": "",
+      "Wish List": "0",
+      "Previously Owned": "0",
+      "Up Next": "0",
+      "Position": "",
+      "Uploaded Image URL": "http://images.amazon.com/images/P/8498276853.01Z.jpg",
+      "Activities": "",
+      "dcc_classes": {},
+      "bookId": ""
+    },
+    {
+      "Title": "Cómo hacer grandes cosas",
+      "Original Title": "",
+      "Subtitle": "Los sorprendentes factores que marcan el destino de cualquier proyecto",
+      "Series": "",
+      "Volume": "",
+      "Author": "Bent Flyvbjerg,Dan Gardner",
+      "Author (Last, First)": "Flyvbjerg, Bent",
+      "Illustrator": "",
+      "Narrator": "",
+      "Translator": "",
+      "Photographer": "",
+      "Editor": "",
+      "Publisher": "EDICIONES B",
+      "Place of Publication": "",
+      "Date Published": "2023/06/08",
+      "Year Published": "2023",
+      "Original Date Published": "",
+      "Original Year Published": "",
+      "Edition": "",
+      "Genre": "Psychology",
+      "Summary": "Los secretos para planificar y llevar a cabo con éxito proyectos de cualquier envergadura, por el mayor experto munidal en megaproyectos.  Nada es más inspirador que una ambiciosa visión que se convierte en una realidad triunfante: el Empire State Building pasó de ser un boceto a cambiar el skyline de Nueva York en tan solo veintiún meses. Sin embargo, la mayoría de las veces las grandes visiones se convierten en auténticas pesadillas: según las estadísticas, un asombroso 92 por ciento de los megaproyectos superan el presupuesto o el cronograma, o ambas cosas. Incluso los esfuerzos más modestos, como emprender un pequeño negocio, suelen fracasar. ¿Por qué? El profesor de la Universidad de Oxford Bent Flyvbjerg ha dedicado su vida a comprender qué distingue a esos pocos triunfos entre tantos fracasos. En Cómo hacer grandes cosas identifica los errores de juicio y la toma de decisiones equivocadas que llevan al naufragio de los proyectos, ya sean grandes o pequeños. Y muestra cómo tus propios proyectos tienen más posibilidades de éxito si aplicas los principios que él mismo ha investigado durante décadas. Repleto de inolvidables ejemplos que van desde la construcción de la Ópera de Sídney y la creación de los últimos éxitos de taquilla de Pixar, hasta la desastrosa reforma de una casa en Brooklyn, este libro es una guía indispensable para cualquier persona que planee un proyecto ambicioso.  Reseñas:  «Un libro imprescindible».  Frank Gehry, Premio Pritzker «Nadie ha investigado los errores de planificación con más profundidad que Bent Flyvbjerg».  Nassim Nicholas Taleb, autor de El cisne negro  «Una sabia y vívida combinación de narración inspiradora con décadas de investigación práctica y experiencia».  Tim Harford, autor de E l economista camuflado  «Este libro contiene lecciones para todo tipo de profesionales».  The Economist  «Ignora este libro bajo tu propio riesgo».  The New York Times  «Lleno de deliciosas anécdotas sobre gestiones desastrosas de proyectos... y valiosos consejos».  Financial Times  «Un libro que debería leer cualquier legislador, concejal o ejecutivo».  The Wall Street Journal   «Cómo hacer grandes cosas no se basa en meras anécdotas; destila décadas de investigación sistemática de más dieciséis mil proyectos llevados a cabo en todo el mundo. El resultado es un patrón nítido de razones sorprendentes por las que casi todos los proyectos humanos fallan como se esperaba, y una hoja de ruta para que los afortunados lectores eviten fracasar».  Hans Rosling, autor de Factfulness",
+      "Guided Reading Level": "",
+      "Lexile Measure": "",
+      "Lexile Code": "",
+      "Grade Level Equivalent": "",
+      "Developmental Reading Assessment": "",
+      "Interest Level": "",
+      "AR Level": "",
+      "AR Points": "",
+      "AR Quiz Number": "",
+      "Word Count": "",
+      "Number of Pages": "352",
+      "Format": "",
+      "Audio Runtime": "",
+      "Dimensions": "",
+      "Weight": "",
+      "List Price": "",
+      "Language": "Spanish",
+      "Original Language": "",
+      "DDC": "",
+      "LCC": "",
+      "LCCN": "",
+      "OCLC": "",
+      "ISBN": "9788466676007",
+      "ISSN": "",
+      "Favorites": "0",
+      "Rating": "0.000000",
+      "Physical Location": "",
+      "Status": "Unread",
+      "Status Incompleted Reason": "",
+      "Status Hidden": "0",
+      "Date Started": "",
+      "Date Finished": "",
+      "Current Page": "",
+      "Loaned To": "",
+      "Date Loaned": "",
+      "Borrowed From": "",
+      "Date Borrowed": "",
+      "Returned from Borrow": "0",
+      "Not Owned Reason": "",
+      "Quantity": "",
+      "Condition": "",
+      "Recommended By": "",
+      "Date Added": "2026/11/01 12:43:32.043164968",
+      "User Supplied ID": "",
+      "User Supplied Descriptor": "",
+      "Tags": "",
+      "Purchase Date": "",
+      "Purchase Place": "",
+      "Purchase Price": "",
+      "Notes": "",
+      "Google VolumeID": "WbO7EAAAQBAJ",
+      "Category": "",
+      "Wish List": "0",
+      "Previously Owned": "0",
+      "Up Next": "0",
+      "Position": "",
+      "Uploaded Image URL": "",
+      "Activities": "",
+      "dcc_classes": {},
+      "bookId": "",
+      "ISBN2": "9786287634107"
+    },
+    {
+      "Title": "De la gran transformación a la gran financiarización",
+      "Original Title": "",
+      "Subtitle": "sobre Karl Polanyi y otros ensayos",
+      "Series": "",
+      "Volume": "",
+      "Author": "Kari Levitt",
+      "Author (Last, First)": "Levitt, Kari",
+      "Illustrator": "",
+      "Narrator": "",
+      "Translator": "",
+      "Photographer": "",
+      "Editor": "",
+      "Publisher": "Fondo de Cultura Económica",
+      "Place of Publication": "",
+      "Date Published": "",
+      "Year Published": "2018",
+      "Original Date Published": "",
+      "Original Year Published": "",
+      "Edition": "",
+      "Genre": "",
+      "Summary": "",
+      "Guided Reading Level": "",
+      "Lexile Measure": "",
+      "Lexile Code": "",
+      "Grade Level Equivalent": "",
+      "Developmental Reading Assessment": "",
+      "Interest Level": "",
+      "AR Level": "",
+      "AR Points": "",
+      "AR Quiz Number": "",
+      "Word Count": "",
+      "Number of Pages": "453",
+      "Format": "",
+      "Audio Runtime": "",
+      "Dimensions": "",
+      "Weight": "",
+      "List Price": "",
+      "Language": "Spanish",
+      "Original Language": "",
+      "DDC": "",
+      "LCC": "",
+      "LCCN": "",
+      "OCLC": "",
+      "ISBN": "9786073005975",
+      "ISSN": "",
+      "Favorites": "0",
+      "Rating": "0.000000",
+      "Physical Location": "",
+      "Status": "Unread",
+      "Status Incompleted Reason": "",
+      "Status Hidden": "0",
+      "Date Started": "",
+      "Date Finished": "",
+      "Current Page": "",
+      "Loaned To": "",
+      "Date Loaned": "",
+      "Borrowed From": "",
+      "Date Borrowed": "",
+      "Returned from Borrow": "0",
+      "Not Owned Reason": "",
+      "Quantity": "",
+      "Condition": "",
+      "Recommended By": "",
+      "Date Added": "2026/11/01 12:57:45.965818047",
+      "User Supplied ID": "",
+      "User Supplied Descriptor": "",
+      "Tags": "",
+      "Purchase Date": "",
+      "Purchase Place": "",
+      "Purchase Price": "",
+      "Notes": "",
+      "Google VolumeID": "IUEDyAEACAAJ",
+      "Category": "",
+      "Wish List": "0",
+      "Previously Owned": "0",
+      "Up Next": "0",
+      "Position": "",
+      "Uploaded Image URL": "",
+      "Activities": "",
+      "dcc_classes": {},
+      "bookId": ""
+    },
+    {
+      "Title": "El fin de la ciencia",
+      "Original Title": "",
+      "Subtitle": "",
+      "Series": "",
+      "Volume": "",
+      "Author": "Manuel Lozano Leyva",
+      "Author (Last, First)": "Leyva, Manuel Lozano",
+      "Illustrator": "",
+      "Narrator": "",
+      "Translator": "",
+      "Photographer": "",
+      "Editor": "",
+      "Publisher": "Penguin Bolsillo",
+      "Place of Publication": "",
+      "Date Published": "2018/04/12",
+      "Year Published": "2018",
+      "Original Date Published": "",
+      "Original Year Published": "",
+      "Edition": "",
+      "Genre": "Science",
+      "Summary": "Todo lo que un ciudadano (que no sabe qué preguntar ni de quién fiarse) debería saber sobre ciencia.   El fin de la ciencia responde a una doble pregunta: ¿se puede acabar la ciencia? y ¿qué busca la ciencia? Tras un irreverente recorrido por la historia de la ciencia y la tecnología, el prestigioso científico y gran divulgador Lozano Leyva realiza un ameno e inteligente recorrido por los riesgos y las amenazas actuales, desde la mediocridad y la falta de recursos hasta las pseudociencias o el negacionismo ambiental, para repasar a continuación sus objetivos en los campos más diversos. La idea de partida del libro es que los ciudadanos no pueden ejercer la democracia apropiadamente sin unos conocimientos básicos de lo que es la ciencia y la tecnología, incluidos no sólo sus grandezas y milagros, sino también sus miserias y peligros. La expansión del conocimiento científico y técnico que arrancó en el Renacimiento, tomó impulso en la Ilustración y eclosionó con las grandes y sangrientas convulsiones del siglo XX es un fenómeno único en la historia al que nos tenemos que enfrentar en el siglo XXI. Lo hemos de hacer ilusionados, sí, pero también alertas. Y nuestros políticos saben de esto lo mismo que los ciudadanos: poco o nada. Esclarecer esas ideas, o contribuir a hacerlo, es lo que pretende El fin de la ciencia.   «Lo único que quiero con este libro es que cualquier persona tenga una razón más para meter un voto en la urna.»  Manuel Lozano Leyva   Reseña:  «E l fin de la ciencia se ocupa, principalmente, de revelar errores de juicio, supercherías notorias y campos donde la ciencia será decisiva en un futuro inmediato: la pesca, la alimentación, el suministro de agua, la prevención y el combate de enfermedades endémicas, etc.»  Diario de Sevilla",
+      "Guided Reading Level": "",
+      "Lexile Measure": "",
+      "Lexile Code": "",
+      "Grade Level Equivalent": "",
+      "Developmental Reading Assessment": "",
+      "Interest Level": "",
+      "AR Level": "",
+      "AR Points": "",
+      "AR Quiz Number": "",
+      "Word Count": "",
+      "Number of Pages": "416",
+      "Format": "",
+      "Audio Runtime": "",
+      "Dimensions": "",
+      "Weight": "",
+      "List Price": "",
+      "Language": "Spanish",
+      "Original Language": "",
+      "DDC": "",
+      "LCC": "",
+      "LCCN": "",
+      "OCLC": "",
+      "ISBN": "9788466347235",
+      "ISSN": "",
+      "Favorites": "0",
+      "Rating": "0.000000",
+      "Physical Location": "",
+      "Status": "Unread",
+      "Status Incompleted Reason": "",
+      "Status Hidden": "0",
+      "Date Started": "",
+      "Date Finished": "",
+      "Current Page": "",
+      "Loaned To": "",
+      "Date Loaned": "",
+      "Borrowed From": "",
+      "Date Borrowed": "",
+      "Returned from Borrow": "0",
+      "Not Owned Reason": "",
+      "Quantity": "",
+      "Condition": "",
+      "Recommended By": "",
+      "Date Added": "2026/11/01 12:18:19.197708010",
+      "User Supplied ID": "",
+      "User Supplied Descriptor": "",
+      "Tags": "",
+      "Purchase Date": "",
+      "Purchase Place": "",
+      "Purchase Price": "",
+      "Notes": "",
+      "Google VolumeID": "MlhVDwAAQBAJ",
+      "Category": "",
+      "Wish List": "0",
+      "Previously Owned": "0",
+      "Up Next": "0",
+      "Position": "",
+      "Uploaded Image URL": "",
+      "Activities": "",
+      "dcc_classes": {},
+      "bookId": "",
+      "ISBN2": "9789588613772"
+    },
+    {
+      "Title": "El loco de Dios en el fin del mundo",
+      "Original Title": "",
+      "Subtitle": "",
+      "Series": "",
+      "Volume": "",
+      "Author": "Javier Cercas",
+      "Author (Last, First)": "Cercas, Javier",
+      "Illustrator": "",
+      "Narrator": "",
+      "Translator": "",
+      "Photographer": "",
+      "Editor": "",
+      "Publisher": "Random House",
+      "Place of Publication": "",
+      "Date Published": "",
+      "Year Published": "2025",
+      "Original Date Published": "",
+      "Original Year Published": "",
+      "Edition": "",
+      "Genre": "",
+      "Summary": "«Soy ateo. Soy anticlerical. Soy un laicista militante, un racionalista contumaz, un impío riguroso. Pero aquí me tienen, volando en dirección a Mongolia con el anciano vicario de Cristo en la Tierra, dispuesto a interrogarle sobre la resurrección de la carne y la vida eterna. Para eso me he embarcado en este avión: para preguntarle al papa Francisco si mi madre verá a mi padre más allá de la muerte, y para llevarle a mi madre su respuesta. He aquí un loco sin Dios persiguiendo al loco de Dios hasta el fin del mundo».Este es el arranque fulgurante de este libro único, que nadie había tenido la oportunidad de escribir, entre otras razones porque el Vaticano jamás le había abierto de par en par sus puertas a un escritor. Pero, además de único, este es un libro de plenitud, donde su autor logra convertir una propuesta insólita en un relato propio y magistral: un thriller sobre el mayor misterio de la historia de la Humanidad. Con esta novela sin ficción, Javier Cercas vuelve a su línea más personal, en la que logra enlazar sus obsesiones íntimas con una de las preocupaciones fundamentales de la sociedad actual: el papel en la vida humana de lo espiritual y lo transcendente, el lugar en ella de la religión y el ansia de inmortalidad. Tomado de la contracubierta del libro.",
+      "Guided Reading Level": "",
+      "Lexile Measure": "",
+      "Lexile Code": "",
+      "Grade Level Equivalent": "",
+      "Developmental Reading Assessment": "",
+      "Interest Level": "",
+      "AR Level": "",
+      "AR Points": "",
+      "AR Quiz Number": "",
+      "Word Count": "",
+      "Number of Pages": "485",
+      "Format": "",
+      "Audio Runtime": "",
+      "Dimensions": "",
+      "Weight": "",
+      "List Price": "",
+      "Language": "Spanish",
+      "Original Language": "",
+      "DDC": "",
+      "LCC": "",
+      "LCCN": "",
+      "OCLC": "",
+      "ISBN": "9786287638952",
+      "ISSN": "",
+      "Favorites": "0",
+      "Rating": "0.000000",
+      "Physical Location": "",
+      "Status": "Unread",
+      "Status Incompleted Reason": "",
+      "Status Hidden": "0",
+      "Date Started": "",
+      "Date Finished": "",
+      "Current Page": "",
+      "Loaned To": "",
+      "Date Loaned": "",
+      "Borrowed From": "",
+      "Date Borrowed": "",
+      "Returned from Borrow": "0",
+      "Not Owned Reason": "",
+      "Quantity": "",
+      "Condition": "",
+      "Recommended By": "",
+      "Date Added": "2026/11/01 12:33:07.963886022",
+      "User Supplied ID": "",
+      "User Supplied Descriptor": "",
+      "Tags": "",
+      "Purchase Date": "",
+      "Purchase Place": "",
+      "Purchase Price": "",
+      "Notes": "",
+      "Google VolumeID": "7Z580QEACAAJ",
+      "Category": "",
+      "Wish List": "0",
+      "Previously Owned": "0",
+      "Up Next": "0",
+      "Position": "",
+      "Uploaded Image URL": "https://m.media-amazon.com/images/S/compressed.photo.goodreads.com/books/1765873009i/223188671.jpg",
+      "Activities": "",
+      "dcc_classes": {},
+      "bookId": ""
+    },
+    {
+      "Title": "Ética a Nicómaco",
+      "Original Title": "",
+      "Subtitle": "",
+      "Series": "",
+      "Volume": "",
+      "Author": "Aristóteles",
+      "Author (Last, First)": "Aristóteles",
+      "Illustrator": "",
+      "Narrator": "",
+      "Translator": "",
+      "Photographer": "",
+      "Editor": "",
+      "Publisher": "Penguin Clásicos",
+      "Place of Publication": "",
+      "Date Published": "2026/09/17",
+      "Year Published": "2026",
+      "Original Date Published": "",
+      "Original Year Published": "",
+      "Edition": "",
+      "Genre": "Philosophy",
+      "Summary": "Una de las obras fundamentales en la filosofía moral occidental.  En esta obra, dirigida a su hijo Nicómaco, Aristóteles plantea una serie de recomendaciones que abordan un tema fundamental: cómo vivir para alcanzar la felicidad plena. Para el filósofo, hay tres pilares fundamentales que nos llevan a conseguirla: la naturaleza ( physis), la costumbre ( ethos) y la razón ( logos).  En esta obra, dirigida a su hijo Nicómaco, Aristóteles plantea una serie de recomendaciones que abordan un tema fundamental: cómo vivir para alcanzar la felicidad plena. Para el filósofo, hay tres pilares fundamentales que nos llevan a conseguirla: la naturaleza (physis), la costumbre (ethos) y la razón (logos).",
+      "Guided Reading Level": "",
+      "Lexile Measure": "",
+      "Lexile Code": "",
+      "Grade Level Equivalent": "",
+      "Developmental Reading Assessment": "",
+      "Interest Level": "",
+      "AR Level": "",
+      "AR Points": "",
+      "AR Quiz Number": "",
+      "Word Count": "",
+      "Number of Pages": "408",
+      "Format": "",
+      "Audio Runtime": "",
+      "Dimensions": "",
+      "Weight": "",
+      "List Price": "",
+      "Language": "Spanish",
+      "Original Language": "",
+      "DDC": "",
+      "LCC": "",
+      "LCCN": "",
+      "OCLC": "",
+      "ISBN": "9788491058601",
+      "ISSN": "",
+      "Favorites": "0",
+      "Rating": "0.000000",
+      "Physical Location": "",
+      "Status": "Unread",
+      "Status Incompleted Reason": "",
+      "Status Hidden": "0",
+      "Date Started": "",
+      "Date Finished": "",
+      "Current Page": "",
+      "Loaned To": "",
+      "Date Loaned": "",
+      "Borrowed From": "",
+      "Date Borrowed": "",
+      "Returned from Borrow": "0",
+      "Not Owned Reason": "",
+      "Quantity": "",
+      "Condition": "",
+      "Recommended By": "",
+      "Date Added": "2026/11/01 11:43:40.825343966",
+      "User Supplied ID": "",
+      "User Supplied Descriptor": "",
+      "Tags": "",
+      "Purchase Date": "",
+      "Purchase Place": "Círculo de Lectores",
+      "Purchase Price": "52000 $",
+      "Notes": "",
+      "Google VolumeID": "D9ryEQAAQBAJ",
+      "Category": "",
+      "Wish List": "0",
+      "Previously Owned": "0",
+      "Up Next": "0",
+      "Position": "",
+      "Uploaded Image URL": "",
+      "Activities": "",
+      "dcc_classes": {},
+      "bookId": "",
+      "ISBN2": "9786287897700"
+    },
+    {
+      "Title": "Filosofía del budismo Zen",
+      "Original Title": "",
+      "Subtitle": "",
+      "Series": "",
+      "Volume": "",
+      "Author": "Byung-Chul Han",
+      "Author (Last, First)": "Han, Byung-Chul",
+      "Illustrator": "",
+      "Narrator": "",
+      "Translator": "",
+      "Photographer": "",
+      "Editor": "",
+      "Publisher": "Herder",
+      "Place of Publication": "",
+      "Date Published": "",
+      "Year Published": "2015",
+      "Original Date Published": "",
+      "Original Year Published": "",
+      "Edition": "",
+      "Genre": "Philosophy",
+      "Summary": "Byung-Chul Han busca hacer explícita la filosofía que está implícita en el budismo Zen, y lo hace a través de la comparación con los filósofos más destacados de la filosofía occidental. Byung-Chul Han nos propone en este ensayo sobre el budismo zen que es posible reflexionar de modo filosófico sobre un objeto que no impl ica ninguna filosofía en sentido estricto. Aunque el budismo Zen se caracteriza por su actitud escéptica con el lenguaje y el pensamiento conceptual, Han propone que podemos dar vueltas lingüísticas en torno a su uso del silencio y el lenguaje enigmático. Para ello, Han recurre a la comparación como un método que saca a la luz el sentido. La filosofía del budismo Zen se alimenta de un «filosofar sobre» y «con» el budismo Zen, con el objetivo de desarrollar conceptualmente la fuerza filosófica que le es inherente. La filosofía de Platón, Leibniz, Fichte, Hegel, Schopenhauer, Nietzsche y Heidegger, entre otros, es confrontada con los puntos de vista filosóficos del budismo Zen",
+      "Guided Reading Level": "",
+      "Lexile Measure": "",
+      "Lexile Code": "",
+      "Grade Level Equivalent": "",
+      "Developmental Reading Assessment": "",
+      "Interest Level": "",
+      "AR Level": "",
+      "AR Points": "",
+      "AR Quiz Number": "",
+      "Word Count": "",
+      "Number of Pages": "184",
+      "Format": "",
+      "Audio Runtime": "",
+      "Dimensions": "",
+      "Weight": "",
+      "List Price": "",
+      "Language": "Spanish",
+      "Original Language": "",
+      "DDC": "",
+      "LCC": "",
+      "LCCN": "",
+      "OCLC": "",
+      "ISBN": "9788425433801",
+      "ISSN": "",
+      "Favorites": "0",
+      "Rating": "0.000000",
+      "Physical Location": "",
+      "Status": "Unread",
+      "Status Incompleted Reason": "",
+      "Status Hidden": "0",
+      "Date Started": "",
+      "Date Finished": "",
+      "Current Page": "",
+      "Loaned To": "",
+      "Date Loaned": "",
+      "Borrowed From": "",
+      "Date Borrowed": "",
+      "Returned from Borrow": "0",
+      "Not Owned Reason": "",
+      "Quantity": "",
+      "Condition": "",
+      "Recommended By": "",
+      "Date Added": "2026/11/01 12:28:48.910485982",
+      "User Supplied ID": "",
+      "User Supplied Descriptor": "",
+      "Tags": "",
+      "Purchase Date": "",
+      "Purchase Place": "",
+      "Purchase Price": "",
+      "Notes": "",
+      "Google VolumeID": "-9w8jgEACAAJ",
+      "Category": "",
+      "Wish List": "0",
+      "Previously Owned": "0",
+      "Up Next": "0",
+      "Position": "",
+      "Uploaded Image URL": "https://covers.openlibrary.org/b/id/8250736-L.jpg",
+      "Activities": "",
+      "dcc_classes": {},
+      "bookId": ""
+    },
+    {
+      "Title": "Guía de Egipto para piramidólogos y marcianos",
+      "Original Title": "",
+      "Subtitle": "",
+      "Series": "",
+      "Volume": "",
+      "Author": "Tito Vivas",
+      "Author (Last, First)": "Vivas, Tito",
+      "Illustrator": "",
+      "Narrator": "",
+      "Translator": "",
+      "Photographer": "",
+      "Editor": "",
+      "Publisher": "Ediciones del Viento",
+      "Place of Publication": "",
+      "Date Published": "",
+      "Year Published": "2025",
+      "Original Date Published": "",
+      "Original Year Published": "",
+      "Edition": "",
+      "Genre": "",
+      "Summary": "",
+      "Guided Reading Level": "",
+      "Lexile Measure": "",
+      "Lexile Code": "",
+      "Grade Level Equivalent": "",
+      "Developmental Reading Assessment": "",
+      "Interest Level": "",
+      "AR Level": "",
+      "AR Points": "",
+      "AR Quiz Number": "",
+      "Word Count": "",
+      "Number of Pages": "400",
+      "Format": "",
+      "Audio Runtime": "",
+      "Dimensions": "",
+      "Weight": "",
+      "List Price": "",
+      "Language": "Spanish",
+      "Original Language": "",
+      "DDC": "",
+      "LCC": "",
+      "LCCN": "",
+      "OCLC": "",
+      "ISBN": "9788418227578",
+      "ISSN": "",
+      "Favorites": "0",
+      "Rating": "0.000000",
+      "Physical Location": "",
+      "Status": "Unread",
+      "Status Incompleted Reason": "",
+      "Status Hidden": "0",
+      "Date Started": "",
+      "Date Finished": "",
+      "Current Page": "",
+      "Loaned To": "",
+      "Date Loaned": "",
+      "Borrowed From": "",
+      "Date Borrowed": "",
+      "Returned from Borrow": "0",
+      "Not Owned Reason": "",
+      "Quantity": "",
+      "Condition": "",
+      "Recommended By": "",
+      "Date Added": "2026/11/02 09:33:12.003520965",
+      "User Supplied ID": "",
+      "User Supplied Descriptor": "",
+      "Tags": "",
+      "Purchase Date": "",
+      "Purchase Place": "",
+      "Purchase Price": "",
+      "Notes": "",
+      "Google VolumeID": "Gnpl0QEACAAJ",
+      "Category": "",
+      "Wish List": "0",
+      "Previously Owned": "0",
+      "Up Next": "0",
+      "Position": "",
+      "Uploaded Image URL": "http://images.amazon.com/images/P/8418227575.01Z.jpg",
+      "Activities": "",
+      "dcc_classes": {},
+      "bookId": "230992651"
+    },
+    {
+      "Title": "Historia de la Segunda Guerra Mundial sin mitos ni tópicos",
+      "Original Title": "",
+      "Subtitle": "",
+      "Series": "",
+      "Volume": "",
+      "Author": "Manuel P. Villatoro,Israel Viana",
+      "Author (Last, First)": "Villatoro, Manuel P.",
+      "Illustrator": "",
+      "Narrator": "",
+      "Translator": "",
+      "Photographer": "",
+      "Editor": "",
+      "Publisher": "Penguin Bolsillo",
+      "Place of Publication": "",
+      "Date Published": "2023/03/23",
+      "Year Published": "2023",
+      "Original Date Published": "",
+      "Original Year Published": "",
+      "Edition": "",
+      "Genre": "History",
+      "Summary": "La historia de la Segunda Guerra Mundial como jamás nos la han contado, con una mirada experta y al mismo tiempo muy cercana  En Historia de la Segunda Guerra Mundial sin mitos ni tópicos, Manuel P. Villatoro e Israel Viana, periodistas especializados en historia, nos acercan al conflicto más grande de todos los tiempos bajo la premisa de una pulgación fresca y amena, en la que se incluyen varias exclusivas jamás contadas, fruto de la investigación de los autores. Sin olvidar los hechos previos al enfrentamiento, ni sus largas consecuencias en el corto siglo XX, el libro ofrece una crónica de la guerra año por año, atenta a sus entresijos y al enorme sufrimiento humano que supuso. Se encontrarán aquí entrevistas con algunos de los últimos supervivientes y los acontecimientos bélicos más destacados, como la invasión de Polonia por las tropas del Tercer Reich o las asfixiantes batallas marítimas en el interior de los submarinos, pero también aparecerán pinceladas sobre detalles como el funcionamiento del Panzer, las obsesiones eróticas de Hitler y Mussolini, el desempeño de las mujeres espías en el frente o el desesperado encargo hecho por el Kremlin a Dmitri Shostakóvich de estrenar su Sinfonía n.o 7, con una orquesta diezmada, en la ciudad sitiada de Leningrado.  Villatoro y Viana, dos colosos del periodismo, nos ofrecen una historia a escala humana, inteligente y ágil, capaz de desvelar la realidad política y personal de un pasado que no deja de ser noticia.   La crítica ha dicho:  «Al igual que el anterior Historia de La Guerra Civil sin mitos ni tópicos, este nuevo libro se acerca al lector con un espíritu dinámico, desenfadado y a la vez riguroso, a fin de contar la historia como jamás se ha contado».  La Vanguardia  «A lo largo de 70 capítulos que se leen de un tirón, los autores nos aproximan a episodios sorprendentes, y casi siempre desconocidos, de una guerra que se ha contado de mil maneras, pero nunca como ésta».  Diario de León",
+      "Guided Reading Level": "",
+      "Lexile Measure": "",
+      "Lexile Code": "",
+      "Grade Level Equivalent": "",
+      "Developmental Reading Assessment": "",
+      "Interest Level": "",
+      "AR Level": "",
+      "AR Points": "",
+      "AR Quiz Number": "",
+      "Word Count": "",
+      "Number of Pages": "568",
+      "Format": "",
+      "Audio Runtime": "",
+      "Dimensions": "",
+      "Weight": "",
+      "List Price": "",
+      "Language": "Spanish",
+      "Original Language": "",
+      "DDC": "",
+      "LCC": "",
+      "LCCN": "",
+      "OCLC": "",
+      "ISBN": "9788413147253",
+      "ISSN": "",
+      "Favorites": "0",
+      "Rating": "0.000000",
+      "Physical Location": "",
+      "Status": "Unread",
+      "Status Incompleted Reason": "",
+      "Status Hidden": "0",
+      "Date Started": "",
+      "Date Finished": "",
+      "Current Page": "",
+      "Loaned To": "",
+      "Date Loaned": "",
+      "Borrowed From": "",
+      "Date Borrowed": "",
+      "Returned from Borrow": "0",
+      "Not Owned Reason": "",
+      "Quantity": "",
+      "Condition": "",
+      "Recommended By": "",
+      "Date Added": "2026/11/01 13:03:53.792832970",
+      "User Supplied ID": "",
+      "User Supplied Descriptor": "",
+      "Tags": "",
+      "Purchase Date": "",
+      "Purchase Place": "",
+      "Purchase Price": "",
+      "Notes": "",
+      "Google VolumeID": "poasEAAAQBAJ",
+      "Category": "",
+      "Wish List": "0",
+      "Previously Owned": "0",
+      "Up Next": "0",
+      "Position": "",
+      "Uploaded Image URL": "",
+      "Activities": "",
+      "dcc_classes": {},
+      "bookId": ""
+    },
+    {
+      "Title": "If Cats Disappeared from the World",
+      "Original Title": "",
+      "Subtitle": "",
+      "Series": "",
+      "Volume": "",
+      "Author": "Genki Kawamura",
+      "Author (Last, First)": "Kawamura, Genki",
+      "Illustrator": "",
+      "Narrator": "",
+      "Translator": "",
+      "Photographer": "",
+      "Editor": "",
+      "Publisher": "Picador",
+      "Place of Publication": "",
+      "Date Published": "",
+      "Year Published": "2018",
+      "Original Date Published": "",
+      "Original Year Published": "",
+      "Edition": "",
+      "Genre": "Fiction",
+      "Summary": "The international phenomenon that has sold more than two million copies, If Cats Disappeared from the World is a heartwarming, funny, and profound meditation on the meaning of life.The young postman's days are numbered. Estranged from his family and living alone with only his cat, Cabbage, to keep him company, he was unprepared for the doctor's diagnosis that he has only months to live. But before he can tackle his bucket list, the devil shows up to make him an offer: In exchange for making one thing in the world disappear, the postman will be granted one extra day of life. And so begins a very strange week that brings the young postman and his beloved cat to the brink of existence.With each object that disappears, the postman reflects on the life he's lived, his joys and regrets, and the people he's loved and lost. This timeless tale from Genki Kawamura (producer of the Japanese blockbuster animated movie Your Name) is a moving story of loss and reconciliation, and of one man's journey to discover what really matters most in life.",
+      "Guided Reading Level": "",
+      "Lexile Measure": "",
+      "Lexile Code": "",
+      "Grade Level Equivalent": "",
+      "Developmental Reading Assessment": "",
+      "Interest Level": "",
+      "AR Level": "",
+      "AR Points": "",
+      "AR Quiz Number": "",
+      "Word Count": "",
+      "Number of Pages": "201",
+      "Format": "",
+      "Audio Runtime": "",
+      "Dimensions": "",
+      "Weight": "",
+      "List Price": "",
+      "Language": "English",
+      "Original Language": "",
+      "DDC": "",
+      "LCC": "",
+      "LCCN": "",
+      "OCLC": "",
+      "ISBN": "9781509889174",
+      "ISSN": "",
+      "Favorites": "0",
+      "Rating": "0.000000",
+      "Physical Location": "",
+      "Status": "Unread",
+      "Status Incompleted Reason": "",
+      "Status Hidden": "0",
+      "Date Started": "",
+      "Date Finished": "",
+      "Current Page": "",
+      "Loaned To": "",
+      "Date Loaned": "",
+      "Borrowed From": "",
+      "Date Borrowed": "",
+      "Returned from Borrow": "0",
+      "Not Owned Reason": "",
+      "Quantity": "",
+      "Condition": "",
+      "Recommended By": "",
+      "Date Added": "2026/11/01 12:08:42.140043973",
+      "User Supplied ID": "",
+      "User Supplied Descriptor": "",
+      "Tags": "",
+      "Purchase Date": "",
+      "Purchase Place": "",
+      "Purchase Price": "",
+      "Notes": "",
+      "Google VolumeID": "rivQswEACAAJ",
+      "Category": "",
+      "Wish List": "0",
+      "Previously Owned": "0",
+      "Up Next": "0",
+      "Position": "",
+      "Uploaded Image URL": "",
+      "Activities": "",
+      "dcc_classes": {},
+      "bookId": ""
+    },
+    {
+      "Title": "Jesús",
+      "Original Title": "",
+      "Subtitle": "la historia alternativa",
+      "Series": "",
+      "Volume": "",
+      "Author": "Carlos Uribe Celis",
+      "Author (Last, First)": "Celis, Carlos Uribe",
+      "Illustrator": "",
+      "Narrator": "",
+      "Translator": "",
+      "Photographer": "",
+      "Editor": "",
+      "Publisher": "Penguin Random House Grupo Editorial",
+      "Place of Publication": "",
+      "Date Published": "",
+      "Year Published": "2018",
+      "Original Date Published": "",
+      "Original Year Published": "",
+      "Edition": "",
+      "Genre": "",
+      "Summary": "",
+      "Guided Reading Level": "",
+      "Lexile Measure": "",
+      "Lexile Code": "",
+      "Grade Level Equivalent": "",
+      "Developmental Reading Assessment": "",
+      "Interest Level": "",
+      "AR Level": "",
+      "AR Points": "",
+      "AR Quiz Number": "",
+      "Word Count": "",
+      "Number of Pages": "396",
+      "Format": "",
+      "Audio Runtime": "",
+      "Dimensions": "",
+      "Weight": "",
+      "List Price": "",
+      "Language": "Spanish",
+      "Original Language": "",
+      "DDC": "",
+      "LCC": "",
+      "LCCN": "",
+      "OCLC": "",
+      "ISBN": "9789585446403",
+      "ISSN": "",
+      "Favorites": "0",
+      "Rating": "0.000000",
+      "Physical Location": "",
+      "Status": "Unread",
+      "Status Incompleted Reason": "",
+      "Status Hidden": "0",
+      "Date Started": "",
+      "Date Finished": "",
+      "Current Page": "",
+      "Loaned To": "",
+      "Date Loaned": "",
+      "Borrowed From": "",
+      "Date Borrowed": "",
+      "Returned from Borrow": "0",
+      "Not Owned Reason": "",
+      "Quantity": "",
+      "Condition": "",
+      "Recommended By": "",
+      "Date Added": "2026/11/01 11:45:44.070057988",
+      "User Supplied ID": "",
+      "User Supplied Descriptor": "",
+      "Tags": "",
+      "Purchase Date": "",
+      "Purchase Place": "",
+      "Purchase Price": "",
+      "Notes": "",
+      "Google VolumeID": "z8IeyQEACAAJ",
+      "Category": "",
+      "Wish List": "0",
+      "Previously Owned": "0",
+      "Up Next": "0",
+      "Position": "",
+      "Uploaded Image URL": "",
+      "Activities": "",
+      "dcc_classes": {},
+      "bookId": ""
+    },
+    {
+      "Title": "La quinta puerta",
+      "Original Title": "",
+      "Subtitle": "de cómo la educación en Colombia agudiza las desigualdades en lugar de remediarlas",
+      "Series": "",
+      "Volume": "",
+      "Author": "Juan Camilo Cárdenas,Leopoldo Fergusson,Mauricio García Villegas",
+      "Author (Last, First)": "Cárdenas, Juan Camilo",
+      "Illustrator": "",
+      "Narrator": "",
+      "Translator": "",
+      "Photographer": "",
+      "Editor": "",
+      "Publisher": "Ariel",
+      "Place of Publication": "",
+      "Date Published": "",
+      "Year Published": "2021",
+      "Original Date Published": "",
+      "Original Year Published": "",
+      "Edition": "",
+      "Genre": "Education",
+      "Summary": "",
+      "Guided Reading Level": "",
+      "Lexile Measure": "",
+      "Lexile Code": "",
+      "Grade Level Equivalent": "",
+      "Developmental Reading Assessment": "",
+      "Interest Level": "",
+      "AR Level": "",
+      "AR Points": "",
+      "AR Quiz Number": "",
+      "Word Count": "",
+      "Number of Pages": "311",
+      "Format": "",
+      "Audio Runtime": "",
+      "Dimensions": "",
+      "Weight": "",
+      "List Price": "",
+      "Language": "Spanish",
+      "Original Language": "",
+      "DDC": "",
+      "LCC": "",
+      "LCCN": "",
+      "OCLC": "",
+      "ISBN": "9789584298461",
+      "ISSN": "",
+      "Favorites": "0",
+      "Rating": "0.000000",
+      "Physical Location": "",
+      "Status": "Unread",
+      "Status Incompleted Reason": "",
+      "Status Hidden": "0",
+      "Date Started": "",
+      "Date Finished": "",
+      "Current Page": "",
+      "Loaned To": "",
+      "Date Loaned": "",
+      "Borrowed From": "",
+      "Date Borrowed": "",
+      "Returned from Borrow": "0",
+      "Not Owned Reason": "",
+      "Quantity": "",
+      "Condition": "",
+      "Recommended By": "",
+      "Date Added": "2026/11/01 12:55:30.026463031",
+      "User Supplied ID": "",
+      "User Supplied Descriptor": "",
+      "Tags": "",
+      "Purchase Date": "",
+      "Purchase Place": "",
+      "Purchase Price": "",
+      "Notes": "",
+      "Google VolumeID": "5sEUzwEACAAJ",
+      "Category": "",
+      "Wish List": "0",
+      "Previously Owned": "0",
+      "Up Next": "0",
+      "Position": "",
+      "Uploaded Image URL": "",
+      "Activities": "",
+      "dcc_classes": {},
+      "bookId": "59665691"
+    },
+    {
+      "Title": "La Revolución francesa",
+      "Original Title": "",
+      "Subtitle": "",
+      "Series": "",
+      "Volume": "",
+      "Author": "Albert Mathiez",
+      "Author (Last, First)": "Mathiez, Albert",
+      "Illustrator": "",
+      "Narrator": "",
+      "Translator": "",
+      "Photographer": "",
+      "Editor": "",
+      "Publisher": "Mi-lla Ediciones",
+      "Place of Publication": "",
+      "Date Published": "",
+      "Year Published": "2023",
+      "Original Date Published": "",
+      "Original Year Published": "",
+      "Edition": "",
+      "Genre": "",
+      "Summary": "",
+      "Guided Reading Level": "",
+      "Lexile Measure": "",
+      "Lexile Code": "",
+      "Grade Level Equivalent": "",
+      "Developmental Reading Assessment": "",
+      "Interest Level": "",
+      "AR Level": "",
+      "AR Points": "",
+      "AR Quiz Number": "",
+      "Word Count": "",
+      "Number of Pages": "677",
+      "Format": "",
+      "Audio Runtime": "",
+      "Dimensions": "",
+      "Weight": "",
+      "List Price": "",
+      "Language": "Spanish",
+      "Original Language": "",
+      "DDC": "",
+      "LCC": "",
+      "LCCN": "",
+      "OCLC": "",
+      "ISBN": "9788412584165",
+      "ISSN": "",
+      "Favorites": "0",
+      "Rating": "0.000000",
+      "Physical Location": "",
+      "Status": "Unread",
+      "Status Incompleted Reason": "",
+      "Status Hidden": "0",
+      "Date Started": "",
+      "Date Finished": "",
+      "Current Page": "",
+      "Loaned To": "",
+      "Date Loaned": "",
+      "Borrowed From": "",
+      "Date Borrowed": "",
+      "Returned from Borrow": "0",
+      "Not Owned Reason": "",
+      "Quantity": "",
+      "Condition": "",
+      "Recommended By": "",
+      "Date Added": "2026/11/01 11:56:48.630813002",
+      "User Supplied ID": "",
+      "User Supplied Descriptor": "",
+      "Tags": "",
+      "Purchase Date": "",
+      "Purchase Place": "",
+      "Purchase Price": "",
+      "Notes": "",
+      "Google VolumeID": "8ci70AEACAAJ",
+      "Category": "",
+      "Wish List": "0",
+      "Previously Owned": "0",
+      "Up Next": "0",
+      "Position": "",
+      "Uploaded Image URL": "https://gandhi.vtexassets.com/arquivos/ids/10813797/Imagen.jpg?v=639218837221330000",
+      "Activities": "",
+      "dcc_classes": {},
+      "bookId": ""
+    },
+    {
+      "Title": "Los nombres de Feliza",
+      "Original Title": "",
+      "Subtitle": "",
+      "Series": "",
+      "Volume": "",
+      "Author": "Juan Gabriel Vásquez",
+      "Author (Last, First)": "Vásquez, Juan Gabriel",
+      "Illustrator": "",
+      "Narrator": "",
+      "Translator": "",
+      "Photographer": "",
+      "Editor": "",
+      "Publisher": "Alfaguara",
+      "Place of Publication": "",
+      "Date Published": "",
+      "Year Published": "2025",
+      "Original Date Published": "",
+      "Original Year Published": "",
+      "Edition": "",
+      "Genre": "",
+      "Summary": "«Me di cuenta de que entender a Feliza era una empresa difícil. Nada era sencillo cuando se trataba de ella». El 8 de enero de 1982, la escultora colombiana Feliza Bursztyn murió en un restaurante de París. Tenía cuarenta y ocho años. En el momento de su muerte repentina la acompañaban su marido y cuatro amigos. Uno de ellos, el escritor Gabriel García Márquez, publicó días después un artículo que incluía tres palabras en apariencia simples, pero misteriosas en el fondo: «Murió de tristeza». Juan Gabriel Vásquez parte de esas palabras para investigar en la vida secreta o desconocida de una mujer extraordinaria. Feliza Bursztyn se enfrentó siempre a la sociedad en la que le tocó vivir. Hija de una pareja de judíos expatriados en Colombia, artista revolucionaria en un tiempo de revoluciones políticas, mujer de espíritu libre en un mundo que desconfiaba de la libertad de las mujeres, llevó una existencia que puso en escena las grandes tensiones del siglo XX y, sobre todo, el deseo de ser dueña de sí misma. En Los nombres de Feliza el autor funde con maestría la autobiografía, la realidad y la imaginación para entregar al lector una ficción asombrosa y desgarradora sobre cómo la vida íntima de un ser humano se ve inevitablemente arrollada por las fuerzas de la historia y la política. Tomado de la contracubierta del libro",
+      "Guided Reading Level": "",
+      "Lexile Measure": "",
+      "Lexile Code": "",
+      "Grade Level Equivalent": "",
+      "Developmental Reading Assessment": "",
+      "Interest Level": "",
+      "AR Level": "",
+      "AR Points": "",
+      "AR Quiz Number": "",
+      "Word Count": "",
+      "Number of Pages": "279",
+      "Format": "",
+      "Audio Runtime": "",
+      "Dimensions": "",
+      "Weight": "",
+      "List Price": "",
+      "Language": "Spanish",
+      "Original Language": "",
+      "DDC": "",
+      "LCC": "",
+      "LCCN": "",
+      "OCLC": "",
+      "ISBN": "9786287659919",
+      "ISSN": "",
+      "Favorites": "0",
+      "Rating": "0.000000",
+      "Physical Location": "",
+      "Status": "Unread",
+      "Status Incompleted Reason": "",
+      "Status Hidden": "0",
+      "Date Started": "",
+      "Date Finished": "",
+      "Current Page": "",
+      "Loaned To": "",
+      "Date Loaned": "",
+      "Borrowed From": "",
+      "Date Borrowed": "",
+      "Returned from Borrow": "0",
+      "Not Owned Reason": "",
+      "Quantity": "",
+      "Condition": "",
+      "Recommended By": "",
+      "Date Added": "2026/11/01 11:49:49.771870017",
+      "User Supplied ID": "",
+      "User Supplied Descriptor": "",
+      "Tags": "",
+      "Purchase Date": "",
+      "Purchase Place": "",
+      "Purchase Price": "",
+      "Notes": "",
+      "Google VolumeID": "LcMs0QEACAAJ",
+      "Category": "",
+      "Wish List": "0",
+      "Previously Owned": "0",
+      "Up Next": "0",
+      "Position": "",
+      "Uploaded Image URL": "https://m.media-amazon.com/images/I/71BuAD8r3YL._AC_UF1000,1000_QL80_.jpg",
+      "Activities": "",
+      "dcc_classes": {},
+      "bookId": ""
+    },
+    {
+      "Title": "Poder y progreso",
+      "Original Title": "",
+      "Subtitle": "nuestra lucha milenaria por la tecnología y la prosperidad",
+      "Series": "",
+      "Volume": "",
+      "Author": "Kamer Daron Acemoglu,Simon Johnson",
+      "Author (Last, First)": "Acemoglu, Kamer Daron",
+      "Illustrator": "",
+      "Narrator": "",
+      "Translator": "",
+      "Photographer": "",
+      "Editor": "",
+      "Publisher": "Editorial Planeta Colombia",
+      "Place of Publication": "",
+      "Date Published": "",
+      "Year Published": "2024",
+      "Original Date Published": "",
+      "Original Year Published": "",
+      "Edition": "",
+      "Genre": "",
+      "Summary": "",
+      "Guided Reading Level": "",
+      "Lexile Measure": "",
+      "Lexile Code": "",
+      "Grade Level Equivalent": "",
+      "Developmental Reading Assessment": "",
+      "Interest Level": "",
+      "AR Level": "",
+      "AR Points": "",
+      "AR Quiz Number": "",
+      "Word Count": "",
+      "Number of Pages": "550",
+      "Format": "",
+      "Audio Runtime": "",
+      "Dimensions": "",
+      "Weight": "",
+      "List Price": "",
+      "Language": "Spanish",
+      "Original Language": "",
+      "DDC": "",
+      "LCC": "",
+      "LCCN": "",
+      "OCLC": "",
+      "ISBN": "9786287571273",
+      "ISSN": "",
+      "Favorites": "0",
+      "Rating": "0.000000",
+      "Physical Location": "",
+      "Status": "Unread",
+      "Status Incompleted Reason": "",
+      "Status Hidden": "0",
+      "Date Started": "",
+      "Date Finished": "",
+      "Current Page": "",
+      "Loaned To": "",
+      "Date Loaned": "",
+      "Borrowed From": "",
+      "Date Borrowed": "",
+      "Returned from Borrow": "0",
+      "Not Owned Reason": "",
+      "Quantity": "",
+      "Condition": "",
+      "Recommended By": "",
+      "Date Added": "2026/11/01 12:37:36.172736048",
+      "User Supplied ID": "",
+      "User Supplied Descriptor": "",
+      "Tags": "",
+      "Purchase Date": "",
+      "Purchase Place": "",
+      "Purchase Price": "",
+      "Notes": "",
+      "Google VolumeID": "IKzi0AEACAAJ",
+      "Category": "",
+      "Wish List": "0",
+      "Previously Owned": "0",
+      "Up Next": "0",
+      "Position": "",
+      "Uploaded Image URL": "https://pocketbook.es/media/catalog/product/b/3/b33ea031c48e6458.jpg",
+      "Activities": "",
+      "dcc_classes": {},
+      "bookId": ""
+    },
+    {
+      "Title": "Pompeya : historia y leyenda de una ciudad romana",
+      "Original Title": "",
+      "Subtitle": "",
+      "Series": "",
+      "Volume": "",
+      "Author": "Mary Beard",
+      "Author (Last, First)": "Beard, Mary",
+      "Illustrator": "",
+      "Narrator": "",
+      "Translator": "",
+      "Photographer": "",
+      "Editor": "",
+      "Publisher": "Grupo Planeta (GBS)",
+      "Place of Publication": "",
+      "Date Published": "2014/03/01",
+      "Year Published": "2014",
+      "Original Date Published": "",
+      "Original Year Published": "",
+      "Edition": "",
+      "Genre": "History",
+      "Summary": "",
+      "Guided Reading Level": "",
+      "Lexile Measure": "",
+      "Lexile Code": "",
+      "Grade Level Equivalent": "",
+      "Developmental Reading Assessment": "",
+      "Interest Level": "",
+      "AR Level": "",
+      "AR Points": "",
+      "AR Quiz Number": "",
+      "Word Count": "",
+      "Number of Pages": "528",
+      "Format": "",
+      "Audio Runtime": "",
+      "Dimensions": "",
+      "Weight": "",
+      "List Price": "",
+      "Language": "Spanish",
+      "Original Language": "",
+      "DDC": "",
+      "LCC": "",
+      "LCCN": "",
+      "OCLC": "",
+      "ISBN": "9788498926903",
+      "ISSN": "",
+      "Favorites": "0",
+      "Rating": "0.000000",
+      "Physical Location": "",
+      "Status": "Unread",
+      "Status Incompleted Reason": "",
+      "Status Hidden": "0",
+      "Date Started": "",
+      "Date Finished": "",
+      "Current Page": "",
+      "Loaned To": "",
+      "Date Loaned": "",
+      "Borrowed From": "",
+      "Date Borrowed": "",
+      "Returned from Borrow": "0",
+      "Not Owned Reason": "",
+      "Quantity": "",
+      "Condition": "",
+      "Recommended By": "",
+      "Date Added": "2026/11/01 12:00:09.048519968",
+      "User Supplied ID": "",
+      "User Supplied Descriptor": "",
+      "Tags": "",
+      "Purchase Date": "",
+      "Purchase Place": "",
+      "Purchase Price": "",
+      "Notes": "",
+      "Google VolumeID": "twVVAwAAQBAJ",
+      "Category": "",
+      "Wish List": "0",
+      "Previously Owned": "0",
+      "Up Next": "0",
+      "Position": "",
+      "Uploaded Image URL": "https://m.media-amazon.com/images/I/91NEsveDjBL._AC_UF1000,1000_QL80_.jpg",
+      "Activities": "",
+      "dcc_classes": {},
+      "bookId": ""
+    },
+    {
+      "Title": "Problemas de la teoría del conocimiento",
+      "Original Title": "",
+      "Subtitle": "una introducción a la epistemología contemporánea",
+      "Series": "",
+      "Volume": "",
+      "Author": "Vicente Raga Rosaleny",
+      "Author (Last, First)": "Rosaleny, Vicente Raga",
+      "Illustrator": "",
+      "Narrator": "",
+      "Translator": "",
+      "Photographer": "",
+      "Editor": "",
+      "Publisher": "Universidad de Antioquia",
+      "Place of Publication": "",
+      "Date Published": "",
+      "Year Published": "2017",
+      "Original Date Published": "",
+      "Original Year Published": "",
+      "Edition": "",
+      "Genre": "",
+      "Summary": "Problemas de la teoría del conocimiento tiene una vocación introductoria, pero rigurosa en su propósito de suplir el vacío en un campo de estudio muy desarrollado en el extranjero pero escasamente cultivado en nuestro territorio. Aunque otros autores han emprendido la misma tarea, esta apenas ha tenido eco y por ello urge volver a plantear un proyecto de esta envergadura, abierto a un público lector amplio y no solo limitado a una muy reducida esfera local o regional. Adicionalmente, este libro pretende ser un estudio introductorio para una amplia variedad de disciplinas, que han incluido reflexiones sobre el conocimiento como parte de sus programas y que requieren una suerte de mapa sobre algunos de los problemas fundamentales de la teoría del conocimiento. Tomado de la pasta del libro.",
+      "Guided Reading Level": "",
+      "Lexile Measure": "",
+      "Lexile Code": "",
+      "Grade Level Equivalent": "",
+      "Developmental Reading Assessment": "",
+      "Interest Level": "",
+      "AR Level": "",
+      "AR Points": "",
+      "AR Quiz Number": "",
+      "Word Count": "",
+      "Number of Pages": "235",
+      "Format": "",
+      "Audio Runtime": "",
+      "Dimensions": "",
+      "Weight": "",
+      "List Price": "",
+      "Language": "Spanish",
+      "Original Language": "",
+      "DDC": "",
+      "LCC": "",
+      "LCCN": "",
+      "OCLC": "",
+      "ISBN": "9789587147162",
+      "ISSN": "",
+      "Favorites": "0",
+      "Rating": "0.000000",
+      "Physical Location": "",
+      "Status": "Unread",
+      "Status Incompleted Reason": "",
+      "Status Hidden": "0",
+      "Date Started": "",
+      "Date Finished": "",
+      "Current Page": "",
+      "Loaned To": "",
+      "Date Loaned": "",
+      "Borrowed From": "",
+      "Date Borrowed": "",
+      "Returned from Borrow": "0",
+      "Not Owned Reason": "",
+      "Quantity": "",
+      "Condition": "",
+      "Recommended By": "",
+      "Date Added": "2026/11/01 12:35:37.940261006",
+      "User Supplied ID": "",
+      "User Supplied Descriptor": "",
+      "Tags": "",
+      "Purchase Date": "",
+      "Purchase Place": "",
+      "Purchase Price": "",
+      "Notes": "",
+      "Google VolumeID": "Q00M0QEACAAJ",
+      "Category": "",
+      "Wish List": "0",
+      "Previously Owned": "0",
+      "Up Next": "0",
+      "Position": "",
+      "Uploaded Image URL": "https://covers.openlibrary.org/b/id/8065318-L.jpg",
+      "Activities": "",
+      "dcc_classes": {},
+      "bookId": ""
+    },
+    {
+      "Title": "Titanic",
+      "Original Title": "",
+      "Subtitle": "",
+      "Series": "",
+      "Volume": "",
+      "Author": "Simon Adams",
+      "Author (Last, First)": "Adams, Simon",
+      "Illustrator": "",
+      "Narrator": "",
+      "Translator": "",
+      "Photographer": "",
+      "Editor": "",
+      "Publisher": "DK Publishing",
+      "Place of Publication": "",
+      "Date Published": "",
+      "Year Published": "2009",
+      "Original Date Published": "",
+      "Original Year Published": "",
+      "Edition": "",
+      "Genre": "Juvenile Nonfiction",
+      "Summary": "The most trusted nonfiction series on the market, Eyewitness Books provide an in-depth, comprehensive look at their subjects with a unique integration of words and pictures.  Eyewitness Titanic is DK's classic look at the history of the Titanic, now reissued with a CD and wall chart.",
+      "Guided Reading Level": "",
+      "Lexile Measure": "",
+      "Lexile Code": "",
+      "Grade Level Equivalent": "",
+      "Developmental Reading Assessment": "",
+      "Interest Level": "",
+      "AR Level": "",
+      "AR Points": "",
+      "AR Quiz Number": "",
+      "Word Count": "",
+      "Number of Pages": "72",
+      "Format": "",
+      "Audio Runtime": "",
+      "Dimensions": "",
+      "Weight": "",
+      "List Price": "",
+      "Language": "English",
+      "Original Language": "",
+      "DDC": "",
+      "LCC": "",
+      "LCCN": "",
+      "OCLC": "",
+      "ISBN": "9780756650360",
+      "ISSN": "",
+      "Favorites": "0",
+      "Rating": "0.000000",
+      "Physical Location": "",
+      "Status": "Unread",
+      "Status Incompleted Reason": "",
+      "Status Hidden": "0",
+      "Date Started": "",
+      "Date Finished": "",
+      "Current Page": "",
+      "Loaned To": "",
+      "Date Loaned": "",
+      "Borrowed From": "",
+      "Date Borrowed": "",
+      "Returned from Borrow": "0",
+      "Not Owned Reason": "",
+      "Quantity": "",
+      "Condition": "",
+      "Recommended By": "",
+      "Date Added": "2026/11/01 10:35:58.400236010",
+      "User Supplied ID": "",
+      "User Supplied Descriptor": "",
+      "Tags": "",
+      "Purchase Date": "",
+      "Purchase Place": "",
+      "Purchase Price": "",
+      "Notes": "",
+      "Google VolumeID": "2VLYngEACAAJ",
+      "Category": "",
+      "Wish List": "0",
+      "Previously Owned": "0",
+      "Up Next": "0",
+      "Position": "",
+      "Uploaded Image URL": "",
+      "Activities": "",
+      "dcc_classes": {},
+      "bookId": ""
+    },
+    {
+      "Title": "Una partida de ajedrez",
+      "Original Title": "",
+      "Subtitle": "",
+      "Series": "",
+      "Volume": "",
+      "Author": "Stefan Zweig",
+      "Author (Last, First)": "Zweig, Stefan",
+      "Illustrator": "",
+      "Narrator": "",
+      "Translator": "",
+      "Photographer": "",
+      "Editor": "",
+      "Publisher": "Ediciones Godot",
+      "Place of Publication": "",
+      "Date Published": "2022/10/05",
+      "Year Published": "2022",
+      "Original Date Published": "",
+      "Original Year Published": "",
+      "Edition": "",
+      "Genre": "Fiction",
+      "Summary": "El campeón mundial de ajedrez, Mirko Czentovic, viaja en un buque de vapor desde Nueva York hacia Buenos Aires a disputar un torneo. McConnor, un obstinado pasajero aficionado, desde que se entera de su presencia no descansa hasta lograr jugar una partida con él, pero no le sale barato: doscientos cincuenta dólares por partida es el precio de Czentovic. El devenir de los acontecimientos cambia cuando entra en escena el doctor B., un personaje extraño que ocasionalmente pasa por el lugar donde Czentovic se enfrentaba a McConnor. No puede evitar observar la partida y aconsejarle a McConnor las jugadas correctas para salvar la partida y obtener un empate.",
+      "Guided Reading Level": "",
+      "Lexile Measure": "",
+      "Lexile Code": "",
+      "Grade Level Equivalent": "",
+      "Developmental Reading Assessment": "",
+      "Interest Level": "",
+      "AR Level": "",
+      "AR Points": "",
+      "AR Quiz Number": "",
+      "Word Count": "",
+      "Number of Pages": "58",
+      "Format": "",
+      "Audio Runtime": "",
+      "Dimensions": "",
+      "Weight": "",
+      "List Price": "",
+      "Language": "Spanish",
+      "Original Language": "",
+      "DDC": "",
+      "LCC": "",
+      "LCCN": "",
+      "OCLC": "",
+      "ISBN": "9789873847189",
+      "ISSN": "",
+      "Favorites": "0",
+      "Rating": "0.000000",
+      "Physical Location": "",
+      "Status": "Unread",
+      "Status Incompleted Reason": "",
+      "Status Hidden": "0",
+      "Date Started": "",
+      "Date Finished": "",
+      "Current Page": "",
+      "Loaned To": "",
+      "Date Loaned": "",
+      "Borrowed From": "",
+      "Date Borrowed": "",
+      "Returned from Borrow": "0",
+      "Not Owned Reason": "",
+      "Quantity": "",
+      "Condition": "",
+      "Recommended By": "",
+      "Date Added": "2026/11/01 12:07:58.767546057",
+      "User Supplied ID": "",
+      "User Supplied Descriptor": "",
+      "Tags": "",
+      "Purchase Date": "",
+      "Purchase Place": "",
+      "Purchase Price": "",
+      "Notes": "",
+      "Google VolumeID": "WVbJEQAAQBAJ",
+      "Category": "",
+      "Wish List": "0",
+      "Previously Owned": "0",
+      "Up Next": "0",
+      "Position": "",
+      "Uploaded Image URL": "",
+      "Activities": "",
+      "dcc_classes": {},
+      "bookId": "",
+      "ISBN2": "9789587233995"
     }
   ]
 }

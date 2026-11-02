@@ -17,7 +17,7 @@
 	library-ddc-update library-ddc-generate-pending library-ddc-apply-gemini \
 	sync-dcc-library-details \
 	update-all-books \
-	worker-deploy booklocation-deploy booklocation-export booklocation-reconcile book-og-deploy book-og-check book-og-ensure review-notify-deploy review-notify-send review-notify-seed-test review-notify-test-send \
+	worker-deploy booklocation-deploy booklocation-export booklocation-backup booklocation-recon booklocation-reconcile book-og-deploy book-og-check book-og-ensure review-notify-deploy review-notify-send review-notify-seed-test review-notify-test-send \
 	lista-suscritos \
 	update-shorts
 
@@ -539,10 +539,20 @@ worker-deploy:
 booklocation-deploy:
 	@npx wrangler deploy --config wrangler-booklocation.toml
 
-# Descarga el respaldo info/booklocation.json (requiere BOOKLOC_TOKEN).
-booklocation-export: BOOKLOC_TOKEN ?= $(shell cat .secrets/booklocation-token 2>/dev/null)
-booklocation-export:
-	@curl -fsS -H "Authorization: Bearer $(BOOKLOC_TOKEN)" https://booklocation-worker.booklocation-jorgezuluaga.workers.dev/booklocation.json -o info/booklocation.json && echo "info/booklocation.json actualizado"
+# Respaldo legible en info/booklocation.json y estadísticas en info/locationstats.md (versionados en git). Valida el JSON antes de reemplazar el archivo.
+booklocation-backup: BOOKLOC_TOKEN ?= $(shell cat .secrets/booklocation-token 2>/dev/null)
+booklocation-backup:
+	@curl -fsS -H "Authorization: Bearer $(BOOKLOC_TOKEN)" https://booklocation-worker.booklocation-jorgezuluaga.workers.dev/booklocation.json -o info/.booklocation.tmp && \
+	python3 -c "import json,sys; d=json.load(open('info/.booklocation.tmp')); d['locations']=dict(sorted(d['locations'].items(), key=lambda kv: kv[1]['name'].lower())); d['books']=dict(sorted(d['books'].items(), key=lambda kv: (d['locations'].get(kv[1]['location'],{}).get('name','').lower(), kv[0]))); json.dump(d, open('info/booklocation.json','w'), ensure_ascii=False, indent=2); print('OK:', len(d['books']), 'libros,', len(d['locations']), 'ubicaciones -> info/booklocation.json')" \
+	|| { echo "Respaldo fallido"; rm -f info/.booklocation.tmp; exit 1; }
+	@rm -f info/.booklocation.tmp
+	@python3 bin/booklocation_stats.py
+
+booklocation-export: booklocation-backup
+
+# Conciliación: respalda library*.json en info/backup, escribe ISBN2 en library-details.json (isbn2 en library.json) e informa en info/backup/reconciliation.md.
+booklocation-recon:
+	@cd bin && python3 booklocation_recon.py
 
 # Informe de libros escaneados cuyo ISBN no está en el catálogo (APPLY=1 guarda alias seguros).
 booklocation-reconcile:

@@ -1,0 +1,3050 @@
+{
+  "updatedAt": "2026-11-01T18:04:49.566Z",
+  "locations": {
+    "LOC-a-donacion": {
+      "name": "A/Donación",
+      "key": "AD"
+    },
+    "LOC-leyendo-o-resenando": {
+      "name": "A/Leyendo o Reseñando",
+      "key": "ALOR"
+    },
+    "LOC-prestamos": {
+      "name": "A/Me los prestaron",
+      "key": "AMLP"
+    },
+    "LOC-comedor-modulo-central-nivel-1": {
+      "name": "Comedor/Modulo Central/Nivel 1",
+      "key": "CMCN1"
+    },
+    "LOC-comedor-modulo-central-nivel-2": {
+      "name": "Comedor/Modulo Central/Nivel 2",
+      "key": "CMCN2"
+    },
+    "LOC-comedor-modulo-central-nivel-3": {
+      "name": "Comedor/Modulo Central/Nivel 3",
+      "key": "CMCN3"
+    },
+    "LOC-comedor-modulo-central-nivel-4": {
+      "name": "Comedor/Modulo Central/Nivel 4",
+      "key": "CMCN4"
+    },
+    "LOC-comedor-modulo-central-nivel-5": {
+      "name": "Comedor/Modulo Central/Nivel 5",
+      "key": "CMCN5"
+    },
+    "LOC-comedor-modulo-central-nivel-6": {
+      "name": "Comedor/Modulo Central/Nivel 6",
+      "key": "CMCN6"
+    },
+    "LOC-comedor-modulo-derecha-nivel-1": {
+      "name": "Comedor/Modulo Derecha/Nivel 1",
+      "key": "CMDN1"
+    },
+    "LOC-comedor-modulo-derecha-nivel-2": {
+      "name": "Comedor/Modulo Derecha/Nivel 2",
+      "key": "CMDN2"
+    },
+    "LOC-comedor-modulo-derecha-nivel-3": {
+      "name": "Comedor/Modulo Derecha/Nivel 3",
+      "key": "CMDN3"
+    },
+    "LOC-comedor-modulo-derecha-nivel-4": {
+      "name": "Comedor/Modulo Derecha/Nivel 4",
+      "key": "CMDN4"
+    },
+    "LOC-comedor-modulo-derecha-nivel-5": {
+      "name": "Comedor/Modulo Derecha/Nivel 5",
+      "key": "CMDN5"
+    },
+    "LOC-comedor-modulo-derecha-nivel-6": {
+      "name": "Comedor/Modulo Derecha/Nivel 6",
+      "key": "CMDN6"
+    },
+    "LOC-comedor-modulo-izquierda-nivel-1": {
+      "name": "Comedor/Modulo Izquierda/Nivel 1",
+      "key": "CMIN1"
+    },
+    "LOC-comedor-modulo-izquierda-nivel-2": {
+      "name": "Comedor/Modulo Izquierda/Nivel 2",
+      "key": "CMIN2"
+    },
+    "LOC-comedor-modulo-izquierda-nivel-3": {
+      "name": "Comedor/Modulo Izquierda/Nivel 3",
+      "key": "CMIN3"
+    },
+    "LOC-comedor-modulo-izquierda-nivel-4": {
+      "name": "Comedor/Modulo Izquierda/Nivel 4",
+      "key": "CMIN4"
+    },
+    "LOC-comedor-modulo-izquierda-nivel-5": {
+      "name": "Comedor/Modulo Izquierda/Nivel 5",
+      "key": "CMIN5"
+    },
+    "LOC-comedor-modulo-izquierda-nivel-6": {
+      "name": "Comedor/Modulo Izquierda/Nivel 6",
+      "key": "CMIN6"
+    },
+    "LOC-estudio-central-cajas-nivel-1": {
+      "name": "Estudio/Central/Cajas Nivel 1",
+      "key": "ECCN1"
+    },
+    "LOC-estudio-central-cajas-nivel-2": {
+      "name": "Estudio/Central/Cajas Nivel 2",
+      "key": "ECCN2"
+    },
+    "LOC-estudio-central-cajas-nivel-3": {
+      "name": "Estudio/Central/Cajas Nivel 3",
+      "key": "ECCN3"
+    },
+    "LOC-estudio-central-cajas-nivel-4": {
+      "name": "Estudio/Central/Cajas Nivel 4",
+      "key": "ECCN4"
+    },
+    "LOC-estudio-central-cajas-nivel-5": {
+      "name": "Estudio/Central/Cajas Nivel 5",
+      "key": "ECCN5"
+    },
+    "LOC-estudio-central-cajas-nivel-5-atras": {
+      "name": "Estudio/Central/Cajas Nivel 5 (atrás)",
+      "key": "ECCN5A"
+    },
+    "LOC-estudio-central-nivel-inferior": {
+      "name": "Estudio/Central/Nivel Inferior",
+      "key": "ECNI"
+    },
+    "LOC-estudio-deslizante-cajas-nivel-2": {
+      "name": "Estudio/Deslizante/Cajas Nivel 2",
+      "key": "EDCN2"
+    },
+    "LOC-estudio-deslizante-modulo-1": {
+      "name": "Estudio/Deslizante/Modulo 1",
+      "key": "EDM1"
+    },
+    "LOC-estudio-deslizante-modulo-2": {
+      "name": "Estudio/Deslizante/Modulo 2",
+      "key": "EDM2"
+    },
+    "LOC-estudio-deslizante-modulo-3": {
+      "name": "Estudio/Deslizante/Modulo 3",
+      "key": "EDM3"
+    },
+    "LOC-estudio-deslizante-modulo-4": {
+      "name": "Estudio/Deslizante/Modulo 4",
+      "key": "EDM4"
+    },
+    "LOC-estudio-escritorio-modulo-lampara": {
+      "name": "Estudio/Escritorio/Caja Lámpara",
+      "key": "EECL"
+    },
+    "LOC-estudio-escritorio-cajas-nivel-1": {
+      "name": "Estudio/Escritorio/Cajas Nivel 1",
+      "key": "EECN1"
+    },
+    "LOC-estudio-escritorio-cajas-nivel-2": {
+      "name": "Estudio/Escritorio/Cajas Nivel 2",
+      "key": "EECN2"
+    },
+    "LOC-estudio-escritorio-cajas-nivel-superior": {
+      "name": "Estudio/Escritorio/Cajas Nivel Superior",
+      "key": "EECNS"
+    },
+    "LOC-estudio-lateral-nivel-1": {
+      "name": "Estudio/Lateral/Nivel 1",
+      "key": "ELN1"
+    },
+    "LOC-estudio-lateral-nivel-2": {
+      "name": "Estudio/Lateral/Nivel 2",
+      "key": "ELN2"
+    },
+    "LOC-estudio-lateral-nivel-3": {
+      "name": "Estudio/Lateral/Nivel 3",
+      "key": "ELN3"
+    },
+    "LOC-estudio-lateral-nivel-4": {
+      "name": "Estudio/Lateral/Nivel 4",
+      "key": "ELN4"
+    },
+    "LOC-estudio-lateral-nivel-5": {
+      "name": "Estudio/Lateral/Nivel 5",
+      "key": "ELN5"
+    },
+    "LOC-estudio-lateral-nivel-superior": {
+      "name": "Estudio/Lateral/Nivel Superior",
+      "key": "ELNS"
+    },
+    "LOC-habitacion-principal-altar-inferior": {
+      "name": "Habitación Principal/Altar/Inferior",
+      "key": "HPAI"
+    },
+    "LOC-habitacion-principal-altar-lateral": {
+      "name": "Habitación Principal/Altar/Lateral",
+      "key": "HPAL"
+    },
+    "LOC-habitacion-principal-altar-superior": {
+      "name": "Habitación Principal/Altar/Superior",
+      "key": "HPAS"
+    },
+    "LOC-habitacion-principal-ventana-bloque-izqu": {
+      "name": "Habitación Principal/Ventana/Bloque Izquierda",
+      "key": "HPVBI"
+    },
+    "LOC-principal-ventana-bloque-central": {
+      "name": "Principal/Ventana/Bloque Central",
+      "key": "PVBC"
+    },
+    "LOC-principal-ventana-bloque-derecha": {
+      "name": "Principal/Ventana/Bloque Derecha",
+      "key": "PVBD"
+    },
+    "LOC-principal-ventana-bloque-inferior": {
+      "name": "Principal/Ventana/Bloque Inferior",
+      "key": "PVBI"
+    },
+    "LOC-sala-tv-bajo-tv-nivel-inferior": {
+      "name": "Sala TV/Bajo TV/Nivel inferior",
+      "key": "STBTNI"
+    },
+    "LOC-sala-tv-lateral-nivel-superior": {
+      "name": "Sala TV/Bajo TV/Nivel Superior",
+      "key": "STBTNS"
+    },
+    "LOC-sala-tv-lateral-nivel-1": {
+      "name": "Sala TV/Lateral/Nivel 1",
+      "key": "STLN1"
+    },
+    "LOC-sala-tv-lateral-nivel-2": {
+      "name": "Sala TV/Lateral/Nivel 2",
+      "key": "STLN2"
+    },
+    "LOC-sala-tv-lateral-nivel-3": {
+      "name": "Sala TV/Lateral/Nivel 3",
+      "key": "STLN3"
+    },
+    "LOC-sala-tv-lateral-nivel-4": {
+      "name": "Sala TV/Lateral/Nivel 4",
+      "key": "STLN4"
+    },
+    "LOC-sala-nivel-1": {
+      "name": "Sala/Biblioteca/Nivel 1",
+      "key": "SBN1"
+    },
+    "LOC-sala-biblioteca-nivel-2": {
+      "name": "Sala/Biblioteca/Nivel 2",
+      "key": "SBN2"
+    },
+    "LOC-sala-biblioteca-nivel-3": {
+      "name": "Sala/Biblioteca/Nivel 3",
+      "key": "SBN3"
+    },
+    "LOC-sala-biblioteca-nivel-4": {
+      "name": "Sala/Biblioteca/Nivel 4",
+      "key": "SBN4"
+    },
+    "LOC-sala-biblioteca-nivel-5": {
+      "name": "Sala/Biblioteca/Nivel 5",
+      "key": "SBN5"
+    },
+    "LOC-sala-biblioteca-nivel-6": {
+      "name": "Sala/Biblioteca/Nivel 6",
+      "key": "SBN6"
+    },
+    "LOC-sala-mesa-central": {
+      "name": "Sala/Mesa Central",
+      "key": "SMC"
+    }
+  },
+  "books": {
+    "9780066620732": {
+      "location": "LOC-leyendo-o-resenando",
+      "updatedAt": "2026-10-31T17:23:15.900Z",
+      "title": "Just for fun: the story of an accidental revolutionary",
+      "author": "Linus Torvalds, David Diamond"
+    },
+    "9786287582385": {
+      "location": "LOC-leyendo-o-resenando",
+      "updatedAt": "2026-10-31T15:16:14.272Z",
+      "title": "El pergamino de la seducción",
+      "author": "Gioconda Belli"
+    },
+    "9786287596764": {
+      "location": "LOC-leyendo-o-resenando",
+      "updatedAt": "2026-10-31T15:14:53.495Z",
+      "title": "La hipótesis de la felicidad",
+      "author": "Jonathan Haidt"
+    },
+    "9786287917149": {
+      "location": "LOC-leyendo-o-resenando",
+      "updatedAt": "2026-10-31T15:15:20.383Z",
+      "title": "Julia, la hija del imperio",
+      "author": "María Cristina Restrepo"
+    },
+    "9788410214941": {
+      "location": "LOC-leyendo-o-resenando",
+      "updatedAt": "2026-10-31T15:16:42.142Z"
+    },
+    "9788418668289": {
+      "location": "LOC-leyendo-o-resenando",
+      "updatedAt": "2026-10-31T15:15:34.796Z"
+    },
+    "9788439745532": {
+      "location": "LOC-leyendo-o-resenando",
+      "updatedAt": "2026-10-31T17:17:06.419Z",
+      "title": "Fieras interiores",
+      "author": "Andrés Cota Hiriart"
+    },
+    "9788480769938": {
+      "location": "LOC-leyendo-o-resenando",
+      "updatedAt": "2026-10-31T17:23:11.042Z",
+      "title": "Newton y la Mecanica Celeste",
+      "author": "Jean-Pierre Maury"
+    },
+    "9788491993322": {
+      "location": "LOC-leyendo-o-resenando",
+      "updatedAt": "2026-10-31T17:16:06.098Z"
+    },
+    "9780061116612": {
+      "location": "LOC-comedor-modulo-central-nivel-1",
+      "updatedAt": "2026-11-01T17:19:53.606Z",
+      "title": "The Homer Book (Simpsons Library of Wisdom)",
+      "author": "Matt Groening"
+    },
+    "9783025172792": {
+      "location": "LOC-comedor-modulo-central-nivel-1",
+      "updatedAt": "2026-11-01T17:19:28.112Z",
+      "title": "Futurama Y La Filosofía",
+      "author": "Courtland Lewis"
+    },
+    "9786070313691": {
+      "location": "LOC-comedor-modulo-central-nivel-1",
+      "updatedAt": "2026-11-01T17:16:40.990Z"
+    },
+    "9786079014544": {
+      "location": "LOC-comedor-modulo-central-nivel-1",
+      "updatedAt": "2026-11-01T17:20:18.970Z"
+    },
+    "9786287669406": {
+      "location": "LOC-comedor-modulo-central-nivel-1",
+      "updatedAt": "2026-11-01T17:13:52.004Z"
+    },
+    "9786287669628": {
+      "location": "LOC-comedor-modulo-central-nivel-1",
+      "updatedAt": "2026-11-01T17:20:34.601Z",
+      "title": "El futuro recordado",
+      "author": "Irene Vallejo"
+    },
+    "9788417996765": {
+      "location": "LOC-comedor-modulo-central-nivel-1",
+      "updatedAt": "2026-11-01T17:20:09.359Z"
+    },
+    "9788419744562": {
+      "location": "LOC-comedor-modulo-central-nivel-1",
+      "updatedAt": "2026-11-01T17:13:59.721Z"
+    },
+    "9788420642925": {
+      "location": "LOC-comedor-modulo-central-nivel-1",
+      "updatedAt": "2026-11-01T17:16:57.240Z"
+    },
+    "9788427022898": {
+      "location": "LOC-comedor-modulo-central-nivel-1",
+      "updatedAt": "2026-11-01T17:16:00.228Z",
+      "title": "365 días para ser más culto",
+      "author": "David S. Kidder"
+    },
+    "9788433913920": {
+      "location": "LOC-comedor-modulo-central-nivel-1",
+      "updatedAt": "2026-11-01T17:17:04.955Z"
+    },
+    "9788434436060": {
+      "location": "LOC-comedor-modulo-central-nivel-1",
+      "updatedAt": "2026-11-01T17:16:48.680Z"
+    },
+    "9788476726587": {
+      "location": "LOC-comedor-modulo-central-nivel-1",
+      "updatedAt": "2026-11-01T17:20:54.767Z"
+    },
+    "9789584226693": {
+      "location": "LOC-comedor-modulo-central-nivel-1",
+      "updatedAt": "2026-11-01T17:16:29.855Z"
+    },
+    "9789585566200": {
+      "location": "LOC-comedor-modulo-central-nivel-1",
+      "updatedAt": "2026-11-01T17:17:17.795Z",
+      "title": "El arte de pensar: 52 errores de lógica que es mejor dejar que cometan otros (Spanish Edition)",
+      "author": "Rolf Dobelli"
+    },
+    "9789585573550": {
+      "location": "LOC-comedor-modulo-central-nivel-1",
+      "updatedAt": "2026-11-01T17:19:14.127Z",
+      "title": "El arte de la felicidad",
+      "author": "Epicuro"
+    },
+    "9789588613772": {
+      "location": "LOC-comedor-modulo-central-nivel-1",
+      "updatedAt": "2026-11-01T17:18:42.096Z",
+      "title": "El fin de la ciencia",
+      "author": "Manuel Lozano Leyva"
+    },
+    "9789589093177": {
+      "location": "LOC-comedor-modulo-central-nivel-1",
+      "updatedAt": "2026-11-01T17:18:54.030Z"
+    },
+    "9789589219799": {
+      "location": "LOC-comedor-modulo-central-nivel-1",
+      "updatedAt": "2026-11-01T17:19:43.929Z",
+      "title": "La decadencia de la mentira y otros ensayos",
+      "author": "Oscar Wilde"
+    },
+    "9789875742741": {
+      "location": "LOC-comedor-modulo-central-nivel-1",
+      "updatedAt": "2026-11-01T17:20:44.847Z"
+    },
+    "9786071621979": {
+      "location": "LOC-comedor-modulo-central-nivel-2",
+      "updatedAt": "2026-11-01T17:13:16.418Z"
+    },
+    "9786287571389": {
+      "location": "LOC-comedor-modulo-central-nivel-2",
+      "updatedAt": "2026-11-01T17:12:35.423Z",
+      "title": "Cómo ser una mujer del Renacimiento",
+      "author": "Jill Burke"
+    },
+    "9786289519907": {
+      "location": "LOC-comedor-modulo-central-nivel-2",
+      "updatedAt": "2026-11-01T17:12:52.812Z",
+      "title": "Otra historia del arte: No pasa nada si no te gustan Las Meninas",
+      "author": "Miguel Ángel Cajigal Vera"
+    },
+    "9788417860790": {
+      "location": "LOC-comedor-modulo-central-nivel-2",
+      "updatedAt": "2026-11-01T17:11:56.736Z"
+    },
+    "9788417866631": {
+      "location": "LOC-comedor-modulo-central-nivel-2",
+      "updatedAt": "2026-11-01T17:12:05.664Z"
+    },
+    "9788430625741": {
+      "location": "LOC-comedor-modulo-central-nivel-2",
+      "updatedAt": "2026-11-01T17:10:46.583Z",
+      "title": "¿Sufren las piedras?: Pequeño manual filosófico (Spanish Edition)",
+      "author": "Wolfram Eilenberger"
+    },
+    "9788449343667": {
+      "location": "LOC-comedor-modulo-central-nivel-2",
+      "updatedAt": "2026-11-01T17:12:13.836Z"
+    },
+    "9788491996491": {
+      "location": "LOC-comedor-modulo-central-nivel-2",
+      "updatedAt": "2026-11-01T17:13:05.804Z"
+    },
+    "9789584264053": {
+      "location": "LOC-comedor-modulo-central-nivel-2",
+      "updatedAt": "2026-11-01T17:11:42.421Z",
+      "title": "El río: Exploraciones y descubrimientos en la selva amazónica",
+      "author": "Wade Davis"
+    },
+    "9789584272041": {
+      "location": "LOC-comedor-modulo-central-nivel-2",
+      "updatedAt": "2026-11-01T17:10:29.309Z"
+    },
+    "9789585165793": {
+      "location": "LOC-comedor-modulo-central-nivel-2",
+      "updatedAt": "2026-11-01T17:11:08.667Z",
+      "title": "Sirvan la cicuta, crucifiquen el autómata",
+      "author": "Pablo Arango"
+    },
+    "9789585573413": {
+      "location": "LOC-comedor-modulo-central-nivel-2",
+      "updatedAt": "2026-11-01T17:11:24.075Z",
+      "title": "La República o el Estado",
+      "author": "Platón"
+    },
+    "9781509889174": {
+      "location": "LOC-comedor-modulo-central-nivel-3",
+      "updatedAt": "2026-11-01T17:08:54.747Z",
+      "title": "If Cats Disappeared From The World",
+      "author": "川村元気"
+    },
+    "9786071607331": {
+      "location": "LOC-comedor-modulo-central-nivel-3",
+      "updatedAt": "2026-11-01T17:04:07.042Z",
+      "title": "Filosofia de Las Ciencias",
+      "author": "Daniel Andler, Anne Fagot-Largeault, Bertrand Saint-Sernin"
+    },
+    "9786071653246": {
+      "location": "LOC-comedor-modulo-central-nivel-3",
+      "updatedAt": "2026-11-01T17:09:08.548Z"
+    },
+    "9786287596061": {
+      "location": "LOC-comedor-modulo-central-nivel-3",
+      "updatedAt": "2026-11-01T17:03:47.794Z",
+      "title": "La vida es simple: La navaja de Occam y la nueva historia de la ciencia y el universo",
+      "author": "Johnjoe McFadden"
+    },
+    "9786287900035": {
+      "location": "LOC-comedor-modulo-central-nivel-3",
+      "updatedAt": "2026-11-01T17:04:24.433Z",
+      "title": "Los caminos a Roma",
+      "author": "Catherine Fletcher"
+    },
+    "9788411325271": {
+      "location": "LOC-comedor-modulo-central-nivel-3",
+      "updatedAt": "2026-11-01T17:03:36.766Z"
+    },
+    "9789584268372": {
+      "location": "LOC-comedor-modulo-central-nivel-3",
+      "updatedAt": "2026-11-01T17:03:59.454Z"
+    },
+    "9789584276810": {
+      "location": "LOC-comedor-modulo-central-nivel-3",
+      "updatedAt": "2026-11-01T17:09:41.687Z",
+      "title": "Filosofía en 11 frases",
+      "author": "Darío Sztajnszrajber"
+    },
+    "9789585581524": {
+      "location": "LOC-comedor-modulo-central-nivel-3",
+      "updatedAt": "2026-11-01T17:09:18.494Z"
+    },
+    "9789587233995": {
+      "location": "LOC-comedor-modulo-central-nivel-3",
+      "updatedAt": "2026-11-01T17:08:15.647Z",
+      "title": "Una partida de Ajedrez",
+      "author": "Stefan Zweig"
+    },
+    "9789588639260": {
+      "location": "LOC-comedor-modulo-central-nivel-3",
+      "updatedAt": "2026-11-01T17:09:26.294Z"
+    },
+    "9781451677614": {
+      "location": "LOC-comedor-modulo-central-nivel-4",
+      "updatedAt": "2026-11-01T17:01:50.264Z"
+    },
+    "9786077479413": {
+      "location": "LOC-comedor-modulo-central-nivel-4",
+      "updatedAt": "2026-11-01T17:00:56.475Z",
+      "title": "Cómo cambiar el mundo",
+      "author": "E. J. Hobsbawm,Silvia Furió"
+    },
+    "9786287745094": {
+      "location": "LOC-comedor-modulo-central-nivel-4",
+      "updatedAt": "2026-11-01T17:02:01.361Z"
+    },
+    "9786287807037": {
+      "location": "LOC-comedor-modulo-central-nivel-4",
+      "updatedAt": "2026-11-01T16:57:36.577Z",
+      "title": "El ascenso de China: Una mirada a la otra gran potencia",
+      "author": "Rafael Dezcallar"
+    },
+    "9788412584165": {
+      "location": "LOC-comedor-modulo-central-nivel-4",
+      "updatedAt": "2026-11-01T16:57:08.686Z",
+      "title": "La Revolución Franceda",
+      "author": "Albert Mathiez"
+    },
+    "9788413623597": {
+      "location": "LOC-comedor-modulo-central-nivel-4",
+      "updatedAt": "2026-11-01T16:57:25.968Z"
+    },
+    "9788449342325": {
+      "location": "LOC-comedor-modulo-central-nivel-4",
+      "updatedAt": "2026-11-01T16:59:00.860Z"
+    },
+    "9788498926903": {
+      "location": "LOC-comedor-modulo-central-nivel-4",
+      "updatedAt": "2026-11-01T17:00:24.769Z",
+      "title": "Pompeya",
+      "author": "Mary Beard"
+    },
+    "9789505575886": {
+      "location": "LOC-comedor-modulo-central-nivel-4",
+      "updatedAt": "2026-11-01T17:00:41.031Z"
+    },
+    "9789585132832": {
+      "location": "LOC-comedor-modulo-central-nivel-4",
+      "updatedAt": "2026-11-01T16:59:10.098Z"
+    },
+    "9789588925189": {
+      "location": "LOC-comedor-modulo-central-nivel-4",
+      "updatedAt": "2026-11-01T17:02:21.654Z",
+      "title": "Edipo rey (Los mejores clásicos)",
+      "author": "Sófocles"
+    },
+    "9786287669536": {
+      "location": "LOC-comedor-modulo-central-nivel-5",
+      "updatedAt": "2026-11-01T16:53:28.536Z"
+    },
+    "9786287897700": {
+      "location": "LOC-comedor-modulo-central-nivel-5",
+      "updatedAt": "2026-11-01T16:52:58.153Z",
+      "title": "Ética a Nicómaco",
+      "author": "Aristóteles"
+    },
+    "9788413628349": {
+      "location": "LOC-comedor-modulo-central-nivel-5",
+      "updatedAt": "2026-11-01T16:53:57.151Z"
+    },
+    "9788418322426": {
+      "location": "LOC-comedor-modulo-central-nivel-5",
+      "updatedAt": "2026-11-01T16:54:42.588Z"
+    },
+    "9788419414571": {
+      "location": "LOC-comedor-modulo-central-nivel-5",
+      "updatedAt": "2026-11-01T16:53:51.308Z"
+    },
+    "9788423437597": {
+      "location": "LOC-comedor-modulo-central-nivel-5",
+      "updatedAt": "2026-11-01T16:53:41.512Z"
+    },
+    "9788433946867": {
+      "location": "LOC-comedor-modulo-central-nivel-5",
+      "updatedAt": "2026-11-01T16:52:43.322Z"
+    },
+    "9788433977885": {
+      "location": "LOC-comedor-modulo-central-nivel-5",
+      "updatedAt": "2026-11-01T16:54:57.280Z"
+    },
+    "9788474237122": {
+      "location": "LOC-comedor-modulo-central-nivel-5",
+      "updatedAt": "2026-11-01T17:02:58.962Z"
+    },
+    "9788491815228": {
+      "location": "LOC-comedor-modulo-central-nivel-5",
+      "updatedAt": "2026-11-01T16:53:19.541Z"
+    },
+    "9789584292001": {
+      "location": "LOC-comedor-modulo-central-nivel-5",
+      "updatedAt": "2026-11-01T16:54:29.882Z",
+      "title": "La leyenda de la Peregrina",
+      "author": "Carmen Posadas"
+    },
+    "9789586112741": {
+      "location": "LOC-comedor-modulo-central-nivel-5",
+      "updatedAt": "2026-11-01T16:55:23.545Z",
+      "title": "Borges, . . . ¿filósofo?",
+      "author": "Andrés Lema-Hincapié"
+    },
+    "9789688580011": {
+      "location": "LOC-comedor-modulo-central-nivel-5",
+      "updatedAt": "2026-11-01T16:55:12.477Z"
+    },
+    "9780857207302": {
+      "location": "LOC-comedor-modulo-central-nivel-6",
+      "updatedAt": "2026-11-01T16:39:09.984Z"
+    },
+    "9786287669062": {
+      "location": "LOC-comedor-modulo-central-nivel-6",
+      "updatedAt": "2026-11-01T16:38:45.120Z",
+      "title": "Rávena",
+      "author": "Judith Herrin"
+    },
+    "9788411488983": {
+      "location": "LOC-comedor-modulo-central-nivel-6",
+      "updatedAt": "2026-11-01T16:39:42.538Z"
+    },
+    "9788418967344": {
+      "location": "LOC-comedor-modulo-central-nivel-6",
+      "updatedAt": "2026-11-01T16:39:34.602Z"
+    },
+    "9788419137227": {
+      "location": "LOC-comedor-modulo-central-nivel-6",
+      "updatedAt": "2026-11-01T16:37:36.821Z"
+    },
+    "9788430608386": {
+      "location": "LOC-comedor-modulo-central-nivel-6",
+      "updatedAt": "2026-11-01T16:39:20.113Z"
+    },
+    "9788497935081": {
+      "location": "LOC-comedor-modulo-central-nivel-6",
+      "updatedAt": "2026-11-01T16:39:51.365Z"
+    },
+    "9788498927405": {
+      "location": "LOC-comedor-modulo-central-nivel-6",
+      "updatedAt": "2026-11-01T16:38:52.381Z"
+    },
+    "9789584259127": {
+      "location": "LOC-comedor-modulo-central-nivel-6",
+      "updatedAt": "2026-11-01T16:38:24.206Z",
+      "title": "La Edad de la pólvora",
+      "author": "Tonio Andrade"
+    },
+    "9789584279262": {
+      "location": "LOC-comedor-modulo-central-nivel-6",
+      "updatedAt": "2026-11-01T16:38:01.281Z",
+      "title": "Historia de Jerusalén : una ciudad y tres religiones",
+      "author": "Karen Armstrong"
+    },
+    "9788425432026": {
+      "location": "LOC-comedor-modulo-derecha-nivel-1",
+      "updatedAt": "2026-11-01T17:25:31.299Z"
+    },
+    "9788499083100": {
+      "location": "LOC-comedor-modulo-derecha-nivel-1",
+      "updatedAt": "2026-11-01T17:27:32.299Z"
+    },
+    "9789584254535": {
+      "location": "LOC-comedor-modulo-derecha-nivel-1",
+      "updatedAt": "2026-11-01T17:27:11.528Z",
+      "title": "KL",
+      "author": "Nikolaus Wachsmann"
+    },
+    "9789584270153": {
+      "location": "LOC-comedor-modulo-derecha-nivel-1",
+      "updatedAt": "2026-11-01T17:26:46.452Z",
+      "title": "Emperadores y bárbaros",
+      "author": "Peter Heather"
+    },
+    "9789584283368": {
+      "location": "LOC-comedor-modulo-derecha-nivel-1",
+      "updatedAt": "2026-11-01T17:25:05.233Z"
+    },
+    "9789585425897": {
+      "location": "LOC-comedor-modulo-derecha-nivel-1",
+      "updatedAt": "2026-11-01T17:27:37.975Z"
+    },
+    "9789585446281": {
+      "location": "LOC-comedor-modulo-derecha-nivel-1",
+      "updatedAt": "2026-11-01T17:26:20.426Z",
+      "title": "La Enciclopedia",
+      "author": "Gonzalo Torné"
+    },
+    "9789588931197": {
+      "location": "LOC-comedor-modulo-derecha-nivel-1",
+      "updatedAt": "2026-11-01T17:26:27.641Z"
+    },
+    "9789681682903": {
+      "location": "LOC-comedor-modulo-derecha-nivel-1",
+      "updatedAt": "2026-11-01T17:25:46.658Z",
+      "title": "El concepto de ideología y otros ensayos",
+      "author": "Luis Villoro"
+    },
+    "9786124151941": {
+      "location": "LOC-comedor-modulo-derecha-nivel-2",
+      "updatedAt": "2026-11-01T17:34:12.227Z"
+    },
+    "9786287596337": {
+      "location": "LOC-comedor-modulo-derecha-nivel-2",
+      "updatedAt": "2026-11-01T17:29:20.771Z"
+    },
+    "9786287596603": {
+      "location": "LOC-comedor-modulo-derecha-nivel-2",
+      "updatedAt": "2026-11-01T17:30:34.741Z",
+      "title": "Sobre Dios",
+      "author": "Byung-Chul Han"
+    },
+    "9786287596825": {
+      "location": "LOC-comedor-modulo-derecha-nivel-2",
+      "updatedAt": "2026-11-01T17:30:02.827Z",
+      "title": "Sin respeto",
+      "author": "Byung-Chul Han"
+    },
+    "9786287638952": {
+      "location": "LOC-comedor-modulo-derecha-nivel-2",
+      "updatedAt": "2026-11-01T17:33:39.534Z",
+      "title": "El loco de dios de dios en el fin del mundo",
+      "author": "Javier Cercas"
+    },
+    "9786287658073": {
+      "location": "LOC-comedor-modulo-derecha-nivel-2",
+      "updatedAt": "2026-11-01T17:34:03.890Z"
+    },
+    "9788408008583": {
+      "location": "LOC-comedor-modulo-derecha-nivel-2",
+      "updatedAt": "2026-11-01T17:30:54.069Z"
+    },
+    "9788408074557": {
+      "location": "LOC-comedor-modulo-derecha-nivel-2",
+      "updatedAt": "2026-11-01T17:32:21.998Z"
+    },
+    "9788419207449": {
+      "location": "LOC-comedor-modulo-derecha-nivel-2",
+      "updatedAt": "2026-11-01T17:31:40.046Z"
+    },
+    "9788425427510": {
+      "location": "LOC-comedor-modulo-derecha-nivel-2",
+      "updatedAt": "2026-11-01T17:30:44.850Z"
+    },
+    "9788425433801": {
+      "location": "LOC-comedor-modulo-derecha-nivel-2",
+      "updatedAt": "2026-11-01T17:29:04.277Z",
+      "title": "Filosofía del budismo Zen",
+      "author": "Byung-Chul Han"
+    },
+    "9788430986682": {
+      "location": "LOC-comedor-modulo-derecha-nivel-2",
+      "updatedAt": "2026-11-01T17:32:09.198Z"
+    },
+    "9788435027014": {
+      "location": "LOC-comedor-modulo-derecha-nivel-2",
+      "updatedAt": "2026-11-01T17:33:53.761Z"
+    },
+    "9788467035056": {
+      "location": "LOC-comedor-modulo-derecha-nivel-2",
+      "updatedAt": "2026-11-01T17:31:55.473Z"
+    },
+    "9788484531883": {
+      "location": "LOC-comedor-modulo-derecha-nivel-2",
+      "updatedAt": "2026-11-01T17:31:29.319Z"
+    },
+    "9789584244635": {
+      "location": "LOC-comedor-modulo-derecha-nivel-2",
+      "updatedAt": "2026-11-01T17:31:09.579Z",
+      "title": "Voltaire contra los fanáticos",
+      "author": "Voltaire, Fernando Savater"
+    },
+    "9789585165106": {
+      "location": "LOC-comedor-modulo-derecha-nivel-2",
+      "updatedAt": "2026-11-01T17:30:18.025Z",
+      "title": "No-cosas: Quiebras del mundo de hoy",
+      "author": "Byung-Chul Han"
+    },
+    "9789585165212": {
+      "location": "LOC-comedor-modulo-derecha-nivel-2",
+      "updatedAt": "2026-11-01T17:29:29.256Z"
+    },
+    "9789585165373": {
+      "location": "LOC-comedor-modulo-derecha-nivel-2",
+      "updatedAt": "2026-11-01T17:29:45.080Z",
+      "title": "Vida contemplativa: Elogio de la inactividad",
+      "author": "Byung-Chul Han"
+    },
+    "9786280003726": {
+      "location": "LOC-comedor-modulo-derecha-nivel-3",
+      "updatedAt": "2026-11-01T17:39:01.910Z",
+      "title": "Los espejismos de la certeza",
+      "author": "Siri Hustvedt"
+    },
+    "9786287571273": {
+      "location": "LOC-comedor-modulo-derecha-nivel-3",
+      "updatedAt": "2026-11-01T17:37:56.878Z",
+      "title": "Poder y progreso",
+      "author": "Daron Acemoglu"
+    },
+    "9788419553157": {
+      "location": "LOC-comedor-modulo-derecha-nivel-3",
+      "updatedAt": "2026-11-01T17:38:26.596Z"
+    },
+    "9788425414886": {
+      "location": "LOC-comedor-modulo-derecha-nivel-3",
+      "updatedAt": "2026-11-01T17:39:25.670Z"
+    },
+    "9788430628889": {
+      "location": "LOC-comedor-modulo-derecha-nivel-3",
+      "updatedAt": "2026-11-01T17:40:52.760Z"
+    },
+    "9788433946850": {
+      "location": "LOC-comedor-modulo-derecha-nivel-3",
+      "updatedAt": "2026-11-01T17:39:13.319Z",
+      "title": "El cielo en desorden (Spanish Edition)",
+      "author": "Slavoj Žižek"
+    },
+    "9788449339196": {
+      "location": "LOC-comedor-modulo-derecha-nivel-3",
+      "updatedAt": "2026-11-01T17:40:42.524Z"
+    },
+    "9789505576746": {
+      "location": "LOC-comedor-modulo-derecha-nivel-3",
+      "updatedAt": "2026-11-01T17:38:12.768Z"
+    },
+    "9789584277923": {
+      "location": "LOC-comedor-modulo-derecha-nivel-3",
+      "updatedAt": "2026-11-01T17:40:09.169Z"
+    },
+    "9789584279309": {
+      "location": "LOC-comedor-modulo-derecha-nivel-3",
+      "updatedAt": "2026-11-01T17:36:47.398Z",
+      "title": "El poder de las historias",
+      "author": "Martin Puchner"
+    },
+    "9789584297068": {
+      "location": "LOC-comedor-modulo-derecha-nivel-3",
+      "updatedAt": "2026-11-01T17:40:00.623Z",
+      "title": "En defensa del humanismo: Reflexiones para tiempos difíciles",
+      "author": "Alejandro Gaviria"
+    },
+    "9789584298164": {
+      "location": "LOC-comedor-modulo-derecha-nivel-3",
+      "updatedAt": "2026-11-01T17:40:24.399Z",
+      "title": "Racionalidad",
+      "author": "Steven Pinker"
+    },
+    "9789587147162": {
+      "location": "LOC-comedor-modulo-derecha-nivel-3",
+      "updatedAt": "2026-11-01T17:36:20.797Z",
+      "title": "Problemas de la teoría del conocimiento : una introducción a la epistemología contemporánea",
+      "author": "Vicente Raga Rosaleny"
+    },
+    "9789588925974": {
+      "location": "LOC-comedor-modulo-derecha-nivel-3",
+      "updatedAt": "2026-11-01T17:39:41.885Z",
+      "title": "Discurso del método",
+      "author": "René Descartes"
+    },
+    "9789681614942": {
+      "location": "LOC-comedor-modulo-derecha-nivel-3",
+      "updatedAt": "2026-11-01T17:38:37.382Z"
+    },
+    "9780307719225": {
+      "location": "LOC-comedor-modulo-derecha-nivel-4",
+      "updatedAt": "2026-11-01T17:45:38.371Z"
+    },
+    "9786071655714": {
+      "location": "LOC-comedor-modulo-derecha-nivel-4",
+      "updatedAt": "2026-11-01T17:45:13.230Z",
+      "title": "Cinco mil años de palabras: comentarios sobre el origen, evolución, muerte y resurrección de algunas lenguas",
+      "author": "Carlos Prieto"
+    },
+    "9786287634107": {
+      "location": "LOC-comedor-modulo-derecha-nivel-4",
+      "updatedAt": "2026-11-01T17:44:09.606Z",
+      "title": "Cómo hacer grandes cosas",
+      "author": "Bent Flyvbjerg"
+    },
+    "9786287669383": {
+      "location": "LOC-comedor-modulo-derecha-nivel-4",
+      "updatedAt": "2026-11-01T17:41:27.939Z",
+      "title": "Izquierda no es woke",
+      "author": "Susan Neiman"
+    },
+    "9789584240439": {
+      "location": "LOC-comedor-modulo-derecha-nivel-4",
+      "updatedAt": "2026-11-01T17:46:56.601Z"
+    },
+    "9789584251831": {
+      "location": "LOC-comedor-modulo-derecha-nivel-4",
+      "updatedAt": "2026-11-01T17:44:30.244Z",
+      "title": "La maravillosa historia del español",
+      "author": "Francisco Moreno Fernández"
+    },
+    "9789584279361": {
+      "location": "LOC-comedor-modulo-derecha-nivel-4",
+      "updatedAt": "2026-11-01T17:41:54.691Z",
+      "title": "La monarquía del miedo: una mirada filosófica a la crisis política actual",
+      "author": "Martha Nussbaum"
+    },
+    "9789584284860": {
+      "location": "LOC-comedor-modulo-derecha-nivel-4",
+      "updatedAt": "2026-11-01T17:46:14.725Z",
+      "title": "Factfulness",
+      "author": "Hans Rosling, Ola Rosling, Anna Rosling Rönnlund"
+    },
+    "9789585165328": {
+      "location": "LOC-comedor-modulo-derecha-nivel-4",
+      "updatedAt": "2026-11-01T17:46:01.230Z",
+      "title": "Misión economía: Una guía para cambiar el capitalismo",
+      "author": "Mariana Mazzucato"
+    },
+    "9789585165380": {
+      "location": "LOC-comedor-modulo-derecha-nivel-4",
+      "updatedAt": "2026-11-01T17:42:18.048Z",
+      "title": "El estado emprendedor",
+      "author": "Mariana Mazzucato"
+    },
+    "9789585423299": {
+      "location": "LOC-comedor-modulo-derecha-nivel-4",
+      "updatedAt": "2026-11-01T17:50:41.055Z",
+      "title": "No desaprovechemos esta crisis",
+      "author": "Mariana Mazzucato"
+    },
+    "9789585446908": {
+      "location": "LOC-comedor-modulo-derecha-nivel-4",
+      "updatedAt": "2026-11-01T17:45:25.773Z"
+    },
+    "9789585654365": {
+      "location": "LOC-comedor-modulo-derecha-nivel-4",
+      "updatedAt": "2026-11-01T17:42:45.164Z"
+    },
+    "9789588931173": {
+      "location": "LOC-comedor-modulo-derecha-nivel-4",
+      "updatedAt": "2026-11-01T17:42:30.599Z"
+    },
+    "9789588969053": {
+      "location": "LOC-comedor-modulo-derecha-nivel-4",
+      "updatedAt": "2026-11-01T17:46:46.021Z"
+    },
+    "9789589219744": {
+      "location": "LOC-comedor-modulo-derecha-nivel-4",
+      "updatedAt": "2026-11-01T17:46:33.659Z",
+      "title": "El valor de las cosas",
+      "author": "Mariana Mazzucato"
+    },
+    "9789681611583": {
+      "location": "LOC-comedor-modulo-derecha-nivel-4",
+      "updatedAt": "2026-11-01T17:47:12.437Z"
+    },
+    "9786073005975": {
+      "location": "LOC-comedor-modulo-derecha-nivel-5",
+      "updatedAt": "2026-11-01T17:58:31.725Z",
+      "title": "De la gran transformación a la gran financiarización",
+      "author": "Kari Polanyi Levitt"
+    },
+    "9786077478416": {
+      "location": "LOC-comedor-modulo-derecha-nivel-5",
+      "updatedAt": "2026-11-01T17:52:13.043Z"
+    },
+    "9786280005058": {
+      "location": "LOC-comedor-modulo-derecha-nivel-5",
+      "updatedAt": "2026-11-01T17:51:05.664Z",
+      "title": "Ordenar el mundo: Cómo 4.000 años de leyes dieron forma a la civilización",
+      "author": "Fernanda Pirie"
+    },
+    "9786287669765": {
+      "location": "LOC-comedor-modulo-derecha-nivel-5",
+      "updatedAt": "2026-11-01T17:52:45.185Z",
+      "title": "Igualdad: Qué es y por qué importa",
+      "author": "Thomas Piketty"
+    },
+    "9786287807020": {
+      "location": "LOC-comedor-modulo-derecha-nivel-5",
+      "updatedAt": "2026-11-01T17:52:28.880Z",
+      "title": "Hacia un socialismo ecológico: Crónicas 2020-2024 (Deusto) (Spanish Edition)",
+      "author": "Thomas Piketty"
+    },
+    "9789584254566": {
+      "location": "LOC-comedor-modulo-derecha-nivel-5",
+      "updatedAt": "2026-11-01T17:54:33.437Z"
+    },
+    "9789584271532": {
+      "location": "LOC-comedor-modulo-derecha-nivel-5",
+      "updatedAt": "2026-11-01T17:49:36.259Z"
+    },
+    "9789584296818": {
+      "location": "LOC-comedor-modulo-derecha-nivel-5",
+      "updatedAt": "2026-11-01T17:49:51.195Z",
+      "title": "¡Viva el socialismo!",
+      "author": "Thomas Piketty"
+    },
+    "9789584298461": {
+      "location": "LOC-comedor-modulo-derecha-nivel-5",
+      "updatedAt": "2026-11-01T17:54:21.560Z",
+      "title": "La quinta puerta",
+      "author": "Juan Camilo Cardenas"
+    },
+    "9789584299925": {
+      "location": "LOC-comedor-modulo-derecha-nivel-5",
+      "updatedAt": "2026-11-01T17:58:57.556Z",
+      "title": "Una breve historia de la igualdad",
+      "author": "Thomas Piketty"
+    },
+    "9789585132238": {
+      "location": "LOC-comedor-modulo-derecha-nivel-5",
+      "updatedAt": "2026-11-01T17:55:01.182Z",
+      "title": "El ocaso de la democracia: La seducción del autoritarismo",
+      "author": "Anne Applebaum"
+    },
+    "9789585165625": {
+      "location": "LOC-comedor-modulo-derecha-nivel-5",
+      "updatedAt": "2026-11-01T17:51:39.113Z",
+      "title": "Miradas sobre la desigualdad",
+      "author": "Branko Milanovic"
+    },
+    "9789585531833": {
+      "location": "LOC-comedor-modulo-derecha-nivel-5",
+      "updatedAt": "2026-11-01T17:51:20.108Z",
+      "title": "El fin del sesgo",
+      "author": "Jessica Nordell"
+    },
+    "9789587580815": {
+      "location": "LOC-comedor-modulo-derecha-nivel-5",
+      "updatedAt": "2026-11-01T17:54:43.806Z"
+    },
+    "9789589219904": {
+      "location": "LOC-comedor-modulo-derecha-nivel-5",
+      "updatedAt": "2026-11-01T17:50:08.869Z",
+      "title": "Capitalismo progresista",
+      "author": "Joseph E. Stiglitz"
+    },
+    "9789873621369": {
+      "location": "LOC-comedor-modulo-derecha-nivel-5",
+      "updatedAt": "2026-11-01T17:49:22.617Z",
+      "title": "Capitalismo explicado a mi nieta",
+      "author": "Jean Ziegler"
+    },
+    "9789874159571": {
+      "location": "LOC-comedor-modulo-derecha-nivel-5",
+      "updatedAt": "2026-11-01T17:51:59.248Z",
+      "title": "Estado de excepción",
+      "author": "Giorgio Agamben"
+    },
+    "9788408193777": {
+      "location": "LOC-comedor-modulo-derecha-nivel-6",
+      "updatedAt": "2026-11-01T18:01:23.675Z"
+    },
+    "9788413147253": {
+      "location": "LOC-comedor-modulo-derecha-nivel-6",
+      "updatedAt": "2026-11-01T18:04:39.527Z",
+      "title": "Historia de la segunda guerra mundial",
+      "author": "Manuel Villatoro"
+    },
+    "9788418965906": {
+      "location": "LOC-comedor-modulo-derecha-nivel-6",
+      "updatedAt": "2026-11-01T18:02:24.874Z"
+    },
+    "9788419558466": {
+      "location": "LOC-comedor-modulo-derecha-nivel-6",
+      "updatedAt": "2026-11-01T18:04:49.566Z"
+    },
+    "9789584256379": {
+      "location": "LOC-comedor-modulo-derecha-nivel-6",
+      "updatedAt": "2026-11-01T18:01:15.397Z"
+    },
+    "9789584258991": {
+      "location": "LOC-comedor-modulo-derecha-nivel-6",
+      "updatedAt": "2026-11-01T18:02:06.438Z"
+    },
+    "9789584296610": {
+      "location": "LOC-comedor-modulo-derecha-nivel-6",
+      "updatedAt": "2026-11-01T18:01:50.874Z",
+      "title": "Hitler y las teorías de la conspiración",
+      "author": "Richard J. Evans"
+    },
+    "9789585165403": {
+      "location": "LOC-comedor-modulo-derecha-nivel-6",
+      "updatedAt": "2026-11-01T18:00:27.636Z"
+    },
+    "9789585446311": {
+      "location": "LOC-comedor-modulo-derecha-nivel-6",
+      "updatedAt": "2026-11-01T18:00:41.609Z",
+      "title": "La revolución rusa",
+      "author": "Richard Pipes"
+    },
+    "9789588931982": {
+      "location": "LOC-comedor-modulo-derecha-nivel-6",
+      "updatedAt": "2026-11-01T18:00:59.963Z",
+      "title": "La hija de Stalin",
+      "author": "Rosemary Sullivan"
+    },
+    "8425536002458": {
+      "location": "LOC-comedor-modulo-izquierda-nivel-1",
+      "updatedAt": "2026-10-31T17:36:00.250Z",
+      "title": "Somos nuestra memoria",
+      "author": "Emilio García García"
+    },
+    "9786075692586": {
+      "location": "LOC-comedor-modulo-izquierda-nivel-1",
+      "updatedAt": "2026-10-31T17:32:22.597Z",
+      "title": "El nacimiento de la filosofía",
+      "author": "Giorgio Colli"
+    },
+    "9786280189499": {
+      "location": "LOC-comedor-modulo-izquierda-nivel-1",
+      "updatedAt": "2026-10-31T17:34:02.204Z"
+    },
+    "9786287539099": {
+      "location": "LOC-comedor-modulo-izquierda-nivel-1",
+      "updatedAt": "2026-10-31T17:33:33.094Z"
+    },
+    "9786287569874": {
+      "location": "LOC-comedor-modulo-izquierda-nivel-1",
+      "updatedAt": "2026-10-31T17:30:45.974Z",
+      "title": "Azúcar",
+      "author": "Ulbe Bosma"
+    },
+    "9786287669932": {
+      "location": "LOC-comedor-modulo-izquierda-nivel-1",
+      "updatedAt": "2026-10-31T17:34:49.027Z",
+      "title": "Consumidores de atención",
+      "author": "Roberto Palacio"
+    },
+    "9788430950829": {
+      "location": "LOC-comedor-modulo-izquierda-nivel-1",
+      "updatedAt": "2026-10-31T17:31:59.493Z"
+    },
+    "9788499081465": {
+      "location": "LOC-comedor-modulo-izquierda-nivel-1",
+      "updatedAt": "2026-10-31T17:35:30.240Z"
+    },
+    "9789585132641": {
+      "location": "LOC-comedor-modulo-izquierda-nivel-1",
+      "updatedAt": "2026-10-31T17:32:53.859Z",
+      "title": "El poder de las palabras",
+      "author": "Mariano Sigman"
+    },
+    "9789585165779": {
+      "location": "LOC-comedor-modulo-izquierda-nivel-1",
+      "updatedAt": "2026-10-31T17:33:26.165Z",
+      "title": "La magia de las ruinas",
+      "author": "Gabriel Zuchtriegel"
+    },
+    "9789585165786": {
+      "location": "LOC-comedor-modulo-izquierda-nivel-1",
+      "updatedAt": "2026-10-31T17:34:23.036Z",
+      "title": "Manifiesto Comunista",
+      "author": "Karl Marx"
+    },
+    "9789585165946": {
+      "location": "LOC-comedor-modulo-izquierda-nivel-1",
+      "updatedAt": "2026-10-31T17:35:14.797Z",
+      "title": "El palacio de los astrónomos",
+      "author": "Violet Moller"
+    },
+    "9789585446427": {
+      "location": "LOC-comedor-modulo-izquierda-nivel-1",
+      "updatedAt": "2026-10-31T17:38:51.987Z"
+    },
+    "9789588931159": {
+      "location": "LOC-comedor-modulo-izquierda-nivel-1",
+      "updatedAt": "2026-10-31T17:36:17.374Z"
+    },
+    "9789588931623": {
+      "location": "LOC-comedor-modulo-izquierda-nivel-1",
+      "updatedAt": "2026-10-31T17:38:47.192Z"
+    },
+    "9789873752131": {
+      "location": "LOC-comedor-modulo-izquierda-nivel-1",
+      "updatedAt": "2026-10-31T17:38:40.135Z",
+      "title": "De animales a diose",
+      "author": "Yuval Noah Harari"
+    },
+    "9789873831850": {
+      "location": "LOC-comedor-modulo-izquierda-nivel-1",
+      "updatedAt": "2026-10-31T17:33:39.749Z"
+    },
+    "9783319265490": {
+      "location": "LOC-comedor-modulo-izquierda-nivel-2",
+      "updatedAt": "2026-10-31T17:24:50.129Z"
+    },
+    "9786287596719": {
+      "location": "LOC-comedor-modulo-izquierda-nivel-2",
+      "updatedAt": "2026-10-31T17:27:17.507Z",
+      "title": "Filosofía helenística",
+      "author": "John Sellars"
+    },
+    "9786289536218": {
+      "location": "LOC-comedor-modulo-izquierda-nivel-2",
+      "updatedAt": "2026-10-31T17:25:10.546Z",
+      "title": "Gran historia visual de la filosofía: Una guía con sencillos gráficos e ilustraciones para entender los conceptos y personajes clave del pensamiento occidental"
+    },
+    "9788425329586": {
+      "location": "LOC-comedor-modulo-izquierda-nivel-2",
+      "updatedAt": "2026-10-31T17:28:18.011Z",
+      "title": "Allegro ma non troppo",
+      "author": "Carlo Cipolla"
+    },
+    "9788430627288": {
+      "location": "LOC-comedor-modulo-izquierda-nivel-2",
+      "updatedAt": "2026-10-31T17:24:59.560Z"
+    },
+    "9789569043642": {
+      "location": "LOC-comedor-modulo-izquierda-nivel-2",
+      "updatedAt": "2026-10-31T17:28:36.550Z",
+      "title": "EL ARTE Y LA CIENCIA DE NO HACER NADA",
+      "author": "Andrew Smart"
+    },
+    "9789585010000": {
+      "location": "LOC-comedor-modulo-izquierda-nivel-2",
+      "updatedAt": "2026-10-31T17:37:46.988Z"
+    },
+    "9789585011465": {
+      "location": "LOC-comedor-modulo-izquierda-nivel-2",
+      "updatedAt": "2026-10-31T17:24:13.946Z"
+    },
+    "9789585165298": {
+      "location": "LOC-comedor-modulo-izquierda-nivel-2",
+      "updatedAt": "2026-10-31T17:26:40.265Z",
+      "title": "Lecciones de Epicureismo",
+      "author": "John Sellars"
+    },
+    "9789585165977": {
+      "location": "LOC-comedor-modulo-izquierda-nivel-2",
+      "updatedAt": "2026-10-31T17:27:53.069Z",
+      "title": "Cartago",
+      "author": "Eve Macdonald"
+    },
+    "9789585579736": {
+      "location": "LOC-comedor-modulo-izquierda-nivel-2",
+      "updatedAt": "2026-10-31T17:25:44.192Z",
+      "title": "Fundamentos de filosofía",
+      "author": "Bertrand Russell"
+    },
+    "9789587147896": {
+      "location": "LOC-comedor-modulo-izquierda-nivel-2",
+      "updatedAt": "2026-10-31T17:37:34.424Z"
+    },
+    "9789587149425": {
+      "location": "LOC-comedor-modulo-izquierda-nivel-2",
+      "updatedAt": "2026-10-31T17:37:23.297Z",
+      "title": "Filosofía de la educación",
+      "author": "Carlos Rojas Osorio"
+    },
+    "9789681606312": {
+      "location": "LOC-comedor-modulo-izquierda-nivel-2",
+      "updatedAt": "2026-10-31T17:26:16.067Z"
+    },
+    "9789700739595": {
+      "location": "LOC-comedor-modulo-izquierda-nivel-2",
+      "updatedAt": "2026-10-31T17:26:03.594Z"
+    },
+    "9780063349711": {
+      "location": "LOC-comedor-modulo-izquierda-nivel-4",
+      "updatedAt": "2026-10-31T17:20:34.431Z",
+      "title": "The Story of Birds: A New History from Their Dinosaur Origins to the Present",
+      "author": "Steve Brusatte"
+    },
+    "9780521827041": {
+      "location": "LOC-comedor-modulo-izquierda-nivel-4",
+      "updatedAt": "2026-10-31T17:20:09.432Z",
+      "title": "Life's solution: inevitable humans in a lonely universe",
+      "author": "S. Conway Morris"
+    },
+    "9780593129746": {
+      "location": "LOC-comedor-modulo-izquierda-nivel-4",
+      "updatedAt": "2026-10-31T17:20:19.931Z"
+    },
+    "9786075692920": {
+      "location": "LOC-comedor-modulo-izquierda-nivel-4",
+      "updatedAt": "2026-10-31T17:10:44.055Z",
+      "title": "La civilización empatica",
+      "author": "Jeremy Rifkin"
+    },
+    "9786287571648": {
+      "location": "LOC-comedor-modulo-izquierda-nivel-4",
+      "updatedAt": "2026-10-31T17:21:54.894Z",
+      "title": "Rasputín y la caída de los Romanov",
+      "author": "Antony Beevor"
+    },
+    "9786287596627": {
+      "location": "LOC-comedor-modulo-izquierda-nivel-4",
+      "updatedAt": "2026-10-31T17:11:35.879Z",
+      "title": "rEDUvolution",
+      "author": "María Acaso"
+    },
+    "9786287640245": {
+      "location": "LOC-comedor-modulo-izquierda-nivel-4",
+      "updatedAt": "2026-10-31T17:20:54.812Z"
+    },
+    "9788408293613": {
+      "location": "LOC-comedor-modulo-izquierda-nivel-4",
+      "updatedAt": "2026-10-31T17:12:48.161Z",
+      "title": "La revolución francesa contada para escépticos",
+      "author": "Juan Eslava Galán"
+    },
+    "9788417141837": {
+      "location": "LOC-comedor-modulo-izquierda-nivel-4",
+      "updatedAt": "2026-10-31T17:11:21.975Z"
+    },
+    "9788418217647": {
+      "location": "LOC-comedor-modulo-izquierda-nivel-4",
+      "updatedAt": "2026-10-31T17:11:52.001Z"
+    },
+    "9788419703002": {
+      "location": "LOC-comedor-modulo-izquierda-nivel-4",
+      "updatedAt": "2026-10-31T17:11:42.542Z"
+    },
+    "9788419744432": {
+      "location": "LOC-comedor-modulo-izquierda-nivel-4",
+      "updatedAt": "2026-10-31T17:12:01.345Z"
+    },
+    "9789500206822": {
+      "location": "LOC-comedor-modulo-izquierda-nivel-4",
+      "updatedAt": "2026-10-31T17:18:11.282Z"
+    },
+    "9789585132610": {
+      "location": "LOC-comedor-modulo-izquierda-nivel-4",
+      "updatedAt": "2026-10-31T17:11:56.964Z",
+      "title": "Metropolis",
+      "author": "Ben Wilson"
+    },
+    "9789587044881": {
+      "location": "LOC-comedor-modulo-izquierda-nivel-4",
+      "updatedAt": "2026-10-31T17:13:40.353Z"
+    },
+    "9789587145953": {
+      "location": "LOC-comedor-modulo-izquierda-nivel-4",
+      "updatedAt": "2026-10-31T17:14:00.994Z"
+    },
+    "9789588894461": {
+      "location": "LOC-comedor-modulo-izquierda-nivel-4",
+      "updatedAt": "2026-10-31T17:17:46.657Z"
+    },
+    "9780802779656": {
+      "location": "LOC-comedor-modulo-izquierda-nivel-5",
+      "updatedAt": "2026-10-31T16:42:18.110Z"
+    },
+    "9781324064503": {
+      "location": "LOC-comedor-modulo-izquierda-nivel-5",
+      "updatedAt": "2026-10-31T16:42:24.920Z"
+    },
+    "9786070758560": {
+      "location": "LOC-comedor-modulo-izquierda-nivel-5",
+      "updatedAt": "2026-10-31T16:43:09.047Z"
+    },
+    "9786287659889": {
+      "location": "LOC-comedor-modulo-izquierda-nivel-5",
+      "updatedAt": "2026-10-31T16:42:53.084Z",
+      "title": "La invención de todas las cosas",
+      "author": "Jorge Volpi"
+    },
+    "9786287807082": {
+      "location": "LOC-comedor-modulo-izquierda-nivel-5",
+      "updatedAt": "2026-10-31T16:40:07.553Z",
+      "title": "La singularidad está cerca",
+      "author": "Ray Kurzweil"
+    },
+    "9786287807198": {
+      "location": "LOC-comedor-modulo-izquierda-nivel-5",
+      "updatedAt": "2026-10-31T16:41:37.761Z",
+      "title": "El imperio de la IA",
+      "author": "Karen Hao"
+    },
+    "9788430982080": {
+      "location": "LOC-comedor-modulo-izquierda-nivel-5",
+      "updatedAt": "2026-10-31T16:40:25.721Z",
+      "title": "La cosmovisión de los grandes científicos del siglo XIX: Convicciones éticas, políticas, filosóficas o religiosas de los protagonistas del siglo de la ciencia",
+      "author": "Juan Arana, Rafael alemañ, Salvador Anaya, Manuel Alfonseca Moreno, Ignacio del Carril, José Manuel Elena Ortega, Esteban Fernández-Hinojosa, José Ferreirós Domínguez, Gonzalo Génova Fuster, Karim Ghe"
+    },
+    "9788432168192": {
+      "location": "LOC-comedor-modulo-izquierda-nivel-5",
+      "updatedAt": "2026-10-31T16:40:14.416Z"
+    },
+    "9788490664353": {
+      "location": "LOC-comedor-modulo-izquierda-nivel-5",
+      "updatedAt": "2026-10-31T16:42:58.437Z"
+    },
+    "9788494924569": {
+      "location": "LOC-comedor-modulo-izquierda-nivel-5",
+      "updatedAt": "2026-10-31T16:40:19.821Z"
+    },
+    "9789505576999": {
+      "location": "LOC-comedor-modulo-izquierda-nivel-5",
+      "updatedAt": "2026-10-31T16:41:10.897Z"
+    },
+    "9789584259585": {
+      "location": "LOC-comedor-modulo-izquierda-nivel-5",
+      "updatedAt": "2026-10-31T16:42:00.725Z",
+      "title": "La era del ingenio",
+      "author": "A.C. Grayling"
+    },
+    "9789584264992": {
+      "location": "LOC-comedor-modulo-izquierda-nivel-5",
+      "updatedAt": "2026-10-31T16:42:30.457Z"
+    },
+    "9789877191554": {
+      "location": "LOC-comedor-modulo-izquierda-nivel-5",
+      "updatedAt": "2026-10-31T16:41:00.407Z",
+      "title": "Erase una vez… el universo, los dioses, los hombres",
+      "author": "Jean-Pierre Vernant"
+    },
+    "8782785165908": {
+      "location": "LOC-comedor-modulo-izquierda-nivel-6",
+      "updatedAt": "2026-10-31T16:39:30.567Z",
+      "title": "Agustín de Hipona: una biografía",
+      "author": "Peter Brown"
+    },
+    "9786287507654": {
+      "location": "LOC-comedor-modulo-izquierda-nivel-6",
+      "updatedAt": "2026-10-31T16:34:38.744Z",
+      "title": "La vida de Chejov",
+      "author": "Irene Nemirovsky"
+    },
+    "9786287669895": {
+      "location": "LOC-comedor-modulo-izquierda-nivel-6",
+      "updatedAt": "2026-10-31T16:38:03.136Z",
+      "title": "Mentes geniales",
+      "author": "Mario de la Piedra Walter"
+    },
+    "9786287874022": {
+      "location": "LOC-comedor-modulo-izquierda-nivel-6",
+      "updatedAt": "2026-10-31T16:36:50.303Z",
+      "title": "El mal en el pensamiento moderno",
+      "author": "Susan Neiman"
+    },
+    "9788413613154": {
+      "location": "LOC-comedor-modulo-izquierda-nivel-6",
+      "updatedAt": "2026-10-31T16:37:25.901Z"
+    },
+    "9788413627472": {
+      "location": "LOC-comedor-modulo-izquierda-nivel-6",
+      "updatedAt": "2026-10-31T16:39:04.039Z",
+      "title": "Una historia natural de la curiosidad",
+      "author": "Alberto Manguel, Eduardo Hojman"
+    },
+    "9788415271567": {
+      "location": "LOC-comedor-modulo-izquierda-nivel-6",
+      "updatedAt": "2026-10-31T16:37:47.391Z",
+      "title": "Estudios políticos de la ciencia: políticas y desarrollo científico en el siglo XX",
+      "author": "Amparo Gómez Rodríguez, Antonio Francisco Canales Serrano"
+    },
+    "9788419406453": {
+      "location": "LOC-comedor-modulo-izquierda-nivel-6",
+      "updatedAt": "2026-10-31T16:35:37.399Z"
+    },
+    "9788434438095": {
+      "location": "LOC-comedor-modulo-izquierda-nivel-6",
+      "updatedAt": "2026-10-31T16:35:55.646Z",
+      "title": "100 fragmentos del mundo clásico",
+      "author": "David Hernández de la Fuente"
+    },
+    "9789584288882": {
+      "location": "LOC-comedor-modulo-izquierda-nivel-6",
+      "updatedAt": "2026-10-31T16:37:09.095Z",
+      "title": "por que fracasan los países",
+      "author": "Daron acemoglu"
+    },
+    "9789584291509": {
+      "location": "LOC-comedor-modulo-izquierda-nivel-6",
+      "updatedAt": "2026-10-31T16:35:18.827Z",
+      "title": "Historia secreta de la bomba atómica",
+      "author": "Peter Watson"
+    },
+    "9789585165052": {
+      "location": "LOC-comedor-modulo-izquierda-nivel-6",
+      "updatedAt": "2026-10-31T16:36:25.560Z",
+      "title": "La pluralidad del mundo",
+      "author": "Hannah Arendt"
+    },
+    "9789585165120": {
+      "location": "LOC-comedor-modulo-izquierda-nivel-6",
+      "updatedAt": "2026-10-31T16:35:30.295Z",
+      "title": "El terror y la belleza",
+      "author": "Catherine Fletcher"
+    },
+    "7706894092369": {
+      "location": "LOC-estudio-escritorio-modulo-lampara",
+      "updatedAt": "2026-10-31T15:11:27.012Z",
+      "title": "Historia del mundo para dummies",
+      "author": "Peter Haugen"
+    },
+    "7706894092611": {
+      "location": "LOC-estudio-escritorio-modulo-lampara",
+      "updatedAt": "2026-10-31T15:12:02.487Z",
+      "title": "Español correcto para dummies",
+      "author": "Fernando Ávila"
+    },
+    "7706894092956": {
+      "location": "LOC-estudio-escritorio-modulo-lampara",
+      "updatedAt": "2026-10-31T15:10:19.200Z",
+      "title": "Mitología para dummies",
+      "author": "Christopher Blackwell"
+    },
+    "7706894093014": {
+      "location": "LOC-estudio-escritorio-modulo-lampara",
+      "updatedAt": "2026-10-31T15:10:51.362Z",
+      "title": "Oriente Medio para dummies",
+      "author": "Craig Davis"
+    },
+    "9780764552434": {
+      "location": "LOC-estudio-escritorio-modulo-lampara",
+      "updatedAt": "2026-10-31T15:12:14.939Z",
+      "title": "Weather for dummies",
+      "author": "John D. Cox"
+    },
+    "9789580435143": {
+      "location": "LOC-estudio-escritorio-modulo-lampara",
+      "updatedAt": "2026-10-31T15:08:47.574Z"
+    },
+    "9789584260734": {
+      "location": "LOC-estudio-escritorio-modulo-lampara",
+      "updatedAt": "2026-10-31T15:08:33.234Z",
+      "title": "Historia del arte para dummies",
+      "author": "Jesse Bryant Wilder"
+    },
+    "9789584273369": {
+      "location": "LOC-estudio-escritorio-modulo-lampara",
+      "updatedAt": "2026-10-31T15:07:53.385Z",
+      "title": "Economía para dummies",
+      "author": "Sean Masaki Flybn"
+    },
+    "9789584277022": {
+      "location": "LOC-estudio-escritorio-modulo-lampara",
+      "updatedAt": "2026-10-31T15:09:33.379Z",
+      "title": "Anatomía y fisiología para dummies",
+      "author": "Erin Odya"
+    },
+    "9789584506313": {
+      "location": "LOC-estudio-escritorio-modulo-lampara",
+      "updatedAt": "2026-10-31T15:09:45.721Z"
+    },
+    "9789584506450": {
+      "location": "LOC-estudio-escritorio-modulo-lampara",
+      "updatedAt": "2026-10-31T15:08:19.188Z",
+      "title": "FRANCES PARA DUMMIES"
+    },
+    "9789584517418": {
+      "location": "LOC-estudio-escritorio-modulo-lampara",
+      "updatedAt": "2026-10-31T15:08:05.700Z"
+    },
+    "8782788611846": {
+      "location": "LOC-estudio-escritorio-cajas-nivel-1",
+      "updatedAt": "2026-10-31T15:28:33.816Z",
+      "title": "La cada lugubre",
+      "author": "Charles Dickens"
+    },
+    "8782788991962": {
+      "location": "LOC-estudio-escritorio-cajas-nivel-1",
+      "updatedAt": "2026-10-31T15:36:52.284Z",
+      "title": "El bosque oscuro",
+      "author": "Cixin Liu"
+    },
+    "9786075690896": {
+      "location": "LOC-estudio-escritorio-cajas-nivel-1",
+      "updatedAt": "2026-10-31T15:26:28.459Z",
+      "title": "La condición humana",
+      "author": "Hannah Arendt"
+    },
+    "9786077471295": {
+      "location": "LOC-estudio-escritorio-cajas-nivel-1",
+      "updatedAt": "2026-10-31T15:26:05.725Z"
+    },
+    "9786077474708": {
+      "location": "LOC-estudio-escritorio-cajas-nivel-1",
+      "updatedAt": "2026-10-31T15:23:38.001Z",
+      "title": "El jardín de Newton",
+      "author": "José Manuel Sánchez Ron"
+    },
+    "9786077474913": {
+      "location": "LOC-estudio-escritorio-cajas-nivel-1",
+      "updatedAt": "2026-10-31T15:20:28.607Z",
+      "title": "Por qué fracasan los países: Los orígenes del poder, la prosperidad y la pobreza",
+      "author": "Daron Acemoglu, James A. Robinson"
+    },
+    "9786077476283": {
+      "location": "LOC-estudio-escritorio-cajas-nivel-1",
+      "updatedAt": "2026-10-31T15:24:07.988Z",
+      "title": "Y el cerebro creo al hombre",
+      "author": "Antonio Damasio"
+    },
+    "9786077476627": {
+      "location": "LOC-estudio-escritorio-cajas-nivel-1",
+      "updatedAt": "2026-10-31T15:18:42.483Z",
+      "title": "Juega dios a los dados",
+      "author": "Ian Stewart"
+    },
+    "9786077476993": {
+      "location": "LOC-estudio-escritorio-cajas-nivel-1",
+      "updatedAt": "2026-10-31T15:25:16.835Z",
+      "title": "La segunda guerra mundial contada para escépticos",
+      "author": "Juan Eslava Galán"
+    },
+    "9786077477907": {
+      "location": "LOC-estudio-escritorio-cajas-nivel-1",
+      "updatedAt": "2026-10-31T15:20:09.400Z",
+      "title": "Antifrágil",
+      "author": "Nassim Nicholas Taleb"
+    },
+    "9786287513310": {
+      "location": "LOC-estudio-escritorio-cajas-nivel-1",
+      "updatedAt": "2026-10-31T15:34:08.244Z",
+      "title": "El precio de la desigualdad",
+      "author": "Joseph Stiglitz"
+    },
+    "9786287641945": {
+      "location": "LOC-estudio-escritorio-cajas-nivel-1",
+      "updatedAt": "2026-10-31T15:34:35.985Z",
+      "title": "Levantado del suelo",
+      "author": "José Saramago"
+    },
+    "9788408008798": {
+      "location": "LOC-estudio-escritorio-cajas-nivel-1",
+      "updatedAt": "2026-10-31T15:24:32.904Z"
+    },
+    "9788408008880": {
+      "location": "LOC-estudio-escritorio-cajas-nivel-1",
+      "updatedAt": "2026-10-31T15:22:28.169Z"
+    },
+    "9788408040002": {
+      "location": "LOC-estudio-escritorio-cajas-nivel-1",
+      "updatedAt": "2026-10-31T15:25:33.156Z"
+    },
+    "9788408053606": {
+      "location": "LOC-estudio-escritorio-cajas-nivel-1",
+      "updatedAt": "2026-10-31T15:24:40.738Z",
+      "title": "Azteca",
+      "author": "Gary Jennings"
+    },
+    "9788408064169": {
+      "location": "LOC-estudio-escritorio-cajas-nivel-1",
+      "updatedAt": "2026-10-31T15:18:55.757Z"
+    },
+    "9788408090212": {
+      "location": "LOC-estudio-escritorio-cajas-nivel-1",
+      "updatedAt": "2026-10-31T15:25:53.745Z",
+      "title": "Tutankamón",
+      "author": "Christian Jacq, Manuel Serrat Crespo"
+    },
+    "9788408101192": {
+      "location": "LOC-estudio-escritorio-cajas-nivel-1",
+      "updatedAt": "2026-10-31T15:25:41.142Z",
+      "title": "La venganza de los dioses",
+      "author": "Christian Jacq, Manuel Serrat Crespo"
+    },
+    "9788408123828": {
+      "location": "LOC-estudio-escritorio-cajas-nivel-1",
+      "updatedAt": "2026-10-31T15:20:58.629Z"
+    },
+    "9788408140573": {
+      "location": "LOC-estudio-escritorio-cajas-nivel-1",
+      "updatedAt": "2026-10-31T15:25:25.327Z",
+      "title": "El último sueño de Cleopatra",
+      "author": "Christian Jacq"
+    },
+    "9788423340798": {
+      "location": "LOC-estudio-escritorio-cajas-nivel-1",
+      "updatedAt": "2026-10-31T15:24:27.438Z"
+    },
+    "9788423346165": {
+      "location": "LOC-estudio-escritorio-cajas-nivel-1",
+      "updatedAt": "2026-10-31T15:24:15.947Z"
+    },
+    "9788427041820": {
+      "location": "LOC-estudio-escritorio-cajas-nivel-1",
+      "updatedAt": "2026-10-31T15:21:13.807Z"
+    },
+    "9788466362351": {
+      "location": "LOC-estudio-escritorio-cajas-nivel-1",
+      "updatedAt": "2026-10-31T15:37:54.336Z"
+    },
+    "9788474238426": {
+      "location": "LOC-estudio-escritorio-cajas-nivel-1",
+      "updatedAt": "2026-10-31T15:24:21.709Z"
+    },
+    "9788497593151": {
+      "location": "LOC-estudio-escritorio-cajas-nivel-1",
+      "updatedAt": "2026-10-31T15:29:35.439Z"
+    },
+    "9789584251398": {
+      "location": "LOC-estudio-escritorio-cajas-nivel-1",
+      "updatedAt": "2026-10-31T15:21:49.610Z",
+      "title": "Breve historia del saber",
+      "author": "Charles Van Doren"
+    },
+    "9789585206304": {
+      "location": "LOC-estudio-escritorio-cajas-nivel-1",
+      "updatedAt": "2026-10-31T15:35:21.041Z"
+    },
+    "9789585206359": {
+      "location": "LOC-estudio-escritorio-cajas-nivel-1",
+      "updatedAt": "2026-10-31T15:36:04.781Z",
+      "title": "La era de la supernova",
+      "author": "Cixin Liu"
+    },
+    "9789585433212": {
+      "location": "LOC-estudio-escritorio-cajas-nivel-1",
+      "updatedAt": "2026-10-31T15:32:06.891Z"
+    },
+    "9789585433502": {
+      "location": "LOC-estudio-escritorio-cajas-nivel-1",
+      "updatedAt": "2026-10-31T15:31:59.020Z",
+      "title": "Basura",
+      "author": "Héctor Abad Faciolince"
+    },
+    "9789585579453": {
+      "location": "LOC-estudio-escritorio-cajas-nivel-1",
+      "updatedAt": "2026-10-31T15:30:30.843Z",
+      "title": "Tríptico de la infamia",
+      "author": "Pablo Montoya"
+    },
+    "9789585986824": {
+      "location": "LOC-estudio-escritorio-cajas-nivel-1",
+      "updatedAt": "2026-10-31T15:36:23.510Z",
+      "title": "El fin de la muerte",
+      "author": "Cixin Liu"
+    },
+    "9789586393416": {
+      "location": "LOC-estudio-escritorio-cajas-nivel-1",
+      "updatedAt": "2026-10-31T15:29:59.101Z"
+    },
+    "9789586394086": {
+      "location": "LOC-estudio-escritorio-cajas-nivel-1",
+      "updatedAt": "2026-10-31T15:30:09.244Z"
+    },
+    "9789588611518": {
+      "location": "LOC-estudio-escritorio-cajas-nivel-1",
+      "updatedAt": "2026-10-31T15:34:15.606Z"
+    },
+    "9789588611846": {
+      "location": "LOC-estudio-escritorio-cajas-nivel-1",
+      "updatedAt": "2026-10-31T15:56:43.474Z"
+    },
+    "9789588611952": {
+      "location": "LOC-estudio-escritorio-cajas-nivel-1",
+      "updatedAt": "2026-10-31T15:32:32.902Z"
+    },
+    "9789588773186": {
+      "location": "LOC-estudio-escritorio-cajas-nivel-1",
+      "updatedAt": "2026-10-31T15:32:24.154Z"
+    },
+    "9789588773575": {
+      "location": "LOC-estudio-escritorio-cajas-nivel-1",
+      "updatedAt": "2026-10-31T15:33:02.293Z"
+    },
+    "9789588773636": {
+      "location": "LOC-estudio-escritorio-cajas-nivel-1",
+      "updatedAt": "2026-10-31T15:32:41.206Z"
+    },
+    "9789588773766": {
+      "location": "LOC-estudio-escritorio-cajas-nivel-1",
+      "updatedAt": "2026-10-31T15:30:37.696Z"
+    },
+    "9789588773902": {
+      "location": "LOC-estudio-escritorio-cajas-nivel-1",
+      "updatedAt": "2026-10-31T15:29:21.512Z",
+      "title": "Poesía Completa",
+      "author": "Jorge Luis Borges"
+    },
+    "9789588820521": {
+      "location": "LOC-estudio-escritorio-cajas-nivel-1",
+      "updatedAt": "2026-10-31T15:32:53.700Z",
+      "title": "Memorias de Adriano",
+      "author": "Marguerite Yourcenar"
+    },
+    "9789588820545": {
+      "location": "LOC-estudio-escritorio-cajas-nivel-1",
+      "updatedAt": "2026-10-31T15:28:52.771Z"
+    },
+    "9789588886152": {
+      "location": "LOC-estudio-escritorio-cajas-nivel-1",
+      "updatedAt": "2026-10-31T15:32:13.875Z"
+    },
+    "9789588886176": {
+      "location": "LOC-estudio-escritorio-cajas-nivel-1",
+      "updatedAt": "2026-10-31T15:33:11.095Z"
+    },
+    "9789588886190": {
+      "location": "LOC-estudio-escritorio-cajas-nivel-1",
+      "updatedAt": "2026-10-31T15:30:47.618Z"
+    },
+    "9789588940106": {
+      "location": "LOC-estudio-escritorio-cajas-nivel-1",
+      "updatedAt": "2026-10-31T15:33:38.644Z"
+    },
+    "9789588940250": {
+      "location": "LOC-estudio-escritorio-cajas-nivel-1",
+      "updatedAt": "2026-10-31T15:35:03.841Z",
+      "title": "La caverna",
+      "author": "José Saramago"
+    },
+    "9789588940984": {
+      "location": "LOC-estudio-escritorio-cajas-nivel-1",
+      "updatedAt": "2026-10-31T15:33:17.856Z"
+    },
+    "9789588991221": {
+      "location": "LOC-estudio-escritorio-cajas-nivel-1",
+      "updatedAt": "2026-10-31T15:37:23.411Z",
+      "title": "El problema de los tres cuerpos",
+      "author": "Cixin Liu"
+    },
+    "9789589016053": {
+      "location": "LOC-estudio-escritorio-cajas-nivel-1",
+      "updatedAt": "2026-10-31T15:34:42.848Z"
+    },
+    "9789589016213": {
+      "location": "LOC-estudio-escritorio-cajas-nivel-1",
+      "updatedAt": "2026-10-31T15:31:10.587Z",
+      "title": "Historia de los griegos",
+      "author": "Indro Montanelli"
+    },
+    "9789589016763": {
+      "location": "LOC-estudio-escritorio-cajas-nivel-1",
+      "updatedAt": "2026-10-31T15:31:35.473Z",
+      "title": "Cuentos completos 1",
+      "author": "Julio Cortazar"
+    },
+    "7709261640361": {
+      "location": "LOC-estudio-escritorio-cajas-nivel-2",
+      "updatedAt": "2026-11-01T15:46:11.881Z",
+      "title": "Los reyes malditos. La saga completa",
+      "author": "Maurice Druon"
+    },
+    "9786287513754": {
+      "location": "LOC-estudio-escritorio-cajas-nivel-2",
+      "updatedAt": "2026-11-01T15:48:41.823Z",
+      "title": "Cuentos Completos",
+      "author": "Tomás Carrasquilla"
+    },
+    "9788420618227": {
+      "location": "LOC-estudio-escritorio-cajas-nivel-2",
+      "updatedAt": "2026-11-01T15:58:00.772Z"
+    },
+    "9788420643403": {
+      "location": "LOC-estudio-escritorio-cajas-nivel-2",
+      "updatedAt": "2026-11-01T16:10:03.355Z"
+    },
+    "9788420651316": {
+      "location": "LOC-estudio-escritorio-cajas-nivel-2",
+      "updatedAt": "2026-11-01T15:58:18.042Z"
+    },
+    "9788420651323": {
+      "location": "LOC-estudio-escritorio-cajas-nivel-2",
+      "updatedAt": "2026-11-01T15:58:38.555Z"
+    },
+    "9788420654980": {
+      "location": "LOC-estudio-escritorio-cajas-nivel-2",
+      "updatedAt": "2026-11-01T15:58:11.863Z"
+    },
+    "9788420669519": {
+      "location": "LOC-estudio-escritorio-cajas-nivel-2",
+      "updatedAt": "2026-11-01T16:02:25.999Z",
+      "title": "Tierra de canaan",
+      "author": "Isaac Asimov"
+    },
+    "9788420688374": {
+      "location": "LOC-estudio-escritorio-cajas-nivel-2",
+      "updatedAt": "2026-11-01T16:08:42.372Z"
+    },
+    "9788430699483": {
+      "location": "LOC-estudio-escritorio-cajas-nivel-2",
+      "updatedAt": "2026-11-01T15:44:43.320Z",
+      "title": "Historia de la vida privada",
+      "author": "Philippe Ariès, Georges Duby"
+    },
+    "9788434582460": {
+      "location": "LOC-estudio-escritorio-cajas-nivel-2",
+      "updatedAt": "2026-11-01T16:10:46.968Z"
+    },
+    "9788434583764": {
+      "location": "LOC-estudio-escritorio-cajas-nivel-2",
+      "updatedAt": "2026-11-01T16:10:58.079Z"
+    },
+    "9788434583849": {
+      "location": "LOC-estudio-escritorio-cajas-nivel-2",
+      "updatedAt": "2026-11-01T16:12:09.842Z"
+    },
+    "9788434589100": {
+      "location": "LOC-estudio-escritorio-cajas-nivel-2",
+      "updatedAt": "2026-11-01T16:11:42.197Z"
+    },
+    "9788467032000": {
+      "location": "LOC-estudio-escritorio-cajas-nivel-2",
+      "updatedAt": "2026-11-01T15:57:46.472Z"
+    },
+    "9788483109502": {
+      "location": "LOC-estudio-escritorio-cajas-nivel-2",
+      "updatedAt": "2026-11-01T15:57:25.544Z",
+      "title": "La estructura de la teoria de la evolucion - 3. ed.",
+      "author": "Stephen Jay Gould"
+    },
+    "9788491052166": {
+      "location": "LOC-estudio-escritorio-cajas-nivel-2",
+      "updatedAt": "2026-11-01T15:50:43.228Z"
+    },
+    "9789584257437": {
+      "location": "LOC-estudio-escritorio-cajas-nivel-2",
+      "updatedAt": "2026-11-01T15:56:41.094Z",
+      "title": "La gran ilusión",
+      "author": "Stephen Hawking"
+    },
+    "9789585573116": {
+      "location": "LOC-estudio-escritorio-cajas-nivel-2",
+      "updatedAt": "2026-11-01T15:42:52.318Z",
+      "title": "Divina Comedia. Infierno",
+      "author": "Dante Alighieri"
+    },
+    "9789585573123": {
+      "location": "LOC-estudio-escritorio-cajas-nivel-2",
+      "updatedAt": "2026-11-01T15:43:56.116Z",
+      "title": "Divina Comedia. Paraíso",
+      "author": "Dante Alighieri"
+    },
+    "9789585573130": {
+      "location": "LOC-estudio-escritorio-cajas-nivel-2",
+      "updatedAt": "2026-11-01T15:43:23.752Z",
+      "title": "Divina Comedia. Purgatorio",
+      "author": "Dante Alighieri"
+    },
+    "9789585573284": {
+      "location": "LOC-estudio-escritorio-cajas-nivel-2",
+      "updatedAt": "2026-11-01T15:49:53.448Z"
+    },
+    "9789585573307": {
+      "location": "LOC-estudio-escritorio-cajas-nivel-2",
+      "updatedAt": "2026-11-01T15:50:31.225Z",
+      "title": "La Marquesa de Yolombo",
+      "author": "Tomás Carrasquilla"
+    },
+    "9789587232424": {
+      "location": "LOC-estudio-escritorio-cajas-nivel-2",
+      "updatedAt": "2026-11-01T15:53:22.691Z",
+      "title": "Humano, demasiado humano",
+      "author": "Friedrich Nietzsche"
+    },
+    "9789587232462": {
+      "location": "LOC-estudio-escritorio-cajas-nivel-2",
+      "updatedAt": "2026-11-01T15:53:08.274Z",
+      "title": "Así habló Zaratustra",
+      "author": "Friedrich Nietzsche"
+    },
+    "9789587232547": {
+      "location": "LOC-estudio-escritorio-cajas-nivel-2",
+      "updatedAt": "2026-11-01T15:53:35.025Z",
+      "title": "El Crepúsculo De Los Ídolos",
+      "author": "Friedrich Wilhelm Nietzsche"
+    },
+    "9789587232554": {
+      "location": "LOC-estudio-escritorio-cajas-nivel-2",
+      "updatedAt": "2026-11-01T15:52:53.473Z",
+      "title": "El Anticristo Maldicion Contra El Cristianismo",
+      "author": "Friedrich Nietzsche"
+    },
+    "9789587232561": {
+      "location": "LOC-estudio-escritorio-cajas-nivel-2",
+      "updatedAt": "2026-11-01T15:53:46.034Z",
+      "title": "La Genealogía de la Moral",
+      "author": "Friedrich Nietzsche"
+    },
+    "9789587232608": {
+      "location": "LOC-estudio-escritorio-cajas-nivel-2",
+      "updatedAt": "2026-11-01T15:54:20.794Z",
+      "title": "Ecce homo",
+      "author": "Friederich Nietzsche"
+    },
+    "9789587232639": {
+      "location": "LOC-estudio-escritorio-cajas-nivel-2",
+      "updatedAt": "2026-11-01T15:54:40.638Z",
+      "title": "El Nacimiento de la Tragedia",
+      "author": "Friedrich Nietzsche"
+    },
+    "9789588925240": {
+      "location": "LOC-estudio-escritorio-cajas-nivel-2",
+      "updatedAt": "2026-11-01T15:46:31.583Z"
+    },
+    "9789588925295": {
+      "location": "LOC-estudio-escritorio-cajas-nivel-2",
+      "updatedAt": "2026-11-01T15:47:04.171Z"
+    },
+    "9789588925363": {
+      "location": "LOC-estudio-escritorio-cajas-nivel-2",
+      "updatedAt": "2026-11-01T15:47:33.052Z",
+      "title": "Los hermanos Karamazov",
+      "author": "Fiódor Dostoyevski"
+    },
+    "9789588925424": {
+      "location": "LOC-estudio-escritorio-cajas-nivel-2",
+      "updatedAt": "2026-11-01T15:46:53.020Z"
+    },
+    "9789588925547": {
+      "location": "LOC-estudio-escritorio-cajas-nivel-2",
+      "updatedAt": "2026-11-01T15:47:59.810Z",
+      "title": "Los miserables",
+      "author": "Victor Hugo"
+    },
+    "9789588925646": {
+      "location": "LOC-estudio-escritorio-cajas-nivel-2",
+      "updatedAt": "2026-11-01T15:49:00.396Z",
+      "title": "Anna Karénina",
+      "author": "Leo Tolstoy"
+    },
+    "9789588925790": {
+      "location": "LOC-estudio-escritorio-cajas-nivel-2",
+      "updatedAt": "2026-11-01T15:49:15.730Z",
+      "title": "El retrato de Dorian Gray",
+      "author": "Oscar Wilde"
+    },
+    "9789588925806": {
+      "location": "LOC-estudio-escritorio-cajas-nivel-2",
+      "updatedAt": "2026-11-01T15:48:09.454Z"
+    },
+    "9789588925905": {
+      "location": "LOC-estudio-escritorio-cajas-nivel-2",
+      "updatedAt": "2026-11-01T15:49:42.346Z",
+      "title": "Oscar Wilde. Cuentos Completos",
+      "author": "Oscar Wilde"
+    },
+    "9789686001181": {
+      "location": "LOC-estudio-escritorio-cajas-nivel-2",
+      "updatedAt": "2026-11-01T16:10:17.047Z"
+    },
+    "9789707802629": {
+      "location": "LOC-estudio-escritorio-cajas-nivel-2",
+      "updatedAt": "2026-11-01T15:56:54.484Z"
+    },
+    "5788450227578": {
+      "location": "LOC-estudio-escritorio-cajas-nivel-superior",
+      "updatedAt": "2026-11-01T16:15:09.969Z",
+      "title": "Guía de Egipto para piramidólogos y marcianos",
+      "author": "Tito Vivas"
+    },
+    "7509997053493": {
+      "location": "LOC-estudio-escritorio-cajas-nivel-superior",
+      "updatedAt": "2026-11-01T16:17:50.733Z",
+      "title": "El enigma de Tutankhamon",
+      "author": "Muy Interesante"
+    },
+    "9780517209776": {
+      "location": "LOC-estudio-escritorio-cajas-nivel-superior",
+      "updatedAt": "2026-11-01T16:33:40.918Z",
+      "title": "Asimov’s Guide to the Bible",
+      "author": "Isaac Asimov"
+    },
+    "9781426220883": {
+      "location": "LOC-estudio-escritorio-cajas-nivel-superior",
+      "updatedAt": "2026-11-01T16:18:37.508Z",
+      "title": "When Women Ruled the World: Six Queens of Egypt",
+      "author": "Kara Cooney"
+    },
+    "9783031118296": {
+      "location": "LOC-estudio-escritorio-cajas-nivel-superior",
+      "updatedAt": "2026-11-01T16:24:36.009Z"
+    },
+    "9783822854563": {
+      "location": "LOC-estudio-escritorio-cajas-nivel-superior",
+      "updatedAt": "2026-11-01T16:13:58.055Z"
+    },
+    "9786287778955": {
+      "location": "LOC-estudio-escritorio-cajas-nivel-superior",
+      "updatedAt": "2026-11-01T16:34:29.724Z",
+      "title": "Ensayos completos",
+      "author": "Jorge Luis Borges"
+    },
+    "9786287778993": {
+      "location": "LOC-estudio-escritorio-cajas-nivel-superior",
+      "updatedAt": "2026-11-01T16:34:11.683Z",
+      "title": "Poesía completa",
+      "author": "Jorge Luis Borges"
+    },
+    "9786287784109": {
+      "location": "LOC-estudio-escritorio-cajas-nivel-superior",
+      "updatedAt": "2026-11-01T16:23:14.633Z",
+      "title": "Cleopatra: La mujer tras el mito de la última reina de Egipto",
+      "author": "Alejandra Izquierdo"
+    },
+    "9788408002505": {
+      "location": "LOC-estudio-escritorio-cajas-nivel-superior",
+      "updatedAt": "2026-11-01T16:17:07.765Z"
+    },
+    "9788412055849": {
+      "location": "LOC-estudio-escritorio-cajas-nivel-superior",
+      "updatedAt": "2026-11-01T16:14:12.102Z"
+    },
+    "9788415462989": {
+      "location": "LOC-estudio-escritorio-cajas-nivel-superior",
+      "updatedAt": "2026-11-01T16:22:56.930Z"
+    },
+    "9788416776160": {
+      "location": "LOC-estudio-escritorio-cajas-nivel-superior",
+      "updatedAt": "2026-11-01T16:27:41.262Z"
+    },
+    "9788417492632": {
+      "location": "LOC-estudio-escritorio-cajas-nivel-superior",
+      "updatedAt": "2026-11-01T16:24:14.799Z"
+    },
+    "9788418227097": {
+      "location": "LOC-estudio-escritorio-cajas-nivel-superior",
+      "updatedAt": "2026-11-01T16:14:51.635Z"
+    },
+    "9788418227301": {
+      "location": "LOC-estudio-escritorio-cajas-nivel-superior",
+      "updatedAt": "2026-11-01T16:14:21.489Z"
+    },
+    "9788418648762": {
+      "location": "LOC-estudio-escritorio-cajas-nivel-superior",
+      "updatedAt": "2026-11-01T16:16:25.460Z",
+      "title": "Muerte y enterramiento en el antiguo Egipto",
+      "author": "Salima Ikram"
+    },
+    "9788419942289": {
+      "location": "LOC-estudio-escritorio-cajas-nivel-superior",
+      "updatedAt": "2026-11-01T16:16:57.281Z"
+    },
+    "9788420648736": {
+      "location": "LOC-estudio-escritorio-cajas-nivel-superior",
+      "updatedAt": "2026-11-01T16:18:13.252Z"
+    },
+    "9788425371875": {
+      "location": "LOC-estudio-escritorio-cajas-nivel-superior",
+      "updatedAt": "2026-11-01T16:15:27.935Z"
+    },
+    "9788427022430": {
+      "location": "LOC-estudio-escritorio-cajas-nivel-superior",
+      "updatedAt": "2026-11-01T16:20:17.860Z"
+    },
+    "9788430623075": {
+      "location": "LOC-estudio-escritorio-cajas-nivel-superior",
+      "updatedAt": "2026-11-01T16:29:35.806Z"
+    },
+    "9788430948048": {
+      "location": "LOC-estudio-escritorio-cajas-nivel-superior",
+      "updatedAt": "2026-11-01T16:21:53.487Z"
+    },
+    "9788436277050": {
+      "location": "LOC-estudio-escritorio-cajas-nivel-superior",
+      "updatedAt": "2026-11-01T16:24:25.404Z"
+    },
+    "9788437099118": {
+      "location": "LOC-estudio-escritorio-cajas-nivel-superior",
+      "updatedAt": "2026-11-01T16:24:58.594Z"
+    },
+    "9788437642024": {
+      "location": "LOC-estudio-escritorio-cajas-nivel-superior",
+      "updatedAt": "2026-11-01T16:20:36.386Z"
+    },
+    "9788446037880": {
+      "location": "LOC-estudio-escritorio-cajas-nivel-superior",
+      "updatedAt": "2026-11-01T16:27:07.781Z"
+    },
+    "9788449501746": {
+      "location": "LOC-estudio-escritorio-cajas-nivel-superior",
+      "updatedAt": "2026-11-01T16:22:10.356Z"
+    },
+    "9788478802814": {
+      "location": "LOC-estudio-escritorio-cajas-nivel-superior",
+      "updatedAt": "2026-11-01T16:29:02.101Z"
+    },
+    "9788484325109": {
+      "location": "LOC-estudio-escritorio-cajas-nivel-superior",
+      "updatedAt": "2026-11-01T16:19:50.164Z"
+    },
+    "9788484325352": {
+      "location": "LOC-estudio-escritorio-cajas-nivel-superior",
+      "updatedAt": "2026-11-01T16:19:58.922Z"
+    },
+    "9788484328056": {
+      "location": "LOC-estudio-escritorio-cajas-nivel-superior",
+      "updatedAt": "2026-11-01T16:29:24.377Z"
+    },
+    "9788484329275": {
+      "location": "LOC-estudio-escritorio-cajas-nivel-superior",
+      "updatedAt": "2026-11-01T16:14:02.513Z"
+    },
+    "9788494190452": {
+      "location": "LOC-estudio-escritorio-cajas-nivel-superior",
+      "updatedAt": "2026-11-01T16:13:16.311Z"
+    },
+    "9788494905414": {
+      "location": "LOC-estudio-escritorio-cajas-nivel-superior",
+      "updatedAt": "2026-11-01T16:22:45.065Z"
+    },
+    "9788495414366": {
+      "location": "LOC-estudio-escritorio-cajas-nivel-superior",
+      "updatedAt": "2026-11-01T16:18:51.872Z"
+    },
+    "9788495414670": {
+      "location": "LOC-estudio-escritorio-cajas-nivel-superior",
+      "updatedAt": "2026-11-01T16:19:04.068Z"
+    },
+    "9788496975026": {
+      "location": "LOC-estudio-escritorio-cajas-nivel-superior",
+      "updatedAt": "2026-11-01T16:22:23.564Z"
+    },
+    "9788497343343": {
+      "location": "LOC-estudio-escritorio-cajas-nivel-superior",
+      "updatedAt": "2026-11-01T16:16:45.062Z"
+    },
+    "9788497941259": {
+      "location": "LOC-estudio-escritorio-cajas-nivel-superior",
+      "updatedAt": "2026-11-01T16:13:45.983Z",
+      "title": "Egipto",
+      "author": "Lewis Spence"
+    },
+    "9788498064902": {
+      "location": "LOC-estudio-escritorio-cajas-nivel-superior",
+      "updatedAt": "2026-11-01T16:29:09.412Z"
+    },
+    "9788498274608": {
+      "location": "LOC-estudio-escritorio-cajas-nivel-superior",
+      "updatedAt": "2026-11-01T16:15:22.211Z",
+      "title": "La entrada al inframundo: Estelas de falsa puerta en el Antiguo Egipto",
+      "author": "Tito Vivas"
+    },
+    "9788498923865": {
+      "location": "LOC-estudio-escritorio-cajas-nivel-superior",
+      "updatedAt": "2026-11-01T16:24:48.453Z"
+    },
+    "9788498924800": {
+      "location": "LOC-estudio-escritorio-cajas-nivel-superior",
+      "updatedAt": "2026-11-01T16:30:31.615Z"
+    },
+    "9788866437482": {
+      "location": "LOC-estudio-escritorio-cajas-nivel-superior",
+      "updatedAt": "2026-11-01T16:21:27.914Z",
+      "title": "Antico Egitto",
+      "author": "Luisa Rainer Chiap"
+    },
+    "9789584284532": {
+      "location": "LOC-estudio-escritorio-cajas-nivel-superior",
+      "updatedAt": "2026-11-01T16:29:46.991Z"
+    },
+    "9789586396523": {
+      "location": "LOC-estudio-escritorio-cajas-nivel-superior",
+      "updatedAt": "2026-11-01T16:18:22.096Z"
+    },
+    "9789588639147": {
+      "location": "LOC-estudio-escritorio-cajas-nivel-superior",
+      "updatedAt": "2026-11-01T16:33:50.358Z"
+    },
+    "9780062075468": {
+      "location": "LOC-sala-tv-bajo-tv-nivel-inferior",
+      "updatedAt": "2026-11-01T15:02:20.567Z"
+    },
+    "9780192806727": {
+      "location": "LOC-sala-tv-bajo-tv-nivel-inferior",
+      "updatedAt": "2026-11-01T14:53:05.454Z"
+    },
+    "9780300125368": {
+      "location": "LOC-sala-tv-bajo-tv-nivel-inferior",
+      "updatedAt": "2026-11-01T14:57:34.773Z"
+    },
+    "9780465022106": {
+      "location": "LOC-sala-tv-bajo-tv-nivel-inferior",
+      "updatedAt": "2026-11-01T14:49:43.721Z"
+    },
+    "9786071611055": {
+      "location": "LOC-sala-tv-bajo-tv-nivel-inferior",
+      "updatedAt": "2026-11-01T15:01:09.463Z"
+    },
+    "9786073901406": {
+      "location": "LOC-sala-tv-bajo-tv-nivel-inferior",
+      "updatedAt": "2026-11-01T14:49:35.733Z"
+    },
+    "9786287589162": {
+      "location": "LOC-sala-tv-bajo-tv-nivel-inferior",
+      "updatedAt": "2026-11-01T14:49:58.161Z"
+    },
+    "9786287638464": {
+      "location": "LOC-sala-tv-bajo-tv-nivel-inferior",
+      "updatedAt": "2026-11-01T14:58:47.894Z",
+      "title": "Cuchillo",
+      "author": "Salman Rushdie"
+    },
+    "9786287669284": {
+      "location": "LOC-sala-tv-bajo-tv-nivel-inferior",
+      "updatedAt": "2026-11-01T14:55:59.942Z"
+    },
+    "9786287745360": {
+      "location": "LOC-sala-tv-bajo-tv-nivel-inferior",
+      "updatedAt": "2026-11-01T14:57:52.379Z",
+      "title": "Los innovadores",
+      "author": "Walter Isaacson"
+    },
+    "9786287778276": {
+      "location": "LOC-sala-tv-bajo-tv-nivel-inferior",
+      "updatedAt": "2026-11-01T14:54:38.756Z"
+    },
+    "9788413611334": {
+      "location": "LOC-sala-tv-bajo-tv-nivel-inferior",
+      "updatedAt": "2026-11-01T14:51:22.029Z"
+    },
+    "9788415732334": {
+      "location": "LOC-sala-tv-bajo-tv-nivel-inferior",
+      "updatedAt": "2026-11-01T14:52:13.842Z"
+    },
+    "9788417743369": {
+      "location": "LOC-sala-tv-bajo-tv-nivel-inferior",
+      "updatedAt": "2026-11-01T14:57:24.422Z"
+    },
+    "9788420481043": {
+      "location": "LOC-sala-tv-bajo-tv-nivel-inferior",
+      "updatedAt": "2026-11-01T14:58:55.149Z"
+    },
+    "9788424938833": {
+      "location": "LOC-sala-tv-bajo-tv-nivel-inferior",
+      "updatedAt": "2026-11-01T14:48:49.982Z"
+    },
+    "9788426415080": {
+      "location": "LOC-sala-tv-bajo-tv-nivel-inferior",
+      "updatedAt": "2026-11-01T14:55:44.450Z"
+    },
+    "9788434435971": {
+      "location": "LOC-sala-tv-bajo-tv-nivel-inferior",
+      "updatedAt": "2026-11-01T14:57:10.804Z"
+    },
+    "9788435033251": {
+      "location": "LOC-sala-tv-bajo-tv-nivel-inferior",
+      "updatedAt": "2026-11-01T14:48:40.130Z"
+    },
+    "9788466615488": {
+      "location": "LOC-sala-tv-bajo-tv-nivel-inferior",
+      "updatedAt": "2026-11-01T15:03:45.153Z"
+    },
+    "9788476342299": {
+      "location": "LOC-sala-tv-bajo-tv-nivel-inferior",
+      "updatedAt": "2026-11-01T14:59:50.323Z"
+    },
+    "9788476696675": {
+      "location": "LOC-sala-tv-bajo-tv-nivel-inferior",
+      "updatedAt": "2026-11-01T15:00:22.926Z"
+    },
+    "9788495348296": {
+      "location": "LOC-sala-tv-bajo-tv-nivel-inferior",
+      "updatedAt": "2026-11-01T15:02:46.391Z"
+    },
+    "9788495939043": {
+      "location": "LOC-sala-tv-bajo-tv-nivel-inferior",
+      "updatedAt": "2026-11-01T14:58:31.598Z"
+    },
+    "9788497591027": {
+      "location": "LOC-sala-tv-bajo-tv-nivel-inferior",
+      "updatedAt": "2026-11-01T15:00:29.515Z"
+    },
+    "9788498413274": {
+      "location": "LOC-sala-tv-bajo-tv-nivel-inferior",
+      "updatedAt": "2026-11-01T14:51:13.936Z"
+    },
+    "9789509009783": {
+      "location": "LOC-sala-tv-bajo-tv-nivel-inferior",
+      "updatedAt": "2026-11-01T14:54:00.440Z"
+    },
+    "9789582812522": {
+      "location": "LOC-sala-tv-bajo-tv-nivel-inferior",
+      "updatedAt": "2026-11-01T14:50:30.421Z",
+      "title": "Bolivar",
+      "author": "Indalecio Lievano Aguirre"
+    },
+    "9789584263612": {
+      "location": "LOC-sala-tv-bajo-tv-nivel-inferior",
+      "updatedAt": "2026-11-01T14:52:00.735Z",
+      "title": "Las Máscaras de Cristi",
+      "author": "Lynn Picknett"
+    },
+    "9789584280039": {
+      "location": "LOC-sala-tv-bajo-tv-nivel-inferior",
+      "updatedAt": "2026-11-01T15:01:37.049Z",
+      "title": "El milagro Spinoza: Una filosofía para iluminar nuestra vida",
+      "author": "Frédéric Lenoir"
+    },
+    "9789584284877": {
+      "location": "LOC-sala-tv-bajo-tv-nivel-inferior",
+      "updatedAt": "2026-11-01T14:53:39.858Z",
+      "title": "Simón Bolívar",
+      "author": "John Lynch"
+    },
+    "9789584285867": {
+      "location": "LOC-sala-tv-bajo-tv-nivel-inferior",
+      "updatedAt": "2026-11-01T14:49:04.728Z",
+      "title": "El otro Einstein (Spanish Edition)",
+      "author": "Marie Benedict"
+    },
+    "9789584296658": {
+      "location": "LOC-sala-tv-bajo-tv-nivel-inferior",
+      "updatedAt": "2026-11-01T14:49:26.008Z",
+      "title": "La única mujer",
+      "author": "Marie Benedict"
+    },
+    "9789585165366": {
+      "location": "LOC-sala-tv-bajo-tv-nivel-inferior",
+      "updatedAt": "2026-11-01T14:56:59.164Z",
+      "title": "Magníficos rebeldes: los primeros románticos y la invención del yo",
+      "author": "Andrea Wulf"
+    },
+    "9789585165724": {
+      "location": "LOC-sala-tv-bajo-tv-nivel-inferior",
+      "updatedAt": "2026-11-01T14:58:26.065Z",
+      "title": "Justiniano",
+      "author": "Peter Sarris"
+    },
+    "9789585425408": {
+      "location": "LOC-sala-tv-bajo-tv-nivel-inferior",
+      "updatedAt": "2026-11-01T15:02:29.100Z",
+      "title": "Rodolfo Llinás. La pregunta difícil - 1. edición."
+    },
+    "9789585446403": {
+      "location": "LOC-sala-tv-bajo-tv-nivel-inferior",
+      "updatedAt": "2026-11-01T16:47:22.399Z",
+      "title": "Jesús, la historia alterna",
+      "author": "Carlos Uribe Celis"
+    },
+    "9789585446724": {
+      "location": "LOC-sala-tv-bajo-tv-nivel-inferior",
+      "updatedAt": "2026-11-01T14:53:21.438Z",
+      "title": "Bolívar",
+      "author": "Marie Arana"
+    },
+    "9789585446830": {
+      "location": "LOC-sala-tv-bajo-tv-nivel-inferior",
+      "updatedAt": "2026-11-01T14:48:13.917Z",
+      "title": "Biografía del Caribe",
+      "author": "Germán Arciniegas"
+    },
+    "9789585526259": {
+      "location": "LOC-sala-tv-bajo-tv-nivel-inferior",
+      "updatedAt": "2026-11-01T15:03:04.598Z"
+    },
+    "9789585863682": {
+      "location": "LOC-sala-tv-bajo-tv-nivel-inferior",
+      "updatedAt": "2026-11-01T15:03:10.230Z"
+    },
+    "9789587205985": {
+      "location": "LOC-sala-tv-bajo-tv-nivel-inferior",
+      "updatedAt": "2026-11-01T15:02:38.097Z"
+    },
+    "9789587208627": {
+      "location": "LOC-sala-tv-bajo-tv-nivel-inferior",
+      "updatedAt": "2026-11-01T15:39:40.379Z"
+    },
+    "9789588763675": {
+      "location": "LOC-sala-tv-bajo-tv-nivel-inferior",
+      "updatedAt": "2026-11-01T14:48:28.252Z",
+      "title": "Yo, Dita Kraus. La bibliotecaria de Auschwitz",
+      "author": "Dita Kraus"
+    },
+    "9789588806389": {
+      "location": "LOC-sala-tv-bajo-tv-nivel-inferior",
+      "updatedAt": "2026-11-01T15:19:06.244Z"
+    },
+    "9789682316258": {
+      "location": "LOC-sala-tv-bajo-tv-nivel-inferior",
+      "updatedAt": "2026-11-01T15:00:06.797Z"
+    },
+    "9780199570409": {
+      "location": "LOC-sala-tv-lateral-nivel-superior",
+      "updatedAt": "2026-11-01T15:17:22.000Z",
+      "title": "Isaac Newton's scientific method: turning data into evidence about gravity and cosmology",
+      "author": "William L. Harper"
+    },
+    "9780756650360": {
+      "location": "LOC-sala-tv-lateral-nivel-superior",
+      "updatedAt": "2026-11-01T15:36:31.990Z",
+      "title": "Titanic",
+      "author": "Simon Adams, DK Publishing, Simon Adams"
+    },
+    "9781576871300": {
+      "location": "LOC-sala-tv-lateral-nivel-superior",
+      "updatedAt": "2026-11-01T15:29:22.270Z",
+      "title": "New York September 11",
+      "author": "David Halberstam"
+    },
+    "9781586632076": {
+      "location": "LOC-sala-tv-lateral-nivel-superior",
+      "updatedAt": "2026-11-01T15:30:41.786Z",
+      "title": "The Encyclopedia of Modern Warplanes: The Development and Specifications of All Active Military Aircraft",
+      "author": "Bill Gunston"
+    },
+    "9786280000954": {
+      "location": "LOC-sala-tv-lateral-nivel-superior",
+      "updatedAt": "2026-11-01T15:11:15.304Z",
+      "title": "30 hechos que cambiaron la historia de Colombia",
+      "author": "Rafael Pardo Rueda"
+    },
+    "9786287589124": {
+      "location": "LOC-sala-tv-lateral-nivel-superior",
+      "updatedAt": "2026-11-01T15:06:30.540Z"
+    },
+    "9786287659919": {
+      "location": "LOC-sala-tv-lateral-nivel-superior",
+      "updatedAt": "2026-11-01T16:50:29.337Z",
+      "title": "Los nombres de Feliza",
+      "author": "Juan Gabriel Vásquez"
+    },
+    "9786287737129": {
+      "location": "LOC-sala-tv-lateral-nivel-superior",
+      "updatedAt": "2026-11-01T15:16:56.501Z",
+      "title": "Código fuente",
+      "author": "Bill Gates"
+    },
+    "9786287794931": {
+      "location": "LOC-sala-tv-lateral-nivel-superior",
+      "updatedAt": "2026-11-01T15:16:23.773Z"
+    },
+    "9788408016458": {
+      "location": "LOC-sala-tv-lateral-nivel-superior",
+      "updatedAt": "2026-11-01T15:32:43.460Z"
+    },
+    "9788408050421": {
+      "location": "LOC-sala-tv-lateral-nivel-superior",
+      "updatedAt": "2026-11-01T15:22:01.876Z",
+      "title": "El enigma de Colón y los descubrimientos de América",
+      "author": "Juan Eslava Galán"
+    },
+    "9788408053040": {
+      "location": "LOC-sala-tv-lateral-nivel-superior",
+      "updatedAt": "2026-11-01T15:29:59.393Z",
+      "title": "Cosmos",
+      "author": "Carl Sagan"
+    },
+    "9788408059158": {
+      "location": "LOC-sala-tv-lateral-nivel-superior",
+      "updatedAt": "2026-11-01T16:48:09.915Z"
+    },
+    "9788408243205": {
+      "location": "LOC-sala-tv-lateral-nivel-superior",
+      "updatedAt": "2026-11-01T15:15:11.557Z"
+    },
+    "9788416714070": {
+      "location": "LOC-sala-tv-lateral-nivel-superior",
+      "updatedAt": "2026-11-01T15:09:18.367Z"
+    },
+    "9788417151430": {
+      "location": "LOC-sala-tv-lateral-nivel-superior",
+      "updatedAt": "2026-11-01T15:08:14.357Z"
+    },
+    "9788418550546": {
+      "location": "LOC-sala-tv-lateral-nivel-superior",
+      "updatedAt": "2026-11-01T15:18:24.004Z"
+    },
+    "9788418967986": {
+      "location": "LOC-sala-tv-lateral-nivel-superior",
+      "updatedAt": "2026-11-01T15:20:36.667Z"
+    },
+    "9788433972866": {
+      "location": "LOC-sala-tv-lateral-nivel-superior",
+      "updatedAt": "2026-11-01T15:16:19.148Z"
+    },
+    "9788474444605": {
+      "location": "LOC-sala-tv-lateral-nivel-superior",
+      "updatedAt": "2026-11-01T15:31:04.450Z",
+      "title": "Fenomenos Naturales - 2 Tomos",
+      "author": "Philip Whitfield"
+    },
+    "9788477653127": {
+      "location": "LOC-sala-tv-lateral-nivel-superior",
+      "updatedAt": "2026-11-01T15:15:41.748Z"
+    },
+    "9788482984803": {
+      "location": "LOC-sala-tv-lateral-nivel-superior",
+      "updatedAt": "2026-11-01T15:30:30.492Z"
+    },
+    "9788482986999": {
+      "location": "LOC-sala-tv-lateral-nivel-superior",
+      "updatedAt": "2026-11-01T15:27:11.644Z",
+      "title": "La tumba de Tutankhamón",
+      "author": "National Geographic Society"
+    },
+    "9788487853005": {
+      "location": "LOC-sala-tv-lateral-nivel-superior",
+      "updatedAt": "2026-11-01T15:29:13.270Z",
+      "title": "Tiburones",
+      "author": "John D. Stevens"
+    },
+    "9788487853142": {
+      "location": "LOC-sala-tv-lateral-nivel-superior",
+      "updatedAt": "2026-11-01T15:32:25.901Z",
+      "title": "Enciclopedia de Dinosaurios y animales prehistóricos",
+      "author": "Dougal Dixon"
+    },
+    "9788488676979": {
+      "location": "LOC-sala-tv-lateral-nivel-superior",
+      "updatedAt": "2026-11-01T15:17:07.050Z"
+    },
+    "9788494966859": {
+      "location": "LOC-sala-tv-lateral-nivel-superior",
+      "updatedAt": "2026-11-01T15:18:13.714Z"
+    },
+    "9788496326774": {
+      "location": "LOC-sala-tv-lateral-nivel-superior",
+      "updatedAt": "2026-11-01T15:20:23.971Z"
+    },
+    "9789089982056": {
+      "location": "LOC-sala-tv-lateral-nivel-superior",
+      "updatedAt": "2026-11-01T15:34:58.304Z"
+    },
+    "9789500207317": {
+      "location": "LOC-sala-tv-lateral-nivel-superior",
+      "updatedAt": "2026-11-01T15:17:44.633Z",
+      "title": "Hatshepsut",
+      "author": "Teresa Bedman,Francisco J. Martín Valentín"
+    },
+    "9789501502510": {
+      "location": "LOC-sala-tv-lateral-nivel-superior",
+      "updatedAt": "2026-11-01T15:15:49.224Z"
+    },
+    "9789584240781": {
+      "location": "LOC-sala-tv-lateral-nivel-superior",
+      "updatedAt": "2026-11-01T15:16:03.031Z"
+    },
+    "9789584255532": {
+      "location": "LOC-sala-tv-lateral-nivel-superior",
+      "updatedAt": "2026-11-01T15:16:41.769Z",
+      "title": "Maestros del universo: Conversaciones con los cosmólogos del pasado (Drakontos) (Spanish Edition)",
+      "author": "Helge Kragh"
+    },
+    "9789584260024": {
+      "location": "LOC-sala-tv-lateral-nivel-superior",
+      "updatedAt": "2026-11-01T16:50:58.778Z",
+      "title": "Una curiosidad insaciable",
+      "author": "Richard Dawkins"
+    },
+    "9789584268754": {
+      "location": "LOC-sala-tv-lateral-nivel-superior",
+      "updatedAt": "2026-11-01T15:06:54.403Z"
+    },
+    "9789584287397": {
+      "location": "LOC-sala-tv-lateral-nivel-superior",
+      "updatedAt": "2026-11-01T15:08:56.859Z",
+      "title": "Occidente conquistó el mundo ... y empezó a perderlo (Spanish Edition)",
+      "author": "Antonio Caballero"
+    },
+    "9789584296009": {
+      "location": "LOC-sala-tv-lateral-nivel-superior",
+      "updatedAt": "2026-11-01T15:19:37.275Z",
+      "title": "Magdalena. Historias de Colombia (Spanish Edition)",
+      "author": "Wade Davis"
+    },
+    "9789584296436": {
+      "location": "LOC-sala-tv-lateral-nivel-superior",
+      "updatedAt": "2026-11-01T15:10:36.307Z",
+      "title": "Colombia, las razones de la guerra: las justificiaciones de la violencia en la historia del país y el fracaso de la lucha armada",
+      "author": "Jorge Orlando Melo"
+    },
+    "9789584971838": {
+      "location": "LOC-sala-tv-lateral-nivel-superior",
+      "updatedAt": "2026-11-01T15:13:55.271Z",
+      "title": "El olvido que habitamos",
+      "author": "Luis Fernando González Escobar"
+    },
+    "9789585121843": {
+      "location": "LOC-sala-tv-lateral-nivel-superior",
+      "updatedAt": "2026-11-01T15:10:42.857Z"
+    },
+    "9789585132245": {
+      "location": "LOC-sala-tv-lateral-nivel-superior",
+      "updatedAt": "2026-11-01T17:05:30.076Z",
+      "title": "El código de la vida",
+      "author": "Walter Isaacson"
+    },
+    "9789585132283": {
+      "location": "LOC-sala-tv-lateral-nivel-superior",
+      "updatedAt": "2026-11-01T15:12:43.079Z",
+      "title": "Antes de Colombia",
+      "author": "Carl Henrik Langebaek"
+    },
+    "9789585132788": {
+      "location": "LOC-sala-tv-lateral-nivel-superior",
+      "updatedAt": "2026-11-01T15:10:11.714Z",
+      "title": "Otra historia de Colombia",
+      "author": "Felipe Arias Escobar"
+    },
+    "9789585165670": {
+      "location": "LOC-sala-tv-lateral-nivel-superior",
+      "updatedAt": "2026-11-01T15:21:36.773Z",
+      "title": "Todos los seres vivos",
+      "author": "Jason Roberts"
+    },
+    "9789585165915": {
+      "location": "LOC-sala-tv-lateral-nivel-superior",
+      "updatedAt": "2026-11-01T16:47:48.151Z",
+      "title": "Shakespeare",
+      "author": "Samuel Johnson"
+    },
+    "9789585240087": {
+      "location": "LOC-sala-tv-lateral-nivel-superior",
+      "updatedAt": "2026-11-01T15:07:46.302Z",
+      "title": "Chiribiquete",
+      "author": "Castaño-Uribe Carlos"
+    },
+    "9789585446038": {
+      "location": "LOC-sala-tv-lateral-nivel-superior",
+      "updatedAt": "2026-11-01T15:18:01.348Z",
+      "title": "Buda",
+      "author": "Karen Armstrong"
+    },
+    "9789585446052": {
+      "location": "LOC-sala-tv-lateral-nivel-superior",
+      "updatedAt": "2026-11-01T15:08:43.140Z"
+    },
+    "9789585446601": {
+      "location": "LOC-sala-tv-lateral-nivel-superior",
+      "updatedAt": "2026-11-01T15:10:56.370Z"
+    },
+    "9789585477995": {
+      "location": "LOC-sala-tv-lateral-nivel-superior",
+      "updatedAt": "2026-11-01T15:06:37.183Z"
+    },
+    "9789585495296": {
+      "location": "LOC-sala-tv-lateral-nivel-superior",
+      "updatedAt": "2026-11-01T15:12:06.707Z",
+      "title": "Humboldt : del Orinoco a los Andes. Textos escogidos",
+      "author": "Humboldt"
+    },
+    "9789585549852": {
+      "location": "LOC-sala-tv-lateral-nivel-superior",
+      "updatedAt": "2026-11-01T15:14:42.155Z"
+    },
+    "9789587047455": {
+      "location": "LOC-sala-tv-lateral-nivel-superior",
+      "updatedAt": "2026-11-01T15:15:04.069Z"
+    },
+    "9789587047981": {
+      "location": "LOC-sala-tv-lateral-nivel-superior",
+      "updatedAt": "2026-11-01T15:32:50.647Z"
+    },
+    "9789587578379": {
+      "location": "LOC-sala-tv-lateral-nivel-superior",
+      "updatedAt": "2026-11-01T15:14:20.449Z",
+      "title": "Cursillo de historia de Colombia",
+      "author": "Argos"
+    },
+    "9789587984668": {
+      "location": "LOC-sala-tv-lateral-nivel-superior",
+      "updatedAt": "2026-11-01T15:06:02.571Z"
+    },
+    "9789588912417": {
+      "location": "LOC-sala-tv-lateral-nivel-superior",
+      "updatedAt": "2026-11-01T15:08:22.265Z"
+    },
+    "9789588931869": {
+      "location": "LOC-sala-tv-lateral-nivel-superior",
+      "updatedAt": "2026-11-01T15:21:12.677Z",
+      "title": "Einstein: Su vida y su universo",
+      "author": "Walter Isaacson"
+    },
+    "9789589219942": {
+      "location": "LOC-sala-tv-lateral-nivel-superior",
+      "updatedAt": "2026-11-01T15:21:51.933Z"
+    },
+    "9789589782323": {
+      "location": "LOC-sala-tv-lateral-nivel-superior",
+      "updatedAt": "2026-11-01T15:11:40.595Z"
+    },
+    "9786071672827": {
+      "location": "LOC-sala-tv-lateral-nivel-1",
+      "updatedAt": "2026-11-01T14:45:55.702Z"
+    },
+    "9786074217735": {
+      "location": "LOC-sala-tv-lateral-nivel-1",
+      "updatedAt": "2026-11-01T14:45:24.648Z"
+    },
+    "9788408002970": {
+      "location": "LOC-sala-tv-lateral-nivel-1",
+      "updatedAt": "2026-11-01T14:44:54.849Z"
+    },
+    "9788415271154": {
+      "location": "LOC-sala-tv-lateral-nivel-1",
+      "updatedAt": "2026-11-01T14:46:11.239Z"
+    },
+    "9788432210365": {
+      "location": "LOC-sala-tv-lateral-nivel-1",
+      "updatedAt": "2026-11-01T14:46:03.354Z"
+    },
+    "9788433973436": {
+      "location": "LOC-sala-tv-lateral-nivel-1",
+      "updatedAt": "2026-11-01T14:46:27.121Z"
+    },
+    "9788449323553": {
+      "location": "LOC-sala-tv-lateral-nivel-1",
+      "updatedAt": "2026-11-01T14:47:17.816Z"
+    },
+    "9788469620434": {
+      "location": "LOC-sala-tv-lateral-nivel-1",
+      "updatedAt": "2026-11-01T14:46:33.037Z"
+    },
+    "9788492917099": {
+      "location": "LOC-sala-tv-lateral-nivel-1",
+      "updatedAt": "2026-11-01T14:46:46.874Z"
+    },
+    "9789584262707": {
+      "location": "LOC-sala-tv-lateral-nivel-1",
+      "updatedAt": "2026-11-01T14:45:11.134Z",
+      "title": "El Cerebro Idiota",
+      "author": "Dean Burnett"
+    },
+    "9789584282910": {
+      "location": "LOC-sala-tv-lateral-nivel-1",
+      "updatedAt": "2026-11-01T14:47:37.461Z",
+      "title": "La ciencia en el alma",
+      "author": "Richard Dawkins"
+    },
+    "9789584299673": {
+      "location": "LOC-sala-tv-lateral-nivel-1",
+      "updatedAt": "2026-11-01T14:47:07.355Z",
+      "title": "Dopamina: Cómo una molécula condiciona de quién nos enamoramos, con quién nos acostamos, a quién votamos y qué nos depara el futuro",
+      "author": "Daniel Z. Lieberman"
+    },
+    "9789587149029": {
+      "location": "LOC-sala-tv-lateral-nivel-1",
+      "updatedAt": "2026-11-01T14:45:32.738Z"
+    },
+    "9789588931678": {
+      "location": "LOC-sala-tv-lateral-nivel-1",
+      "updatedAt": "2026-11-01T14:45:39.392Z"
+    },
+    "9780385539302": {
+      "location": "LOC-sala-tv-lateral-nivel-2",
+      "updatedAt": "2026-11-01T14:42:38.042Z"
+    },
+    "9780393348842": {
+      "location": "LOC-sala-tv-lateral-nivel-2",
+      "updatedAt": "2026-11-01T14:42:43.678Z"
+    },
+    "9788411071789": {
+      "location": "LOC-sala-tv-lateral-nivel-2",
+      "updatedAt": "2026-11-01T14:42:54.937Z"
+    },
+    "9788416544639": {
+      "location": "LOC-sala-tv-lateral-nivel-2",
+      "updatedAt": "2026-11-01T14:43:26.783Z"
+    },
+    "9788419399465": {
+      "location": "LOC-sala-tv-lateral-nivel-2",
+      "updatedAt": "2026-11-01T14:44:04.058Z"
+    },
+    "9788433962539": {
+      "location": "LOC-sala-tv-lateral-nivel-2",
+      "updatedAt": "2026-11-01T14:44:11.534Z"
+    },
+    "9788491994626": {
+      "location": "LOC-sala-tv-lateral-nivel-2",
+      "updatedAt": "2026-11-01T14:43:17.054Z"
+    },
+    "9788499928715": {
+      "location": "LOC-sala-tv-lateral-nivel-2",
+      "updatedAt": "2026-11-01T14:42:24.585Z",
+      "title": "Armas, gérmenes y acero: Breve historia de la humanidad en los últimos trece mil años",
+      "author": "Jared Diamond"
+    },
+    "9789584262288": {
+      "location": "LOC-sala-tv-lateral-nivel-2",
+      "updatedAt": "2026-11-01T14:43:10.504Z",
+      "title": "¿Tenemos suficiente inteligencia para entender la inteligencia de los animales? (Metatemas) (Spanish Edition)",
+      "author": "Frans de Waal"
+    },
+    "9789586397391": {
+      "location": "LOC-sala-tv-lateral-nivel-2",
+      "updatedAt": "2026-11-01T14:43:47.265Z",
+      "title": "El emperador de todos los males",
+      "author": "Siddhartha Mukherjee"
+    },
+    "9789588931777": {
+      "location": "LOC-sala-tv-lateral-nivel-2",
+      "updatedAt": "2026-11-01T14:43:33.034Z"
+    },
+    "9780393355505": {
+      "location": "LOC-sala-tv-lateral-nivel-3",
+      "updatedAt": "2026-11-01T14:39:25.427Z"
+    },
+    "9786077477273": {
+      "location": "LOC-sala-tv-lateral-nivel-3",
+      "updatedAt": "2026-11-01T14:40:10.048Z",
+      "title": "El collar del neandertal",
+      "author": "Juan Luis Arsuaga"
+    },
+    "9786287744417": {
+      "location": "LOC-sala-tv-lateral-nivel-3",
+      "updatedAt": "2026-11-01T14:38:41.700Z",
+      "title": "Patogénesis",
+      "author": "Jonathan Kennedy"
+    },
+    "9788423363278": {
+      "location": "LOC-sala-tv-lateral-nivel-3",
+      "updatedAt": "2026-11-01T14:38:28.920Z"
+    },
+    "9788433973382": {
+      "location": "LOC-sala-tv-lateral-nivel-3",
+      "updatedAt": "2026-11-01T14:41:21.816Z"
+    },
+    "9788434406247": {
+      "location": "LOC-sala-tv-lateral-nivel-3",
+      "updatedAt": "2026-11-01T14:39:50.205Z"
+    },
+    "9788491991649": {
+      "location": "LOC-sala-tv-lateral-nivel-3",
+      "updatedAt": "2026-11-01T14:38:17.430Z"
+    },
+    "9789502800103": {
+      "location": "LOC-sala-tv-lateral-nivel-3",
+      "updatedAt": "2026-11-01T14:41:12.340Z",
+      "title": "El cerebro de broca",
+      "author": "Carl Sagan"
+    },
+    "9789583202834": {
+      "location": "LOC-sala-tv-lateral-nivel-3",
+      "updatedAt": "2026-11-01T14:39:01.157Z",
+      "title": "Cómo crear un ser humano",
+      "author": "Philip Ball"
+    },
+    "9789584268365": {
+      "location": "LOC-sala-tv-lateral-nivel-3",
+      "updatedAt": "2026-11-01T14:39:55.739Z"
+    },
+    "9789585446441": {
+      "location": "LOC-sala-tv-lateral-nivel-3",
+      "updatedAt": "2026-11-01T14:39:39.862Z",
+      "title": "Yo contengo multitudes: Los microbios que nos habitan y una mayor visión de la vida",
+      "author": "Ed Yong"
+    },
+    "9789585531758": {
+      "location": "LOC-sala-tv-lateral-nivel-3",
+      "updatedAt": "2026-11-01T14:39:19.058Z"
+    },
+    "9789586391535": {
+      "location": "LOC-sala-tv-lateral-nivel-3",
+      "updatedAt": "2026-11-01T14:40:30.352Z"
+    },
+    "9789588931463": {
+      "location": "LOC-sala-tv-lateral-nivel-3",
+      "updatedAt": "2026-11-01T14:39:10.781Z",
+      "title": "La vida secreta de la mente: Nuestro cerebro cuando decidimos, sentimos y pensamos",
+      "author": "Mariano Sigman"
+    },
+    "9786280001661": {
+      "location": "LOC-sala-tv-lateral-nivel-4",
+      "updatedAt": "2026-11-01T14:35:30.723Z",
+      "title": "El viaje de la humanidad",
+      "author": "Odes Galor"
+    },
+    "9786287525504": {
+      "location": "LOC-sala-tv-lateral-nivel-4",
+      "updatedAt": "2026-11-01T14:05:40.669Z",
+      "title": "La muerte contada por un sapiens a un neardental",
+      "author": "Juan José Millas"
+    },
+    "9786287669468": {
+      "location": "LOC-sala-tv-lateral-nivel-4",
+      "updatedAt": "2026-11-01T14:36:29.522Z",
+      "title": "Ser humano: Cómo nuestra biología ha moldeado la historia universal",
+      "author": "Lewis Dartnell"
+    },
+    "9786287669833": {
+      "location": "LOC-sala-tv-lateral-nivel-4",
+      "updatedAt": "2026-11-01T14:36:09.602Z",
+      "title": "Herencia",
+      "author": "Harvey Whitehouse"
+    },
+    "9788420471228": {
+      "location": "LOC-sala-tv-lateral-nivel-4",
+      "updatedAt": "2026-11-01T14:06:26.167Z"
+    },
+    "9788434433229": {
+      "location": "LOC-sala-tv-lateral-nivel-4",
+      "updatedAt": "2026-11-01T14:36:46.604Z"
+    },
+    "9789584259653": {
+      "location": "LOC-sala-tv-lateral-nivel-4",
+      "updatedAt": "2026-11-01T14:37:19.088Z"
+    },
+    "9789584274748": {
+      "location": "LOC-sala-tv-lateral-nivel-4",
+      "updatedAt": "2026-11-01T14:34:11.391Z",
+      "title": "Biografía de la humanidad",
+      "author": "José Antonio Marina, Javier Rambaud"
+    },
+    "9789584279316": {
+      "location": "LOC-sala-tv-lateral-nivel-4",
+      "updatedAt": "2026-11-01T14:37:07.596Z",
+      "title": "Vida, la gran historia: Un viaje por el laberinto de la evolución (Imago Mundi) (Spanish Edition)",
+      "author": "Juan Luis Arsuaga"
+    },
+    "9789584284228": {
+      "location": "LOC-sala-tv-lateral-nivel-4",
+      "updatedAt": "2026-11-01T14:06:48.040Z",
+      "title": "La especie elegida",
+      "author": "Juan Luis Arsuaga"
+    },
+    "9789585118492": {
+      "location": "LOC-sala-tv-lateral-nivel-4",
+      "updatedAt": "2026-11-01T14:06:13.044Z",
+      "title": "La vida contada por un sapiens a un neardental",
+      "author": "Juan José Millas"
+    },
+    "9789585132870": {
+      "location": "LOC-sala-tv-lateral-nivel-4",
+      "updatedAt": "2026-11-01T14:34:40.370Z",
+      "title": "Tu mente bajo los efectos de las plantas",
+      "author": "Michael Pollan"
+    },
+    "9789585446373": {
+      "location": "LOC-sala-tv-lateral-nivel-4",
+      "updatedAt": "2026-11-01T14:35:48.235Z"
+    },
+    "9789585446687": {
+      "location": "LOC-sala-tv-lateral-nivel-4",
+      "updatedAt": "2026-11-01T14:11:42.425Z",
+      "title": "Orígenes",
+      "author": "Lewis Dartnell"
+    },
+    "9789588911267": {
+      "location": "LOC-sala-tv-lateral-nivel-4",
+      "updatedAt": "2026-11-01T14:34:18.130Z"
+    },
+    "9788466231299": {
+      "location": "LOC-sala-mesa-central",
+      "updatedAt": "2026-11-01T15:33:27.422Z",
+      "title": "Mapas Antiguos del Mundo",
+      "author": "Enrique Rodríguez González, Equipo Editorial"
+    },
+    "9788495709073": {
+      "location": "LOC-sala-mesa-central",
+      "updatedAt": "2026-11-01T15:34:18.054Z",
+      "title": "Los destinos tragicos del rock",
+      "author": "Bruno de Stabenrath"
+    }
+  }
+}

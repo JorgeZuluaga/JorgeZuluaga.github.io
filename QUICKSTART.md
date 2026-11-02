@@ -316,6 +316,63 @@ Esto actualiza el campo `drzrating` de cada `bookId` encontrado.
 
 ---
 
+## I. Ubicación de libros (`ubicaciones.html`)
+
+App privada (página + Worker de Cloudflare con KV) para registrar en qué ubicación física está cada libro. No modifica `info/library*.json`.
+
+### I.1 Localizar libros (día a día)
+
+1. Abre `https://jorgezuluaga.github.io/ubicaciones.html` (necesita HTTPS para usar la cámara). La primera vez pide el token (`.secrets/booklocation-token`).
+2. **Ubicaciones**: crea cada lugar con el formato `Lugar/Espacio/Nivel` y una clave corta (se propone sola, p. ej. `CMCN1`). Imprime o descarga las etiquetas QR y pégalas en cada estante.
+3. **Asignar**: escanea el QR de la ubicación (o escribe su clave o parte del nombre) → «＋ Nuevo libro» → escanea el código de barras, o escribe el ISBN o parte del título → revisa título, autor y ubicación → Guardar. Repite con el siguiente libro.
+4. Si el ISBN no está en tu catálogo, la ficha propone coincidencias por título («¿Es este el libro?») y, si no hay, busca en Google Books/Open Library.
+5. **Buscar**: escribe o escanea el ISBN (o el título) para ver dónde está; desde ahí puedes moverlo o quitarlo.
+
+Si cambias `assets/booklocation-page.js` o `assets/booklocation.css`, actualiza el `?v=AAAAMMDDHHMM` en `ubicaciones.html` (también es la versión que muestra la página; evita que Safari use una copia vieja) y haz commit/push.
+
+Si cambias `booklocation-worker.js`, redespliega:
+
+```bash
+make booklocation-deploy
+```
+
+### I.2 Respaldo y estadísticas
+
+```bash
+make booklocation-backup
+```
+
+- Descarga las ubicaciones del Worker (usa `.secrets/booklocation-token` o `BOOKLOC_TOKEN=...`) y las guarda ordenadas y legibles en `info/booklocation.json`.
+- Genera `info/locationstats.md` (libros por lugar y por lugar/espacio; también se puede regenerar solo con `python3 bin/booklocation_stats.py`).
+- Después, haz commit/push de ambos archivos:
+
+```bash
+git add info/booklocation.json info/locationstats.md
+git commit -m "chore: respaldo de ubicaciones"
+git push
+```
+
+Hazlo al terminar cada sesión de localización. `make booklocation-export` es un alias.
+
+### I.3 Conciliación
+
+Muchos libros del catálogo tienen el ISBN de otra edición (la encontrada en internet al ingresarlos a BookBuddy), distinto al de tu ejemplar. La conciliación cruza por título y autor los libros localizados con el catálogo y guarda el ISBN escaneado como **ISBN secundario**.
+
+```bash
+make booklocation-backup   # 1) respaldo de ubicaciones actualizado
+make booklocation-recon    # 2) concilia
+```
+
+`make booklocation-recon` hace, en orden:
+
+1. Respalda `info/library.json` y `info/library-details.json` en `info/backup/` con la fecha (`library-AAAAMMDD.json`, `library-details-AAAAMMDD.json`; no sobrescribe el respaldo del mismo día).
+2. Escribe el campo `ISBN2` (varios separados por coma) directamente en `info/library-details.json`. Si el libro solo está en `library.json`, escribe `isbn2` allí. Los `ISBN2` existentes se conservan.
+3. Genera `info/backup/reconciliation.md` solo con los **libros con problemas**: los que no están en el catálogo (candidatos a incluir en BookBuddy; «¿?» indica un parecido dudoso no aplicado) y los de ISBN no válido. De los demás solo da el conteo.
+
+La página `ubicaciones.html` busca por el ISBN principal y por los secundarios. Haz commit/push de `info/`. Tras actualizar el catálogo desde BookBuddy, repite la conciliación (el script de actualización debe conservar `ISBN2`/`isbn2`).
+
+---
+
 ## Cadena completa sugerida
 
 ```bash
