@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-02T15:44:16.148Z",
+  "updatedAt": "2026-11-02T17:01:27.689Z",
   "locations": {
     "LOC-a-donacion": {
       "name": "A/Donación",
@@ -302,6 +302,12 @@
       "updatedAt": "2026-11-02T15:26:44.017Z",
       "title": "Newton y la Mecanica Celeste",
       "author": "Jean-Pierre Maury"
+    },
+    "9788483109502": {
+      "location": "LOC-prestamos",
+      "updatedAt": "2026-11-02T16:32:05.726Z",
+      "title": "La estructura de la teoria de la evolucion - 3. ed.",
+      "author": "Stephen Jay Gould"
     },
     "9780061116612": {
       "location": "LOC-comedor-modulo-central-nivel-1",
@@ -1901,12 +1907,6 @@
       "location": "LOC-estudio-escritorio-cajas-nivel-2",
       "updatedAt": "2026-11-01T15:57:46.472Z"
     },
-    "9788483109502": {
-      "location": "LOC-estudio-escritorio-cajas-nivel-2",
-      "updatedAt": "2026-11-01T15:57:25.544Z",
-      "title": "La estructura de la teoria de la evolucion - 3. ed.",
-      "author": "Stephen Jay Gould"
-    },
     "9788491052166": {
       "location": "LOC-estudio-escritorio-cajas-nivel-2",
       "updatedAt": "2026-11-01T15:50:43.228Z"
@@ -2219,8 +2219,8 @@
     },
     "9788497941259": {
       "location": "LOC-estudio-escritorio-cajas-nivel-superior",
-      "updatedAt": "2026-11-01T16:13:45.983Z",
-      "title": "Egipto",
+      "updatedAt": "2026-11-02T17:01:27.689Z",
+      "title": "Mitos y Leyendas: Egipto",
       "author": "Lewis Spence"
     },
     "9788498064902": {

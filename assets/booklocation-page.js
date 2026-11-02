@@ -467,7 +467,8 @@
   function booksIn(code) {
     return Object.entries(data.books)
       .filter(([, b]) => b.location === code)
-      .sort((a, b) => String(b[1].updatedAt).localeCompare(String(a[1].updatedAt)))
+      .map(([isbn, b]) => [isbn, b.title || catalog.get(isbn)?.title || ""])
+      .sort((a, b) => a[1].localeCompare(b[1], "es", { sensitivity: "base", numeric: true }))
       .map(([isbn]) => isbn);
   }
 
