@@ -17,7 +17,7 @@
 	library-ddc-update library-ddc-generate-pending library-ddc-apply-gemini \
 	sync-dcc-library-details \
 	update-all-books \
-	worker-deploy booklocation-deploy booklocation-export booklocation-backup booklocation-recon booklocation-reconcile book-og-deploy book-og-check book-og-ensure review-notify-deploy review-notify-send review-notify-seed-test review-notify-test-send \
+	worker-deploy booklocation-deploy booklocation-export booklocation-backup booklocation-recon booklocation-print booklocation-reconcile book-og-deploy book-og-check book-og-ensure review-notify-deploy review-notify-send review-notify-seed-test review-notify-test-send \
 	lista-suscritos \
 	update-shorts
 
@@ -555,6 +555,14 @@ booklocation-recon:
 	@cd bin && python3 booklocation_recon.py
 
 # Informe de libros escaneados cuyo ISBN no está en el catálogo (APPLY=1 guarda alias seguros).
+# Abre el informe de conciliación en el navegador listo para imprimir (Cmd+P).
+booklocation-print:
+	@test -f info/backup/reconciliation.md || { echo "Falta info/backup/reconciliation.md: corre antes make booklocation-recon"; exit 1; }
+	@printf '%s\n' '<style>@page{size:A4 landscape;margin:10mm}html,body{max-width:none!important;width:auto!important;margin:0!important;padding:0!important}body{font:10pt -apple-system,Helvetica,sans-serif;padding:6mm!important}table{border-collapse:collapse;width:100%!important;display:table!important;table-layout:auto;overflow:visible}th,td{border:1px solid #999;padding:3px 5px;font-size:8.5pt;text-align:left;vertical-align:top}header,#TOC{display:none}h1{font-size:14pt;margin:0 0 4mm}h2{font-size:11pt}tr{page-break-inside:avoid}thead{display:table-header-group}</style>' > /tmp/recon-head.html
+	@pandoc info/backup/reconciliation.md -s --metadata title="Libros con problemas" -H /tmp/recon-head.html -o /tmp/reconciliation.html
+	@open /tmp/reconciliation.html
+	@echo ">>> Se abrió en el navegador: pulsa Cmd+P para imprimir (ya viene en horizontal)."
+
 booklocation-reconcile:
 	@python3 bin/reconcile_booklocation.py $(if $(APPLY),--apply,)
 

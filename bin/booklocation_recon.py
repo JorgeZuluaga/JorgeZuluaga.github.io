@@ -18,6 +18,7 @@ import difflib
 import json
 import re
 import shutil
+import sys
 from datetime import datetime
 from pathlib import Path
 
@@ -57,6 +58,16 @@ def score(a_forms: set[str], b_forms: set[str]) -> float:
     return max(difflib.SequenceMatcher(None, a, b).ratio() for a in a_forms for b in b_forms)
 
 
+def ask(isbn: str, title: str, author: str, where: str, row: dict, s: float) -> str | None:
+    """Pregunta si el candidato es el mismo libro. Devuelve 's', 'n' o None (decidir después)."""
+    print(f"\nLibro localizado: {title} — {author}  [{isbn}]  📍 {where}")
+    print(f"  ¿Es el del catálogo?  {row.get('Title')} — {row.get('Author')}  [ISBN {row.get('ISBN') or 'sin ISBN'}]  (similitud {s:.2f})")
+    while True:
+        a = input("  [s] sí, es el mismo · [n] no · [Enter] decidir después: ").strip().lower()
+        if a in ("s", "n", ""):
+            return a or None
+
+
 def main() -> None:
     ap = argparse.ArgumentParser()
     ap.add_argument("--booklocation", default="info/booklocation.json")
@@ -70,14 +81,20 @@ def main() -> None:
     lib = json.loads((root / "info/library.json").read_text("utf-8"))
     rows = cat["books"]
 
+    dec_path = root / "info/booklocation-decisions.json"
+    decisions = json.loads(dec_path.read_text("utf-8")) if dec_path.exists() else {}
+    interactive = sys.stdin.isatty()
+    changed = False
+
     # Respaldo con fecha antes de modificar nada.
     stamp = datetime.now().strftime("%Y%m%d")
     bdir = root / "info/backup"
     bdir.mkdir(parents=True, exist_ok=True)
     for name in ("library.json", "library-details.json"):
         dst = bdir / f"{name[:-5]}-{stamp}.json"
-        if not dst.exists():  # no sobrescribir el respaldo original del día
-            shutil.copy2(root / "info" / name, dst)
+        if dst.exists():  # ya hay respaldo de hoy: este lleva también la hora
+            dst = bdir / f"{name[:-5]}-{stamp}-{datetime.now().strftime('%H%M')}.json"
+        shutil.copy2(root / "info" / name, dst)
 
     # Parte de los ISBN2 ya existentes: se conservan y cuentan como conocidos.
     known: set[str] = set()
@@ -124,27 +141,55 @@ def main() -> None:
             or (s >= AUTO_WITH_AUTHOR and common and (s >= 0.92 or subset(sf, forms[i])))
         )
         item = (isbn, title, author, where, s, rows[i] if i >= 0 else None, common)
-        if ok and not invalid:  # un código no válido nunca se guarda como ISBN2
+        if ok:
             applied.append(item)
             cur = [x for x in str(rows[i].get("ISBN2", "")).split(",") if x]
             rows[i]["ISBN2"] = ",".join(cur + [isbn])
         else:
             # ¿Está al menos en library.json (Goodreads)? Ahí no se puede añadir ISBN2.
             lb = max(((score(sf, f), bool(st & a), b) for b, f, a in libs), key=lambda x: (x[0], x[1]), default=(0, False, None))
-            if lb[2] and not invalid and ((lb[0] >= AUTO_STRICT and (lb[1] or not st)) or (lb[0] >= AUTO_WITH_AUTHOR and lb[1])):
+            if lb[2] and ((lb[0] >= AUTO_STRICT and (lb[1] or not st)) or (lb[0] >= AUTO_WITH_AUTHOR and lb[1])):
                 inlib.append((isbn, title, author, where, lb[0], lb[2]))
                 cur = [x for x in str(lb[2].get("isbn2", "")).split(",") if x]
                 lb[2]["isbn2"] = ",".join(cur + [isbn])
                 continue
             if i >= 0 and s >= REVIEW_MIN:
-                review.append(item)
+                row = rows[i]
+                d = decisions.get(isbn)
+                if d and d.get("ok"):  # decisión guardada: se busca la fila por título y autor
+                    row = next((r for r in rows if r.get("Title") == d["title"] and r.get("Author") == d["author"]), None)
+                    if row is not None:
+                        applied.append((isbn, title, author, where, s, row, common))
+                        cur = [x for x in str(row.get("ISBN2", "")).split(",") if x]
+                        if isbn not in cur:
+                            row["ISBN2"] = ",".join(cur + [isbn])
+                        continue
+                    d = None
+                same = d and d.get("title") == rows[i].get("Title") and d.get("author") == rows[i].get("Author")
+                if not same:  # sin decisión previa, o el mejor candidato cambió
+                    ans = ask(isbn, title, author, where, row, s) if interactive else None
+                    if ans:
+                        decisions[isbn] = {"ok": ans == "s", "title": row.get("Title"), "author": row.get("Author")}
+                        changed = True
+                    if ans == "s":
+                        applied.append(item)
+                        cur = [x for x in str(row.get("ISBN2", "")).split(",") if x]
+                        row["ISBN2"] = ",".join(cur + [isbn])
+                        continue
+                    if ans is None:
+                        review.append(item)
             missing.append((isbn, title, author, where))
 
+    if changed:
+        dec_path.write_text(json.dumps(decisions, indent=2, ensure_ascii=False, sort_keys=True) + "\n", "utf-8")
     (root / "info/library-details.json").write_text(json.dumps(cat, indent=2, ensure_ascii=False) + "\n", "utf-8")
     (root / "info/library.json").write_text(json.dumps(lib, indent=2, ensure_ascii=False) + "\n", "utf-8")
 
     total = len(loc.get("books", {}))
-    problems = {x[0] for x in missing} | {x[0] for x in notisbn}
+    # Libros prestados (ubicación «préstamo»): no son de tu biblioteca, no se reportan como problema.
+    loaned = {x[0] for x in missing if "prestamo" in norm(x[3]) or "prestaron" in norm(x[3])}
+    missing = [x for x in missing if x[0] not in loaned]
+    problems = {x[0] for x in missing}
     rev = {x[0]: x for x in review}
     bad = {x[0]: x for x in notisbn}
     miss = {x[0] for x in missing}
@@ -152,21 +197,21 @@ def main() -> None:
          f"Generado: {datetime.now().strftime('%Y-%m-%d %H:%M')} · Respaldos en `info/backup/` (`*-{stamp}.json`).", "",
          f"- Libros localizados: **{total}**",
          f"- Sin problemas: **{total - len(problems)}** (ya en el catálogo: {total - len(applied) - len(missing) - len(inlib)}, `ISBN2` asignado en `library-details.json`: {len(applied)}, `isbn2` asignado en `library.json`: {len(inlib)})",
-         f"- Con problemas: **{len(problems)}** (no están en el catálogo: {len(missing)}, ISBN no válido: {len(notisbn)})", "",
+         f"- Con problemas: **{len(problems)}** (no están en el catálogo; {len([x for x in notisbn if x[0] in problems])} de ellos además con ISBN no válido). Un ISBN no válido solo es problema si el libro no está en el catálogo. Excluidos por estar en préstamo: {len(loaned)}", "",
          f"## Libros con problemas ({len(problems)})", "",
          "| ISBN | Título | Autor | Ubicación | Problema |", "|---|---|---|---|---|"]
-    for isbn, t, a, w in sorted([x for x in missing] + [x for x in notisbn if x[0] not in {m[0] for m in missing}], key=lambda x: (x[1] or "~").lower()):
+    for isbn, t, a, w in sorted(missing, key=lambda x: (norm(x[3]), norm(x[1] or "~"))):
         notes = ["no está en el catálogo"] if isbn in miss else []
         if isbn in rev:
             r = rev[isbn][5]
             notes[0] += f" (¿? parecido a «{r.get('Title')}» — {r.get('Author')}, {r.get('ISBN') or 'sin ISBN'}, {rev[isbn][4]:.2f})"
         if isbn in bad:
-            notes.append("ISBN no válido")
+            notes.append("ISBN no válido" + ("" if isbn in miss else " (código del producto; ya conciliado por título, ISBN2 asignado)"))
         L.append(f"| {isbn} | {t or '(sin título)'} | {a} | {w} | {'; '.join(notes)} |")
     rep = root / args.report
     rep.parent.mkdir(parents=True, exist_ok=True)
     rep.write_text("\n".join(L) + "\n", "utf-8")
-    print(f"OK: ISBN2 en detalles {len(applied)}, isbn2 en library.json {len(inlib)}, con problemas {len(problems)} (faltan {len(missing)}, no-ISBN {len(notisbn)})")
+    print(f"OK: ISBN2 en detalles {len(applied)}, isbn2 en library.json {len(inlib)}, con problemas {len(problems)} (no-ISBN: {len([x for x in notisbn if x[0] in problems])})")
     print(f"    respaldo info/backup/*-{stamp}.json · {args.report}")
 
 

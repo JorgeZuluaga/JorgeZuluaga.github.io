@@ -345,7 +345,8 @@
       "drzratingAuto": true,
       "reviewLocalLikes": 0,
       "reviewLocalLikesUpdatedAt": "2026-11-01T17:06:21.425256+00:00",
-      "reviewDate": "2026-09-19"
+      "reviewDate": "2026-09-19",
+      "dateAdded": "2026-08-28"
     },
     {
       "bookId": "713143",
@@ -440,7 +441,8 @@
       "drzratingAuto": true,
       "reviewLocalLikes": 0,
       "reviewLocalLikesUpdatedAt": "2026-11-01T17:06:21.425256+00:00",
-      "reviewDate": "2026-09-19"
+      "reviewDate": "2026-09-19",
+      "isbn2": "9789585573116"
     },
     {
       "bookId": "59659293",
@@ -2660,7 +2662,8 @@
         "confidence": 0.95
       },
       "matched": false,
-      "isbn": "9788430625758"
+      "isbn": "9788430625758",
+      "isbn2": "9788430625741"
     },
     {
       "bookId": "43450595",
@@ -2834,7 +2837,8 @@
         "confidence": 0.9
       },
       "matched": false,
-      "isbn": "9788433947611"
+      "isbn": "9788433947611",
+      "isbn2": "9788433946850"
     },
     {
       "bookId": "56644361",
@@ -4592,8 +4596,9 @@
         "reasoning": "Desmiente seudociencias mediante investigación arqueológica formal y erudita del antiguo Egipto.",
         "confidence": 0.0
       },
-      "matched": false,
-      "isbn": "9788418227578"
+      "matched": true,
+      "isbn": "9788418227578",
+      "dateAdded": "2026-11-02"
     },
     {
       "bookId": "6532610",
@@ -4838,7 +4843,8 @@
       "reviewLocalStatus": "ok",
       "reviewLocalGeneratedAt": "2026-07-03T14:21:12.453666+00:00",
       "reviewLocalLikes": 0,
-      "reviewLocalLikesUpdatedAt": "2026-11-01T17:06:21.425256+00:00"
+      "reviewLocalLikesUpdatedAt": "2026-11-01T17:06:21.425256+00:00",
+      "isbn2": "9786287571389"
     },
     {
       "bookId": "26196560",
@@ -10689,7 +10695,8 @@
         "confidence": 0.0
       },
       "matched": false,
-      "isbn": "9788491051930"
+      "isbn": "9788491051930",
+      "isbn2": "9789588925646"
     },
     {
       "bookId": "17506002",
@@ -10894,7 +10901,8 @@
         "confidence": 0.0
       },
       "matched": false,
-      "isbn": "9788483107027"
+      "isbn": "9788483107027",
+      "isbn2": "9786075692586"
     },
     {
       "bookId": "25745999",
@@ -13022,7 +13030,8 @@
         "confidence": 0.0
       },
       "matched": false,
-      "isbn": "9788430622115"
+      "isbn": "9788430622115",
+      "isbn2": "9789589219744"
     },
     {
       "bookId": "131008",
@@ -13504,7 +13513,8 @@
         "confidence": 0.0
       },
       "matched": false,
-      "isbn": "9788423433179"
+      "isbn": "9788423433179",
+      "isbn2": "9789584299925"
     },
     {
       "bookId": "58888589",
@@ -14097,7 +14107,8 @@
       "reviewLocalStatus": "ok",
       "reviewLocalGeneratedAt": "2026-07-03T14:27:20.129594+00:00",
       "reviewLocalLikes": 0,
-      "reviewLocalLikesUpdatedAt": "2026-11-01T17:06:21.425256+00:00"
+      "reviewLocalLikesUpdatedAt": "2026-11-01T17:06:21.425256+00:00",
+      "isbn2": "9789584299673"
     },
     {
       "bookId": "27187428",
@@ -14377,7 +14388,8 @@
         "confidence": 0.0
       },
       "matched": false,
-      "isbn": "9789681674939"
+      "isbn": "9789681674939",
+      "isbn2": "9786071655714"
     },
     {
       "bookId": "60010977",
@@ -14586,7 +14598,8 @@
         "confidence": 0.0
       },
       "matched": false,
-      "isbn": "9788482987088"
+      "isbn": "9788482987088",
+      "isbn2": "9788482986999"
     },
     {
       "bookId": "42401611",
@@ -14821,7 +14834,7 @@
       "reviewLocalLikesUpdatedAt": "2026-11-01T17:06:21.425256+00:00",
       "drzrating": 97,
       "bookDetails": 1,
-      "dateAdded": "2021-11-21",
+      "dateAdded": "2026-11-01",
       "reviewCount": 1082,
       "dcc_classes": {
         "300": "Ciencias sociales (300)"
@@ -15399,7 +15412,7 @@
         "confidence": 0.0
       },
       "isbn": "9788408235316",
-      "dateAdded": "2021-01-04",
+      "dateAdded": "2026-09-13",
       "matched": true
     },
     {
@@ -15812,7 +15825,8 @@
         "confidence": 0.0
       },
       "matched": false,
-      "isbn": "9788418056581"
+      "isbn": "9788418056581",
+      "isbn2": "9789585132238"
     },
     {
       "bookId": "57941146",

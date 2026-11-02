@@ -365,9 +365,10 @@ make booklocation-recon    # 2) concilia
 
 `make booklocation-recon` hace, en orden:
 
-1. Respalda `info/library.json` y `info/library-details.json` en `info/backup/` con la fecha (`library-AAAAMMDD.json`, `library-details-AAAAMMDD.json`; no sobrescribe el respaldo del mismo día).
+1. Respalda `info/library.json` y `info/library-details.json` en `info/backup/` con la fecha (`library-AAAAMMDD.json`, `library-details-AAAAMMDD.json`; si ya hay uno del día, agrega la hora: `-AAAAMMDD-HHMM`).
 2. Escribe el campo `ISBN2` (varios separados por coma) directamente en `info/library-details.json`. Si el libro solo está en `library.json`, escribe `isbn2` allí. Los `ISBN2` existentes se conservan.
-3. Genera `info/backup/reconciliation.md` solo con los **libros con problemas**: los que no están en el catálogo (candidatos a incluir en BookBuddy; «¿?» indica un parecido dudoso no aplicado) y los de ISBN no válido. De los demás solo da el conteo.
+3. Para los libros con un candidato dudoso («¿?») **pregunta en la terminal** si es el mismo libro: `s` (sí: se guarda el ISBN escaneado como `ISBN2`), `n` (no) o Enter (decidir después). Las respuestas se guardan en `info/booklocation-decisions.json` y no se vuelve a preguntar. Los ISBN no válidos no se preguntan.
+4. Genera `info/backup/reconciliation.md` solo con los **libros con problemas**: los que no están en el catálogo (candidatos a incluir en BookBuddy; «¿?» indica un parecido dudoso no aplicado). Un ISBN no válido solo cuenta como problema si además el libro no está en el catálogo. De los demás solo da el conteo.
 
 La página `ubicaciones.html` busca por el ISBN principal y por los secundarios. Haz commit/push de `info/`. Tras actualizar el catálogo desde BookBuddy, repite la conciliación (el script de actualización debe conservar `ISBN2`/`isbn2`).
 

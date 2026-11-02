@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-01T18:04:49.566Z",
+  "updatedAt": "2026-11-02T14:48:04.204Z",
   "locations": {
     "LOC-a-donacion": {
       "name": "A/Donación",
@@ -2124,6 +2124,10 @@
     "9788418227301": {
       "location": "LOC-estudio-escritorio-cajas-nivel-superior",
       "updatedAt": "2026-11-01T16:14:21.489Z"
+    },
+    "9788418227578": {
+      "location": "LOC-estudio-escritorio-cajas-nivel-superior",
+      "updatedAt": "2026-11-02T14:48:04.204Z"
     },
     "9788418648762": {
       "location": "LOC-estudio-escritorio-cajas-nivel-superior",
