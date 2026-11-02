@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-02T14:48:04.204Z",
+  "updatedAt": "2026-11-02T15:44:16.148Z",
   "locations": {
     "LOC-a-donacion": {
       "name": "A/Donación",
@@ -255,12 +255,6 @@
     }
   },
   "books": {
-    "9780066620732": {
-      "location": "LOC-leyendo-o-resenando",
-      "updatedAt": "2026-10-31T17:23:15.900Z",
-      "title": "Just for fun: the story of an accidental revolutionary",
-      "author": "Linus Torvalds, David Diamond"
-    },
     "9786287582385": {
       "location": "LOC-leyendo-o-resenando",
       "updatedAt": "2026-10-31T15:16:14.272Z",
@@ -293,15 +287,21 @@
       "title": "Fieras interiores",
       "author": "Andrés Cota Hiriart"
     },
-    "9788480769938": {
-      "location": "LOC-leyendo-o-resenando",
-      "updatedAt": "2026-10-31T17:23:11.042Z",
-      "title": "Newton y la Mecanica Celeste",
-      "author": "Jean-Pierre Maury"
-    },
     "9788491993322": {
       "location": "LOC-leyendo-o-resenando",
       "updatedAt": "2026-10-31T17:16:06.098Z"
+    },
+    "9780066620732": {
+      "location": "LOC-prestamos",
+      "updatedAt": "2026-11-02T15:26:30.754Z",
+      "title": "Just for fun: the story of an accidental revolutionary",
+      "author": "Linus Torvalds, David Diamond"
+    },
+    "9788480769938": {
+      "location": "LOC-prestamos",
+      "updatedAt": "2026-11-02T15:26:44.017Z",
+      "title": "Newton y la Mecanica Celeste",
+      "author": "Jean-Pierre Maury"
     },
     "9780061116612": {
       "location": "LOC-comedor-modulo-central-nivel-1",
@@ -1562,12 +1562,6 @@
     "9789584517418": {
       "location": "LOC-estudio-escritorio-modulo-lampara",
       "updatedAt": "2026-10-31T15:08:05.700Z"
-    },
-    "8782788611846": {
-      "location": "LOC-estudio-escritorio-cajas-nivel-1",
-      "updatedAt": "2026-10-31T15:28:33.816Z",
-      "title": "La cada lugubre",
-      "author": "Charles Dickens"
     },
     "8782788991962": {
       "location": "LOC-estudio-escritorio-cajas-nivel-1",
