@@ -583,8 +583,26 @@
       status(hits.length ? "Elige uno de los libros sugeridos." : "No es un ISBN válido y no hay libros con ese título en tu catálogo.", !hits.length);
       return;
     }
+    const c = catalog.get(isbn);
+    const k = (c && c.isbns.find((x) => data.books[x])) || isbn;
+    const st = data.books[k];
+    if (st && st.location !== currentLoc) { moveBook(k, st); return; }
     status("");
-    openForm(isbn);
+    openForm(k);
+  }
+
+  // Libro ya ubicado en otra parte: se mueve a la ubicación actual sin pasar por el formulario.
+  async function moveBook(isbn, st) {
+    const c = catalog.get(isbn);
+    const from = locName(st.location);
+    try {
+      data = await api("/assign", { isbn, location: currentLoc, secondaryLocation: "", title: st.title || "", author: st.author || "" });
+      $("as-isbn-input").value = "";
+      renderIsbnSuggest();
+      status("↪ " + (c?.title || st.title || "ISBN " + isbn) + ": " + from + " → " + locName(currentLoc) + ". Escanea el siguiente.");
+      renderMain();
+      startScan((code) => submitIsbn(code));
+    } catch (err) { status(err.message, true); }
   }
 
   function renderIsbnSuggest() {
