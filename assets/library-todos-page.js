@@ -3,9 +3,10 @@ import {
   getPageLang,
   t,
   withLangQuery,
-} from "./i18n.js";
+} from "./i18n.js?v=2";
 import { applyHeaderLangChrome, applyLibrarySectionNav } from "./library-nav.js";
 import { trackPageView } from "./visitor-tracker.js";
+import { bookLocation, indexDetails, loadBookLocations } from "./library-locations.js?v=1";
 
 const LIBRARY_JSON = "./info/library.json";
 const LIBRARY_DETAILS_JSON = "./info/library-details.json";
@@ -479,6 +480,7 @@ function detailsRowToAntiBook(row) {
     dateAdded,
     isbn,
     ISBN: isbn,
+    isbn2: row?.ISBN2 ?? row?.isbn2 ?? "",
     bookId,
     uploadedImageUrl,
     ddc,
@@ -860,7 +862,7 @@ function applyPagination(items, pagerState) {
   return items.slice(start, start + size);
 }
 
-function appendUnreadCard(frag, item, lang) {
+function appendUnreadCard(frag, item, lang, locations, findLibrary) {
   const entry = document.createElement("article");
   entry.className = "library-book-item library-book-item--with-cover";
 
@@ -885,6 +887,9 @@ function appendUnreadCard(frag, item, lang) {
   const metaArea = document.createElement("p");
   metaArea.className = "library-book-item__meta";
   metaArea.innerHTML = formatBookAreaMetaHtml(item, lang);
+  const metaLocation = document.createElement("p");
+  metaLocation.className = "library-book-item__meta";
+  metaLocation.innerHTML = `<strong>${escapeLibrary(t("library_location_label", lang))}</strong> ${escapeLibrary(bookLocation(locations, lang, item, findLibrary(item)))}`;
 
   const actions = document.createElement("p");
   actions.className = "library-book-item__actions";
@@ -907,6 +912,7 @@ function appendUnreadCard(frag, item, lang) {
   contentDiv.appendChild(meta1);
   contentDiv.appendChild(meta2);
   contentDiv.appendChild(metaArea);
+  contentDiv.appendChild(metaLocation);
   contentDiv.appendChild(actions);
 
   const coverWrapper = document.createElement("div");
@@ -966,7 +972,7 @@ function appendUnreadCard(frag, item, lang) {
   frag.appendChild(entry);
 }
 
-function appendReadCard(frag, item, lang, seriesMap, detailsBookIdSet) {
+function appendReadCard(frag, item, lang, seriesMap, detailsBookIdSet, locations, findDetails) {
   const entry = document.createElement("article");
   entry.className = "library-book-item library-book-item--with-cover";
 
@@ -1006,6 +1012,9 @@ function appendReadCard(frag, item, lang, seriesMap, detailsBookIdSet) {
   const metaArea = document.createElement("p");
   metaArea.className = "library-book-item__meta";
   metaArea.innerHTML = formatBookAreaMetaHtml(item, lang);
+  const metaLocation = document.createElement("p");
+  metaLocation.className = "library-book-item__meta";
+  metaLocation.innerHTML = `<strong>${escapeLibrary(t("library_location_label", lang))}</strong> ${escapeLibrary(bookLocation(locations, lang, item, findDetails(item)))}`;
 
   const meta3 = document.createElement("p");
   meta3.className = "library-book-item__meta";
@@ -1068,6 +1077,7 @@ function appendReadCard(frag, item, lang, seriesMap, detailsBookIdSet) {
   if (meta2Parts.length > 0) contentDiv.appendChild(meta2);
   if (datePart && datePart !== "—") contentDiv.appendChild(metaDate);
   contentDiv.appendChild(metaArea);
+  contentDiv.appendChild(metaLocation);
   if (descHtml) contentDiv.appendChild(actionsDesc);
   contentDiv.appendChild(meta3);
   if (reviewHtml) contentDiv.appendChild(actionsReview);
@@ -1118,7 +1128,7 @@ function appendReadCard(frag, item, lang, seriesMap, detailsBookIdSet) {
   frag.appendChild(entry);
 }
 
-function renderMixedList(container, rows, lang, seriesMap, detailsBookIdSet) {
+function renderMixedList(container, rows, lang, seriesMap, detailsBookIdSet, locations, findDetails, findLibrary) {
   if (!container) return;
   if (!Array.isArray(rows) || rows.length === 0) {
     container.innerHTML = `<p class="photo-card__error">${escapeLibrary(t("library_no_data", lang))}</p>`;
@@ -1128,9 +1138,9 @@ function renderMixedList(container, rows, lang, seriesMap, detailsBookIdSet) {
   const frag = document.createDocumentFragment();
   for (const row of rows) {
     if (row.kind === "read") {
-      appendReadCard(frag, row.book, lang, seriesMap, detailsBookIdSet);
+      appendReadCard(frag, row.book, lang, seriesMap, detailsBookIdSet, locations, findDetails);
     } else {
-      appendUnreadCard(frag, row.book, lang);
+      appendUnreadCard(frag, row.book, lang, locations, findLibrary);
     }
   }
   container.replaceChildren(frag);
@@ -1236,6 +1246,9 @@ async function main() {
     .then((r) => (r.ok ? r.json() : { books: [] }))
     .catch(() => ({ books: [] }));
   const detailsBookIdSet = buildDetailsBookIdSet(detailsData.books ?? []);
+  const locations = await loadBookLocations();
+  const findDetails = indexDetails(detailsData.books ?? []);
+  const findLibrary = indexDetails(data.books ?? []);
 
   const seriesMap = new Map();
   for (const series of seriesData.series || []) {
@@ -1334,7 +1347,7 @@ async function main() {
     pagerTop?.renderState(pagerState, filtered.length);
     pagerBottom?.renderState(pagerState, filtered.length);
     const visibleRows = applyPagination(filtered, pagerState);
-    renderMixedList(listEl, visibleRows, lang, seriesMap, detailsBookIdSet);
+    renderMixedList(listEl, visibleRows, lang, seriesMap, detailsBookIdSet, locations, findDetails, findLibrary);
     const readOnly = visibleRows.filter((r) => r.kind === "read").map((r) => r.book);
     hydrateLocalLikes(listEl, readOnly, lang).catch(() => {});
   };

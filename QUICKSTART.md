@@ -345,6 +345,7 @@ make booklocation-backup
 ```
 
 - Descarga las ubicaciones del Worker (usa `.secrets/booklocation-token` o `BOOKLOC_TOKEN=...`) y las guarda ordenadas y legibles en `info/booklocation.json`.
+- La biblioteca completa y la ficha de cada libro muestran las ubicaciones de este respaldo público, no consultan el Worker en tiempo real. Ejecuta este respaldo y publica sus cambios para reflejar los movimientos recientes.
 - Genera `info/locationstats.md` (libros por lugar y por lugar/espacio; también se puede regenerar solo con `python3 bin/booklocation_stats.py`).
 - Después, haz commit/push de ambos archivos:
 

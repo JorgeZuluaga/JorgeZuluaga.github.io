@@ -1,6 +1,7 @@
 import { getPageLang, t, withLangQuery } from "./i18n.js";
 import { applyLibrarySectionNav } from "./library-nav.js";
 import { trackPageView } from "./visitor-tracker.js";
+import { alternateIsbns, bookLocation, indexDetails, loadBookLocations } from "./library-locations.js?v=1";
 
 const LIBRARY_JSON = "./info/library.json";
 const LIBRARY_DETAILS_JSON = "./info/library-details.json";
@@ -871,7 +872,7 @@ function renderNotFound() {
   if (err) err.hidden = false;
 }
 
-async function renderBookPageContent(lang, meta, libraryBook, coverBookKey, fromReadLibrary) {
+async function renderBookPageContent(lang, meta, libraryBook, detailsRow, locations, coverBookKey, fromReadLibrary) {
   const titleEl = document.getElementById("book-title");
   if (titleEl) titleEl.textContent = String(meta.title || "");
   const authorEl = document.getElementById("book-author");
@@ -924,9 +925,11 @@ async function renderBookPageContent(lang, meta, libraryBook, coverBookKey, from
     setText("book-date-added", "", dateAddedLabel);
   }
 
+  setText("book-location", bookLocation(locations, lang, libraryBook, detailsRow, meta), lang === "en" ? "Location" : "Ubicación");
   renderReadStats(lang, libraryBook, fromReadLibrary);
 
   setText("book-isbn", meta.isbn, "ISBN");
+  setText("book-isbn2", alternateIsbns(libraryBook, detailsRow).join(", "), "ISBN2");
 
   const purchasePlaceLabel = lang === "en" ? "Purchase place" : "Lugar de compra";
   setText("book-purchase-place", meta.purchasePlace, purchasePlaceLabel);
@@ -972,7 +975,7 @@ async function main() {
     return;
   }
 
-  const libraryData = await fetchJson(LIBRARY_JSON);
+  const [libraryData, locations] = await Promise.all([fetchJson(LIBRARY_JSON), loadBookLocations()]);
   const books = Array.isArray(libraryData?.books) ? libraryData.books : [];
 
   if (params.mode === "bookid_numeric") {
@@ -985,14 +988,13 @@ async function main() {
     }
     const detailsData = await fetchJson(LIBRARY_DETAILS_JSON);
     const detailsBooks = Array.isArray(detailsData?.books) ? detailsData.books : [];
-    const detailsRow =
-      detailsBooks.find((d) => String(d?.bookId || "").trim() === params.bookid) || null;
+    const detailsRow = indexDetails(detailsBooks)(libraryBook);
     const meta = detailsRow
       ? mergeBookDetailsMode(detailsRow, libraryBook)
       : mergeBookLibraryOnly(libraryBook);
     const fromReadLibrary = Boolean(String(libraryBook.dateRead || "").trim());
     applyChrome(lang, fromReadLibrary);
-    await renderBookPageContent(lang, meta, libraryBook, params.bookid, fromReadLibrary);
+    await renderBookPageContent(lang, meta, libraryBook, detailsRow, locations, params.bookid, fromReadLibrary);
     return;
   }
 
@@ -1005,15 +1007,14 @@ async function main() {
       renderNotFound();
       return;
     }
-    const libraryBook =
-      books.find((b) => normalizeIsbn(b?.isbn || b?.ISBN) === params.isbn) || null;
+    const libraryBook = indexDetails(books)(detailsRow);
     const meta = mergeBookDetailsMode(detailsRow, libraryBook);
     const fromReadLibrary = Boolean(
       libraryBook && String(libraryBook.dateRead || "").trim(),
     );
     applyChrome(lang, fromReadLibrary);
     const coverKey = libraryBook?.bookId ? String(libraryBook.bookId) : `isbn:${params.isbn}`;
-    await renderBookPageContent(lang, meta, libraryBook, coverKey, fromReadLibrary);
+    await renderBookPageContent(lang, meta, libraryBook, detailsRow, locations, coverKey, fromReadLibrary);
     return;
   }
 
@@ -1034,7 +1035,7 @@ async function main() {
     libraryBook && String(libraryBook.dateRead || "").trim(),
   );
   applyChrome(lang, fromReadLibrary);
-  await renderBookPageContent(lang, meta, libraryBook, params.bookid, fromReadLibrary);
+  await renderBookPageContent(lang, meta, libraryBook, detailsRow, locations, params.bookid, fromReadLibrary);
 }
 
 main().catch((err) => {
