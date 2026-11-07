@@ -7,6 +7,7 @@
 
   let data = { locations: {}, books: {} };
   let catalog = new Map(); // isbn13 -> {title, author, isbn}
+  let catalogAuthors = [];
   let currentLoc = ""; // ubicación activa en «Asignar» (solo en memoria)
   let scanHandler = null;
   let stream = null;
@@ -113,6 +114,14 @@
       fetchDetails(),
       fetch("./info/booklocation-aliases.json").then((r) => (r.ok ? r.json() : {})).catch(() => ({})),
     ]);
+    const authors = new Map();
+    [...(lib.books || []).map((b) => b.author), ...(det.books || []).map((b) => b.Author)].forEach((author) => {
+      if (typeof author !== "string") return;
+      const name = author.trim().replace(/\s+/g, " ").normalize("NFC");
+      const key = name.toLocaleLowerCase("es");
+      if (name && !authors.has(key)) authors.set(key, name);
+    });
+    catalogAuthors = [...authors.values()].sort((a, b) => a.localeCompare(b, "es", { sensitivity: "base", numeric: true }));
     (lib.books || []).forEach((b) => add(b.title, b.author, b.isbn, b.reviewLocalCoverUrl, String(b.isbn2 || "").split(",")));
     (det.books || []).forEach((b) => add(b.Title, b.Author, b.ISBN, "", String(b.ISBN2 || "").split(",")));
     // ISBN escaneado distinto al del catálogo (generado por bin/reconcile_booklocation.py).
@@ -343,6 +352,7 @@
   // ---------- Buscar ----------
   // ---------- Búsqueda en línea (solo si el ISBN no está en el catálogo) ----------
   const online = new Map(); // isbn -> {title, author, cover, source} | null (no encontrado) | "pending"
+  const onlineRequests = new Map();
 
   async function fetchJson(url) {
     const res = await fetch(url);
@@ -351,8 +361,21 @@
   }
 
   async function lookupOnline(isbn) {
+    if (online.get(isbn) === "pending") return onlineRequests.get(isbn);
     if (online.has(isbn)) return online.get(isbn);
     online.set(isbn, "pending");
+    const request = fetchOnline(isbn);
+    onlineRequests.set(isbn, request);
+    try {
+      const found = await request;
+      online.set(isbn, found);
+      return found;
+    } finally {
+      onlineRequests.delete(isbn);
+    }
+  }
+
+  async function fetchOnline(isbn) {
     let found = null;
     try {
       const g = await fetchJson("https://www.googleapis.com/books/v1/volumes?q=isbn:" + isbn + "&maxResults=1");
@@ -379,7 +402,6 @@
         }
       } catch { /* sin resultado */ }
     }
-    online.set(isbn, found);
     return found;
   }
 
@@ -516,9 +538,11 @@
   // ---------- Asignar (flujo guiado: ubicación → libro → ficha) ----------
   const STEP_EL = { loc: "as-loc", main: "as-main", isbn: "as-isbn", form: "as-form" };
   let formIsbn = "";
+  let formRevision = 0;
 
   function showStep(step) {
     stopScan();
+    $("af-author-list").hidden = true;
     Object.entries(STEP_EL).forEach(([k, id]) => { $(id).hidden = k !== step; });
     if (step === "loc") {
       fillLocSelect();
@@ -573,36 +597,30 @@
     $("a-log").innerHTML = `<div class="bl-card">${html}</div>`;
   }
 
+  function renderAuthorList(filter) {
+    const list = $("af-author-list");
+    const query = plain(filter).trim();
+    const matches = catalogAuthors.filter((name) => plain(name).includes(query));
+    list.innerHTML = matches.length
+      ? matches.map((name) => `<button type="button" class="bl-author-opt" data-author="${esc(name)}">${esc(name)}</button>`).join("")
+      : '<div class="bl-muted bl-pick__empty">Sin coincidencias; puedes escribir otro autor.</div>';
+    list.hidden = false;
+  }
+
   function submitIsbn(raw) {
     const isbn = normIsbn(raw);
     if (!isbn) {
       // No es un ISBN: se trata como título y, si hay una sola coincidencia, se abre directamente.
       const hits = catalogMatches(raw, "");
-      if (hits.length === 1) { status(""); openForm(hits[0].isbn); return; }
+      if (hits.length === 1) { status(""); openForm(locatedIsbn(hits[0]) || hits[0].isbn); return; }
       renderIsbnSuggest();
       status(hits.length ? "Elige uno de los libros sugeridos." : "No es un ISBN válido y no hay libros con ese título en tu catálogo.", !hits.length);
       return;
     }
     const c = catalog.get(isbn);
-    const k = (c && c.isbns.find((x) => data.books[x])) || isbn;
-    const st = data.books[k];
-    if (st && st.location !== currentLoc) { moveBook(k, st); return; }
+    const k = data.books[isbn] ? isbn : (c && locatedIsbn(c)) || isbn;
     status("");
     openForm(k);
-  }
-
-  // Libro ya ubicado en otra parte: se mueve a la ubicación actual sin pasar por el formulario.
-  async function moveBook(isbn, st) {
-    const c = catalog.get(isbn);
-    const from = locName(st.location);
-    try {
-      data = await api("/assign", { isbn, location: currentLoc, secondaryLocation: "", title: st.title || "", author: st.author || "" });
-      $("as-isbn-input").value = "";
-      renderIsbnSuggest();
-      status("↪ " + (c?.title || st.title || "ISBN " + isbn) + ": " + from + " → " + locName(currentLoc) + ". Escanea el siguiente.");
-      renderMain();
-      startScan((code) => submitIsbn(code));
-    } catch (err) { status(err.message, true); }
   }
 
   function renderIsbnSuggest() {
@@ -667,6 +685,8 @@
   function pickSuggestion(isbn) {
     const b = catalog.get(isbn);
     if (!b) return;
+    formRevision++;
+    $("as-form").classList.remove("bl-form-online");
     $("af-title").value = b.title;
     $("af-author").value = b.author;
     if (b.cover || coverCandidates(isbn, b).length) $("af-cover").innerHTML = coverHtml(coverCandidates(isbn, b));
@@ -675,8 +695,10 @@
   }
 
   async function openForm(isbn) {
+    const revision = ++formRevision;
     formIsbn = isbn;
     showStep("form");
+    $("as-form").classList.remove("bl-form-online");
     const st = data.books[isbn];
     const c = catalog.get(isbn);
     $("af-isbn").textContent = isbn;
@@ -699,10 +721,12 @@
     if (!c && !st?.title) {
       noteEl.textContent = "Buscando en Google Books…";
       const o = await lookupOnline(isbn).catch(() => null);
-      if (formIsbn !== isbn || $("as-form").hidden) return;
+      if (formRevision !== revision || formIsbn !== isbn || $("as-form").hidden) return;
       if (o && o !== "pending") {
+        const fromOnline = (!$("af-title").value && o.title) || (!$("af-author").value && o.author);
         if (!$("af-title").value) $("af-title").value = o.title;
         if (!$("af-author").value) $("af-author").value = o.author;
+        $("as-form").classList.toggle("bl-form-online", Boolean(fromOnline));
         if (o.cover && !$("af-cover").firstChild) $("af-cover").innerHTML = coverHtml([o.cover]);
         notes.unshift(`Encontrado en ${o.source}; revísalo.`);
       } else {
@@ -922,6 +946,25 @@
     $("as-isbn-input").addEventListener("keydown", (e) => { if (e.key === "Enter") { e.preventDefault(); submitIsbn($("as-isbn-input").value); } });
     $("as-isbn-cancel").onclick = () => showStep("main");
     $("as-form").addEventListener("submit", saveForm);
+    $("af-author").addEventListener("focus", () => renderAuthorList(""));
+    $("af-author").addEventListener("click", () => {
+      if ($("af-author-list").hidden) renderAuthorList("");
+    });
+    $("af-author").addEventListener("input", () => renderAuthorList($("af-author").value));
+    $("af-author").addEventListener("keydown", (e) => {
+      if (e.key === "Escape") $("af-author-list").hidden = true;
+      else if (e.key === "ArrowDown" && !$("af-author-list").hidden) {
+        const first = $("af-author-list").querySelector("button");
+        if (first) { e.preventDefault(); first.focus(); }
+      }
+    });
+    $("af-author-list").addEventListener("click", (e) => {
+      const author = e.target.closest("[data-author]");
+      if (!author) return;
+      $("af-author").value = author.dataset.author;
+      $("af-author").dispatchEvent(new Event("input", { bubbles: true }));
+      $("af-author-list").hidden = true;
+    });
     $("af-loc-pick").addEventListener("pick", () => syncSecondaryPick($("af-loc-pick"), $("af-secondary-wrap")));
     $("af-loc-pick").addEventListener("input", () => syncSecondaryPick($("af-loc-pick"), $("af-secondary-wrap")));
     $("as-form").addEventListener("error", onCoverError, true);
