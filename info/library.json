@@ -10038,7 +10038,8 @@
         "reasoning": "Libro de divulgación y frontera científica en el que físicos exploran la influencia fundamental que los fenómenos cuánticos ejercen sobre la biología celular.",
         "confidence": 0.0
       },
-      "matched": false
+      "matched": true,
+      "dateAdded": "2026-11-07"
     },
     {
       "bookId": "57027913",
@@ -13831,7 +13832,8 @@
         "confidence": 0.0
       },
       "matched": false,
-      "isbn": "9788434433793"
+      "isbn": "9788434433793",
+      "isbn2": "9789584299628"
     },
     {
       "bookId": "28559780",
@@ -14742,7 +14744,8 @@
         "confidence": 0.0
       },
       "matched": false,
-      "isbn": "9788491874904"
+      "isbn": "9788491874904",
+      "isbn2": "9788491873389"
     },
     {
       "bookId": "55022795",
@@ -16208,7 +16211,8 @@
       "reviewLocalStatus": "ok",
       "reviewLocalGeneratedAt": "2026-07-03T14:28:11.012305+00:00",
       "reviewLocalLikes": 0,
-      "reviewLocalLikesUpdatedAt": "2026-11-07T16:49:34.966164+00:00"
+      "reviewLocalLikesUpdatedAt": "2026-11-07T16:49:34.966164+00:00",
+      "isbn2": "9788416095728"
     },
     {
       "bookId": "24976877",

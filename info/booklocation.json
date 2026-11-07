@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-02T17:01:27.689Z",
+  "updatedAt": "2026-11-07T18:28:21.614Z",
   "locations": {
     "LOC-a-donacion": {
       "name": "A/Donación",
@@ -293,19 +293,22 @@
     },
     "9780066620732": {
       "location": "LOC-prestamos",
-      "updatedAt": "2026-11-02T15:26:30.754Z",
+      "updatedAt": "2026-11-02T17:27:50.458Z",
+      "secondaryLocation": "LOC-sala-tv-bajo-tv-nivel-inferior",
       "title": "Just for fun: the story of an accidental revolutionary",
       "author": "Linus Torvalds, David Diamond"
     },
     "9788480769938": {
       "location": "LOC-prestamos",
-      "updatedAt": "2026-11-02T15:26:44.017Z",
+      "updatedAt": "2026-11-02T17:28:38.820Z",
+      "secondaryLocation": "LOC-sala-tv-bajo-tv-nivel-inferior",
       "title": "Newton y la Mecanica Celeste",
       "author": "Jean-Pierre Maury"
     },
     "9788483109502": {
       "location": "LOC-prestamos",
-      "updatedAt": "2026-11-02T16:32:05.726Z",
+      "updatedAt": "2026-11-02T17:28:18.679Z",
+      "secondaryLocation": "LOC-estudio-escritorio-cajas-nivel-2",
       "title": "La estructura de la teoria de la evolucion - 3. ed.",
       "author": "Stephen Jay Gould"
     },
@@ -408,6 +411,10 @@
     "9786071621979": {
       "location": "LOC-comedor-modulo-central-nivel-2",
       "updatedAt": "2026-11-01T17:13:16.418Z"
+    },
+    "9786280220314": {
+      "location": "LOC-comedor-modulo-central-nivel-2",
+      "updatedAt": "2026-11-07T18:28:21.614Z"
     },
     "9786287571389": {
       "location": "LOC-comedor-modulo-central-nivel-2",
@@ -1280,12 +1287,6 @@
       "location": "LOC-comedor-modulo-izquierda-nivel-2",
       "updatedAt": "2026-10-31T17:26:03.594Z"
     },
-    "9780063349711": {
-      "location": "LOC-comedor-modulo-izquierda-nivel-4",
-      "updatedAt": "2026-10-31T17:20:34.431Z",
-      "title": "The Story of Birds: A New History from Their Dinosaur Origins to the Present",
-      "author": "Steve Brusatte"
-    },
     "9780521827041": {
       "location": "LOC-comedor-modulo-izquierda-nivel-4",
       "updatedAt": "2026-10-31T17:20:09.432Z",
@@ -1339,6 +1340,10 @@
     "9788419744432": {
       "location": "LOC-comedor-modulo-izquierda-nivel-4",
       "updatedAt": "2026-10-31T17:12:01.345Z"
+    },
+    "9788434438460": {
+      "location": "LOC-comedor-modulo-izquierda-nivel-4",
+      "updatedAt": "2026-11-07T17:23:04.279Z"
     },
     "9789500206822": {
       "location": "LOC-comedor-modulo-izquierda-nivel-4",
@@ -1555,6 +1560,12 @@
       "updatedAt": "2026-10-31T15:09:33.379Z",
       "title": "Anatomía y fisiología para dummies",
       "author": "Erin Odya"
+    },
+    "9789584280503": {
+      "location": "LOC-estudio-escritorio-modulo-lampara",
+      "updatedAt": "2026-11-07T17:45:34.767Z",
+      "title": "Gatos para Dummies",
+      "author": "Gina Spadafori, Paul D. Pion"
     },
     "9789584506313": {
       "location": "LOC-estudio-escritorio-modulo-lampara",
@@ -2259,6 +2270,666 @@
       "location": "LOC-estudio-escritorio-cajas-nivel-superior",
       "updatedAt": "2026-11-01T16:33:50.358Z"
     },
+    "9780143038399": {
+      "location": "LOC-estudio-lateral-nivel-1",
+      "updatedAt": "2026-11-07T16:47:42.789Z"
+    },
+    "9780393312768": {
+      "location": "LOC-estudio-lateral-nivel-1",
+      "updatedAt": "2026-11-07T16:35:50.357Z",
+      "title": "Black Holes and Time Warps: Einstein's Outrageous Legacy",
+      "author": "Kip S. Thorne"
+    },
+    "9780691083889": {
+      "location": "LOC-estudio-lateral-nivel-1",
+      "updatedAt": "2026-11-07T16:50:29.436Z",
+      "title": "QED: The Strange Theory of Light and Matter.",
+      "author": "Richard Phillips Feynman, A. Zee"
+    },
+    "9780767908160": {
+      "location": "LOC-estudio-lateral-nivel-1",
+      "updatedAt": "2026-11-07T16:48:03.989Z"
+    },
+    "9786071607386": {
+      "location": "LOC-estudio-lateral-nivel-1",
+      "updatedAt": "2026-11-07T16:45:24.875Z"
+    },
+    "9786071683748": {
+      "location": "LOC-estudio-lateral-nivel-1",
+      "updatedAt": "2026-11-07T16:37:59.128Z"
+    },
+    "9786073801232": {
+      "location": "LOC-estudio-lateral-nivel-1",
+      "updatedAt": "2026-11-07T16:37:20.428Z",
+      "title": "La luz en la oscuridad",
+      "author": "Heino Falcke"
+    },
+    "9786287669444": {
+      "location": "LOC-estudio-lateral-nivel-1",
+      "updatedAt": "2026-11-07T16:44:35.093Z"
+    },
+    "9788417141738": {
+      "location": "LOC-estudio-lateral-nivel-1",
+      "updatedAt": "2026-11-07T16:47:10.894Z"
+    },
+    "9788417552848": {
+      "location": "LOC-estudio-lateral-nivel-1",
+      "updatedAt": "2026-11-07T16:39:46.843Z"
+    },
+    "9788417552947": {
+      "location": "LOC-estudio-lateral-nivel-1",
+      "updatedAt": "2026-11-07T16:45:34.197Z"
+    },
+    "9788418187759": {
+      "location": "LOC-estudio-lateral-nivel-1",
+      "updatedAt": "2026-11-07T16:45:08.542Z",
+      "title": "El instante mágico",
+      "author": "Marcus Chown"
+    },
+    "9788419654236": {
+      "location": "LOC-estudio-lateral-nivel-1",
+      "updatedAt": "2026-11-07T16:46:39.634Z"
+    },
+    "9788420667300": {
+      "location": "LOC-estudio-lateral-nivel-1",
+      "updatedAt": "2026-11-07T16:42:28.457Z"
+    },
+    "9788434432437": {
+      "location": "LOC-estudio-lateral-nivel-1",
+      "updatedAt": "2026-11-07T16:47:21.267Z"
+    },
+    "9788434438118": {
+      "location": "LOC-estudio-lateral-nivel-1",
+      "updatedAt": "2026-11-07T16:51:17.474Z",
+      "title": "Los Simpson y las matemáticas",
+      "author": "Simon Singh"
+    },
+    "9788472234581": {
+      "location": "LOC-estudio-lateral-nivel-1",
+      "updatedAt": "2026-11-07T16:46:24.132Z"
+    },
+    "9788472238442": {
+      "location": "LOC-estudio-lateral-nivel-1",
+      "updatedAt": "2026-11-07T16:39:07.751Z"
+    },
+    "9788476347287": {
+      "location": "LOC-estudio-lateral-nivel-1",
+      "updatedAt": "2026-11-07T16:46:14.308Z",
+      "title": "De los números y su historia",
+      "author": "Isaac Asimov"
+    },
+    "9788478081752": {
+      "location": "LOC-estudio-lateral-nivel-1",
+      "updatedAt": "2026-11-07T16:37:34.213Z",
+      "title": "El Tao de la Física",
+      "author": "Fritjof Capra"
+    },
+    "9788483106617": {
+      "location": "LOC-estudio-lateral-nivel-1",
+      "updatedAt": "2026-11-07T16:48:13.989Z"
+    },
+    "9788490664551": {
+      "location": "LOC-estudio-lateral-nivel-1",
+      "updatedAt": "2026-11-07T16:44:13.252Z"
+    },
+    "9788494706882": {
+      "location": "LOC-estudio-lateral-nivel-1",
+      "updatedAt": "2026-11-07T16:47:37.216Z"
+    },
+    "9788496222724": {
+      "location": "LOC-estudio-lateral-nivel-1",
+      "updatedAt": "2026-11-07T16:38:31.473Z",
+      "title": "La física de los superhéroes",
+      "author": "James Kakalios"
+    },
+    "9789585059511": {
+      "location": "LOC-estudio-lateral-nivel-1",
+      "updatedAt": "2026-11-07T16:54:09.200Z",
+      "title": "Introducción a la computación cuantica",
+      "author": "Alcides Montoya"
+    },
+    "9789585132580": {
+      "location": "LOC-estudio-lateral-nivel-1",
+      "updatedAt": "2026-11-07T16:43:00.019Z",
+      "title": "La ecuación de Dios",
+      "author": "Michio Kaku"
+    },
+    "9789586024327": {
+      "location": "LOC-estudio-lateral-nivel-1",
+      "updatedAt": "2026-11-07T16:42:04.038Z",
+      "title": "Historia del tiempo",
+      "author": "Stephen Hawking"
+    },
+    "9789587253108": {
+      "location": "LOC-estudio-lateral-nivel-1",
+      "updatedAt": "2026-11-07T16:43:11.653Z"
+    },
+    "9789588806396": {
+      "location": "LOC-estudio-lateral-nivel-1",
+      "updatedAt": "2026-11-07T16:43:35.105Z"
+    },
+    "9789871181964": {
+      "location": "LOC-estudio-lateral-nivel-1",
+      "updatedAt": "2026-11-07T16:43:44.140Z"
+    },
+    "9780006551287": {
+      "location": "LOC-estudio-lateral-nivel-2",
+      "updatedAt": "2026-11-07T17:02:35.713Z"
+    },
+    "9781101984253": {
+      "location": "LOC-estudio-lateral-nivel-2",
+      "updatedAt": "2026-11-07T17:09:14.747Z"
+    },
+    "9781728266053": {
+      "location": "LOC-estudio-lateral-nivel-2",
+      "updatedAt": "2026-11-07T16:59:17.454Z"
+    },
+    "9786287596597": {
+      "location": "LOC-estudio-lateral-nivel-2",
+      "updatedAt": "2026-11-07T17:08:01.961Z",
+      "title": "Cartas de un astrofísico",
+      "author": "Neil deGrasse Tyson"
+    },
+    "9786287669208": {
+      "location": "LOC-estudio-lateral-nivel-2",
+      "updatedAt": "2026-11-07T17:03:30.779Z",
+      "title": "Sobre el origen del tiempo",
+      "author": "Thomas Hertog"
+    },
+    "9788408226772": {
+      "location": "LOC-estudio-lateral-nivel-2",
+      "updatedAt": "2026-11-07T17:00:24.254Z"
+    },
+    "9788412138313": {
+      "location": "LOC-estudio-lateral-nivel-2",
+      "updatedAt": "2026-11-07T16:56:33.529Z"
+    },
+    "9788413613314": {
+      "location": "LOC-estudio-lateral-nivel-2",
+      "updatedAt": "2026-11-07T17:00:15.030Z"
+    },
+    "9788415828341": {
+      "location": "LOC-estudio-lateral-nivel-2",
+      "updatedAt": "2026-11-07T17:05:03.346Z",
+      "title": "Constantes",
+      "author": "Alemañ Berenguer"
+    },
+    "9788420623108": {
+      "location": "LOC-estudio-lateral-nivel-2",
+      "updatedAt": "2026-11-07T17:01:46.160Z"
+    },
+    "9788420660332": {
+      "location": "LOC-estudio-lateral-nivel-2",
+      "updatedAt": "2026-11-07T16:59:55.742Z",
+      "title": "Alicia En El Pais De Los Cuantos: Una Alegoria De La Fisica Cuantica (Ciencia Y Tecnicaáfisica)",
+      "author": "Robert Gilmore"
+    },
+    "9788434433243": {
+      "location": "LOC-estudio-lateral-nivel-2",
+      "updatedAt": "2026-11-07T17:06:19.361Z"
+    },
+    "9788484321514": {
+      "location": "LOC-estudio-lateral-nivel-2",
+      "updatedAt": "2026-11-07T17:05:18.166Z"
+    },
+    "9788484329688": {
+      "location": "LOC-estudio-lateral-nivel-2",
+      "updatedAt": "2026-11-07T17:05:33.906Z"
+    },
+    "9788490064139": {
+      "location": "LOC-estudio-lateral-nivel-2",
+      "updatedAt": "2026-11-07T17:05:44.196Z"
+    },
+    "9788490565179": {
+      "location": "LOC-estudio-lateral-nivel-2",
+      "updatedAt": "2026-11-07T17:01:18.447Z",
+      "title": "Biología al límite",
+      "author": "Johnjoe McFadden"
+    },
+    "9788491818939": {
+      "location": "LOC-estudio-lateral-nivel-2",
+      "updatedAt": "2026-11-07T16:55:06.517Z"
+    },
+    "9788492917228": {
+      "location": "LOC-estudio-lateral-nivel-2",
+      "updatedAt": "2026-11-07T16:59:07.124Z"
+    },
+    "9788498924084": {
+      "location": "LOC-estudio-lateral-nivel-2",
+      "updatedAt": "2026-11-07T17:01:58.319Z"
+    },
+    "9788499924755": {
+      "location": "LOC-estudio-lateral-nivel-2",
+      "updatedAt": "2026-11-07T16:58:54.073Z"
+    },
+    "9788499924809": {
+      "location": "LOC-estudio-lateral-nivel-2",
+      "updatedAt": "2026-11-07T16:54:51.899Z"
+    },
+    "9789505576838": {
+      "location": "LOC-estudio-lateral-nivel-2",
+      "updatedAt": "2026-11-07T17:01:36.024Z"
+    },
+    "9789584247582": {
+      "location": "LOC-estudio-lateral-nivel-2",
+      "updatedAt": "2026-11-07T17:03:41.905Z"
+    },
+    "9789584260048": {
+      "location": "LOC-estudio-lateral-nivel-2",
+      "updatedAt": "2026-11-07T17:04:10.107Z",
+      "title": "Viajar en el tiempo",
+      "author": "James Gleick"
+    },
+    "9789584281463": {
+      "location": "LOC-estudio-lateral-nivel-2",
+      "updatedAt": "2026-11-07T16:55:36.514Z"
+    },
+    "9789585132733": {
+      "location": "LOC-estudio-lateral-nivel-2",
+      "updatedAt": "2026-11-07T16:56:23.795Z",
+      "title": "La luz revelada: Del telescopio de Galileo a la extrañeza cuántica (Spanish Edition)",
+      "author": "Serge Haroche"
+    },
+    "9789585423138": {
+      "location": "LOC-estudio-lateral-nivel-2",
+      "updatedAt": "2026-11-07T17:09:02.937Z",
+      "title": "El orden del tiempo",
+      "author": "Carlo Rovelli"
+    },
+    "9789588611495": {
+      "location": "LOC-estudio-lateral-nivel-2",
+      "updatedAt": "2026-11-07T17:00:05.457Z"
+    },
+    "9789878010489": {
+      "location": "LOC-estudio-lateral-nivel-2",
+      "updatedAt": "2026-11-07T17:04:17.230Z"
+    },
+    "9780008292393": {
+      "location": "LOC-estudio-lateral-nivel-3",
+      "updatedAt": "2026-11-07T18:20:54.220Z"
+    },
+    "9780802160188": {
+      "location": "LOC-estudio-lateral-nivel-3",
+      "updatedAt": "2026-11-07T17:10:12.591Z"
+    },
+    "9780804136716": {
+      "location": "LOC-estudio-lateral-nivel-3",
+      "updatedAt": "2026-11-07T17:15:35.121Z"
+    },
+    "9781891389559": {
+      "location": "LOC-estudio-lateral-nivel-3",
+      "updatedAt": "2026-11-07T18:22:11.660Z",
+      "title": "Extrasolar Planets and Astrobiology",
+      "author": "Caleb A. Scharf"
+    },
+    "9781984879455": {
+      "location": "LOC-estudio-lateral-nivel-3",
+      "updatedAt": "2026-11-07T17:19:25.434Z"
+    },
+    "9786075693170": {
+      "location": "LOC-estudio-lateral-nivel-3",
+      "updatedAt": "2026-11-07T17:17:30.885Z",
+      "title": "El sueño del tiempo",
+      "author": "Carlos López Otín"
+    },
+    "9786280005089": {
+      "location": "LOC-estudio-lateral-nivel-3",
+      "updatedAt": "2026-11-07T17:11:03.685Z",
+      "title": "La invención del reino vegetal",
+      "author": "Aina S. Erice"
+    },
+    "9786287744233": {
+      "location": "LOC-estudio-lateral-nivel-3",
+      "updatedAt": "2026-11-07T17:10:00.226Z",
+      "title": "Diez aves que cambiaron el mundo",
+      "author": "Stephen Moss"
+    },
+    "9788408299387": {
+      "location": "LOC-estudio-lateral-nivel-3",
+      "updatedAt": "2026-11-07T17:31:02.958Z"
+    },
+    "9788411489010": {
+      "location": "LOC-estudio-lateral-nivel-3",
+      "updatedAt": "2026-11-07T17:30:54.712Z"
+    },
+    "9788412064506": {
+      "location": "LOC-estudio-lateral-nivel-3",
+      "updatedAt": "2026-11-07T17:32:24.658Z"
+    },
+    "9788413615035": {
+      "location": "LOC-estudio-lateral-nivel-3",
+      "updatedAt": "2026-11-07T17:22:30.200Z"
+    },
+    "9788419414298": {
+      "location": "LOC-estudio-lateral-nivel-3",
+      "updatedAt": "2026-11-07T17:23:21.448Z"
+    },
+    "9788433929235": {
+      "location": "LOC-estudio-lateral-nivel-3",
+      "updatedAt": "2026-11-07T17:11:15.347Z"
+    },
+    "9788475069340": {
+      "location": "LOC-estudio-lateral-nivel-3",
+      "updatedAt": "2026-11-07T17:19:16.786Z"
+    },
+    "9788491995180": {
+      "location": "LOC-estudio-lateral-nivel-3",
+      "updatedAt": "2026-11-07T17:09:40.158Z"
+    },
+    "9788491997252": {
+      "location": "LOC-estudio-lateral-nivel-3",
+      "updatedAt": "2026-11-07T17:30:29.869Z",
+      "title": "Historia de la Física Cuántica - Volumen I",
+      "author": "José Manuel Sánchez Ron"
+    },
+    "9788491997795": {
+      "location": "LOC-estudio-lateral-nivel-3",
+      "updatedAt": "2026-11-07T17:29:50.331Z",
+      "title": "Historia de la física cuántica - Volumen II",
+      "author": "José Manuel Sánchez Ron"
+    },
+    "9788491998211": {
+      "location": "LOC-estudio-lateral-nivel-3",
+      "updatedAt": "2026-11-07T17:29:27.146Z",
+      "title": "Historia de la física cuántica",
+      "author": "José Manuel Sánchez Ron"
+    },
+    "9789585445123": {
+      "location": "LOC-estudio-lateral-nivel-3",
+      "updatedAt": "2026-11-07T17:20:22.526Z"
+    },
+    "9789585445369": {
+      "location": "LOC-estudio-lateral-nivel-3",
+      "updatedAt": "2026-11-07T17:21:27.072Z",
+      "title": "La vida secreta de las termitas",
+      "author": "Maurice Maeterlinck"
+    },
+    "9789585615762": {
+      "location": "LOC-estudio-lateral-nivel-3",
+      "updatedAt": "2026-11-07T17:22:12.372Z",
+      "title": "La vida secreta de las abejas",
+      "author": "Maurice Maeterlinck"
+    },
+    "9780241406793": {
+      "location": "LOC-estudio-lateral-nivel-4",
+      "updatedAt": "2026-11-07T17:47:50.636Z"
+    },
+    "9780691236117": {
+      "location": "LOC-estudio-lateral-nivel-4",
+      "updatedAt": "2026-11-07T17:47:32.716Z"
+    },
+    "9781788451406": {
+      "location": "LOC-estudio-lateral-nivel-4",
+      "updatedAt": "2026-11-07T17:47:25.372Z"
+    },
+    "9786071654878": {
+      "location": "LOC-estudio-lateral-nivel-4",
+      "updatedAt": "2026-11-07T17:41:29.336Z"
+    },
+    "9786280001456": {
+      "location": "LOC-estudio-lateral-nivel-4",
+      "updatedAt": "2026-11-07T17:46:35.784Z",
+      "title": "Los viajes más increíbles",
+      "author": "David Barrie"
+    },
+    "9786287569676": {
+      "location": "LOC-estudio-lateral-nivel-4",
+      "updatedAt": "2026-11-07T17:44:29.929Z",
+      "title": "La sabiduría de los búhos",
+      "author": "Jennifer Ackerman"
+    },
+    "9786287655430": {
+      "location": "LOC-estudio-lateral-nivel-4",
+      "updatedAt": "2026-11-07T17:41:39.781Z",
+      "title": "Planta sapiens: Descubre la inteligencia secreta de las plantas",
+      "author": "Paco Calvo"
+    },
+    "9788408277125": {
+      "location": "LOC-estudio-lateral-nivel-4",
+      "updatedAt": "2026-11-07T17:45:13.799Z"
+    },
+    "9788410107663": {
+      "location": "LOC-estudio-lateral-nivel-4",
+      "updatedAt": "2026-11-07T17:47:04.018Z"
+    },
+    "9788412458015": {
+      "location": "LOC-estudio-lateral-nivel-4",
+      "updatedAt": "2026-11-07T17:46:14.040Z"
+    },
+    "9788416252312": {
+      "location": "LOC-estudio-lateral-nivel-4",
+      "updatedAt": "2026-11-07T17:36:57.890Z"
+    },
+    "9788417088170": {
+      "location": "LOC-estudio-lateral-nivel-4",
+      "updatedAt": "2026-11-07T17:36:39.930Z"
+    },
+    "9788417121389": {
+      "location": "LOC-estudio-lateral-nivel-4",
+      "updatedAt": "2026-11-07T17:46:49.725Z"
+    },
+    "9788417747312": {
+      "location": "LOC-estudio-lateral-nivel-4",
+      "updatedAt": "2026-11-07T17:36:25.163Z"
+    },
+    "9788418526152": {
+      "location": "LOC-estudio-lateral-nivel-4",
+      "updatedAt": "2026-11-07T17:37:12.137Z"
+    },
+    "9788420674605": {
+      "location": "LOC-estudio-lateral-nivel-4",
+      "updatedAt": "2026-11-07T17:48:21.587Z"
+    },
+    "9788420684659": {
+      "location": "LOC-estudio-lateral-nivel-4",
+      "updatedAt": "2026-11-07T17:46:57.235Z"
+    },
+    "9788490564608": {
+      "location": "LOC-estudio-lateral-nivel-4",
+      "updatedAt": "2026-11-07T17:45:50.227Z"
+    },
+    "9788491110835": {
+      "location": "LOC-estudio-lateral-nivel-4",
+      "updatedAt": "2026-11-07T17:37:24.851Z"
+    },
+    "9788491112754": {
+      "location": "LOC-estudio-lateral-nivel-4",
+      "updatedAt": "2026-11-07T17:43:31.678Z"
+    },
+    "9788491873389": {
+      "location": "LOC-estudio-lateral-nivel-4",
+      "updatedAt": "2026-11-07T17:46:06.168Z",
+      "title": "Jane Goodall: Una revolucionaria en la investigación del mundo animal",
+      "author": "Virginia Mendoza"
+    },
+    "9788491993070": {
+      "location": "LOC-estudio-lateral-nivel-4",
+      "updatedAt": "2026-11-07T17:42:51.586Z",
+      "title": "Escrito en los árboles",
+      "author": "Valerie Trouet"
+    },
+    "9788493102661": {
+      "location": "LOC-estudio-lateral-nivel-4",
+      "updatedAt": "2026-11-07T17:47:18.295Z"
+    },
+    "9788494733376": {
+      "location": "LOC-estudio-lateral-nivel-4",
+      "updatedAt": "2026-11-07T17:48:29.636Z"
+    },
+    "9789561431140": {
+      "location": "LOC-estudio-lateral-nivel-4",
+      "updatedAt": "2026-11-07T18:24:11.015Z"
+    },
+    "9789566195733": {
+      "location": "LOC-estudio-lateral-nivel-4",
+      "updatedAt": "2026-11-07T17:43:09.331Z",
+      "title": "Justicia para los animales: Una responsabilidad colectiva (Estado y Sociedad) (Spanish Edition)",
+      "author": "Martha C. Nussbaum"
+    },
+    "9789568134471": {
+      "location": "LOC-estudio-lateral-nivel-4",
+      "updatedAt": "2026-11-07T17:47:11.147Z"
+    },
+    "9789584258632": {
+      "location": "LOC-estudio-lateral-nivel-4",
+      "updatedAt": "2026-11-07T17:44:38.057Z"
+    },
+    "9789584275370": {
+      "location": "LOC-estudio-lateral-nivel-4",
+      "updatedAt": "2026-11-07T17:44:48.321Z"
+    },
+    "9789584285386": {
+      "location": "LOC-estudio-lateral-nivel-4",
+      "updatedAt": "2026-11-07T17:36:09.612Z",
+      "title": "Lo que las plantas saben",
+      "author": "Daniel Chamovitz"
+    },
+    "9789584299628": {
+      "location": "LOC-estudio-lateral-nivel-4",
+      "updatedAt": "2026-11-07T17:45:02.067Z",
+      "title": "La conducta de los pájaros: Una mirada a sus comportamientos más intrigantes",
+      "author": "Jennifer Ackerman"
+    },
+    "9789585531840": {
+      "location": "LOC-estudio-lateral-nivel-4",
+      "updatedAt": "2026-11-07T17:48:49.149Z",
+      "title": "Una (Muy) breve historia de la vida en la Tierra (Spanish Edition)",
+      "author": "Henry Gee"
+    },
+    "9789871181872": {
+      "location": "LOC-estudio-lateral-nivel-4",
+      "updatedAt": "2026-11-07T17:47:57.853Z"
+    },
+    "9789873831874": {
+      "location": "LOC-estudio-lateral-nivel-4",
+      "updatedAt": "2026-11-07T17:42:16.208Z",
+      "title": "Cuando las plantas hacen lo que les da la gana",
+      "author": "Dusan Kazic"
+    },
+    "9780063349711": {
+      "location": "LOC-estudio-lateral-nivel-5",
+      "updatedAt": "2026-11-07T18:19:59.611Z",
+      "title": "The Story of Birds: A New History from Their Dinosaur Origins to the Present",
+      "author": "Steve Brusatte"
+    },
+    "9780486237015": {
+      "location": "LOC-estudio-lateral-nivel-5",
+      "updatedAt": "2026-11-07T18:24:45.320Z"
+    },
+    "9780671431266": {
+      "location": "LOC-estudio-lateral-nivel-5",
+      "updatedAt": "2026-11-07T18:17:45.390Z",
+      "title": "The book of Darwin",
+      "author": "George Gaylord Simpson"
+    },
+    "9780805347531": {
+      "location": "LOC-estudio-lateral-nivel-5",
+      "updatedAt": "2026-11-07T18:26:43.141Z"
+    },
+    "9781529034240": {
+      "location": "LOC-estudio-lateral-nivel-5",
+      "updatedAt": "2026-11-07T18:20:16.088Z"
+    },
+    "9781529095999": {
+      "location": "LOC-estudio-lateral-nivel-5",
+      "updatedAt": "2026-11-07T18:13:24.457Z"
+    },
+    "9781538719985": {
+      "location": "LOC-estudio-lateral-nivel-5",
+      "updatedAt": "2026-11-07T18:18:28.093Z",
+      "title": "Life on Our Planet: My Witness Statement and Vision for the Future",
+      "author": "David Attenborough, Jonnie Hughes"
+    },
+    "9786071624550": {
+      "location": "LOC-estudio-lateral-nivel-5",
+      "updatedAt": "2026-11-07T17:50:14.890Z"
+    },
+    "9786071656742": {
+      "location": "LOC-estudio-lateral-nivel-5",
+      "updatedAt": "2026-11-07T18:25:05.407Z"
+    },
+    "9786071656766": {
+      "location": "LOC-estudio-lateral-nivel-5",
+      "updatedAt": "2026-11-07T18:12:25.568Z",
+      "title": "La Química de la vida",
+      "author": "Joseph Needham"
+    },
+    "9786071671608": {
+      "location": "LOC-estudio-lateral-nivel-5",
+      "updatedAt": "2026-11-07T18:12:45.772Z",
+      "title": "El acertijo de la vida",
+      "author": "Greco Hernández"
+    },
+    "9786287569515": {
+      "location": "LOC-estudio-lateral-nivel-5",
+      "updatedAt": "2026-11-07T18:24:32.336Z",
+      "title": "La fantasía de volar: La apasionante e ingeniosa victoria contra la gravedad",
+      "author": "Richard Dawkins"
+    },
+    "9788408235316": {
+      "location": "LOC-estudio-lateral-nivel-5",
+      "updatedAt": "2026-11-07T18:13:34.427Z"
+    },
+    "9788412431551": {
+      "location": "LOC-estudio-lateral-nivel-5",
+      "updatedAt": "2026-11-07T18:13:13.162Z"
+    },
+    "9788416095728": {
+      "location": "LOC-estudio-lateral-nivel-5",
+      "updatedAt": "2026-11-07T18:13:00.413Z",
+      "title": "LA MENTE Y EL COSMOS: POR QUE LA CONCEPCION NEO-DARWINISTA MATERIALISTA DE LA NATU (FRONTERAS) (Spanish Edition)",
+      "author": "Thomas Nagel"
+    },
+    "9788417743581": {
+      "location": "LOC-estudio-lateral-nivel-5",
+      "updatedAt": "2026-11-07T18:18:45.131Z"
+    },
+    "9788467029154": {
+      "location": "LOC-estudio-lateral-nivel-5",
+      "updatedAt": "2026-11-07T18:10:43.259Z"
+    },
+    "9788467031430": {
+      "location": "LOC-estudio-lateral-nivel-5",
+      "updatedAt": "2026-11-07T17:50:22.707Z"
+    },
+    "9788474236316": {
+      "location": "LOC-estudio-lateral-nivel-5",
+      "updatedAt": "2026-11-07T18:22:59.465Z"
+    },
+    "9788474239027": {
+      "location": "LOC-estudio-lateral-nivel-5",
+      "updatedAt": "2026-11-07T18:18:00.186Z"
+    },
+    "9788474239812": {
+      "location": "LOC-estudio-lateral-nivel-5",
+      "updatedAt": "2026-11-07T17:50:03.924Z",
+      "title": "Quienes Somos?",
+      "author": "Francesco Cavalli-Sforza, Luigi Luca Cavalli-Sforza"
+    },
+    "9788484327905": {
+      "location": "LOC-estudio-lateral-nivel-5",
+      "updatedAt": "2026-11-07T18:22:52.088Z"
+    },
+    "9788491992110": {
+      "location": "LOC-estudio-lateral-nivel-5",
+      "updatedAt": "2026-11-07T18:22:38.900Z"
+    },
+    "9789584260031": {
+      "location": "LOC-estudio-lateral-nivel-5",
+      "updatedAt": "2026-11-07T17:51:29.602Z",
+      "title": "Escalando el monte improbable",
+      "author": "Richard Dawkins"
+    },
+    "9789585446861": {
+      "location": "LOC-estudio-lateral-nivel-5",
+      "updatedAt": "2026-11-07T18:19:44.225Z",
+      "title": "Auge y caída de los dinosaurios",
+      "author": "Steve Brusatte"
+    },
+    "9789588613864": {
+      "location": "LOC-estudio-lateral-nivel-5",
+      "updatedAt": "2026-11-07T18:24:54.506Z"
+    },
     "9780062075468": {
       "location": "LOC-sala-tv-bajo-tv-nivel-inferior",
       "updatedAt": "2026-11-01T15:02:20.567Z"
@@ -2471,6 +3142,10 @@
     "9789682316258": {
       "location": "LOC-sala-tv-bajo-tv-nivel-inferior",
       "updatedAt": "2026-11-01T15:00:06.797Z"
+    },
+    "9798890989611": {
+      "location": "LOC-sala-tv-bajo-tv-nivel-inferior",
+      "updatedAt": "2026-11-04T12:35:50.742Z"
     },
     "9780199570409": {
       "location": "LOC-sala-tv-lateral-nivel-superior",
