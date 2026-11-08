@@ -68,23 +68,41 @@ export async function loadBookLocations() {
   }
 }
 
-export function bookLocation(data, lang, ...records) {
-  if (!data) return lang === "en" ? "(Location unavailable)" : "(Ubicación no disponible)";
+function formatLocation(data, code, fallback, showKeys) {
+  const location = data.locations[code];
+  const name = location?.name || fallback;
+  const key = String(location?.key || "").trim();
+  return showKeys && location?.name && key ? `${name} [${key}]` : name;
+}
+
+function resolveBookLocation(data, lang, records, showKeys) {
+  if (!data) return { text: lang === "en" ? "(Location unavailable)" : "(Ubicación no disponible)", located: false };
   const names = new Set();
+  let located = false;
   for (const isbn of new Set(records.flatMap(identifiers))) {
     const book = data.books[isbn];
     const code = book?.location;
     if (!code) continue;
-    const name = data.locations[code]?.name;
-    const primary = name || (lang === "en" ? `(Unknown location: ${code})` : `(Ubicación desconocida: ${code})`);
+    if (data.locations[code]?.name) located = true;
+    const fallback = lang === "en" ? `(Unknown location: ${code})` : `(Ubicación desconocida: ${code})`;
+    const primary = formatLocation(data, code, fallback, showKeys);
     const secondaryCode = book.secondaryLocation;
     if (!secondaryCode) {
       names.add(primary);
       continue;
     }
-    const secondary = data.locations[secondaryCode]?.name || secondaryCode;
+    const secondary = formatLocation(data, secondaryCode, secondaryCode, showKeys);
     const label = lang === "en" ? "Secondary location" : "Ubicación secundaria";
     names.add(`${primary} (${label}: ${secondary})`);
   }
-  return names.size ? [...names].join(" · ") : lang === "en" ? "(Not located yet)" : "(No localizado aún)";
+  const text = names.size ? [...names].join(" · ") : lang === "en" ? "(Not located yet)" : "(No localizado aún)";
+  return { text, located };
+}
+
+export function bookLocation(data, lang, ...records) {
+  return resolveBookLocation(data, lang, records, false).text;
+}
+
+export function bookLocationWithKeys(data, lang, ...records) {
+  return resolveBookLocation(data, lang, records, true);
 }

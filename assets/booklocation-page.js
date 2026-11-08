@@ -794,7 +794,7 @@
   }
 
   function buildSheet() {
-    const codes = Object.keys(data.locations);
+    const codes = sortedLocs().map(([code]) => code);
     if (!codes.length) { status("No hay ubicaciones.", true); return false; }
     if (!window.qrcode) { status("Generador de códigos aún cargando; reintenta.", true); return false; }
     const sheet = $("l-sheet");

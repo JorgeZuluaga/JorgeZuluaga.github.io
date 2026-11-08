@@ -6,7 +6,7 @@ import {
 } from "./i18n.js?v=2";
 import { applyHeaderLangChrome, applyLibrarySectionNav } from "./library-nav.js";
 import { trackPageView } from "./visitor-tracker.js";
-import { bookLocation, indexDetails, loadBookLocations } from "./library-locations.js?v=1";
+import { bookLocationWithKeys, indexDetails, loadBookLocations } from "./library-locations.js?v=3";
 
 const LIBRARY_JSON = "./info/library.json";
 const LIBRARY_DETAILS_JSON = "./info/library-details.json";
@@ -136,6 +136,14 @@ function formatBookAreaMetaHtml(book, lang) {
     return `<strong>${label}</strong> ${escapeLibrary(stripped)}`;
   }
   return `<strong>${label}</strong> ${mainClass}`;
+}
+
+function locationMeta(lang, locations, ...records) {
+  const location = bookLocationWithKeys(locations, lang, ...records);
+  const element = document.createElement("p");
+  element.className = "library-book-item__meta" + (location.located ? " library-book-item__location" : "");
+  element.innerHTML = `<strong>${escapeLibrary(t("library_location_label", lang))}</strong> ${escapeLibrary(location.text)}`;
+  return element;
 }
 
 function computeDeweyGeneralCounts(books) {
@@ -887,9 +895,7 @@ function appendUnreadCard(frag, item, lang, locations, findLibrary) {
   const metaArea = document.createElement("p");
   metaArea.className = "library-book-item__meta";
   metaArea.innerHTML = formatBookAreaMetaHtml(item, lang);
-  const metaLocation = document.createElement("p");
-  metaLocation.className = "library-book-item__meta";
-  metaLocation.innerHTML = `<strong>${escapeLibrary(t("library_location_label", lang))}</strong> ${escapeLibrary(bookLocation(locations, lang, item, findLibrary(item)))}`;
+  const metaLocation = locationMeta(lang, locations, item, findLibrary(item));
 
   const actions = document.createElement("p");
   actions.className = "library-book-item__actions";
@@ -1012,9 +1018,7 @@ function appendReadCard(frag, item, lang, seriesMap, detailsBookIdSet, locations
   const metaArea = document.createElement("p");
   metaArea.className = "library-book-item__meta";
   metaArea.innerHTML = formatBookAreaMetaHtml(item, lang);
-  const metaLocation = document.createElement("p");
-  metaLocation.className = "library-book-item__meta";
-  metaLocation.innerHTML = `<strong>${escapeLibrary(t("library_location_label", lang))}</strong> ${escapeLibrary(bookLocation(locations, lang, item, findDetails(item)))}`;
+  const metaLocation = locationMeta(lang, locations, item, findDetails(item));
 
   const meta3 = document.createElement("p");
   meta3.className = "library-book-item__meta";
