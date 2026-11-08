@@ -618,6 +618,19 @@
     });
   }
 
+  function scanLocationPick(pick) {
+    status("Escanea la etiqueta de la ubicación de destino.");
+    startScan((code) => {
+      const key = locFromCode(code);
+      if (!key) { status("Eso no es una ubicación conocida: " + code, true); return; }
+      stopScan();
+      choosePick(pick, key);
+      status(isLoanLocation(key)
+        ? `Destino seleccionado: ${locName(key)}. Elige la ubicación secundaria y pulsa Guardar.`
+        : `Destino seleccionado: ${locName(key)}. Pulsa Guardar.`);
+    });
+  }
+
   function enterAssign() {
     showStep(currentLoc && data.locations[currentLoc] ? "main" : "loc");
   }
@@ -675,11 +688,11 @@
   function submitIsbn(raw) {
     const isbn = normIsbn(raw);
     if (!isbn) {
-      // No es un ISBN: se trata como título y, si hay una sola coincidencia, se abre directamente.
-      const hits = catalogMatches(raw, "");
+      // Si se escribe título o autor y hay una sola coincidencia, se abre directamente.
+      const hits = bookSearchMatches(raw);
       if (hits.length === 1) { status(""); openForm(locatedIsbn(hits[0]) || hits[0].isbn); return; }
       renderIsbnSuggest();
-      status(hits.length ? "Elige uno de los libros sugeridos." : "No es un ISBN válido y no hay libros con ese título en tu catálogo.", !hits.length);
+      status(hits.length ? "Elige uno de los libros sugeridos." : "No hay libros con ese título o autor en tu catálogo ni en los libros guardados en la nube.", !hits.length);
       return;
     }
     const c = catalog.get(isbn);
@@ -691,7 +704,7 @@
   function renderIsbnSuggest() {
     const box = $("as-isbn-suggest");
     const q = $("as-isbn-input").value.trim();
-    const hits = q && !/^[\d\s-]+X?$/i.test(q) ? catalogMatches(q, "") : [];
+    const hits = q && !/^[\d\s-]+X?$/i.test(q) ? bookSearchMatches(q) : [];
     box.hidden = !hits.length;
     box.innerHTML = hits.map((b) => {
       const k = b.isbns.find((x) => data.books[x]) || b.isbn; // si ya está ubicado (con cualquiera de sus ISBN), se abre ese
@@ -708,21 +721,26 @@
   const dupKey = (b) => plain(b.title) + "|" + plain(b.author);
   const locatedIsbn = (b) => b.isbns.find((k) => data.books[k]);
 
+  function matchRate(queryTokens, text) {
+    if (!queryTokens.length) return 0;
+    const textTokens = toks(text);
+    const has = (word) => textTokens.some((token) => token === word || (word.length >= 3 && token.startsWith(word)));
+    return queryTokens.filter(has).length / queryTokens.length;
+  }
+
   function catalogMatches(title, author) {
     const tq = toks(title);
     const aq = toks(author);
     if (!tq.length) return [];
+    const searchOnly = !aq.length;
     const seen = new Set();
     const out = [];
     for (const [isbn, b] of catalog) {
       if (isbn !== b.isbn) continue;
-      const tt = toks(b.title);
-      const ta = toks(b.author);
-      const has = (list, w) => list.some((x) => x === w || (w.length >= 3 && x.startsWith(w)));
-      const tHit = tq.filter((w) => has(tt, w)).length / tq.length;
-      const aHit = aq.length ? aq.filter((w) => has(ta, w)).length / aq.length : 0;
-      const score = tHit * 0.7 + aHit * 0.3;
-      if (tHit < 0.5 && !(aHit >= 0.5 && tHit > 0)) continue;
+      const tHit = matchRate(tq, b.title);
+      const aHit = matchRate(searchOnly ? tq : aq, b.author);
+      const score = searchOnly ? Math.max(tHit, aHit) : tHit * 0.7 + aHit * 0.3;
+      if (searchOnly ? score < 0.5 : tHit < 0.5 && !(aHit >= 0.5 && tHit > 0)) continue;
       const k = dupKey(b);
       if (seen.has(k)) {
         // Entre duplicados se conserva el que ya está ubicado.
@@ -734,6 +752,34 @@
       out.push({ b, score });
     }
     return out.sort((x, y) => y.score - x.score).slice(0, 5).map((x) => x.b);
+  }
+
+  function bookSearchMatches(query) {
+    const matches = catalogMatches(query, "");
+    const seenIsbns = new Set(matches.flatMap((book) => book.isbns));
+    const seenBooks = new Set(matches.map(dupKey));
+    const queryTokens = toks(query);
+    for (const [rawIsbn, stored] of Object.entries(data.books)) {
+      if (matches.length >= 5) break;
+      const isbn = normIsbn(rawIsbn);
+      if (!isbn || seenIsbns.has(isbn)) continue;
+      if (Math.max(matchRate(queryTokens, stored.title), matchRate(queryTokens, stored.author)) < 0.5) continue;
+      const catalogBook = catalog.get(isbn);
+      const book = {
+        ...(catalogBook || {}),
+        title: stored.title || catalogBook?.title || "(sin título)",
+        author: stored.author || catalogBook?.author || "",
+        isbn: catalogBook?.isbn || isbn,
+        isbns: catalogBook?.isbns || [isbn],
+        cover: catalogBook?.cover || "",
+      };
+      const key = dupKey(book);
+      if (seenBooks.has(key)) continue;
+      matches.push(book);
+      seenIsbns.add(isbn);
+      seenBooks.add(key);
+    }
+    return matches;
   }
 
   function renderSuggest() {
@@ -1012,6 +1058,7 @@
     $("as-isbn-input").addEventListener("keydown", (e) => { if (e.key === "Enter") { e.preventDefault(); submitIsbn($("as-isbn-input").value); } });
     $("as-isbn-cancel").onclick = () => showStep("main");
     $("as-form").addEventListener("submit", saveForm);
+    $("af-loc-cam").onclick = () => scanLocationPick($("af-loc-pick"));
     $("af-author").addEventListener("focus", () => renderAuthorList(""));
     $("af-author").addEventListener("click", () => {
       if ($("af-author-list").hidden) renderAuthorList("");
@@ -1056,40 +1103,23 @@
     $("reset-token").onclick = () => { localStorage.removeItem("bl_token"); location.reload(); };
     $("l-list").addEventListener("click", onOpen);
     $("l-list").addEventListener("keydown", onOpen);
+    $("results").addEventListener("pick", (e) => {
+      const primaryPick = e.target.closest(".bl-move")?.querySelector(":scope > .bl-pick");
+      if (primaryPick === e.target) syncMoveSecondary(primaryPick);
+    });
+    $("results").addEventListener("input", (e) => {
+      const primaryPick = e.target.closest(".bl-move")?.querySelector(":scope > .bl-pick");
+      if (primaryPick && primaryPick.contains(e.target)) syncMoveSecondary(primaryPick);
+    });
     $("results").addEventListener("click", async (e) => {
       const mv = e.target.dataset.move;
       const un = e.target.dataset.unassign;
       const ms = e.target.dataset.moveScan;
       if (ms) {
-        // Mover escaneando la etiqueta de la nueva ubicación.
-        status("Escanea la etiqueta de la nueva ubicación…");
-        startScan(async (code) => {
-          const key = locFromCode(code);
-          if (!key) { status("Eso no es una ubicación conocida: " + code, true); return; }
-          stopScan();
-          try {
-            const card = e.target.closest(".bl-book");
-            const typed = card?.querySelector("[data-title-input]")?.value.trim() || "";
-            if (isLoanLocation(key)) {
-              const primaryPick = card.querySelector(".bl-move > .bl-pick");
-              setPick(primaryPick, key);
-              syncMoveSecondary(primaryPick);
-              status("Elige la ubicación secundaria de los libros prestados y pulsa Guardar.");
-              return;
-            }
-            data = await api("/assign", { isbn: ms, location: key, secondaryLocation: "", ...extraFor(ms, typed) });
-            status("Movido a " + locName(key) + " ✅");
-            renderSearch();
-          } catch (err) { status(err.message, true); }
-        });
-        $("results").addEventListener("pick", (e) => {
-          const primaryPick = e.target.closest(".bl-move")?.querySelector(":scope > .bl-pick");
-          if (primaryPick === e.target) syncMoveSecondary(primaryPick);
-        });
-        $("results").addEventListener("input", (e) => {
-          const primaryPick = e.target.closest(".bl-move")?.querySelector(":scope > .bl-pick");
-          if (primaryPick && primaryPick.contains(e.target)) syncMoveSecondary(primaryPick);
-        });
+        const card = e.target.closest(".bl-book");
+        const primaryPick = card?.querySelector(".bl-move > .bl-pick");
+        if (!primaryPick) { status("No se encontró el selector de destino del libro.", true); return; }
+        scanLocationPick(primaryPick);
         return;
       }
       try {
