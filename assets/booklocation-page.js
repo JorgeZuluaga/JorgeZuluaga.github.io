@@ -14,6 +14,8 @@
   let currentLoc = ""; // ubicación activa en «Asignar» (solo en memoria)
   let scanHandler = null;
   let stream = null;
+  let torchTrack = null;
+  let torchEnabled = false;
   let scanTimer = null;
   let keyTouched = false; // true si el usuario escribió la clave a mano
   let editing = ""; // código de la ubicación que se está renombrando
@@ -289,6 +291,18 @@
     }
     if (id !== scanId) { st.getTracks().forEach((t) => t.stop()); return; }
     stream = st;
+    torchTrack = st.getVideoTracks()[0] || null;
+    torchEnabled = false;
+    const torchButton = $("scan-torch");
+    torchButton.hidden = true;
+    torchButton.disabled = false;
+    torchButton.setAttribute("aria-pressed", "false");
+    torchButton.textContent = "🔦 Prender linterna";
+    try {
+      torchButton.hidden = !torchTrack || torchTrack.getCapabilities?.().torch !== true;
+    } catch {
+      torchButton.hidden = true;
+    }
     const video = $("video");
     video.srcObject = stream;
     await video.play().catch(() => {});
@@ -342,6 +356,23 @@
     }, 250);
   }
 
+  async function toggleTorch() {
+    if (!torchTrack) return;
+    const button = $("scan-torch");
+    const enabled = !torchEnabled;
+    button.disabled = true;
+    try {
+      await torchTrack.applyConstraints({ advanced: [{ torch: enabled }] });
+      torchEnabled = enabled;
+      button.setAttribute("aria-pressed", String(enabled));
+      button.textContent = enabled ? "🔦 Apagar linterna" : "🔦 Prender linterna";
+    } catch (err) {
+      status(`No se pudo ${enabled ? "prender" : "apagar"} la linterna: ${err.message}`, true);
+    } finally {
+      button.disabled = false;
+    }
+  }
+
   function stopScan() {
     scanId++;
     clearInterval(scanTimer);
@@ -349,6 +380,11 @@
     scanHandler = null;
     if (stream) stream.getTracks().forEach((t) => t.stop());
     stream = null;
+    torchTrack = null;
+    torchEnabled = false;
+    $("scan-torch").hidden = true;
+    $("scan-torch").setAttribute("aria-pressed", "false");
+    $("scan-torch").textContent = "🔦 Prender linterna";
     $("scanner").hidden = true;
   }
 
@@ -446,7 +482,9 @@
   function bookCard(isbn) {
     let b = catalog.get(isbn);
     const stored = data.books[isbn];
-    if (b && stored?.title) b = { ...b, title: stored.title, author: stored.author || b.author };
+    if (b && (stored?.title || stored?.author)) {
+      b = { ...b, title: stored.title || b.title, author: stored.author || b.author };
+    }
     let note = "";
     if (!b && data.books[isbn]?.title) {
       b = { title: data.books[isbn].title, author: data.books[isbn].author || "", cover: "" };
@@ -493,6 +531,13 @@
     if (q.length < 2) { out.innerHTML = ""; return; }
     const digits = normIsbn(q);
     const hits = [];
+    const hitIsbns = new Set();
+    const addHit = (isbn) => {
+      if (isbn && !hitIsbns.has(isbn)) {
+        hitIsbns.add(isbn);
+        hits.push(isbn);
+      }
+    };
     const seen = new Set();
     for (const [, b] of catalog) {
       if (seen.has(b)) continue;
@@ -502,10 +547,16 @@
       if (!locatedIsbn(b) && [...catalog.values()].some((o) => o !== b && dupKey(o) === dupKey(b) && locatedIsbn(o))) continue;
       // Una tarjeta por cada ISBN (principal o secundario) con ubicación; si ninguno la tiene, la del principal.
       const located = b.isbns.filter((k) => data.books[k]);
-      hits.push(...(located.length ? located : [b.isbn]));
+      (located.length ? located : [b.isbn]).forEach(addHit);
       if (hits.length >= 30) break;
     }
-    if (digits && !catalog.has(digits)) hits.push(digits);
+    for (const [isbn, book] of Object.entries(data.books)) {
+      if (hits.length >= 30) break;
+      const normalizedIsbn = normIsbn(isbn);
+      const text = `${book.title || ""} ${book.author || ""}`.toLowerCase();
+      if ((digits && normalizedIsbn === digits) || text.includes(q)) addHit(normalizedIsbn || isbn);
+    }
+    if (digits && !catalog.has(digits)) addHit(digits);
     // Con ubicación primero.
     hits.sort((a, b) => Number(!!data.books[b]) - Number(!!data.books[a]));
     out.innerHTML = hits.length ? hits.map(bookCard).join("") : '<p class="bl-muted">Sin resultados.</p>';
@@ -605,7 +656,16 @@
   function renderAuthorList(filter) {
     const list = $("af-author-list");
     const query = plain(filter).trim();
-    const matches = catalogAuthors.filter((name) => plain(name).includes(query));
+    const authors = new Map();
+    [...catalogAuthors, ...Object.values(data.books).map((book) => book.author)].forEach((author) => {
+      if (typeof author !== "string") return;
+      const name = author.trim().replace(/\s+/g, " ").normalize("NFC");
+      const key = name.toLocaleLowerCase("es");
+      if (name && !authors.has(key)) authors.set(key, name);
+    });
+    const matches = [...authors.values()]
+      .filter((name) => plain(name).includes(query))
+      .sort((a, b) => a.localeCompare(b, "es", { sensitivity: "base", numeric: true }));
     list.innerHTML = matches.length
       ? matches.map((name) => `<button type="button" class="bl-author-opt" data-author="${esc(name)}">${esc(name)}</button>`).join("")
       : '<div class="bl-muted bl-pick__empty">Sin coincidencias; puedes escribir otro autor.</div>';
@@ -922,6 +982,7 @@
   async function init() {
     document.querySelectorAll("nav.bl-tabs button").forEach((b) => b.addEventListener("click", () => setTab(b.dataset.tab)));
     $("scan-stop").onclick = stopScan;
+    $("scan-torch").onclick = toggleTorch;
     $("q").addEventListener("input", renderSearch);
     $("results").addEventListener("error", onCoverError, true);
     $("q-scan").onclick = () => startScan((code) => {

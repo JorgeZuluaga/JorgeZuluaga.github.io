@@ -60,12 +60,15 @@
 
         <section id="scanner" hidden>
           <video id="video" playsinline muted></video>
-          <div class="bl-row"><button class="bl-btn" id="scan-stop" type="button">Cerrar cámara</button></div>
+          <div class="bl-row">
+            <button class="bl-btn" id="scan-torch" type="button" aria-pressed="false" hidden>🔦 Prender linterna</button>
+            <button class="bl-btn" id="scan-stop" type="button">Cerrar cámara</button>
+          </div>
         </section>
 
         <section id="tab-search">
           <div class="bl-row">
-            <input id="q" type="search" placeholder="Título, autor o ISBN" autocomplete="off" />
+            <input id="q" type="search" placeholder="ISBN, título o autor" autocomplete="off" />
             <button id="q-scan" class="bl-btn bl-primary" type="button" aria-label="Escanear">📷</button>
           </div>
           <div id="results"></div>
@@ -128,7 +131,7 @@
             <label for="af-author">Autor</label>
             <div class="bl-pick">
               <input id="af-author" autocomplete="off" aria-controls="af-author-list" />
-              <div id="af-author-list" class="bl-pick__list" aria-label="Autores del catálogo" hidden></div>
+              <div id="af-author-list" class="bl-pick__list" aria-label="Autores del catálogo y libros guardados en la nube" hidden></div>
             </div>
             <div id="af-suggest" class="bl-suggest" hidden></div>
             <label for="af-loc">Ubicación</label>
@@ -169,7 +172,7 @@
   </div>
 
   <script src="https://cdn.jsdelivr.net/npm/qrcode-generator@1.4.4/qrcode.js" defer></script>
-  <script src="./assets/booklocation-page.js?v=202611072330" defer></script>
+  <script src="./assets/booklocation-page.js?v=202611080959" defer></script>
 </body>
 
 </html>
