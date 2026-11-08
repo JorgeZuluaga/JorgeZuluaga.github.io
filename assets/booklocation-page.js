@@ -4,6 +4,9 @@
   const API = window.BOOKLOC_API || "https://booklocation-worker.booklocation-jorgezuluaga.workers.dev";
   const $ = (id) => document.getElementById(id);
   const ZXING_URL = "https://cdn.jsdelivr.net/npm/@zxing/library@0.21.3/umd/index.min.js";
+  const LOCATION_QR_ALIASES = {
+    "LOC-estudio-deslizante-modulo-4": "LOC-estudio-deslizante-sur-nivel-1",
+  };
 
   let data = { locations: {}, books: {} };
   let catalog = new Map(); // isbn13 -> {title, author, isbn}
@@ -571,7 +574,9 @@
   function locFromCode(raw) {
     const m = String(raw).trim().match(/^LOC-(.+)$/i);
     const key = m ? "LOC-" + m[1] : "";
-    return data.locations[key] ? key : "";
+    if (data.locations[key]) return key;
+    const target = LOCATION_QR_ALIASES[key];
+    return target && data.locations[target] ? target : "";
   }
 
   function fillLocSelect() {
@@ -998,8 +1003,8 @@
         // Mover escaneando la etiqueta de la nueva ubicación.
         status("Escanea la etiqueta de la nueva ubicación…");
         startScan(async (code) => {
-          const key = /^LOC-/i.test(code) ? "LOC-" + code.slice(4) : "";
-          if (!key || !data.locations[key]) { status("Eso no es una ubicación conocida: " + code, true); return; }
+          const key = locFromCode(code);
+          if (!key) { status("Eso no es una ubicación conocida: " + code, true); return; }
           stopScan();
           try {
             const card = e.target.closest(".bl-book");

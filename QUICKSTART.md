@@ -324,6 +324,7 @@ App privada (página + Worker de Cloudflare con KV) para registrar en qué ubica
 
 1. Abre `https://jorgezuluaga.github.io/ubicaciones.html` (necesita HTTPS para usar la cámara). La primera vez pide el token (`.secrets/booklocation-token`).
 2. **Ubicaciones**: crea cada lugar con el formato `Lugar/Espacio/Nivel` y una clave corta (se propone sola, p. ej. `CMCN1`). Imprime las etiquetas QR y pégalas en cada estante; la hoja las ordena por nombre de ubicación.
+   La etiqueta antigua **EDM4** también lleva a **Estudio/Deslizante/Sur/Nivel 1 (EDSN1)**. Si se vuelve a crear su ubicación original, el QR volverá a apuntar a esa ubicación.
 3. **Asignar**: escanea el QR de la ubicación (o escribe su clave o parte del nombre) → «＋ Nuevo libro» → escanea el código de barras, o escribe el ISBN o parte del título → revisa título, autor y ubicación → Guardar. Repite con el siguiente libro. Si el libro ya estaba en otra ubicación, la ficha indica la ubicación anterior y propone la actual; el libro se mueve solo cuando pulsas Guardar.
    En **Autor**, toca el campo para ver los autores del catálogo en orden alfabético; escribe para filtrar la lista o introduce un nombre nuevo.
 4. Si el ISBN no está en tu catálogo, la ficha propone coincidencias por título («¿Es este el libro?») y busca en Google Books/Open Library. Si rellena datos de Internet, la ficha muestra el texto en rojo y señala la fuente para que los revises.
