@@ -519,6 +519,7 @@
           <input class="bl-pick__input" value="${esc(data.books[isbn]?.secondaryLocation ? locLabel(data.books[isbn].secondaryLocation) : "")}" placeholder="Clave o parte del nombre…" autocomplete="off" />
           <div class="bl-pick__list" hidden></div>
         </div>
+        <div class="bl-row"><button class="bl-btn" type="button" data-secondary-scan>📷 Escanear ubicación</button></div>
       </div>
       <div class="bl-row"><button class="bl-btn bl-primary" data-move="${esc(isbn)}">Guardar</button>
       <button class="bl-btn" data-move-scan="${esc(isbn)}">📷 Escanear destino</button>
@@ -618,16 +619,17 @@
     });
   }
 
-  function scanLocationPick(pick) {
-    status("Escanea la etiqueta de la ubicación de destino.");
+  function scanLocationPick(pick, selectedLabel = "destino") {
+    status(`Escanea la etiqueta de ${selectedLabel}.`);
     startScan((code) => {
       const key = locFromCode(code);
       if (!key) { status("Eso no es una ubicación conocida: " + code, true); return; }
       stopScan();
       choosePick(pick, key);
-      status(isLoanLocation(key)
-        ? `Destino seleccionado: ${locName(key)}. Elige la ubicación secundaria y pulsa Guardar.`
-        : `Destino seleccionado: ${locName(key)}. Pulsa Guardar.`);
+      const label = selectedLabel[0].toLocaleUpperCase("es") + selectedLabel.slice(1);
+      status(isLoanLocation(key) && selectedLabel === "destino"
+        ? `${label} seleccionado: ${locName(key)}. Elige la ubicación secundaria y pulsa Guardar.`
+        : `${label} ${selectedLabel === "destino" ? "seleccionado" : "seleccionada"}: ${locName(key)}. Pulsa Guardar.`);
     });
   }
 
@@ -1059,6 +1061,7 @@
     $("as-isbn-cancel").onclick = () => showStep("main");
     $("as-form").addEventListener("submit", saveForm);
     $("af-loc-cam").onclick = () => scanLocationPick($("af-loc-pick"));
+    $("af-secondary-cam").onclick = () => scanLocationPick($("af-secondary-pick"), "ubicación secundaria");
     $("af-author").addEventListener("focus", () => renderAuthorList(""));
     $("af-author").addEventListener("click", () => {
       if ($("af-author-list").hidden) renderAuthorList("");
@@ -1115,6 +1118,12 @@
       const mv = e.target.dataset.move;
       const un = e.target.dataset.unassign;
       const ms = e.target.dataset.moveScan;
+      if (e.target.closest("[data-secondary-scan]")) {
+        const pick = e.target.closest(".bl-secondary-wrap")?.querySelector("[data-secondary-pick]");
+        if (!pick) { status("No se encontró el selector de ubicación secundaria.", true); return; }
+        scanLocationPick(pick, "ubicación secundaria");
+        return;
+      }
       if (ms) {
         const card = e.target.closest(".bl-book");
         const primaryPick = card?.querySelector(".bl-move > .bl-pick");
