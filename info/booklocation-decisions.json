@@ -1,4 +1,14 @@
 {
+  "9780030223174": {
+    "author": "Herbert Goldstein, Charles P. Poole, John Safko",
+    "ok": false,
+    "title": "Classical Mechanics"
+  },
+  "9780521482196": {
+    "author": "Dave Goulson",
+    "ok": false,
+    "title": "Planeta silencioso"
+  },
   "9786071607331": {
     "author": "Carlos Solís",
     "ok": false,
@@ -24,6 +34,31 @@
     "ok": false,
     "title": "La lengua de los dioses"
   },
+  "9788408112365": {
+    "author": "Carlos Solís",
+    "ok": false,
+    "title": "Historia de la ciencia"
+  },
+  "9788416776573": {
+    "author": "José Miguel Parra Ortiz",
+    "ok": false,
+    "title": "Eso no estaba en mi libro de historia del antiguo Egipto"
+  },
+  "9788446051459": {
+    "author": "Jules Verne",
+    "ok": false,
+    "title": "De la tierra a la luna"
+  },
+  "9788467216714": {
+    "author": "C. Donald Ahrens",
+    "ok": false,
+    "title": "Meteorology Today"
+  },
+  "9788484453321": {
+    "author": "Ken Follett",
+    "ok": false,
+    "title": "Un mundo sin fin"
+  },
   "9788497941259": {
     "author": "Various",
     "ok": false,
@@ -43,6 +78,11 @@
     "author": "Peter Haugen",
     "ok": false,
     "title": "Historia del mundo para dummies"
+  },
+  "9789584274908": {
+    "author": "Germán Castro Caycedo",
+    "ok": false,
+    "title": "La tormenta"
   },
   "9789584277022": {
     "author": "Christopher W. Blackwell, Amy Hackney Blackwell",
@@ -68,6 +108,16 @@
     "author": "Samuel Johnson",
     "ok": true,
     "title": "Sobre Shakespeare (Serie Great Ideas)"
+  },
+  "9789585672321": {
+    "author": "Paul Johnson",
+    "ok": false,
+    "title": "La historia de los judíos"
+  },
+  "9789587145298": {
+    "author": "Sheldon L. Glashow",
+    "ok": false,
+    "title": "El encanto de la física"
   },
   "9789873752131": {
     "author": "Yuval Noah Harari",

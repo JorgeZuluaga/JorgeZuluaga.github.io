@@ -702,7 +702,8 @@
       "dcc_notes": {
         "reasoning": "Analiza cómo el mundo produce y consume alimentos, abordando la teoría del desarrollo y las estadísticas de nuestra alimentación desde un punto de vista socioeconómico[cite: 1].",
         "confidence": 0.9
-      }
+      },
+      "isbn2": "9786287874114"
     },
     {
       "bookId": "40542612",
@@ -846,7 +847,8 @@
         "reasoning": "Libro de António Damásio que analiza los procesos mentales, la inteligencia y la consciencia humana desde una perspectiva cognitiva[cite: 1].",
         "confidence": 0.9
       },
-      "reviewTextSyncedAt": "2026-07-02T15:08:55.910803+00:00"
+      "reviewTextSyncedAt": "2026-07-02T15:08:55.910803+00:00",
+      "isbn2": "9786287829251"
     },
     {
       "bookId": "6286160",
@@ -7923,7 +7925,8 @@
         "confidence": 0.0
       },
       "matched": false,
-      "isbn": "9786287571297"
+      "isbn": "9786287571297",
+      "isbn2": "9786287571280"
     },
     {
       "bookId": "59791125",
@@ -8853,7 +8856,8 @@
         "confidence": 0.0
       },
       "matched": false,
-      "isbn": "9788449340840"
+      "isbn": "9788449340840",
+      "isbn2": "9789566195207"
     },
     {
       "bookId": "54210068",
@@ -10868,7 +10872,8 @@
         "confidence": 0.0
       },
       "isbn": "9788416622177",
-      "matched": false
+      "matched": false,
+      "isbn2": "9788416622351"
     },
     {
       "bookId": "9736028",
@@ -16458,7 +16463,8 @@
         "confidence": 0.0
       },
       "matched": false,
-      "isbn": "9788430622818"
+      "isbn": "9788430622818",
+      "isbn2": "9789585165038"
     },
     {
       "bookId": "55963564",
@@ -20235,7 +20241,8 @@
         "confidence": 0.0
       },
       "matched": false,
-      "isbn": "9788448025069"
+      "isbn": "9788448025069",
+      "isbn2": "9789584276407"
     },
     {
       "bookId": "28487182",

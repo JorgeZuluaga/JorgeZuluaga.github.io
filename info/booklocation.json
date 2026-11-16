@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-07T18:28:21.614Z",
+  "updatedAt": "2026-11-16T00:50:34.507Z",
   "locations": {
     "LOC-a-donacion": {
       "name": "A/Donación",
@@ -113,25 +113,69 @@
       "name": "Estudio/Central/Nivel Inferior",
       "key": "ECNI"
     },
+    "LOC-estudio-deslizante-central-norte-nivel-1": {
+      "name": "Estudio/Deslizante/Central Norte/Nivel 1",
+      "key": "EDCNN1"
+    },
+    "LOC-estudio-deslizante-central-norte-nivel-2": {
+      "name": "Estudio/Deslizante/Central Norte/Nivel 2",
+      "key": "EDCNN2"
+    },
+    "LOC-estudio-deslizante-central-norte-nivel-3": {
+      "name": "Estudio/Deslizante/Central Norte/Nivel 3",
+      "key": "EDCNN3"
+    },
+    "LOC-estudio-deslizante-central-norte-nivel-4": {
+      "name": "Estudio/Deslizante/Central Norte/Nivel 4",
+      "key": "EDCNN4"
+    },
+    "LOC-estudio-deslizante-central-sur-nivel-1": {
+      "name": "Estudio/Deslizante/Central Sur/Nivel 1",
+      "key": "EDCSN1"
+    },
+    "LOC-estudio-deslizante-central-sur-nivel-2": {
+      "name": "Estudio/Deslizante/Central Sur/Nivel 2",
+      "key": "EDCSN2"
+    },
+    "LOC-estudio-deslizante-central-sur-nivel-3": {
+      "name": "Estudio/Deslizante/Central Sur/Nivel 3",
+      "key": "EDCSN3"
+    },
+    "LOC-estudio-deslizante-central-sur-nivel-4": {
+      "name": "Estudio/Deslizante/Central Sur/Nivel 4",
+      "key": "EDCSN4"
+    },
     "LOC-estudio-deslizante-cajas-nivel-2": {
-      "name": "Estudio/Deslizante/Cajas Nivel 2",
-      "key": "EDCN2"
+      "name": "Estudio/Deslizante/Norte/Nivel 1",
+      "key": "EDNN1"
     },
-    "LOC-estudio-deslizante-modulo-1": {
-      "name": "Estudio/Deslizante/Modulo 1",
-      "key": "EDM1"
+    "LOC-estudio-deslizante-norte-nivel-2": {
+      "name": "Estudio/Deslizante/Norte/Nivel 2",
+      "key": "EDNN2"
     },
-    "LOC-estudio-deslizante-modulo-2": {
-      "name": "Estudio/Deslizante/Modulo 2",
-      "key": "EDM2"
+    "LOC-estudio-deslizante-norte-nivel-3": {
+      "name": "Estudio/Deslizante/Norte/Nivel 3",
+      "key": "EDNN3"
     },
-    "LOC-estudio-deslizante-modulo-3": {
-      "name": "Estudio/Deslizante/Modulo 3",
-      "key": "EDM3"
+    "LOC-estudio-deslizante-norte-nivel-4": {
+      "name": "Estudio/Deslizante/Norte/Nivel 4",
+      "key": "EDNN4"
     },
-    "LOC-estudio-deslizante-modulo-4": {
-      "name": "Estudio/Deslizante/Modulo 4",
-      "key": "EDM4"
+    "LOC-estudio-deslizante-sur-nivel-1": {
+      "name": "Estudio/Deslizante/Sur/Nivel 1",
+      "key": "EDSN1"
+    },
+    "LOC-estudio-deslizante-sur-nivel-2": {
+      "name": "Estudio/Deslizante/Sur/Nivel 2",
+      "key": "EDSN2"
+    },
+    "LOC-estudio-deslizante-sur-nivel-3": {
+      "name": "Estudio/Deslizante/Sur/Nivel 3",
+      "key": "EDSN3"
+    },
+    "LOC-estudio-deslizante-sur-nivel-4": {
+      "name": "Estudio/Deslizante/Sur/Nivel 4",
+      "key": "EDSN4"
     },
     "LOC-estudio-escritorio-modulo-lampara": {
       "name": "Estudio/Escritorio/Caja Lámpara",
@@ -297,6 +341,20 @@
       "secondaryLocation": "LOC-sala-tv-bajo-tv-nivel-inferior",
       "title": "Just for fun: the story of an accidental revolutionary",
       "author": "Linus Torvalds, David Diamond"
+    },
+    "9780521663960": {
+      "location": "LOC-prestamos",
+      "updatedAt": "2026-11-08T15:58:37.208Z",
+      "secondaryLocation": "LOC-estudio-central-cajas-nivel-5",
+      "title": "An Introduction to Fluid Dynamics",
+      "author": "G. K. Batchelor, G.K. Batchelor"
+    },
+    "9781402064517": {
+      "location": "LOC-prestamos",
+      "updatedAt": "2026-11-08T15:49:14.383Z",
+      "secondaryLocation": "LOC-estudio-central-cajas-nivel-5",
+      "title": "Catastrophic Events Caused by Cosmic Objects",
+      "author": "V. V. Adushkin"
     },
     "9788480769938": {
       "location": "LOC-prestamos",
@@ -514,6 +572,10 @@
       "title": "Filosofía en 11 frases",
       "author": "Darío Sztajnszrajber"
     },
+    "9789585433564": {
+      "location": "LOC-comedor-modulo-central-nivel-3",
+      "updatedAt": "2026-11-16T00:25:25.598Z"
+    },
     "9789585581524": {
       "location": "LOC-comedor-modulo-central-nivel-3",
       "updatedAt": "2026-11-01T17:09:18.494Z"
@@ -581,6 +643,10 @@
       "updatedAt": "2026-11-01T17:02:21.654Z",
       "title": "Edipo rey (Los mejores clásicos)",
       "author": "Sófocles"
+    },
+    "9786287571259": {
+      "location": "LOC-comedor-modulo-central-nivel-5",
+      "updatedAt": "2026-11-16T00:25:59.501Z"
     },
     "9786287669536": {
       "location": "LOC-comedor-modulo-central-nivel-5",
@@ -854,6 +920,10 @@
       "location": "LOC-comedor-modulo-derecha-nivel-3",
       "updatedAt": "2026-11-01T17:40:42.524Z"
     },
+    "9788494991394": {
+      "location": "LOC-comedor-modulo-derecha-nivel-3",
+      "updatedAt": "2026-11-16T00:48:04.449Z"
+    },
     "9789505576746": {
       "location": "LOC-comedor-modulo-derecha-nivel-3",
       "updatedAt": "2026-11-01T17:38:12.768Z"
@@ -1012,6 +1082,10 @@
       "title": "Hacia un socialismo ecológico: Crónicas 2020-2024 (Deusto) (Spanish Edition)",
       "author": "Thomas Piketty"
     },
+    "9786287900059": {
+      "location": "LOC-comedor-modulo-derecha-nivel-5",
+      "updatedAt": "2026-11-15T17:37:38.380Z"
+    },
     "9789584254566": {
       "location": "LOC-comedor-modulo-derecha-nivel-5",
       "updatedAt": "2026-11-01T17:54:33.437Z"
@@ -1166,6 +1240,12 @@
       "location": "LOC-comedor-modulo-izquierda-nivel-1",
       "updatedAt": "2026-10-31T17:35:30.240Z"
     },
+    "9789585132320": {
+      "location": "LOC-comedor-modulo-izquierda-nivel-1",
+      "updatedAt": "2026-11-08T16:12:15.744Z",
+      "title": "Desastre: Historia y política de las catástrofes",
+      "author": "Niall Ferguson"
+    },
     "9789585132641": {
       "location": "LOC-comedor-modulo-izquierda-nivel-1",
       "updatedAt": "2026-10-31T17:32:53.859Z",
@@ -1318,6 +1398,12 @@
     "9786287640245": {
       "location": "LOC-comedor-modulo-izquierda-nivel-4",
       "updatedAt": "2026-10-31T17:20:54.812Z"
+    },
+    "9786287874381": {
+      "location": "LOC-comedor-modulo-izquierda-nivel-4",
+      "updatedAt": "2026-11-15T17:52:00.219Z",
+      "title": "Profecía",
+      "author": "Carissa Véliz"
     },
     "9788408293613": {
       "location": "LOC-comedor-modulo-izquierda-nivel-4",
@@ -1508,6 +1594,814 @@
       "updatedAt": "2026-10-31T16:35:30.295Z",
       "title": "El terror y la belleza",
       "author": "Catherine Fletcher"
+    },
+    "9780674035157": {
+      "location": "LOC-estudio-central-cajas-nivel-1",
+      "updatedAt": "2026-11-16T00:43:42.170Z",
+      "title": "Lake views: this world and the universe",
+      "author": "Steven Weinberg"
+    },
+    "9781439192375": {
+      "location": "LOC-estudio-central-cajas-nivel-1",
+      "updatedAt": "2026-11-16T00:49:37.382Z"
+    },
+    "9786071656735": {
+      "location": "LOC-estudio-central-cajas-nivel-1",
+      "updatedAt": "2026-11-16T00:47:19.556Z"
+    },
+    "9786280003948": {
+      "location": "LOC-estudio-central-cajas-nivel-1",
+      "updatedAt": "2026-11-16T00:49:26.704Z",
+      "title": "Horizontes: Una historia global de la ciencia (Serie Mayor) (Spanish Edition)",
+      "author": "James Poskett"
+    },
+    "9786287669970": {
+      "location": "LOC-estudio-central-cajas-nivel-1",
+      "updatedAt": "2026-11-16T00:46:43.269Z",
+      "title": "Si Einstein lo hubiera sabido",
+      "author": "Alain Aspect"
+    },
+    "9788408112365": {
+      "location": "LOC-estudio-central-cajas-nivel-1",
+      "updatedAt": "2026-11-16T00:32:31.201Z",
+      "title": "Diccionario de la ciencia",
+      "author": "José Manuel Sánchez Ron"
+    },
+    "9788410057227": {
+      "location": "LOC-estudio-central-cajas-nivel-1",
+      "updatedAt": "2026-11-16T00:36:50.603Z"
+    },
+    "9788411327411": {
+      "location": "LOC-estudio-central-cajas-nivel-1",
+      "updatedAt": "2026-11-16T00:42:43.499Z"
+    },
+    "9788412476767": {
+      "location": "LOC-estudio-central-cajas-nivel-1",
+      "updatedAt": "2026-11-16T00:32:11.053Z"
+    },
+    "9788413611853": {
+      "location": "LOC-estudio-central-cajas-nivel-1",
+      "updatedAt": "2026-11-16T00:41:40.608Z",
+      "title": "Los finales del mundo",
+      "author": "Peter Brannen"
+    },
+    "9788413623177": {
+      "location": "LOC-estudio-central-cajas-nivel-1",
+      "updatedAt": "2026-11-16T00:41:24.662Z"
+    },
+    "9788418075483": {
+      "location": "LOC-estudio-central-cajas-nivel-1",
+      "updatedAt": "2026-11-16T00:42:54.518Z"
+    },
+    "9788418741081": {
+      "location": "LOC-estudio-central-cajas-nivel-1",
+      "updatedAt": "2026-11-16T00:34:34.515Z"
+    },
+    "9788467019179": {
+      "location": "LOC-estudio-central-cajas-nivel-1",
+      "updatedAt": "2026-11-16T00:43:07.444Z"
+    },
+    "9788475066684": {
+      "location": "LOC-estudio-central-cajas-nivel-1",
+      "updatedAt": "2026-11-16T00:42:16.520Z"
+    },
+    "9788483061459": {
+      "location": "LOC-estudio-central-cajas-nivel-1",
+      "updatedAt": "2026-11-16T00:50:34.507Z"
+    },
+    "9788484327691": {
+      "location": "LOC-estudio-central-cajas-nivel-1",
+      "updatedAt": "2026-11-16T00:48:35.952Z"
+    },
+    "9788486344009": {
+      "location": "LOC-estudio-central-cajas-nivel-1",
+      "updatedAt": "2026-11-16T00:41:15.664Z"
+    },
+    "9788491044321": {
+      "location": "LOC-estudio-central-cajas-nivel-1",
+      "updatedAt": "2026-11-16T00:47:07.313Z"
+    },
+    "9788491993742": {
+      "location": "LOC-estudio-central-cajas-nivel-1",
+      "updatedAt": "2026-11-16T00:43:33.368Z"
+    },
+    "9788884900630": {
+      "location": "LOC-estudio-central-cajas-nivel-1",
+      "updatedAt": "2026-11-16T00:41:02.895Z"
+    },
+    "9789584259394": {
+      "location": "LOC-estudio-central-cajas-nivel-1",
+      "updatedAt": "2026-11-16T00:50:25.721Z",
+      "title": "Convergencias : el orden subyacente en el corazón de la ciencia",
+      "author": "Peter Watson"
+    },
+    "9789584292414": {
+      "location": "LOC-estudio-central-cajas-nivel-1",
+      "updatedAt": "2026-11-16T00:34:22.409Z",
+      "title": "Los científicos y el mundo: Lo que diez pensadores nos enseñan sobre la autoridad de la ciencia (Drakontos) (Spanish Edition)",
+      "author": "Robert P. Crease"
+    },
+    "9789585132276": {
+      "location": "LOC-estudio-central-cajas-nivel-1",
+      "updatedAt": "2026-11-16T00:41:56.658Z",
+      "title": "El fin siempre está cerca",
+      "author": "Dan Carlin"
+    },
+    "9789587142587": {
+      "location": "LOC-estudio-central-cajas-nivel-1",
+      "updatedAt": "2026-11-16T00:32:49.658Z"
+    },
+    "9789587984750": {
+      "location": "LOC-estudio-central-cajas-nivel-1",
+      "updatedAt": "2026-11-16T00:33:49.126Z"
+    },
+    "7706236941690": {
+      "location": "LOC-estudio-central-cajas-nivel-2",
+      "updatedAt": "2026-11-16T00:40:24.467Z",
+      "title": "Adan Tenia Ombligo?/ Adam Has A Bellybutton",
+      "author": "Manuel Drezner"
+    },
+    "9780192893406": {
+      "location": "LOC-estudio-central-cajas-nivel-2",
+      "updatedAt": "2026-11-16T00:20:41.188Z"
+    },
+    "9780486659947": {
+      "location": "LOC-estudio-central-cajas-nivel-2",
+      "updatedAt": "2026-11-16T00:31:08.279Z",
+      "title": "A history of astronomy",
+      "author": "Anton Pannekoek"
+    },
+    "9780735211513": {
+      "location": "LOC-estudio-central-cajas-nivel-2",
+      "updatedAt": "2026-11-16T00:26:51.435Z"
+    },
+    "9780811875424": {
+      "location": "LOC-estudio-central-cajas-nivel-2",
+      "updatedAt": "2026-11-16T00:20:54.021Z",
+      "title": "The Cloud Collectors Handbook",
+      "author": "Gavin Pretor-Pinney"
+    },
+    "9780812979688": {
+      "location": "LOC-estudio-central-cajas-nivel-2",
+      "updatedAt": "2026-11-15T17:39:34.589Z"
+    },
+    "9786071601780": {
+      "location": "LOC-estudio-central-cajas-nivel-2",
+      "updatedAt": "2026-11-15T17:44:55.654Z"
+    },
+    "9786071650382": {
+      "location": "LOC-estudio-central-cajas-nivel-2",
+      "updatedAt": "2026-11-16T00:16:10.169Z",
+      "title": "El fuego del cielo. Mito y realidad en torno al rayo",
+      "author": "José Altshuler"
+    },
+    "9786071652652": {
+      "location": "LOC-estudio-central-cajas-nivel-2",
+      "updatedAt": "2026-11-16T00:09:08.267Z"
+    },
+    "9786071667380": {
+      "location": "LOC-estudio-central-cajas-nivel-2",
+      "updatedAt": "2026-11-15T17:41:19.524Z"
+    },
+    "9786071675545": {
+      "location": "LOC-estudio-central-cajas-nivel-2",
+      "updatedAt": "2026-11-15T17:45:27.170Z"
+    },
+    "9788409473953": {
+      "location": "LOC-estudio-central-cajas-nivel-2",
+      "updatedAt": "2026-11-16T00:15:36.009Z",
+      "title": "Manual de relojes de sol",
+      "author": "Antonio Bernal"
+    },
+    "9788409738939": {
+      "location": "LOC-estudio-central-cajas-nivel-2",
+      "updatedAt": "2026-11-16T00:13:45.947Z",
+      "title": "Cenit",
+      "author": "Antonio Bernal"
+    },
+    "9788413621258": {
+      "location": "LOC-estudio-central-cajas-nivel-2",
+      "updatedAt": "2026-11-16T00:39:58.543Z"
+    },
+    "9788417547547": {
+      "location": "LOC-estudio-central-cajas-nivel-2",
+      "updatedAt": "2026-11-16T00:29:30.874Z",
+      "title": "Eso no estaba en mi libro de la exploración espacial",
+      "author": "Pedro León"
+    },
+    "9788418217555": {
+      "location": "LOC-estudio-central-cajas-nivel-2",
+      "updatedAt": "2026-11-15T17:45:21.602Z"
+    },
+    "9788422007043": {
+      "location": "LOC-estudio-central-cajas-nivel-2",
+      "updatedAt": "2026-11-15T17:43:09.379Z",
+      "title": "Más allá de la física",
+      "author": "Werner Heisenberg"
+    },
+    "9788433927286": {
+      "location": "LOC-estudio-central-cajas-nivel-2",
+      "updatedAt": "2026-11-16T00:31:40.033Z"
+    },
+    "9788440680099": {
+      "location": "LOC-estudio-central-cajas-nivel-2",
+      "updatedAt": "2026-11-16T00:11:52.374Z"
+    },
+    "9788449343957": {
+      "location": "LOC-estudio-central-cajas-nivel-2",
+      "updatedAt": "2026-11-16T00:08:04.455Z",
+      "title": "Gastrofísica",
+      "author": "Charles Spence"
+    },
+    "9788469847381": {
+      "location": "LOC-estudio-central-cajas-nivel-2",
+      "updatedAt": "2026-11-15T17:44:04.496Z"
+    },
+    "9788472236004": {
+      "location": "LOC-estudio-central-cajas-nivel-2",
+      "updatedAt": "2026-11-15T17:39:00.370Z"
+    },
+    "9788483108512": {
+      "location": "LOC-estudio-central-cajas-nivel-2",
+      "updatedAt": "2026-11-15T17:39:26.212Z"
+    },
+    "9788483830871": {
+      "location": "LOC-estudio-central-cajas-nivel-2",
+      "updatedAt": "2026-11-15T17:38:49.334Z"
+    },
+    "9788483932254": {
+      "location": "LOC-estudio-central-cajas-nivel-2",
+      "updatedAt": "2026-11-15T17:45:41.930Z",
+      "title": "Como Einstein por su casa: La Ciencia para Todos",
+      "author": "Javier Fernández Panadero"
+    },
+    "9788484327745": {
+      "location": "LOC-estudio-central-cajas-nivel-2",
+      "updatedAt": "2026-11-15T17:39:43.307Z"
+    },
+    "9788492966790": {
+      "location": "LOC-estudio-central-cajas-nivel-2",
+      "updatedAt": "2026-11-16T00:20:30.687Z"
+    },
+    "9788493543297": {
+      "location": "LOC-estudio-central-cajas-nivel-2",
+      "updatedAt": "2026-11-15T17:39:55.213Z"
+    },
+    "9788493760441": {
+      "location": "LOC-estudio-central-cajas-nivel-2",
+      "updatedAt": "2026-11-16T00:19:54.166Z",
+      "title": "Qué hay a un petámetro del sol",
+      "author": "Antonio Bernal"
+    },
+    "9788499280035": {
+      "location": "LOC-estudio-central-cajas-nivel-2",
+      "updatedAt": "2026-11-16T00:11:43.464Z"
+    },
+    "9788499928487": {
+      "location": "LOC-estudio-central-cajas-nivel-2",
+      "updatedAt": "2026-11-15T17:45:06.056Z"
+    },
+    "9789501602098": {
+      "location": "LOC-estudio-central-cajas-nivel-2",
+      "updatedAt": "2026-11-15T17:40:55.422Z",
+      "title": "El Punto Crucial",
+      "author": "Fritjof Capra"
+    },
+    "9789566195207": {
+      "location": "LOC-estudio-central-cajas-nivel-2",
+      "updatedAt": "2026-11-15T17:44:21.898Z",
+      "title": "La química de lo bello: Un relato científico sobre el arte y las bellezas cotidianas",
+      "author": "Deborah García Bello"
+    },
+    "9789583045813": {
+      "location": "LOC-estudio-central-cajas-nivel-2",
+      "updatedAt": "2026-11-16T00:11:16.790Z"
+    },
+    "9789584274700": {
+      "location": "LOC-estudio-central-cajas-nivel-2",
+      "updatedAt": "2026-11-16T00:24:34.174Z"
+    },
+    "9789584276407": {
+      "location": "LOC-estudio-central-cajas-nivel-2",
+      "updatedAt": "2026-11-16T00:27:58.895Z",
+      "title": "Un pequeño paso para [un] hombre",
+      "author": "Rafael Clemente"
+    },
+    "9789587091625": {
+      "location": "LOC-estudio-central-cajas-nivel-2",
+      "updatedAt": "2026-11-16T00:09:22.309Z"
+    },
+    "9789681663421": {
+      "location": "LOC-estudio-central-cajas-nivel-2",
+      "updatedAt": "2026-11-16T00:30:25.660Z"
+    },
+    "9789876292443": {
+      "location": "LOC-estudio-central-cajas-nivel-2",
+      "updatedAt": "2026-11-16T00:08:28.274Z"
+    },
+    "9786071641267": {
+      "location": "LOC-estudio-central-cajas-nivel-3",
+      "updatedAt": "2026-11-15T17:24:08.845Z"
+    },
+    "9786071674111": {
+      "location": "LOC-estudio-central-cajas-nivel-3",
+      "updatedAt": "2026-11-15T17:32:54.355Z",
+      "title": "Tratado de ciencia canalla. Un análisis histórico de algunas de las etapas más oscuras del conocimiento científico",
+      "author": "David González Jara"
+    },
+    "9786280000473": {
+      "location": "LOC-estudio-central-cajas-nivel-3",
+      "updatedAt": "2026-11-15T17:25:24.958Z",
+      "title": "Novaceno: La próxima era de la hiperinteligencia (Contextos) (Spanish Edition)",
+      "author": "James E. Lovelock"
+    },
+    "9786280004914": {
+      "location": "LOC-estudio-central-cajas-nivel-3",
+      "updatedAt": "2026-11-15T17:24:41.065Z",
+      "title": "AntropOcéano: Cuidar los mares para salvar la vida",
+      "author": "Cristina Romera Castillo"
+    },
+    "9786280209050": {
+      "location": "LOC-estudio-central-cajas-nivel-3",
+      "updatedAt": "2026-11-15T17:34:23.550Z"
+    },
+    "9786287551206": {
+      "location": "LOC-estudio-central-cajas-nivel-3",
+      "updatedAt": "2026-11-15T17:34:38.079Z",
+      "title": "Cointeligencia: Vivir y trabajar con la IA",
+      "author": "Ethan Mollick"
+    },
+    "9786287571020": {
+      "location": "LOC-estudio-central-cajas-nivel-3",
+      "updatedAt": "2026-11-15T17:28:19.475Z",
+      "title": "Naturaleza sagrada: Cómo podemos recuperar nuestro vínculo con el mundo natural",
+      "author": "Karen Armstrong"
+    },
+    "9786287571280": {
+      "location": "LOC-estudio-central-cajas-nivel-3",
+      "updatedAt": "2026-11-15T17:25:37.208Z",
+      "title": "Bajo la superficie de las cosas (Spanish Edition)",
+      "author": "Wade Davis"
+    },
+    "9786287669086": {
+      "location": "LOC-estudio-central-cajas-nivel-3",
+      "updatedAt": "2026-11-15T17:34:55.568Z",
+      "title": "Artificial: La nueva inteligencia y el contorno de lo humano",
+      "author": "Mariano Sigman"
+    },
+    "9786287669390": {
+      "location": "LOC-estudio-central-cajas-nivel-3",
+      "updatedAt": "2026-11-16T00:38:41.270Z",
+      "title": "El tamaño de las cosas / Size : How It Explains the World (Spanish Edition)",
+      "author": "Vaclav Smil"
+    },
+    "9786287669420": {
+      "location": "LOC-estudio-central-cajas-nivel-3",
+      "updatedAt": "2026-11-15T17:32:39.120Z",
+      "title": "Nexus: A Brief History of Information Networks from the Stone Age to AI",
+      "author": "Yuval Noah Harari"
+    },
+    "9786287669840": {
+      "location": "LOC-estudio-central-cajas-nivel-3",
+      "updatedAt": "2026-11-15T17:28:06.979Z"
+    },
+    "9786287829251": {
+      "location": "LOC-estudio-central-cajas-nivel-3",
+      "updatedAt": "2026-11-15T17:34:15.913Z",
+      "title": "Inteligencia natural y la lógica de la consciencia",
+      "author": "António Damásio"
+    },
+    "9786287874114": {
+      "location": "LOC-estudio-central-cajas-nivel-3",
+      "updatedAt": "2026-11-15T17:29:17.954Z",
+      "title": "Cómo funciona la comida / How to Feed the World: The History and Future of Food (Spanish Edition)",
+      "author": "Vaclav Smil"
+    },
+    "9788408060154": {
+      "location": "LOC-estudio-central-cajas-nivel-3",
+      "updatedAt": "2026-11-15T17:30:39.751Z",
+      "title": "El mundo y sus demonios",
+      "author": "Carl Sagan"
+    },
+    "9788408283744": {
+      "location": "LOC-estudio-central-cajas-nivel-3",
+      "updatedAt": "2026-11-15T17:30:30.706Z"
+    },
+    "9788410675353": {
+      "location": "LOC-estudio-central-cajas-nivel-3",
+      "updatedAt": "2026-11-15T17:33:26.957Z"
+    },
+    "9788411074315": {
+      "location": "LOC-estudio-central-cajas-nivel-3",
+      "updatedAt": "2026-11-15T17:35:18.859Z"
+    },
+    "9788411485869": {
+      "location": "LOC-estudio-central-cajas-nivel-3",
+      "updatedAt": "2026-11-15T17:27:45.098Z"
+    },
+    "9788412799613": {
+      "location": "LOC-estudio-central-cajas-nivel-3",
+      "updatedAt": "2026-11-15T17:23:33.082Z"
+    },
+    "9788413611686": {
+      "location": "LOC-estudio-central-cajas-nivel-3",
+      "updatedAt": "2026-11-15T17:33:38.790Z"
+    },
+    "9788417636463": {
+      "location": "LOC-estudio-central-cajas-nivel-3",
+      "updatedAt": "2026-11-15T17:24:00.325Z"
+    },
+    "9788417951108": {
+      "location": "LOC-estudio-central-cajas-nivel-3",
+      "updatedAt": "2026-11-15T17:22:43.898Z",
+      "title": "Petrocalipsis: Crisis energética global y cómo (no) la vamos a solucionar",
+      "author": "Antonio Turiel"
+    },
+    "9788417951320": {
+      "location": "LOC-estudio-central-cajas-nivel-3",
+      "updatedAt": "2026-11-15T17:22:58.364Z"
+    },
+    "9788418741838": {
+      "location": "LOC-estudio-central-cajas-nivel-3",
+      "updatedAt": "2026-11-15T17:23:08.392Z"
+    },
+    "9788423361441": {
+      "location": "LOC-estudio-central-cajas-nivel-3",
+      "updatedAt": "2026-11-15T17:29:46.108Z"
+    },
+    "9788426423344": {
+      "location": "LOC-estudio-central-cajas-nivel-3",
+      "updatedAt": "2026-11-15T17:23:16.666Z"
+    },
+    "9788430619627": {
+      "location": "LOC-estudio-central-cajas-nivel-3",
+      "updatedAt": "2026-11-15T17:35:10.342Z"
+    },
+    "9788433916556": {
+      "location": "LOC-estudio-central-cajas-nivel-3",
+      "updatedAt": "2026-11-15T17:33:17.689Z"
+    },
+    "9788433947987": {
+      "location": "LOC-estudio-central-cajas-nivel-3",
+      "updatedAt": "2026-11-15T17:26:01.790Z"
+    },
+    "9788433964458": {
+      "location": "LOC-estudio-central-cajas-nivel-3",
+      "updatedAt": "2026-11-15T17:27:33.632Z"
+    },
+    "9788433964717": {
+      "location": "LOC-estudio-central-cajas-nivel-3",
+      "updatedAt": "2026-11-16T00:24:05.190Z"
+    },
+    "9788439746072": {
+      "location": "LOC-estudio-central-cajas-nivel-3",
+      "updatedAt": "2026-11-15T17:29:40.184Z"
+    },
+    "9788479791605": {
+      "location": "LOC-estudio-central-cajas-nivel-3",
+      "updatedAt": "2026-11-15T17:36:46.738Z"
+    },
+    "9788484453321": {
+      "location": "LOC-estudio-central-cajas-nivel-3",
+      "updatedAt": "2026-11-15T17:29:03.369Z",
+      "title": "Un mundo sin hielo",
+      "author": "Henry Pollack"
+    },
+    "9788491995142": {
+      "location": "LOC-estudio-central-cajas-nivel-3",
+      "updatedAt": "2026-11-15T17:27:56.141Z"
+    },
+    "9788498920949": {
+      "location": "LOC-estudio-central-cajas-nivel-3",
+      "updatedAt": "2026-11-15T17:31:33.836Z"
+    },
+    "9789584247711": {
+      "location": "LOC-estudio-central-cajas-nivel-3",
+      "updatedAt": "2026-11-15T17:33:52.849Z"
+    },
+    "9789584271402": {
+      "location": "LOC-estudio-central-cajas-nivel-3",
+      "updatedAt": "2026-11-15T17:41:31.946Z"
+    },
+    "9789584275530": {
+      "location": "LOC-estudio-central-cajas-nivel-3",
+      "updatedAt": "2026-11-15T17:32:16.754Z"
+    },
+    "9789584298171": {
+      "location": "LOC-estudio-central-cajas-nivel-3",
+      "updatedAt": "2026-11-15T17:24:27.917Z",
+      "title": "Huellas. En busca del mundo que dejaremos atrás",
+      "author": "David Farrier"
+    },
+    "9789585040229": {
+      "location": "LOC-estudio-central-cajas-nivel-3",
+      "updatedAt": "2026-11-15T17:27:22.501Z",
+      "title": "¿Por qué dependemos de la biodiversidad?",
+      "author": "Juan Armando Sánchez"
+    },
+    "9789585132979": {
+      "location": "LOC-estudio-central-cajas-nivel-3",
+      "updatedAt": "2026-11-15T17:25:08.432Z",
+      "title": "Cómo funciona el mundo: Una guía científica de nuestro pasado, presente y futuro (Spanish Edition)",
+      "author": "Vaclav Smil"
+    },
+    "9789585197701": {
+      "location": "LOC-estudio-central-cajas-nivel-3",
+      "updatedAt": "2026-11-15T17:35:36.591Z",
+      "title": "Atlas de inteligencia artificial",
+      "author": "Kate Crawford"
+    },
+    "9789585446762": {
+      "location": "LOC-estudio-central-cajas-nivel-3",
+      "updatedAt": "2026-11-15T17:32:06.844Z"
+    },
+    "9789585446878": {
+      "location": "LOC-estudio-central-cajas-nivel-3",
+      "updatedAt": "2026-11-16T00:35:56.224Z",
+      "title": "Crisis : cómo reaccionan los países en los momentos decisivos",
+      "author": "Jared Diamond"
+    },
+    "9789585457508": {
+      "location": "LOC-estudio-central-cajas-nivel-3",
+      "updatedAt": "2026-11-15T17:23:44.497Z",
+      "title": "Cómo evitar un desastre climático: Las soluciones que ya tenemos y los avances que aún necesitamos",
+      "author": "Bill  Gates"
+    },
+    "9786287571419": {
+      "location": "LOC-estudio-central-cajas-nivel-4",
+      "updatedAt": "2026-11-15T17:08:28.571Z",
+      "title": "El Coliseo",
+      "author": "Keith Hopkins"
+    },
+    "9786287571549": {
+      "location": "LOC-estudio-central-cajas-nivel-4",
+      "updatedAt": "2026-11-15T17:09:19.541Z",
+      "title": "El Partenón",
+      "author": "Mary Beard"
+    },
+    "9786287784031": {
+      "location": "LOC-estudio-central-cajas-nivel-4",
+      "updatedAt": "2026-11-15T17:09:33.653Z",
+      "title": "Roma sangrienta",
+      "author": "Pedro Huertas"
+    },
+    "9786287874039": {
+      "location": "LOC-estudio-central-cajas-nivel-4",
+      "updatedAt": "2026-11-15T17:16:39.332Z"
+    },
+    "9788410183391": {
+      "location": "LOC-estudio-central-cajas-nivel-4",
+      "updatedAt": "2026-11-15T17:16:26.692Z"
+    },
+    "9788411488976": {
+      "location": "LOC-estudio-central-cajas-nivel-4",
+      "updatedAt": "2026-11-15T17:03:20.081Z",
+      "title": "El mundo clásico: Una breve introducción",
+      "author": "Mary Beard"
+    },
+    "9788413628134": {
+      "location": "LOC-estudio-central-cajas-nivel-4",
+      "updatedAt": "2026-11-15T17:11:07.680Z"
+    },
+    "9788416622351": {
+      "location": "LOC-estudio-central-cajas-nivel-4",
+      "updatedAt": "2026-11-15T17:10:50.286Z",
+      "title": "Eso no estaba en mi libro de historia de Roma",
+      "author": "Javier  Ramos"
+    },
+    "9788416776573": {
+      "location": "LOC-estudio-central-cajas-nivel-4",
+      "updatedAt": "2026-11-15T17:15:48.535Z",
+      "title": "Eso no estaba en mi libro de historia de las religiones",
+      "author": "José Ruiz Mata"
+    },
+    "9788419187055": {
+      "location": "LOC-estudio-central-cajas-nivel-4",
+      "updatedAt": "2026-11-15T17:16:50.788Z"
+    },
+    "9788426115126": {
+      "location": "LOC-estudio-central-cajas-nivel-4",
+      "updatedAt": "2026-11-15T17:11:18.470Z"
+    },
+    "9788433026576": {
+      "location": "LOC-estudio-central-cajas-nivel-4",
+      "updatedAt": "2026-11-15T17:19:08.140Z",
+      "title": "Biblia de Jerusalén Latinoamericana",
+      "author": "Various"
+    },
+    "9788441439443": {
+      "location": "LOC-estudio-central-cajas-nivel-4",
+      "updatedAt": "2026-11-15T17:09:04.021Z"
+    },
+    "9788467059496": {
+      "location": "LOC-estudio-central-cajas-nivel-4",
+      "updatedAt": "2026-11-15T17:10:08.902Z"
+    },
+    "9788484032861": {
+      "location": "LOC-estudio-central-cajas-nivel-4",
+      "updatedAt": "2026-11-15T17:05:12.146Z"
+    },
+    "9788490656877": {
+      "location": "LOC-estudio-central-cajas-nivel-4",
+      "updatedAt": "2026-11-15T17:07:48.335Z"
+    },
+    "9788490664582": {
+      "location": "LOC-estudio-central-cajas-nivel-4",
+      "updatedAt": "2026-11-15T17:13:04.098Z"
+    },
+    "9788490668245": {
+      "location": "LOC-estudio-central-cajas-nivel-4",
+      "updatedAt": "2026-11-15T17:06:17.633Z"
+    },
+    "9788491640585": {
+      "location": "LOC-estudio-central-cajas-nivel-4",
+      "updatedAt": "2026-11-15T17:10:16.612Z"
+    },
+    "9788491648192": {
+      "location": "LOC-estudio-central-cajas-nivel-4",
+      "updatedAt": "2026-11-15T17:08:16.561Z"
+    },
+    "9788498724288": {
+      "location": "LOC-estudio-central-cajas-nivel-4",
+      "updatedAt": "2026-11-15T17:21:39.931Z"
+    },
+    "9789582813437": {
+      "location": "LOC-estudio-central-cajas-nivel-4",
+      "updatedAt": "2026-11-15T17:19:20.442Z"
+    },
+    "9789584255570": {
+      "location": "LOC-estudio-central-cajas-nivel-4",
+      "updatedAt": "2026-11-15T17:16:11.436Z",
+      "title": "Una historia de Dios",
+      "author": "Karen Armstrong"
+    },
+    "9789584274908": {
+      "location": "LOC-estudio-central-cajas-nivel-4",
+      "updatedAt": "2026-11-15T17:07:34.470Z",
+      "title": "Hacia la tormenta",
+      "author": "Mike Duncan"
+    },
+    "9789584281531": {
+      "location": "LOC-estudio-central-cajas-nivel-4",
+      "updatedAt": "2026-11-15T17:05:26.595Z"
+    },
+    "9789584282897": {
+      "location": "LOC-estudio-central-cajas-nivel-4",
+      "updatedAt": "2026-11-15T17:17:07.865Z"
+    },
+    "9789584283375": {
+      "location": "LOC-estudio-central-cajas-nivel-4",
+      "updatedAt": "2026-11-15T17:08:49.696Z",
+      "title": "Fake news de la antigua Roma: Engaños, propaganda y mentiras de hace 2000 años",
+      "author": "Néstor F. Marqués González"
+    },
+    "9789585165038": {
+      "location": "LOC-estudio-central-cajas-nivel-4",
+      "updatedAt": "2026-11-15T17:12:06.439Z",
+      "title": "La ruta del conocimiento. La historia de cómo se perdieron y redescubrieron las ideas del mundo clásico",
+      "author": "Violet Moller"
+    },
+    "9789585165243": {
+      "location": "LOC-estudio-central-cajas-nivel-4",
+      "updatedAt": "2026-11-15T17:09:48.403Z",
+      "title": "El mundo de la antiguedad tardia",
+      "author": "Peter Brown"
+    },
+    "9789585165649": {
+      "location": "LOC-estudio-central-cajas-nivel-4",
+      "updatedAt": "2026-11-15T17:12:26.983Z",
+      "title": "Herejía: Las vidas de Jesucristo y otros salvadores del mundo antiguo",
+      "author": "Catherine Nixey"
+    },
+    "9789585423282": {
+      "location": "LOC-estudio-central-cajas-nivel-4",
+      "updatedAt": "2026-11-15T17:06:03.383Z",
+      "title": "Guía Esencial de Mitología",
+      "author": "Alessandra Bartolotti"
+    },
+    "9789585566057": {
+      "location": "LOC-estudio-central-cajas-nivel-4",
+      "updatedAt": "2026-11-15T17:12:47.199Z",
+      "title": "La historia de los judíos (Spanish Edition)",
+      "author": "Paul  Johnson"
+    },
+    "9789585672321": {
+      "location": "LOC-estudio-central-cajas-nivel-4",
+      "updatedAt": "2026-11-15T17:21:06.436Z",
+      "title": "La Historia de los árabes",
+      "author": "Albert Hourani"
+    },
+    "9789588227894": {
+      "location": "LOC-estudio-central-cajas-nivel-4",
+      "updatedAt": "2026-11-15T17:19:48.403Z"
+    },
+    "9789589219423": {
+      "location": "LOC-estudio-central-cajas-nivel-4",
+      "updatedAt": "2026-11-15T17:19:43.852Z"
+    },
+    "9789589219676": {
+      "location": "LOC-estudio-central-cajas-nivel-4",
+      "updatedAt": "2026-11-15T17:11:48.366Z",
+      "title": "La edad de la penumbra: Cómo el cristianismo destruyó el mundo clásico",
+      "author": "Catherine Nixey"
+    },
+    "9789681615079": {
+      "location": "LOC-estudio-central-cajas-nivel-4",
+      "updatedAt": "2026-11-15T17:08:05.800Z"
+    },
+    "9789681625153": {
+      "location": "LOC-estudio-central-cajas-nivel-4",
+      "updatedAt": "2026-11-15T17:06:23.279Z"
+    },
+    "9789871093892": {
+      "location": "LOC-estudio-central-cajas-nivel-4",
+      "updatedAt": "2026-11-15T17:04:56.611Z",
+      "title": "Mitología Romana",
+      "author": "María Delia Solá"
+    },
+    "9780030223174": {
+      "location": "LOC-estudio-central-cajas-nivel-5",
+      "updatedAt": "2026-11-08T15:55:53.345Z",
+      "title": "Analytical mechanics",
+      "author": "Grant R. Fowles"
+    },
+    "9780192804037": {
+      "location": "LOC-estudio-central-cajas-nivel-5",
+      "updatedAt": "2026-11-08T16:10:59.262Z"
+    },
+    "9780253213136": {
+      "location": "LOC-estudio-central-cajas-nivel-5",
+      "updatedAt": "2026-11-08T16:18:19.714Z"
+    },
+    "9780375423727": {
+      "location": "LOC-estudio-central-cajas-nivel-5",
+      "updatedAt": "2026-11-08T16:04:51.067Z",
+      "title": "The Information: A History, a Theory, a Flood",
+      "author": "James Gleick"
+    },
+    "9780521575973": {
+      "location": "LOC-estudio-central-cajas-nivel-5",
+      "updatedAt": "2026-11-08T15:51:36.990Z"
+    },
+    "9781107012943": {
+      "location": "LOC-estudio-central-cajas-nivel-5",
+      "updatedAt": "2026-11-08T15:56:19.807Z"
+    },
+    "9781400889013": {
+      "location": "LOC-estudio-central-cajas-nivel-5",
+      "updatedAt": "2026-11-08T16:02:38.978Z"
+    },
+    "9786071601766": {
+      "location": "LOC-estudio-central-cajas-nivel-5",
+      "updatedAt": "2026-11-08T16:00:08.334Z"
+    },
+    "9788434435728": {
+      "location": "LOC-estudio-central-cajas-nivel-5",
+      "updatedAt": "2026-11-08T15:42:56.439Z"
+    },
+    "9788847023635": {
+      "location": "LOC-estudio-central-cajas-nivel-5",
+      "updatedAt": "2026-11-08T15:57:17.596Z",
+      "title": "Probabilità Statistica e Simulazione",
+      "author": "Alberto Rotondi, Paolo Pedroni, Antonio Pievatolo"
+    },
+    "9789584256874": {
+      "location": "LOC-estudio-central-cajas-nivel-5",
+      "updatedAt": "2026-11-16T00:39:00.530Z",
+      "title": "Los sueños de los que está hecha la materia",
+      "author": "Stephen Hawking"
+    },
+    "9789584269669": {
+      "location": "LOC-estudio-central-cajas-nivel-5",
+      "updatedAt": "2026-11-08T16:05:01.623Z"
+    },
+    "9789587142075": {
+      "location": "LOC-estudio-central-cajas-nivel-5",
+      "updatedAt": "2026-11-08T15:59:13.402Z",
+      "title": "Electromagnetismo",
+      "author": "Alonso Sepúlveda"
+    },
+    "9789587145298": {
+      "location": "LOC-estudio-central-cajas-nivel-5",
+      "updatedAt": "2026-11-08T16:02:20.277Z",
+      "title": "Los conceptos de la física : evolución histórica - 3. ed.",
+      "author": "Alonso Sepúlveda"
+    },
+    "9789587145861": {
+      "location": "LOC-estudio-central-cajas-nivel-5",
+      "updatedAt": "2026-11-08T16:01:47.583Z"
+    },
+    "9789587146509": {
+      "location": "LOC-estudio-central-cajas-nivel-5",
+      "updatedAt": "2026-11-08T16:01:13.356Z",
+      "title": "Lecciones de mecánica cuántica",
+      "author": "William Ponce"
+    },
+    "9788491819950": {
+      "location": "LOC-estudio-central-cajas-nivel-5-atras",
+      "updatedAt": "2026-11-08T16:10:34.385Z",
+      "title": "A PROPÓSITO DE NADA",
+      "author": "Woody Allen"
     },
     "7706894092369": {
       "location": "LOC-estudio-escritorio-modulo-lampara",
@@ -2070,6 +2964,22 @@
       "title": "Asimov’s Guide to the Bible",
       "author": "Isaac Asimov"
     },
+    "9780521482196": {
+      "location": "LOC-estudio-escritorio-cajas-nivel-superior",
+      "updatedAt": "2026-11-08T16:40:54.149Z",
+      "title": "Planetary Sciences",
+      "author": "Imke De Pater"
+    },
+    "9781292026558": {
+      "location": "LOC-estudio-escritorio-cajas-nivel-superior",
+      "updatedAt": "2026-11-08T16:41:14.131Z"
+    },
+    "9781402055447": {
+      "location": "LOC-estudio-escritorio-cajas-nivel-superior",
+      "updatedAt": "2026-11-08T16:40:15.094Z",
+      "title": "Introduction to Planetary Science: The Geological Perspective",
+      "author": "Gunter Faure"
+    },
     "9781426220883": {
       "location": "LOC-estudio-escritorio-cajas-nivel-superior",
       "updatedAt": "2026-11-01T16:18:37.508Z",
@@ -2270,6 +3180,12 @@
       "location": "LOC-estudio-escritorio-cajas-nivel-superior",
       "updatedAt": "2026-11-01T16:33:50.358Z"
     },
+    "7509984207717": {
+      "location": "LOC-estudio-lateral-nivel-1",
+      "updatedAt": "2026-11-14T01:58:07.700Z",
+      "title": "Rompecabezas Mentales",
+      "author": "Martín Gardner"
+    },
     "9780143038399": {
       "location": "LOC-estudio-lateral-nivel-1",
       "updatedAt": "2026-11-07T16:47:42.789Z"
@@ -2307,6 +3223,10 @@
     "9786287669444": {
       "location": "LOC-estudio-lateral-nivel-1",
       "updatedAt": "2026-11-07T16:44:35.093Z"
+    },
+    "9788413613314": {
+      "location": "LOC-estudio-lateral-nivel-1",
+      "updatedAt": "2026-11-16T00:45:32.544Z"
     },
     "9788417141738": {
       "location": "LOC-estudio-lateral-nivel-1",
@@ -2436,6 +3356,12 @@
       "title": "Sobre el origen del tiempo",
       "author": "Thomas Hertog"
     },
+    "9786287669987": {
+      "location": "LOC-estudio-lateral-nivel-2",
+      "updatedAt": "2026-11-16T00:45:19.173Z",
+      "title": "La tiranía del azar",
+      "author": "Andrés Gomberoff,José Edelstein"
+    },
     "9788408226772": {
       "location": "LOC-estudio-lateral-nivel-2",
       "updatedAt": "2026-11-07T17:00:24.254Z"
@@ -2443,10 +3369,6 @@
     "9788412138313": {
       "location": "LOC-estudio-lateral-nivel-2",
       "updatedAt": "2026-11-07T16:56:33.529Z"
-    },
-    "9788413613314": {
-      "location": "LOC-estudio-lateral-nivel-2",
-      "updatedAt": "2026-11-07T17:00:15.030Z"
     },
     "9788415828341": {
       "location": "LOC-estudio-lateral-nivel-2",
@@ -2493,6 +3415,10 @@
     "9788492917228": {
       "location": "LOC-estudio-lateral-nivel-2",
       "updatedAt": "2026-11-07T16:59:07.124Z"
+    },
+    "9788495601537": {
+      "location": "LOC-estudio-lateral-nivel-2",
+      "updatedAt": "2026-11-08T15:23:35.859Z"
     },
     "9788498924084": {
       "location": "LOC-estudio-lateral-nivel-2",
@@ -2588,6 +3514,10 @@
       "location": "LOC-estudio-lateral-nivel-3",
       "updatedAt": "2026-11-07T17:31:02.958Z"
     },
+    "9788411326025": {
+      "location": "LOC-estudio-lateral-nivel-3",
+      "updatedAt": "2026-11-15T17:36:37.248Z"
+    },
     "9788411489010": {
       "location": "LOC-estudio-lateral-nivel-3",
       "updatedAt": "2026-11-07T17:30:54.712Z"
@@ -2661,6 +3591,12 @@
     "9781788451406": {
       "location": "LOC-estudio-lateral-nivel-4",
       "updatedAt": "2026-11-07T17:47:25.372Z"
+    },
+    "9786071624765": {
+      "location": "LOC-estudio-lateral-nivel-4",
+      "updatedAt": "2026-11-15T17:43:44.718Z",
+      "title": "¡Hay un dinosaurio en mi sopa!",
+      "author": "Chaos Cador"
     },
     "9786071654878": {
       "location": "LOC-estudio-lateral-nivel-4",
@@ -2816,6 +3752,10 @@
       "location": "LOC-estudio-lateral-nivel-5",
       "updatedAt": "2026-11-07T18:24:45.320Z"
     },
+    "9780521282376": {
+      "location": "LOC-estudio-lateral-nivel-5",
+      "updatedAt": "2026-11-08T16:17:35.360Z"
+    },
     "9780671431266": {
       "location": "LOC-estudio-lateral-nivel-5",
       "updatedAt": "2026-11-07T18:17:45.390Z",
@@ -2929,6 +3869,146 @@
     "9789588613864": {
       "location": "LOC-estudio-lateral-nivel-5",
       "updatedAt": "2026-11-07T18:24:54.506Z"
+    },
+    "5173406387985": {
+      "location": "LOC-estudio-lateral-nivel-superior",
+      "updatedAt": "2026-11-08T15:33:52.540Z",
+      "title": "Relatividad General",
+      "author": "Alonso Sepúlveda"
+    },
+    "9780198519713": {
+      "location": "LOC-estudio-lateral-nivel-superior",
+      "updatedAt": "2026-11-08T14:42:58.675Z",
+      "title": "Inward bound: of matter and forces in the physical world",
+      "author": "Abraham Pais"
+    },
+    "9780198567325": {
+      "location": "LOC-estudio-lateral-nivel-superior",
+      "updatedAt": "2026-11-08T15:08:37.591Z"
+    },
+    "9780465036677": {
+      "location": "LOC-estudio-lateral-nivel-superior",
+      "updatedAt": "2026-11-08T14:43:32.123Z"
+    },
+    "9780486174488": {
+      "location": "LOC-estudio-lateral-nivel-superior",
+      "updatedAt": "2026-11-08T15:07:47.016Z"
+    },
+    "9780486632827": {
+      "location": "LOC-estudio-lateral-nivel-superior",
+      "updatedAt": "2026-11-08T15:34:32.543Z"
+    },
+    "9780521131384": {
+      "location": "LOC-estudio-lateral-nivel-superior",
+      "updatedAt": "2026-11-08T14:53:12.279Z",
+      "title": "Relativity, gravitation and cosmology",
+      "author": "Robert J. Lambourne"
+    },
+    "9780691074283": {
+      "location": "LOC-estudio-lateral-nivel-superior",
+      "updatedAt": "2026-11-08T15:07:24.499Z"
+    },
+    "9780716786948": {
+      "location": "LOC-estudio-lateral-nivel-superior",
+      "updatedAt": "2026-11-08T16:45:35.091Z",
+      "title": "Universe",
+      "author": "Roger A. Freedman, William J. Kaufmann, Thomas Krause, Neil Comins, Roger Freedman"
+    },
+    "9781107189638": {
+      "location": "LOC-estudio-lateral-nivel-superior",
+      "updatedAt": "2026-11-08T14:54:19.561Z",
+      "title": "Introduction to Quantum Mechanics",
+      "author": "David Jeffrey Griffiths, Darrell F. Schroeter"
+    },
+    "9781118473979": {
+      "location": "LOC-estudio-lateral-nivel-superior",
+      "updatedAt": "2026-11-08T16:43:25.970Z"
+    },
+    "9781420077001": {
+      "location": "LOC-estudio-lateral-nivel-superior",
+      "updatedAt": "2026-11-08T16:46:40.558Z",
+      "title": "Physics of Continuous Matter: Exotic and Everyday Phenomena in the Macroscopic World, Second Edition",
+      "author": "Benny Lautrup"
+    },
+    "9781429201889": {
+      "location": "LOC-estudio-lateral-nivel-superior",
+      "updatedAt": "2026-11-08T15:06:08.686Z"
+    },
+    "9788420686769": {
+      "location": "LOC-estudio-lateral-nivel-superior",
+      "updatedAt": "2026-11-08T14:48:38.868Z"
+    },
+    "9788446051459": {
+      "location": "LOC-estudio-lateral-nivel-superior",
+      "updatedAt": "2026-11-08T14:46:54.005Z",
+      "title": "De la Tierra al universo: Astronomía general teórica y práctica. 2.ª edición",
+      "author": "Jordi Gutiérrez Cabello, David Galadí-Enriquez"
+    },
+    "9788467216714": {
+      "location": "LOC-estudio-lateral-nivel-superior",
+      "updatedAt": "2026-11-08T16:43:09.795Z",
+      "title": "Meteorología",
+      "author": "Bruce Buckley"
+    },
+    "9789582743468": {
+      "location": "LOC-estudio-lateral-nivel-superior",
+      "updatedAt": "2026-11-08T14:47:51.745Z",
+      "title": "La parabola",
+      "author": "Jaime Chica"
+    },
+    "9789585012547": {
+      "location": "LOC-estudio-lateral-nivel-superior",
+      "updatedAt": "2026-11-08T15:07:09.886Z",
+      "title": "Astronomía Práctica",
+      "author": "Juan Carlos Muñoz"
+    },
+    "9789585218444": {
+      "location": "LOC-estudio-lateral-nivel-superior",
+      "updatedAt": "2026-11-08T15:05:53.772Z"
+    },
+    "9789585414952": {
+      "location": "LOC-estudio-lateral-nivel-superior",
+      "updatedAt": "2026-11-08T14:45:49.479Z",
+      "title": "La hipérbola",
+      "author": "Jaime Chica"
+    },
+    "9789587141740": {
+      "location": "LOC-estudio-lateral-nivel-superior",
+      "updatedAt": "2026-11-08T15:08:51.984Z"
+    },
+    "9789587143072": {
+      "location": "LOC-estudio-lateral-nivel-superior",
+      "updatedAt": "2026-11-08T15:05:47.260Z",
+      "title": "Física matemática",
+      "author": "Sepúlveda Soto Alonso"
+    },
+    "9789587144697": {
+      "location": "LOC-estudio-lateral-nivel-superior",
+      "updatedAt": "2026-11-08T15:00:35.726Z"
+    },
+    "9789587145557": {
+      "location": "LOC-estudio-lateral-nivel-superior",
+      "updatedAt": "2026-11-08T15:00:22.547Z"
+    },
+    "9789587147858": {
+      "location": "LOC-estudio-lateral-nivel-superior",
+      "updatedAt": "2026-11-08T14:48:27.431Z"
+    },
+    "9789587147957": {
+      "location": "LOC-estudio-lateral-nivel-superior",
+      "updatedAt": "2026-11-08T15:00:12.881Z"
+    },
+    "9789587834963": {
+      "location": "LOC-estudio-lateral-nivel-superior",
+      "updatedAt": "2026-11-08T14:58:27.178Z",
+      "title": "Principios de Mecánica Celeste",
+      "author": "José Gregorio Portilla"
+    },
+    "9789588743400": {
+      "location": "LOC-estudio-lateral-nivel-superior",
+      "updatedAt": "2026-11-08T14:46:50.530Z",
+      "title": "La elipse",
+      "author": "Jaime Chica"
     },
     "9780062075468": {
       "location": "LOC-sala-tv-bajo-tv-nivel-inferior",
@@ -3707,11 +4787,23 @@
       "location": "LOC-sala-tv-lateral-nivel-4",
       "updatedAt": "2026-11-01T14:34:18.130Z"
     },
+    "9780394502946": {
+      "location": "LOC-sala-biblioteca-nivel-2",
+      "updatedAt": "2026-11-08T16:22:01.131Z",
+      "title": "Cosmos",
+      "author": "Carl Sagan"
+    },
     "9788466231299": {
       "location": "LOC-sala-mesa-central",
       "updatedAt": "2026-11-01T15:33:27.422Z",
       "title": "Mapas Antiguos del Mundo",
       "author": "Enrique Rodríguez González, Equipo Editorial"
+    },
+    "9788474446425": {
+      "location": "LOC-sala-mesa-central",
+      "updatedAt": "2026-11-08T15:42:38.723Z",
+      "title": "Hacia los limites del mundo: los grandes exploradores",
+      "author": "Debate"
     },
     "9788495709073": {
       "location": "LOC-sala-mesa-central",
